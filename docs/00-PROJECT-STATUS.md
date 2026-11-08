@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-08
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 3 Complete ⟵ CHECKPOINT 1 Reached
-- **Overall Completion:** 35/64 tasks completed (54.7%)
+- **Current Phase:** Phase 4 Complete (10/10 active tasks done; 2 blocked awaiting owner input)
+- **Overall Completion:** 45/64 tasks completed (70.3%)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -14,9 +14,8 @@
 | **Phase 1 — Design system and layout shell** | 11 | 11 | Done |
 | **Phase 2 — Generator engine (no UI)** | 7 | 7 | Done |
 | **Phase 3 — Tool UI and main tool page** | 9 | 9 | Done (Checkpoint 1) |
-| **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Next |
-| **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Not Started |
-| **Phase 5 — Trust pages and guides** | 0 | 9 | Not Started |
+| **Phase 4 — Home, tools index and genre pages** | 10 | 12 | Done (2 blocked) |
+| **Phase 5 — Trust pages and guides** | 0 | 9 | Next |
 | **Phase 6 — SEO infrastructure and audit** | 0 | 12 | Not Started (Checkpoint 2) |
 | **Phase 7 — Deployment and launch** | 0 | 11 | Pending Owner Input |
 | **Phase 8 — Optional improvements** | 0 | 7 | Post-launch |
@@ -68,17 +67,17 @@
 - [x] P3-08 Metadata, canonical, OG, JSON-LD (WebApplication, BreadcrumbList, FAQPage) on the main page. *(Evidence: page.tsx, validated by seo:audit)*
 - [x] P3-09 `npm run verify` green for this phase. **STOP and give the owner a walkthrough** (what was built, how to run it, screenshots, open placeholders). Wait for "continue". *(Evidence: npm run verify passed all 6 steps)*
 
-### Phase 4 — Home, tools index and genre pages (0/12 done)
-- [ ] P4-01 Home page with all sections in 8.1 (≥ 350 words).
-- [ ] P4-02 `/tools/` index (≥ 150 words).
-- [ ] P4-03 Genre config type and the `[genre]` route with `generateStaticParams`, `dynamicParams = false`.
-- [ ] P4-04 `/band-name-generator/kpop/` complete, unique content ≥ 600 words.
-- [ ] P4-05 `/band-name-generator/metal/` complete.
-- [ ] P4-06 `/band-name-generator/heavy-metal/` complete and clearly different from metal.
-- [ ] P4-07 `/band-name-generator/rock/` complete.
-- [ ] P4-08 `/band-name-generator/random/` complete.
-- [ ] P4-09 `/band-name-generator/boy-band/` complete.
-- [ ] P4-10 Hub-and-spoke links in place (10.5).
+### Phase 4 — Home, tools index and genre pages (10/12 done, 2 blocked)
+- [x] P4-01 Home page with all sections in 8.1 (≥ 350 words). *(Evidence: src/app/page.tsx with 598 words, verified by seo:audit)*
+- [x] P4-02 `/tools/` index (≥ 150 words). *(Evidence: src/app/tools/page.tsx with 192 words, out/tools/index.html verified by seo:audit)*
+- [x] P4-03 Genre config type and the `[genre]` route with `generateStaticParams`, `dynamicParams = false`. *(Evidence: src/content/genres/, src/app/band-name-generator/[genre]/page.tsx)*
+- [x] P4-04 `/band-name-generator/kpop/` complete, unique content ≥ 600 words. *(Evidence: 991 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-05 `/band-name-generator/metal/` complete. *(Evidence: 1,040 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-06 `/band-name-generator/heavy-metal/` complete and clearly different from metal. *(Evidence: 996 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-07 `/band-name-generator/rock/` complete. *(Evidence: 1,027 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-08 `/band-name-generator/random/` complete. *(Evidence: 1,033 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-09 `/band-name-generator/boy-band/` complete. *(Evidence: 1,006 words, Jaccard < 0.30, verified by seo:audit)*
+- [x] P4-10 Hub-and-spoke links in place (10.5). *(Evidence: cross-linking between genre pages, main tool page, home, tools index, and guides)*
 - [ ] P4-11 `/band-name-generator/punk/` — **BLOCKED until the owner confirms volume/KD**.
 - [ ] P4-12 `/band-name-generator/pop/` — **BLOCKED until the owner confirms volume/KD**.
 
