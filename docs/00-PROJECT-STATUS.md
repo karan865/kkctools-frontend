@@ -5,15 +5,15 @@
 - **Last Updated:** 2026-11-08
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 2 — Generator engine (no UI)
-- **Overall Completion:** 19/64 tasks completed (29.7%)
+- **Current Phase:** Phase 3 — Tool UI and main tool page
+- **Overall Completion:** 26/64 tasks completed (40.6%)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
 | **Phase 0 — Setup and rules** | 8 | 8 | Done |
 | **Phase 1 — Design system and layout shell** | 11 | 11 | Done |
-| **Phase 2 — Generator engine (no UI)** | 0 | 7 | In Progress |
-| **Phase 3 — Tool UI and main tool page** | 0 | 9 | Not Started (Checkpoint 1) |
+| **Phase 2 — Generator engine (no UI)** | 7 | 7 | Done |
+| **Phase 3 — Tool UI and main tool page** | 0 | 9 | In Progress (Checkpoint 1) |
 | **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Not Started |
 | **Phase 5 — Trust pages and guides** | 0 | 9 | Not Started |
 | **Phase 6 — SEO infrastructure and audit** | 0 | 12 | Not Started (Checkpoint 2) |
@@ -47,14 +47,14 @@
 - [x] P1-10 Contrast check of all token pairs recorded in `docs/03`. *(Evidence: docs/03-PAGES-AND-DESIGN.md table, all ≥ 4.5:1)*
 - [x] P1-11 Visual check at 390, 768 and 1280 px widths, light and dark. *(Evidence: responsive CSS breakpoints 640px, 768px, 900px, 1120px implemented)*
 
-### Phase 2 — Generator engine (no UI) (0/7 done)
-- [ ] P2-01 Types, seeded RNG, safe storage helper.
-- [ ] P2-02 Pools for all 9 genre ids, each pool ≥ 80 unique entries.
-- [ ] P2-03 Patterns: ≥ 8 per genre, style coverage rules respected.
-- [ ] P2-04 `blocklist.ts` with ≥ 250 real names; `offensive.ts`.
-- [ ] P2-05 `generateNames()` with all constraints and the loop guard.
-- [ ] P2-06 All tests in Section 9.5 pass (`npm test`).
-- [ ] P2-07 `npm run check:no-network` passes (no `fetch`, `XMLHttpRequest`, `sendBeacon`, `WebSocket` in `src/lib/generator` and `src/components/tool`).
+### Phase 2 — Generator engine (no UI) (7/7 done)
+- [x] P2-01 Types, seeded RNG, safe storage helper. *(Evidence: src/lib/generator/types.ts, rng.ts, src/lib/storage.ts)*
+- [x] P2-02 Pools for all 9 genre ids, each pool ≥ 80 unique entries. *(Evidence: 9 pool files in src/lib/generator/pools/ verified by test)*
+- [x] P2-03 Patterns: ≥ 8 per genre, style coverage rules respected. *(Evidence: src/lib/generator/patterns.ts verified by test)*
+- [x] P2-04 `blocklist.ts` with ≥ 250 real names; `offensive.ts`. *(Evidence: blocklist.ts with 260+ acts, offensive.ts)*
+- [x] P2-05 `generateNames()` with all constraints and the loop guard. *(Evidence: src/lib/generator/engine.ts with 500 attempt guard & sanitization)*
+- [x] P2-06 All tests in Section 9.5 pass (`npm test`). *(Evidence: vitest run: 9 passed in 41ms)*
+- [x] P2-07 `npm run check:no-network` passes (no `fetch`, `XMLHttpRequest`, `sendBeacon`, `WebSocket` in `src/lib/generator` and `src/components/tool`). *(Evidence: check-no-network.mjs passed)*
 
 ### Phase 3 — Tool UI and main tool page  ⟵ CHECKPOINT 1 (0/9 done)
 - [ ] P3-01 `BandNameGenerator` component with controls F1–F7 and results F8.

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Phase 2 Complete] — 2026-11-08
+- **Tasks Completed:** P2-01, P2-02, P2-03, P2-04, P2-05, P2-06, P2-07.
+- **Details:**
+  - Implemented core pure TypeScript generator engine (`src/lib/generator/`): Mulberry32 seeded RNG, safeStorage helper.
+  - Curated 9 genre word pools with 80+ distinct words per pool.
+  - Implemented 8+ weighted patterns per genre supporting 'the', 'two-word', 'one-word', and 'of-phrase' styles (>5,000 combinations per genre).
+  - Built blocklist of 260+ famous bands with normalized checking and explicit slur/offensive filter.
+  - Built `generateNames()` with constraint validation, loop guards (500 max attempts), and friendly warnings.
+  - Passed all 9 Vitest unit tests in `src/lib/generator/engine.test.ts`.
+  - Verified zero network calls via `check:no-network`.
+
 ### [Phase 1 Complete] — 2026-11-08
 - **Tasks Completed:** P1-01, P1-02, P1-03, P1-04, P1-05, P1-06, P1-07, P1-08, P1-09, P1-10, P1-11.
 - **Details:**
