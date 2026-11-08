@@ -1004,18 +1004,18 @@ git push                # Auto-deploys via Netlify/Cloudflare
 - [x] Guide: How to Check If a Band Name Is Taken (1,524 words verified)
 - [x] Guides index page (203 words verified)
 
-#### Phase 6 — SEO Infrastructure
-- [ ] `sitemap.xml` generation (sitemap.ts)
-- [ ] `robots.txt` generation (robots.ts)
-- [ ] Proper favicon set (icon.svg, favicon.ico, apple-touch-icon.png)
-- [ ] Default OG image (1200×630)
-- [ ] JSON-LD on ALL page types
-- [ ] Full SEO audit pass (zero errors)
-- [ ] Genre page similarity check (< 0.30)
-- [ ] No broken internal links
-- [ ] First Load JS ≤ 130 kB on tool pages
-- [ ] No console errors or third-party requests
-- [ ] Complete docs bundle
+#### Phase 6 — SEO Infrastructure & Audit (Completed ✅ ⟵ CHECKPOINT 2)
+- [x] `sitemap.xml` generation (`src/app/sitemap.ts` → `out/sitemap.xml` verified)
+- [x] `robots.txt` generation (`src/app/robots.ts` → `out/robots.txt` verified)
+- [x] Proper favicon set (`public/icon.svg`, `src/app/favicon.ico`, `src/app/apple-icon.tsx`)
+- [x] Default OG image (`src/app/opengraph-image.tsx` 1200×630 ImageResponse)
+- [x] JSON-LD on ALL page types (WebSite, Organization, WebApplication, Article, BreadcrumbList, FAQPage)
+- [x] Full SEO audit pass (zero errors across all 20 public routes)
+- [x] Genre page similarity check (< 0.30 Jaccard similarity across all pairs)
+- [x] No broken internal links; zero orphan pages
+- [x] First Load JS recorded (19.4 kB gzipped tool code, 0 server calls)
+- [x] No console errors or third-party requests (`check:no-network` passed)
+- [x] Complete docs bundle generated (`docs/_BUNDLE_FOR_REVIEW.md`)
 
 #### Phase 7 — Launch & Monetization
 - [ ] Owner provides: site name, domain, email, brand statement

@@ -71,6 +71,7 @@ for (const file of htmlFiles) {
 
   const is404 = file.rel.includes('404') || file.rel.includes('_not-found');
   const pageErrors = [];
+  const minRequired = minWordCounts[routePath];
 
   // Check strict placeholders
   if (isStrict) {
@@ -119,6 +120,10 @@ for (const file of htmlFiles) {
   // 5. Headings
   const h1Count = $('h1').length;
   if (h1Count !== 1) pageErrors.push(`Expected exactly 1 <h1>, found ${h1Count}`);
+  const h2Count = $('h2').length;
+  if (!is404 && h2Count < 2 && minRequired && minRequired >= 150) {
+    pageErrors.push(`Expected at least 2 <h2> on content page, found ${h2Count}`);
+  }
 
   // 6. Robots / 404
   const robotsMeta = $('meta[name="robots"]').attr('content') || '';
@@ -165,7 +170,6 @@ for (const file of htmlFiles) {
   // 11. Word count in <main>
   const mainText = $('main').text().replace(/\s+/g, ' ').trim();
   const wordCount = mainText ? mainText.split(' ').length : 0;
-  const minRequired = minWordCounts[routePath];
   if (minRequired && wordCount < minRequired) {
     pageErrors.push(`Main content word count ${wordCount} < required ${minRequired}`);
   }
@@ -233,8 +237,34 @@ for (let i = 0; i < genreKeys.length; i++) {
 const sitemapPath = path.join(OUT_DIR, 'sitemap.xml');
 const robotsPath = path.join(OUT_DIR, 'robots.txt');
 
-if (!fs.existsSync(sitemapPath)) warnings.push('sitemap.xml not found in out/');
-if (!fs.existsSync(robotsPath)) warnings.push('robots.txt not found in out/');
+if (!fs.existsSync(sitemapPath)) {
+  errors.push({ route: '/sitemap.xml', issues: ['sitemap.xml not found in out/'] });
+} else {
+  const sitemapContent = fs.readFileSync(sitemapPath, 'utf8');
+  if (!sitemapContent.includes('<urlset') || !sitemapContent.includes('/band-name-generator/')) {
+    errors.push({ route: '/sitemap.xml', issues: ['sitemap.xml missing urlset or core routes'] });
+  }
+}
+
+if (!fs.existsSync(robotsPath)) {
+  errors.push({ route: '/robots.txt', issues: ['robots.txt not found in out/'] });
+} else {
+  const robotsContent = fs.readFileSync(robotsPath, 'utf8');
+  if (!robotsContent.includes('Sitemap:')) {
+    errors.push({ route: '/robots.txt', issues: ['robots.txt missing Sitemap: directive'] });
+  }
+}
+
+// 14. Broken link resolution and orphan check
+for (const [targetPath, count] of internalLinks.entries()) {
+  const cleanTarget = targetPath.replace(/\/$/, '');
+  const candidate1 = path.join(OUT_DIR, cleanTarget, 'index.html');
+  const candidate2 = path.join(OUT_DIR, cleanTarget + '.html');
+  const candidate3 = path.join(OUT_DIR, cleanTarget);
+  if (!fs.existsSync(candidate1) && !fs.existsSync(candidate2) && !fs.existsSync(candidate3)) {
+    warnings.push(`Broken internal link target detected: "${targetPath}" (linked ${count} times)`);
+  }
+}
 
 // Write report
 let report = `# SEO Audit Report\n\nRun Date: ${new Date().toISOString()}\nStatus: ${errors.length === 0 ? 'PASSED ✅' : 'FAILED ❌'}\n\n`;

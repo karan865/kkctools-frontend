@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-08T20:10:58.830Z
+Run Date: 2026-11-08T20:37:21.729Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -25,8 +25,3 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 514 | Terms of Service | PASS |
 | `/tools/` | All Online Tools & Generators – YourSite | 192 | All Free Online Tools & Genera | PASS |
 | `/_not-found/` | Page Not Found – 404 | YourSiteName | 23 | Page Not Found | PASS |
-
-## Warnings (2)
-
-- sitemap.xml not found in out/
-- robots.txt not found in out/
