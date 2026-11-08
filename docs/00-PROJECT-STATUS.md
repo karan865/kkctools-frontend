@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-08
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 4 Complete (10/10 active tasks done; 2 blocked awaiting owner input)
-- **Overall Completion:** 45/64 tasks completed (70.3%)
+- **Current Phase:** Phase 5 Complete (Phase 6 is Next ⟵ CHECKPOINT 2)
+- **Overall Completion:** 54/64 tasks completed (84.4%)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -15,8 +15,8 @@
 | **Phase 2 — Generator engine (no UI)** | 7 | 7 | Done |
 | **Phase 3 — Tool UI and main tool page** | 9 | 9 | Done (Checkpoint 1) |
 | **Phase 4 — Home, tools index and genre pages** | 10 | 12 | Done (2 blocked) |
-| **Phase 5 — Trust pages and guides** | 0 | 9 | Next |
-| **Phase 6 — SEO infrastructure and audit** | 0 | 12 | Not Started (Checkpoint 2) |
+| **Phase 5 — Trust pages and guides** | 9 | 9 | Done |
+| **Phase 6 — SEO infrastructure and audit** | 0 | 12 | Next (Checkpoint 2) |
 | **Phase 7 — Deployment and launch** | 0 | 11 | Pending Owner Input |
 | **Phase 8 — Optional improvements** | 0 | 7 | Post-launch |
 
@@ -81,16 +81,16 @@
 - [ ] P4-11 `/band-name-generator/punk/` — **BLOCKED until the owner confirms volume/KD**.
 - [ ] P4-12 `/band-name-generator/pop/` — **BLOCKED until the owner confirms volume/KD**.
 
-### Phase 5 — Trust pages and guides (0/9 done)
-- [ ] P5-01 About page.
-- [ ] P5-02 Contact page.
-- [ ] P5-03 Privacy Policy (draft for owner review).
-- [ ] P5-04 Terms.
-- [ ] P5-05 Markdown guide pipeline (`content/guides`, `gray-matter`, `marked`, TOC, last-updated).
-- [ ] P5-06 Guide 1: How to Choose a Band Name (≥ 1,000 words).
-- [ ] P5-07 Guide 2: Band Name Ideas by Genre (≥ 1,000 words).
-- [ ] P5-08 Guide 3: How to Check If a Band Name Is Already Taken (≥ 1,000 words).
-- [ ] P5-09 `/guides/` index.
+### Phase 5 — Trust pages and guides (9/9 done)
+- [x] P5-01 About page. *(Evidence: src/app/about/page.tsx, 366 words, out/about/index.html verified by seo:audit)*
+- [x] P5-02 Contact page. *(Evidence: src/app/contact/page.tsx, 186 words, out/contact/index.html verified by seo:audit)*
+- [x] P5-03 Privacy Policy (draft for owner review). *(Evidence: src/app/privacy-policy/page.tsx, 662 words, out/privacy-policy/index.html verified by seo:audit)*
+- [x] P5-04 Terms. *(Evidence: src/app/terms/page.tsx, 514 words, out/terms/index.html verified by seo:audit)*
+- [x] P5-05 Markdown guide pipeline (`content/guides`, `gray-matter`, `marked`, TOC, last-updated). *(Evidence: src/lib/guides.ts, src/app/guides/[slug]/page.tsx)*
+- [x] P5-06 Guide 1: How to Choose a Band Name (≥ 1,000 words). *(Evidence: content/guides/how-to-choose-a-band-name.md, 1,424 words, verified by seo:audit)*
+- [x] P5-07 Guide 2: Band Name Ideas by Genre (≥ 1,000 words). *(Evidence: content/guides/band-name-ideas-by-genre.md, 1,234 words, verified by seo:audit)*
+- [x] P5-08 Guide 3: How to Check If a Band Name Is Already Taken (≥ 1,000 words). *(Evidence: content/guides/how-to-check-if-a-band-name-is-taken.md, 1,524 words, verified by seo:audit)*
+- [x] P5-09 `/guides/` index. *(Evidence: src/app/guides/page.tsx, 203 words, out/guides/index.html verified by seo:audit)*
 
 ### Phase 6 — SEO infrastructure and audit  ⟵ CHECKPOINT 2 (0/12 done)
 - [ ] P6-01 `sitemap.ts` and `robots.ts` (static) produce `out/sitemap.xml` and `out/robots.txt` correctly.

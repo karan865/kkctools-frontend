@@ -993,16 +993,16 @@ git push                # Auto-deploys via Netlify/Cloudflare
 - [ ] `/band-name-generator/punk/` (BLOCKED — pending owner confirmation of volume/KD)
 - [ ] `/band-name-generator/pop/` (BLOCKED — pending owner confirmation of volume/KD)
 
-#### Phase 5 — Trust & Content
-- [ ] About page
-- [ ] Contact page
-- [ ] Privacy Policy
-- [ ] Terms of Service
-- [ ] Markdown guide rendering pipeline
-- [ ] Guide: How to Choose a Band Name (1,000+ words)
-- [ ] Guide: Band Name Ideas by Genre (1,000+ words)
-- [ ] Guide: How to Check If a Band Name Is Taken (1,000+ words)
-- [ ] Guides index page
+#### Phase 5 — Trust & Content (Completed ✅)
+- [x] About page (366 words verified)
+- [x] Contact page (186 words verified)
+- [x] Privacy Policy (662 words verified, draft for owner review)
+- [x] Terms of Service (514 words verified)
+- [x] Markdown guide rendering pipeline (`content/guides`, `gray-matter`, `marked`, auto TOC, last-updated)
+- [x] Guide: How to Choose a Band Name (1,424 words verified)
+- [x] Guide: Band Name Ideas by Genre (1,234 words verified)
+- [x] Guide: How to Check If a Band Name Is Taken (1,524 words verified)
+- [x] Guides index page (203 words verified)
 
 #### Phase 6 — SEO Infrastructure
 - [ ] `sitemap.xml` generation (sitemap.ts)

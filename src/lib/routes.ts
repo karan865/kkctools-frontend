@@ -90,7 +90,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   guideChoose: {
     path: '/guides/how-to-choose-a-band-name/',
-    title: 'How to Choose a Band Name – Complete Naming Guide',
+    title: 'How to Choose a Band Name – Complete Guide',
     description: 'A comprehensive, step-by-step masterclass on brainstorming, testing, and finalizing a memorable band name that stands out.',
     updated: '2026-11-08',
     type: 'guide',
@@ -98,7 +98,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   guideIdeasByGenre: {
     path: '/guides/band-name-ideas-by-genre/',
-    title: 'Band Name Ideas by Genre – Trends & Conventions',
+    title: 'Band Name Ideas by Genre – Naming Guide',
     description: 'Analyze naming conventions across Rock, Metal, K-pop, Indie, and Pop to craft an authentic name that fits your sound.',
     updated: '2026-11-08',
     type: 'guide',
@@ -106,7 +106,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   guideCheckTaken: {
     path: '/guides/how-to-check-if-a-band-name-is-taken/',
-    title: 'How to Check If a Band Name Is Taken – Complete Guide',
+    title: 'How to Check If a Band Name Is Taken',
     description: 'Learn how to verify band name availability across Spotify, YouTube, Bandcamp, social media handles, and trademark registries.',
     updated: '2026-11-08',
     type: 'guide',
@@ -147,3 +147,4 @@ export const ROUTES: Record<string, RouteDefinition> = {
 };
 
 export const INDEXABLE_ROUTES = Object.values(ROUTES).filter((r) => r.indexable);
+
