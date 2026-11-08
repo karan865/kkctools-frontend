@@ -16,3 +16,4 @@ export default function Section({ children, id, className = '', variant = 'defau
     </section>
   );
 }
+

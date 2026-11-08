@@ -19,3 +19,4 @@ export const OWNER_NAME = 'YourSiteName Team';
 export const ADS_ENABLED = process.env.NEXT_PUBLIC_ADS_ENABLED === 'true';
 export const ADSENSE_CLIENT = process.env.NEXT_PUBLIC_ADSENSE_CLIENT || '';
 export const GA_ID = process.env.NEXT_PUBLIC_GA_ID || '';
+

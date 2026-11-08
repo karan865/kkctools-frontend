@@ -79,7 +79,7 @@ export default function ToolsIndexPage() {
           </div>
 
           <div style={{ marginTop: 'var(--space-7)', padding: 'var(--space-5)', background: 'var(--surface)', borderRadius: 'var(--radius-md)', border: '1px dashed var(--border)' }}>
-            <h3 style={{ fontSize: '1.125rem', margin: '0 0 var(--space-2) 0' }}>Upcoming Utilities</h3>
+            <h2 style={{ fontSize: '1.25rem', margin: '0 0 var(--space-2) 0' }}>Upcoming Utilities</h2>
             <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', margin: 0, lineHeight: 1.6 }}>
               We are actively developing additional lightweight, privacy-focused online tools, including code formatters, text transformations, and data converters. Have a specific tool request that you would like us to build?{' '}
               <a href={`mailto:${OWNER_EMAIL}?subject=Tool%20Suggestion`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
@@ -92,3 +92,4 @@ export default function ToolsIndexPage() {
     </main>
   );
 }
+

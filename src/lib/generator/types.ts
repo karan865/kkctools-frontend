@@ -44,3 +44,4 @@ export interface Pattern {
   style: StyleId;
   weight: number;
 }
+

@@ -76,3 +76,4 @@
 | Dark | `--ink-2` (#C4BFD3) | `--bg` (#0E0C14) | 10.5:1 | ≥ 4.5:1 | PASS ✅ |
 | Dark | `--muted` (#9690A8) | `--bg` (#0E0C14) | 6.2:1 | ≥ 4.5:1 | PASS ✅ |
 | Dark | `--accent-ink` (#0E0C14) | `--accent` (#A78BFA) | 11.2:1 | ≥ 4.5:1 | PASS ✅ |
+

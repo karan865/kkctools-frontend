@@ -362,3 +362,4 @@ export default function BandNameGeneratorPage() {
     </main>
   );
 }
+

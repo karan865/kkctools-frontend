@@ -43,3 +43,4 @@ export const boyBandPools: WordPools = {
     'Stars', 'Comets', 'Meteors', 'Rockets', 'Gliders'
   ].filter((v, i, a) => a.indexOf(v) === i),
 };
+

@@ -194,3 +194,4 @@ describe('Band Name Generator Engine Unit Tests', () => {
     expect(res.warning).toContain('too strict');
   });
 });
+

@@ -11,3 +11,4 @@ export default function Container({ children, className = '', size = 'normal' }:
   const sizeClass = size === 'prose' ? styles.prose : size === 'narrow' ? styles.narrow : styles.normal;
   return <div className={`${styles.container} ${sizeClass} ${className}`}>{children}</div>;
 }
+

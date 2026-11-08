@@ -27,3 +27,4 @@ Technical SEO, fast pages, useful tools, and good content give the site a fair c
 4. Run PageSpeed Insights on live URLs and save results in `docs/evidence/`.
 5. After organic indexing and steady traffic (few weeks), submit site to Google AdSense.
 6. Post-AdSense approval: configure certified CMP for EEA/UK and place `ads.txt`.
+

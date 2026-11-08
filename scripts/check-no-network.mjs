@@ -50,3 +50,4 @@ if (allViolations.length > 0) {
   console.log('✅ check:no-network passed! No client-side network calls found in tool code.');
   process.exit(0);
 }
+

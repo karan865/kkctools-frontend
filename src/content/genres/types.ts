@@ -34,3 +34,4 @@ export interface GenreConfig {
   siblings: GenreSiblingLink[];
   guides: GenreGuideLink[];
 }
+

@@ -26,3 +26,4 @@ export function isOffensive(text: string): boolean {
   }
   return false;
 }
+

@@ -7,3 +7,4 @@ export default function SkipLink() {
     </a>
   );
 }
+

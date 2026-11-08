@@ -43,3 +43,4 @@ export const heavyMetalPools: WordPools = {
     'Tempests', 'Cyclones', 'Monsters', 'Beasts', 'Vipers'
   ].filter((v, i, a) => a.indexOf(v) === i),
 };
+

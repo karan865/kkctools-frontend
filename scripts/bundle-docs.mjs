@@ -106,3 +106,4 @@ if (fs.existsSync(EVIDENCE_DIR)) {
 
 fs.writeFileSync(OUTPUT_FILE, bundle, 'utf8');
 console.log(`✅ Documentation bundle generated at: docs/_BUNDLE_FOR_REVIEW.md`);
+

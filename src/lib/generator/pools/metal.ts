@@ -43,3 +43,4 @@ export const metalPools: WordPools = {
     'Unleashing', 'Vomiting', 'Wailing', 'Wasting', 'Yielding'
   ].filter((v, i, a) => a.indexOf(v) === i),
 };
+

@@ -103,3 +103,4 @@ export const kpopConfig: GenreConfig = {
     },
   ],
 };
+

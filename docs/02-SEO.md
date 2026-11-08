@@ -44,3 +44,4 @@
 - **Meta Description**: 70–160 chars.
 - **Zero Third-Party Scripts**: No render-blocking tags, no external analytics or ad scripts until Phase 7.
 - **JSON-LD**: Validated Schema.org markup matching on-page content.
+

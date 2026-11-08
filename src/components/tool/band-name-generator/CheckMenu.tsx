@@ -98,3 +98,4 @@ export default function CheckMenu({ name, isOpen, onClose }: CheckMenuProps) {
     </div>
   );
 }
+

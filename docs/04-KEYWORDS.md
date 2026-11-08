@@ -26,3 +26,4 @@ Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total vol
 - `ai band name generator`: Note — generator must stay pure browser logic without AI
 - India-related variants
 - Word-based variants ("band name generator from words")
+

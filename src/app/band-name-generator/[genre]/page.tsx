@@ -187,3 +187,4 @@ export default async function GenrePage({ params }: PageProps) {
     </main>
   );
 }
+

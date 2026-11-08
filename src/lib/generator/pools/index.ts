@@ -66,3 +66,4 @@ export const GENRE_POOLS: Record<GenreId, WordPools> = {
   'boy-band': boyBandPools,
   'indie': indiePools,
 };
+

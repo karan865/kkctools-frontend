@@ -99,3 +99,4 @@ export function isBlocklisted(name: string): boolean {
 export function getBlocklistCount(): number {
   return FAMOUS_BANDS.length;
 }
+

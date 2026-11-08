@@ -51,3 +51,4 @@ export default function Faq({ items, title = 'Frequently Asked Questions', withS
     </div>
   );
 }
+

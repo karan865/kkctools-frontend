@@ -127,3 +127,4 @@ export function getPatterns(genre: GenreId, style: StyleId): Pattern[] {
   if (style === 'any') return patterns;
   return patterns.filter((p) => p.style === style);
 }
+

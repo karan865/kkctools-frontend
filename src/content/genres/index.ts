@@ -26,3 +26,4 @@ export function getGenreConfig(slug: string): GenreConfig | undefined {
 export function getAllGenreConfigs(): GenreConfig[] {
   return Object.values(GENRE_CONFIGS);
 }
+

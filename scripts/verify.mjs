@@ -48,3 +48,4 @@ if (failed) {
   console.log('\n🎉 ALL VERIFICATION STEPS PASSED! Evidence recorded in docs/evidence/');
   process.exit(0);
 }
+

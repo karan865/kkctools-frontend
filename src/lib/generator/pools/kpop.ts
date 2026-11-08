@@ -71,3 +71,4 @@ export const kpopPools: WordPools = {
     'Icon', 'Idol', 'Muse', 'Goddess', 'Princess'
   ].filter((v, i, a) => a.indexOf(v) === i),
 };
+

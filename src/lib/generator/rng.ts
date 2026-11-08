@@ -23,3 +23,4 @@ export function getRandomSeed(): number {
   }
   return (Math.random() * 0xffffffff) >>> 0;
 }
+
