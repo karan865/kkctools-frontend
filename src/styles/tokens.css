@@ -1,0 +1,53 @@
+/* Design Tokens: Stage Lights theme */
+
+:root {
+  --bg: #FAF8F5;
+  --surface: #FFFFFF;
+  --surface-2: #F3F0EA;
+  --ink: #14121A;
+  --ink-2: #4A4757;
+  --muted: #6B6780;
+  --line: #E7E3EC;
+  --accent: #6D28D9;
+  --accent-ink: #FFFFFF;
+  --accent-soft: #EFE7FD;
+  --highlight: #F59E0B;
+  --success: #15803D;
+  --danger: #B91C1C;
+  --radius-s: 8px;
+  --radius-m: 14px;
+  --radius-pill: 999px;
+  --shadow-s: 0 1px 2px rgb(20 18 26 / 6%);
+  --shadow-m: 0 8px 24px rgb(20 18 26 / 8%);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+  --space-8: 64px;
+  --space-9: 96px;
+  --container: 1120px;
+  --prose: 68ch;
+
+  /* Typography Fluid Scale */
+  --font-heading: var(--font-heading-loaded), 'Bricolage Grotesque', sans-serif;
+  --font-body: var(--font-body-loaded), 'Inter', sans-serif;
+}
+
+:root[data-theme="dark"] {
+  --bg: #0E0C14;
+  --surface: #17141F;
+  --surface-2: #1F1B2A;
+  --ink: #F4F1FA;
+  --ink-2: #C4BFD3;
+  --muted: #9690A8;
+  --line: #2A2536;
+  --accent: #A78BFA;
+  --accent-ink: #0E0C14;
+  --accent-soft: #261D3D;
+  --highlight: #FBBF24;
+  --shadow-s: none;
+  --shadow-m: 0 8px 24px rgb(0 0 0 / 40%);
+}

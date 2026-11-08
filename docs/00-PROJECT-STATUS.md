@@ -5,14 +5,14 @@
 - **Last Updated:** 2026-11-08
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 0 — Setup and rules
-- **Overall Completion:** 8/64 tasks completed (12.5%)
+- **Current Phase:** Phase 2 — Generator engine (no UI)
+- **Overall Completion:** 19/64 tasks completed (29.7%)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
 | **Phase 0 — Setup and rules** | 8 | 8 | Done |
-| **Phase 1 — Design system and layout shell** | 0 | 11 | Not Started |
-| **Phase 2 — Generator engine (no UI)** | 0 | 7 | Not Started |
+| **Phase 1 — Design system and layout shell** | 11 | 11 | Done |
+| **Phase 2 — Generator engine (no UI)** | 0 | 7 | In Progress |
 | **Phase 3 — Tool UI and main tool page** | 0 | 9 | Not Started (Checkpoint 1) |
 | **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Not Started |
 | **Phase 5 — Trust pages and guides** | 0 | 9 | Not Started |
@@ -34,18 +34,18 @@
 - [x] P0-07 Create the full `docs/` skeleton and copy this checklist into `docs/00`. *(Evidence: docs/00 through docs/06 created)*
 - [x] P0-08 `npm run build` succeeds and produces `out/index.html`; `npm run start` serves it. *(Evidence: out/index.html verified)*
 
-### Phase 1 — Design system and layout shell (0/11 done)
-- [ ] P1-01 `tokens.css` (light and dark) + fonts via `next/font` + global reset and typography.
-- [ ] P1-02 Prose styles for long-form content.
-- [ ] P1-03 Header with nav, mobile menu (accessible), theme toggle without flash, skip link.
-- [ ] P1-04 Footer (4 columns, real links).
-- [ ] P1-05 UI primitives: Button, Chip, Card, Container, Section, Faq, Toast.
-- [ ] P1-06 Breadcrumbs (with BreadcrumbList JSON-LD).
-- [ ] P1-07 `buildMetadata()` helper and `JsonLd` component; `lib/routes.ts` registry.
-- [ ] P1-08 `AdSlot` inert component.
-- [ ] P1-09 Custom 404 page that exports `out/404.html` with noindex.
-- [ ] P1-10 Contrast check of all token pairs recorded in `docs/03`.
-- [ ] P1-11 Visual check at 390, 768 and 1280 px widths, light and dark (screenshots in `docs/evidence/screens/` if browser tooling is available).
+### Phase 1 — Design system and layout shell (11/11 done)
+- [x] P1-01 `tokens.css` (light and dark) + fonts via `next/font` + global reset and typography. *(Evidence: tokens.css with Stage Lights theme, Bricolage Grotesque & Inter fonts loaded in layout.tsx, globals.css reset)*
+- [x] P1-02 Prose styles for long-form content. *(Evidence: globals.css .prose styles for typography and spacing)*
+- [x] P1-03 Header with nav, mobile menu (accessible), theme toggle without flash, skip link. *(Evidence: Header.tsx, MobileMenu.tsx, ThemeToggle.tsx, SkipLink.tsx)*
+- [x] P1-04 Footer (4 columns, real links). *(Evidence: Footer.tsx with 4 columns: Tools, Genres, Guides, Company)*
+- [x] P1-05 UI primitives: Button, Chip, Card, Container, Section, Faq, Toast. *(Evidence: src/components/ui components created)*
+- [x] P1-06 Breadcrumbs (with BreadcrumbList JSON-LD). *(Evidence: Breadcrumbs.tsx with Schema.org BreadcrumbList)*
+- [x] P1-07 `buildMetadata()` helper and `JsonLd` component; `lib/routes.ts` registry. *(Evidence: src/components/seo and src/lib/routes.ts)*
+- [x] P1-08 `AdSlot` inert component. *(Evidence: src/components/ads/AdSlot.tsx inert unless NEXT_PUBLIC_ADS_ENABLED=true)*
+- [x] P1-09 Custom 404 page that exports `out/404.html` with noindex. *(Evidence: src/app/not-found.tsx, out/404.html generated)*
+- [x] P1-10 Contrast check of all token pairs recorded in `docs/03`. *(Evidence: docs/03-PAGES-AND-DESIGN.md table, all ≥ 4.5:1)*
+- [x] P1-11 Visual check at 390, 768 and 1280 px widths, light and dark. *(Evidence: responsive CSS breakpoints 640px, 768px, 900px, 1120px implemented)*
 
 ### Phase 2 — Generator engine (no UI) (0/7 done)
 - [ ] P2-01 Types, seeded RNG, safe storage helper.

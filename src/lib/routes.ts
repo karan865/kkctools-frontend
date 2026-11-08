@@ -1,0 +1,149 @@
+export interface RouteDefinition {
+  path: string;
+  title: string;
+  description: string;
+  updated: string;
+  type: 'home' | 'tool-index' | 'tool' | 'genre' | 'guide-index' | 'guide' | 'legal' | 'trust';
+  indexable: boolean;
+}
+
+export const ROUTES: Record<string, RouteDefinition> = {
+  home: {
+    path: '/',
+    title: 'YourSiteName – Free Online Generators & Tools',
+    description: 'Free, fast, browser-based online generators and creative utilities that respect your privacy with zero network tracking.',
+    updated: '2026-11-08',
+    type: 'home',
+    indexable: true,
+  },
+  tools: {
+    path: '/tools/',
+    title: 'All Online Tools & Generators – YourSiteName',
+    description: 'Explore our full collection of fast, privacy-friendly online generators, music tools, and creative naming utilities.',
+    updated: '2026-11-08',
+    type: 'tool-index',
+    indexable: true,
+  },
+  bandNameGenerator: {
+    path: '/band-name-generator/',
+    title: 'Band Name Generator – Free Random Band Names',
+    description: 'Generate original band name ideas instantly by genre and naming style. Free, fast, private, and runs directly in your browser.',
+    updated: '2026-11-08',
+    type: 'tool',
+    indexable: true,
+  },
+  kpop: {
+    path: '/band-name-generator/kpop/',
+    title: 'K-pop Band Name Generator – Group Name Ideas',
+    description: 'Generate catchy, modern K-pop idol group and band name ideas with stylized concept words and numeric branding formulas.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  metal: {
+    path: '/band-name-generator/metal/',
+    title: 'Metal Band Name Generator – Dark & Heavy Names',
+    description: 'Generate menacing, authentic metal band names for death, black, doom, and thrash metal projects with brutal imagery.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  heavyMetal: {
+    path: '/band-name-generator/heavy-metal/',
+    title: 'Heavy Metal Band Name Generator – Classic Names',
+    description: 'Create epic, 80s-inspired heavy metal and power metal band names packed with thunderous riffs, iron, and warrior anthems.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  rock: {
+    path: '/band-name-generator/rock/',
+    title: 'Rock Band Name Generator – Free Name Ideas',
+    description: 'Discover electric, gritty rock and roll band names tailored for garage rock, indie, alternative, and hard rock bands.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  random: {
+    path: '/band-name-generator/random/',
+    title: 'Random Band Name Generator – Instant Ideas',
+    description: 'Need unexpected musical inspiration? Generate completely randomized band names spanning every sonic genre in one click.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  boyBand: {
+    path: '/band-name-generator/boy-band/',
+    title: 'Boy Band Name Generator – Catchy Group Names',
+    description: 'Create smooth, infectious, chart-ready boy band and vocal group name ideas with memorable urban and romantic themes.',
+    updated: '2026-11-08',
+    type: 'genre',
+    indexable: true,
+  },
+  guides: {
+    path: '/guides/',
+    title: 'Band Naming & Music Branding Guides – YourSiteName',
+    description: 'Practical, in-depth guides on choosing memorable band names, brainstorming by genre, and verifying trademark availability.',
+    updated: '2026-11-08',
+    type: 'guide-index',
+    indexable: true,
+  },
+  guideChoose: {
+    path: '/guides/how-to-choose-a-band-name/',
+    title: 'How to Choose a Band Name – Complete Naming Guide',
+    description: 'A comprehensive, step-by-step masterclass on brainstorming, testing, and finalizing a memorable band name that stands out.',
+    updated: '2026-11-08',
+    type: 'guide',
+    indexable: true,
+  },
+  guideIdeasByGenre: {
+    path: '/guides/band-name-ideas-by-genre/',
+    title: 'Band Name Ideas by Genre – Trends & Conventions',
+    description: 'Analyze naming conventions across Rock, Metal, K-pop, Indie, and Pop to craft an authentic name that fits your sound.',
+    updated: '2026-11-08',
+    type: 'guide',
+    indexable: true,
+  },
+  guideCheckTaken: {
+    path: '/guides/how-to-check-if-a-band-name-is-taken/',
+    title: 'How to Check If a Band Name Is Taken – Complete Guide',
+    description: 'Learn how to verify band name availability across Spotify, YouTube, Bandcamp, social media handles, and trademark registries.',
+    updated: '2026-11-08',
+    type: 'guide',
+    indexable: true,
+  },
+  about: {
+    path: '/about/',
+    title: 'About Our Mission & Philosophy – YourSiteName',
+    description: 'Learn why we built free, lightning-fast browser tools that respect your privacy without tracking, clutter, or paywalls.',
+    updated: '2026-11-08',
+    type: 'trust',
+    indexable: true,
+  },
+  contact: {
+    path: '/contact/',
+    title: 'Contact Us & Suggest a Feature – YourSiteName',
+    description: 'Have feedback or a tool idea? Reach out directly to our engineering team with inquiries, feature requests, or bug reports.',
+    updated: '2026-11-08',
+    type: 'trust',
+    indexable: true,
+  },
+  privacy: {
+    path: '/privacy-policy/',
+    title: 'Privacy Policy – Transparent & Privacy First',
+    description: 'Read our transparent privacy policy. Our tools process all data locally inside your browser without harvesting personal info.',
+    updated: '2026-11-08',
+    type: 'legal',
+    indexable: true,
+  },
+  terms: {
+    path: '/terms/',
+    title: 'Terms of Service – Simple & Fair Usage',
+    description: 'Read our clear terms of service governing the free use of our website generators, tools, and educational guides.',
+    updated: '2026-11-08',
+    type: 'legal',
+    indexable: true,
+  },
+};
+
+export const INDEXABLE_ROUTES = Object.values(ROUTES).filter((r) => r.indexable);

@@ -4,6 +4,17 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Phase 1 Complete] — 2026-11-08
+- **Tasks Completed:** P1-01, P1-02, P1-03, P1-04, P1-05, P1-06, P1-07, P1-08, P1-09, P1-10, P1-11.
+- **Details:**
+  - Implemented design tokens with Stage Lights theme in `src/styles/tokens.css` with dark/light mode and verified WCAG contrast ≥ 4.5:1.
+  - Loaded Google Fonts (Bricolage Grotesque & Inter) self-hosted via `next/font/google`.
+  - Built Header with soundwave SVG, accessible desktop dropdown, mobile drawer with escape key and focus trap, and no-flash ThemeToggle.
+  - Built 4-column SEO-optimized Footer with legal disclaimers.
+  - Implemented UI primitives: Button, Chip, Card, Container, Section, Faq (details/summary), and Toast (polite live region).
+  - Implemented Breadcrumbs with BreadcrumbList JSON-LD and single source of truth route registry `src/lib/routes.ts`.
+  - Created inert `AdSlot` and custom `not-found.tsx` generating `out/404.html` with noindex.
+
 ### [Phase 0 Complete] — 2026-11-08
 - **Tasks Completed:** P0-01, P0-02, P0-03, P0-04, P0-05, P0-06, P0-07, P0-08.
 - **Details:**
