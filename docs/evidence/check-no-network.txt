@@ -1,0 +1,5 @@
+
+> band-name-generator-site@0.1.0 check:no-network
+> node scripts/check-no-network.mjs
+
+✅ check:no-network passed! No client-side network calls found in tool code.

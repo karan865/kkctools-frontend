@@ -1,0 +1,5 @@
+
+> band-name-generator-site@0.1.0 docs:bundle
+> node scripts/bundle-docs.mjs
+
+✅ Documentation bundle generated at: docs/_BUNDLE_FOR_REVIEW.md

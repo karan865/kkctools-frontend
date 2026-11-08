@@ -1,0 +1,40 @@
+.wrapper {
+  width: 100%;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .layout {
+    display: grid;
+    grid-template-columns: 38% 62%;
+    gap: var(--space-6);
+    align-items: start;
+  }
+}
+
+.controlsCol {
+  position: relative;
+}
+
+@media (min-width: 900px) {
+  .controlsCol {
+    position: sticky;
+    top: 84px;
+  }
+}
+
+.resultsCol {
+  display: flex;
+  flex-direction: column;
+}
+
+.compactWrapper .layout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}

@@ -1,0 +1,7 @@
+
+> band-name-generator-site@0.1.0 seo:audit
+> node scripts/seo-audit.mjs
+
+Auditing 5 HTML files in out/...
+Report written to docs/seo-audit-report.md
+✅ SEO Audit Passed with 0 errors.

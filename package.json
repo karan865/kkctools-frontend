@@ -6,7 +6,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "serve out -p 3000",
-    "lint": "next lint",
+    "lint": "eslint src",
     "test": "vitest run",
     "check:no-network": "node scripts/check-no-network.mjs",
     "seo:audit": "node scripts/seo-audit.mjs",

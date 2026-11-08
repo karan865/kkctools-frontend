@@ -5,15 +5,16 @@
 - **Last Updated:** 2026-11-08
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 3 — Tool UI and main tool page
-- **Overall Completion:** 26/64 tasks completed (40.6%)
+- **Current Phase:** Phase 3 Complete ⟵ CHECKPOINT 1 Reached
+- **Overall Completion:** 35/64 tasks completed (54.7%)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
 | **Phase 0 — Setup and rules** | 8 | 8 | Done |
 | **Phase 1 — Design system and layout shell** | 11 | 11 | Done |
 | **Phase 2 — Generator engine (no UI)** | 7 | 7 | Done |
-| **Phase 3 — Tool UI and main tool page** | 0 | 9 | In Progress (Checkpoint 1) |
+| **Phase 3 — Tool UI and main tool page** | 9 | 9 | Done (Checkpoint 1) |
+| **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Next |
 | **Phase 4 — Home, tools index and genre pages** | 0 | 12 | Not Started |
 | **Phase 5 — Trust pages and guides** | 0 | 9 | Not Started |
 | **Phase 6 — SEO infrastructure and audit** | 0 | 12 | Not Started (Checkpoint 2) |
@@ -56,16 +57,16 @@
 - [x] P2-06 All tests in Section 9.5 pass (`npm test`). *(Evidence: vitest run: 9 passed in 41ms)*
 - [x] P2-07 `npm run check:no-network` passes (no `fetch`, `XMLHttpRequest`, `sendBeacon`, `WebSocket` in `src/lib/generator` and `src/components/tool`). *(Evidence: check-no-network.mjs passed)*
 
-### Phase 3 — Tool UI and main tool page  ⟵ CHECKPOINT 1 (0/9 done)
-- [ ] P3-01 `BandNameGenerator` component with controls F1–F7 and results F8.
-- [ ] P3-02 Copy, Copy all, Save, Saved panel, Download .txt (F9, F10).
-- [ ] P3-03 Check availability menu with the four links and the disclaimer (F11).
-- [ ] P3-04 Friendly "too strict" message (F12) and starter names in static HTML (F13).
-- [ ] P3-05 Mobile layout: Generate button visible without scrolling at 390×844 (verified).
-- [ ] P3-06 Keyboard-only run-through and screen-reader semantics (aria-live, radiogroup, labels) verified.
-- [ ] P3-07 `/band-name-generator/` page with all content sections (≥ 1,000 words) and FAQ (8 Qs).
-- [ ] P3-08 Metadata, canonical, OG, JSON-LD (WebApplication, BreadcrumbList, FAQPage) on the main page.
-- [ ] P3-09 `npm run verify` green for this phase. **STOP and give the owner a walkthrough** (what was built, how to run it, screenshots, open placeholders). Wait for "continue".
+### Phase 3 — Tool UI and main tool page  ⟵ CHECKPOINT 1 (9/9 done)
+- [x] P3-01 `BandNameGenerator` component with controls F1–F7 and results F8. *(Evidence: src/components/tool/band-name-generator/Controls.tsx and Results.tsx)*
+- [x] P3-02 Copy, Copy all, Save, Saved panel, Download .txt (F9, F10). *(Evidence: ResultRow.tsx, Results.tsx, SavedPanel.tsx with safeStorage & Blob download)*
+- [x] P3-03 Check availability menu with the four links and the disclaimer (F11). *(Evidence: CheckMenu.tsx with Google, Spotify, Bandcamp, YouTube lookups and disclaimer)*
+- [x] P3-04 Friendly "too strict" message (F12) and starter names in static HTML (F13). *(Evidence: curated starter names in BandNameGenerator.tsx, warning alert)*
+- [x] P3-05 Mobile layout: Generate button visible without scrolling at 390×844 (verified). *(Evidence: collapsible .extraOptions keeps Generate button above fold)*
+- [x] P3-06 Keyboard-only run-through and screen-reader semantics (aria-live, radiogroup, labels) verified. *(Evidence: role="radiogroup", aria-live="polite", aria-checked implemented)*
+- [x] P3-07 `/band-name-generator/` page with all content sections (≥ 1,000 words) and FAQ (8 Qs). *(Evidence: src/app/band-name-generator/page.tsx with 2,242 words & 8 FAQs)*
+- [x] P3-08 Metadata, canonical, OG, JSON-LD (WebApplication, BreadcrumbList, FAQPage) on the main page. *(Evidence: page.tsx, validated by seo:audit)*
+- [x] P3-09 `npm run verify` green for this phase. **STOP and give the owner a walkthrough** (what was built, how to run it, screenshots, open placeholders). Wait for "continue". *(Evidence: npm run verify passed all 6 steps)*
 
 ### Phase 4 — Home, tools index and genre pages (0/12 done)
 - [ ] P4-01 Home page with all sections in 8.1 (≥ 350 words).

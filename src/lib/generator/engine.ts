@@ -103,7 +103,7 @@ export function generateNames(opts: GenerateOptions): GenerateResult {
   while (results.length < count && attempts < MAX_ATTEMPTS) {
     attempts++;
     const pattern = pickPattern();
-    let template = pattern.template;
+    const template = pattern.template;
 
     // Slot replacements
     let name = template

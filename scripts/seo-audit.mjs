@@ -69,7 +69,7 @@ for (const file of htmlFiles) {
   if (!routePath.endsWith('/') && !routePath.includes('.')) routePath += '/';
   if (routePath === '//') routePath = '/';
 
-  const is404 = file.rel.includes('404');
+  const is404 = file.rel.includes('404') || file.rel.includes('_not-found');
   const pageErrors = [];
 
   // Check strict placeholders
@@ -151,8 +151,11 @@ for (const file of htmlFiles) {
   $('script[type="application/ld+json"]').each((i, el) => {
     try {
       const data = JSON.parse($(el).html());
-      if (!data['@context'] || !data['@type']) {
-        pageErrors.push('JSON-LD missing @context or @type');
+      const items = Array.isArray(data) ? data : [data];
+      for (const item of items) {
+        if (!item['@context'] || !item['@type']) {
+          pageErrors.push('JSON-LD missing @context or @type');
+        }
       }
     } catch (e) {
       pageErrors.push(`Invalid JSON-LD syntax: ${e.message}`);
