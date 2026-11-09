@@ -29,6 +29,11 @@ export const metadata: Metadata = {
     default: `${SITE_NAME} – ${SITE_TAGLINE}`,
   },
   description: 'Free online browser-based generators and utilities. Fast, privacy-friendly, zero network calls.',
+  verification: {
+    other: {
+      'msvalidate.01': 'FA0261B08D394DFD4C117F158B1A04A8',
+    },
+  },
 };
 
 export default function RootLayout({
@@ -62,6 +67,7 @@ export default function RootLayout({
         />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <meta name="msvalidate.01" content="FA0261B08D394DFD4C117F158B1A04A8" />
       </head>
       <body>
         <JsonLd data={globalSchema} />
