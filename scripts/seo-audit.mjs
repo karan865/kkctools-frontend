@@ -183,7 +183,7 @@ for (const file of htmlFiles) {
   // Collect internal links
   $('a[href]').each((i, el) => {
     const href = $(el).attr('href');
-    if (href && (href.startsWith('/') || href.startsWith('http://localhost') || href.startsWith('https://example.com'))) {
+    if (href && (href.startsWith('/') || href.startsWith('http://localhost') || href.startsWith('https://example.com') || href.startsWith('https://www.kkctools.com') || href.startsWith('https://kkctools.com'))) {
       const parsedPath = href.replace(/^https?:\/\/[^\/]+/, '').split('?')[0].split('#')[0];
       if (parsedPath) {
         internalLinks.set(parsedPath, (internalLinks.get(parsedPath) || 0) + 1);

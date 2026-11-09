@@ -10,7 +10,7 @@ export interface RouteDefinition {
 export const ROUTES: Record<string, RouteDefinition> = {
   home: {
     path: '/',
-    title: 'YourSiteName – Free Online Generators & Tools',
+    title: 'Free Online Generators & Tools',
     description: 'Free, fast, browser-based online generators and creative utilities that respect your privacy with zero network tracking.',
     updated: '2026-11-08',
     type: 'home',
@@ -18,7 +18,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   tools: {
     path: '/tools/',
-    title: 'All Online Tools & Generators – YourSiteName',
+    title: 'All Online Tools & Generators',
     description: 'Explore our full collection of fast, privacy-friendly online generators, music tools, and creative naming utilities.',
     updated: '2026-11-08',
     type: 'tool-index',
@@ -90,7 +90,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   guides: {
     path: '/guides/',
-    title: 'Band Naming & Music Branding Guides – YourSiteName',
+    title: 'Band Naming & Music Branding Guides',
     description: 'Practical, in-depth guides on choosing memorable band names, brainstorming by genre, and verifying trademark availability.',
     updated: '2026-11-08',
     type: 'guide-index',
@@ -122,7 +122,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   about: {
     path: '/about/',
-    title: 'About Our Mission & Philosophy – YourSiteName',
+    title: 'About Our Mission & Philosophy',
     description: 'Learn why we built free, lightning-fast browser tools that respect your privacy without tracking, clutter, or paywalls.',
     updated: '2026-11-08',
     type: 'trust',
@@ -130,7 +130,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   contact: {
     path: '/contact/',
-    title: 'Contact Us & Suggest a Feature – YourSiteName',
+    title: 'Contact Us & Suggest a Feature',
     description: 'Have feedback or a tool idea? Reach out directly to our engineering team with inquiries, feature requests, or bug reports.',
     updated: '2026-11-08',
     type: 'trust',

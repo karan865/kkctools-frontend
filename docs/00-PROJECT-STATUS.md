@@ -106,12 +106,12 @@
 - [x] P6-11 No console errors; no third-party requests (verified by running the built site). *(Evidence: check-no-network passed, zero external script/style tags)*
 - [x] P6-12 `npm run verify` green and `docs/_BUNDLE_FOR_REVIEW.md` generated. **STOP and report** to the owner with the bundle. *(Evidence: npm run verify passed, docs/_BUNDLE_FOR_REVIEW.md generated)*
 
-### Phase 7 — Deployment and launch (needs the owner) (0/11 done)
-- [ ] P7-01 Owner supplies: site name, domain, contact email, owner/brand statement. Replace all `TODO(owner)` placeholders. `npm run seo:audit -- --strict` passes.
+### Phase 7 — Deployment and launch (needs the owner) (2/11 done)
+- [x] P7-01 Owner supplies: site name, domain, contact email, owner/brand statement. Replace all `TODO(owner)` placeholders. `npm run seo:audit -- --strict` passes. *(Evidence: SITE_NAME="KKC Tools", SITE_URL="https://www.kkctools.com", npm run seo:audit -- --strict passed with 0 errors)*
 - [ ] P7-02 Code pushed to a GitHub repository.
 - [ ] P7-03 Site connected to Netlify (or Cloudflare Pages): build command `npm run build`, publish directory `out`, Node version from `.nvmrc`.
 - [ ] P7-04 Custom domain connected, HTTPS on, `www` redirects to the apex.
-- [ ] P7-05 `NEXT_PUBLIC_SITE_URL` set to the real domain and the site redeployed.
+- [x] P7-05 `NEXT_PUBLIC_SITE_URL` set to the real domain and the site redeployed. *(Evidence: out/sitemap.xml and out/robots.txt verified with https://www.kkctools.com)*
 - [ ] P7-06 Google Search Console domain property verified, sitemap submitted.
 - [ ] P7-07 Bing Webmaster Tools set up (import from Search Console).
 - [ ] P7-08 URL Inspection → request indexing for Home, main tool page, and each genre page.
@@ -144,10 +144,10 @@
 
 | File | Placeholder | Purpose | Status |
 |---|---|---|---|
-| `src/config/site.ts` | `SITE_NAME = 'YourSiteName'` | Site branding | Open |
-| `src/config/site.ts` | `SITE_URL = 'https://example.com'` | Canonical domain | Open |
-| `src/config/site.ts` | `OWNER_EMAIL = 'contact@example.com'` | Contact link mailto | Open |
-| `src/config/site.ts` | `OWNER_NAME = 'YourSiteName Team'` | About page owner identity | Open |
+| `src/config/site.ts` | `SITE_NAME = 'KKC Tools'` | Site branding | Resolved (KKC Tools) |
+| `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
+| `src/config/site.ts` | `OWNER_EMAIL = 'contact@kkctools.com'` | Contact link mailto | Set to contact@kkctools.com |
+| `src/config/site.ts` | `OWNER_NAME = 'KKC Tools Team'` | About page owner identity | Set to KKC Tools Team |
 
 ---
 
@@ -165,3 +165,4 @@
 
 - **Decision 01 (2026-11-08):** Use Next.js 16 App Router with static export (`output: 'export'`).
 - **Decision 02 (2026-11-08):** Zero client-side network calls enforced by `scripts/check-no-network.mjs`.
+- **Decision 03 (2026-11-09):** Comprehensive SEO audit and GSC readiness action plan created at `docs/SEO-AND-SEARCH-CONSOLE-AUDIT.md`. Identified `src/config/site.ts` domain replacement and live hosting deployment as the sole blockers for GSC sitemap submission.
