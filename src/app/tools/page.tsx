@@ -76,6 +76,34 @@ export default function ToolsIndexPage() {
                 </Link>
               </div>
             </Card>
+
+            {/* Tool #2: Construction Estimate Template */}
+            <Card hoverable>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-3)' }}>
+                <span style={{ fontSize: '2.25rem' }} role="img" aria-label="Drafting compass and ruler">📐</span>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.375rem' }}>Construction Estimate Template</h3>
+                  <span style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Business • Contracting • Estimating</span>
+                </div>
+              </div>
+
+              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', lineHeight: 1.6 }}>
+                Build detailed residential and commercial construction estimates with dynamic line-item calculations, material rates, labor hours, tax percentages, and contractor profit markups. Features print-to-PDF formatting, CSV spreadsheet downloads, and private browser storage.
+              </p>
+
+              <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', margin: 'var(--space-4) 0' }}>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 10px', borderRadius: '4px', color: 'var(--ink)' }}>Materials &amp; Labor</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 10px', borderRadius: '4px', color: 'var(--ink)' }}>Tax &amp; Markup</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 10px', borderRadius: '4px', color: 'var(--ink)' }}>Print to PDF</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 10px', borderRadius: '4px', color: 'var(--ink)' }}>Download CSV</span>
+              </div>
+
+              <div style={{ marginTop: 'var(--space-4)' }}>
+                <Link href="/construction-estimate-template/">
+                  <Button variant="primary">Launch Estimate Builder →</Button>
+                </Link>
+              </div>
+            </Card>
           </div>
 
           <div style={{ marginTop: 'var(--space-7)', padding: 'var(--space-5)', background: 'var(--surface)', borderRadius: 'var(--radius-md)', border: '1px dashed var(--border)' }}>

@@ -347,6 +347,16 @@ export default function BandNameGeneratorPage() {
                 </Link>
               </li>
             </ul>
+
+            <h3>More Free Browser Utilities</h3>
+            <p>
+              Looking for professional business calculation utilities? Try our{' '}
+              <Link href="/construction-estimate-template/">
+                Free Construction Estimate Template
+              </Link>{' '}
+              for contractors, or browse all generators in our{' '}
+              <Link href="/tools/">free tools directory</Link>.
+            </p>
           </div>
         </Container>
       </Section>

@@ -5,6 +5,7 @@ import path from 'node:path';
 const TARGET_DIRS = [
   path.join(process.cwd(), 'src', 'lib', 'generator'),
   path.join(process.cwd(), 'src', 'components', 'tool'),
+  path.join(process.cwd(), 'src', 'components', 'tool', 'construction-estimate'),
 ];
 
 const FORBIDDEN_PATTERNS = [

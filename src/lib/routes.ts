@@ -32,6 +32,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  constructionEstimateTemplate: {
+    path: '/construction-estimate-template/',
+    title: 'Construction Estimate Template – Free Builder',
+    description: 'Create professional construction estimates in seconds. Free online estimate builder with print-to-PDF, CSV download, tax & markup. No signup needed.',
+    updated: '2026-11-09',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

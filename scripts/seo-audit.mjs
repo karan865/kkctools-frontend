@@ -36,6 +36,7 @@ const minWordCounts = {
   '/': 350,
   '/tools/': 150,
   '/band-name-generator/': 1000,
+  '/construction-estimate-template/': 1500,
   '/band-name-generator/kpop/': 600,
   '/band-name-generator/metal/': 600,
   '/band-name-generator/heavy-metal/': 600,

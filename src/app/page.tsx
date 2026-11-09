@@ -108,6 +108,28 @@ export default function Home() {
                 <Button variant="primary" size="sm">Open Tool →</Button>
               </Link>
             </Card>
+
+            <Card hoverable>
+              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-3)' }}>
+                <span style={{ fontSize: '2rem' }}>📐</span>
+                <div>
+                  <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Construction Estimate Template</h3>
+                  <span style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Contracting &amp; Estimating</span>
+                </div>
+              </div>
+              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+                Create professional building and remodeling estimates with automated labor, materials, tax, and markup calculations. Export to PDF and CSV without signup.
+              </p>
+              <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', margin: 'var(--space-3) 0' }}>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Residential</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Commercial</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Print-to-PDF</span>
+                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>CSV Export</span>
+              </div>
+              <Link href="/construction-estimate-template/">
+                <Button variant="primary" size="sm">Open Tool →</Button>
+              </Link>
+            </Card>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>
