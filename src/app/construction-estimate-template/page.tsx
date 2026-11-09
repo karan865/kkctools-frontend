@@ -14,6 +14,7 @@ import { CONSTRUCTION_ESTIMATE_COPY } from '@/content/pages/construction-estimat
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
+import styles from '../band-name-generator/page.module.css';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.constructionEstimateTemplate.title,
@@ -56,6 +57,7 @@ export default function ConstructionEstimatePage() {
           />
 
           <header style={{ marginBottom: 'var(--space-5)', maxWidth: 'var(--prose)' }}>
+            <span className={styles.categoryTag}>Contracting • Business • Estimating</span>
             <h1
               style={{
                 fontFamily: 'var(--font-heading)',
@@ -105,7 +107,9 @@ export default function ConstructionEstimatePage() {
       {/* Main Educational & Informational Guide Sections */}
       <Section style={{ paddingTop: 0 }}>
         <Container>
-          <div style={{ maxWidth: 'var(--prose)', margin: '0 auto', display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
+          <div className={styles.twoColLayout}>
+            {/* Left Column: Educational Content & Breakdown */}
+            <div className={styles.mainColumn} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
             
             {/* Section 1: What is a Construction Estimate? */}
             <article>
@@ -431,10 +435,45 @@ export default function ConstructionEstimatePage() {
                 </Card>
               </div>
             </section>
-
           </div>
-        </Container>
-      </Section>
+
+          {/* Right Column: Related Tools Card matching Reference Design */}
+          <aside className={styles.sidebarColumn}>
+            <div className={styles.relatedToolsCard}>
+              <h3 className={styles.relatedToolsTitle}>Related tools</h3>
+              <p className={styles.relatedToolsDesc}>
+                Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
+              </p>
+              <div className={styles.relatedToolsList}>
+                <Link href="/band-name-generator/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>🎸 Band Name Generator</span>
+                  <span className={styles.relatedToolExcerpt}>Generate catchy music &amp; brand group names</span>
+                  <span className={styles.relatedToolLink}>Open tool →</span>
+                </Link>
+
+                <Link href="/band-name-generator/rock/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>⚡ Rock Band Names</span>
+                  <span className={styles.relatedToolExcerpt}>Classic overdrive &amp; vintage sound naming pool</span>
+                  <span className={styles.relatedToolLink}>Open tool →</span>
+                </Link>
+
+                <Link href="/tools/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>🗂️ All Online Tools Directory</span>
+                  <span className={styles.relatedToolExcerpt}>Explore all published and upcoming browser utilities</span>
+                  <span className={styles.relatedToolLink}>Browse all tools →</span>
+                </Link>
+
+                <Link href="/guides/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>📚 Educational Guides</span>
+                  <span className={styles.relatedToolExcerpt}>Step-by-step branding, trademarks, and project checklists</span>
+                  <span className={styles.relatedToolLink}>Read guides →</span>
+                </Link>
+              </div>
+            </div>
+          </aside>
+        </div>
+      </Container>
+    </Section>
 
       {/* Bottom Inert AdSlot */}
       <Section style={{ paddingTop: 0, paddingBottom: 'var(--space-7)' }}>

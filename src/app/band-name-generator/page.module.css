@@ -1,0 +1,119 @@
+.categoryTag {
+  display: inline-block;
+  color: var(--accent);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: var(--space-2);
+}
+
+.twoColLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 960px) {
+  .twoColLayout {
+    display: grid;
+    grid-template-columns: 1fr 360px;
+    gap: var(--space-7);
+    align-items: start;
+  }
+}
+
+.mainColumn {
+  min-width: 0;
+}
+
+.sidebarColumn {
+  position: relative;
+}
+
+@media (min-width: 960px) {
+  .sidebarColumn {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+.relatedToolsCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: 28px;
+  box-shadow: var(--shadow-m);
+}
+
+.relatedToolsTitle {
+  font-family: var(--font-heading);
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 var(--space-2);
+  letter-spacing: -0.02em;
+}
+
+.relatedToolsDesc {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  margin-bottom: var(--space-4);
+}
+
+.relatedToolsList {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.relatedToolItem {
+  display: block;
+  padding: var(--space-3);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  box-shadow: var(--shadow-s);
+  text-decoration: none;
+  transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.relatedToolItem:hover {
+  background: var(--surface);
+  border-color: var(--line-strong);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-m);
+}
+
+.relatedToolName {
+  display: block;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 2px;
+}
+
+.relatedToolExcerpt {
+  display: block;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  line-height: 1.45;
+  margin-bottom: 6px;
+}
+
+.relatedToolLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+  transition: gap 0.15s ease;
+}
+
+.relatedToolItem:hover .relatedToolLink {
+  gap: 8px;
+  color: var(--accent-hover);
+}
+

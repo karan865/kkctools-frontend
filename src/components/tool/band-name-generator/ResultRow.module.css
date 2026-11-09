@@ -5,8 +5,9 @@
   padding: var(--space-3) var(--space-4);
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-s);
+  border-radius: var(--radius-m);
   margin-bottom: var(--space-2);
+  box-shadow: var(--shadow-s);
   transition: all 0.15s ease;
   animation: slideFadeIn 180ms ease-out both;
 }
@@ -29,8 +30,9 @@
 }
 
 .row:hover {
-  border-color: color-mix(in srgb, var(--accent) 30%, var(--line));
-  box-shadow: var(--shadow-s);
+  border-color: var(--line-strong);
+  box-shadow: var(--shadow-m);
+  transform: translateY(-1px);
 }
 
 .left {
@@ -73,15 +75,16 @@
   padding: 0 8px;
   border-radius: var(--radius-s);
   border: 1px solid var(--line);
-  background: var(--surface-2);
+  background: var(--surface);
   color: var(--ink-2);
+  box-shadow: var(--shadow-s);
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .actionBtn:hover {
-  background: var(--surface);
-  border-color: var(--accent);
+  background: var(--surface-2);
+  border-color: var(--line-strong);
   color: var(--accent);
 }
 

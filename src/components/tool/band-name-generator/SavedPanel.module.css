@@ -1,10 +1,10 @@
 .container {
   margin-top: var(--space-5);
   border: 1px solid var(--line);
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-l);
   background: var(--surface);
   overflow: hidden;
-  box-shadow: var(--shadow-s);
+  box-shadow: var(--shadow-m);
 }
 
 .headerBtn {

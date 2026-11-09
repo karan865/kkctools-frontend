@@ -12,6 +12,7 @@ import BandNameGenerator from '@/components/tool/band-name-generator/BandNameGen
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
+import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.bandNameGenerator.title,
@@ -100,6 +101,7 @@ export default function BandNameGeneratorPage() {
             ]}
           />
 
+          <span className={styles.categoryTag}>Creative • Music • Naming</span>
           <h1>Band Name Generator</h1>
           <p style={{ maxWidth: '720px', fontSize: '1.1875rem', marginBottom: 'var(--space-6)' }}>
             Looking for good band names that feel original, memorable, and ready for the stage?
@@ -149,14 +151,17 @@ export default function BandNameGeneratorPage() {
         </Container>
       </Section>
 
-      {/* Editorial Content Section (≥ 1,000 words) */}
+      {/* Editorial Content Section (≥ 1,000 words) & Related Tools Sidebar */}
       <Section>
-        <Container size="prose">
-          <div className="prose">
-            <h2>How to Use the Band Name Generator</h2>
-            <p>
-              Finding the right band name maker often feels overwhelming when you stare at a blank notepad. Our generator simplifies the brainstorming process into five focused steps:
-            </p>
+        <Container>
+          <div className={styles.twoColLayout}>
+            {/* Left Column: Educational Editorial Content */}
+            <div className={styles.mainColumn}>
+              <div className="prose">
+                <h2>How to Use the Band Name Generator</h2>
+                <p>
+                  Finding the right band name maker often feels overwhelming when you stare at a blank notepad. Our generator simplifies the brainstorming process into five focused steps:
+                </p>
             <ol>
               <li>
                 <strong>Choose your genre:</strong> Select from Rock, Metal, Heavy Metal, Punk, Pop, K-pop, Boy Band, or Indie. If your project blends styles, keep the selector on &quot;Any&quot; for an eclectic mix.
@@ -198,19 +203,16 @@ export default function BandNameGeneratorPage() {
             <p>
               Different musical subcultures follow distinct naming traditions. Explore our specialized genre guides and dedicated sub-generators to find sound-specific ideas:
             </p>
-          </div>
-        </Container>
 
-        {/* Genre Grid */}
-        <Container>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-              gap: 'var(--space-4)',
-              margin: 'var(--space-6) 0',
-            }}
-          >
+            {/* Genre Grid inside Main Column */}
+            <div
+              style={{
+                display: 'grid',
+                gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
+                gap: 'var(--space-4)',
+                margin: 'var(--space-5) 0',
+              }}
+            >
             <Card hoverable>
               <h3>
                 <Link href="/band-name-generator/rock/">Rock Band Name Generator</Link>
@@ -283,11 +285,8 @@ export default function BandNameGeneratorPage() {
               </p>
             </Card>
           </div>
-        </Container>
 
-        <Container size="prose">
-          <div className="prose">
-            <h2>How to Pick Your Final Band Name</h2>
+          <h2>How to Pick Your Final Band Name</h2>
             <p>
               Generating dozens of cool band names that aren&apos;t taken is only the first stage of the journey. Once you assemble a shortlist of candidates, run them through these validation tests:
             </p>
@@ -358,8 +357,51 @@ export default function BandNameGeneratorPage() {
               <Link href="/tools/">free tools directory</Link>.
             </p>
           </div>
-        </Container>
-      </Section>
+        </div>
+
+        {/* Right Column: Related Tools Card matching Reference Design */}
+        <aside className={styles.sidebarColumn}>
+          <div className={styles.relatedToolsCard}>
+            <h3 className={styles.relatedToolsTitle}>Related tools</h3>
+            <p className={styles.relatedToolsDesc}>
+              Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
+            </p>
+            <div className={styles.relatedToolsList}>
+              <Link href="/construction-estimate-template/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>📐 Construction Estimate Template</span>
+                <span className={styles.relatedToolExcerpt}>Contractor cost estimation with PDF &amp; CSV export</span>
+                <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
+
+              <Link href="/band-name-generator/rock/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>🎸 Rock Band Names</span>
+                <span className={styles.relatedToolExcerpt}>Vintage highway, fuzz pedals, and overdrive formulas</span>
+                <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
+
+              <Link href="/band-name-generator/metal/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>⚡ Metal Band Names</span>
+                <span className={styles.relatedToolExcerpt}>Dark abrasive monikers for death, doom, and thrash</span>
+                <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
+
+              <Link href="/band-name-generator/kpop/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>✨ K-pop Group Names</span>
+                <span className={styles.relatedToolExcerpt}>Futuristic idol concepts with numeric formulas</span>
+                <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
+
+              <Link href="/tools/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>🗂️ All Online Tools Directory</span>
+                <span className={styles.relatedToolExcerpt}>Explore all published and upcoming browser utilities</span>
+                <span className={styles.relatedToolLink}>Browse all tools →</span>
+              </Link>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </Container>
+  </Section>
 
       <AdSlot slotId="bng-bottom" />
 

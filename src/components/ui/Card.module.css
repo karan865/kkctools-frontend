@@ -1,15 +1,16 @@
 .card {
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-m);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-s);
+  border-radius: var(--radius-l);
+  padding: var(--space-6);
+  box-shadow: var(--shadow-m);
   transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  position: relative;
 }
 
 .hoverable:hover {
   transform: translateY(-2px);
-  box-shadow: var(--shadow-m);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
+  box-shadow: var(--shadow-l);
+  border-color: var(--line-strong);
 }
 

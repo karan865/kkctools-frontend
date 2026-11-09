@@ -7,6 +7,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SkipLink from '@/components/layout/SkipLink';
 import JsonLd from '@/components/seo/JsonLd';
+import FloatingPill from '@/components/ui/FloatingPill';
 
 const bricolageGrotesque = Bricolage_Grotesque({
   subsets: ['latin'],
@@ -62,7 +63,7 @@ export default function RootLayout({
       <head>
         <script
           dangerouslySetInnerHTML={{
-            __html: `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||(!t&&window.matchMedia('(prefers-color-scheme: dark)').matches)){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.removeAttribute('data-theme');}}catch(e){}})();`,
+            __html: `(function(){try{var t=localStorage.getItem('kkc_theme_pref');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.removeAttribute('data-theme');if(localStorage.getItem('theme')){localStorage.removeItem('theme');}}}catch(e){}})();`,
           }}
         />
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
@@ -77,6 +78,7 @@ export default function RootLayout({
           {children}
         </div>
         <Footer />
+        <FloatingPill />
       </body>
     </html>
   );

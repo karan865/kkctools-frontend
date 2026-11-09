@@ -2,3 +2,9 @@
 > band-name-generator-site@0.1.0 lint
 > eslint src
 
+
+D:\1_programmins\5.kkctools\src\app\tools\page.tsx
+  3:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+

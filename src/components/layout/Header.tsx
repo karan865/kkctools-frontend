@@ -2,12 +2,14 @@
 
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { SITE_NAME } from '@/config/site';
 import ThemeToggle from './ThemeToggle';
 import MobileMenu from './MobileMenu';
 import styles from './Header.module.css';
 
 export default function Header() {
+  const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [toolsDropdownOpen, setToolsDropdownOpen] = useState(false);
 
@@ -22,29 +24,36 @@ export default function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
+  const isToolsActive = pathname.startsWith('/tools') || pathname.startsWith('/band-name-generator') || pathname.startsWith('/construction-estimate');
+  const isGuidesActive = pathname.startsWith('/guides');
+  const isAboutActive = pathname.startsWith('/about');
+  const isHomeActive = pathname === '/';
+
   return (
     <header className={styles.header}>
       <div className={styles.container}>
-        {/* Brand Wordmark with Sound Wave SVG */}
+        {/* Brand Wordmark with Modern Tech Emblem */}
         <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} Home`}>
-          <svg
-            className={styles.brandIcon}
-            width="28"
-            height="24"
-            viewBox="0 0 28 24"
-            fill="none"
-            aria-hidden="true"
-          >
-            <rect x="2" y="8" width="4" height="12" rx="2" fill="var(--accent)" />
-            <rect x="9" y="3" width="4" height="18" rx="2" fill="var(--accent)" />
-            <rect x="16" y="6" width="4" height="14" rx="2" fill="var(--accent)" />
-            <rect x="23" y="10" width="4" height="8" rx="2" fill="var(--accent)" />
-          </svg>
+          <div className={styles.brandBadge}>
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M13 2L3 14H12L11 22L21 10H12L13 2Z" fill="url(#headerBrandGrad)" stroke="var(--brand-orange)" strokeWidth="1.2" strokeLinejoin="round" />
+              <defs>
+                <linearGradient id="headerBrandGrad" x1="3" y1="2" x2="21" y2="22" gradientUnits="userSpaceOnUse">
+                  <stop stopColor="#2563EB" />
+                  <stop offset="1" stopColor="#EA580C" />
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
           <span className={styles.brandText}>{SITE_NAME}</span>
         </Link>
 
         {/* Desktop Navigation */}
         <nav className={styles.desktopNav} aria-label="Main Navigation">
+          <Link href="/" className={`${styles.navLink} ${isHomeActive ? styles.navLinkActive : ''}`}>
+            Home
+          </Link>
+
           <div
             className={styles.dropdownContainer}
             onMouseEnter={() => setToolsDropdownOpen(true)}
@@ -52,26 +61,24 @@ export default function Header() {
           >
             <Link
               href="/tools/"
-              className={styles.navLink}
+              className={`${styles.navLink} ${isToolsActive ? styles.navLinkActive : ''}`}
               aria-expanded={toolsDropdownOpen}
               aria-haspopup="true"
             >
-              Tools
+              <span>Tools</span>
               <svg
                 className={styles.dropdownArrow}
-                width="12"
-                height="12"
-                viewBox="0 0 12 12"
+                width="14"
+                height="14"
+                viewBox="0 0 24 24"
                 fill="none"
+                stroke="currentColor"
+                strokeWidth="2.2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
                 aria-hidden="true"
               >
-                <path
-                  d="M2.5 4.5L6 8L9.5 4.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
+                <polyline points="6 9 12 15 18 9" />
               </svg>
             </Link>
             {toolsDropdownOpen && (
@@ -82,29 +89,40 @@ export default function Header() {
                   onClick={() => setToolsDropdownOpen(false)}
                 >
                   <span className={styles.dropdownTitle}>Band Name Generator</span>
-                  <span className={styles.dropdownDesc}>Original music band and group naming tool</span>
+                  <span className={styles.dropdownDesc}>Original music band & group naming ideas</span>
+                </Link>
+                <Link
+                  href="/construction-estimate-template/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Construction Estimate Template</span>
+                  <span className={styles.dropdownDesc}>Free estimate builder with print-to-PDF & CSV</span>
                 </Link>
                 <Link
                   href="/tools/"
                   className={styles.dropdownItemAll}
                   onClick={() => setToolsDropdownOpen(false)}
                 >
-                  View all tools →
+                  View all tools directory →
                 </Link>
               </div>
             )}
           </div>
 
-          <Link href="/guides/" className={styles.navLink}>
+          <Link href="/guides/" className={`${styles.navLink} ${isGuidesActive ? styles.navLinkActive : ''}`}>
             Guides
           </Link>
-          <Link href="/about/" className={styles.navLink}>
+          <Link href="/about/" className={`${styles.navLink} ${isAboutActive ? styles.navLinkActive : ''}`}>
             About
           </Link>
         </nav>
 
-        {/* Right actions: Theme toggle and mobile hamburger */}
+        {/* Right actions: CTA pill, Theme toggle and mobile hamburger */}
         <div className={styles.actions}>
+          <Link href="/tools/" className={styles.ctaPill}>
+            Explore Tools →
+          </Link>
           <ThemeToggle />
           <button
             type="button"

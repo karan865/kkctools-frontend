@@ -279,6 +279,9 @@ export default function ConstructionEstimate({ starterEstimate }: ConstructionEs
         onSave={handleSave}
         onNew={handleNew}
       />
+      <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', textAlign: 'center', marginTop: 'var(--space-2)', lineHeight: 1.5, marginBottom: 0 }}>
+        ⚡ 100% Client-Side Estimator · Instant Auto-Calculation · Zero Server Uploads · No Sign-up Required
+      </p>
 
       {/* Saved Estimates Drawer */}
       <SavedEstimates

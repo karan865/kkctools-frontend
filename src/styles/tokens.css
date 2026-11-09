@@ -1,24 +1,45 @@
-/* Design Tokens: Stage Lights theme */
+/* Design Tokens: Exact Theme Extracted from MKSAnalytiq & Cloudflare References */
 
 :root {
-  --bg: #FAF8F5;
-  --surface: #FFFFFF;
-  --surface-2: #F3F0EA;
-  --ink: #14121A;
-  --ink-2: #4A4757;
-  --muted: #6B6780;
-  --line: #E7E3EC;
-  --accent: #6D28D9;
+  /* Warm Soothing Canvas (User's preferred warm tone, tuned slightly deeper for maximum eye comfort) */
+  --bg: #EBE4D6;
+  --surface: #F6F0E6;
+  --surface-2: #DDD4C4;
+  --surface-hover: #FCF8F2;
+  
+  /* Crisp Typography: Headings #17213A, Body #3D4758 */
+  --ink: #17213A;
+  --ink-2: #3D4758;
+  --muted: #727D90;
+  
+  /* Gentle Borders */
+  --line: #D6CCBC;
+  --line-strong: #C4B9A7;
+  
+  /* Cobalt Blue Action & Links */
+  --accent: #0B5EA4;
+  --accent-hover: #084980;
   --accent-ink: #FFFFFF;
-  --accent-soft: #EFE7FD;
+  --accent-soft: #E8F1F9;
+  
+  /* Terracotta Orange CTA & Brand Highlights */
+  --brand-orange: #C2410C;
+  --brand-orange-hover: #9A3412;
+  --brand-orange-soft: #FDE8DE;
+  --brand-gradient: linear-gradient(135deg, #D9480F 0%, #C2410C 100%);
+  --brand-blue-gradient: linear-gradient(135deg, #1070BA 0%, #0B5EA4 100%);
+  --hero-glow: radial-gradient(circle at 85% 15%, rgba(194, 65, 12, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(11, 94, 164, 0.03) 0%, transparent 45%);
+  
   --highlight: #F59E0B;
   --success: #15803D;
-  --danger: #B91C1C;
+  --danger: #DC2626;
   --radius-s: 8px;
   --radius-m: 14px;
-  --radius-pill: 999px;
-  --shadow-s: 0 1px 2px rgb(20 18 26 / 6%);
-  --shadow-m: 0 8px 24px rgb(20 18 26 / 8%);
+  --radius-l: 18px;
+  --radius-pill: 9999px;
+  --shadow-s: 0 1px 3px 0 rgba(23, 33, 58, 0.05), 0 1px 2px -1px rgba(23, 33, 58, 0.03);
+  --shadow-m: 0 4px 14px -2px rgba(23, 33, 58, 0.07), 0 2px 4px -2px rgba(23, 33, 58, 0.03);
+  --shadow-l: 0 12px 30px -4px rgba(23, 33, 58, 0.1), 0 4px 8px -3px rgba(23, 33, 58, 0.04);
   --space-1: 4px;
   --space-2: 8px;
   --space-3: 12px;
@@ -28,26 +49,54 @@
   --space-7: 48px;
   --space-8: 64px;
   --space-9: 96px;
-  --container: 1120px;
+  --container: 1160px;
   --prose: 68ch;
 
   /* Typography Fluid Scale */
-  --font-heading: var(--font-heading-loaded), 'Bricolage Grotesque', sans-serif;
-  --font-body: var(--font-body-loaded), 'Inter', sans-serif;
+  --font-heading: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --input-bg: var(--surface);
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%233D4758' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
 }
 
 :root[data-theme="dark"] {
-  --bg: #0E0C14;
-  --surface: #17141F;
-  --surface-2: #1F1B2A;
-  --ink: #F4F1FA;
-  --ink-2: #C4BFD3;
-  --muted: #9690A8;
-  --line: #2A2536;
-  --accent: #A78BFA;
-  --accent-ink: #0E0C14;
-  --accent-soft: #261D3D;
+  /* 10/10 Obsidian Carbon Dark Theme (Linear & Apple macOS Dark standard) */
+  --bg: #090C12;
+  --surface: #11151F;
+  --surface-2: #19202D;
+  --surface-hover: #21293A;
+  --input-bg: #0C0F17;
+  --select-arrow: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2394A3B8' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  
+  /* Crisp Obsidian & Slate Typography */
+  --ink: #F1F5F9;
+  --ink-2: #94A3B8;
+  --muted: #64748B;
+  
+  /* Precision Micro-Borders */
+  --line: #1E2636;
+  --line-strong: #2D394E;
+  
+  /* Radiant Electric Cobalt Blue */
+  --accent: #38BDF8;
+  --accent-hover: #7DD3FC;
+  --accent-ink: #090C12;
+  --accent-soft: rgba(56, 189, 248, 0.12);
+  
+  /* Radiant Amber / Orange CTA */
+  --brand-orange: #F97316;
+  --brand-orange-hover: #FB923C;
+  --brand-orange-soft: rgba(249, 115, 22, 0.15);
+  --brand-gradient: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
+  --brand-blue-gradient: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
+  --hero-glow: radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.08) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(56, 189, 248, 0.07) 0%, transparent 45%);
+  
   --highlight: #FBBF24;
-  --shadow-s: none;
-  --shadow-m: 0 8px 24px rgb(0 0 0 / 40%);
+  --success: #34D399;
+  --danger: #F87171;
+
+  /* Linear-style layered shadow with 1px glass rim-light */
+  --shadow-s: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-m: 0 4px 18px -2px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.07);
+  --shadow-l: 0 16px 40px -4px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
 }

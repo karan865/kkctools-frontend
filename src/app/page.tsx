@@ -10,6 +10,7 @@ import BandNameGenerator from '@/components/tool/band-name-generator/BandNameGen
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { OWNER_EMAIL } from '@/config/site';
+import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.home.title,
@@ -44,10 +45,24 @@ export default function Home() {
         <Container>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', alignItems: 'center' }}>
             <div>
-              <h1>Free Online Tools That Just Work</h1>
-              <p style={{ fontSize: '1.25rem', color: 'var(--ink-2)', marginBottom: 'var(--space-5)' }}>
-                Fast, browser-based creative generators built with privacy first. No sign-ups, no pop-ups, and zero network tracking.
+              <div className={styles.heroBadge}>
+                <span className={styles.badgeDot}></span>
+                <span>100% Free · Client-Side Execution · Zero Tracking</span>
+              </div>
+              <h1 style={{ letterSpacing: '-0.035em', lineHeight: 1.15 }}>Free Online Tools That Just Work</h1>
+              <p style={{ fontSize: '1.25rem', color: 'var(--ink-2)', marginBottom: 'var(--space-4)', lineHeight: 1.6 }}>
+                Fast, browser-native utility generators engineered with privacy first. No sign-ups, no monthly subscriptions, and zero remote tracking.
               </p>
+
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-5)' }}>
+                <div style={{ borderLeft: '3px solid var(--brand-orange)', paddingLeft: 'var(--space-3)', color: 'var(--ink-2)', fontSize: '0.96rem', lineHeight: 1.5 }}>
+                  Deliver static and dynamic results at ultra-fast speeds directly in your browser.
+                </div>
+                <div style={{ borderLeft: '3px solid var(--brand-orange)', paddingLeft: 'var(--space-3)', color: 'var(--ink-2)', fontSize: '0.96rem', lineHeight: 1.5 }}>
+                  Pure client-side computation with 0ms server latency and zero data tracking.
+                </div>
+              </div>
+
               <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
                 <Link href="/band-name-generator/">
                   <Button variant="primary" size="lg">
@@ -66,13 +81,33 @@ export default function Home() {
             <div>
               <Card>
                 <div style={{ marginBottom: 'var(--space-3)' }}>
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', color: 'var(--accent)' }}>
-                    Live Preview
+                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange)' }}>
+                    ⚡ Instant Live Preview
                   </span>
-                  <h2 style={{ fontSize: '1.25rem', margin: '4px 0 0' }}>Quick Band Name Generator</h2>
+                  <h2 style={{ fontSize: '1.35rem', margin: '4px 0 0' }}>Quick Band Name Generator</h2>
                 </div>
                 <BandNameGenerator initialGenre="any" compact={true} />
               </Card>
+            </div>
+          </div>
+
+          {/* Trust & Performance Proof Strip */}
+          <div className={styles.trustStrip}>
+            <div className={styles.trustItem}>
+              <span className={styles.trustItemIcon}>⚡</span>
+              <span>0ms Server Lag</span>
+            </div>
+            <div className={styles.trustItem}>
+              <span className={styles.trustItemIcon}>🔒</span>
+              <span>100% Private In-Browser</span>
+            </div>
+            <div className={styles.trustItem}>
+              <span className={styles.trustItemIcon}>🚫</span>
+              <span>No Sign-ups Needed</span>
+            </div>
+            <div className={styles.trustItem}>
+              <span className={styles.trustItemIcon}>📄</span>
+              <span>Instant PDF &amp; CSV Export</span>
             </div>
           </div>
         </Container>
@@ -81,60 +116,59 @@ export default function Home() {
       {/* 2. Tools Section */}
       <Section id="tools">
         <Container>
-          <h2>Featured Online Tools</h2>
-          <p style={{ maxWidth: '640px' }}>
-            We build focused utilities that solve specific creative and technical challenges without clutter or intrusive bloat.
-          </p>
+          <div style={{ maxWidth: '680px', marginBottom: 'var(--space-5)' }}>
+            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--accent)' }}>
+              Core Utilities
+            </span>
+            <h2 style={{ marginTop: 'var(--space-1)', marginBottom: 'var(--space-2)' }}>Featured Online Tools</h2>
+            <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)' }}>
+              We build focused utilities that solve specific creative and technical challenges without clutter or intrusive bloat.
+            </p>
+          </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-5)', margin: 'var(--space-5) 0' }}>
-            <Card hoverable>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-3)' }}>
-                <span style={{ fontSize: '2rem' }}>🎸</span>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Band Name Generator</h3>
-                  <span style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Music & Creative Branding</span>
-                </div>
-              </div>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+          <div className={styles.toolGrid}>
+            <Link href="/band-name-generator/" className={styles.toolCard}>
+              <span className={styles.badgePopular}>🔥 Popular</span>
+              <div className={styles.toolIconBox}>🎸</div>
+              <span className={styles.toolCategory}>Music &amp; Creative Branding</span>
+              <h3 className={styles.toolTitle}>Band Name Generator</h3>
+              <p className={styles.toolDesc}>
                 Generate original band names by genre and naming formula. Complete with availability lookup shortcuts, local favorites saving, and text export.
               </p>
-              <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', margin: 'var(--space-3) 0' }}>
-                <Link href="/band-name-generator/rock/" style={{ fontSize: '0.8125rem', textDecoration: 'none', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Rock</Link>
-                <Link href="/band-name-generator/metal/" style={{ fontSize: '0.8125rem', textDecoration: 'none', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Metal</Link>
-                <Link href="/band-name-generator/kpop/" style={{ fontSize: '0.8125rem', textDecoration: 'none', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>K-pop</Link>
-                <Link href="/band-name-generator/heavy-metal/" style={{ fontSize: '0.8125rem', textDecoration: 'none', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Heavy Metal</Link>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Rock</span>
+                <span className={styles.chipItem}>Metal</span>
+                <span className={styles.chipItem}>K-pop</span>
+                <span className={styles.chipItem}>Heavy Metal</span>
               </div>
-              <Link href="/band-name-generator/">
-                <Button variant="primary" size="sm">Open Tool →</Button>
-              </Link>
-            </Card>
+              <div className={styles.openLink}>
+                Launch Band Name Generator <span>→</span>
+              </div>
+            </Link>
 
-            <Card hoverable>
-              <div style={{ display: 'flex', alignItems: 'center', gap: 'var(--space-3)', marginBottom: 'var(--space-3)' }}>
-                <span style={{ fontSize: '2rem' }}>📐</span>
-                <div>
-                  <h3 style={{ margin: 0, fontSize: '1.25rem' }}>Construction Estimate Template</h3>
-                  <span style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>Contracting &amp; Estimating</span>
-                </div>
-              </div>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+            <Link href="/construction-estimate-template/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>💼 Business Ready</span>
+              <div className={styles.toolIconBox}>📐</div>
+              <span className={styles.toolCategory}>Contracting &amp; Estimating</span>
+              <h3 className={styles.toolTitle}>Construction Estimate Template</h3>
+              <p className={styles.toolDesc}>
                 Create professional building and remodeling estimates with automated labor, materials, tax, and markup calculations. Export to PDF and CSV without signup.
               </p>
-              <div style={{ display: 'flex', gap: 'var(--space-2)', flexWrap: 'wrap', margin: 'var(--space-3) 0' }}>
-                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Residential</span>
-                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Commercial</span>
-                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>Print-to-PDF</span>
-                <span style={{ fontSize: '0.8125rem', background: 'var(--surface-2)', padding: '4px 8px', borderRadius: '4px' }}>CSV Export</span>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Residential</span>
+                <span className={styles.chipItem}>Commercial</span>
+                <span className={styles.chipItem}>Print-to-PDF</span>
+                <span className={styles.chipItem}>CSV Export</span>
               </div>
-              <Link href="/construction-estimate-template/">
-                <Button variant="primary" size="sm">Open Tool →</Button>
-              </Link>
-            </Card>
+              <div className={styles.openLink}>
+                Launch Estimate Builder <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>
             More tools are on the way. Have a tool request?{' '}
-            <a href={`mailto:${OWNER_EMAIL}?subject=Tool%20Suggestion`} style={{ color: 'var(--accent)' }}>
+            <a href={`mailto:${OWNER_EMAIL}?subject=Tool%20Suggestion`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
               Suggest a tool
             </a>.
           </div>
@@ -190,30 +224,32 @@ export default function Home() {
       {/* 5. Why Use These Tools */}
       <Section variant="surface">
         <Container>
-          <h2>Why Choose Our Tools?</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: 'var(--space-5)', marginTop: 'var(--space-5)' }}>
-            <div>
-              <h3>🔒 Pure Client-Side Privacy</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+          <div style={{ maxWidth: '680px' }}>
+            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange)' }}>
+              Our Architecture
+            </span>
+            <h2 style={{ marginTop: 'var(--space-1)' }}>Why Choose Our Tools?</h2>
+            <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)' }}>
+              Built for creators and professionals who value speed, privacy, and clean software without distraction.
+            </p>
+          </div>
+          <div className={styles.valuePropsGrid}>
+            <div className={styles.valuePropCard}>
+              <h3 className={styles.valuePropTitle}>🔒 Pure Client-Side Privacy</h3>
+              <p className={styles.valuePropText}>
                 Nothing you type leaves your device. All name generation logic runs locally inside JavaScript in your browser with zero remote calls.
               </p>
             </div>
-            <div>
-              <h3>⚡ Zero Bloat & Instant Speed</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
+            <div className={styles.valuePropCard}>
+              <h3 className={styles.valuePropTitle}>⚡ Zero Bloat &amp; Instant Speed</h3>
+              <p className={styles.valuePropText}>
                 No heavy tracking scripts, no video ads, and no modal pop-ups. Pages load instantaneously and remain lightweight.
               </p>
             </div>
-            <div>
-              <h3>🎨 Curated Quality</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                We avoid generic dictionary scrapers. Our word lists and patterns are meticulously designed for authentic musical cadence.
-              </p>
-            </div>
-            <div>
-              <h3>🚫 No Mandatory Accounts</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                No sign-up forms, email gates, or passwords required. Access all features directly without hurdles.
+            <div className={styles.valuePropCard}>
+              <h3 className={styles.valuePropTitle}>🎨 Curated Craftsmanship</h3>
+              <p className={styles.valuePropText}>
+                We avoid generic dictionary scrapers. Our word lists, formulas, and estimation algorithms are meticulously engineered.
               </p>
             </div>
           </div>

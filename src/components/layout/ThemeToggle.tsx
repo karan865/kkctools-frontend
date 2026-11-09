@@ -20,10 +20,10 @@ export default function ThemeToggle() {
     try {
       if (nextTheme === 'dark') {
         document.documentElement.setAttribute('data-theme', 'dark');
-        localStorage.setItem('theme', 'dark');
+        localStorage.setItem('kkc_theme_pref', 'dark');
       } else {
         document.documentElement.removeAttribute('data-theme');
-        localStorage.setItem('theme', 'light');
+        localStorage.setItem('kkc_theme_pref', 'light');
       }
     } catch {}
   };

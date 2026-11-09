@@ -1,5 +1,5 @@
 .footer {
-  background: var(--surface);
+  background: var(--bg);
   border-top: 1px solid var(--line);
   margin-top: auto;
   padding: var(--space-8) 0 var(--space-6);
@@ -52,15 +52,14 @@
 }
 
 .link {
-  color: var(--muted);
+  color: var(--ink-2);
   font-size: 0.875rem;
   text-decoration: none;
   transition: color 0.15s ease;
 }
 
 .link:hover {
-  color: var(--accent);
-  text-decoration: underline;
+  color: var(--brand-orange);
 }
 
 .bottom {
