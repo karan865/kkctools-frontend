@@ -4,38 +4,37 @@ import LinearFootCalculator from '@/components/tool/linear-foot-calculator/Linea
 import { linearFootPageContent } from '@/content/pages/linear-foot-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
+import { buildMetadata } from '@/components/seo/buildMetadata';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Linear Foot Calculator (Sq Ft to Linear Ft)',
   description:
     'Free linear foot calculator. Add up lengths in feet, inches, yards or meters, or convert square feet to linear feet using width. Includes waste % and cost.',
-  alternates: {
-    canonical: 'https://kkctools.com/linear-foot-calculator/',
-  },
-  openGraph: {
-    title: 'Linear Foot Calculator (Sq Ft to Linear Ft) | KKCTools',
-    description:
-      'Free linear foot calculator. Add up lengths in feet, inches, yards or meters, or convert square feet to linear feet using width. Includes waste % and cost.',
-    url: 'https://kkctools.com/linear-foot-calculator/',
-    type: 'website',
-  },
-};
+  path: '/linear-foot-calculator/',
+});
 
 export default function LinearFootCalculatorPage() {
   const content = linearFootPageContent;
+  const canonicalUrl = `${SITE_URL}/linear-foot-calculator/`;
 
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Linear Foot Calculator',
-    url: 'https://kkctools.com/linear-foot-calculator/',
+    url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
     },
     description:
       'Add up multi-piece lengths in feet, inches, yards, and meters, or convert square feet to linear feet with material width, waste allowance, and cost estimation.',
@@ -49,34 +48,21 @@ export default function LinearFootCalculatorPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://kkctools.com/',
+        item: `${SITE_URL}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Calculators',
-        item: 'https://kkctools.com/tools/',
+        item: `${SITE_URL}/tools/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Linear Foot Calculator',
-        item: 'https://kkctools.com/linear-foot-calculator/',
+        item: canonicalUrl,
       },
     ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: content.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
   };
 
   return (
@@ -89,12 +75,8 @@ export default function LinearFootCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -286,7 +268,7 @@ export default function LinearFootCalculatorPage() {
             <p className={styles.lastUpdated}>Last updated: November 2026</p>
           </footer>
         </article>
-      </div>
+      </main>
     </>
   );
 }

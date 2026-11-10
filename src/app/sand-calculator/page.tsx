@@ -4,39 +4,39 @@ import SandCalculator from '@/components/tool/sand-calculator/SandCalculator';
 import { sandCalculatorPageContent } from '@/content/pages/sand-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
+import { buildMetadata } from '@/components/seo/buildMetadata';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Sand Calculator: Cubic Yards, Tons & Bags',
   description:
     'Free sand calculator & estimator. Get cubic yards, tons and bags of sand for pavers, sandboxes and base layers, with waste % and editable density.',
-  alternates: {
-    canonical: 'https://kkctools.com/sand-calculator/',
-  },
-  openGraph: {
-    title: 'Sand Calculator: Cubic Yards, Tons & Bags | KKCTools',
-    description:
-      'Free sand calculator & estimator. Get cubic yards, tons and bags of sand for pavers, sandboxes and base layers, with waste % and editable density.',
-    url: 'https://kkctools.com/sand-calculator/',
-    type: 'website',
-  },
-};
+  path: '/sand-calculator/',
+});
 
 export default function SandCalculatorPage() {
   const content = sandCalculatorPageContent;
 
-  // JSON-LD Schemas: WebApplication, BreadcrumbList, FAQPage
+  const canonicalUrl = `${SITE_URL}/sand-calculator/`;
+
+  // JSON-LD Schemas: WebApplication, BreadcrumbList
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Sand Calculator',
-    url: 'https://kkctools.com/sand-calculator/',
+    url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
     },
     description:
       'Calculate cubic yards, tons, and bags of sand needed for general landscaping, sandboxes, paver bedding, and polymeric joint sand with live waste buffers.',
@@ -50,34 +50,21 @@ export default function SandCalculatorPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://kkctools.com/',
+        item: `${SITE_URL}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Calculators',
-        item: 'https://kkctools.com/tools/',
+        item: `${SITE_URL}/tools/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Sand Calculator',
-        item: 'https://kkctools.com/sand-calculator/',
+        item: canonicalUrl,
       },
     ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: content.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
   };
 
   return (
@@ -90,12 +77,8 @@ export default function SandCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -284,7 +267,7 @@ export default function SandCalculatorPage() {
             <p className={styles.lastUpdated}>Last updated: November 2026</p>
           </footer>
         </article>
-      </div>
+      </main>
     </>
   );
 }

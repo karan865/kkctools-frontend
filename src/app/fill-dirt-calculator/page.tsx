@@ -4,38 +4,37 @@ import FillDirtCalculator from '@/components/tool/fill-dirt-calculator/FillDirtC
 import { fillDirtPageContent } from '@/content/pages/fill-dirt-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
+import { buildMetadata } from '@/components/seo/buildMetadata';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Fill Dirt Calculator: Cubic Yards & Tons of Dirt',
   description:
     'Free fill dirt calculator. Find how many cubic yards or tons of dirt you need for holes, grading and garden beds, with settling % and truckload estimate.',
-  alternates: {
-    canonical: 'https://kkctools.com/fill-dirt-calculator/',
-  },
-  openGraph: {
-    title: 'Fill Dirt Calculator: Cubic Yards & Tons of Dirt | KKCTools',
-    description:
-      'Free fill dirt calculator. Find how many cubic yards or tons of dirt you need for holes, grading and garden beds, with settling % and truckload estimate.',
-    url: 'https://kkctools.com/fill-dirt-calculator/',
-    type: 'website',
-  },
-};
+  path: '/fill-dirt-calculator/',
+});
 
 export default function FillDirtCalculatorPage() {
   const content = fillDirtPageContent;
+  const canonicalUrl = `${SITE_URL}/fill-dirt-calculator/`;
 
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Fill Dirt Calculator',
-    url: 'https://kkctools.com/fill-dirt-calculator/',
+    url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any',
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
     },
     description:
       'Calculate cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, lawns, and raised beds with sloped depths and settling buffers.',
@@ -49,34 +48,21 @@ export default function FillDirtCalculatorPage() {
         '@type': 'ListItem',
         position: 1,
         name: 'Home',
-        item: 'https://kkctools.com/',
+        item: `${SITE_URL}/`,
       },
       {
         '@type': 'ListItem',
         position: 2,
         name: 'Calculators',
-        item: 'https://kkctools.com/tools/',
+        item: `${SITE_URL}/tools/`,
       },
       {
         '@type': 'ListItem',
         position: 3,
         name: 'Fill Dirt Calculator',
-        item: 'https://kkctools.com/fill-dirt-calculator/',
+        item: canonicalUrl,
       },
     ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: content.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
   };
 
   return (
@@ -89,12 +75,8 @@ export default function FillDirtCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -295,7 +277,7 @@ export default function FillDirtCalculatorPage() {
             <p className={styles.lastUpdated}>Last updated: November 2026</p>
           </footer>
         </article>
-      </div>
+      </main>
     </>
   );
 }

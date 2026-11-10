@@ -11,9 +11,10 @@ export interface BreadcrumbItem {
 
 interface BreadcrumbsProps {
   items: BreadcrumbItem[];
+  withSchema?: boolean;
 }
 
-export default function Breadcrumbs({ items }: BreadcrumbsProps) {
+export default function Breadcrumbs({ items, withSchema = true }: BreadcrumbsProps) {
   const schemaList = [
     {
       '@type': 'ListItem',
@@ -29,15 +30,17 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
     })),
   ];
 
-  const jsonLdData = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: schemaList,
-  };
+  const jsonLdData = withSchema
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: schemaList,
+      }
+    : null;
 
   return (
     <nav aria-label="Breadcrumbs" className={styles.nav}>
-      <JsonLd data={jsonLdData} />
+      {jsonLdData && <JsonLd data={jsonLdData} />}
       <ol className={styles.list}>
         <li className={styles.item}>
           <Link href="/" className={styles.link}>

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-10T08:07:03.588Z
+Generated on: 2026-11-10T08:16:56.900Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-10T08:07:03.143Z
+Run Date: 2026-11-10T08:16:56.475Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -549,7 +549,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About Our Mission & Philosophy | KKC Too | 371 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2212 | Asphalt Calculator: How Many T | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2211 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1017 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1007 | Heavy Metal Band Name Generato | PASS |
 | `/band-name-generator/` | Band Name Generator – Free Random Band N | 2192 | Band Name Generator | PASS |
@@ -559,17 +559,17 @@ Status: PASSED ✅
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2189 | Cubic Yard Calculator: How Man | PASS |
-| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 0 | Fill Dirt Calculator | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2187 | Cubic Yard Calculator: How Man | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1489 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
 | `/` | Free Online Generators & Tools | 914 | Free Online Tools That Just Wo | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 0 | Linear Foot Calculator | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
-| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 0 | Rafter Calculator – Find Rafte | PASS |
-| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 0 | Sand Calculator | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tools/` | All Online Tools & Generators | KKC Tool | 537 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -646,6 +646,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+1e0813a feat: implement rafter calculator with length, pitch chart, cut angles and full SEO spec
 7bf6ddb feat: implement linear foot calculator with multi-row pieces, sqft-to-linear conversion, and full SEO spec
 ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and full SEO spec
 526dbcb feat: implement sand calculator with volume, paver bedding, and polymeric joint modes
@@ -679,18 +680,18 @@ f450baa phase-0: setup, rules, static export config and docs skeleton
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 28ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 2.6s
+✓ Compiled successfully in 2.4s
   Running TypeScript ...
-  Finished TypeScript in 1711ms ...
+  Finished TypeScript in 1785ms ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/32) ...
   Generating static pages using 15 workers (8/32) 
   Generating static pages using 15 workers (16/32) 
   Generating static pages using 15 workers (24/32) 
-✓ Generating static pages using 15 workers (32/32) in 1215ms
+✓ Generating static pages using 15 workers (32/32) in 936ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -803,20 +804,20 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
  [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 42[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
 [2m      Tests [22m [1m[32m86 passed[39m[22m[90m (86)[39m
-[2m   Start at [22m 13:36:37
-[2m   Duration [22m 642ms[2m (transform 1.03s, setup 0ms, import 1.44s, tests 191ms, environment 11ms)[22m
+[2m   Start at [22m 13:46:35
+[2m   Duration [22m 687ms[2m (transform 1.26s, setup 0ms, import 1.76s, tests 253ms, environment 2ms)[22m
 
 
 ```

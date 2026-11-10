@@ -24,7 +24,16 @@ export default function Header() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  const isToolsActive = pathname.startsWith('/tools') || pathname.startsWith('/band-name-generator') || pathname.startsWith('/construction-estimate');
+  const isToolsActive =
+    pathname.startsWith('/tools') ||
+    pathname.startsWith('/band-name-generator') ||
+    pathname.startsWith('/construction-estimate') ||
+    pathname.startsWith('/asphalt-calculator') ||
+    pathname.startsWith('/cubic-yard-calculator') ||
+    pathname.startsWith('/sand-calculator') ||
+    pathname.startsWith('/fill-dirt-calculator') ||
+    pathname.startsWith('/linear-foot-calculator') ||
+    pathname.startsWith('/rafter-calculator');
   const isGuidesActive = pathname.startsWith('/guides');
   const isAboutActive = pathname.startsWith('/about');
   const isHomeActive = pathname === '/';

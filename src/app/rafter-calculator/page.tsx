@@ -4,60 +4,46 @@ import RafterCalculator from '@/components/tool/rafter-calculator/RafterCalculat
 import { rafterPageContent, PITCH_CHART_DATA } from '@/content/pages/rafter-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
+import { buildMetadata } from '@/components/seo/buildMetadata';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import styles from './page.module.css';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Rafter Calculator: Length, Pitch & Cut Angles',
   description:
     'Free rafter calculator. Enter span, pitch and overhang to get rafter length, cut angles, ridge height and rafter count. Includes roof pitch chart.',
-  alternates: {
-    canonical: 'https://kkctools.com/rafter-calculator/',
-  },
-  openGraph: {
-    title: 'Rafter Calculator – Rafter Length, Pitch & Cut Angles | KKCTools',
-    description:
-      'Free online rafter calculator with roof pitch chart, cut angles and rafter count. Instant results in feet/inches or metric.',
-    url: 'https://kkctools.com/rafter-calculator/',
-    type: 'website',
-  },
-};
+  path: '/rafter-calculator/',
+});
 
 export default function RafterCalculatorPage() {
   const content = rafterPageContent;
+  const canonicalUrl = `${SITE_URL}/rafter-calculator/`;
 
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name: 'Rafter Calculator',
-    url: 'https://kkctools.com/rafter-calculator/',
+    url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'Any (web browser)',
     description:
       'Free online rafter calculator that finds common rafter length, roof pitch, cut angles, birdsmouth depth and rafter count.',
     offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+    },
   };
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://kkctools.com/' },
-      { '@type': 'ListItem', position: 2, name: 'Calculators', item: 'https://kkctools.com/tools/' },
-      { '@type': 'ListItem', position: 3, name: 'Rafter Calculator', item: 'https://kkctools.com/rafter-calculator/' },
+      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
+      { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${SITE_URL}/tools/` },
+      { '@type': 'ListItem', position: 3, name: 'Rafter Calculator', item: canonicalUrl },
     ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: content.faqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
   };
 
   return (
@@ -70,12 +56,8 @@ export default function RafterCalculatorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -280,7 +262,7 @@ export default function RafterCalculatorPage() {
             <p className={styles.lastUpdated}>Last updated: November 2026</p>
           </footer>
         </article>
-      </div>
+      </main>
     </>
   );
 }

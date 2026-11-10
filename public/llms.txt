@@ -1,0 +1,20 @@
+# KKC Tools — Free Web Calculators & Developer Utilities
+> URL: https://www.kkctools.com
+> Description: Fast, privacy-first, client-side online calculators and generators with zero network calls and zero data tracking.
+
+## Core Calculators
+
+- [Asphalt Calculator](https://www.kkctools.com/asphalt-calculator/): Calculates tons, cubic yards, and cost of hot mix asphalt and recycled asphalt product (millings/RAP) with waste overage and binder breakdown. Supports rectangular, circular, and triangular areas.
+- [Cubic Yard Calculator](https://www.kkctools.com/cubic-yard-calculator/): Calculates cubic yards, cubic feet, and cubic meters for concrete slabs, footings, walls, columns, soil, mulch, and gravel. Provides exact bag counts for 40, 50, 60, and 80 lb ready-mix bags.
+- [Sand Calculator](https://www.kkctools.com/sand-calculator/): Calculates volume, tons, and bags of sand for sandboxes, paver sand bedding layers, polymeric joint sand, and general site leveling with dry, damp, and wet densities.
+- [Fill Dirt Calculator](https://www.kkctools.com/fill-dirt-calculator/): Estimates cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, and lawns with sloped depth integration and soil settling percentages.
+- [Linear Foot Calculator](https://www.kkctools.com/linear-foot-calculator/): Totals board and piece measurements across mixed units (feet, inches, yards, meters) with waste allowance, cost breakdown, and bidirectional square footage to linear feet conversion.
+- [Rafter Calculator](https://www.kkctools.com/rafter-calculator/): Computes common rafter length, roof pitch, plumb cut, seat cut angles, birdsmouth notch depth, lumber buy length, and rafter quantity with an interactive cross-section diagram.
+- [Construction Estimate Template](https://www.kkctools.com/construction-estimate-template/): Generates contractor invoices and construction estimates with dynamic line items, materials, labor, markup, tax, print-to-PDF formatting, and CSV export.
+- [Band Name Generator](https://www.kkctools.com/band-name-generator/): Instant original music act naming tool with genre rules (rock, metal, heavy metal, k-pop, boy band, random) and streaming trademark checking.
+
+## Operational Architecture
+- 100% Client-Side: Computations execute strictly inside the user's browser.
+- Privacy First: No user inputs, project dimensions, or financial rates are stored or transmitted.
+- Unit Flexibility: Full support for US Customary (feet, inches, yards, tons) and Metric (meters, cm, tonnes) systems.
+

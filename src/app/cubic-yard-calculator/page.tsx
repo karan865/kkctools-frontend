@@ -96,6 +96,7 @@ export default function CubicYardCalculatorPage() {
       <Section style={{ paddingTop: 'var(--space-6)', paddingBottom: 'var(--space-6)' }}>
         <Container>
           <Breadcrumbs
+            withSchema={false}
             items={[
               { name: 'Home', path: '/' },
               { name: 'Cubic Yard Calculator', path: '/cubic-yard-calculator/' },

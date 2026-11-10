@@ -31,6 +31,7 @@ export const metadata: Metadata = {
   },
   description: 'Free online browser-based generators and utilities. Fast, privacy-friendly, zero network calls.',
   verification: {
+    google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     other: {
       'msvalidate.01': 'FA0261B08D394DFD4C117F158B1A04A8',
     },
