@@ -100,6 +100,14 @@ export default function Header() {
                   <span className={styles.dropdownDesc}>Free estimate builder with print-to-PDF & CSV</span>
                 </Link>
                 <Link
+                  href="/asphalt-calculator/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Asphalt Calculator</span>
+                  <span className={styles.dropdownDesc}>Calculate tons, cubic yards, millings & cost</span>
+                </Link>
+                <Link
                   href="/tools/"
                   className={styles.dropdownItemAll}
                   onClick={() => setToolsDropdownOpen(false)}

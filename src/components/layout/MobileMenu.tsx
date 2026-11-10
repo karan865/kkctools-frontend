@@ -49,6 +49,12 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <nav className={styles.nav}>
           <div className={styles.section}>
             <span className={styles.sectionTitle}>Tools</span>
+            <Link href="/asphalt-calculator/" className={styles.navLink} onClick={onClose}>
+              🚜 Asphalt Calculator
+            </Link>
+            <Link href="/construction-estimate-template/" className={styles.navLink} onClick={onClose}>
+              📐 Construction Estimate Template
+            </Link>
             <Link href="/band-name-generator/" className={styles.navLink} onClick={onClose}>
               🎸 Band Name Generator
             </Link>

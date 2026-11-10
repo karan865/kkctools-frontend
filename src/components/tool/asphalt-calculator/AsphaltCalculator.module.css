@@ -1,0 +1,469 @@
+/* Asphalt Calculator Component Styles */
+
+.toolCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  box-shadow: var(--shadow-m);
+  padding: var(--space-5);
+  margin-top: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+@media (min-width: 640px) {
+  .toolCard {
+    padding: var(--space-6);
+  }
+}
+
+.toolLayout {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+@media (min-width: 992px) {
+  .toolLayout {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    align-items: start;
+    gap: var(--space-7);
+  }
+}
+
+.inputsCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.resultsCol {
+  position: relative;
+}
+
+@media (min-width: 992px) {
+  .resultsCol {
+    position: sticky;
+    top: 88px;
+  }
+}
+
+/* Material & Unit Toggle Bars */
+.toggleRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-4);
+  border-bottom: 1px solid var(--line);
+}
+
+.segmentedControl {
+  display: inline-flex;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 2px;
+}
+
+.segmentBtn {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.segmentBtnActive {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-s);
+}
+
+/* Sections List */
+.sectionsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-3);
+}
+
+.sectionTitle {
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.addSectionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-family: var(--font-body);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.addSectionBtn:hover {
+  background: color-mix(in srgb, var(--accent) 10%, var(--surface-2));
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.sectionBlock {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+  margin-bottom: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionBlockTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.sectionIndexLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-2);
+}
+
+.removeSectionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+  line-height: 1;
+  transition: all 0.15s ease;
+}
+
+.removeSectionBtn:hover {
+  color: var(--danger);
+  border-color: var(--danger);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-3);
+}
+
+@media (min-width: 500px) {
+  .formGrid {
+    grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  }
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.inputUnitRow {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.inputField {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--input-bg, var(--surface));
+  color: var(--ink);
+  box-shadow: var(--shadow-s);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inputField:focus {
+  border-color: var(--accent);
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.unitSelect {
+  width: 76px;
+  height: 42px;
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  padding: 0 24px 0 8px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background-color: var(--input-bg, var(--surface));
+  background-image: var(--select-arrow);
+  background-repeat: no-repeat;
+  background-position: right 6px center;
+  background-size: 12px 12px;
+  color: var(--ink);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+/* Quick Chips */
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chip {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 6px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+.chipActive {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Advanced Accordion */
+.advancedDetails {
+  border: 1px dashed var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-3) var(--space-4);
+  background: var(--surface);
+}
+
+.advancedSummary {
+  font-family: var(--font-heading);
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  user-select: none;
+  list-style: none;
+}
+
+.advancedSummary::-webkit-details-marker {
+  display: none;
+}
+
+.advancedContent {
+  margin-top: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Results Panel Card */
+.resultsCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.heroOrderBox {
+  background: color-mix(in srgb, var(--brand-orange) 8%, var(--surface-2));
+  border: 1px solid color-mix(in srgb, var(--brand-orange) 30%, var(--line));
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+}
+
+.heroOrderHeadline {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+
+.heroOrderSub {
+  font-size: 0.875rem;
+  color: var(--ink-2);
+  margin: 0;
+}
+
+.suggestedOrder {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 500;
+}
+
+/* Results Comparison Table */
+.resultsTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.resultsTable th,
+.resultsTable td {
+  padding: 8px 6px;
+  border-bottom: 1px solid var(--line);
+  text-align: right;
+}
+
+.resultsTable th:first-child,
+.resultsTable td:first-child {
+  text-align: left;
+}
+
+.tableHeader {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+}
+
+.resultValueHighlight {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+/* Info Rows */
+.infoRowsList {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-3);
+}
+
+.infoRowItem {
+  display: flex;
+  justify-content: space-between;
+}
+
+.infoRowLabel {
+  color: var(--muted);
+}
+
+.infoRowValue {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+/* Actions and Buttons */
+.btnRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actionBtn {
+  flex: 1;
+  height: 40px;
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface-2);
+  color: var(--ink);
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: var(--surface);
+  border-color: var(--ink);
+}
+
+.copiedBtn {
+  background: var(--accent-soft);
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+/* Calculation Steps */
+.calcSteps {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  line-height: 1.6;
+  background: var(--surface-2);
+  border-radius: var(--radius-s);
+  padding: var(--space-3);
+}
+
+.calcSteps ol {
+  padding-left: 1.25rem;
+  margin: 0;
+}
+
+.resultsFootnote {
+  font-size: 0.75rem;
+  color: var(--muted);
+  line-height: 1.5;
+  margin-top: var(--space-2);
+}
+
+.errorAlert {
+  padding: 10px 14px;
+  background: rgba(220, 38, 38, 0.1);
+  border: 1px solid var(--danger);
+  border-radius: var(--radius-s);
+  color: var(--danger);
+  font-size: 0.85rem;
+}
+

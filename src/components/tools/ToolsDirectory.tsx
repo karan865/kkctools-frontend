@@ -42,6 +42,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/construction-estimate-template/',
     actionText: 'Open tool',
   },
+  {
+    id: 'asphalt-calculator',
+    title: 'Asphalt Calculator',
+    category: 'Outdoor • Materials • Paving',
+    icon: '🏗️',
+    badge: '🚜 Materials',
+    badgeType: 'business',
+    desc: 'Calculate tons, cubic yards, and material cost of hot mix asphalt and recycled millings (RAP). Supports rectangular, circular, triangular, and custom multi-section areas, metric tonnes, waste overage, and bitumen binder breakdown.',
+    chips: ['Hot Mix Asphalt', 'Millings (RAP)', 'Metric Tonnes', 'Bitumen Binder', 'Cost & Truckloads'],
+    link: '/asphalt-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

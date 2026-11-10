@@ -25,6 +25,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/asphalt-calculator/" className={styles.link}>
+                  Asphalt Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/" className={styles.link}>
                   All Tools Directory
                 </Link>

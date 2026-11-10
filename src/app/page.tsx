@@ -164,6 +164,25 @@ export default function Home() {
                 Launch Estimate Builder <span>→</span>
               </div>
             </Link>
+
+            <Link href="/asphalt-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>🚜 Materials &amp; Paving</span>
+              <div className={styles.toolIconBox}>🏗️</div>
+              <span className={styles.toolCategory}>Outdoor &amp; Construction</span>
+              <h3 className={styles.toolTitle}>Asphalt Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate asphalt tons, cubic yards, and cost for driveways, parking lots, and paths. Includes millings mode, custom density, and binder estimates.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Hot Mix</span>
+                <span className={styles.chipItem}>Millings (RAP)</span>
+                <span className={styles.chipItem}>Metric &amp; US Tons</span>
+                <span className={styles.chipItem}>Cost &amp; Truckloads</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Asphalt Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

@@ -40,6 +40,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  asphaltCalculator: {
+    path: '/asphalt-calculator/',
+    title: 'Asphalt Calculator: Tons, Cubic Yards & Cost',
+    description: 'Free asphalt calculator: enter area and thickness to get tons, cubic yards and cost. Millings mode, editable density and waste % included.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',
