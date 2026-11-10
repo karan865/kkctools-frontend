@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-10T08:16:56.900Z
+Generated on: 2026-11-10T08:43:51.254Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-10T08:16:56.475Z
+Run Date: 2026-11-10T08:43:50.809Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -646,6 +646,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+560de0d fix(seo): normalize canonical domains, add semantic main tags, resolve schema duplicates, and add llms.txt
 1e0813a feat: implement rafter calculator with length, pitch chart, cut angles and full SEO spec
 7bf6ddb feat: implement linear foot calculator with multi-row pieces, sqft-to-linear conversion, and full SEO spec
 ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and full SEO spec
@@ -680,18 +681,18 @@ f450baa phase-0: setup, rules, static export config and docs skeleton
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 34ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 2.4s
+✓ Compiled successfully in 3.4s
   Running TypeScript ...
-  Finished TypeScript in 1785ms ...
+  Finished TypeScript in 2.2s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/32) ...
   Generating static pages using 15 workers (8/32) 
   Generating static pages using 15 workers (16/32) 
   Generating static pages using 15 workers (24/32) 
-✓ Generating static pages using 15 workers (32/32) in 936ms
+✓ Generating static pages using 15 workers (32/32) in 1051ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -804,20 +805,20 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 40[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
 [2m      Tests [22m [1m[32m86 passed[39m[22m[90m (86)[39m
-[2m   Start at [22m 13:46:35
-[2m   Duration [22m 687ms[2m (transform 1.26s, setup 0ms, import 1.76s, tests 253ms, environment 2ms)[22m
+[2m   Start at [22m 14:13:27
+[2m   Duration [22m 658ms[2m (transform 1.04s, setup 0ms, import 1.45s, tests 206ms, environment 2ms)[22m
 
 
 ```

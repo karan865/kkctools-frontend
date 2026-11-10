@@ -70,6 +70,20 @@ export default function RootLayout({
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="msvalidate.01" content="FA0261B08D394DFD4C117F158B1A04A8" />
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+              [data-netlify-drawer], [id^="netlify-"], [class*="netlify-badge"], [id*="netlify-badge"], netlify-drawer, iframe[src*="netlify.com"], a[href*="netlify.com"][style*="fixed"] {
+                display: none !important;
+                visibility: hidden !important;
+                opacity: 0 !important;
+                pointer-events: none !important;
+                width: 0 !important;
+                height: 0 !important;
+              }
+            `,
+          }}
+        />
       </head>
       <body>
         <JsonLd data={globalSchema} />

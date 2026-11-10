@@ -177,3 +177,21 @@ select::-ms-expand {
     scroll-behavior: auto !important;
   }
 }
+
+/* Hide Netlify Injection Badge & Drawers */
+[data-netlify-drawer],
+[id^="netlify-"],
+[class*="netlify-badge"],
+[id*="netlify-badge"],
+netlify-drawer,
+div[style*="position: fixed"][style*="bottom:"][style*="z-index"]:has(a[href*="netlify.com"]),
+a[href*="netlify.com"][style*="position: fixed"],
+iframe[src*="netlify.com"] {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  width: 0 !important;
+  height: 0 !important;
+  overflow: hidden !important;
+}
