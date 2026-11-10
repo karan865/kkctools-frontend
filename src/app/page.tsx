@@ -278,6 +278,25 @@ export default function Home() {
                 Launch Rafter Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/square-footage-calculator/" className={styles.toolCard}>
+              <span className={styles.badgePopular}>🔥 High Demand</span>
+              <div className={styles.toolIconBox}>📐</div>
+              <span className={styles.toolCategory}>Measurement • Flooring • Remodeling</span>
+              <h3 className={styles.toolTitle}>Square Footage Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate square footage for single rooms, multi-room houses, or odd geometric shapes with waste allowances, unit conversions (m², yd², in²), and material cost estimation.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>SqFt Calculator</span>
+                <span className={styles.chipItem}>Multi-Room</span>
+                <span className={styles.chipItem}>Odd Shapes</span>
+                <span className={styles.chipItem}>Cost &amp; Waste %</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Square Footage Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

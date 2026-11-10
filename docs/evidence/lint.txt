@@ -15,5 +15,8 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
   299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 8 problems (0 errors, 8 warnings)
+D:\1_programmins\5.kkctools\src\components\tool\square-footage-calculator\SquareFootageCalculator.tsx
+  273:33  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 9 problems (0 errors, 9 warnings)
 

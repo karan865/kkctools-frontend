@@ -55,6 +55,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/square-footage-calculator/" className={styles.link}>
+                  Square Footage Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/" className={styles.link}>
                   All Tools Directory
                 </Link>

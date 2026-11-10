@@ -114,6 +114,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/rafter-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'square-footage-calculator',
+    title: 'Square Footage Calculator',
+    category: 'Measurement • Flooring • Remodeling',
+    icon: '📐',
+    badge: '🔥 Essential',
+    badgeType: 'popular',
+    desc: 'Calculate square footage for single rooms, multi-room houses, or odd geometric shapes (triangles, circles, trapezoids, L-shapes). Features waste allowances, unit conversions to sq meters, yards, and inches, plus material budgeting.',
+    chips: ['SqFt Calculator', 'Multi-Room Total', 'Odd Shapes (Triangles & Circles)', 'Waste Factor %', 'Material Cost'],
+    link: '/square-footage-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

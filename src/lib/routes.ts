@@ -88,6 +88,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  squareFootageCalculator: {
+    path: '/square-footage-calculator/',
+    title: 'Square Footage Calculator (SqFt Calculator)',
+    description: 'Free sqft calculator to quickly calculate the square footage of any room or house. Supports multiple rooms, odd shapes, waste %, and price per square foot.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',
