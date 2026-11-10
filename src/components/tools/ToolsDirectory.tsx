@@ -126,6 +126,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/square-footage-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'cinder-block-calculator',
+    title: 'Cinder Block Calculator',
+    category: 'Masonry • Concrete • CMU Walls',
+    icon: '🧱',
+    badge: '🏗️ Structural',
+    badgeType: 'business',
+    desc: 'Estimate cinder blocks, mortar bags, core fill concrete volume, and delivery weight for CMU walls. Features door and window deductions, 5 block presets, and waste allowances.',
+    chips: ['Cinder Block', 'CMU Wall', '8x8x16 Blocks', 'Mortar Bags', 'Core Fill Concrete'],
+    link: '/cinder-block-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

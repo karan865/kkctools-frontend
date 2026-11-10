@@ -270,7 +270,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
 
           {activeTab === 'multiple' && (
             <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-              {rooms.map((room, index) => (
+              {rooms.map((room) => (
                 <div key={room.id} className={styles.roomCard}>
                   <div className={styles.roomCardHeader}>
                     <input

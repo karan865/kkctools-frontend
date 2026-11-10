@@ -297,6 +297,25 @@ export default function Home() {
                 Launch Square Footage Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/cinder-block-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>🧱 Masonry &amp; CMU</span>
+              <div className={styles.toolIconBox}>🧱</div>
+              <span className={styles.toolCategory}>Masonry • Concrete • CMU Walls</span>
+              <h3 className={styles.toolTitle}>Cinder Block Calculator</h3>
+              <p className={styles.toolDesc}>
+                Estimate cinder blocks, mortar bags, and core fill concrete volume for any wall with door and window cutout deductions, 5 block presets, and waste allowances.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Cinder Block</span>
+                <span className={styles.chipItem}>CMU Wall</span>
+                <span className={styles.chipItem}>8x8x16</span>
+                <span className={styles.chipItem}>Mortar &amp; Core Fill</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Cinder Block Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

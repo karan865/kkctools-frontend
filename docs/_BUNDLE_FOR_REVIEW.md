@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-10T20:53:26.813Z
+Generated on: 2026-11-10T21:00:41.908Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-10T20:53:26.379Z
+Run Date: 2026-11-10T21:00:41.489Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -557,6 +557,7 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2038 | Cinder Block Calculator (CMU W | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2187 | Cubic Yard Calculator: How Man | PASS |
@@ -565,14 +566,14 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Online Generators & Tools | 954 | Free Online Tools That Just Wo | PASS |
+| `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 584 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 625 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -593,6 +594,7 @@ band-name-generator/kpop/index.html
 band-name-generator/metal/index.html
 band-name-generator/random/index.html
 band-name-generator/rock/index.html
+cinder-block-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-yard-calculator/index.html
@@ -648,6 +650,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+0d9e8f6 style(theme): harmonize all calculators to modern ocean blue and white design - Update global design tokens: pure white card surfaces (--surface: #FFFFFF), light gray secondary panels (--surface-2: #F8FAFC), and slate typography (#0F172A) - Align all calculator action buttons and hero result cards to Electric Ocean Blue (#0284C7 -> #0369A1 gradient) - Update Header 'Explore Tools →' CTA pill to ocean blue gradient - Preserve signature energetic orange gradient exclusively for '⚡ Generate Band Names' - Harmonize active state tabs, chips, and borders across all tools (Square Footage, Linear Foot, Sand, Fill Dirt, Asphalt, Cubic Yard, Rafter) - Pass full verification pipeline (lint, 92 unit tests, check:no-network, build, seo:audit)
 233946e feat(tools): add Square Footage Calculator and reorganize keyword roadmap - Implement Square Footage Calculator (/square-footage-calculator/) with Single Room, Multi-Room house totals, and Odd Shapes (triangles, circles, semicircles, trapezoids, L-shapes) - Support waste factor allowance (0-20%), material cost budgeting, unit conversions (m², yd², in²), and perimeter linear feet - Add pure calculation engine in src/lib/square-footage-engine.ts with 6 unit tests passing - Add comprehensive editorial SEO content, WebApplication & FAQPage JSON-LD schemas targeting 'sqft calculator' (27.1K vol, KD 0%) - Integrate into homepage, tools directory, and footer navigation - Reorganize keyword research into centralized roadmap (0. DA1_SERP_Verified_Priority_Roadmap.md) and archive raw data files - Pass full verification suite (lint, tests, check:no-network, build, seo:audit)
 58bffb3 style: hide netlify drawer and floating badge completely
 560de0d fix(seo): normalize canonical domains, add semantic main tags, resolve schema duplicates, and add llms.txt
@@ -667,7 +670,6 @@ fa51fe8 phase-6: sitemap.xml, robots.txt, apple-touch-icon, enhanced SEO audit w
 3abe11a phase-4: tools index page, dynamic genre sub-routes, 6 unique genre content pools and hub-and-spoke internal links
 07438f0 phase-3: interactive tool UI, results, saved favorites, availability check menu and 2,200+ word main tool page
 c49978b phase-2: pure TypeScript generator engine, pools, blocklist and unit tests
-a653742 phase-1: design system, layout shell, UI primitives and 404 page
 ```
 
 
@@ -686,15 +688,15 @@ a653742 phase-1: design system, layout shell, UI primitives and 404 page
 ✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.8s
+✓ Compiled successfully in 6.0s
   Running TypeScript ...
-  Finished TypeScript in 2.1s ...
+  Finished TypeScript in 4.8s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/33) ...
-  Generating static pages using 15 workers (8/33) 
-  Generating static pages using 15 workers (16/33) 
-  Generating static pages using 15 workers (24/33) 
-✓ Generating static pages using 15 workers (33/33) in 1299ms
+  Generating static pages using 15 workers (0/34) ...
+  Generating static pages using 15 workers (8/34) 
+  Generating static pages using 15 workers (16/34) 
+  Generating static pages using 15 workers (25/34) 
+✓ Generating static pages using 15 workers (34/34) in 971ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -710,6 +712,7 @@ Route (app)
 │ ├ ● /band-name-generator/metal
 │ ├ ● /band-name-generator/heavy-metal
 │ └ ● [+3 more paths]
+├ ○ /cinder-block-calculator
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
@@ -780,10 +783,7 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
   299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-D:\1_programmins\5.kkctools\src\components\tool\square-footage-calculator\SquareFootageCalculator.tsx
-  273:33  warning  'index' is defined but never used  @typescript-eslint/no-unused-vars
-
-✖ 9 problems (0 errors, 9 warnings)
+✖ 8 problems (0 errors, 8 warnings)
 
 
 ```
@@ -795,7 +795,7 @@ D:\1_programmins\5.kkctools\src\components\tool\square-footage-calculator\Square
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 28 HTML files in out/...
+Auditing 29 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -811,21 +811,22 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 37[2mms[22m[39m
  [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 46[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 48[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 44[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 46[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m10 passed[39m[22m[90m (10)[39m
-[2m      Tests [22m [1m[32m92 passed[39m[22m[90m (92)[39m
-[2m   Start at [22m 02:22:59
-[2m   Duration [22m 788ms[2m (transform 1.44s, setup 0ms, import 1.94s, tests 259ms, environment 5ms)[22m
+[2m Test Files [22m [1m[32m11 passed[39m[22m[90m (11)[39m
+[2m      Tests [22m [1m[32m97 passed[39m[22m[90m (97)[39m
+[2m   Start at [22m 02:30:13
+[2m   Duration [22m 844ms[2m (transform 1.62s, setup 0ms, import 2.32s, tests 264ms, environment 15ms)[22m
 
 
 ```

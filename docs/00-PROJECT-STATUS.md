@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-11
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase SQFT Complete (Square Footage Calculator live with Single Room, Multi-Room house totals, Odd shapes [triangles, circles, semicircles, trapezoids, L-shapes], Waste % toggle, unit conversions to m², yd², in², and material budgeting)
-- **Overall Completion:** 73/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, and Square Footage Calculators complete)
+- **Current Phase:** Phase CMU Complete (Cinder Block / CMU Calculator live with 5 block presets, door & window deductions, mortar bag estimation, core fill concrete volume, and delivery weight logistics)
+- **Overall Completion:** 74/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, Square Footage, and Cinder Block Calculators complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|

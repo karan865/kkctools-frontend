@@ -96,6 +96,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  cinderBlockCalculator: {
+    path: '/cinder-block-calculator/',
+    title: 'Cinder Block Calculator (CMU Wall)',
+    description: 'Free cinder block calculator to estimate blocks, mortar bags, and concrete core-fill for any wall. Supports 8x8x16, window deductions, waste %, and costs.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',
