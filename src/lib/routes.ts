@@ -72,6 +72,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  linearFootCalculator: {
+    path: '/linear-foot-calculator/',
+    title: 'Linear Foot Calculator (Sq Ft to Linear Ft)',
+    description: 'Free linear foot calculator. Add up lengths in feet, inches, yards or meters, or convert square feet to linear feet using width. Includes waste % and cost.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

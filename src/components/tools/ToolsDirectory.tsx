@@ -90,6 +90,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/fill-dirt-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'linear-foot-calculator',
+    title: 'Linear Foot Calculator',
+    category: 'Construction • Lumber • Finishing',
+    icon: '📏',
+    badge: '📐 Measurement',
+    badgeType: 'business',
+    desc: 'Calculate total linear feet from mixed units (feet, inches, yards, meters), add custom waste allowances, compute material costs, and convert between square feet and linear feet using board width.',
+    chips: ['Linear Feet Sum', 'Mixed Units', 'Sq Ft ↔ Linear Ft', 'Waste % & Cost', 'Board Width'],
+    link: '/linear-foot-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

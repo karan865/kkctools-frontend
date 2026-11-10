@@ -1,0 +1,404 @@
+/* Linear Foot Calculator Component Styles */
+
+.calculatorContainer {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-l);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-m);
+  margin: var(--space-4) 0 var(--space-6) 0;
+}
+
+@media (min-width: 640px) {
+  .calculatorContainer {
+    padding: var(--space-6);
+  }
+}
+
+.modeHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-bottom: var(--space-5);
+  border-bottom: 1px solid var(--line);
+  padding-bottom: var(--space-4);
+}
+
+.modeTabs {
+  display: inline-flex;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  padding: 3px;
+  gap: 2px;
+  flex-wrap: wrap;
+}
+
+.modeTab {
+  font-family: var(--font-body);
+  font-size: 0.875rem;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  border: none;
+  background: transparent;
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.modeTab:hover {
+  color: var(--ink);
+}
+
+.modeTabActive {
+  background: var(--surface);
+  color: var(--ink);
+  box-shadow: var(--shadow-s);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--space-6);
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: 1.25fr 1fr;
+    align-items: start;
+  }
+}
+
+.formCol {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* Rows table / list */
+.rowsContainer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.rowItem {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-3) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.rowHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.rowActions {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.smallActionBtn {
+  background: transparent;
+  border: none;
+  color: var(--ink-2);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+  border-radius: var(--radius-s);
+}
+
+.smallActionBtn:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.smallDeleteBtn {
+  background: transparent;
+  border: none;
+  color: var(--danger);
+  cursor: pointer;
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 6px;
+}
+
+.smallDeleteBtn:hover {
+  text-decoration: underline;
+}
+
+.rowInputs {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: var(--space-2);
+  align-items: end;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.fieldGroup label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.inputField, .selectField {
+  width: 100%;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--input-bg);
+  color: var(--ink);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  min-height: 40px;
+  box-sizing: border-box;
+}
+
+.inputField:focus, .selectField:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-soft);
+}
+
+.addBtn {
+  background: var(--surface-2);
+  border: 1px dashed var(--line-strong);
+  padding: 10px;
+  border-radius: var(--radius-s);
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  text-align: center;
+}
+
+.addBtn:hover {
+  background: var(--surface);
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Extra options (waste, price, width) */
+.optionsCard {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.chip {
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2);
+  font-size: 0.8125rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  color: var(--ink);
+  border-color: var(--line-strong);
+}
+
+.chipActive {
+  background: var(--accent);
+  color: var(--accent-ink, #ffffff);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* Results Column */
+.resultCol {
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  box-shadow: var(--shadow-s);
+}
+
+.primaryResultCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: var(--space-4);
+  text-align: center;
+  box-shadow: var(--shadow-s);
+}
+
+.resultTitle {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted);
+  margin-bottom: 4px;
+}
+
+.resultHero {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: var(--accent);
+  line-height: 1.1;
+  margin: 4px 0;
+}
+
+.resultSubHero {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink-2);
+  margin-top: 4px;
+}
+
+.rawSubLine {
+  font-size: 0.8125rem;
+  color: var(--muted);
+  margin-top: 4px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-2);
+}
+
+.metricItem {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  padding: var(--space-3);
+  text-align: center;
+}
+
+.metricVal {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.metricLbl {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+.actionRow {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.actionBtn {
+  flex: 1;
+  padding: 8px 12px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.actionBtn:hover {
+  background: var(--surface-hover);
+  border-color: var(--line-strong);
+}
+
+.mathToggle {
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 0;
+}
+
+.mathToggle:hover {
+  text-decoration: underline;
+}
+
+.mathDrawer {
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  font-size: 0.85rem;
+}
+
+.mathRow {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.mathStepName {
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.mathFormula {
+  color: var(--ink-2);
+  font-family: monospace;
+  font-size: 0.8rem;
+}
+
+.mathResult {
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.inlineNotice {
+  font-size: 0.8125rem;
+  color: var(--ink-2);
+  line-height: 1.5;
+  background: var(--surface-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-s);
+  border-left: 3px solid var(--accent);
+}
+

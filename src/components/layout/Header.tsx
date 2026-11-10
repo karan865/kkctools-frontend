@@ -132,6 +132,14 @@ export default function Header() {
                   <span className={styles.dropdownDesc}>Yards, tons & truckloads for grading & filling</span>
                 </Link>
                 <Link
+                  href="/linear-foot-calculator/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Linear Foot Calculator</span>
+                  <span className={styles.dropdownDesc}>Lengths sum & sq ft ↔ linear ft conversion</span>
+                </Link>
+                <Link
                   href="/tools/"
                   className={styles.dropdownItemAll}
                   onClick={() => setToolsDropdownOpen(false)}

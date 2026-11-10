@@ -240,6 +240,25 @@ export default function Home() {
                 Launch Fill Dirt Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/linear-foot-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>📏 Lumber &amp; Finishing</span>
+              <div className={styles.toolIconBox}>📐</div>
+              <span className={styles.toolCategory}>Construction • Lumber • Finishing</span>
+              <h3 className={styles.toolTitle}>Linear Foot Calculator</h3>
+              <p className={styles.toolDesc}>
+                Add up multiple lengths across feet, inches, yards, and meters, calculate total costs with waste %, and convert between square feet and linear feet using material width.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Linear Feet</span>
+                <span className={styles.chipItem}>Sq Ft ↔ Linear Ft</span>
+                <span className={styles.chipItem}>Mixed Units</span>
+                <span className={styles.chipItem}>Cost &amp; Waste</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Linear Foot Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

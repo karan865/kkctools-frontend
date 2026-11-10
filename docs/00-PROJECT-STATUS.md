@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-10
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase FD Complete (Fill Dirt Calculator live with multi-area, sloped depth, settling buffer & full SEO spec)
-- **Overall Completion:** 70/67 tasks completed (Phase 0-6 100%, Asphalt #1, Cubic Yard #2, Sand #3, Fill Dirt #4 complete)
+- **Current Phase:** Phase LF Complete (Linear Foot Calculator live with 2 modes, mixed units, sqft-to-linear conversion & full SEO spec)
+- **Overall Completion:** 71/67 tasks completed (Phase 0-6 100%, Asphalt #1, Cubic Yard #2, Sand #3, Fill Dirt #4, Linear Foot #5 complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
