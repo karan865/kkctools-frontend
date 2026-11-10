@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-10T21:00:41.489Z
+Run Date: 2026-11-10T21:17:23.516Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -16,6 +16,7 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 975 | Brick Calculator (Brick Wall & | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2038 | Cinder Block Calculator (CMU W | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
@@ -32,5 +33,5 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 625 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 671 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

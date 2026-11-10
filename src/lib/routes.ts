@@ -104,6 +104,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  brickCalculator: {
+    path: '/brick-calculator/',
+    title: 'Brick Calculator (Brick Wall & Mortar)',
+    description: 'Free brick calculator to estimate bricks, mortar bags, and pallets for any wall. Supports standard, modular, king sizes, window deductions, waste, and costs.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

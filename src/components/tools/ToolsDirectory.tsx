@@ -138,6 +138,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/cinder-block-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'brick-calculator',
+    title: 'Brick Calculator',
+    category: 'Masonry • Brick Walls • Veneer',
+    icon: '🧱',
+    badge: '🧱 Masonry',
+    badgeType: 'business',
+    desc: 'Calculate exact brick count, mortar bags (80 lb & 60 lb), pallets, and dry weight for single and double wythe brick walls. Supports standard modular, queen, king sizes, and opening deductions.',
+    chips: ['Brick Calculator', 'Modular Bricks', 'Mortar Bags', 'Single & Double Wythe', 'Pallet Estimator'],
+    link: '/brick-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

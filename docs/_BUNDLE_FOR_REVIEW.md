@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-10T21:00:41.908Z
+Generated on: 2026-11-10T21:17:23.911Z
 
 
 
@@ -14,8 +14,8 @@ Generated on: 2026-11-10T21:00:41.908Z
 - **Last Updated:** 2026-11-11
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase SQFT Complete (Square Footage Calculator live with Single Room, Multi-Room house totals, Odd shapes [triangles, circles, semicircles, trapezoids, L-shapes], Waste % toggle, unit conversions to m², yd², in², and material budgeting)
-- **Overall Completion:** 73/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, and Square Footage Calculators complete)
+- **Current Phase:** Phase Brick Complete (Brick Calculator live with 7 brick presets, door & window deductions, mortar bag estimation, single vs double wythe masonry support, pallet estimation, and dry weight logistics)
+- **Overall Completion:** 75/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, Square Footage, Cinder Block, and Brick Calculators complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-10T21:00:41.489Z
+Run Date: 2026-11-10T21:17:23.516Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -557,6 +557,7 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 975 | Brick Calculator (Brick Wall & | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2038 | Cinder Block Calculator (CMU W | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
@@ -573,7 +574,7 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 625 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 671 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -594,6 +595,7 @@ band-name-generator/kpop/index.html
 band-name-generator/metal/index.html
 band-name-generator/random/index.html
 band-name-generator/rock/index.html
+brick-calculator/index.html
 cinder-block-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
@@ -650,6 +652,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+55f370a feat(tools): add Cinder Block CMU Calculator and full SEO spec
 0d9e8f6 style(theme): harmonize all calculators to modern ocean blue and white design - Update global design tokens: pure white card surfaces (--surface: #FFFFFF), light gray secondary panels (--surface-2: #F8FAFC), and slate typography (#0F172A) - Align all calculator action buttons and hero result cards to Electric Ocean Blue (#0284C7 -> #0369A1 gradient) - Update Header 'Explore Tools →' CTA pill to ocean blue gradient - Preserve signature energetic orange gradient exclusively for '⚡ Generate Band Names' - Harmonize active state tabs, chips, and borders across all tools (Square Footage, Linear Foot, Sand, Fill Dirt, Asphalt, Cubic Yard, Rafter) - Pass full verification pipeline (lint, 92 unit tests, check:no-network, build, seo:audit)
 233946e feat(tools): add Square Footage Calculator and reorganize keyword roadmap - Implement Square Footage Calculator (/square-footage-calculator/) with Single Room, Multi-Room house totals, and Odd Shapes (triangles, circles, semicircles, trapezoids, L-shapes) - Support waste factor allowance (0-20%), material cost budgeting, unit conversions (m², yd², in²), and perimeter linear feet - Add pure calculation engine in src/lib/square-footage-engine.ts with 6 unit tests passing - Add comprehensive editorial SEO content, WebApplication & FAQPage JSON-LD schemas targeting 'sqft calculator' (27.1K vol, KD 0%) - Integrate into homepage, tools directory, and footer navigation - Reorganize keyword research into centralized roadmap (0. DA1_SERP_Verified_Priority_Roadmap.md) and archive raw data files - Pass full verification suite (lint, tests, check:no-network, build, seo:audit)
 58bffb3 style: hide netlify drawer and floating badge completely
@@ -669,7 +672,6 @@ fa51fe8 phase-6: sitemap.xml, robots.txt, apple-touch-icon, enhanced SEO audit w
 97c02ae phase-5: trust pages (about, contact, privacy, terms), markdown guide rendering pipeline, guides index and 3 comprehensive 1,000+ word guides
 3abe11a phase-4: tools index page, dynamic genre sub-routes, 6 unique genre content pools and hub-and-spoke internal links
 07438f0 phase-3: interactive tool UI, results, saved favorites, availability check menu and 2,200+ word main tool page
-c49978b phase-2: pure TypeScript generator engine, pools, blocklist and unit tests
 ```
 
 
@@ -685,18 +687,18 @@ c49978b phase-2: pure TypeScript generator engine, pools, blocklist and unit tes
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 30ms
+✓ Running next.config.ts took 31ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.0s
+✓ Compiled successfully in 3.0s
   Running TypeScript ...
-  Finished TypeScript in 4.8s ...
+  Finished TypeScript in 2.1s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/34) ...
-  Generating static pages using 15 workers (8/34) 
-  Generating static pages using 15 workers (16/34) 
-  Generating static pages using 15 workers (25/34) 
-✓ Generating static pages using 15 workers (34/34) in 971ms
+  Generating static pages using 15 workers (0/35) ...
+  Generating static pages using 15 workers (8/35) 
+  Generating static pages using 15 workers (17/35) 
+  Generating static pages using 15 workers (26/35) 
+✓ Generating static pages using 15 workers (35/35) in 1078ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -712,6 +714,7 @@ Route (app)
 │ ├ ● /band-name-generator/metal
 │ ├ ● /band-name-generator/heavy-metal
 │ └ ● [+3 more paths]
+├ ○ /brick-calculator
 ├ ○ /cinder-block-calculator
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
@@ -783,7 +786,10 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
   299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 8 problems (0 errors, 8 warnings)
+D:\1_programmins\5.kkctools\src\lib\brick-engine.test.ts
+  2:27  warning  'BRICK_PRESETS' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 9 problems (0 errors, 9 warnings)
 
 
 ```
@@ -795,7 +801,7 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 29 HTML files in out/...
+Auditing 30 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -811,22 +817,23 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 35[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
  [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 44[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 74[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m11 passed[39m[22m[90m (11)[39m
-[2m      Tests [22m [1m[32m97 passed[39m[22m[90m (97)[39m
-[2m   Start at [22m 02:30:13
-[2m   Duration [22m 844ms[2m (transform 1.62s, setup 0ms, import 2.32s, tests 264ms, environment 15ms)[22m
+[2m Test Files [22m [1m[32m12 passed[39m[22m[90m (12)[39m
+[2m      Tests [22m [1m[32m103 passed[39m[22m[90m (103)[39m
+[2m   Start at [22m 02:47:01
+[2m   Duration [22m 875ms[2m (transform 2.57s, setup 0ms, import 3.37s, tests 295ms, environment 6ms)[22m
 
 
 ```
