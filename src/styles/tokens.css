@@ -1,34 +1,39 @@
 /* Design Tokens: Exact Theme Extracted from MKSAnalytiq & Cloudflare References */
 
 :root {
-  /* Warm Soothing Canvas (User's preferred warm tone, tuned slightly deeper for maximum eye comfort) */
+  /* Warm Soothing Canvas (User's preferred warm tone) */
   --bg: #EBE4D6;
-  --surface: #F6F0E6;
-  --surface-2: #DDD4C4;
-  --surface-hover: #FCF8F2;
+  --surface: #FFFFFF;
+  --surface-2: #F8FAFC;
+  --surface-hover: #F1F5F9;
   
-  /* Crisp Typography: Headings #17213A, Body #3D4758 */
-  --ink: #17213A;
-  --ink-2: #3D4758;
-  --muted: #727D90;
+  /* Crisp Typography: Headings #0F172A, Body #334155, Muted #64748B */
+  --ink: #0F172A;
+  --ink-2: #334155;
+  --muted: #64748B;
   
-  /* Gentle Borders */
-  --line: #D6CCBC;
-  --line-strong: #C4B9A7;
+  /* Clean Borders */
+  --line: #E2E8F0;
+  --line-strong: #CBD5E1;
   
-  /* Cobalt Blue Action & Links */
-  --accent: #0B5EA4;
-  --accent-hover: #084980;
+  /* Modern Blue Action & Primary Theme */
+  --accent: #0284C7;
+  --accent-hover: #0369A1;
   --accent-ink: #FFFFFF;
-  --accent-soft: #E8F1F9;
+  --accent-soft: #E0F2FE;
+  
+  /* Secondary / Color Primary aliases */
+  --color-primary: #0284C7;
+  --color-primary-hover: #0369A1;
+  --color-primary-subtle: #E0F2FE;
   
   /* Terracotta Orange CTA & Brand Highlights */
   --brand-orange: #C2410C;
   --brand-orange-hover: #9A3412;
   --brand-orange-soft: #FDE8DE;
   --brand-gradient: linear-gradient(135deg, #D9480F 0%, #C2410C 100%);
-  --brand-blue-gradient: linear-gradient(135deg, #1070BA 0%, #0B5EA4 100%);
-  --hero-glow: radial-gradient(circle at 85% 15%, rgba(194, 65, 12, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(11, 94, 164, 0.03) 0%, transparent 45%);
+  --brand-blue-gradient: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  --hero-glow: radial-gradient(circle at 85% 15%, rgba(194, 65, 12, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.03) 0%, transparent 45%);
   
   --highlight: #F59E0B;
   --success: #15803D;

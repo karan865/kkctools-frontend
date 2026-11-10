@@ -63,20 +63,20 @@
   display: none;
   align-items: center;
   padding: 8px 18px;
-  background: var(--brand-gradient);
+  background: var(--brand-blue-gradient);
   color: #FFFFFF !important;
   font-size: 0.875rem;
   font-weight: 600;
   border-radius: var(--radius-pill);
   text-decoration: none;
-  box-shadow: 0 2px 8px rgba(234, 88, 12, 0.25);
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.25);
   transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
   letter-spacing: -0.01em;
 }
 
 .ctaPill:hover {
   transform: translateY(-1px);
-  box-shadow: 0 4px 14px rgba(234, 88, 12, 0.35);
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.35);
   opacity: 1 !important;
 }
 
@@ -127,7 +127,7 @@
   left: 0;
   right: 0;
   height: 2px;
-  background: var(--brand-orange);
+  background: var(--color-primary, #0284c7);
   border-radius: 2px;
 }
 

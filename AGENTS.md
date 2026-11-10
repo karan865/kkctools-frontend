@@ -34,3 +34,13 @@ You are working on a multi-tool website whose primary tool is the **Band Name Ge
    - If code and documentation disagree, the task is considered incomplete.
 10. **Run `npm run verify`** before claiming any phase is finished.
 11. **Ask owner only when truly blocked** by missing owner facts or at designated checkpoints (Checkpoint 1 after Phase 3, Checkpoint 2 after Phase 6). Otherwise keep executing systematically.
+
+<!-- BEGIN:nextjs-agent-rules -->
+
+## This is NOT the Next.js you know
+
+This version has breaking changes — APIs, conventions, and file structure may all differ from your training data. Read the relevant guide in `node_modules/next/dist/docs/` (resolved from this file's directory; in monorepos the `next` package may not be visible from the repo root) before writing any code. Heed deprecation notices.
+
+This block is written and re-added by `next dev` — verify at `node_modules/next/dist/server/lib/generate-agent-files.js`. Removing it from a diff only re-creates the uncommitted change; committing it with your work keeps the tree clean.
+
+<!-- END:nextjs-agent-rules -->
