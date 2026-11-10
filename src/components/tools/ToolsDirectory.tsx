@@ -66,6 +66,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/cubic-yard-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'sand-calculator',
+    title: 'Sand Calculator',
+    category: 'Materials • Landscaping • Masonry',
+    icon: '🏖️',
+    badge: '📦 Materials',
+    badgeType: 'business',
+    desc: 'Calculate cubic yards, tons, and bags of sand for paver bedding, polymeric joint sand, sandboxes, and site leveling. Features dry, damp, and wet densities, multi-section areas, and step-by-step math breakdowns.',
+    chips: ['Sand Volume', 'Paver Sand Bedding', 'Polymeric Joint Sand', 'Sandbox Presets', 'Dry/Damp/Wet Tons'],
+    link: '/sand-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

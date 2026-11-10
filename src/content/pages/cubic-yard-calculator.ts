@@ -90,7 +90,7 @@ export const CUBIC_YARD_PAGE_COPY = {
     { label: 'Asphalt Calculator', href: '/asphalt-calculator/', live: true },
     { label: 'Concrete Slab Cost Calculator', href: '/concrete-slab-cost-calculator/', live: false },
     { label: 'Fill Dirt Calculator', href: '/fill-dirt-calculator/', live: false },
-    { label: 'Sand Calculator', href: '/sand-calculator/', live: false },
+    { label: 'Sand Calculator', href: '/sand-calculator/', live: true },
     { label: 'Stone Calculator', href: '/stone-calculator/', live: false },
     { label: 'Tons to Cubic Yards Converter', href: '/tons-to-cubic-yards/', live: false },
   ] as RelatedCalculatorLink[],

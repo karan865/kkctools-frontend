@@ -49,6 +49,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <nav className={styles.nav}>
           <div className={styles.section}>
             <span className={styles.sectionTitle}>Tools</span>
+            <Link href="/sand-calculator/" className={styles.navLink} onClick={onClose}>
+              🏖️ Sand Calculator
+            </Link>
             <Link href="/cubic-yard-calculator/" className={styles.navLink} onClick={onClose}>
               📦 Cubic Yard Calculator
             </Link>

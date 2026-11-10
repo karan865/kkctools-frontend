@@ -202,6 +202,25 @@ export default function Home() {
                 Launch Cubic Yard Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/sand-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>🏖️ Sand &amp; Masonry</span>
+              <div className={styles.toolIconBox}>🏖️</div>
+              <span className={styles.toolCategory}>Materials • Landscaping • Masonry</span>
+              <h3 className={styles.toolTitle}>Sand Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate cubic yards, tons, and bags of sand for paver bedding, polymeric joints, sandboxes, and site fill with editable densities and waste buffers.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Sand Volume</span>
+                <span className={styles.chipItem}>Paver Bedding</span>
+                <span className={styles.chipItem}>Polymeric Sand</span>
+                <span className={styles.chipItem}>Sandbox Preset</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Sand Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

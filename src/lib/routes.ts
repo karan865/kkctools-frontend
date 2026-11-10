@@ -56,6 +56,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  sandCalculator: {
+    path: '/sand-calculator/',
+    title: 'Sand Calculator: Cubic Yards, Tons & Bags',
+    description: 'Free sand calculator & estimator. Get cubic yards, tons and bags of sand for pavers, sandboxes and base layers, with waste % and editable density.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',
