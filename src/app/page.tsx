@@ -259,6 +259,25 @@ export default function Home() {
                 Launch Linear Foot Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/rafter-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>🏠 Roofing &amp; Framing</span>
+              <div className={styles.toolIconBox}>📐</div>
+              <span className={styles.toolCategory}>Roofing • Framing • Carpentry</span>
+              <h3 className={styles.toolTitle}>Rafter Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate common rafter length, roof pitch, plumb and seat cut angles, birdsmouth notch depth, and stock lumber buy lengths with live cross-section diagram.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Rafter Length</span>
+                <span className={styles.chipItem}>Roof Pitch</span>
+                <span className={styles.chipItem}>Cut Angles</span>
+                <span className={styles.chipItem}>Birdsmouth</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Rafter Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

@@ -49,6 +49,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <nav className={styles.nav}>
           <div className={styles.section}>
             <span className={styles.sectionTitle}>Tools</span>
+            <Link href="/rafter-calculator/" className={styles.navLink} onClick={onClose}>
+              🏠 Rafter Calculator
+            </Link>
             <Link href="/linear-foot-calculator/" className={styles.navLink} onClick={onClose}>
               📏 Linear Foot Calculator
             </Link>

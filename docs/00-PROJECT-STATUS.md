@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-10
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase LF Complete (Linear Foot Calculator live with 2 modes, mixed units, sqft-to-linear conversion & full SEO spec)
-- **Overall Completion:** 71/67 tasks completed (Phase 0-6 100%, Asphalt #1, Cubic Yard #2, Sand #3, Fill Dirt #4, Linear Foot #5 complete)
+- **Current Phase:** Phase RC Complete (Rafter Calculator live with Gable/Shed roofs, pitch/angle/rise-and-run, birdsmouth, rafter count, SVG diagram & full SEO spec)
+- **Overall Completion:** 72/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter Calculator complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -129,6 +129,16 @@
 - [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
 - [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase RC — Tool #6: Rafter Calculator (Wave 1 Score 84.2/100 Complete)
+- [x] RC-0 Engine: created reusable `src/lib/rafter-engine.ts`, verified all 11 test cases T1–T11 (86 vitest tests passing project-wide). *(Evidence: src/lib/rafter-engine.test.ts)*
+- [x] RC-1 UI Component: built `src/components/tool/rafter-calculator/RafterCalculator.tsx` with Gable vs Shed roof modes, pitch input options (X/12 pitch, degrees, rise-and-run, mm/m), overhang horizontal & fascia plumb cut, ridge deduction (1.5" standard, custom or none), lumber size selection (2x4 through 2x12), birdsmouth seat cut/heel cut calculation, rafter count based on building length & spacing (12", 16", 19.2", 24" o.c.), interactive dynamic SVG rafter framing diagram, and printable/copyable cut list.
+- [x] RC-2 Main Page: created `src/app/rafter-calculator/page.tsx` with complete verbatim copy from spec Section 5, Quick Answer box, interactive 15-pitch comparison chart table, and 8 comprehensive FAQ items.
+- [x] RC-3 SEO & Schema: added WebApplication, BreadcrumbList, and FAQPage JSON-LD schemas; registered route with exact meta title (`Rafter Calculator: Length, Pitch & Cut Angles`) and meta description; verified zero audit errors.
+- [x] RC-4 Navigation & Discovery: integrated Rafter Calculator into Header dropdown, mobile navigation menu, tools directory (`/tools/`), tools index, and footer.
+- [x] RC-5 Strict Verification: 0 network calls (`check:no-network`), 86/86 tests passing, 32 static export HTML pages compiled in `out/`, 0 SEO audit errors.
 
 ---
 

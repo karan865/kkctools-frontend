@@ -3,8 +3,17 @@
 > eslint src
 
 
-D:\1_programmins\5.kkctools\src\app\tools\page.tsx
-  3:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+D:\1_programmins\5.kkctools\src\components\tool\asphalt-calculator\AsphaltCalculator.tsx
+  292:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  300:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  311:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  319:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 1 problem (0 errors, 1 warning)
+D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardCalculator.tsx
+  280:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  288:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+
+✖ 8 problems (0 errors, 8 warnings)
 

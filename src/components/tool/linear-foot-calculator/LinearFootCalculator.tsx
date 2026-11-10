@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useId } from 'react';
+import React, { useState, useId, useRef } from 'react';
 import styles from './LinearFootCalculator.module.css';
 import {
   LengthUnit,
@@ -13,6 +13,7 @@ import {
 
 export default function LinearFootCalculator() {
   const baseId = useId();
+  const idCounter = useRef(3);
 
   // 2 Modes: Mode 1 = Linear Feet (Sum pieces), Mode 2 = Sq Ft <-> Linear Ft
   const [activeTab, setActiveTab] = useState<'linear' | 'convert'>('linear');
@@ -41,10 +42,11 @@ export default function LinearFootCalculator() {
   // Mode 1 Handlers
   const addRow = () => {
     if (rows.length >= 20) return;
+    const newId = `row-${idCounter.current++}`;
     setRows([
       ...rows,
       {
-        id: String(Date.now()),
+        id: newId,
         length: 10,
         unit: 'ft',
         quantity: 1,
@@ -54,11 +56,12 @@ export default function LinearFootCalculator() {
 
   const duplicateRow = (row: LinearPieceRow) => {
     if (rows.length >= 20) return;
+    const newId = `row-${idCounter.current++}`;
     setRows([
       ...rows,
       {
         ...row,
-        id: String(Date.now()),
+        id: newId,
       },
     ]);
   };
@@ -74,6 +77,7 @@ export default function LinearFootCalculator() {
 
   const handleReset = () => {
     if (activeTab === 'linear') {
+      idCounter.current = 3;
       setRows([
         { id: '1', length: 12, unit: 'ft', quantity: 4 },
         { id: '2', length: 8, inchesPart: 6, unit: 'ft-in', quantity: 2 },

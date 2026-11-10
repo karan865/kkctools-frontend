@@ -9,7 +9,6 @@ import {
   calculateSandVolume,
   calculatePaverSand,
   calculatePolymericSand,
-  DENSITIES_LB_PER_YD3,
 } from '@/lib/sand-engine';
 
 export default function SandCalculator() {
@@ -450,7 +449,11 @@ Calculated at kkctools.com/sand-calculator/`;
                     id={`${baseId}-bag-size`}
                     className={styles.selectField}
                     value={bagSizeOption}
-                    onChange={(e) => setBagSizeOption(e.target.value as any)}
+                    onChange={(e) =>
+                      setBagSizeOption(
+                        e.target.value as '40' | '50' | '60' | '80' | 'customLb' | 'customCuFt' | '25kg',
+                      )
+                    }
                   >
                     <option value="50">50 lb Bag (Most common retail)</option>
                     <option value="40">40 lb Bag</option>

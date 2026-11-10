@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 34ms
+✓ Running next.config.ts took 29ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 2.9s
+✓ Compiled successfully in 2.6s
   Running TypeScript ...
-  Finished TypeScript in 1973ms ...
+  Finished TypeScript in 1711ms ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/26) ...
-  Generating static pages using 15 workers (6/26) 
-  Generating static pages using 15 workers (12/26) 
-  Generating static pages using 15 workers (19/26) 
-✓ Generating static pages using 15 workers (26/26) in 1114ms
+  Generating static pages using 15 workers (0/32) ...
+  Generating static pages using 15 workers (8/32) 
+  Generating static pages using 15 workers (16/32) 
+  Generating static pages using 15 workers (24/32) 
+✓ Generating static pages using 15 workers (32/32) in 1215ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -23,6 +23,7 @@ Route (app)
 ├ ○ /_not-found
 ├ ○ /about
 ├ ○ /apple-icon
+├ ○ /asphalt-calculator
 ├ ○ /band-name-generator
 ├   /band-name-generator/[genre]
 │ ├ ● /band-name-generator/kpop
@@ -32,14 +33,19 @@ Route (app)
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
+├ ○ /cubic-yard-calculator
+├ ○ /fill-dirt-calculator
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /linear-foot-calculator
 ├ ○ /opengraph-image
 ├ ○ /privacy-policy
+├ ○ /rafter-calculator
 ├ ○ /robots.txt
+├ ○ /sand-calculator
 ├ ○ /sitemap.xml
 ├ ○ /terms
 └ ○ /tools

@@ -102,6 +102,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/linear-foot-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'rafter-calculator',
+    title: 'Rafter Calculator',
+    category: 'Roofing • Framing • Carpentry',
+    icon: '🏠',
+    badge: '📐 Geometry',
+    badgeType: 'business',
+    desc: 'Calculate common rafter length, roof pitch, plumb & seat cut angles, birdsmouth depth, stock lumber buy length, and total rafters needed with live cross-section diagram.',
+    chips: ['Rafter Length', 'Roof Pitch Chart', 'Plumb & Seat Angles', 'Birdsmouth Notch', 'Buy Length'],
+    link: '/rafter-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

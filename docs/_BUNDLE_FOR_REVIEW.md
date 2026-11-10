@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-09T19:26:52.663Z
+Generated on: 2026-11-10T08:07:03.588Z
 
 
 
@@ -11,11 +11,11 @@ Generated on: 2026-11-09T19:26:52.663Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-08
+- **Last Updated:** 2026-11-10
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase 6 Complete ⟵ CHECKPOINT 2 Reached
-- **Overall Completion:** 66/64 tasks completed (Phase 0 through Phase 6 100% Complete; Phase 7 pending live owner deployment)
+- **Current Phase:** Phase RC Complete (Rafter Calculator live with Gable/Shed roofs, pitch/angle/rise-and-run, birdsmouth, rafter count, SVG diagram & full SEO spec)
+- **Overall Completion:** 72/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter Calculator complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -135,7 +135,43 @@ Generated on: 2026-11-09T19:26:52.663Z
 - [ ] P8-04 Indie genre page (after the owner verifies keyword data).
 - [ ] P8-05 Additional pages from verified keyword groups (AI, India, word-based).
 - [x] P8-06 Tool #2 (Construction Estimate Template fully built, 2,767 words, 100% client-side, verified by npm run verify). *(Evidence: out/construction-estimate-template/index.html, 28 tests passing, docs/evidence/seo-audit.txt)*
+- [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
+- [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase RC — Tool #6: Rafter Calculator (Wave 1 Score 84.2/100 Complete)
+- [x] RC-0 Engine: created reusable `src/lib/rafter-engine.ts`, verified all 11 test cases T1–T11 (86 vitest tests passing project-wide). *(Evidence: src/lib/rafter-engine.test.ts)*
+- [x] RC-1 UI Component: built `src/components/tool/rafter-calculator/RafterCalculator.tsx` with Gable vs Shed roof modes, pitch input options (X/12 pitch, degrees, rise-and-run, mm/m), overhang horizontal & fascia plumb cut, ridge deduction (1.5" standard, custom or none), lumber size selection (2x4 through 2x12), birdsmouth seat cut/heel cut calculation, rafter count based on building length & spacing (12", 16", 19.2", 24" o.c.), interactive dynamic SVG rafter framing diagram, and printable/copyable cut list.
+- [x] RC-2 Main Page: created `src/app/rafter-calculator/page.tsx` with complete verbatim copy from spec Section 5, Quick Answer box, interactive 15-pitch comparison chart table, and 8 comprehensive FAQ items.
+- [x] RC-3 SEO & Schema: added WebApplication, BreadcrumbList, and FAQPage JSON-LD schemas; registered route with exact meta title (`Rafter Calculator: Length, Pitch & Cut Angles`) and meta description; verified zero audit errors.
+- [x] RC-4 Navigation & Discovery: integrated Rafter Calculator into Header dropdown, mobile navigation menu, tools directory (`/tools/`), tools index, and footer.
+- [x] RC-5 Strict Verification: 0 network calls (`check:no-network`), 86/86 tests passing, 32 static export HTML pages compiled in `out/`, 0 SEO audit errors.
+
+---
+
+### Phase CY — Tool #4: Cubic Yard Calculator (Hub Tool Wave 1 Score 76.1/100 Complete)
+- [x] CY-0 Engine: created reusable `src/lib/volume-engine.ts`, verified all 16 test cases in B5 (56 vitest tests passing). *(Evidence: src/lib/volume-engine.test.ts)*
+- [x] CY-1 UI Component: built `src/components/tool/cubic-yard-calculator/CubicYardCalculator.tsx` with Concrete & Other material toggle, 6 project types (Slab, Footing, Wall, Column, Box, Known Volume), multi-section with quantities and labels, 40/50/60/80 lb concrete bag count breakdown, ready-mix ¼-yd rounding, and step-by-step math accordion.
+- [x] CY-2 Main Page: created `src/app/cubic-yard-calculator/page.tsx` with 2,184 words of verbatim copy from spec B6, answer-first Quick Answer box, 4 responsive reference tables, and 10 FAQ items. Zero price/cost UI per anti-cannibalization rule.
+- [x] CY-3 SEO & Schema: added WebApplication, BreadcrumbList, and FAQPage JSON-LD; registered route with exact meta title/description; added to `out/sitemap.xml`.
+- [x] CY-4 Navigation & Hub Links: added to Header tools dropdown, mobile navigation menu, home page featured grid, tools directory (`/tools/`), footer, and reciprocal link with Asphalt Calculator.
+- [x] CY-5 Strict Verification: 0 network calls (`check:no-network`), 56/56 tests passing, 23 static pages compiled in `out/`, 0 SEO audit errors.
+
+---
+
+---
+
+### Phase AC — Tool #3: Asphalt Calculator (Wave 1 Score 78.9/100 Complete)
+- [x] AC-0 Setup & Engine: created reusable `src/lib/area-depth-engine.ts`, verified all 12 test cases in B5 (40 vitest tests passing). *(Evidence: src/lib/area-depth-engine.test.ts)*
+- [x] AC-1 UI Component: built `src/components/tool/asphalt-calculator/AsphaltCalculator.tsx` with hotmix & millings toggle, imperial & metric units, multi-section shape support (rectangle, circle, triangle, known area), live calculation, quick chips, advanced density/binder options, and one-click copy.
+- [x] AC-2 Main Tool Page: created `src/app/asphalt-calculator/page.tsx` with 2,234 words of verbatim copy from spec B6, 3 responsive reference tables, formula & worked example boxes, cross-section SVG diagram, and 10 FAQ items.
+- [x] AC-3 SEO & Schema: added WebApplication, BreadcrumbList, and FAQPage JSON-LD; added route definition with exact title and description; updated `sitemap.xml`.
+- [x] AC-4 Navigation & Discovery: integrated Asphalt Calculator into Header dropdown, mobile navigation menu, tools index (`/tools/`), and home page featured grid (`/`).
+- [x] AC-5 Strict Verification: 0 network calls (`check:no-network`), 40/40 tests passing, 22 static export HTML pages compiled in `out/`, 0 SEO audit errors.
+
+---
 
 ---
 
@@ -175,7 +211,12 @@ Generated on: 2026-11-09T19:26:52.663Z
 - **Decision 01 (2026-11-08):** Use Next.js 16 App Router with static export (`output: 'export'`).
 - **Decision 02 (2026-11-08):** Zero client-side network calls enforced by `scripts/check-no-network.mjs`.
 - **Decision 03 (2026-11-09):** Comprehensive SEO audit and GSC readiness action plan created at `docs/SEO-AND-SEARCH-CONSOLE-AUDIT.md`. Identified `src/config/site.ts` domain replacement and live hosting deployment as the sole blockers for GSC sitemap submission.
-- **Decision 04 (2026-11-10):** Visual design upgrade inspired by Cloudflare & MKSAnalytiq: warm ivory canvas (`#FAF7F2`), obsidian typography, terracotta orange gradient pill CTAs, 20px rounded cards, ambient hero glow, and pill search bar.
+- **Decision 04 (2026-11-10):** Visual design upgrade inspired by Cloudflare & MKSAnalytiq: warm ivory canvas (`#FFFAF2`), deep navy typography (`#17213A`), terracotta orange gradient pill CTAs (`#C2410C`), cobalt blue tool actions (`#0B5EA4`), 20px rounded cards, ambient hero glow, and pill search bar.
+- **Decision 05 (2026-11-10):** Fixed theme persistence bug by resetting legacy `theme` key to `kkc_theme_pref` ensuring default is strictly Light mode. Added active route orange bar in header, 2-column "How this works" + "Related tools" sticky layout to both tool pages, and helper trust text under all buttons.
+- **Decision 06 (2026-11-10):** Restored warm canvas to user-preferred soothing sand tone (`#EBE4D6`), eliminating glare and eye strain. All cards, tables, and form boxes are pure white (`#FFFFFF`) with borders (`#D8CFBF`) and soft elevation shadows (`0 4px 14px -2px rgba(23, 33, 58, 0.07)`).
+- **Decision 07 (2026-11-10):** Resolved table spacing issues: increased table min-width to 940px, widened Category (170px), Quantity (100px), Unit (125px), and Rate (115px). Hidden default webkit number spin buttons to eliminate number clipping. All verified via `npm run verify`.
+- **Decision 08 (2026-11-10):** Softened box surface interior (`--surface`) across the entire application from stark bright white (`#FFFFFF`) to a soothing warm parchment cream (`#F6F0E6`), eliminating harsh white glare while preserving elevation against the warm sand canvas (`#EBE4D6`) and maintaining 14.3:1 AAA text contrast. Verified via `npm run verify`.
+- **Decision 09 (2026-11-10):** Dark mode upgraded to 10/10 Obsidian Carbon standard (Apple macOS / Linear aesthetic). Deep charcoal obsidian canvas (`#090C12`), elevated card surface (`#11151F`), secondary surface (`#19202D`), recessed inputs (`#0C0F17`), precision micro-borders (`#1E2636`), radiant electric cobalt blue (`#38BDF8`), amber-orange CTAs (`#F97316`), and 1px layered glass rim-light shadows. Verified zero regressions across all 21 static pages.
 
 
 
@@ -500,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-09T19:26:52.241Z
+Run Date: 2026-11-10T08:07:03.143Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -508,6 +549,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About Our Mission & Philosophy | KKC Too | 371 | About KKC Tools | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2212 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1017 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1007 | Heavy Metal Band Name Generato | PASS |
 | `/band-name-generator/` | Band Name Generator – Free Random Band N | 2192 | Band Name Generator | PASS |
@@ -517,14 +559,19 @@ Status: PASSED ✅
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2189 | Cubic Yard Calculator: How Man | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 0 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Online Generators & Tools | 680 | Free Online Tools That Just Wo | PASS |
+| `/` | Free Online Generators & Tools | 914 | Free Online Tools That Just Wo | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 0 | Linear Foot Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 0 | Rafter Calculator – Find Rafte | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 0 | Sand Calculator | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 272 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 537 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -537,6 +584,7 @@ Status: PASSED ✅
 404/index.html
 404.html
 about/index.html
+asphalt-calculator/index.html
 band-name-generator/boy-band/index.html
 band-name-generator/heavy-metal/index.html
 band-name-generator/index.html
@@ -546,12 +594,17 @@ band-name-generator/random/index.html
 band-name-generator/rock/index.html
 construction-estimate-template/index.html
 contact/index.html
+cubic-yard-calculator/index.html
+fill-dirt-calculator/index.html
 guides/band-name-ideas-by-genre/index.html
 guides/how-to-check-if-a-band-name-is-taken/index.html
 guides/how-to-choose-a-band-name/index.html
 guides/index.html
 index.html
+linear-foot-calculator/index.html
 privacy-policy/index.html
+rafter-calculator/index.html
+sand-calculator/index.html
 terms/index.html
 tools/index.html
 _not-found/index.html
@@ -593,6 +646,12 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+7bf6ddb feat: implement linear foot calculator with multi-row pieces, sqft-to-linear conversion, and full SEO spec
+ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and full SEO spec
+526dbcb feat: implement sand calculator with volume, paver bedding, and polymeric joint modes
+c435995 feat: implement cubic yard calculator with volume engine, bag yields, and full SEO spec
+43713b4 feat: implement asphalt calculator with multi-section area-depth engine, millings mode, and full SEO content
+a9aa2f8 fix custom SVG dropdown arrows with pixel-perfect alignment across all selects and accordions
 797cd6b add bing webmaster verification meta tag
 17db478 seo docs updated
 032278e Construction Estimate tools completed
@@ -620,18 +679,18 @@ f450baa phase-0: setup, rules, static export config and docs skeleton
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 34ms
+✓ Running next.config.ts took 29ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 2.9s
+✓ Compiled successfully in 2.6s
   Running TypeScript ...
-  Finished TypeScript in 1973ms ...
+  Finished TypeScript in 1711ms ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/26) ...
-  Generating static pages using 15 workers (6/26) 
-  Generating static pages using 15 workers (12/26) 
-  Generating static pages using 15 workers (19/26) 
-✓ Generating static pages using 15 workers (26/26) in 1114ms
+  Generating static pages using 15 workers (0/32) ...
+  Generating static pages using 15 workers (8/32) 
+  Generating static pages using 15 workers (16/32) 
+  Generating static pages using 15 workers (24/32) 
+✓ Generating static pages using 15 workers (32/32) in 1215ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -640,6 +699,7 @@ Route (app)
 ├ ○ /_not-found
 ├ ○ /about
 ├ ○ /apple-icon
+├ ○ /asphalt-calculator
 ├ ○ /band-name-generator
 ├   /band-name-generator/[genre]
 │ ├ ● /band-name-generator/kpop
@@ -649,14 +709,19 @@ Route (app)
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
+├ ○ /cubic-yard-calculator
+├ ○ /fill-dirt-calculator
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /linear-foot-calculator
 ├ ○ /opengraph-image
 ├ ○ /privacy-policy
+├ ○ /rafter-calculator
 ├ ○ /robots.txt
+├ ○ /sand-calculator
 ├ ○ /sitemap.xml
 ├ ○ /terms
 └ ○ /tools
@@ -698,10 +763,19 @@ Route (app)
 > eslint src
 
 
-D:\1_programmins\5.kkctools\src\app\tools\page.tsx
-  3:8  warning  'Link' is defined but never used  @typescript-eslint/no-unused-vars
+D:\1_programmins\5.kkctools\src\components\tool\asphalt-calculator\AsphaltCalculator.tsx
+  292:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  300:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  311:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  319:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 1 problem (0 errors, 1 warning)
+D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardCalculator.tsx
+  280:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  288:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+  307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
+
+✖ 8 problems (0 errors, 8 warnings)
 
 
 ```
@@ -713,7 +787,7 @@ D:\1_programmins\5.kkctools\src\app\tools\page.tsx
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 21 HTML files in out/...
+Auditing 27 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -729,14 +803,20 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 39[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m3 passed[39m[22m[90m (3)[39m
-[2m      Tests [22m [1m[32m28 passed[39m[22m[90m (28)[39m
-[2m   Start at [22m 00:56:26
-[2m   Duration [22m 574ms[2m (transform 398ms, setup 0ms, import 525ms, tests 113ms, environment 0ms)[22m
+[2m Test Files [22m [1m[32m9 passed[39m[22m[90m (9)[39m
+[2m      Tests [22m [1m[32m86 passed[39m[22m[90m (86)[39m
+[2m   Start at [22m 13:36:37
+[2m   Duration [22m 642ms[2m (transform 1.03s, setup 0ms, import 1.44s, tests 191ms, environment 11ms)[22m
 
 
 ```

@@ -80,6 +80,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  rafterCalculator: {
+    path: '/rafter-calculator/',
+    title: 'Rafter Calculator: Length, Pitch & Cut Angles',
+    description: 'Free rafter calculator. Enter span, pitch and overhang to get rafter length, cut angles, ridge height and rafter count. Includes roof pitch chart.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

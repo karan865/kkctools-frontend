@@ -9,7 +9,6 @@ import {
   SoilMaterial,
   AreaRow,
   calculateFillDirt,
-  DENSITIES_LB_PER_YD3,
 } from '@/lib/fill-dirt-engine';
 
 export default function FillDirtCalculator() {

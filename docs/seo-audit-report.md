@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-10T07:56:54.778Z
+Run Date: 2026-11-10T08:07:03.143Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -24,10 +24,11 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Online Generators & Tools | 878 | Free Online Tools That Just Wo | PASS |
+| `/` | Free Online Generators & Tools | 914 | Free Online Tools That Just Wo | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 0 | Linear Foot Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 0 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 0 | Sand Calculator | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 497 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 537 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
