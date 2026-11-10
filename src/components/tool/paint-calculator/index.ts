@@ -1,0 +1,2 @@
+export { PaintCalculator } from './PaintCalculator';
+

@@ -112,6 +112,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  paintCostCalculator: {
+    path: '/paint-cost-calculator/',
+    title: 'Paint Cost Calculator (Coverage & Price)',
+    description: 'Free paint cost calculator to estimate gallons, quarts, and total costs for any room or house. Accounts for 1-3 coats, doors, windows, ceilings, and primer.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

@@ -70,6 +70,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/paint-cost-calculator/" className={styles.link}>
+                  Paint Cost Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/" className={styles.link}>
                   All Tools Directory
                 </Link>

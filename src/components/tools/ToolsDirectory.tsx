@@ -150,6 +150,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/brick-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'paint-cost-calculator',
+    title: 'Paint Cost Calculator',
+    category: 'Finishes • Walls • Remodeling',
+    icon: '🎨',
+    badge: '🎨 Coverage & Cost',
+    badgeType: 'popular',
+    desc: 'Calculate paint gallons, quarts, and total project costs for interior rooms, ceilings, and walls. Accounts for door/window deductions, smooth vs textured drywall, coats, and primer.',
+    chips: ['Paint Cost Calculator', 'Gallons & Quarts', 'Room Coverage', 'Ceiling & Primer', 'DIY vs Pro Savings'],
+    link: '/paint-cost-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

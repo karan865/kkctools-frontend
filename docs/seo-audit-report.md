@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-10T21:17:23.516Z
+Run Date: 2026-11-10T21:37:32.820Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -28,10 +28,11 @@ Status: PASSED ✅
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
 | `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 930 | Paint Cost Calculator (Coverag | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 671 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 716 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
