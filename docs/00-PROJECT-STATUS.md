@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-11
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase Tile Complete (Tile Calculator live with 8 presets + custom sizes, pattern waste allowances, box packaging rounding, thinset & grout estimates, and modular card UI)
-- **Overall Completion:** 77/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, Square Footage, Cinder Block, Brick, Paint Cost, and Tile Calculators complete)
+- **Current Phase:** Phase Laminate Complete (Laminate Flooring Calculator live with room/direct modes, box coverage yields, pattern waste allowance, underlayment rolls, perimeter baseboard lengths, and modular card UI)
+- **Overall Completion:** 78/67 tasks completed (Phase 0-6 100%, Asphalt, Cubic Yard, Sand, Fill Dirt, Linear Foot, Rafter, Square Footage, Cinder Block, Brick, Paint Cost, Tile, and Laminate Flooring Calculators complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|

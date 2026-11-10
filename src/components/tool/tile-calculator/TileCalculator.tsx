@@ -16,7 +16,6 @@ export function TileCalculator() {
   const customWidthId = useId();
   const boxCountId = useId();
   const priceBoxId = useId();
-  const priceSqFtId = useId();
 
   // Mode: 'room' | 'direct'
   const [mode, setMode] = useState<'room' | 'direct'>('room');

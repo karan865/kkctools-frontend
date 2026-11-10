@@ -174,6 +174,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/tile-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'laminate-flooring-calculator',
+    title: 'Laminate Flooring Calculator',
+    category: 'Flooring • Living Areas • DIY',
+    icon: '🪵',
+    badge: '🪵 Flooring',
+    badgeType: 'popular',
+    desc: 'Calculate exact boxes of laminate flooring, square footage with pattern waste, underlayment rolls, and perimeter molding lengths with DIY vs pro cost comparisons.',
+    chips: ['Laminate Flooring', 'Boxes to Buy', 'Sq Ft Coverage', 'Underlayment Rolls', 'Waste & Moldings'],
+    link: '/laminate-flooring-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

@@ -128,6 +128,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  laminateFlooringCalculator: {
+    path: '/laminate-flooring-calculator/',
+    title: 'Laminate Flooring Calculator (Boxes & Cost)',
+    description: 'Free laminate flooring calculator to estimate square footage, boxes needed, underlayment rolls, and total costs. Accounts for room shape, waste %, and pricing.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',
