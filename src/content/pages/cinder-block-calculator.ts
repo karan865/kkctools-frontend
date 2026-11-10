@@ -34,9 +34,9 @@ export interface CinderBlockContent {
 export const cinderBlockPageContent: CinderBlockContent = {
   hero: {
     badge: 'Masonry & Concrete Estimator',
-    title: 'Cinder Block Calculator (CMU Wall Estimator)',
+    title: 'Cinder Block Calculator (CMU Concrete Block Wall Estimator)',
     description:
-      'Use this free cinder block calculator to estimate how many concrete blocks, mortar bags, and core-fill concrete you need for any wall, foundation, or retaining wall project. Whether you are building an 8x8x16 standard CMU perimeter fence, a raised garden bed, or a structural basement wall, our calculator automatically factors in door and window openings, mortar joint thickness, cut wastage, and delivery weight.',
+      'Use this free cinder block calculator and concrete block calculator to estimate how many concrete blocks, mortar bags, and core-fill concrete you need for any wall, foundation, or retaining wall project. Whether you are building an 8x8x16 standard CMU perimeter fence, a raised garden bed, or a structural basement wall, our calculator automatically factors in door and window openings, mortar joint thickness, cut wastage, and delivery weight.',
   },
   sections: [
     {

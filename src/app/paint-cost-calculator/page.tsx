@@ -144,7 +144,7 @@ export default function PaintCostCalculatorPage() {
             Paint Cost Calculator (Coverage &amp; Price Estimator)
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately calculate how much paint you need in gallons and quarts, plus estimated DIY material and professional painter labor costs for walls, ceilings, and trim.
+            Accurately calculate how much paint you need in gallons and quarts using our free <strong>paint coverage calculator</strong>, plus estimated DIY material and professional painter labor costs for walls, ceilings, and trim.
           </p>
         </header>
 

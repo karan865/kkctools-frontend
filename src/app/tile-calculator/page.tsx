@@ -270,10 +270,10 @@ export default function TileCalculatorPage() {
           </ul>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Tile Installation Cost: DIY vs. Professional Labor
+            Tile Installation Cost: DIY vs. Professional Labor (How Much Grout Do I Need)
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            Understanding your project budget helps evaluate contractor quotes against DIY savings:
+            Understanding your project budget and knowing <strong>how much grout do I need</strong> helps evaluate contractor quotes against DIY savings:
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
             <div style={{ padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>

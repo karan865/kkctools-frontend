@@ -75,10 +75,11 @@ export const squareFootagePageContent: SquareFootageContent = {
         {
           heading: '2. How to Work Out Square Feet of an L-Shaped Room',
           paragraphs: [
-            'Irregular L-shaped living rooms or open floor plans should be split into two separate rectangular boxes (Section A and Section B).',
+            'Irregular L-shaped living rooms or open floor plans should be split into two separate rectangular boxes (Section A and Section B) using this square foot calculator method.',
             'Step 1: Measure Section A (e.g., 10 ft × 12 ft = 120 sq ft).',
             'Step 2: Measure Section B (e.g., 8 ft × 14 ft = 112 sq ft).',
             'Step 3: Sum the two areas together: 120 + 112 = 232 sq ft total.',
+            'Wondering how to figure out square footage for rooms with closet alcoves? Simply measure the closet separately and add it to the main room.',
           ],
         },
         {

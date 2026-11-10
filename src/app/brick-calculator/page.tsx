@@ -144,7 +144,7 @@ export default function BrickCalculatorPage() {
             Brick Calculator (Brick Wall &amp; Mortar Estimator)
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately calculate the exact number of bricks, pre-mixed mortar bags, and pallets needed for your wall project. Supports standard US modular, king, queen sizes, single vs double wythe construction, and window/door deductions.
+            Accurately calculate the exact number of bricks, pre-mixed mortar bags, and pallets needed for your wall project using our free <strong>brick wall calculator</strong>. Supports standard US modular, king, queen sizes, single vs double wythe construction, and window/door deductions.
           </p>
         </header>
 
@@ -181,10 +181,10 @@ export default function BrickCalculatorPage() {
           </ol>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Standard US Brick Dimensions &amp; Coverage Chart
+            Standard US Brick Dimensions &amp; How Many Bricks Per Square Foot
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            Use the chart below to compare dimensions and coverage rates for common North American masonry units:
+            Wondering <strong>how many bricks per square foot</strong> you need for different masonry bonds? Use the chart below to compare dimensions, coverage rates, and <strong>how many bricks in a pallet</strong> for common North American masonry units:
           </p>
 
           <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
@@ -253,10 +253,10 @@ export default function BrickCalculatorPage() {
           </div>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            How Much Mortar Do I Need for Bricks?
+            How Much Mortar Do I Need for Bricks? (How Much Mortar for 1000 Bricks)
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            Masonry mortar binds the bricks together and provides compressive load transfer and water resistance. As a standard rule of thumb:
+            If you need to know <strong>how much mortar for 1000 bricks</strong>, masonry mortar binds the bricks together and provides compressive load transfer and water resistance. As a standard rule of thumb:
           </p>
           <ul style={{ paddingLeft: '20px', marginBottom: '20px' }}>
             <li style={{ marginBottom: '8px' }}>

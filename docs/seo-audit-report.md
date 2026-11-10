@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-10T21:59:43.563Z
+Run Date: 2026-11-10T22:31:10.930Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -16,8 +16,8 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 975 | Brick Calculator (Brick Wall & | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2038 | Cinder Block Calculator (CMU W | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 1021 | Brick Calculator (Brick Wall & | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2044 | Cinder Block Calculator (CMU C | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2187 | Cubic Yard Calculator: How Man | PASS |
@@ -29,12 +29,12 @@ Status: PASSED ✅
 | `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 1294 | Laminate Flooring Calculator ( | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 930 | Paint Cost Calculator (Coverag | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 936 | Paint Cost Calculator (Coverag | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1899 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 1265 | Tile Calculator (Tile Sq Ft &  | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 1279 | Tile Calculator (Tile Sq Ft &  | PASS |
 | `/tools/` | All Online Tools & Generators | KKC Tool | 795 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
