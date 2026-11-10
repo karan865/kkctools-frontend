@@ -108,6 +108,14 @@ export default function Header() {
                   <span className={styles.dropdownDesc}>Calculate tons, cubic yards, millings & cost</span>
                 </Link>
                 <Link
+                  href="/cubic-yard-calculator/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Cubic Yard Calculator</span>
+                  <span className={styles.dropdownDesc}>Calculate yards, concrete bags & weight</span>
+                </Link>
+                <Link
                   href="/tools/"
                   className={styles.dropdownItemAll}
                   onClick={() => setToolsDropdownOpen(false)}

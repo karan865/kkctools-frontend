@@ -81,7 +81,7 @@ export const ASPHALT_PAGE_COPY = {
     },
   ] as FaqItem[],
   relatedCalculators: [
-    { label: 'Cubic Yard Calculator', href: '/cubic-yard-calculator/', live: false },
+    { label: 'Cubic Yard Calculator', href: '/cubic-yard-calculator/', live: true },
     { label: 'Stone Calculator', href: '/stone-calculator/', live: false },
     { label: 'Sand Calculator', href: '/sand-calculator/', live: false },
     { label: 'Fill Dirt Calculator', href: '/fill-dirt-calculator/', live: false },

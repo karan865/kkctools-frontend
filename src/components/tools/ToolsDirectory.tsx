@@ -54,6 +54,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/asphalt-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'cubic-yard-calculator',
+    title: 'Cubic Yard Calculator',
+    category: 'Materials • Concrete • Landscaping',
+    icon: '🧱',
+    badge: '📦 Volume',
+    badgeType: 'business',
+    desc: 'Calculate cubic yards, cubic feet, and cubic meters for concrete slabs, footings, walls, columns, soil, mulch, and gravel. Includes multi-section projects and 40, 50, 60, and 80 lb concrete bag count yields.',
+    chips: ['Cubic Yards & Bags', 'Concrete Slabs', 'Footings & Walls', 'Soil & Mulch', 'Columns'],
+    link: '/cubic-yard-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

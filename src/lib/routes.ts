@@ -48,6 +48,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  cubicYardCalculator: {
+    path: '/cubic-yard-calculator/',
+    title: 'Cubic Yard Calculator: Concrete, Bags & Weight',
+    description: 'Free cubic yard calculator: enter length, width and depth to get cubic yards, concrete bags and weight. Slab, footing, wall and column modes.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

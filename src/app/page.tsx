@@ -183,6 +183,25 @@ export default function Home() {
                 Launch Asphalt Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/cubic-yard-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>📦 Volume &amp; Concrete</span>
+              <div className={styles.toolIconBox}>🧱</div>
+              <span className={styles.toolCategory}>Materials • Landscaping • Building</span>
+              <h3 className={styles.toolTitle}>Cubic Yard Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate cubic yards for concrete slabs, footings, walls, columns, soil, mulch, and gravel. Features multi-section projects and 40–80 lb concrete bag breakdowns.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Slab &amp; Patio</span>
+                <span className={styles.chipItem}>Footings &amp; Trench</span>
+                <span className={styles.chipItem}>Columns &amp; Piers</span>
+                <span className={styles.chipItem}>Concrete Bags</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Cubic Yard Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>
