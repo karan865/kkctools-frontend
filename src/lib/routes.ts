@@ -120,6 +120,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  tileCalculator: {
+    path: '/tile-calculator/',
+    title: 'Tile Calculator (Tile Sq Ft & Boxes)',
+    description: 'Free tile calculator to estimate tiles, square footage, boxes, and grout needed for floors, showers, and backsplashes. Accounts for patterns, waste %, and cost.',
+    updated: '2026-11-11',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

@@ -75,6 +75,11 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/tile-calculator/" className={styles.link}>
+                  Tile Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/" className={styles.link}>
                   All Tools Directory
                 </Link>

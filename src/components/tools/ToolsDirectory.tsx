@@ -162,6 +162,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/paint-cost-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'tile-calculator',
+    title: 'Tile Calculator',
+    category: 'Flooring • Bathrooms • Backsplashes',
+    icon: '🔲',
+    badge: '📐 Tile Estimator',
+    badgeType: 'business',
+    desc: 'Estimate exact tile counts, retail box quantities, square footage with pattern waste, thin-set mortar, and grout for floors, showers, and kitchen backsplashes.',
+    chips: ['Tile Calculator', 'Tile Sq Ft', 'Boxes to Buy', 'Subway & 12x12', 'Grout & Mortar'],
+    link: '/tile-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-10T21:37:32.820Z
+Run Date: 2026-11-10T21:48:06.580Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -34,5 +34,6 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator (SqFt) | KKC T | 1870 | Square Footage Calculator (SqF | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 716 | Practical tools for your websi | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 1265 | Tile Calculator (Tile Sq Ft &  | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 755 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
