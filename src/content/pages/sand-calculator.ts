@@ -169,7 +169,7 @@ export const sandCalculatorPageContent: SandCalculatorContent = {
     { label: 'Cubic Yard Calculator', href: '/cubic-yard-calculator/', live: true },
     { label: 'Asphalt Calculator', href: '/asphalt-calculator/', live: true },
     { label: 'Construction Estimate Template', href: '/construction-estimate-template/', live: true },
+    { label: 'Fill Dirt Calculator', href: '/fill-dirt-calculator/', live: true },
     { label: 'Stone Calculator', href: '/stone-calculator/', live: false },
-    { label: 'Fill Dirt Calculator', href: '/fill-dirt-calculator/', live: false },
   ],
 };

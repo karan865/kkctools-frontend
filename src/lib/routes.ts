@@ -64,6 +64,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  fillDirtCalculator: {
+    path: '/fill-dirt-calculator/',
+    title: 'Fill Dirt Calculator: Cubic Yards & Tons of Dirt',
+    description: 'Free fill dirt calculator. Find how many cubic yards or tons of dirt you need for holes, grading and garden beds, with settling % and truckload estimate.',
+    updated: '2026-11-10',
+    type: 'tool',
+    indexable: true,
+  },
   kpop: {
     path: '/band-name-generator/kpop/',
     title: 'K-pop Band Name Generator – Group Name Ideas',

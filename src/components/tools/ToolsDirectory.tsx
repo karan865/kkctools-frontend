@@ -78,6 +78,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/sand-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'fill-dirt-calculator',
+    title: 'Fill Dirt Calculator',
+    category: 'Materials • Excavation • Grading',
+    icon: '🌱',
+    badge: '📦 Materials',
+    badgeType: 'business',
+    desc: 'Calculate cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, and garden beds. Features multi-area stacking, sloped depths, and customizable settling buffers.',
+    chips: ['Fill Dirt Volume', 'Topsoil Estimator', 'Sloped Depths', 'Settling Buffer', 'Truckload Calculator'],
+    link: '/fill-dirt-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

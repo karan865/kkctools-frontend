@@ -221,6 +221,25 @@ export default function Home() {
                 Launch Sand Calculator <span>→</span>
               </div>
             </Link>
+
+            <Link href="/fill-dirt-calculator/" className={styles.toolCard}>
+              <span className={styles.badgeBusiness}>🌱 Soil &amp; Grading</span>
+              <div className={styles.toolIconBox}>🚜</div>
+              <span className={styles.toolCategory}>Materials • Excavation • Grading</span>
+              <h3 className={styles.toolTitle}>Fill Dirt Calculator</h3>
+              <p className={styles.toolDesc}>
+                Calculate cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, and lawn leveling with sloped depths and settling buffers.
+              </p>
+              <div className={styles.chipsRow}>
+                <span className={styles.chipItem}>Fill Dirt</span>
+                <span className={styles.chipItem}>Topsoil</span>
+                <span className={styles.chipItem}>Sloped Depth</span>
+                <span className={styles.chipItem}>Truckloads</span>
+              </div>
+              <div className={styles.openLink}>
+                Launch Fill Dirt Calculator <span>→</span>
+              </div>
+            </Link>
           </div>
 
           <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>

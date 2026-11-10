@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-10
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Phase SC Complete (Sand Calculator live with 3 modes, volume engine & full SEO spec)
-- **Overall Completion:** 69/67 tasks completed (Phase 0-6 100%, Tool #1 Asphalt, Tool #2 Cubic Yard, Tool #3 Sand complete)
+- **Current Phase:** Phase FD Complete (Fill Dirt Calculator live with multi-area, sloped depth, settling buffer & full SEO spec)
+- **Overall Completion:** 70/67 tasks completed (Phase 0-6 100%, Asphalt #1, Cubic Yard #2, Sand #3, Fill Dirt #4 complete)
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|

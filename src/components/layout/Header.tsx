@@ -124,6 +124,14 @@ export default function Header() {
                   <span className={styles.dropdownDesc}>Yards, tons & bags for pavers, sandboxes & base</span>
                 </Link>
                 <Link
+                  href="/fill-dirt-calculator/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Fill Dirt Calculator</span>
+                  <span className={styles.dropdownDesc}>Yards, tons & truckloads for grading & filling</span>
+                </Link>
+                <Link
                   href="/tools/"
                   className={styles.dropdownItemAll}
                   onClick={() => setToolsDropdownOpen(false)}
