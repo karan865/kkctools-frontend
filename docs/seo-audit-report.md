@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-11T11:35:27.720Z
+Run Date: 2026-11-11T17:00:32.600Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -16,7 +16,7 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 1021 | Brick Calculator (Brick Wall & | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2277 | Free Brick Calculator: Estimat | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3796 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator — Garden Beds, Lawns  | 1534 | Compost Calculator: Estimate C | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |

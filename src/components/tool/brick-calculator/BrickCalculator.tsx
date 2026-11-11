@@ -4,50 +4,120 @@ import React, { useState, useId } from 'react';
 import styles from './BrickCalculator.module.css';
 import {
   BRICK_PRESETS,
+  WallRow,
   WallOpening,
+  MortarType,
   calculateBricks,
 } from '@/lib/brick-engine';
 
 export function BrickCalculator() {
-  const lengthInputId = useId();
-  const heightInputId = useId();
   const presetSelectId = useId();
-  const mortarSelectId = useId();
+  const mortarJointId = useId();
+  const mortarTypeId = useId();
+  const palletsInputId = useId();
   const priceBrickId = useId();
   const priceMortarId = useId();
 
-  // Inputs state
-  const [wallLength, setWallLength] = useState<number>(20);
-  const [wallHeight, setWallHeight] = useState<number>(8);
+  // State: Wall Rows (Single flow, no tabs)
+  const [walls, setWalls] = useState<WallRow[]>([
+    { id: '1', name: 'Main Wall', lengthFeet: 20, heightFeet: 8, quantity: 1 },
+  ]);
+
+  // State: Openings (doors, windows, custom)
+  const [openings, setOpenings] = useState<WallOpening[]>([]);
+
+  // State: Brick & Mortar Configuration
   const [presetId, setPresetId] = useState<string>('modular');
-  const [customLength, setCustomLength] = useState<number>(7.625);
-  const [customHeight, setCustomHeight] = useState<number>(2.25);
+  const [customLength, setCustomLength] = useState<string>('7.625');
+  const [customHeight, setCustomHeight] = useState<string>('2.25');
+  const [customWidth, setCustomWidth] = useState<string>('3.625');
+  const [customWeight, setCustomWeight] = useState<string>('');
   const [mortarJoint, setMortarJoint] = useState<number>(0.375); // 3/8"
+  const [mortarType, setMortarType] = useState<MortarType>('preblended');
+
+  // State: Wall Structure
   const [isDoubleWythe, setIsDoubleWythe] = useState<boolean>(false);
+  const [fillCollarJoint, setFillCollarJoint] = useState<boolean>(false);
   const [wastePercent, setWastePercent] = useState<number>(10);
+  const [bricksPerPallet, setBricksPerPallet] = useState<string>('500');
+
+  // State: Pricing
   const [pricePerBrick, setPricePerBrick] = useState<string>('');
   const [pricePerMortarBag, setPricePerMortarBag] = useState<string>('');
 
-  // Openings state
-  const [showOpenings, setShowOpenings] = useState<boolean>(false);
-  const [openings, setOpenings] = useState<WallOpening[]>([]);
-
-  // Feedback on copy
+  // UI helpers
   const [copied, setCopied] = useState<boolean>(false);
 
-  // Handlers for openings
+  // Helper to parse localized numeric inputs (supports commas)
+  const parseNum = (val: string) => {
+    if (!val) return 0;
+    const clean = val.replace(/,/g, '.');
+    const n = parseFloat(clean);
+    return isNaN(n) ? 0 : n;
+  };
+
+  // Calculation
+  const results = calculateBricks({
+    walls,
+    openings,
+    brickPresetId: presetId,
+    customLengthInches: parseNum(customLength),
+    customHeightInches: parseNum(customHeight),
+    customWidthInches: parseNum(customWidth),
+    customWeightLbs: parseNum(customWeight) > 0 ? parseNum(customWeight) : undefined,
+    mortarJointInches: mortarJoint,
+    isDoubleWythe,
+    fillCollarJoint,
+    wastePercentage: wastePercent,
+    mortarType,
+    bricksPerPallet: parseNum(bricksPerPallet) > 0 ? parseNum(bricksPerPallet) : 500,
+    pricePerBrick: parseNum(pricePerBrick),
+    pricePerMortarBag: parseNum(pricePerMortarBag),
+  });
+
+  // Handlers for Wall Rows
+  const handleAddWall = () => {
+    setWalls([
+      ...walls,
+      {
+        id: Math.random().toString(),
+        name: `Wall #${walls.length + 1}`,
+        lengthFeet: 10,
+        heightFeet: 8,
+        quantity: 1,
+      },
+    ]);
+  };
+
+  const handleRemoveWall = (id: string) => {
+    if (walls.length > 1) {
+      setWalls(walls.filter((w) => w.id !== id));
+    }
+  };
+
+  const handleUpdateWall = (id: string, field: keyof WallRow, value: string | number) => {
+    setWalls(
+      walls.map((w) => {
+        if (w.id === id) {
+          return { ...w, [field]: value };
+        }
+        return w;
+      })
+    );
+  };
+
+  // Handlers for Openings
   const handleAddDoor = () => {
     setOpenings([
       ...openings,
       {
         id: Math.random().toString(),
-        name: 'Standard Door',
+        name: 'Exterior Door',
         widthFeet: 3,
-        heightFeet: 6.8,
+        heightFeet: 6.667, // exactly 20.0 sq ft
         quantity: 1,
       },
     ]);
-    setShowOpenings(true);
   };
 
   const handleAddWindow = () => {
@@ -57,11 +127,23 @@ export function BrickCalculator() {
         id: Math.random().toString(),
         name: 'Standard Window',
         widthFeet: 3,
-        heightFeet: 4,
+        heightFeet: 4, // 12.0 sq ft
         quantity: 1,
       },
     ]);
-    setShowOpenings(true);
+  };
+
+  const handleAddCustomOpening = () => {
+    setOpenings([
+      ...openings,
+      {
+        id: Math.random().toString(),
+        name: 'Custom Opening',
+        widthFeet: 4,
+        heightFeet: 5,
+        quantity: 1,
+      },
+    ]);
   };
 
   const handleRemoveOpening = (id: string) => {
@@ -79,470 +161,607 @@ export function BrickCalculator() {
     );
   };
 
-  // Perform Calculation
-  const result = calculateBricks({
-    wallLengthFeet: wallLength,
-    wallHeightFeet: wallHeight,
-    brickPresetId: presetId,
-    customLengthInches: customLength,
-    customHeightInches: customHeight,
-    mortarJointInches: mortarJoint,
-    isDoubleWythe,
-    wastePercentage: wastePercent,
-    openings,
-    pricePerBrick: parseFloat(pricePerBrick) || 0,
-    pricePerMortarBag: parseFloat(pricePerMortarBag) || 0,
-  });
-
+  // Toolbar Actions
   const handleReset = () => {
-    setWallLength(20);
-    setWallHeight(8);
+    setWalls([{ id: '1', name: 'Main Wall', lengthFeet: 20, heightFeet: 8, quantity: 1 }]);
+    setOpenings([]);
     setPresetId('modular');
-    setCustomLength(7.625);
-    setCustomHeight(2.25);
     setMortarJoint(0.375);
+    setMortarType('preblended');
     setIsDoubleWythe(false);
+    setFillCollarJoint(false);
     setWastePercent(10);
+    setBricksPerPallet('500');
     setPricePerBrick('');
     setPricePerMortarBag('');
-    setOpenings([]);
+  };
+
+  const handleScrollToResults = () => {
+    const el = document.getElementById('brick-results-panel');
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   const handleCopySummary = () => {
-    const summary = `--- Brick Calculation Summary (kkctools.com) ---
-Wall Dimensions: ${wallLength} ft L x ${wallHeight} ft H
-Gross Wall Area: ${result.grossWallAreaSqFt} sq ft
-Openings Area Deducted: ${result.openingsAreaSqFt} sq ft
-Net Wall Area: ${result.netWallAreaSqFt} sq ft
-Brick Type: ${presetId === 'custom' ? 'Custom' : BRICK_PRESETS[presetId]?.name}
-Mortar Joint: ${mortarJoint === 0.375 ? '3/8 inch' : '1/2 inch'}
-Wall Type: ${isDoubleWythe ? 'Double Wythe (2-layer solid)' : 'Single Wythe (1-layer veneer)'}
-Waste Margin: ${wastePercent}%
-
-Results:
-• Total Bricks to Order: ${result.totalBricksNeeded} bricks (Base: ${result.baseBricksNeeded} + Waste: ${result.wasteBricks})
-• Pre-Mixed Mortar (80 lb bags): ~${result.mortarBags80lb} bags (Order ~${Math.ceil(result.mortarBags80lb)})
-• Pre-Mixed Mortar (60 lb bags): ~${result.mortarBags60lb} bags
-• Pallets / Cubes Needed: ~${result.palletsNeeded} pallets (based on ~500 bricks/pallet)
-• Total Weight: ~${result.totalWeightLbs.toLocaleString()} lbs (${result.totalWeightTons} tons)
-${result.totalCost > 0 ? `• Total Estimated Materials Cost: $${result.totalCost.toFixed(2)}` : ''}`;
+    const summary = `Brick Calculator Estimate:
+- Wall Net Area: ${results.netWallAreaSqFt} sq ft (Gross: ${results.grossWallAreaSqFt} sq ft, Openings: ${results.openingsAreaSqFt} sq ft)
+- Brick Type: ${BRICK_PRESETS[presetId]?.name || 'Custom'} (${results.bricksPerSqFt.toFixed(2)} bricks/sq ft)
+- Wythe: ${isDoubleWythe ? 'Double Wythe' : 'Single Wythe (Veneer)'}
+- Bricks to Order: ${results.totalBricksNeeded.toLocaleString()} bricks (Base: ${results.baseBricksNeeded.toLocaleString()} + ${results.wasteBricks} waste @ ${wastePercent}%)
+- Mortar Needed: ${results.mortarBags80lb} bags (80 lb pre-blended) OR ${results.mortarBags60lb} bags (60 lb)
+- Site-Mixed Alternative: ${results.masonryCementBags70lb} bags masonry cement + ${results.sandCubicYards} cu yd sand
+- Pallets (~${bricksPerPallet}/pallet): about ${results.palletsExact} pallets (${results.palletsRounded} rounded)
+- Approx Weight: ${results.totalWeightLbs.toLocaleString()} lbs (${results.totalWeightTons} tons)
+${results.totalCost > 0 ? `- Estimated Cost: $${results.totalCost.toFixed(2)} (Bricks: $${results.brickCost.toFixed(2)}, Mortar: $${results.mortarCost.toFixed(2)})` : ''}
+Calculated at KKCTools.com`;
 
     navigator.clipboard.writeText(summary);
     setCopied(true);
     setTimeout(() => setCopied(false), 2500);
   };
 
+  const handlePrint = () => {
+    window.print();
+  };
+
+  const activePreset = BRICK_PRESETS[presetId];
+
   return (
     <div className={styles.calculatorCard}>
       <div className={styles.twoColumnGrid}>
-        {/* Left Column: Input Form */}
+        {/* Left Column: Flow of Sections (Walls -> Openings -> Brick & Mortar -> Wall Structure) */}
         <div className={styles.inputColumn}>
-          {/* Wall Dimensions */}
-          <div className={styles.inputRow}>
-            <div className={styles.inputGroup}>
-              <label htmlFor={lengthInputId} className={styles.inputLabel}>
-                Wall Length <span>(feet)</span>
-              </label>
-              <input
-                id={lengthInputId}
-                type="number"
-                min="0"
-                step="0.5"
-                value={wallLength || ''}
-                onChange={(e) => setWallLength(parseFloat(e.target.value) || 0)}
-                className={styles.textInput}
-                placeholder="e.g. 20"
-              />
+          {/* Section 1: Walls */}
+          <div className={styles.sectionBlock}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>
+                <span className={styles.sectionNumber}>1</span>
+                Brick Wall Dimensions
+              </h2>
+              <button type="button" className={styles.addBtn} onClick={handleAddWall}>
+                + Add Wall Run
+              </button>
             </div>
-            <div className={styles.inputGroup}>
-              <label htmlFor={heightInputId} className={styles.inputLabel}>
-                Wall Height <span>(feet)</span>
-              </label>
-              <input
-                id={heightInputId}
-                type="number"
-                min="0"
-                step="0.5"
-                value={wallHeight || ''}
-                onChange={(e) => setWallHeight(parseFloat(e.target.value) || 0)}
-                className={styles.textInput}
-                placeholder="e.g. 8"
-              />
-            </div>
+
+            <p className={styles.helperText} style={{ marginBottom: '12px' }}>
+              Enter each wall section length and height. Use &quot;Add Wall Run&quot; for multi-sided or perimeter walls.
+            </p>
+
+            {walls.map((wall) => (
+              <div key={wall.id} className={styles.wallRowCard}>
+                <div className={styles.wallRowGrid}>
+                  <div>
+                    <label className={styles.inputLabel}>Wall Name</label>
+                    <input
+                      type="text"
+                      className={styles.textInput}
+                      value={wall.name}
+                      onChange={(e) => handleUpdateWall(wall.id, 'name', e.target.value)}
+                    />
+                  </div>
+                  <div>
+                    <label className={styles.inputLabel}>Length (ft)</label>
+                    <input
+                      type="number"
+                      min="0.5"
+                      step="any"
+                      inputMode="decimal"
+                      className={styles.textInput}
+                      value={wall.lengthFeet || ''}
+                      onChange={(e) => handleUpdateWall(wall.id, 'lengthFeet', parseNum(e.target.value))}
+                    />
+                  </div>
+                  <div>
+                    <label className={styles.inputLabel}>Height (ft)</label>
+                    <input
+                      type="number"
+                      min="0.5"
+                      step="any"
+                      inputMode="decimal"
+                      className={styles.textInput}
+                      value={wall.heightFeet || ''}
+                      onChange={(e) => handleUpdateWall(wall.id, 'heightFeet', parseNum(e.target.value))}
+                    />
+                  </div>
+                  <div>
+                    <label className={styles.inputLabel}>Qty</label>
+                    <input
+                      type="number"
+                      min="1"
+                      step="1"
+                      className={styles.textInput}
+                      value={wall.quantity || 1}
+                      onChange={(e) => handleUpdateWall(wall.id, 'quantity', parseInt(e.target.value, 10) || 1)}
+                    />
+                  </div>
+                  <div>
+                    {walls.length > 1 && (
+                      <button
+                        type="button"
+                        className={styles.iconBtn}
+                        onClick={() => handleRemoveWall(wall.id)}
+                        title="Remove Wall"
+                      >
+                        ✕
+                      </button>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
 
-          {/* Brick Size Dropdown */}
-          <div className={styles.inputGroup}>
-            <label htmlFor={presetSelectId} className={styles.inputLabel}>
-              Brick Size & Type
-            </label>
-            <select
-              id={presetSelectId}
-              value={presetId}
-              onChange={(e) => setPresetId(e.target.value)}
-              className={styles.selectInput}
-            >
-              {Object.values(BRICK_PRESETS).map((p) => (
-                <option key={p.id} value={p.id}>
-                  {p.name} — {p.description}
-                </option>
-              ))}
-              <option value="custom">Custom Brick Dimensions...</option>
-            </select>
-            {presetId !== 'custom' && (
-              <span className={styles.presetDescription}>
-                Coverage: ~{result.bricksPerSqFt} bricks per sq ft (with 3/8&quot; mortar)
-              </span>
+          {/* Section 2: Openings */}
+          <div className={styles.sectionBlock}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>
+                <span className={styles.sectionNumber}>2</span>
+                Doors &amp; Windows (Deductions)
+              </h2>
+              <div style={{ display: 'flex', gap: '6px' }}>
+                <button type="button" className={styles.addBtn} onClick={handleAddDoor}>
+                  + Door (20 sq ft)
+                </button>
+                <button type="button" className={styles.addBtn} onClick={handleAddWindow}>
+                  + Window (12 sq ft)
+                </button>
+                <button type="button" className={styles.addBtn} onClick={handleAddCustomOpening}>
+                  + Custom
+                </button>
+              </div>
+            </div>
+
+            {results.isOpeningExceeded && (
+              <div className={styles.errorBanner} role="alert">
+                Warning: Total openings area ({results.openingsAreaSqFt} sq ft) exceeds gross wall area ({results.grossWallAreaSqFt} sq ft). Net wall area set to 0.
+              </div>
+            )}
+
+            {openings.length === 0 ? (
+              <p className={styles.helperText}>
+                No doors or windows added. Add openings to accurately deduct brick and mortar quantities.
+              </p>
+            ) : (
+              openings.map((op) => (
+                <div key={op.id} className={styles.wallRowCard}>
+                  <div className={styles.wallRowGrid}>
+                    <div>
+                      <label className={styles.inputLabel}>Opening</label>
+                      <input
+                        type="text"
+                        className={styles.textInput}
+                        value={op.name}
+                        onChange={(e) => handleUpdateOpening(op.id, 'name', e.target.value)}
+                      />
+                    </div>
+                    <div>
+                      <label className={styles.inputLabel}>Width (ft)</label>
+                      <input
+                        type="number"
+                        min="0.5"
+                        step="any"
+                        inputMode="decimal"
+                        className={styles.textInput}
+                        value={op.widthFeet || ''}
+                        onChange={(e) => handleUpdateOpening(op.id, 'widthFeet', parseNum(e.target.value))}
+                      />
+                    </div>
+                    <div>
+                      <label className={styles.inputLabel}>Height (ft)</label>
+                      <input
+                        type="number"
+                        min="0.5"
+                        step="any"
+                        inputMode="decimal"
+                        className={styles.textInput}
+                        value={op.heightFeet || ''}
+                        onChange={(e) => handleUpdateOpening(op.id, 'heightFeet', parseNum(e.target.value))}
+                      />
+                    </div>
+                    <div>
+                      <label className={styles.inputLabel}>Qty</label>
+                      <input
+                        type="number"
+                        min="1"
+                        step="1"
+                        className={styles.textInput}
+                        value={op.quantity || 1}
+                        onChange={(e) => handleUpdateOpening(op.id, 'quantity', parseInt(e.target.value, 10) || 1)}
+                      />
+                    </div>
+                    <div>
+                      <button
+                        type="button"
+                        className={styles.iconBtn}
+                        onClick={() => handleRemoveOpening(op.id)}
+                        title="Remove Opening"
+                      >
+                        ✕
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              ))
             )}
           </div>
 
-          {/* Custom Size Fields if selected */}
-          {presetId === 'custom' && (
+          {/* Section 3: Brick & Mortar Selection */}
+          <div className={styles.sectionBlock}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>
+                <span className={styles.sectionNumber}>3</span>
+                Brick &amp; Mortar Specifications
+              </h2>
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label htmlFor={presetSelectId} className={styles.inputLabel}>
+                Brick Type &amp; Size
+                <span>{activePreset?.fractionLabel}</span>
+              </label>
+              <select
+                id={presetSelectId}
+                className={styles.selectInput}
+                value={presetId}
+                onChange={(e) => setPresetId(e.target.value)}
+              >
+                {Object.values(BRICK_PRESETS).map((p) => (
+                  <option key={p.id} value={p.id}>
+                    {p.name} ({p.fractionLabel})
+                  </option>
+                ))}
+                <option value="custom">Custom Size...</option>
+              </select>
+              <span className={styles.helperText}>
+                {activePreset?.helperText || 'Sizes vary by manufacturer; confirm with your supplier.'}
+              </span>
+            </div>
+
+            {presetId === 'custom' && (
+              <div className={styles.inputRow} style={{ marginTop: '10px' }}>
+                <div className={styles.inputGroup}>
+                  <label className={styles.inputLabel}>Length (in)</label>
+                  <input
+                    type="number"
+                    step="0.125"
+                    className={styles.textInput}
+                    value={customLength}
+                    onChange={(e) => setCustomLength(e.target.value)}
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <label className={styles.inputLabel}>Height (in)</label>
+                  <input
+                    type="number"
+                    step="0.125"
+                    className={styles.textInput}
+                    value={customHeight}
+                    onChange={(e) => setCustomHeight(e.target.value)}
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <label className={styles.inputLabel}>Width / Bed (in)</label>
+                  <input
+                    type="number"
+                    step="0.125"
+                    className={styles.textInput}
+                    value={customWidth}
+                    onChange={(e) => setCustomWidth(e.target.value)}
+                  />
+                </div>
+                <div className={styles.inputGroup}>
+                  <label className={styles.inputLabel}>Weight (lb)</label>
+                  <input
+                    type="number"
+                    step="0.1"
+                    className={styles.textInput}
+                    value={customWeight}
+                    onChange={(e) => setCustomWeight(e.target.value)}
+                    placeholder="approx 4.5"
+                  />
+                </div>
+              </div>
+            )}
+
+            <div className={styles.inputRow} style={{ marginTop: '12px' }}>
+              <div className={styles.inputGroup}>
+                <label htmlFor={mortarJointId} className={styles.inputLabel}>
+                  Mortar Joint Thickness
+                </label>
+                <select
+                  id={mortarJointId}
+                  className={styles.selectInput}
+                  value={mortarJoint}
+                  onChange={(e) => setMortarJoint(parseFloat(e.target.value))}
+                >
+                  <option value={0.375}>3/8 inch (Standard 0.375&quot;)</option>
+                  <option value={0.5}>1/2 inch (Thick 0.50&quot;)</option>
+                </select>
+              </div>
+
+              <div className={styles.inputGroup}>
+                <label htmlFor={mortarTypeId} className={styles.inputLabel}>
+                  Mortar Estimation Type
+                </label>
+                <select
+                  id={mortarTypeId}
+                  className={styles.selectInput}
+                  value={mortarType}
+                  onChange={(e) => setMortarType(e.target.value as MortarType)}
+                >
+                  <option value="preblended">Pre-Blended Mix (Sand Included)</option>
+                  <option value="site-mixed">Masonry Cement + Mason Sand</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          {/* Section 4: Wall Structure & Waste */}
+          <div className={styles.sectionBlock}>
+            <div className={styles.sectionHeader}>
+              <h2 className={styles.sectionTitle}>
+                <span className={styles.sectionNumber}>4</span>
+                Wall Structure &amp; Pricing
+              </h2>
+            </div>
+
+            <div className={styles.inputGroup}>
+              <label className={styles.inputLabel}>Wall Thickness / Wythe</label>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                <button
+                  type="button"
+                  className={`${styles.quickPill} ${!isDoubleWythe ? styles.quickPillActive : ''}`}
+                  onClick={() => setIsDoubleWythe(false)}
+                >
+                  Single Wythe (Veneer)
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.quickPill} ${isDoubleWythe ? styles.quickPillActive : ''}`}
+                  onClick={() => setIsDoubleWythe(true)}
+                >
+                  Double Wythe (Solid Wall)
+                </button>
+              </div>
+              <span className={styles.helperText}>
+                {isDoubleWythe
+                  ? 'Double wythe uses about twice the bricks and mortar for solid structural walls.'
+                  : 'Single wythe is standard 4-inch exterior brick veneer tied to stud or CMU backup walls.'}
+              </span>
+            </div>
+
+            {isDoubleWythe && (
+              <div style={{ marginTop: '10px', padding: '10px', background: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <label style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '0.85rem', fontWeight: 600, color: '#0F172A', cursor: 'pointer' }}>
+                  <input
+                    type="checkbox"
+                    checked={fillCollarJoint}
+                    onChange={(e) => setFillCollarJoint(e.target.checked)}
+                  />
+                  Fill 3/4-inch collar joint between wythes with mortar
+                </label>
+                <span className={styles.helperText}>
+                  Adds net area × 0.0625 cu ft of mortar (+10% waste) to bond the two brick layers.
+                </span>
+              </div>
+            )}
+
+            <div className={styles.inputGroup} style={{ marginTop: '14px' }}>
+              <label className={styles.inputLabel}>Cutting &amp; Breakage Waste</label>
+              <div className={styles.quickPillsRow}>
+                {[0, 5, 10, 15].map((pct) => (
+                  <button
+                    key={pct}
+                    type="button"
+                    className={`${styles.quickPill} ${wastePercent === pct ? styles.quickPillActive : ''}`}
+                    onClick={() => setWastePercent(pct)}
+                  >
+                    {pct}% {pct === 10 ? '(Recommended)' : ''}
+                  </button>
+                ))}
+              </div>
+            </div>
+
             <div className={styles.inputRow}>
               <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Length (inches)</label>
+                <label htmlFor={palletsInputId} className={styles.inputLabel}>
+                  Bricks per Pallet
+                </label>
                 <input
+                  id={palletsInputId}
                   type="number"
-                  step="0.125"
-                  value={customLength}
-                  onChange={(e) => setCustomLength(parseFloat(e.target.value) || 0)}
+                  min="100"
+                  step="25"
                   className={styles.textInput}
+                  value={bricksPerPallet}
+                  onChange={(e) => setBricksPerPallet(e.target.value)}
                 />
+                <span className={styles.helperText}>
+                  Varies by brick type and manufacturer; ask your supplier.
+                </span>
               </div>
+
               <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Height (inches)</label>
+                <label htmlFor={priceBrickId} className={styles.inputLabel}>
+                  Price per Brick ($) <span>(optional)</span>
+                </label>
                 <input
+                  id={priceBrickId}
                   type="number"
-                  step="0.125"
-                  value={customHeight}
-                  onChange={(e) => setCustomHeight(parseFloat(e.target.value) || 0)}
+                  min="0"
+                  step="0.01"
                   className={styles.textInput}
+                  value={pricePerBrick}
+                  onChange={(e) => setPricePerBrick(e.target.value)}
+                  placeholder="e.g. 0.85"
                 />
               </div>
             </div>
-          )}
 
-          {/* Wall Structure: Single vs Double Wythe */}
-          <div className={styles.inputGroup}>
-            <label className={styles.inputLabel}>Wall Thickness / Construction</label>
-            <div className={styles.wytheToggle}>
-              <button
-                type="button"
-                className={`${styles.wytheOption} ${!isDoubleWythe ? styles.wytheSelected : ''}`}
-                onClick={() => setIsDoubleWythe(false)}
-              >
-                <span className={styles.wytheTitle}>Single Wythe (1 Layer)</span>
-                <span className={styles.wytheSub}>Exterior veneer, siding, or garden trim</span>
-              </button>
-              <button
-                type="button"
-                className={`${styles.wytheOption} ${isDoubleWythe ? styles.wytheSelected : ''}`}
-                onClick={() => setIsDoubleWythe(true)}
-              >
-                <span className={styles.wytheTitle}>Double Wythe (2 Layers)</span>
-                <span className={styles.wytheSub}>Solid structural wall (2x brick count)</span>
-              </button>
-            </div>
-          </div>
-
-          {/* Mortar Joint Thickness */}
-          <div className={styles.inputGroup}>
-            <label htmlFor={mortarSelectId} className={styles.inputLabel}>
-              Mortar Bed Joint Thickness
-            </label>
-            <select
-              id={mortarSelectId}
-              value={mortarJoint}
-              onChange={(e) => setMortarJoint(parseFloat(e.target.value))}
-              className={styles.selectInput}
-            >
-              <option value={0.375}>3/8 inch (0.375&quot;) — US Industry Standard</option>
-              <option value={0.5}>1/2 inch (0.500&quot;) — Heavy / Rustic Bed</option>
-            </select>
-          </div>
-
-          {/* Openings Accordion */}
-          <div className={styles.openingsSection}>
-            <div
-              className={styles.openingsHeader}
-              onClick={() => setShowOpenings(!showOpenings)}
-            >
-              <span className={styles.openingsTitle}>
-                Deduct Openings (Doors &amp; Windows)
-              </span>
-              <span className={styles.openingsBadge}>
-                {openings.length > 0
-                  ? `${openings.length} deducted (${result.openingsAreaSqFt} sq ft)`
-                  : showOpenings
-                  ? 'Collapse ▲'
-                  : '+ Add Openings ▼'}
-              </span>
-            </div>
-
-            {showOpenings && (
-              <div>
-                <div style={{ display: 'flex', gap: '8px', marginTop: '12px' }}>
-                  <button
-                    type="button"
-                    onClick={handleAddDoor}
-                    className={styles.addOpeningBtn}
-                  >
-                    + Add Standard Door (3&apos; × 6.8&apos;)
-                  </button>
-                  <button
-                    type="button"
-                    onClick={handleAddWindow}
-                    className={styles.addOpeningBtn}
-                  >
-                    + Add Standard Window (3&apos; × 4&apos;)
-                  </button>
-                </div>
-
-                {openings.length > 0 && (
-                  <div className={styles.openingsList}>
-                    {openings.map((op) => (
-                      <div key={op.id} className={styles.openingRow}>
-                        <input
-                          type="text"
-                          value={op.name}
-                          onChange={(e) =>
-                            handleUpdateOpening(op.id, 'name', e.target.value)
-                          }
-                          className={styles.textInput}
-                          placeholder="Label"
-                        />
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={op.widthFeet}
-                          onChange={(e) =>
-                            handleUpdateOpening(
-                              op.id,
-                              'widthFeet',
-                              parseFloat(e.target.value) || 0
-                            )
-                          }
-                          className={styles.textInput}
-                          placeholder="W (ft)"
-                          title="Width in feet"
-                        />
-                        <input
-                          type="number"
-                          step="0.1"
-                          value={op.heightFeet}
-                          onChange={(e) =>
-                            handleUpdateOpening(
-                              op.id,
-                              'heightFeet',
-                              parseFloat(e.target.value) || 0
-                            )
-                          }
-                          className={styles.textInput}
-                          placeholder="H (ft)"
-                          title="Height in feet"
-                        />
-                        <input
-                          type="number"
-                          min="1"
-                          value={op.quantity}
-                          onChange={(e) =>
-                            handleUpdateOpening(
-                              op.id,
-                              'quantity',
-                              parseInt(e.target.value, 10) || 1
-                            )
-                          }
-                          className={styles.textInput}
-                          placeholder="Qty"
-                          title="Quantity"
-                        />
-                        <button
-                          type="button"
-                          onClick={() => handleRemoveOpening(op.id)}
-                          className={styles.removeBtn}
-                          title="Remove Opening"
-                        >
-                          ✕
-                        </button>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            )}
-          </div>
-
-          {/* Waste Factor Pills */}
-          <div className={styles.inputGroup}>
-            <label className={styles.inputLabel}>
-              Waste Factor Allowance <span>(Cuts, Breakage, Corners)</span>
-            </label>
-            <div className={styles.pillGroup}>
-              {[0, 5, 10, 15, 20].map((w) => (
-                <button
-                  key={w}
-                  type="button"
-                  onClick={() => setWastePercent(w)}
-                  className={`${styles.pillButton} ${
-                    wastePercent === w ? styles.pillActive : ''
-                  }`}
-                >
-                  {w === 10 ? '10% (Recommended)' : `${w}%`}
-                </button>
-              ))}
-            </div>
-          </div>
-
-          {/* Optional Pricing */}
-          <div className={styles.inputRow}>
-            <div className={styles.inputGroup}>
-              <label htmlFor={priceBrickId} className={styles.inputLabel}>
-                Price per Brick <span>($/unit - optional)</span>
-              </label>
-              <input
-                id={priceBrickId}
-                type="number"
-                step="0.05"
-                min="0"
-                value={pricePerBrick}
-                onChange={(e) => setPricePerBrick(e.target.value)}
-                className={styles.textInput}
-                placeholder="e.g. 0.85"
-              />
-            </div>
-            <div className={styles.inputGroup}>
+            <div className={styles.inputGroup} style={{ marginTop: '12px' }}>
               <label htmlFor={priceMortarId} className={styles.inputLabel}>
-                Price per 80 lb Mortar <span>($/bag - optional)</span>
+                Price per 80 lb Mortar Bag ($) <span>(optional)</span>
               </label>
               <input
                 id={priceMortarId}
                 type="number"
-                step="0.50"
                 min="0"
+                step="0.01"
+                className={styles.textInput}
                 value={pricePerMortarBag}
                 onChange={(e) => setPricePerMortarBag(e.target.value)}
-                className={styles.textInput}
                 placeholder="e.g. 11.50"
               />
             </div>
           </div>
+
+          {/* Action Toolbar */}
+          <div className={styles.toolbarRow}>
+            <button type="button" className={styles.primaryButton} onClick={handleScrollToResults}>
+              Calculate Bricks
+            </button>
+            <button type="button" className={styles.secondaryButton} onClick={handleReset}>
+              Reset
+            </button>
+            <button type="button" className={styles.secondaryButton} onClick={handleCopySummary}>
+              {copied ? '✓ Copied!' : 'Copy Summary'}
+            </button>
+            <button type="button" className={styles.secondaryButton} onClick={handlePrint}>
+              Print
+            </button>
+          </div>
         </div>
 
-        {/* Right Column: Output Display */}
-        <div className={styles.resultsColumn}>
-          {/* Hero Big Banner */}
-          <div className={styles.heroResultCard}>
-            <div className={styles.heroLabel}>Total Bricks to Order</div>
-            <div className={styles.heroBigNumber}>
-              {result.totalBricksNeeded.toLocaleString()}
-              <span className={styles.heroUnit}>bricks</span>
+        {/* Right Column: Live Results */}
+        <div id="brick-results-panel" className={styles.resultsColumn} aria-live="polite">
+          {/* Hero Card */}
+          <div className={styles.heroCard}>
+            <div className={styles.heroLabel}>TOTAL BRICKS TO ORDER</div>
+            <div className={styles.heroValue}>
+              {results.totalBricksNeeded.toLocaleString()} Bricks
             </div>
             <div className={styles.heroSubtext}>
-              Base Count: {result.baseBricksNeeded.toLocaleString()} bricks | +{wastePercent}% Waste Margin: +{result.wasteBricks.toLocaleString()}
+              {results.baseBricksNeeded.toLocaleString()} Base Bricks + {results.wasteBricks.toLocaleString()} Waste ({wastePercent}%)
             </div>
           </div>
 
-          {/* Secondary Specifications */}
-          <div className={styles.secondaryResultsCard}>
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Net Wall Face Area</span>
-              <span className={styles.outputValue}>
-                {result.netWallAreaSqFt} sq ft{' '}
-                {result.openingsAreaSqFt > 0 && (
-                  <span style={{ fontSize: '11px', color: '#64748B' }}>
-                    (Gross: {result.grossWallAreaSqFt} sq ft)
+          {/* Wall & Brick Breakdown Card */}
+          <div className={styles.breakdownCard}>
+            <h3 className={styles.breakdownTitle}>Wall &amp; Brick Breakdown</h3>
+
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Gross Wall Area</span>
+              <span className={styles.breakdownValue}>{results.grossWallAreaSqFt.toFixed(1)} sq ft</span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Openings Deducted</span>
+              <span className={styles.breakdownValue}>-{results.openingsAreaSqFt.toFixed(1)} sq ft</span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Net Wall Area</span>
+              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+                {results.netWallAreaSqFt.toFixed(1)} sq ft
+              </span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Coverage Rate</span>
+              <span className={styles.breakdownValue}>{results.bricksPerSqFt.toFixed(3)} bricks / sq ft</span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Nominal Dimensions</span>
+              <span className={styles.breakdownValue}>
+                {results.nominalLengthInches}&quot; × {results.nominalHeightInches}&quot; (with {mortarJoint}&quot; joint)
+              </span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Pallets Needed (~{bricksPerPallet}/pallet)</span>
+              <span className={styles.breakdownValue}>
+                about {results.palletsExact} pallets ({results.palletsRounded} rounded)
+              </span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Approximate Total Weight</span>
+              <span className={styles.breakdownValue}>
+                {results.totalWeightLbs.toLocaleString()} lbs ({results.totalWeightTons} tons)
+              </span>
+            </div>
+          </div>
+
+          {/* Mortar Breakdown Card */}
+          <div className={styles.breakdownCard}>
+            <h3 className={styles.breakdownTitle}>Mortar Requirements</h3>
+
+            {mortarType === 'preblended' ? (
+              <>
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>80 lb Pre-Blended Bags</span>
+                  <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>
+                    {results.mortarBags80lb} bags
                   </span>
+                </div>
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>60 lb Pre-Blended Bags</span>
+                  <span className={styles.breakdownValue}>{results.mortarBags60lb} bags</span>
+                </div>
+                {fillCollarJoint && isDoubleWythe && results.collarJointMortarBags80lb > 0 && (
+                  <div className={styles.breakdownRow}>
+                    <span className={styles.breakdownLabel}>Collar Joint Share</span>
+                    <span className={styles.breakdownValue}>+{results.collarJointMortarBags80lb} bags (80 lb)</span>
+                  </div>
                 )}
-              </span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Pre-Mixed Mortar (80 lb bags)</span>
-              <span className={styles.outputValue}>
-                ~{result.mortarBags80lb} bags{' '}
-                <span style={{ color: '#0284C7', fontWeight: 500 }}>
-                  (Order {Math.ceil(result.mortarBags80lb)})
-                </span>
-              </span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Pre-Mixed Mortar (60 lb bags)</span>
-              <span className={styles.outputValue}>
-                ~{result.mortarBags60lb} bags{' '}
-                <span style={{ color: '#64748B', fontWeight: 400 }}>
-                  ({Math.ceil(result.mortarBags60lb)} bags)
-                </span>
-              </span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Pallets / Cubes Required</span>
-              <span className={styles.outputValue}>
-                ~{result.palletsNeeded} pallets{' '}
-                <span style={{ fontSize: '11px', color: '#64748B' }}>
-                  (~500 bricks/pallet)
-                </span>
-              </span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Estimated Total Dry Weight</span>
-              <span className={styles.outputValue}>
-                {result.totalWeightLbs.toLocaleString()} lbs ({result.totalWeightTons} tons)
-              </span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Bricks per Square Foot</span>
-              <span className={styles.outputValue}>
-                {result.bricksPerSqFt} bricks/sq ft
-              </span>
-            </div>
+                <p className={styles.helperText} style={{ marginTop: '8px' }}>
+                  Typical yield: ~35 modular bricks per 80 lb bag at 3/8&quot; joint. Varies by product and mason; follow product label.
+                </p>
+              </>
+            ) : (
+              <>
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>70 lb Masonry Cement</span>
+                  <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>
+                    {results.masonryCementBags70lb} bags
+                  </span>
+                </div>
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>Mason Sand</span>
+                  <span className={styles.breakdownValue}>about {results.sandCubicYards} cu yd</span>
+                </div>
+                <p className={styles.helperText} style={{ marginTop: '8px' }}>
+                  Rule of thumb: ~7.5 bags masonry cement and ~1.0 cu yd mason sand per 1,000 modular bricks.
+                </p>
+              </>
+            )}
           </div>
 
-          {/* Optional Cost Section */}
-          {result.totalCost > 0 && (
-            <div className={styles.costSection}>
-              <div className={styles.outputRow}>
-                <span className={styles.outputLabel}>Estimated Brick Cost:</span>
-                <span className={styles.outputValue}>${result.brickCost.toFixed(2)}</span>
-              </div>
-              {result.mortarCost > 0 && (
-                <div className={styles.outputRow}>
-                  <span className={styles.outputLabel}>
-                    Estimated Mortar Cost ({Math.ceil(result.mortarBags80lb)} bags):
-                  </span>
-                  <span className={styles.outputValue}>${result.mortarCost.toFixed(2)}</span>
+          {/* Cost Card (only when prices are entered) */}
+          {(results.brickCost > 0 || results.mortarCost > 0) && (
+            <div className={styles.breakdownCard}>
+              <h3 className={styles.breakdownTitle}>Estimated Material Cost</h3>
+
+              {results.brickCost > 0 && (
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>Bricks ({results.totalBricksNeeded.toLocaleString()} @ ${parseNum(pricePerBrick).toFixed(2)})</span>
+                  <span className={styles.breakdownValue}>${results.brickCost.toFixed(2)}</span>
                 </div>
               )}
-              <div className={styles.costTotalRow}>
-                <span>Total Materials Cost:</span>
-                <span>${result.totalCost.toFixed(2)}</span>
+              {results.mortarCost > 0 && (
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>Mortar ({results.mortarBags80lb} bags @ ${parseNum(pricePerMortarBag).toFixed(2)})</span>
+                  <span className={styles.breakdownValue}>${results.mortarCost.toFixed(2)}</span>
+                </div>
+              )}
+              <div className={styles.breakdownRow} style={{ borderTop: '2px solid #CBD5E1', marginTop: '6px', paddingTop: '10px' }}>
+                <span className={styles.breakdownLabel} style={{ fontWeight: 800, color: '#0F172A' }}>Total Material Cost</span>
+                <span className={styles.costHighlight}>${results.totalCost.toFixed(2)}</span>
               </div>
             </div>
           )}
 
-          {/* Action Row */}
-          <div className={styles.actionRow}>
-            <button
-              type="button"
-              onClick={handleCopySummary}
-              className={styles.copyButton}
-            >
-              {copied ? '✓ Calculation Copied!' : '📋 Copy Calculation Summary'}
-            </button>
-            <button
-              type="button"
-              onClick={handleReset}
-              className={styles.resetButton}
-            >
-              Reset
-            </button>
-          </div>
+          <p className={styles.disclaimerNote}>
+            Results are estimates. Structural, load-bearing and retaining walls must follow engineered plans and local code. Confirm brick size, weight, pallet count and mortar yield with your supplier or the product label.
+          </p>
         </div>
       </div>
     </div>
   );
 }
-
