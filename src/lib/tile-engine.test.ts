@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateTiles, TILE_PRESETS } from './tile-engine';
+import { calculateTiles } from './tile-engine';
 
 describe('Tile Calculator Engine', () => {
   it('calculates 12x12 standard tile for 100 sq ft room with 10% waste', () => {

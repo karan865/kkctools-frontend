@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculatePaint, SURFACE_TEXTURES } from './paint-engine';
+import { calculatePaint } from './paint-engine';
 
 describe('Paint Calculator Engine', () => {
   it('calculates paint volume for standard 12x12 room accurately', () => {

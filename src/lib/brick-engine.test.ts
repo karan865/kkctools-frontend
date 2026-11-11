@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateBricks, BRICK_PRESETS } from './brick-engine';
+import { calculateBricks } from './brick-engine';
 
 describe('Brick Calculator Engine', () => {
   it('calculates standard modular brick for a 100 sq ft wall accurately', () => {

@@ -1,0 +1,256 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 900px) {
+  .calculatorGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+    align-items: start;
+  }
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  background-color: #0284C7;
+  color: #FFFFFF;
+  font-size: 0.85rem;
+  font-weight: 700;
+  border-radius: 50%;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.modeSwitch {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.modeBtn {
+  flex: 1;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 6px;
+  border: 1px solid #CBD5E1;
+  background: #F8FAFC;
+  color: #475569;
+  cursor: pointer;
+  text-align: center;
+}
+
+.modeBtnActive {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+}
+
+.grid2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.grid3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.inputGroup {
+  margin-bottom: 14px;
+}
+
+.inputGroup:last-child {
+  margin-bottom: 0;
+}
+
+.label {
+  display: block;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: #334155;
+  margin-bottom: 6px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0284C7;
+}
+
+.select {
+  width: 100%;
+  padding: 10px 12px;
+  font-size: 0.95rem;
+  color: #0F172A;
+  background-color: #FFFFFF;
+  border: 1.5px solid #CBD5E1;
+  border-radius: 8px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.pillsRow {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.pillButton {
+  padding: 6px 14px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: 20px;
+  border: 1px solid #CBD5E1;
+  background: #F8FAFC;
+  color: #475569;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.pillButtonActive {
+  background: #0284C7;
+  color: #FFFFFF;
+  border-color: #0284C7;
+}
+
+.helperText {
+  display: block;
+  font-size: 0.8rem;
+  color: #64748B;
+  margin-top: 4px;
+}
+
+/* Results Hero Card */
+.heroCard {
+  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  color: #FFFFFF;
+  border-radius: 12px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.2);
+  text-align: center;
+}
+
+.heroLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #BAE6FD;
+  margin-bottom: 8px;
+}
+
+.heroValue {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  margin-bottom: 10px;
+}
+
+.heroSubtext {
+  font-size: 0.9rem;
+  color: #E0F2FE;
+  line-height: 1.4;
+}
+
+/* Breakdown List */
+.breakdownCard {
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.breakdownTitle {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #0F172A;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #F1F5F9;
+}
+
+.breakdownRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #F8FAFC;
+}
+
+.breakdownRow:last-child {
+  border-bottom: none;
+}
+
+.breakdownLabel {
+  color: #475569;
+}
+
+.breakdownValue {
+  font-weight: 700;
+  color: #0F172A;
+}
+
+.costHighlight {
+  color: #059669;
+  font-weight: 800;
+  font-size: 1.15rem;
+}
+

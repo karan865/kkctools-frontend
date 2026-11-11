@@ -85,6 +85,41 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/stone-calculator/" className={styles.link}>
+                  Stone Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/stud-calculator/" className={styles.link}>
+                  Stud Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/tons-to-cubic-yards/" className={styles.link}>
+                  Tons to Cubic Yards Converter
+                </Link>
+              </li>
+              <li>
+                <Link href="/paver-sand-calculator/" className={styles.link}>
+                  Paver Sand Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/paver-base-calculator/" className={styles.link}>
+                  Paver Base Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/compost-calculator/" className={styles.link}>
+                  Compost Calculator
+                </Link>
+              </li>
+              <li>
+                <Link href="/fence-stain-calculator/" className={styles.link}>
+                  Fence Stain Calculator
+                </Link>
+              </li>
+              <li>
                 <Link href="/tools/" className={styles.link}>
                   All Tools Directory
                 </Link>

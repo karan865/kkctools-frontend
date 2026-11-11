@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest';
-import { calculateLaminateFlooring, LAMINATE_PRESETS } from './laminate-engine';
+import { calculateLaminateFlooring } from './laminate-engine';
 
 describe('Laminate Flooring Calculator Engine', () => {
   it('calculates 18x14 room with 10% waste and 20 sq ft boxes accurately', () => {
