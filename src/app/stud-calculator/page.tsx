@@ -7,16 +7,16 @@ import { SITE_NAME, SITE_URL } from '@/config/site';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Stud Calculator — Wall Framing & Lumber',
+  title: 'Stud Calculator: Wall Framing & Lumber Cost',
   description:
-    'Free stud calculator and wall framing calculator. Calculate 2x4 and 2x6 studs needed for 16" or 24" OC walls, corners, doors, windows, and plates.',
+    'Free stud calculator for wall framing. Get the exact stud count for 16" or 24" OC spacing, corners, doors, windows, plates and lumber cost.',
   alternates: {
     canonical: `${SITE_URL}/stud-calculator/`,
   },
   openGraph: {
-    title: 'Stud Calculator — Wall Framing & Lumber',
+    title: 'Stud Calculator: Wall Framing & Lumber Cost',
     description:
-      'Calculate studs, corner assemblies, door/window headers, king and jack studs, top and bottom plates, and framing lumber costs.',
+      'Free stud calculator for wall framing. Get the exact stud count for 16" or 24" OC spacing, corners, doors, windows, plates and lumber cost.',
     url: `${SITE_URL}/stud-calculator/`,
     siteName: SITE_NAME,
     type: 'website',
@@ -27,13 +27,47 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
-    name: 'Stud Framing Calculator',
+    name: 'Stud Calculator',
     url: `${SITE_URL}/stud-calculator/`,
-    applicationCategory: 'UtilityApplication',
+    applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'All',
     browserRequirements: 'Requires JavaScript',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+    },
     description:
-      'Interactive wall framing calculator to calculate 2x4 or 2x6 field studs, 3-stud California corners, partition intersections, king and jack trimmer studs, top/bottom plates, and lumber costs.',
+      'Free stud calculator for wall framing. Calculate 2x4 and 2x6 field studs, corners, partition T-junctions, doors, windows, and plate boards with cost estimation.',
+  },
+  {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      {
+        '@type': 'ListItem',
+        position: 1,
+        name: 'Home',
+        item: `${SITE_URL}/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Calculators',
+        item: `${SITE_URL}/tools/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Stud Calculator',
+        item: `${SITE_URL}/stud-calculator/`,
+      },
+    ],
   },
   {
     '@context': 'https://schema.org',
@@ -41,34 +75,26 @@ const jsonLd = [
     mainEntity: [
       {
         '@type': 'Question',
+        name: 'How do I use a stud calculator for a wall with doors and windows?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Enter your total wall run length, height, and stud spacing (16" or 24" OC). Then enter the number of wall corners, partition T-intersections, door openings, and window openings. The calculator adds the required king studs, jack trimmer studs, header boards, and a waste allowance (10% recommended) so you order the exact lumber needed without shortages.',
+        },
+      },
+      {
+        '@type': 'Question',
         name: 'How many studs do I need for a 10-foot wall?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'For a 10-foot wall with 16-inch on-center spacing, multiply 10 by 0.75 and add 1 stud to get approximately 9 field studs. If the wall has corners or doors, add 3 studs per corner and 4 studs per door, plus 10% for waste (typically 10 to 12 studs total).',
+          text: 'About 9 field studs (10 with 10% waste). With 1 corner and 1 door: 15 studs, about 17 with waste.',
         },
       },
       {
         '@type': 'Question',
-        name: 'What is the simple rule of thumb for calculating studs?',
+        name: 'What is the rule of thumb for calculating studs?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A standard framing contractor rule of thumb is one stud for every linear foot of wall (1 stud per linear foot). While field studs only occur every 16 inches (0.75 studs/ft), the extra 0.25 studs/ft accurately accounts for the extra lumber needed for corners, wall junctions, door trimmers, and scrap waste.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Should I use 2x4 or 2x6 lumber for framing?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Use 2x4 lumber for interior non-bearing partition walls, basement divider walls, and standard interior closet framing. Use 2x6 lumber for exterior walls (to accommodate high-R-value R-19 or R-21 fiberglass insulation batts), second-story load-bearing exterior walls, and plumbing wet walls containing large 3-inch PVC sewer drain pipes.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How do I calculate wall plates for framing?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Multiply your total wall run length by 3 for standard residential construction (which requires 1 bottom sole plate and a double top plate). Divide total linear footage by 16 to determine how many 16-foot stock lumber boards to purchase.',
+          text: 'A common rule of thumb is one stud per linear foot of wall (1 stud per linear foot). While 16-inch on-center field framing only places a stud every 1.33 feet (0.75 studs per linear foot), the extra 0.25 studs per foot serves as a quick ballpark for walls with a few openings and corners. For an exact lumber list and cost estimate, always use the calculator.',
         },
       },
       {
@@ -76,15 +102,23 @@ const jsonLd = [
         name: 'Why do framed walls need a double top plate?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A single top plate would buckle under heavy roof truss or second-story joist point loads that do not land directly over a wall stud. The second overlapping top plate distributes heavy roof loads across adjacent studs and interlocks adjoining perpendicular walls at corners, preventing cracking drywall joints.',
+          text: 'A double top plate ties wall sections together, interlocks intersecting partition walls and corners, and distributes concentrated weight from roof trusses or floor joists evenly across adjacent studs. A single top plate is allowed in some cases (in-line framing with approved plate ties). Check local code.',
         },
       },
       {
         '@type': 'Question',
-        name: 'How many king and jack studs are needed for a door?',
+        name: 'Do I need a pressure-treated bottom plate?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Every standard door rough opening requires 2 king studs (one full stud running ceiling-to-floor on each side) and 2 jack/trimmer studs (cut to the exact height of the door header and nailed inside the king studs to support the header).',
+          text: 'Yes, pressure-treated lumber is required by most building codes where the bottom plate sits directly on interior concrete slabs or basement floors in contact with the ground, unless separated by an approved continuous moisture-barrier sill gasket.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Should I use 2x4 or 2x6 lumber for framing?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Use 2x4 lumber for standard interior non-bearing partition walls, basement divider walls, and closet framing (3.5-inch finished cavity depth). Use 2x6 lumber for exterior walls to accommodate high-R-value R-19 or R-21 insulation batts, tall walls over 10 feet, second-story exterior load-bearing walls, and plumbing wet walls containing 3-inch drain pipes.',
         },
       },
     ],
@@ -115,245 +149,391 @@ export default function StudCalculatorPage() {
           </ol>
         </nav>
 
-        {/* Header */}
+        {/* Page Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Stud Calculator: Estimate Wall Framing Lumber, Studs &amp; Plates
+            Stud Calculator: Free Wall Framing Lumber &amp; Cost Estimator
           </h1>
-          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately plan your framing projects using our free <strong>stud calculator</strong> (also known as a <strong>wall stud calculator</strong>, <strong>stud wall calculator</strong>, and comprehensive <strong>framing calculator</strong>). Instantly compute vertical studs, corner assemblies, rough opening trimmers, top/bottom plates, and material costs with our built-in <strong>framing cost calculator</strong>.
+          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
+            Built around common International Residential Code (IRC) framing practices, this tool estimates counts for standard 2x4 and 2x6 wall runs.
           </p>
+          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
+            Looking for a stud wall calculator that handles real walls, not just a straight run? Enter your wall length, height and stud spacing, and this stud calculator for wall framing adds the extra studs for corners, partition tie-ins, doors and windows. It then shows how many 16-foot plate boards to buy and what the lumber will cost.
+          </p>
+          <div style={{ marginTop: '8px', fontSize: '0.85rem', color: '#64748B' }}>
+            <span>Last updated: November 2026</span>
+          </div>
         </header>
 
         {/* Interactive Tool */}
-        <section aria-label="Stud and Framing Calculator Tool">
+        <section aria-label="Interactive Stud Framing Calculator">
           <StudCalculator />
         </section>
 
         {/* Ad Placeholder */}
         <AdSlot slotId="stud-calc-middle" />
 
-        {/* Comprehensive SEO Editorial Content (2,200+ Words) */}
+        {/* Editorial SEO Content */}
         <article style={{ marginTop: '48px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
-            Wall Stud Calculator Guide: Accurately Estimating Framing Lumber
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Whether you are finishing an unfinished basement, partitioning an open room, framing a garage workshop, or constructing a full home addition from the ground up, accurately estimating your framing lumber is the foundation of any carpentry project. Nothing stalls a job faster than running out of 2x4 or 2x6 studs halfway through an installation, requiring emergency trips to the lumberyard and halting your drywall schedule. Conversely, over-purchasing leaves expensive lumber rotting on site.
-          </p>
-          <p style={{ marginBottom: '16px' }}>
-            Our professional <strong>stud calculator for wall</strong> assemblies calculates far more than a simplistic length-divided-by-spacing estimate. By factoring in international residential building code (IRC) framing practices, this tool computes exact counts for vertical field studs, 3-stud California corner assemblies, partition T-junction nailers, king and jack trimmer studs for rough openings, horizontal bottom sole plates, and overlapping double top plates. For roofing structures, link seamlessly with our <Link href="/rafter-calculator/" style={{ color: '#0284C7' }}>rafter calculator</Link>, or use our <Link href="/linear-foot-calculator/" style={{ color: '#0284C7' }}>linear foot calculator</Link> for plate board lumber runs.
-          </p>
+          {/* Section: What this tool counts */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Wall Stud Calculator: What This Tool Counts
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Simple straight-line calculators divide total length by 16 inches and leave you 20% short at the jobsite. A real framed wall requires lumber for structural assemblies and fastening surfaces. Our calculator accounts for:
+            </p>
+            <ul style={{ paddingLeft: '20px', marginBottom: '20px' }}>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Field Studs:</strong> Regular recurring vertical studs spaced at 16 inches or 24 inches on-center along the entire wall length, plus one starter stud.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Corner Studs:</strong> Extra studs for three-stud corner posts (such as California corners) that provide solid interior drywall backing.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>T-Wall Studs:</strong> Additional framing members at intersecting partition wall tie-ins.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>King &amp; Jack (Trimmer) Studs:</strong> 4 full vertical studs for each rough door or window opening (2 full-height king studs + 2 trimmer jack studs supporting the header).
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Header Boards:</strong> Two 2x lumber boards per opening to build load-bearing lintels across spans.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Bottom &amp; Top Plates:</strong> Total linear footage and individual 16-foot stock boards needed for the bottom sole plate and single or double top plates.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Jobsite Waste:</strong> A realistic 5% to 15% allowance (10% recommended) for warped boards, crowns, and cutting scrap.
+              </li>
+            </ul>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            How to Calculate Studs for a Wall (Step-by-Step Framing Formula)
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Framing carpenters follow a precise mathematical sequence to frame structurally sound, code-compliant walls. Follow these 7 steps to <strong>calculate studs</strong> for any wood-framed wall:
-          </p>
+          {/* Section: 16 vs 24 OC */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Framing Calculator for 2x4 &amp; 2x6 Walls: 16-Inch vs. 24-Inch On-Center Spacing
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Stud count is the same for 2x4 and 2x6 walls at the same spacing. 2x6 changes wall thickness (5.5 in vs 3.5 in), stud price and insulation space. The primary difference in lumber quantities comes from your choice of on-center (OC) spacing:
+            </p>
 
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Convert Wall Length to Inches:</strong> Measure the linear run of your wall in feet and multiply by 12 to convert to inches: Length in Inches = Wall Length (ft) × 12. For example, a 20-foot basement partition wall equals 20 × 12 = 240 inches.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Divide by On-Center Stud Spacing:</strong> Divide total inches by your chosen on-center spacing (typically 16 inches for load-bearing walls or 24 inches for utility partitions): Spacing Intervals = Length in Inches / Stud Spacing (16 or 24). For example, for a 240-inch wall at 16 inches on-center: 240 / 16 = 15 spaces.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Add One Stud for the Wall End:</strong> A row of studs requires an extra stud at the terminal end to close the final stud bay cavity: Base Field Studs = 15 + 1 = 16 studs.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Add Studs for 90-Degree Corners (+3 Studs Each):</strong> Where two walls meet at a 90-degree corner, you cannot simply butt two single studs together, or there will be no solid nailing edge inside the room for attaching drywall. Modern framing utilizes a <strong>three-stud California corner</strong>, which requires 3 full-length studs per corner to lock the walls together and provide solid drywall backing. For 2 corners: 2 × 3 = 6 additional studs.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Add Studs for Doors and Window Openings (+4 Studs Each):</strong> Every door and window rough opening requires structural framing to support the wall load above:
-              <ul style={{ paddingLeft: '20px', marginTop: '6px' }}>
-                <li><strong>2 King Studs:</strong> Full-height vertical studs nailed on the outside of the opening.</li>
-                <li><strong>2 Jack / Trimmer Studs:</strong> Shortened vertical studs nailed inside the king studs to support the horizontal header beam.</li>
-              </ul>
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Calculate Top and Bottom Plates:</strong> Walls require horizontal lumber plates at the floor and ceiling:
-              <ul style={{ paddingLeft: '20px', marginTop: '6px' }}>
-                <li><strong>Bottom Sole Plate:</strong> 1 continuous horizontal board anchored to the subfloor (must be pressure-treated if laid over concrete).</li>
-                <li><strong>Double Top Plate:</strong> 2 horizontal boards at the top of the wall that overlap at corners to tie the entire room into a rigid structural box.</li>
-                <li>Total Plates Linear Feet = Wall Length × 3. For a 20-foot wall: 20 × 3 = 60 linear feet. If purchasing standard 16-foot stock boards: 60 / 16 = 3.75 → 4 boards.</li>
-              </ul>
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Include a 10% Waste Buffer:</strong> Lumber is an organic natural product. In any bundle of dimensional framing lumber, 5% to 10% of boards will suffer from severe bowing, crowning, checking, or large bark wanes that render them unusable as full-height studs. Always add a 10% waste buffer to your order.
-            </li>
-          </ol>
+            <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>Framing System</th>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>Common Applications</th>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>Stud Density</th>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>Pros &amp; Code Nuances</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>16 Inches OC (Standard)</td>
+                    <td style={{ padding: '10px 14px' }}>Load-bearing exterior walls, multi-story buildings, heavy drywall tile backer</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.75 studs/LF + 1</td>
+                    <td style={{ padding: '10px 14px' }}>Universal code compliance, solid nailing for 1/2&quot; drywall, rigid tile and cabinet support</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>24 Inches OC (Advanced Framing)</td>
+                    <td style={{ padding: '10px 14px' }}>Interior non-bearing partitions, single-story exterior walls, garage walls</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.50 studs/LF + 1</td>
+                    <td style={{ padding: '10px 14px' }}>Uses roughly 25-30% fewer field studs; less wood means less thermal bridging (Advanced Framing / OVE); 5/8&quot; drywall is often recommended for a flatter finish.</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Framing Calculator: 16-Inch vs. 24-Inch On-Center Spacing
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Understanding when to frame at 16 inches on-center versus 24 inches on-center is essential for code compliance and structural stability:
-          </p>
+          {/* Section: Wall Length Chart */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              How Many Studs Do I Need? Wall Length Chart (Field Studs Only)
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Use this quick reference table to find base field studs for standard wall run lengths. <em>Add 2 per corner, 2 per T-wall, 4 per door or window, then waste.</em>
+            </p>
 
-          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Framing Standard</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Stud Spacing (OC)</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Studs per 10 Linear Feet</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Recommended Applications</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Advantages &amp; Considerations</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>16&quot; On-Center (OC)</td>
-                  <td style={{ padding: '10px 14px' }}>16 inches (406 mm)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>~8.5 studs</td>
-                  <td style={{ padding: '10px 14px' }}>Exterior load-bearing walls, 2-story homes, tiled bathroom walls, heavy cabinetry walls</td>
-                  <td style={{ padding: '10px 14px' }}>Maximum shear strength; prevents drywall bowing; universal standard for residential construction.</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>24&quot; On-Center (OC)</td>
-                  <td style={{ padding: '10px 14px' }}>24 inches (610 mm)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>~6.0 studs</td>
-                  <td style={{ padding: '10px 14px' }}>Non-load-bearing interior partition walls, basement dividers, detached utility sheds</td>
-                  <td style={{ padding: '10px 14px' }}>Saves ~25% lumber cost; allows thicker insulation batts (Advanced Framing / OVE); requires 5/8&quot; drywall to avoid sagging.</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
+                <thead>
+                  <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>Wall Run Length</th>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>16-Inch OC Field Studs</th>
+                    <th style={{ padding: '10px 14px', color: '#0F172A' }}>24-Inch OC Field Studs</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>4 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>4 studs</td>
+                    <td style={{ padding: '10px 14px' }}>3 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>6 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>6 studs</td>
+                    <td style={{ padding: '10px 14px' }}>4 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>8 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>7 studs</td>
+                    <td style={{ padding: '10px 14px' }}>5 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>10 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>9 studs</td>
+                    <td style={{ padding: '10px 14px' }}>6 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>12 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>10 studs</td>
+                    <td style={{ padding: '10px 14px' }}>7 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>14 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>12 studs</td>
+                    <td style={{ padding: '10px 14px' }}>8 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>16 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>13 studs</td>
+                    <td style={{ padding: '10px 14px' }}>9 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>20 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>16 studs</td>
+                    <td style={{ padding: '10px 14px' }}>11 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>24 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>19 studs</td>
+                    <td style={{ padding: '10px 14px' }}>13 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>30 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>24 studs</td>
+                    <td style={{ padding: '10px 14px' }}>16 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>40 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>31 studs</td>
+                    <td style={{ padding: '10px 14px' }}>21 studs</td>
+                  </tr>
+                  <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                    <td style={{ padding: '10px 14px', fontWeight: 600 }}>50 Feet</td>
+                    <td style={{ padding: '10px 14px' }}>39 studs</td>
+                    <td style={{ padding: '10px 14px' }}>26 studs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Anatomy of a Framed Wall Opening: King, Jack &amp; Cripple Studs
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            When framing rough openings for doors and windows, standard wall studs are cut away, requiring specialized framing members to transfer floor and roof loads around the opening:
-          </p>
+          {/* Section: Step-by-Step Framing Calculation Method */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              How to Calculate Studs for a Wall (Step-by-Step Formula)
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Carpenters use this standard six-step formula to calculate framing lumber accurately:
+            </p>
+            <ol style={{ paddingLeft: '20px', marginBottom: '20px' }}>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Calculate Total Wall Length in Inches:</strong> Convert your run length to inches: Total Inches = Length in Feet × 12 + Inches. For example, a 24-foot wall equals 24 × 12 = 288 inches.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Determine Base Field Studs:</strong> Divide total length in inches by your stud spacing (16 or 24), round up to the next whole number, and add one starter stud: Field Studs = RoundUp(Total Inches / Spacing) + 1. For a 24-ft wall at 16&quot; OC: 288 / 16 = 18 + 1 = 19 field studs.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Add Studs for Corners:</strong> Each corner is built as a three-stud assembly so drywall has solid nailing on both sides (the California corner is a popular variant). One of those three studs is already counted in the field studs, so the calculator adds 2 extra studs per corner. Example: 2 corners = 2 × 2 = 4 additional studs.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Add Studs for T-Wall Partition Tie-Ins:</strong> Where an interior wall intersects perpendicular to another wall, carpenters nail blocking or a 3-stud backing channel. Add 2 studs per T-junction.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Add Studs for Rough Openings (Doors &amp; Windows):</strong> Add 4 full studs per door or window (2 king + 2 jack). Studs that would have fallen inside the opening are cut into cripples, so no deduction is needed. Headers are separate boards, 2 per opening.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Calculate Plate Boards (Sole Plate &amp; Top Plates):</strong> Standard walls require 1 bottom sole plate and 2 top plates (3 plate layers total). For a 20-ft wall: total plate LF is 20 × 3 = 60 LF. Ordering standard 16-foot lumber boards: bottom plate = 20 / 16 = 1.25 → 2 boards; top plates = 40 / 16 = 2.5 → 3 boards; total = 5 boards (reusing offcuts, the absolute minimum is 60 / 16 = 3.75 → 4 boards). A pressure-treated bottom plate is required by most codes where the plate sits on concrete in contact with the ground, unless separated by a moisture barrier.
+              </li>
+            </ol>
+          </section>
 
-          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '10px' }}>
-              <strong>King Studs (Full Studs):</strong> Full-height studs running from bottom plate to top plate on either side of the rough opening. They maintain wall verticality and provide attachment points for casing trim.
-            </li>
-            <li style={{ marginBottom: '10px' }}>
-              <strong>Jack Studs / Trimmers:</strong> Cut to fit directly underneath each end of the horizontal header beam. Jack studs carry the entire downward gravitational load from the header down to the bottom sole plate.
-            </li>
-            <li style={{ marginBottom: '10px' }}>
-              <strong>Rough Header:</strong> A solid beam (commonly two 2x6, 2x8, 2x10, or 2x12 boards sandwiched with 1/2-inch plywood spacer) spanning across the top of the opening to bridge the structural load across the span.
-            </li>
-            <li style={{ marginBottom: '10px' }}>
-              <strong>Cripple Studs:</strong> Shortened studs installed on 16-inch centers above the header or below window sills to maintain drywall nailing spacing without carrying structural weight.
-            </li>
-          </ul>
+          {/* Section: Cost Estimation */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Framing Cost Calculator: Estimating Lumber Expenses
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Framing lumber costs fluctuate with seasonal supply and demand. Prices are approximate and vary by region and season; check your local lumberyard:
+            </p>
+            <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>2x4x92-5/8&quot; Precut Studs:</strong> ~$3.50 to $6.00 per stud (average ~$4.50).
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>2x6x92-5/8&quot; Precut Studs:</strong> ~$6.00 to $9.50 per stud (average ~$7.50).
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>16-ft Top Plate Boards (2x4 / 2x6 SPF):</strong> ~$8.00 to $12.00 per board.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>16-ft Pressure-Treated Bottom Plate Boards:</strong> ~$12.00 to $18.00 per board.
+              </li>
+              <li style={{ marginBottom: '8px' }}>
+                <strong>Framing Fasteners:</strong> Budget ~$30 to $50 for a box of 3-1/2&quot; 16d common nails or structural screws.
+              </li>
+            </ul>
+            <p style={{ marginBottom: '16px' }}>
+              On average, DIY framing material costs range from roughly <strong>$0.75 to $1.50 per sq ft of wall area (lumber only)</strong>. Professional carpentry labor typically adds <strong>$5 to $10 per linear foot</strong> for interior non-bearing walls, and <strong>$8 to $16 per linear foot</strong> for exterior load-bearing walls. For a 200 linear foot home addition or full basement finish, expect materials to run about $1,200 to $2,000, and labor to run about $1,000 to $2,000.
+            </p>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Framing Cost Calculator: Estimating DIY vs. Professional Contractor Costs
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Lumber pricing fluctuates based on regional commodity timber markets, but material budgeting follows consistent ratios:
-          </p>
+          {/* Section: Worked Example */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Worked Example: Framing a 42-Foot L-Shaped Basement Partition Run
+            </h2>
+            <p style={{ marginBottom: '16px' }}>
+              Consider a real-world DIY project: finishing a basement with a 42-foot L-shaped partition wall (28 ft on one run + 14 ft on the other) with 8-foot ceilings, 16&quot; OC spacing, 1 exterior corner, 1 closet T-wall tie-in, 2 interior door openings, and a concrete slab floor.
+            </p>
 
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#0F172A', marginBottom: '10px' }}>
-            DIY Material Costs ($1.00 – $2.50 per sq ft of wall area)
-          </h3>
-          <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
-            <li><strong>Standard 2x4x8&apos; Studs (Spruce-Pine-Fir / Hem-Fir):</strong> $3.50 to $6.00 per stud.</li>
-            <li><strong>Heavy-Duty 2x6x8&apos; Studs:</strong> $6.00 to $9.50 per stud.</li>
-            <li><strong>Pressure-Treated 2x4x16&apos; Bottom Plates:</strong> $12.00 to $18.00 per board.</li>
-            <li><strong>Fasteners (3&quot; 16D Common Nails / Framing Screws):</strong> $30 to $50 per 5 lb box.</li>
-          </ul>
+            <div style={{ backgroundColor: '#F8FAFC', border: '1px solid #E2E8F0', borderRadius: '8px', padding: '20px', marginBottom: '20px' }}>
+              <p style={{ margin: '0 0 8px 0' }}><strong>1. Total Length:</strong> 42 ft = 504 inches.</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>2. Base Field Studs:</strong> 504 / 16 = 31.5 → Round up to 32 + 1 = <strong>33 field studs</strong>.</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>3. Corner Studs:</strong> 1 corner × 2 = <strong>2 extra studs</strong>.</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>4. T-Wall Partition Studs:</strong> 1 T-wall × 2 = <strong>2 extra studs</strong>.</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>5. Door Openings:</strong> 2 doors × 4 = <strong>8 studs</strong> (4 king + 4 jack).</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>6. Subtotal Vertical Studs:</strong> 33 + 2 + 2 + 8 = <strong>45 studs</strong>.</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>7. Waste Factor (+10%):</strong> 45 × 1.10 = 49.5 → Round up to <strong>50 studs</strong> (2x4x92-5/8&quot; precuts).</p>
+              <p style={{ margin: '0 0 8px 0' }}><strong>8. Plate Lumber:</strong> 42 ft × 3 plates = 126 Linear Feet.</p>
+              <p style={{ margin: '0 0 8px 0' }}>&bull; Bottom Plate (Pressure-Treated): 42 / 16 = 2.6 → <strong>3 boards</strong> (16-ft PT).</p>
+              <p style={{ margin: '0 0 8px 0' }}>&bull; Double Top Plate: 84 / 16 = 5.25 → <strong>6 boards</strong> (16-ft standard SPF).</p>
+              <p style={{ margin: '0' }}><strong>9. Header Boards:</strong> 2 doors × 2 = <strong>4 boards</strong>.</p>
+            </div>
+          </section>
 
-          <h3 style={{ fontSize: '1.15rem', fontWeight: 600, color: '#0F172A', marginBottom: '10px' }}>
-            Professional Framing Labor ($5.00 – $10.00 per linear foot)
-          </h3>
-          <p style={{ marginBottom: '24px' }}>
-            Professional carpentry framing crews charge between $5 and $10 per linear foot of framed interior wall for labor, or $8 to $16 per linear foot for exterior walls including window setting and plywood sheathing. A typical 200-linear-foot basement framing project costs approximately $1,200 to $2,000 for materials, and $2,500 to $4,500 if hiring a licensed carpentry sub-contractor. Use our <Link href="/construction-estimate-template/" style={{ color: '#0284C7' }}>construction estimate template</Link> to build comprehensive client quotes.
-          </p>
+          {/* Section: 5 Pro Tips */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              5 Essential Pro Tips for Wall Framing
+            </h2>
+            <ol style={{ paddingLeft: '20px', marginBottom: '20px' }}>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Always Sight and Crown Your Studs:</strong> Lumber is rarely perfectly straight. Sight down each stud edge and mark the &quot;crown&quot; (the bowed curve) with a pencil arrow. Frame all wall studs with crowns facing the same exterior direction so the finished wall bows uniformly rather than producing irregular waves behind drywall.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Protect Bottom Plates Against Slab Moisture:</strong> Most codes require pressure-treated lumber (or a moisture barrier) where a plate sits on slab concrete. Use fasteners rated for treated wood (hot-dip galvanized or stainless), and anchor the bottom plate to concrete with concrete fasteners.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Lap Top Plates at Wall Intersections:</strong> When framing corners and T-intersections, leave the upper plate short by the width of the intersecting wall (3.5 in for 2x4 walls, 5.5 in for 2x6). The overlapping plate from the adjoining wall locks the framework into a rigid structural diaphragm.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Buy Pre-Cut 92-5/8&quot; Studs for Standard 8-Foot Ceilings:</strong> Do not buy standard 8-foot (96-inch) 2x4 lumber for vertical studs! A standard wall assembly features three 1.5-inch plates (bottom sole plate + double top plate = 4.5 inches). Adding 4.5 inches to standard 92-5/8-inch precut studs produces a finished wall height of 97-1/8 inches, accommodating two 48-inch drywall sheets with a 1/2-inch floor gap.
+              </li>
+              <li style={{ marginBottom: '12px' }}>
+                <strong>Flash the Rough Window Sill:</strong> Apply sill-pan or flashing tape over the rough sill before setting the window, and set windows level and plumb. This sends incidental water out and protects framing from rot.
+              </li>
+            </ol>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Worked Example: Framing a 28 ft × 14 ft Basement Living Area
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Let&apos;s calculate the exact lumber order for finishing an L-shaped basement wall section:
-          </p>
-          <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
-            <li><strong>Total Wall Length:</strong> 28 feet (main wall) + 14 feet (return wall) = 42 linear feet.</li>
-            <li><strong>Wall Height:</strong> 8 feet.</li>
-            <li><strong>Stud Spacing:</strong> 16 inches on-center.</li>
-            <li><strong>Corners:</strong> 2 outside 90-degree corners.</li>
-            <li><strong>Partitions:</strong> 1 intersecting closet wall (T-junction).</li>
-            <li><strong>Openings:</strong> 1 pre-hung interior door (32&quot; door) + 1 egress window.</li>
-          </ul>
-
-          <p style={{ marginBottom: '10px', fontWeight: 600 }}>Step-by-Step Math:</p>
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li>Wall Length in Inches = 42 ft × 12 = 504 inches.</li>
-            <li>Base Field Studs = Math.ceil(504 / 16) + 1 = 32 + 1 = 33 studs.</li>
-            <li>Corners (2 corners × 3 studs) = 6 studs.</li>
-            <li>T-Junctions (1 wall × 2 studs) = 2 studs.</li>
-            <li>Openings (2 openings × 4 studs) = 8 studs.</li>
-            <li>Subtotal Studs = 33 + 6 + 2 + 8 = 49 studs.</li>
-            <li>Add 10% Waste = 49 × 1.10 = 53.9 → <strong>54 Studs (2x4x8&apos;)</strong>.</li>
-            <li>
-              Plates Linear Feet = 42 ft × 3 plates = 126 Linear Feet.
-              <ul style={{ paddingLeft: '20px', marginTop: '6px' }}>
-                <li>Bottom Plates (Pressure-Treated): 42 / 16 = <strong>3 Boards (2x4x16&apos;)</strong>.</li>
-                <li>Top Plates (Standard Framing): (42 × 2) / 16 = 84 / 16 = <strong>6 Boards (2x4x16&apos;)</strong>.</li>
-              </ul>
-            </li>
-          </ol>
-
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            5 Essential Pro Tips for Framing Wood Walls
-          </h2>
-          <ol style={{ paddingLeft: '20px', marginBottom: '32px' }}>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Crown Every Stud Before Nailing:</strong> Natural lumber boards are rarely perfectly straight; they have a slight edge bow called a &quot;crown&quot;. Lay each stud on edge, sight down the length, and mark an arrow pointing toward the crown. When framing walls, always install all studs with their crowns facing the same direction (facing outside or facing up) to ensure your drywall hangs on a uniformly flat plane without alternating ripples.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Use Pressure-Treated Wood on Concrete Floors:</strong> Building codes strictly prohibit untreated wood from making direct contact with slab concrete because concrete wicks moisture from the earth. Always use ACQ or copper-azole pressure-treated lumber for your bottom sole plate, and use hot-dipped galvanized or ceramic-coated fasteners that resist corrosion from chemical wood treatments.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Lap Top Plates at Wall Intersections:</strong> When framing two walls that meet at a corner, extend the lower top plate to the wall edge, but leave the second upper top plate 3.5 inches short. The upper top plate of the adjoining wall overlaps across this gap, tying the two separate walls into an earthquake- and wind-resistant structural corner.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Layout Plates Together:</strong> Lay your bottom sole plate and top plate side-by-side on the floor and hook your tape measure from one end. Mark both plates simultaneously with a speed square at 15-1/4 inches, 31-1/4 inches, and every 16 inches thereafter. This guarantees perfect vertical plumb alignment when studs are raised.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Pre-Cut Window and Door Sills:</strong> Sloping window sills slightly outward (about 1/4 inch per foot) directs incidental rainwater away from interior framing, preventing hidden wall cavity dry rot.
-            </li>
-          </ol>
-
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Frequently Asked Questions
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
-            {((jsonLd[1] as { mainEntity: Array<{ name: string; acceptedAnswer: { text: string } }> }).mainEntity).map((item, idx) => (
-              <div key={idx} style={{ background: '#F8FAFC', padding: '18px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>
-                  {item.name}
+          {/* Section: FAQ */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Frequently Asked Questions
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  How do I use a stud calculator for a wall with doors and windows?
                 </h3>
-                <p style={{ margin: 0, color: '#475569', lineHeight: 1.6 }}>
-                  {item.acceptedAnswer.text}
+                <p style={{ margin: 0, color: '#475569' }}>
+                  Enter total length, spacing, corners, T-walls, doors and windows; the calculator adds king/jack studs and waste.
                 </p>
               </div>
-            ))}
-          </div>
 
-          <div style={{ padding: '20px', backgroundColor: '#F0FDF4', borderRadius: '8px', border: '1px solid #BBF7D0', marginTop: '32px' }}>
-            <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#166534', marginBottom: '8px' }}>
-              Related Framing &amp; Construction Calculators
-            </h3>
-            <p style={{ color: '#15803D', marginBottom: '12px' }}>
-              Explore our complete suite of trade calculators to plan every phase of your residential or commercial build:
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  How many studs do I need for a 10-foot wall?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  About 9 field studs (10 with 10% waste). With 1 corner and 1 door: 15 studs, about 17 with waste.
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  What is the rule of thumb for calculating studs?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  A common contractor rule of thumb is 1 stud per linear foot of wall. It serves as a quick ballpark for walls with a few openings; use the calculator for the exact count.
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  Why do framed walls need a double top plate?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  A double top plate ties wall sections together, interlocks intersecting partition walls and corners, and distributes concentrated weight from roof trusses or floor joists evenly across adjacent studs. A single top plate is allowed in some cases (in-line framing with approved plate ties). Check local code.
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  Do I need a pressure-treated bottom plate?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  Most building codes require pressure-treated lumber where a plate sits on concrete in contact with the ground, unless separated by an approved moisture barrier or sill gasket.
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  Should I use 2x4 or 2x6 lumber for framing?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  Use 2x4 lumber for interior non-bearing partition walls, divider walls, and standard closets. Use 2x6 lumber for exterior walls to accommodate high-R-value insulation batts, load-bearing exterior walls, and plumbing wet walls.
+                </p>
+              </div>
+            </div>
+          </section>
+
+          {/* Section: Related Framing & Building Calculators */}
+          <section style={{ padding: '24px', backgroundColor: '#F0F9FF', borderRadius: '12px', border: '1px solid #BAE6FD', marginTop: '40px' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0369A1', marginBottom: '8px' }}>
+              Related Framing &amp; Building Calculators
+            </h2>
+            <p style={{ color: '#0C4A6E', marginBottom: '16px' }}>
+              Plan all stages of your carpentry and home renovation project with our companion tools:
             </p>
-            <ul style={{ paddingLeft: '20px', color: '#15803D', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '8px' }}>
-              <li><Link href="/rafter-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Rafter Calculator</Link></li>
-              <li><Link href="/linear-foot-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Linear Foot Calculator</Link></li>
-              <li><Link href="/square-footage-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Square Footage Calculator</Link></li>
-              <li><Link href="/paint-cost-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Paint Cost Calculator</Link></li>
-              <li><Link href="/cinder-block-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Cinder Block Calculator</Link></li>
-              <li><Link href="/construction-estimate-template/" style={{ color: '#15803D', fontWeight: 600 }}>Estimate Template</Link></li>
+            <ul style={{ paddingLeft: '20px', color: '#0369A1', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+              <li>
+                <Link href="/rafter-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                  Rafter Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Calculate roof rafter lengths, pitch &amp; overhangs</span>
+              </li>
+              <li>
+                <Link href="/linear-foot-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                  Linear Foot Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Estimate wall runs, baseboard trim &amp; plate lumber</span>
+              </li>
+              <li>
+                <Link href="/square-footage-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                  Square Footage Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Drywall and exterior wall sheathing square footage</span>
+              </li>
+              <li>
+                <Link href="/paint-cost-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                  Paint Cost Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Calculate paint gallons and costs for finished walls</span>
+              </li>
             </ul>
-          </div>
+          </section>
         </article>
       </main>
     </>
