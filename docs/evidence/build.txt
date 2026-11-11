@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 27ms
+✓ Running next.config.ts took 28ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.0s
+✓ Compiled successfully in 3.3s
   Running TypeScript ...
-  Finished TypeScript in 2.4s ...
+  Finished TypeScript in 2.7s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/49) ...
-  Generating static pages using 15 workers (12/49) 
-  Generating static pages using 15 workers (24/49) 
-  Generating static pages using 15 workers (36/49) 
-✓ Generating static pages using 15 workers (49/49) in 1530ms
+  Generating static pages using 15 workers (0/50) ...
+  Generating static pages using 15 workers (12/50) 
+  Generating static pages using 15 workers (24/50) 
+  Generating static pages using 15 workers (37/50) 
+✓ Generating static pages using 15 workers (50/50) in 1921ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -46,6 +46,7 @@ Route (app)
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
 ├ ○ /laminate-flooring-calculator
+├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /linear-foot-calculator
 ├ ○ /opengraph-image
 ├ ○ /paint-cost-calculator

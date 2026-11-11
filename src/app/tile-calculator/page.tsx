@@ -526,7 +526,7 @@ export default function TileCalculatorPage() {
           {/* Closing Paragraph */}
           <div className={styles.closingNote}>
             <p>
-              Bookmark this <strong>tile sq ft calculator</strong> whenever you plan a kitchen remodel, master bathroom update, or commercial floor replacement. For surrounding surfaces, calculate wall and ceiling baseboard trims with our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>, plan whole-room dimensions with our <Link href="/square-footage-calculator/">Square Footage Calculator</Link>, evaluate moisture-resistant bathroom paints with our <Link href="/paint-cost-calculator/">Paint Cost Calculator</Link>, or explore plank flooring alternatives with our <Link href="/laminate-flooring-calculator/">Laminate Flooring Calculator</Link>.
+              Bookmark this <strong>tile sq ft calculator</strong> whenever you plan a kitchen remodel, master bathroom update, or commercial floor replacement. For surrounding surfaces, calculate wall and ceiling baseboard trims with our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>, plan whole-room dimensions with our <Link href="/square-footage-calculator/">Square Footage Calculator</Link>, evaluate moisture-resistant bathroom paints with our <Link href="/paint-cost-calculator/">Paint Cost Calculator</Link>, or estimate carton quantities for floating wood planks using our <Link href="/laminate-flooring-calculator/">laminate flooring calculator</Link>.
             </p>
           </div>
         </article>

@@ -1,168 +1,242 @@
 /**
- * Laminate Flooring Calculator Engine
+ * Laminate Flooring Calculation Engine (Tool #12)
  *
- * Implements pure mathematics for laminate and floating floor installations:
- * - Room dimensions (L x W) or direct square footage input.
- * - Pattern waste factor allowance (10% straight, 12% staggered, 15% diagonal, 18% herringbone).
- * - Gross square footage required with waste.
- * - Box coverage yields with standard presets (8mm, 10mm-12mm, waterproof, custom).
- * - Whole box packaging rounding (ceil(grossArea / boxCoverage)).
- * - Extra leftover/surplus square footage for future repairs.
- * - Underlayment roll counts (100 sq ft rolls).
- * - Perimeter linear foot length for baseboards, expansion gaps, and shoe molding.
- * - Total material costs & Professional contractor labor benchmark comparisons.
- *
- * Adheres strictly to Zero-Network policy (client-side pure math).
+ * Implements pure mathematics for multi-room laminate flooring takeoffs,
+ * float-safe box rounding, underlayment rolls, moldings, and DIY vs Pro benchmarks.
+ * Strictly 0-network, 100% client side.
  */
 
-export interface LaminateGradePreset {
+import { LAMINATE_CONSTANTS } from './laminate-constants';
+
+export interface LaminateAreaItem {
   id: string;
-  name: string;
-  sqFtPerBox: number;
-  description: string;
+  label?: string;
+  lengthFt: number;
+  widthFt: number;
+  mode: 'add' | 'subtract';
 }
 
-export const LAMINATE_PRESETS: Record<string, LaminateGradePreset> = {
-  waterproof: {
-    id: 'waterproof',
-    name: 'Waterproof / Rigid Core (Most Common)',
-    sqFtPerBox: 20.0,
-    description: '20.0 sq ft per box — Kitchens, basements, living areas',
-  },
-  economy8mm: {
-    id: 'economy8mm',
-    name: 'Standard 8mm Laminate',
-    sqFtPerBox: 21.5,
-    description: '21.5 sq ft per box — Bedrooms and rental properties',
-  },
-  premium12mm: {
-    id: 'premium12mm',
-    name: 'Premium 10mm–12mm AC4/AC5',
-    sqFtPerBox: 18.5,
-    description: '18.5 sq ft per box — Heavy traffic, authentic wood feel',
-  },
-  widePlank: {
-    id: 'widePlank',
-    name: 'Wide Plank (7"–9" width)',
-    sqFtPerBox: 16.5,
-    description: '16.5 sq ft per box — Modern open-concept floor plans',
-  },
-};
+export type PricingBasis = 'perBox' | 'perSqFt';
 
-export interface LaminateCalculationInput {
-  mode: 'room' | 'direct';
-  roomLengthFeet?: number;
-  roomWidthFeet?: number;
-  directAreaSqFt?: number;
-  gradePresetId: string; // keyof LAMINATE_PRESETS or 'custom'
-  customSqFtPerBox?: number;
-  wastePercentage: number; // e.g. 10, 12, 15, 18, 20
-  pricePerBox?: number;
-  pricePerSqFt?: number;
-  includeUnderlayment?: boolean; // 100 sq ft rolls @ $40/roll
-  moldingsAllowance?: number; // $ allowance for transitions & baseboards
+export interface LaminatePricingInput {
+  basis: PricingBasis;
+  price: number;
+  underlaymentPerRoll?: number;
+  molding?: {
+    allowance?: number;
+    perLinearFt?: number;
+    usePerimeter?: boolean;
+  };
+  salesTaxPercent?: number;
 }
 
-export interface LaminateCalculationResult {
+export interface LaminateInput {
+  areas?: LaminateAreaItem[];
+  directSqFt?: number;
+  boxCoverageSqFt: number;
+  wastePercent: number;
+  attachedPad: boolean;
+  rollCoverageSqFt?: number;
+  pricing?: LaminatePricingInput;
+}
+
+export interface LaminateResult {
   netAreaSqFt: number;
   grossAreaSqFt: number;
-  perimeterLinearFeet: number;
-  sqFtPerBox: number;
+  boxCoverageSqFt: number;
   boxesNeeded: number;
-  totalPurchasedSqFt: number;
+  purchasedAreaSqFt: number;
   surplusSqFt: number;
+  attachedPad: boolean;
   underlaymentRolls: number;
-  flooringMaterialCost: number;
+  perimeterLinearFt: number;
+  moldingPieces: number;
+  flooringCost: number;
   underlaymentCost: number;
-  moldingsCost: number;
+  moldingCost: number;
+  materialsSubtotal: number;
+  salesTaxAmount: number;
   totalDiyCost: number;
-  proEstimatedCostLow: number;
-  proEstimatedCostHigh: number;
+  proLaborLow: number;
+  proLaborHigh: number;
+  diySavingsLow: number;
+  diySavingsHigh: number;
+  warningMessage?: string;
 }
 
-export function calculateLaminateFlooring(input: LaminateCalculationInput): LaminateCalculationResult {
+export const EPSILON = 1e-9;
+
+/**
+ * Calculates plank coverage per carton from plank dimensions and count.
+ * Coverage = (widthIn * lengthIn * planksPerBox) / 144
+ */
+export function calculatePlankCoverage(
+  plankWidthIn: number,
+  plankLengthIn: number,
+  planksPerBox: number
+): number {
+  if (plankWidthIn <= 0 || plankLengthIn <= 0 || planksPerBox <= 0) return 0;
+  const coverage = (plankWidthIn * plankLengthIn * planksPerBox) / 144;
+  return parseFloat(coverage.toFixed(2));
+}
+
+/**
+ * Pure calculation function for laminate flooring.
+ */
+export function calculateLaminate(input: LaminateInput): LaminateResult {
   const {
-    mode,
-    roomLengthFeet = 0,
-    roomWidthFeet = 0,
-    directAreaSqFt = 0,
-    gradePresetId,
-    customSqFtPerBox,
-    wastePercentage = 10,
-    pricePerBox = 0,
-    pricePerSqFt = 0,
-    includeUnderlayment = false,
-    moldingsAllowance = 0,
+    areas = [],
+    directSqFt,
+    boxCoverageSqFt = LAMINATE_CONSTANTS.defaultBoxCoverageSqFt,
+    wastePercent = 10,
+    attachedPad = false,
+    rollCoverageSqFt = LAMINATE_CONSTANTS.defaultRollCoverageSqFt,
+    pricing,
   } = input;
 
+  // 1. Determine Net Area and Approximate Perimeter
   let netAreaSqFt = 0;
-  let perimeterLinearFeet = 0;
+  let perimeterLinearFt = 0;
+  let warningMessage: string | undefined;
 
-  if (mode === 'room') {
-    const len = Math.max(0, roomLengthFeet || 0);
-    const wid = Math.max(0, roomWidthFeet || 0);
-    netAreaSqFt = parseFloat((len * wid).toFixed(2));
-    perimeterLinearFeet = parseFloat((2 * (len + wid)).toFixed(1));
-  } else {
-    netAreaSqFt = parseFloat(Math.max(0, directAreaSqFt || 0).toFixed(2));
-    // Approximate perimeter for direct mode assuming ~1:1.3 ratio
-    const approxSide = Math.sqrt(netAreaSqFt);
-    perimeterLinearFeet = parseFloat((4 * approxSide).toFixed(1));
+  if (typeof directSqFt === 'number' && directSqFt > 0) {
+    netAreaSqFt = Math.max(0, directSqFt);
+    // Approximate perimeter for a square room if direct sq ft entered
+    perimeterLinearFt = Math.round(4 * Math.sqrt(netAreaSqFt));
+  } else if (areas && areas.length > 0) {
+    let totalAdd = 0;
+    let totalSub = 0;
+    let rawPerimeter = 0;
+
+    for (const a of areas) {
+      const l = Math.max(0, a.lengthFt || 0);
+      const w = Math.max(0, a.widthFt || 0);
+      const area = l * w;
+
+      if (a.mode === 'subtract') {
+        totalSub += area;
+      } else {
+        totalAdd += area;
+        rawPerimeter += 2 * (l + w);
+      }
+    }
+
+    if (totalSub >= totalAdd && totalSub > 0) {
+      netAreaSqFt = 0;
+      warningMessage = 'Subtracted areas are greater than or equal to total room area.';
+    } else {
+      netAreaSqFt = Math.max(0, totalAdd - totalSub);
+    }
+    perimeterLinearFt = Math.round(rawPerimeter);
   }
 
-  // Determine box coverage
-  let sqFtPerBox = 20.0;
-  if (gradePresetId === 'custom') {
-    sqFtPerBox = Math.max(1.0, customSqFtPerBox || 20.0);
-  } else if (LAMINATE_PRESETS[gradePresetId]) {
-    sqFtPerBox = LAMINATE_PRESETS[gradePresetId].sqFtPerBox;
+  netAreaSqFt = parseFloat(netAreaSqFt.toFixed(2));
+
+  // 2. Gross Area = Net * (100 + Waste) / 100
+  const validWaste = Math.min(LAMINATE_CONSTANTS.maxWastePercent, Math.max(0, wastePercent || 0));
+  const grossAreaSqFt = parseFloat((netAreaSqFt * ((100 + validWaste) / 100)).toFixed(2));
+
+  // 3. Floating-point safe box rounding
+  // Critical fix: Math.ceil(gross / coverage - 1e-9)
+  const validCoverage = boxCoverageSqFt > 0 ? boxCoverageSqFt : LAMINATE_CONSTANTS.defaultBoxCoverageSqFt;
+  let boxesNeeded = 0;
+  if (grossAreaSqFt > 0 && validCoverage > 0) {
+    boxesNeeded = Math.ceil(grossAreaSqFt / validCoverage - EPSILON);
   }
 
-  // Waste multiplier
-  const validWaste = Math.max(0, wastePercentage || 0);
-  const grossAreaSqFt = parseFloat((netAreaSqFt * (1 + validWaste / 100)).toFixed(2));
+  // 4. Purchased Area & Surplus
+  const purchasedAreaSqFt = parseFloat((boxesNeeded * validCoverage).toFixed(2));
+  const surplusSqFt = parseFloat(Math.max(0, purchasedAreaSqFt - grossAreaSqFt).toFixed(2));
 
-  // Boxes calculation (clean float rounding check)
-  const rawBoxes = sqFtPerBox > 0 ? grossAreaSqFt / sqFtPerBox : 0;
-  const boxesNeeded = Math.ceil(parseFloat(rawBoxes.toFixed(4)));
-  const totalPurchasedSqFt = parseFloat((boxesNeeded * sqFtPerBox).toFixed(2));
-  const surplusSqFt = parseFloat(Math.max(0, totalPurchasedSqFt - grossAreaSqFt).toFixed(2));
-
-  // Underlayment rolls: standard retail rolls cover 100 sq ft
-  const underlaymentRolls = grossAreaSqFt > 0 ? Math.ceil(grossAreaSqFt / 100) : 0;
-
-  // Cost calculations
-  let flooringMaterialCost = 0;
-  if (pricePerBox && pricePerBox > 0) {
-    flooringMaterialCost = parseFloat((boxesNeeded * pricePerBox).toFixed(2));
-  } else if (pricePerSqFt && pricePerSqFt > 0) {
-    flooringMaterialCost = parseFloat((grossAreaSqFt * pricePerSqFt).toFixed(2));
+  // 5. Underlayment (based on NET area)
+  // If attachedPad is true, 0 rolls needed
+  let underlaymentRolls = 0;
+  if (!attachedPad && netAreaSqFt > 0) {
+    const validRollCoverage = rollCoverageSqFt > 0 ? rollCoverageSqFt : LAMINATE_CONSTANTS.defaultRollCoverageSqFt;
+    underlaymentRolls = Math.ceil(netAreaSqFt / validRollCoverage - EPSILON);
   }
 
-  const underlaymentCost = includeUnderlayment ? underlaymentRolls * 40.0 : 0; // ~$40 per 100 sq ft roll
-  const moldingsCost = Math.max(0, moldingsAllowance || 0);
-  const totalDiyCost = parseFloat((flooringMaterialCost + underlaymentCost + moldingsCost).toFixed(2));
+  // 6. Moldings: ceil(perimeter * 1.10 / 7.8) using ~94 in (7.8 ft) pieces
+  const moldingPieces =
+    perimeterLinearFt > 0
+      ? Math.ceil(
+          (perimeterLinearFt * LAMINATE_CONSTANTS.moldingWasteMultiplier) /
+            LAMINATE_CONSTANTS.moldingPieceLengthFt -
+            EPSILON
+        )
+      : 0;
 
-  // Professional installation benchmarks:
-  // Typical pro contractor charges ~$2.00 - $5.00 per sq ft for laminate labor
-  const proEstimatedCostLow = Math.round(netAreaSqFt * 2.0);
-  const proEstimatedCostHigh = Math.round(netAreaSqFt * 5.0);
+  // 7. Costs (whole boxes bought)
+  let flooringCost = 0;
+  let underlaymentCost = 0;
+  let moldingCost = 0;
+
+  if (pricing && pricing.price > 0 && boxesNeeded > 0) {
+    if (pricing.basis === 'perBox') {
+      flooringCost = parseFloat((boxesNeeded * pricing.price).toFixed(2));
+    } else {
+      // perSqFt: boxes * coverage * price
+      flooringCost = parseFloat((boxesNeeded * validCoverage * pricing.price).toFixed(2));
+    }
+
+    if (!attachedPad && underlaymentRolls > 0) {
+      const rollPrice =
+        typeof pricing.underlaymentPerRoll === 'number'
+          ? pricing.underlaymentPerRoll
+          : LAMINATE_CONSTANTS.defaultUnderlaymentPricePerRoll;
+      underlaymentCost = parseFloat((underlaymentRolls * rollPrice).toFixed(2));
+    }
+
+    if (pricing.molding) {
+      if (typeof pricing.molding.allowance === 'number' && pricing.molding.allowance > 0) {
+        moldingCost = parseFloat(pricing.molding.allowance.toFixed(2));
+      } else if (pricing.molding.usePerimeter && perimeterLinearFt > 0) {
+        const ftPrice =
+          typeof pricing.molding.perLinearFt === 'number'
+            ? pricing.molding.perLinearFt
+            : LAMINATE_CONSTANTS.defaultMoldingPricePerLinearFt;
+        moldingCost = parseFloat((perimeterLinearFt * ftPrice).toFixed(2));
+      }
+    }
+  }
+
+  const materialsSubtotal = parseFloat((flooringCost + underlaymentCost + moldingCost).toFixed(2));
+  let salesTaxAmount = 0;
+  if (pricing && typeof pricing.salesTaxPercent === 'number' && pricing.salesTaxPercent > 0) {
+    salesTaxAmount = parseFloat(((materialsSubtotal * pricing.salesTaxPercent) / 100).toFixed(2));
+  }
+
+  const totalDiyCost = parseFloat((materialsSubtotal + salesTaxAmount).toFixed(2));
+
+  // 8. Professional Labor Benchmark
+  // Net * Low ($2.00) and Net * High ($5.00)
+  const proLaborLow = Math.round(netAreaSqFt * LAMINATE_CONSTANTS.proLaborRateLow);
+  const proLaborHigh = Math.round(netAreaSqFt * LAMINATE_CONSTANTS.proLaborRateHigh);
+
+  const diySavingsLow = proLaborLow;
+  const diySavingsHigh = proLaborHigh;
 
   return {
     netAreaSqFt,
     grossAreaSqFt,
-    perimeterLinearFeet,
-    sqFtPerBox,
+    boxCoverageSqFt: validCoverage,
     boxesNeeded,
-    totalPurchasedSqFt,
+    purchasedAreaSqFt,
     surplusSqFt,
+    attachedPad,
     underlaymentRolls,
-    flooringMaterialCost,
+    perimeterLinearFt,
+    moldingPieces,
+    flooringCost,
     underlaymentCost,
-    moldingsCost,
+    moldingCost,
+    materialsSubtotal,
+    salesTaxAmount,
     totalDiyCost,
-    proEstimatedCostLow,
-    proEstimatedCostHigh,
+    proLaborLow,
+    proLaborHigh,
+    diySavingsLow,
+    diySavingsHigh,
+    warningMessage,
   };
 }
-
