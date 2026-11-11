@@ -11,7 +11,7 @@ import AdSlot from '@/components/ads/AdSlot';
 import BandNameGenerator from '@/components/tool/band-name-generator/BandNameGenerator';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
-import { SITE_URL } from '@/config/site';
+import { SITE_NAME, SITE_URL } from '@/config/site';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -78,12 +78,18 @@ export default function BandNameGeneratorPage() {
     url: `${SITE_URL}/band-name-generator/`,
     description: 'Generate original band names by genre and naming style. Runs 100% in your browser.',
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Any (web browser)',
+    operatingSystem: 'All',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     isAccessibleForFree: true,
     offers: {
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
     },
   };
 

@@ -5,7 +5,11 @@ import { rafterPageContent, PITCH_CHART_DATA } from '@/content/pages/rafter-calc
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
-import { SITE_NAME, SITE_URL } from '@/config/site';
+import {
+  buildWebApplicationSchema,
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+} from '@/components/seo/buildSchema';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -17,34 +21,21 @@ export const metadata: Metadata = buildMetadata({
 
 export default function RafterCalculatorPage() {
   const content = rafterPageContent;
-  const canonicalUrl = `${SITE_URL}/rafter-calculator/`;
 
-  const webAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+  const webAppSchema = buildWebApplicationSchema({
     name: 'Rafter Calculator',
-    url: canonicalUrl,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Any (web browser)',
+    path: '/rafter-calculator/',
     description:
       'Free online rafter calculator that finds common rafter length, roof pitch, cut angles, birdsmouth depth and rafter count.',
-    offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-    },
-  };
+  });
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      { '@type': 'ListItem', position: 1, name: 'Home', item: `${SITE_URL}/` },
-      { '@type': 'ListItem', position: 2, name: 'Calculators', item: `${SITE_URL}/tools/` },
-      { '@type': 'ListItem', position: 3, name: 'Rafter Calculator', item: canonicalUrl },
-    ],
-  };
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculators', path: '/tools/' },
+    { name: 'Rafter Calculator', path: '/rafter-calculator/' },
+  ]);
+
+  const faqSchema = buildFaqSchema(content.faqs);
 
   return (
     <>
@@ -55,6 +46,10 @@ export default function RafterCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main id="main-content" className={styles.container}>

@@ -84,7 +84,7 @@ export default function LaminateFlooringCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
@@ -571,7 +571,7 @@ export default function LaminateFlooringCalculatorPage() {
 
         {/* Bottom AdSlot */}
         <AdSlot slotId="laminate-calc-bottom" />
-      </div>
+      </main>
     </>
   );
 }

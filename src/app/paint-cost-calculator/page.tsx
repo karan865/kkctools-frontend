@@ -39,7 +39,8 @@ export default function PaintCostCalculatorPage() {
     name: 'Paint Cost Calculator',
     url: canonicalUrl,
     applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Any',
+    operatingSystem: 'All',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
     offers: {
       '@type': 'Offer',
       price: '0',

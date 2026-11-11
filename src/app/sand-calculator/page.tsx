@@ -5,7 +5,11 @@ import { sandCalculatorPageContent } from '@/content/pages/sand-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
-import { SITE_NAME, SITE_URL } from '@/config/site';
+import {
+  buildWebApplicationSchema,
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+} from '@/components/seo/buildSchema';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -18,54 +22,20 @@ export const metadata: Metadata = buildMetadata({
 export default function SandCalculatorPage() {
   const content = sandCalculatorPageContent;
 
-  const canonicalUrl = `${SITE_URL}/sand-calculator/`;
-
-  // JSON-LD Schemas: WebApplication, BreadcrumbList
-  const webAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+  const webAppSchema = buildWebApplicationSchema({
     name: 'Sand Calculator',
-    url: canonicalUrl,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Any',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-    },
+    path: '/sand-calculator/',
     description:
       'Calculate cubic yards, tons, and bags of sand needed for general landscaping, sandboxes, paver bedding, and polymeric joint sand with live waste buffers.',
-  };
+  });
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: `${SITE_URL}/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Calculators',
-        item: `${SITE_URL}/tools/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Sand Calculator',
-        item: canonicalUrl,
-      },
-    ],
-  };
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculators', path: '/tools/' },
+    { name: 'Sand Calculator', path: '/sand-calculator/' },
+  ]);
+
+  const faqSchema = buildFaqSchema(content.faqs);
 
   return (
     <>
@@ -76,6 +46,10 @@ export default function SandCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main id="main-content" className={styles.container}>

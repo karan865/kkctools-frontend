@@ -5,7 +5,11 @@ import { linearFootPageContent } from '@/content/pages/linear-foot-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
-import { SITE_NAME, SITE_URL } from '@/config/site';
+import {
+  buildWebApplicationSchema,
+  buildBreadcrumbSchema,
+  buildFaqSchema,
+} from '@/components/seo/buildSchema';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -17,53 +21,21 @@ export const metadata: Metadata = buildMetadata({
 
 export default function LinearFootCalculatorPage() {
   const content = linearFootPageContent;
-  const canonicalUrl = `${SITE_URL}/linear-foot-calculator/`;
 
-  const webAppSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'WebApplication',
+  const webAppSchema = buildWebApplicationSchema({
     name: 'Linear Foot Calculator',
-    url: canonicalUrl,
-    applicationCategory: 'UtilitiesApplication',
-    operatingSystem: 'Any',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-    },
+    path: '/linear-foot-calculator/',
     description:
       'Add up multi-piece lengths in feet, inches, yards, and meters, or convert square feet to linear feet with material width, waste allowance, and cost estimation.',
-  };
+  });
 
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Home',
-        item: `${SITE_URL}/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: 'Calculators',
-        item: `${SITE_URL}/tools/`,
-      },
-      {
-        '@type': 'ListItem',
-        position: 3,
-        name: 'Linear Foot Calculator',
-        item: canonicalUrl,
-      },
-    ],
-  };
+  const breadcrumbSchema = buildBreadcrumbSchema([
+    { name: 'Home', path: '/' },
+    { name: 'Calculators', path: '/tools/' },
+    { name: 'Linear Foot Calculator', path: '/linear-foot-calculator/' },
+  ]);
+
+  const faqSchema = buildFaqSchema(content.faqs);
 
   return (
     <>
@@ -74,6 +46,10 @@ export default function LinearFootCalculatorPage() {
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <main id="main-content" className={styles.container}>

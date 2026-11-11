@@ -84,7 +84,7 @@ export default function TileCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <div className={styles.container}>
+      <main id="main-content" className={styles.container}>
         {/* Breadcrumbs */}
         <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
@@ -533,7 +533,7 @@ export default function TileCalculatorPage() {
 
         {/* Bottom AdSlot */}
         <AdSlot slotId="tile-calc-bottom" />
-      </div>
+      </main>
     </>
   );
 }

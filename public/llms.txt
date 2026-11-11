@@ -1,20 +1,31 @@
-# KKC Tools — Free Web Calculators & Developer Utilities
-> URL: https://www.kkctools.com
-> Description: Fast, privacy-first, client-side online calculators and generators with zero network calls and zero data tracking.
+# KKCTools — Free Online Construction & Creative Calculators
+> https://www.kkctools.com
 
-## Core Calculators
+KKCTools provides 100% free, fast, browser-side construction, landscaping, framing, and creative calculation utilities. All tools compute calculations entirely on the client side with zero network tracking, no registration required, and high accuracy for contractors, builders, landscapers, and DIY homeowners.
 
-- [Asphalt Calculator](https://www.kkctools.com/asphalt-calculator/): Calculates tons, cubic yards, and cost of hot mix asphalt and recycled asphalt product (millings/RAP) with waste overage and binder breakdown. Supports rectangular, circular, and triangular areas.
-- [Cubic Yard Calculator](https://www.kkctools.com/cubic-yard-calculator/): Calculates cubic yards, cubic feet, and cubic meters for concrete slabs, footings, walls, columns, soil, mulch, and gravel. Provides exact bag counts for 40, 50, 60, and 80 lb ready-mix bags.
-- [Sand Calculator](https://www.kkctools.com/sand-calculator/): Calculates volume, tons, and bags of sand for sandboxes, paver sand bedding layers, polymeric joint sand, and general site leveling with dry, damp, and wet densities.
-- [Fill Dirt Calculator](https://www.kkctools.com/fill-dirt-calculator/): Estimates cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, and lawns with sloped depth integration and soil settling percentages.
-- [Linear Foot Calculator](https://www.kkctools.com/linear-foot-calculator/): Totals board and piece measurements across mixed units (feet, inches, yards, meters) with waste allowance, cost breakdown, and bidirectional square footage to linear feet conversion.
-- [Rafter Calculator](https://www.kkctools.com/rafter-calculator/): Computes common rafter length, roof pitch, plumb cut, seat cut angles, birdsmouth notch depth, lumber buy length, and rafter quantity with an interactive cross-section diagram.
-- [Construction Estimate Template](https://www.kkctools.com/construction-estimate-template/): Generates contractor invoices and construction estimates with dynamic line items, materials, labor, markup, tax, print-to-PDF formatting, and CSV export.
-- [Band Name Generator](https://www.kkctools.com/band-name-generator/): Instant original music act naming tool with genre rules (rock, metal, heavy metal, k-pop, boy band, random) and streaming trademark checking.
+## Core Calculators & Tools
 
-## Operational Architecture
-- 100% Client-Side: Computations execute strictly inside the user's browser.
-- Privacy First: No user inputs, project dimensions, or financial rates are stored or transmitted.
-- Unit Flexibility: Full support for US Customary (feet, inches, yards, tons) and Metric (meters, cm, tonnes) systems.
+- [Band Name Generator](https://www.kkctools.com/band-name-generator/): Free random band name generator with genre and naming style filtering.
+- [Construction Estimate Template](https://www.kkctools.com/construction-estimate-template/): Professional construction cost estimation builder with PDF/CSV export.
+- [Asphalt Calculator](https://www.kkctools.com/asphalt-calculator/): Calculates tons, cubic yards, and material cost for driveways, parking lots, and roads.
+- [Topsoil Calculator](https://www.kkctools.com/topsoil-calculator/): Estimates cubic yards, tons, and bags of topsoil needed for lawns and garden beds.
+- [Gravel Calculator](https://www.kkctools.com/gravel-calculator/): Converts driveway and pathway dimensions to tons, cubic yards, and bags of gravel.
+- [Mulch Calculator](https://www.kkctools.com/mulch-calculator/): Estimates bulk cubic yards, tons, and bags of mulch for landscaping beds with settling factors.
+- [Square Footage Calculator](https://www.kkctools.com/square-footage-calculator/): Calculates total square footage for single or multi-room layouts with material cost estimation.
+- [Cinder Block Calculator](https://www.kkctools.com/cinder-block-calculator/): Calculates standard CMU blocks, core fill concrete, and mortar bags for masonry walls.
+- [Brick Calculator](https://www.kkctools.com/brick-calculator/): Estimates modular and standard brick quantities, mortar bags, and total wall cost.
+- [Paint Cost Calculator](https://www.kkctools.com/paint-cost-calculator/): Computes gallons of primer and paint required for interior rooms and exterior siding.
+- [Tile Calculator](https://www.kkctools.com/tile-calculator/): Determines tile box count, square footage, grout bags, and mortar for floors and walls.
+- [Laminate Flooring Calculator](https://www.kkctools.com/laminate-flooring-calculator/): Multi-room laminate plank calculator with waste factor and underlayment rolls.
+- [Stone Calculator](https://www.kkctools.com/stone-calculator/): Aggregate, rock, and crushed stone calculator for beds, driveways, and drainage.
+- [Stud Calculator](https://www.kkctools.com/stud-calculator/): Wall framing calculator estimating studs, top/bottom plates, headers, and labor.
+- [Tons to Cubic Yards Converter](https://www.kkctools.com/tons-to-cubic-yards/): Two-way bulk density converter between US short tons and cubic yards for 12+ construction materials.
+- [Linear Foot Calculator](https://www.kkctools.com/linear-foot-calculator/): Converts board feet and dimensions to total linear feet for trim, fences, and lumber.
+- [Fill Dirt Calculator](https://www.kkctools.com/fill-dirt-calculator/): Determines cubic yards and tons of fill dirt required for holes, grading, and foundation backfill.
+- [Rafter Calculator](https://www.kkctools.com/rafter-calculator/): Computes rafter length, birdsmouth cuts, pitch, and roof framing lumber quantities.
+- [Sand Calculator](https://www.kkctools.com/sand-calculator/): Estimates tons and cubic yards of masonry, concrete, and paver sand.
 
+## Details & Contact
+- Website: https://www.kkctools.com
+- Contact: contact@kkctools.com
+- Architecture: Next.js static export with pure client-side mathematical engines.
