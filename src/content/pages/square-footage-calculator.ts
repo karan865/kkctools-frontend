@@ -122,6 +122,12 @@ export const RELATED_CONSTRUCTION_TOOLS: RelatedCalculatorLink[] = [
     live: true,
   },
   {
+    label: 'Cinder Block Calculator',
+    href: '/cinder-block-calculator/',
+    description: 'Calculate standard 8x8x16 CMU blocks, mortar bags, and core fill for masonry walls.',
+    live: true,
+  },
+  {
     label: 'Rafter Calculator',
     href: '/rafter-calculator/',
     description: 'Calculate roof pitch, rafter length, birdsmouth cuts, and roof deck square footage.',

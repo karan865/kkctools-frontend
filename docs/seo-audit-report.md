@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-11T10:46:39.063Z
+Run Date: 2026-11-11T10:53:09.293Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -17,7 +17,7 @@ Status: PASSED ✅
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 1021 | Brick Calculator (Brick Wall & | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator (CMU Wall) | KKC | 2044 | Cinder Block Calculator (CMU C | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3796 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator — Garden Beds, Lawns  | 1534 | Compost Calculator: Estimate C | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
@@ -37,7 +37,7 @@ Status: PASSED ✅
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
-| `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3498 | Sqft Calculator – Free Square  | PASS |
+| `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3512 | Sqft Calculator – Free Square  | PASS |
 | `/stone-calculator/` | Stone Calculator — Crushed Rock, Gravel  | 1670 | Stone Calculator: Estimate Ton | PASS |
 | `/stud-calculator/` | Stud Calculator — Wall Framing & Lumber  | 1955 | Stud Calculator: Estimate Wall | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |

@@ -6,170 +6,92 @@ export interface FaqItem {
 export interface RelatedCalculatorLink {
   label: string;
   href: string;
+  description: string;
   live: boolean;
 }
 
-export interface SectionSubsection {
-  heading: string;
-  paragraphs: string[];
-}
-
-export interface PageSection {
-  heading: string;
-  paragraphs: string[];
-  subsections?: SectionSubsection[];
-}
-
-export interface CinderBlockContent {
-  hero: {
-    badge: string;
-    title: string;
-    description: string;
-  };
-  sections: PageSection[];
-  faqs: FaqItem[];
-  relatedCalculators: RelatedCalculatorLink[];
-}
-
-export const cinderBlockPageContent: CinderBlockContent = {
-  hero: {
-    badge: 'Masonry & Concrete Estimator',
-    title: 'Cinder Block Calculator (CMU Concrete Block Wall Estimator)',
-    description:
-      'Use this free cinder block calculator and concrete block calculator to estimate how many concrete blocks, mortar bags, and core-fill concrete you need for any wall, foundation, or retaining wall project. Whether you are building an 8x8x16 standard CMU perimeter fence, a raised garden bed, or a structural basement wall, our calculator automatically factors in door and window openings, mortar joint thickness, cut wastage, and delivery weight.',
+export const CINDER_BLOCK_FAQS: FaqItem[] = [
+  {
+    q: 'How many cinder blocks do I need per square foot of wall?',
+    a: 'For standard 8x8x16 concrete masonry units (actual size 7-5/8" × 7-5/8" × 15-5/8") laid with a standard 3/8-inch mortar joint, you need exactly 1.125 blocks per square foot of wall face area (or 112.5 blocks per 100 square feet). If using a 1/2-inch mortar joint, the coverage rate adjusts slightly to 1.099 blocks per square foot. Adding a typical 10% waste buffer brings your order requirement to roughly 1.24 blocks per square foot.',
   },
-  sections: [
-    {
-      heading: 'How to Use the Cinder Block Calculator',
-      paragraphs: [
-        'Our CMU block calculator provides contractors, masons, and DIY homeowners with an instant, accurate material takeoff in seconds:',
-        '1. Enter Wall Dimensions: Measure and enter your total wall length and wall height in feet. For multi-sided perimeter walls, add all straight wall lengths together.',
-        '2. Select Block Dimensions: The standard US residential building block is 8" × 8" × 16" Standard CMU. If you are building an interior partition (4" × 8" × 16") or a heavy foundation wall (10" or 12" CMU), select the appropriate size from the dropdown menu.',
-        '3. Subtract Doors and Windows: If your wall features garage doors, entry doors, or windows, enter their quantities and dimensions so you do not over-order blocks.',
-        '4. Set Mortar Joint Size: Standard US masonry joints are 3/8" (0.375"), which is pre-selected by default.',
-        '5. Add a Waste Allowance (%): Masonry construction requires cutting blocks at corners, edges, and openings. We recommend 10% for straight walls and 15% for stepped retaining walls or walls with many corners.',
-        '6. Optional Core Fill Concrete: For structural walls requiring steel rebar and concrete grout in the hollow cores, select your grouting frequency (solid fill, 32" OC, or 48" OC) to see total cubic yards and concrete bags needed.',
-        '7. Review and Copy Material Takeoff: Instantly view your total block count, number of 80 lb mortar bags, core fill concrete volume, and estimated material delivery weight in pounds and tons.',
-      ],
-    },
-    {
-      heading: 'Standard Cinder Block Dimensions & CMU Sizes Chart',
-      paragraphs: [
-        'In the construction industry, Concrete Masonry Units (CMUs) are identified by their nominal dimensions, which include the block plus the standard 3/8-inch mortar joint. The actual manufactured dimensions are always 3/8 inch smaller in each dimension to allow space for the mortar bed.',
-        'Below is the official US masonry standard reference chart for common CMU block sizes and wall coverages:',
-      ],
-      subsections: [
-        {
-          heading: 'CMU Dimensions Reference Table',
-          paragraphs: [
-            '• 4" × 8" × 16" CMU: Actual size is 3-5/8" × 7-5/8" × 15-5/8". Used for interior non-load bearing partition walls and masonry veneer.',
-            '• 6" × 8" × 16" CMU: Actual size is 5-5/8" × 7-5/8" × 15-5/8". Used for low landscape retaining walls and residential garage stem walls.',
-            '• 8" × 8" × 16" Standard CMU: Actual size is 7-5/8" × 7-5/8" × 15-5/8". The universal standard block for residential homes, commercial walls, and foundation stem walls.',
-            '• 10" × 8" × 16" CMU: Actual size is 9-5/8" × 7-5/8" × 15-5/8". Designed for deep basement walls and heavy earth-retention structures.',
-            '• 12" × 8" × 16" Extra Heavy CMU: Actual size is 11-5/8" × 7-5/8" × 15-5/8". Used for high-load multi-story commercial foundations and highway blast walls.',
-            'Key Takeaway: All standard CMU blocks share the same face dimensions (8 inches high by 16 inches long). This means regardless of block thickness (4", 6", 8", 10", or 12"), you always need exactly 1.125 blocks per square foot of wall surface area.',
-          ],
-        },
-      ],
-    },
-    {
-      heading: 'How to Calculate Blocks for a Wall: The Exact Mathematical Formula',
-      paragraphs: [
-        'Calculating concrete blocks manually involves three simple mathematical steps:',
-        'Step 1 (Net Wall Area): Gross Wall Area = Wall Length (ft) × Wall Height (ft). Then subtract the total square footage of all doors and windows: Net Area = Gross Area - Openings Area.',
-        'Step 2 (Net Block Count): Because a standard nominal 8" × 16" block face covers 0.8889 square feet (128 sq in ÷ 144), multiply your net wall square footage by 1.125: Net Blocks = Net Wall Area × 1.125.',
-        'Step 3 (Waste Buffer): Multiply your net blocks by 1.10 to add a 10% cutting and breakage buffer: Total Order = CEIL(Net Blocks × 1.10).',
-      ],
-    },
-    {
-      heading: 'Practical Worked Example: Building a 30 ft × 8 ft Garage Wall',
-      paragraphs: [
-        'Suppose you are building a freestanding concrete block garage wall that is 30 feet long and 8 feet tall. It has one standard 3 ft × 7 ft exterior door (21 sq ft) and one 4 ft × 3 ft window (12 sq ft):',
-        '1. Gross Wall Area: 30 ft × 8 ft = 240 sq ft',
-        '2. Subtract Openings: 240 - 21 (door) - 12 (window) = 207 sq ft net area',
-        '3. Net Block Count: 207 sq ft × 1.125 blocks/sq ft = 232.88 blocks',
-        '4. Add 10% Waste Buffer: 232.88 × 1.10 = 256.16 -> 257 blocks to order',
-        '5. Mortar Required: 257 blocks ÷ 33 blocks per 80 lb bag = 7.8 bags -> 8 bags (80 lb each)',
-        '6. Estimated Delivery Weight: 257 blocks × 36 lbs = 9,252 lbs (4.63 tons)',
-      ],
-    },
-    {
-      heading: 'Concrete Core Fill (Cell Grouting) & Rebar Spacing Guide',
-      paragraphs: [
-        'In structural concrete block construction, steel rebar is placed vertically and horizontally inside the hollow block cores and encapsulated with concrete grout.',
-        '• Non-Structural Garden Walls: Typically left hollow (0 cubic yards of concrete fill).',
-        '• Light Earth-Retention Walls: Vertical rebar placed every 32" or 48" on center. Only the cores containing rebar are filled with concrete grout.',
-        '• Structural Basement & High Retaining Walls: Solid-grouted (every core filled). For standard 8-inch CMU, every 100 blocks require approximately 0.81 cubic yards of concrete fill.',
-        '• Pro Tip: If ordering ready-mix concrete for continuous wall footings or large core-filling pours, calculate your volume using our Cubic Yard Calculator.',
-      ],
-    },
-  ],
-  faqs: [
-    {
-      q: 'How many cinder blocks do I need per square foot of wall?',
-      a: 'For standard 8x8x16 inch CMU cinder blocks with a 3/8-inch mortar joint, you need exactly 1.125 blocks per square foot of wall area (or 112.5 blocks per 100 square feet). To account for cutting and corner waste, builders typically multiply by 1.10 (adding a 10% waste factor), which equals approximately 1.24 blocks per square foot.',
-    },
-    {
-      q: 'What is the actual vs nominal size of an 8x8x16 cinder block?',
-      a: 'The nominal size of a standard block is 8 inches deep by 8 inches high by 16 inches long. The actual manufactured size is 7-5/8 inches deep by 7-5/8 inches high by 15-5/8 inches long. The missing 3/8 inch accommodates the standard mortar joint, making the installed block exactly 8x8x16 inches on center.',
-    },
-    {
-      q: 'How many bags of mortar do I need for 100 cinder blocks?',
-      a: 'As a standard rule of thumb in masonry construction, one 80 lb bag of Type S or Type N masonry mortar lays approximately 30 to 35 standard 8x8x16 cinder blocks. Therefore, for every 100 blocks, you need approximately 3 to 3.5 bags (80 lb each). If using 60 lb bags, plan on 4 to 5 bags per 100 blocks.',
-    },
-    {
-      q: 'How much concrete do I need to fill cinder block cores?',
-      a: 'A standard two-core 8x8x16 cinder block has an internal hollow core volume of approximately 0.22 cubic feet. If every core is filled with concrete grout, 100 blocks require approximately 0.81 cubic yards of concrete. If only reinforced cores with rebar are filled (e.g., every 32 inches or 48 inches on center), the required core fill volume drops to roughly 0.25 to 0.40 cubic yards per 100 blocks.',
-    },
-    {
-      q: 'What is the difference between a cinder block and a concrete block?',
-      a: 'Historically, cinder blocks were manufactured using coal cinders and ash as an aggregate, making them lighter and less load-bearing. Modern blocks are Concrete Masonry Units (CMUs), manufactured using Portland cement, water, and crushed stone or gravel. While the terms are used interchangeably today, modern commercial and residential construction exclusively uses CMU concrete blocks for structural strength.',
-    },
-    {
-      q: 'How much does a standard 8x8x16 cinder block weigh?',
-      a: 'A standard hollow 8x8x16 inch concrete masonry unit weighs between 34 and 40 pounds (15.4 to 18.1 kg), depending on whether lightweight or normal-weight aggregate is used in manufacturing. Solid blocks or heavy-weight blocks can weigh upwards of 50 to 55 pounds.',
-    },
-    {
-      q: 'How many cinder blocks fit on a standard pallet?',
-      a: 'A standard manufacturer pallet holds between 90 and 108 units of 8x8x16 cinder blocks, with a total pallet weight between 3,500 and 4,000 pounds. Pallets require a forklift or boom truck for delivery unloading.',
-    },
-  ],
-  relatedCalculators: [
-    {
-      label: 'Cubic Yard Calculator',
-      href: '/cubic-yard-calculator/',
-      live: true,
-    },
-    {
-      label: 'Square Footage Calculator',
-      href: '/square-footage-calculator/',
-      live: true,
-    },
-    {
-      label: 'Linear Foot Calculator',
-      href: '/linear-foot-calculator/',
-      live: true,
-    },
-    {
-      label: 'Sand Calculator',
-      href: '/sand-calculator/',
-      live: true,
-    },
-    {
-      label: 'Fill Dirt Calculator',
-      href: '/fill-dirt-calculator/',
-      live: true,
-    },
-    {
-      label: 'Rafter Calculator',
-      href: '/rafter-calculator/',
-      live: true,
-    },
-    {
-      label: 'Construction Estimate Template',
-      href: '/construction-estimate-template/',
-      live: true,
-    },
-  ],
-};
+  {
+    q: 'What is the actual size of an 8x8x16 cinder block?',
+    a: 'The actual manufactured dimensions of an 8x8x16 cinder block are 7-5/8 inches wide by 7-5/8 inches high by 15-5/8 inches long (7.625" × 7.625" × 15.625"). Manufacturers undersize the physical block by exactly 3/8 inch in each direction so that when laid with a standard 3/8-inch mortar joint, each block occupies exactly 8 inches by 16 inches of modular wall elevation.',
+  },
+  {
+    q: 'How much mortar do I need for cinder blocks?',
+    a: 'When using pre-blended mortar mix (which contains sand and cement pre-mixed), plan on about 8 bags (80 lb each) per 100 blocks, based on an average yield of 13 standard 8" blocks per 80 lb bag (or about 10 bags of 60 lb mix). If mixing on-site using pure masonry cement where you add sand, one 80 lb bag of masonry cement yields about 35 blocks, requiring about 3 bags of masonry cement plus approximately 0.35 tons of masonry sand per 100 blocks. Yields vary with joint thickness, head-joint bedding, and mason technique.',
+  },
+  {
+    q: 'How much concrete do I need to fill cinder block cores?',
+    a: 'A standard hollow 8x8x16 block has two hollow cells with a total internal core volume of approximately 0.27 cubic feet. Filling 100 blocks solid (every core grouted) requires about 27 cubic feet of concrete grout, which equals exactly 1.0 cubic yard (before waste). If vertical rebar cores are filled at 32 inches on center (25% of cells), 100 blocks need approximately 0.25 cubic yards (6.75 cu ft). At 48 inches on center (16.7% of cells), 100 blocks need about 0.17 cubic yards (4.5 cu ft). Always add a 10% grout waste allowance.',
+  },
+  {
+    q: 'What is the difference between a cinder block and a concrete block?',
+    a: 'Historically, cinder blocks were manufactured using coal cinders and coal ash mixed with Portland cement, resulting in lightweight, porous, non-structural blocks. Today, the terms cinder block, concrete block, cement block, and Concrete Masonry Unit (CMU) are commonly used as synonyms by consumers, but modern construction exclusively produces CMUs made from Portland cement, water, sand, and crushed gravel or limestone to meet strict ASTM C90 structural load-bearing standards.',
+  },
+  {
+    q: 'How much does a standard cinder block weigh?',
+    a: 'A standard hollow 8x8x16 inch normal-weight CMU block typically weighs between 34 and 40 pounds (most commonly 36 lbs). Lightweight aggregate CMUs weigh between 25 and 30 pounds, while solid concrete units can weigh upwards of 50 to 55 pounds. Nominal 4" blocks weigh about 25 lbs, 6" blocks weigh about 32 lbs, 10" blocks weigh about 46 lbs, and 12" blocks weigh about 55 lbs.',
+  },
+  {
+    q: 'How many cinder blocks are on a pallet?',
+    a: 'A standard manufacturer pallet holds between 72 and 120 units of 8x8x16 blocks, with 90 blocks per pallet being the most widespread distribution standard in North America. A full pallet of 90 standard blocks weighs approximately 3,240 to 3,600 pounds (roughly 1.6 to 1.8 tons), requiring a commercial forklift or boom truck for delivery and job site staging. Always confirm pallet counts with your local building supplier.',
+  },
+  {
+    q: 'Can I use cinder blocks for a retaining wall?',
+    a: 'Low garden retaining walls (under 2 to 3 feet tall) can often be built with standard CMU blocks on a tamped gravel or concrete footing. However, taller retaining walls hold back tremendous lateral soil and hydrostatic water pressure. Taller retaining walls generally require an engineered structural design featuring a poured reinforced concrete footing, vertical rebar anchored into the footing, solid-grouted cores, drainage weep holes, and proper waterproofing backfill. Always check with your local municipal building department for permit and engineering thresholds.',
+  },
+];
 
+export const RELATED_MASONRY_TOOLS: RelatedCalculatorLink[] = [
+  {
+    label: 'Brick Calculator',
+    href: '/brick-calculator/',
+    description: 'Calculate standard, modular, and queen brick quantities, mortar bags, and wall square footage.',
+    live: true,
+  },
+  {
+    label: 'Cubic Yard Calculator',
+    href: '/cubic-yard-calculator/',
+    description: 'Estimate concrete slab volume, footing yardage, and ready-mix truck batches.',
+    live: true,
+  },
+  {
+    label: 'Square Footage Calculator',
+    href: '/square-footage-calculator/',
+    description: 'Calculate room area, surface square feet, multi-room projects, and material budget.',
+    live: true,
+  },
+  {
+    label: 'Linear Foot Calculator',
+    href: '/linear-foot-calculator/',
+    description: 'Convert wall perimeter lengths, footing trenches, and rebar lengths into linear feet.',
+    live: true,
+  },
+  {
+    label: 'Sand Calculator',
+    href: '/sand-calculator/',
+    description: 'Determine masonry sand tons and cubic yards needed for mixing mortar on-site.',
+    live: true,
+  },
+  {
+    label: 'Paver Sand Calculator',
+    href: '/paver-sand-calculator/',
+    description: 'Estimate bedding sand and polymeric joint sand bags for interlocking patio pavers.',
+    live: true,
+  },
+  {
+    label: 'Fill Dirt Calculator',
+    href: '/fill-dirt-calculator/',
+    description: 'Estimate backfill soil and leveling dirt volume behind masonry retaining walls.',
+    live: true,
+  },
+  {
+    label: 'Construction Estimate Template',
+    href: '/construction-estimate-template/',
+    description: 'Create itemized masonry and general contractor bids with material and labor line items.',
+    live: true,
+  },
+];
