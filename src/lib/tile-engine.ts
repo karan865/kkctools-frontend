@@ -1,114 +1,67 @@
 /**
- * Tile Calculator Engine
+ * Tile Calculator Engine (Tool #11)
  *
- * Implements pure mathematics for floor, shower, and backsplash tile calculations:
- * - Room dimensions (L x W) or direct square footage input.
- * - Standard US tile size presets (12x12, 12x24, 6x24, 3x6 subway, 4x12, 4x4, 24x24, 6x6, custom).
- * - Single tile face area in square feet.
- * - Pattern waste factor allowance (10% grid, 12% running bond, 15% diagonal/herringbone, or custom).
- * - Base tiles vs Total tiles with waste.
- * - Whole retail box packaging rounding.
- * - Thin-set mortar (50 lb bags) and grout (25 lb bags) requirements.
- * - Total material costs & Professional contractor labor benchmark comparisons.
- *
- * Adheres strictly to Zero-Network policy (client-side pure math).
+ * Implements pure mathematics for tile planning, mortar, grout, packaging,
+ * and cost benchmarking.
+ * Strictly 0-network, 100% client side.
  */
 
-export interface TilePreset {
+import {
+  TILE_PRESETS,
+  DEFAULT_PRICES,
+  TilePreset,
+} from './tile-constants';
+
+export interface TileAreaItem {
   id: string;
   name: string;
-  lengthInches: number;
-  widthInches: number;
-  defaultTilesPerBox: number;
-  description: string;
+  lengthFeet: number;
+  widthFeet: number;
+  type: 'add' | 'subtract';
 }
 
-export const TILE_PRESETS: Record<string, TilePreset> = {
-  tile12x12: {
-    id: 'tile12x12',
-    name: '12" × 12" (Standard Floor Tile)',
-    lengthInches: 12,
-    widthInches: 12,
-    defaultTilesPerBox: 10,
-    description: '1.00 sq ft per tile — Ideal for bathroom & utility floors',
-  },
-  tile12x24: {
-    id: 'tile12x24',
-    name: '12" × 24" (Large Format Modern)',
-    lengthInches: 24,
-    widthInches: 12,
-    defaultTilesPerBox: 8,
-    description: '2.00 sq ft per tile — Modern living rooms & shower walls',
-  },
-  tile6x24: {
-    id: 'tile6x24',
-    name: '6" × 24" (Wood-Look Plank)',
-    lengthInches: 24,
-    widthInches: 6,
-    defaultTilesPerBox: 12,
-    description: '1.00 sq ft per tile — Timber look for kitchens & basements',
-  },
-  subway3x6: {
-    id: 'subway3x6',
-    name: '3" × 6" (Classic Subway Tile)',
-    lengthInches: 6,
-    widthInches: 3,
-    defaultTilesPerBox: 80,
-    description: '0.125 sq ft per tile (8 tiles/sq ft) — Backsplashes & tub surrounds',
-  },
-  subway4x12: {
-    id: 'subway4x12',
-    name: '4" × 12" (Modern Subway Tile)',
-    lengthInches: 12,
-    widthInches: 4,
-    defaultTilesPerBox: 30,
-    description: '0.333 sq ft per tile (3 tiles/sq ft) — Contemporary shower walls',
-  },
-  tile4x4: {
-    id: 'tile4x4',
-    name: '4" × 4" (Square Wall / Accent)',
-    lengthInches: 4,
-    widthInches: 4,
-    defaultTilesPerBox: 90,
-    description: '0.111 sq ft per tile (9 tiles/sq ft) — Retro bathroom walls & niches',
-  },
-  tile24x24: {
-    id: 'tile24x24',
-    name: '24" × 24" (Extra-Large Format)',
-    lengthInches: 24,
-    widthInches: 24,
-    defaultTilesPerBox: 4,
-    description: '4.00 sq ft per tile — Open concept main floors & showrooms',
-  },
-  tile6x6: {
-    id: 'tile6x6',
-    name: '6" × 6" (Square Floor / Wall)',
-    lengthInches: 6,
-    widthInches: 6,
-    defaultTilesPerBox: 40,
-    description: '0.25 sq ft per tile (4 tiles/sq ft) — Compact bathrooms & laundry',
-  },
-};
+export type PricingUnit = 'sqft' | 'tile' | 'box';
+export type BoxPackagingMode = 'tilesPerBox' | 'sqFtPerBox';
 
 export interface TileCalculationInput {
-  mode: 'room' | 'direct';
-  roomLengthFeet?: number;
-  roomWidthFeet?: number;
+  // Input mode: 'areas' or 'direct'
+  mode?: 'areas' | 'direct';
   directAreaSqFt?: number;
-  tilePresetId: string; // keyof TILE_PRESETS or 'custom'
+
+  // Areas list
+  areas?: TileAreaItem[];
+
+  // Tile specifications
+  tilePresetId: string;
   customLengthInches?: number;
   customWidthInches?: number;
-  groutJointInches?: number; // e.g. 0.0625 (1/16"), 0.125 (1/8"), 0.1875 (3/16"), 0.25 (1/4")
-  wastePercentage: number; // e.g. 10 (grid), 12 (offset), 15 (diagonal/herringbone)
+  customThicknessInches?: number;
+
+  // Grout & Pattern
+  groutJointInches?: number;
+  patternId?: string; // 'grid' | 'running-bond' | 'diagonal' | 'herringbone' | 'custom'
+  wastePercentage?: number;
+
+  // Packaging
+  boxMode?: BoxPackagingMode;
   tilesPerBox?: number;
-  pricePerBox?: number;
-  pricePerSqFt?: number;
-  includeInstallationMaterials?: boolean; // mortar & grout estimate
+  sqFtPerBox?: number;
+
+  // Pricing
+  pricingUnit?: PricingUnit;
+  tileUnitPrice?: number;
+  thinsetPricePerBag?: number;
+  groutPricePerBag?: number;
+  toolsAllowance?: number;
+  includeInstallationMaterials?: boolean;
 }
 
 export interface TileCalculationResult {
   netAreaSqFt: number;
   grossAreaSqFt: number;
+  tileLengthInches: number;
+  tileWidthInches: number;
+  tileThicknessInches: number;
   singleTileAreaSqInches: number;
   singleTileAreaSqFt: number;
   tilesPerSqFt: number;
@@ -118,108 +71,282 @@ export interface TileCalculationResult {
   boxesNeeded: number;
   totalTilesInBoxes: number;
   surplusTiles: number;
-  thinsetBags50lb: number;
+  boxCoverageSqFt: number;
+  groutJointInches: number;
+  groutWeightLb: number;
   groutBags25lb: number;
+  mortarCoverageSqFtPerBag: number;
+  thinsetBags50lb: number;
+  mortarTrowelSize: string;
   tileMaterialCost: number;
-  mortarGroutCost: number;
+  mortarCost: number;
+  groutCost: number;
+  toolsCost: number;
   totalDiyCost: number;
-  proEstimatedCostLow: number;
-  proEstimatedCostHigh: number;
+  proLaborLow: number;
+  proLaborHigh: number;
+  proAllInLow: number;
+  proAllInHigh: number;
+  diySavingsLow: number;
+  diySavingsHigh: number;
+}
+
+export const EPSILON = 1e-9;
+
+/**
+ * Calculates net surface area from add/subtract areas list.
+ */
+export function calculateNetArea(areas: TileAreaItem[]): number {
+  if (!areas || areas.length === 0) return 0;
+
+  let totalAdd = 0;
+  let totalSub = 0;
+
+  for (const a of areas) {
+    const l = Math.max(0, a.lengthFeet || 0);
+    const w = Math.max(0, a.widthFeet || 0);
+    const area = l * w;
+    if (a.type === 'subtract') {
+      totalSub += area;
+    } else {
+      totalAdd += area;
+    }
+  }
+
+  const net = Math.max(0, totalAdd - totalSub);
+  return parseFloat(net.toFixed(2));
+}
+
+/**
+ * Get mortar coverage and recommended trowel size based on longest tile side:
+ * - <= 8" -> 80 sq ft per 50 lb bag (1/4" x 1/4" square-notch trowel)
+ * - > 8" to 15" -> 60 sq ft per 50 lb bag (1/4" x 3/8" square-notch trowel)
+ * - > 15" -> 50 sq ft per 50 lb bag (1/2" x 1/2" square-notch + back-butter)
+ */
+export function getMortarCoverage(longestSideInches: number): { coverageSqFt: number; trowelSize: string } {
+  if (longestSideInches <= 8 + EPSILON) {
+    return { coverageSqFt: 80, trowelSize: '1/4" × 1/4" square-notch' };
+  } else if (longestSideInches <= 15 + EPSILON) {
+    return { coverageSqFt: 60, trowelSize: '1/4" × 3/8" square-notch' };
+  } else {
+    return { coverageSqFt: 50, trowelSize: '1/2" × 1/2" square-notch (back-butter recommended)' };
+  }
+}
+
+/**
+ * Grout weight formula (sanded grout, density ~100 lb/ft^3, +10% standard overage):
+ * Grout Lb = Net Area * ((L + W) / (L * W)) * JointWidth * Thickness * 8.3333 * 1.10
+ * Where L and W are tile piece dimensions in inches, JointWidth & Thickness in inches.
+ */
+export function calculateGroutWeightLb(
+  netAreaSqFt: number,
+  pieceLengthInches: number,
+  pieceWidthInches: number,
+  jointWidthInches: number,
+  thicknessInches: number
+): number {
+  if (netAreaSqFt <= 0 || pieceLengthInches <= 0 || pieceWidthInches <= 0) return 0;
+  const joint = Math.max(0, jointWidthInches || 0);
+  const thickness = Math.max(0, thicknessInches || 0);
+  if (joint <= 0 || thickness <= 0) return 0;
+
+  const numerator = pieceLengthInches + pieceWidthInches;
+  const denominator = pieceLengthInches * pieceWidthInches;
+  const factor = numerator / denominator;
+
+  // 100 lb/cu ft / 12 in/ft = 8.3333333333 lb / (sq ft * in depth)
+  // +10% overage multiplier = 1.10
+  const groutLb = netAreaSqFt * factor * joint * thickness * (100 / 12) * 1.1;
+  return parseFloat(groutLb.toFixed(2));
 }
 
 export function calculateTiles(input: TileCalculationInput): TileCalculationResult {
   const {
-    mode,
-    roomLengthFeet = 0,
-    roomWidthFeet = 0,
+    mode = 'areas',
     directAreaSqFt = 0,
-    tilePresetId,
+    areas = [],
+    tilePresetId = 'tile12x12',
     customLengthInches,
     customWidthInches,
+    customThicknessInches,
+    groutJointInches = 0.125,
+    patternId = 'grid',
     wastePercentage = 10,
+    boxMode = 'tilesPerBox',
     tilesPerBox,
-    pricePerBox = 0,
-    pricePerSqFt = 0,
-    includeInstallationMaterials = false,
+    sqFtPerBox,
+    pricingUnit = 'sqft',
+    tileUnitPrice = 3.0,
+    thinsetPricePerBag = DEFAULT_PRICES.thinset50lbBag,
+    groutPricePerBag = DEFAULT_PRICES.grout25lbBag,
+    toolsAllowance = DEFAULT_PRICES.toolsAllowance,
+    includeInstallationMaterials = true,
   } = input;
 
-  // Determine net area
+  // Calculate Net Area
   let netAreaSqFt = 0;
-  if (mode === 'room') {
-    const len = Math.max(0, roomLengthFeet || 0);
-    const wid = Math.max(0, roomWidthFeet || 0);
-    netAreaSqFt = parseFloat((len * wid).toFixed(2));
+  if (mode === 'direct') {
+    netAreaSqFt = Math.max(0, directAreaSqFt || 0);
   } else {
-    netAreaSqFt = parseFloat(Math.max(0, directAreaSqFt || 0).toFixed(2));
+    netAreaSqFt = calculateNetArea(areas);
   }
+  netAreaSqFt = parseFloat(netAreaSqFt.toFixed(2));
 
-  // Determine tile dimensions
+  // Preset lookup or custom
   let lengthInches = 12;
   let widthInches = 12;
-  let defaultBoxCount = 10;
+  let thicknessInches = 0.375;
+  let defaultTilesInBox = 10;
+  let pieceLengthInches = 12;
+  let pieceWidthInches = 12;
 
-  if (tilePresetId === 'custom') {
+  const preset: TilePreset | undefined = TILE_PRESETS[tilePresetId];
+
+  if (tilePresetId === 'custom' || !preset) {
     lengthInches = Math.max(0.5, customLengthInches || 12);
     widthInches = Math.max(0.5, customWidthInches || 12);
-    defaultBoxCount = 10;
-  } else if (TILE_PRESETS[tilePresetId]) {
-    const preset = TILE_PRESETS[tilePresetId];
+    thicknessInches = Math.max(0.0625, customThicknessInches || 0.375);
+    defaultTilesInBox = 10;
+    pieceLengthInches = lengthInches;
+    pieceWidthInches = widthInches;
+  } else {
     lengthInches = preset.lengthInches;
     widthInches = preset.widthInches;
-    defaultBoxCount = preset.defaultTilesPerBox;
+    thicknessInches = preset.thicknessInches;
+    defaultTilesInBox = preset.defaultTilesPerBox;
+
+    if (preset.isMosaic && preset.pieceLengthInches && preset.pieceWidthInches) {
+      pieceLengthInches = preset.pieceLengthInches;
+      pieceWidthInches = preset.pieceWidthInches;
+    } else {
+      pieceLengthInches = lengthInches;
+      pieceWidthInches = widthInches;
+    }
   }
 
-  // Single tile face area
-  const singleTileAreaSqInches = parseFloat((lengthInches * widthInches).toFixed(3));
+  // Tile dimensions and area
+  const singleTileAreaSqInches = parseFloat((lengthInches * widthInches).toFixed(4));
   const singleTileAreaSqFt = parseFloat((singleTileAreaSqInches / 144).toFixed(4));
-  const tilesPerSqFt = singleTileAreaSqFt > 0 ? parseFloat((1 / singleTileAreaSqFt).toFixed(2)) : 0;
+  const tilesPerSqFt = singleTileAreaSqFt > 0 ? parseFloat((1 / singleTileAreaSqFt).toFixed(4)) : 0;
 
-  // Base tiles needed (without waste)
-  const baseTilesNeeded = singleTileAreaSqFt > 0 ? Math.ceil(netAreaSqFt / singleTileAreaSqFt) : 0;
-
-  // Waste multiplier (rounded to clean precision to avoid IEEE 754 float drift)
-  const validWaste = Math.max(0, wastePercentage || 0);
+  // Single-rounding tile counts
+  // baseTiles = ceil(netArea * 144 / (L * W))
+  // totalTiles = ceil(netArea * 144 * (1 + waste/100) / (L * W))
+  const validWaste = Math.max(0, wastePercentage ?? 10);
   const grossAreaSqFt = parseFloat((netAreaSqFt * (1 + validWaste / 100)).toFixed(2));
-  const rawTotalTiles = baseTilesNeeded * (1 + validWaste / 100);
-  const totalTilesNeeded = Math.ceil(parseFloat(rawTotalTiles.toFixed(4)));
+
+  let baseTilesNeeded = 0;
+  let totalTilesNeeded = 0;
+  if (netAreaSqFt > 0 && singleTileAreaSqInches > 0) {
+    const rawBase = (netAreaSqFt * 144) / singleTileAreaSqInches;
+    baseTilesNeeded = Math.ceil(rawBase - EPSILON);
+
+    const rawTotal = (netAreaSqFt * 144 * (1 + validWaste / 100)) / singleTileAreaSqInches;
+    totalTilesNeeded = Math.ceil(rawTotal - EPSILON);
+  }
+
   const wasteTiles = Math.max(0, totalTilesNeeded - baseTilesNeeded);
 
-  // Boxes calculation
-  const unitsInBox = Math.max(1, tilesPerBox || defaultBoxCount);
-  const boxesNeeded = totalTilesNeeded > 0 ? Math.ceil(totalTilesNeeded / unitsInBox) : 0;
-  const totalTilesInBoxes = boxesNeeded * unitsInBox;
+  // Box packaging calculation
+  let boxesNeeded = 0;
+  let totalTilesInBoxes = 0;
+  let boxCoverageSqFt = 0;
+
+  if (boxMode === 'sqFtPerBox' && sqFtPerBox && sqFtPerBox > 0) {
+    boxCoverageSqFt = sqFtPerBox;
+    if (grossAreaSqFt > 0) {
+      boxesNeeded = Math.ceil(grossAreaSqFt / sqFtPerBox - EPSILON);
+      const tilesPerBoxEquiv = singleTileAreaSqFt > 0 ? Math.round(sqFtPerBox / singleTileAreaSqFt) : 0;
+      totalTilesInBoxes = boxesNeeded * tilesPerBoxEquiv;
+    }
+  } else {
+    const perBox = Math.max(1, tilesPerBox || defaultTilesInBox);
+    boxCoverageSqFt = parseFloat((perBox * singleTileAreaSqFt).toFixed(2));
+    if (totalTilesNeeded > 0) {
+      boxesNeeded = Math.ceil(totalTilesNeeded / perBox - EPSILON);
+      totalTilesInBoxes = boxesNeeded * perBox;
+    }
+  }
+
   const surplusTiles = Math.max(0, totalTilesInBoxes - totalTilesNeeded);
 
-  // Mortar & Grout estimates:
-  // 50 lb thinset bag covers ~60 sq ft
-  const thinsetBags50lb = grossAreaSqFt > 0 ? Math.ceil(grossAreaSqFt / 60) : 0;
-  // 25 lb grout bag covers ~150 sq ft
-  const groutBags25lb = grossAreaSqFt > 0 ? Math.ceil(grossAreaSqFt / 150) : 0;
+  // Thin-set mortar calculation: net / coverageBySize
+  const longestSide = Math.max(lengthInches, widthInches);
+  const mortarInfo = getMortarCoverage(longestSide);
+  const thinsetBags50lb =
+    netAreaSqFt > 0 ? Math.ceil(netAreaSqFt / mortarInfo.coverageSqFt - EPSILON) : 0;
 
-  // Cost calculation
+  // Grout weight calculation (using piece sizes for mosaic)
+  const groutWeightLb = calculateGroutWeightLb(
+    netAreaSqFt,
+    pieceLengthInches,
+    pieceWidthInches,
+    groutJointInches,
+    thicknessInches
+  );
+  const groutBags25lb = groutWeightLb > 0 ? Math.ceil(groutWeightLb / 25 - EPSILON) : 0;
+
+  // Material Costs
+  // Tile cost formula per section 3:
+  // per sq ft -> boxes * boxCoverage * price
+  // per tile  -> boxes * tilesPerBox * price
+  // per box   -> boxes * price
   let tileMaterialCost = 0;
-  if (pricePerBox && pricePerBox > 0) {
-    tileMaterialCost = parseFloat((boxesNeeded * pricePerBox).toFixed(2));
-  } else if (pricePerSqFt && pricePerSqFt > 0) {
-    tileMaterialCost = parseFloat((grossAreaSqFt * pricePerSqFt).toFixed(2));
+  const unitPrice = Math.max(0, tileUnitPrice || 0);
+
+  if (pricingUnit === 'box') {
+    tileMaterialCost = parseFloat((boxesNeeded * unitPrice).toFixed(2));
+  } else if (pricingUnit === 'tile') {
+    const perBox = Math.max(1, tilesPerBox || defaultTilesInBox);
+    tileMaterialCost = parseFloat((boxesNeeded * perBox * unitPrice).toFixed(2));
+  } else {
+    // Default 'sqft': boxes * boxCoverage * price
+    tileMaterialCost = parseFloat((boxesNeeded * boxCoverageSqFt * unitPrice).toFixed(2));
   }
 
-  let mortarGroutCost = 0;
-  if (includeInstallationMaterials && grossAreaSqFt > 0) {
-    // ~$28 per 50 lb thinset + ~$20 per 25 lb grout bag
-    mortarGroutCost = parseFloat((thinsetBags50lb * 28 + groutBags25lb * 20).toFixed(2));
+  let mortarCost = 0;
+  let groutCost = 0;
+  let toolsCost = 0;
+
+  if (includeInstallationMaterials && netAreaSqFt > 0) {
+    mortarCost = parseFloat((thinsetBags50lb * thinsetPricePerBag).toFixed(2));
+    groutCost = parseFloat((groutBags25lb * groutPricePerBag).toFixed(2));
+    toolsCost = parseFloat((toolsAllowance || 0).toFixed(2));
   }
 
-  const totalDiyCost = parseFloat((tileMaterialCost + mortarGroutCost).toFixed(2));
+  const totalDiyCost = parseFloat((tileMaterialCost + mortarCost + groutCost + toolsCost).toFixed(2));
 
   // Professional labor benchmarks:
-  // Typical pro contractor charges ~$7.00 - $15.00 per sq ft for floor tile installation
-  const proEstimatedCostLow = Math.round(netAreaSqFt * 7.0);
-  const proEstimatedCostHigh = Math.round(netAreaSqFt * 15.0);
+  // Baseline $5 - $15 / sq ft of net area, +20% for diagonal / herringbone
+  const isDiagonalOrHerringbone = patternId === 'diagonal' || patternId === 'herringbone';
+  const laborSurgeMultiplier = isDiagonalOrHerringbone ? 1 + DEFAULT_PRICES.proLaborDiagonalSurge : 1.0;
+
+  const rawLaborLow = netAreaSqFt * DEFAULT_PRICES.proLaborRateLow * laborSurgeMultiplier;
+  const rawLaborHigh = netAreaSqFt * DEFAULT_PRICES.proLaborRateHigh * laborSurgeMultiplier;
+
+  // Rounded to nearest $10
+  const proLaborLow = Math.round(rawLaborLow / 10) * 10;
+  const proLaborHigh = Math.round(rawLaborHigh / 10) * 10;
+
+  // Pro all-in: Labor + tile + mortar + grout (tools excluded since contractor brings their own)
+  const proMaterialsOnly = tileMaterialCost + mortarCost + groutCost;
+  const rawProAllInLow = proLaborLow + proMaterialsOnly;
+  const rawProAllInHigh = proLaborHigh + proMaterialsOnly;
+
+  // Rounded to nearest $10
+  const proAllInLow = Math.round(rawProAllInLow / 10) * 10;
+  const proAllInHigh = Math.round(rawProAllInHigh / 10) * 10;
+
+  // DIY Savings = max(0, Pro Labor - Tools Allowance)
+  const diySavingsLow = Math.max(0, proLaborLow - toolsCost);
+  const diySavingsHigh = Math.max(0, proLaborHigh - toolsCost);
 
   return {
     netAreaSqFt,
     grossAreaSqFt,
+    tileLengthInches: lengthInches,
+    tileWidthInches: widthInches,
+    tileThicknessInches: thicknessInches,
     singleTileAreaSqInches,
     singleTileAreaSqFt,
     tilesPerSqFt,
@@ -229,12 +356,23 @@ export function calculateTiles(input: TileCalculationInput): TileCalculationResu
     boxesNeeded,
     totalTilesInBoxes,
     surplusTiles,
-    thinsetBags50lb,
+    boxCoverageSqFt,
+    groutJointInches,
+    groutWeightLb,
     groutBags25lb,
+    mortarCoverageSqFtPerBag: mortarInfo.coverageSqFt,
+    thinsetBags50lb,
+    mortarTrowelSize: mortarInfo.trowelSize,
     tileMaterialCost,
-    mortarGroutCost,
+    mortarCost,
+    groutCost,
+    toolsCost,
     totalDiyCost,
-    proEstimatedCostLow,
-    proEstimatedCostHigh,
+    proLaborLow,
+    proLaborHigh,
+    proAllInLow,
+    proAllInHigh,
+    diySavingsLow,
+    diySavingsHigh,
   };
 }

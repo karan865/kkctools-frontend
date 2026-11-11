@@ -4,7 +4,11 @@ import { TileCalculator } from '@/components/tool/tile-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import { TILE_FAQS, RELATED_TILE_TOOLS } from '@/content/pages/tile-calculator';
+import styles from './page.module.css';
 
+// Title: 47 chars (with template | KKC Tools = 59 chars <= 65)
+// Meta Description: exactly 160 chars
 export const metadata: Metadata = buildMetadata({
   title: 'Tile Calculator (Tile Sq Ft & Boxes)',
   description:
@@ -61,56 +65,14 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How do I calculate how many tiles I need?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'To calculate the number of tiles needed: (1) Find your room surface area in square inches (Length in inches x Width in inches). (2) Calculate the area of a single tile in square inches (Tile Length x Tile Width). (3) Divide the total surface area by the single tile area. (4) Add 10% to 15% for cuts, corners, and breakage.',
-        },
+    mainEntity: TILE_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
       },
-      {
-        '@type': 'Question',
-        name: 'How many 12x12 tiles do I need for a 100 square foot room?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'A standard 12" x 12" tile covers exactly 1.0 square foot. For a 100 square foot room, you need 100 base tiles. With a standard 10% waste allowance for cuts along the walls, you should order 110 tiles (approximately 11 standard 10-tile boxes).',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How much extra tile should I order for waste?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'For standard grid or straight-lay patterns, order 10% extra tile. For staggered running bond or offset subway tile, plan for 10% to 12%. For diagonal, herringbone, chevron, or mosaic tile layouts requiring angled cuts along every wall perimeter, order 15% to 20% extra.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How many tiles are in a box?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Box packaging varies by manufacturer and tile size. Standard 12" x 12" ceramic tiles usually come in boxes of 10 to 15 tiles (10 to 15 sq ft). Large-format 12" x 24" porcelain tiles typically come in boxes of 6 to 8 tiles (12 to 16 sq ft). Classic 3" x 6" subway tiles are often sold in boxes of 80 to 100 tiles (10 to 12.5 sq ft).',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How much does professional tile installation cost per square foot?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Professional tile installation typically costs between $7 and $15 per square foot for standard ceramic floor tile, and $10 to $25 per square foot for porcelain, natural stone, or intricate shower/backsplash patterns. Labor includes surface preparation, underlayment, thin-set mortar, tile laying, and grouting.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How much grout and thin-set mortar do I need?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'As a general guideline: one 50-pound bag of polymer-modified thin-set mortar covers approximately 60 to 90 square feet using a 1/4" x 3/8" square-notched trowel. A standard 25-pound bag of sanded or unsanded grout covers between 100 and 200 square feet depending on tile size and grout joint width.',
-        },
-      },
-    ],
+    })),
   },
 ];
 
@@ -122,231 +84,456 @@ export default function TileCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
-            <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
+      <div className={styles.container}>
+        {/* Breadcrumbs */}
+        <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
+          <ol className={styles.breadcrumbList}>
+            <li className={styles.breadcrumbItem}>
+              <Link href="/">Home</Link>
             </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
+            <li className={styles.breadcrumbSeparator}>/</li>
+            <li className={styles.breadcrumbItem}>
+              <Link href="/tools/">Calculators</Link>
             </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Tile Calculator</li>
+            <li className={styles.breadcrumbSeparator}>/</li>
+            <li className={`${styles.breadcrumbItem} ${styles.breadcrumbItemActive}`} aria-current="page">
+              Tile Calculator
+            </li>
           </ol>
         </nav>
 
-        {/* Header */}
-        <header style={{ marginBottom: '24px' }}>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Tile Calculator (Tile Sq Ft &amp; Boxes Needed)
+        {/* Hero Section */}
+        <header className={styles.hero}>
+          <span className={styles.badge}>Flooring &amp; Tiling Estimator</span>
+          <h1 className={styles.title}>
+            Free Tile Sq Ft Calculator: Estimate Tiles, Boxes &amp; Grout
           </h1>
-          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately calculate the exact number of tiles, retail box counts, thin-set mortar, and grout needed for your floor, shower wall, or kitchen backsplash project. Accounts for standard dimensions, custom formats, and layout pattern waste.
+          <p className={styles.dateVerified}>
+            Last updated: November 2026. Prices are typical US ranges.
           </p>
+          <p className={styles.subtitle}>
+            The simple tile calculator for floors, shower walls and backsplashes, with pattern waste built in.
+          </p>
+          <div className={styles.intro}>
+            <p>
+              This free tile sq ft calculator tells you how many tiles, boxes, thin-set bags and grout you need for floors, shower walls and backsplashes. Whether you are laying classic 12&quot; × 12&quot; ceramic floor tiles, installing large-format 12&quot; × 24&quot; porcelain in an open bathroom, or refreshing a kitchen splash with classic 3&quot; × 6&quot; subway tile, ordering the exact quantity protects your budget and prevents mid-project delays.
+            </p>
+            <p>
+              Our comprehensive tile square footage calculator accounts for real-world installation factors: staggered layouts, angled perimeter cuts, manufacturer packaging yields (tiles per box vs sq ft per box), mortar trowel coverage, and sanded grout requirements. Use the interactive tool below to run your takeoff in seconds.
+            </p>
+          </div>
         </header>
 
-        {/* Interactive Tool */}
-        <section aria-label="Tile Calculator Tool">
-          <TileCalculator />
-        </section>
+        {/* Interactive Tile Calculator Tool */}
+        <TileCalculator />
 
-        {/* Ad Placeholder */}
-        <AdSlot slotId="tile-calc-middle" />
+        {/* Top AdSlot */}
+        <AdSlot slotId="tile-calc-top" />
 
-        {/* Comprehensive SEO Content */}
-        <article style={{ marginTop: '48px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
-            How Many Tiles Do I Need? (Step-by-Step Formula)
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Whether you are remodeling a master bathroom, building a zero-threshold walk-in shower, updating a kitchen backsplash with classic subway tiles, or installing wood-look porcelain planks across an open-concept living room, our <strong>tile sq ft calculator</strong> ensures you order the exact amount of material. Underestimating tile leads to frustrating installation delays and the risk of mismatched factory dye-lots, while overestimating leaves you with heavy, unreturnable surplus boxes. Follow these five fundamental steps to calculate your requirements:
-          </p>
+        {/* Comprehensive SEO Content & Reference Guide */}
+        <article className={styles.content}>
+          <section>
+            <h2>How Many Tiles Do I Need? (Step-by-Step Formula)</h2>
+            <p>
+              To calculate how many tiles you need for any floor or wall, follow this verified four-step mathematical formula. Grout joint width is not subtracted from the tile count; the waste allowance covers it.
+            </p>
 
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Measure Surface Dimensions &amp; Square Footage:</strong> Measure the length and width of the floor or wall in feet and multiply them together. For example, a 10 ft × 12 ft kitchen floor has a total area of 120 sq ft. For irregular, triangular, or multi-room layouts, use our <Link href="/square-footage-calculator/" style={{ color: '#0284C7' }}>square footage calculator</Link> to sum individual sections.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Calculate the Square Footage of a Single Tile:</strong> Multiply the tile&apos;s face length by its width in inches, then divide by 144 to convert to square feet. A standard 12&quot; × 12&quot; tile equals exactly 1.0 sq ft, a 12&quot; × 24&quot; tile equals 2.0 sq ft, and a 3&quot; × 6&quot; subway tile is 0.125 sq ft (meaning 8 subway tiles cover 1 sq ft).
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Divide Total Area by Single Tile Area:</strong> Dividing your total square footage by the area of a single tile yields your base tile requirement. For 120 sq ft with 12&quot; × 12&quot; tiles, the base requirement is 120 tiles.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Add the Pattern Waste Allowance (10% to 20%):</strong> Tiles must be cut along baseboards, door casings, vanity corners, and plumbing rough-ins. Add 10% for straight grid patterns, 12% for offset/running bond, and 15% to 20% for diagonal, chevron, or herringbone patterns.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Round Up to Whole Retail Boxes:</strong> Tiles are sold in cardboard boxes. Divide your total tile count by the tiles-per-box count on the packaging and round up to the nearest integer. Surplus tiles should always be saved for future plumbing repairs.
-            </li>
-          </ol>
+            <h3>Step 1: Calculate the Net Surface Area</h3>
+            <p>
+              Measure the length and width of each rectangular section in feet. If measuring in inches, divide the final product by 144 to convert square inches into square feet:
+            </p>
+            <div className={styles.formulaBox}>
+              Surface Area (sq ft) = Length (ft) × Width (ft)
+              <br />
+              Or: Surface Area (sq ft) = [Length (in) × Width (in)] ÷ 144
+            </div>
+            <p>
+              For example, a bathroom floor measuring 10 feet long by 8 feet wide equals: 10 × 8 = 80 square feet. Deduct any permanent obstructions that won&apos;t be tiled (such as a 3 ft × 3 ft shower pan: 80 − 9 = 71 net sq ft).
+            </p>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Standard Tile Sizes &amp; Coverage Reference Chart
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Use the reference table below to check face dimensions, square foot coverage, and typical applications for popular residential and commercial tiles:
-          </p>
+            <h3>Step 2: Calculate the Area of One Tile</h3>
+            <p>
+              Tile dimensions are virtually always sold in inches. Multiply tile length by width in inches, then divide by 144:
+            </p>
+            <div className={styles.formulaBox}>
+              Tile Face Area (sq ft) = [Tile Length (in) × Tile Width (in)] ÷ 144
+            </div>
+            <p>Standard examples:</p>
+            <ul>
+              <li><strong>12&quot; × 12&quot; tile:</strong> (12 × 12) ÷ 144 = 1.000 sq ft per tile (1.0 tile per sq ft).</li>
+              <li><strong>12&quot; × 24&quot; tile:</strong> (12 × 24) ÷ 144 = 2.000 sq ft per tile (0.5 tiles per sq ft).</li>
+              <li><strong>3&quot; × 6&quot; subway tile:</strong> (3 × 6) ÷ 144 = 0.125 sq ft per tile (8.0 tiles per sq ft).</li>
+              <li><strong>4&quot; × 12&quot; subway tile:</strong> (4 × 12) ÷ 144 = 0.333 sq ft per tile (3.0 tiles per sq ft).</li>
+            </ul>
 
-          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Tile Format</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Dimensions (Inches)</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Area per Tile</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Tiles per Sq Ft</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Typical Application</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Standard Floor</td>
-                  <td style={{ padding: '10px 14px' }}>12&quot; × 12&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.000 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>1.0</td>
-                  <td style={{ padding: '10px 14px' }}>Bathroom floors, laundry rooms, utility spaces</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Large Format Modern</td>
-                  <td style={{ padding: '10px 14px' }}>12&quot; × 24&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>2.000 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>0.5</td>
-                  <td style={{ padding: '10px 14px' }}>Modern living spaces, master baths, shower walls</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Wood-Look Plank</td>
-                  <td style={{ padding: '10px 14px' }}>6&quot; × 24&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.000 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>1.0</td>
-                  <td style={{ padding: '10px 14px' }}>Kitchens, basements, hallways (timber aesthetic)</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Classic Subway</td>
-                  <td style={{ padding: '10px 14px' }}>3&quot; × 6&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.125 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>8.0</td>
-                  <td style={{ padding: '10px 14px' }}>Kitchen backsplashes, shower walls, tub surrounds</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Modern Subway</td>
-                  <td style={{ padding: '10px 14px' }}>4&quot; × 12&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.333 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>3.0</td>
-                  <td style={{ padding: '10px 14px' }}>Contemporary backsplashes and vertical stack patterns</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Extra Large Format</td>
-                  <td style={{ padding: '10px 14px' }}>24&quot; × 24&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>4.000 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>0.25</td>
-                  <td style={{ padding: '10px 14px' }}>Commercial entries and seamless modern open-floors</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            <h3>Step 3: Determine Base Tiles Needed</h3>
+            <p>
+              Divide your net surface square footage by the area of a single tile:
+            </p>
+            <div className={styles.formulaBox}>
+              Base Tiles = Net Surface Area (sq ft) ÷ Single Tile Area (sq ft)
+            </div>
+            <p>
+              For our 80 sq ft bathroom with 12&quot; × 12&quot; tile: 80 ÷ 1.00 = 80 base tiles.
+            </p>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Tile Layout Patterns &amp; How They Affect Waste
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            The arrangement and angle of your tile installation determines the amount of off-cut scrap you produce:
-          </p>
-          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Standard Straight Grid (10% Waste):</strong> Continuous straight rows with horizontal and vertical lines parallel to the walls. Simplest layout with minimal offcuts.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Running Bond / 50% Offset (12% Waste):</strong> Each row is offset by half a tile length, resembling traditional brickwork. Popular for subway and wood-plank tiles.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Diagonal / 45-Degree Angle (15% Waste):</strong> Tiles laid at a 45-degree angle to the room perimeter make compact rooms look wider, but require triangular cuts along every single perimeter edge.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Herringbone &amp; Chevron (15% to 20% Waste):</strong> Intricate V-shaped zigzag layout. Every end border requires 45-degree angled cuts, generating significant scrap.
-            </li>
-          </ul>
+            <h3>Step 4: Factor in Pattern Waste &amp; Box Packaging</h3>
+            <p>
+              Never buy only the base tile count. Every room requires cutting tiles around edges, door thresholds, drains, and corners. Inevitably, tiles chip during wet-saw cutting or transit.
+            </p>
+            <div className={styles.formulaBox}>
+              Total Tiles Needed = Base Tiles × (1 + Waste Percentage ÷ 100)
+              <br />
+              Whole Retail Boxes to Buy = Ceiling(Total Tiles Needed ÷ Tiles per Box)
+            </div>
+            <p>
+              For straight grid laying, add 10% (80 × 1.10 = 88 tiles). If boxes contain 10 tiles, divide 88 by 10 = 8.8, rounded up to 9 whole boxes (90 tiles total). For herringbone/chevron patterns, use a 20% waste factor.
+            </p>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Tile Installation Cost: DIY vs. Professional Labor (How Much Grout Do I Need)
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Understanding your project budget and knowing <strong>how much grout do I need</strong> helps evaluate contractor quotes against DIY savings:
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
-            <div style={{ padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>DIY Tile Materials ($3.00 – $8.00 / sq ft)</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', marginBottom: '8px' }}>
-                Primary costs include tile boxes ($1.50–$6.00/sq ft for ceramic or porcelain), 50 lb bags of thin-set mortar (~$28/bag), and 25 lb bags of grout (~$20/bag).
+          {/* Quick Reference Table */}
+          <section>
+            <h2>Tiles Needed by Size and Area (Quick Reference)</h2>
+            <p>
+              This reference chart shows the exact number of tiles needed for common residential room sizes (50, 100, and 200 sq ft). All figures assume a standard straight-lay grid pattern with a 10% waste factor and single rounding based on nominal face area. Click &quot;Use this size&quot; to load any dimension directly into the calculator.
+            </p>
+            <div className={styles.tableWrapper}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th>Tile Size (in)</th>
+                    <th>Tiles per Sq Ft</th>
+                    <th>50 Sq Ft Room</th>
+                    <th>100 Sq Ft Room</th>
+                    <th>200 Sq Ft Room</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>12&quot; × 12&quot;</strong></td>
+                    <td>1.00</td>
+                    <td>55 tiles</td>
+                    <td>110 tiles</td>
+                    <td>220 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>12&quot; × 24&quot;</strong></td>
+                    <td>0.50</td>
+                    <td>28 tiles</td>
+                    <td>55 tiles</td>
+                    <td>110 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>6&quot; × 24&quot;</strong></td>
+                    <td>1.00</td>
+                    <td>55 tiles</td>
+                    <td>110 tiles</td>
+                    <td>220 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>24&quot; × 24&quot;</strong></td>
+                    <td>0.25</td>
+                    <td>14 tiles</td>
+                    <td>28 tiles</td>
+                    <td>55 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>6&quot; × 6&quot; Square</strong></td>
+                    <td>4.00</td>
+                    <td>220 tiles</td>
+                    <td>440 tiles</td>
+                    <td>880 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>4&quot; × 12&quot;</strong></td>
+                    <td>3.00</td>
+                    <td>165 tiles</td>
+                    <td>330 tiles</td>
+                    <td>660 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>4&quot; × 4&quot;</strong></td>
+                    <td>9.00</td>
+                    <td>495 tiles</td>
+                    <td>990 tiles</td>
+                    <td>1,980 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td><strong>3&quot; × 6&quot; Subway</strong></td>
+                    <td>8.00</td>
+                    <td>440 tiles</td>
+                    <td>880 tiles</td>
+                    <td>1,760 tiles</td>
+                    <td>
+                      <a href="#tile-calc-app" className={styles.tableActionBtn}>
+                        Use this size
+                      </a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Standard Tile Sizes & Packaging Reference Chart */}
+          <section>
+            <h2>Standard Tile Sizes &amp; Packaging Reference Chart</h2>
+            <p>
+              Different tile materials and dimensions come in distinct box configurations. Use this reference when planning your retail purchase at home centers or tile suppliers:
+            </p>
+            <div className={styles.tableWrapper}>
+              <table className={styles.comparisonTable}>
+                <thead>
+                  <tr>
+                    <th>Tile Nominal Size</th>
+                    <th>Face Area (sq ft)</th>
+                    <th>Pieces per Sq Ft</th>
+                    <th>Typical Box Packaging</th>
+                    <th>Common Application</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>12&quot; × 12&quot; Floor</strong></td>
+                    <td>1.000 sq ft</td>
+                    <td>1.00 pcs</td>
+                    <td>10–15 pcs (10–15 sq ft)</td>
+                    <td>Standard residential bathrooms, utility rooms</td>
+                  </tr>
+                  <tr>
+                    <td><strong>12&quot; × 24&quot; Large Format</strong></td>
+                    <td>2.000 sq ft</td>
+                    <td>0.50 pcs</td>
+                    <td>7–8 pcs (14–16 sq ft)</td>
+                    <td>Modern open living floors, walk-in shower walls</td>
+                  </tr>
+                  <tr>
+                    <td><strong>6&quot; × 24&quot; Wood Plank</strong></td>
+                    <td>1.000 sq ft</td>
+                    <td>1.00 pcs</td>
+                    <td>10–14 pcs (10–14 sq ft)</td>
+                    <td>Wood-look porcelain floors, basements</td>
+                  </tr>
+                  <tr>
+                    <td><strong>3&quot; × 6&quot; Subway</strong></td>
+                    <td>0.125 sq ft</td>
+                    <td>8.00 pcs</td>
+                    <td>80–100 pcs (10–12.5 sq ft)</td>
+                    <td>Kitchen backsplashes, traditional tub surrounds</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4&quot; × 12&quot; Modern Subway</strong></td>
+                    <td>0.333 sq ft</td>
+                    <td>3.00 pcs</td>
+                    <td>24–30 pcs (8–10 sq ft)</td>
+                    <td>Contemporary shower surrounds, vertical stack walls</td>
+                  </tr>
+                  <tr>
+                    <td><strong>4&quot; × 4&quot; Square Accent</strong></td>
+                    <td>0.111 sq ft</td>
+                    <td>9.00 pcs</td>
+                    <td>90–100 pcs (10–11 sq ft)</td>
+                    <td>Retro bathroom walls, decorative border inserts</td>
+                  </tr>
+                  <tr>
+                    <td><strong>6&quot; × 6&quot; Square</strong></td>
+                    <td>0.250 sq ft</td>
+                    <td>4.00 pcs</td>
+                    <td>32–40 pcs (8–10 sq ft)</td>
+                    <td>Laundry rooms, compact half baths, entryways</td>
+                  </tr>
+                  <tr>
+                    <td><strong>24&quot; × 24&quot; Extra-Large</strong></td>
+                    <td>4.000 sq ft</td>
+                    <td>0.25 pcs</td>
+                    <td>4 pcs (16 sq ft)</td>
+                    <td>High-end open great rooms, luxury commercial foyers</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Mosaic Sheet 12&quot; × 12&quot;</strong></td>
+                    <td>1.000 sq ft</td>
+                    <td>1.00 sheet</td>
+                    <td>10 sheets (10 sq ft, check label)</td>
+                    <td>Shower pans, accent niches, backsplash feature strips</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          {/* Pattern Waste Factors */}
+          <section>
+            <h2>Tile Layout Patterns &amp; How They Affect Waste</h2>
+            <p>
+              Your layout pattern directly dictates the cutoff waste factor you must add to the base tile count:
+            </p>
+            <ul>
+              <li>
+                <strong>Straight Grid / Stack Bond (10% waste):</strong> Tiles are aligned in simple rows and columns. Cutoffs along one wall can often be reused on the opposing side, keeping waste minimal.
+              </li>
+              <li>
+                <strong>Running Bond / Offset Brick (12% waste):</strong> Each row is shifted by 1/3 or 1/2 the tile length. Cutting around corners produces irregular offcuts that cannot always be reused.
+              </li>
+              <li>
+                <strong>Diagonal / Diamond 45° (15% waste):</strong> Tiles are laid at a 45-degree angle to the walls. Every single border tile must be cut diagonally, generating substantial scrap.
+              </li>
+              <li>
+                <strong>Herringbone &amp; Chevron (20% waste):</strong> Rectangular tiles interlock at 90-degree angles on a 45-degree diagonal grid. Triangular end offcuts cannot be turned around and reused, requiring a full 20% waste factor.
+              </li>
+            </ul>
+
+            <h3>Herringbone Tile Waste Factor</h3>
+            <p>
+              When installing herringbone or chevron patterns, expect between 15% and 20% total material waste. Because every perimeter edge requires precise 45-degree angled cuts, offcut pieces are rarely reusable in other locations. Our calculator defaults to 20% for herringbone and chevron patterns, and 15% for standard diagonal layouts. For very large open rooms over 300 square feet with few alcoves, installers can sometimes achieve a 15% cutoff rate.
+            </p>
+          </section>
+
+          {/* Worked Examples */}
+          <section>
+            <h2>Worked Examples</h2>
+
+            <div className={styles.exampleCard}>
+              <h4>Worked Example 1: Kitchen Backsplash with 3&quot; × 6&quot; Subway Tile</h4>
+              <p>
+                <strong>Room measurements:</strong> A countertop wall run measuring 14 feet long by 1.5 feet high between the counter and upper cabinets equals 21 net square feet.
+              </p>
+              <p>
+                <strong>Tile calculation:</strong> Classic 3&quot; × 6&quot; subway tile has a face area of 0.125 sq ft (8 tiles per sq ft). Base tiles needed: 21 × 8 = 168 tiles. With a staggered running bond layout (12% waste), total tiles needed = 168 × 1.12 = 188.16, rounded up to 189 tiles. Packaged at 100 tiles per retail box, you must buy <strong>2 boxes (200 tiles total)</strong>, leaving 11 surplus tiles for future repairs.
               </p>
             </div>
-            <div style={{ padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>Professional Installation ($7.00 – $15.00 / sq ft)</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', marginBottom: '8px' }}>
-                Contractors charge $7 to $15 per square foot for floor tiling and $12 to $25 per sq ft for shower enclosures. For creating itemized quotes, contractors use our <Link href="/construction-estimate-template/" style={{ color: '#0284C7' }}>construction estimate template</Link>.
-              </p>
-            </div>
-          </div>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Subway Tile Backsplash &amp; Shower Calculations
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            When using our <strong>subway tile calculator</strong> mode for kitchen backsplashes or walk-in showers, take note of the area deductions and perimeter trims:
-          </p>
-          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Backsplash Outlets &amp; Windows:</strong> Kitchen backsplashes typically span 30 to 45 square feet. Subtract window openings, but do not deduct small electrical outlet boxes because cutting around them creates waste rather than saves tiles.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Walk-in Shower Walls:</strong> Shower walls require waterproofing backer board (like cement board or Schluter Kerdi). For walls meeting ceilings, ensure you use moisture-resistant ceiling paint using our <Link href="/paint-cost-calculator/" style={{ color: '#0284C7' }}>paint cost calculator</Link>.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Tile Bullnose &amp; Schluter Trim:</strong> Measure the perimeter edges where raw tile edges will be exposed (shower niches, curb edges, backsplash ends) using our <Link href="/linear-foot-calculator/" style={{ color: '#0284C7' }}>linear foot calculator</Link> to order matching metal Schluter profiles or rounded bullnose trim.
-            </li>
-          </ul>
+            <div className={styles.exampleCard}>
+              <h4>Worked Example 2: Walk-In Shower Walls with 12&quot; × 24&quot; Large-Format Tile</h4>
+              <p>
+                <strong>Room measurements:</strong> Two side walls measuring 3 ft × 8 ft (24 sq ft each = 48 sq ft) plus one rear wall measuring 5 ft × 8 ft (40 sq ft) give 88 gross square feet. Deducting a 1 ft × 2 ft built-in shower niche (2 sq ft) leaves 86 net square feet.
+              </p>
+              <p>
+                <strong>Tile calculation:</strong> 12&quot; × 24&quot; tile covers 2.0 sq ft per piece (0.5 tiles/sq ft). Base tiles needed: 86 ÷ 2.0 = 43 tiles. Applying a 12% running bond waste margin equals 48.16, rounded up to 49 tiles. Sold in boxes of 8 tiles (16 sq ft/box), the project requires Ceiling(49 ÷ 8) = <strong>7 boxes (56 tiles total)</strong>. Thin-set mortar coverage for 12&quot; × 24&quot; tile is 50 sq ft per 50 lb bag, requiring 86 ÷ 50 = <strong>2 bags</strong>.
+              </p>
+            </div>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Frequently Asked Questions
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How do I calculate how many tiles I need?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                Measure your room square footage, calculate the area of one tile in square feet (Length × Width / 144), divide room area by single tile area, and add 10% to 15% for pattern cuts and breakage.
-              </p>
+          {/* Mortar & Grout Guide */}
+          <section>
+            <h2>How Much Grout and Thin-Set Do I Need?</h2>
+            <p>
+              Tile adhesive and grout requirements depend heavily on tile face dimensions, joint width, and tile thickness. The formula for sanded grout weight is:
+            </p>
+            <div className={styles.formulaBox}>
+              Grout Weight (lb) = Net Area (sq ft) × [(Length + Width) ÷ (Length × Width)] × Joint Width (in) × Thickness (in) × 8.3333 × 1.10
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How many 12x12 tiles do I need for a 100 square foot room?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                A 12&quot; × 12&quot; tile covers exactly 1.0 square foot. For 100 square feet, you need 100 base tiles. Adding a standard 10% waste factor equals 110 tiles (typically 11 boxes of 10 tiles).
-              </p>
+            <p>
+              Here is typical grout consumption for 100 square feet with standard 1/8&quot; joints and 10% overage:
+            </p>
+            <ul>
+              <li><strong>12&quot; × 24&quot; tile (3/8&quot; thick):</strong> ~5.4 lb sanded grout (buy 1 bag of 10 or 25 lb).</li>
+              <li><strong>12&quot; × 12&quot; tile (3/8&quot; thick):</strong> ~7.2 lb sanded grout (buy 1 bag of 10 or 25 lb).</li>
+              <li><strong>3&quot; × 6&quot; subway tile (5/16&quot; thick):</strong> ~17.9 lb sanded grout (buy 1 bag of 25 lb).</li>
+              <li><strong>2&quot; × 2&quot; mosaic pieces (1/4&quot; thick):</strong> ~28.7 lb sanded grout (buy 2 bags of 25 lb).</li>
+            </ul>
+            <p>
+              <strong>Thin-Set Mortar Coverage by Tile Size (50 lb bag):</strong>
+            </p>
+            <ul>
+              <li><strong>Tiles up to 8&quot; (e.g. 3×6, 4×4):</strong> ~80 sq ft per 50 lb bag using a 1/4&quot; × 1/4&quot; square-notch trowel.</li>
+              <li><strong>Tiles over 8&quot; to 15&quot; (e.g. 12×12, 4×12):</strong> ~60 sq ft per 50 lb bag using a 1/4&quot; × 3/8&quot; square-notch trowel.</li>
+              <li><strong>Tiles over 15&quot; (e.g. 12×24, 6×24, 24×24):</strong> ~50 sq ft per 50 lb bag using a 1/2&quot; × 1/2&quot; square-notch trowel, plus back-buttering the tile backs.</li>
+            </ul>
+            <p>
+              <em>Note: These are standard industry coverage guidelines. Specific formulations and subfloor porosity vary; always check the manufacturer label on your mortar and grout packaging.</em>
+            </p>
+          </section>
+
+          {/* Cost Breakdown */}
+          <section>
+            <h2>Tile Installation Cost Breakdown: DIY vs. Hiring a Professional</h2>
+            <p>
+              Tiling can either be an affordable DIY weekend project or a significant investment when hiring experienced tile artisans. In 2026 cost guides, total all-in installation costs commonly range from $9 to $25 per square foot depending on tile material, room complexity, and regional trade rates:
+            </p>
+            <ul>
+              <li>
+                <strong>DIY Materials (100 sq ft room):</strong> Typically costs $350 to $750. This assumes mid-grade ceramic or porcelain tile ($2 to $5/sq ft), 10% waste, 2 bags of polymer-modified thin-set ($56), 1 bag of grout ($22), and an $85 allowance for sponges, spacers, trowels, and bucket supplies. (Underlayment like cement board or uncoupling membrane is not included in this tool, adding roughly $1.20 to $2.00 per sq ft).
+              </li>
+              <li>
+                <strong>Professional Contractor Installation:</strong> Professional labor typically charges $5 to $15 per square foot of net area for standard straight-lay floor tile (Angi and industry guides report $3 to $15/sq ft). Diagonal and herringbone layouts add a ~20% labor surge ($6 to $18/sq ft). For a 100 sq ft room, contractor labor ranges from $500 to $1,500, producing an all-in completed price of $800 to $2,100 including materials.
+              </li>
+              <li>
+                <strong>Wet Area Waterproofing:</strong> Waterproofing a walk-in shower enclosure (hot-mop, liquid membrane like RedGard, or sheet membrane like Schluter Kerdi) represents a specialized trade service typically costing an extra $450 to $750.
+              </li>
+            </ul>
+          </section>
+
+          {/* FAQ Section */}
+          <section className={styles.faqSection}>
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            {TILE_FAQS.map((faq, idx) => (
+              <div key={idx} className={styles.faqItem}>
+                <h3 className={styles.faqQuestion}>{faq.q}</h3>
+                <p className={styles.faqAnswer}>{faq.a}</p>
+              </div>
+            ))}
+          </section>
+
+          {/* Related Tools */}
+          <section className={styles.relatedSection}>
+            <h2 className={styles.relatedTitle}>Related Home Improvement Calculators</h2>
+            <div className={styles.relatedGrid}>
+              {RELATED_TILE_TOOLS.map((tool, idx) => (
+                <Link key={idx} href={tool.href} className={styles.relatedCard}>
+                  <div className={styles.relatedName}>{tool.label}</div>
+                  <div className={styles.relatedDesc}>{tool.description}</div>
+                </Link>
+              ))}
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How many tiles are in a box?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                Standard 12&quot; × 12&quot; tiles usually come 10 to 15 per box (10–15 sq ft). Large 12&quot; × 24&quot; tiles come 6 to 8 per box (12–16 sq ft), and 3&quot; × 6&quot; subway tiles come 80 to 100 per box.
-              </p>
-            </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How much thin-set mortar and grout do I need?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                One 50-pound bag of polymer-modified thin-set mortar covers roughly 60 square feet. A 25-pound bag of grout covers approximately 150 square feet for 12x12 tiles with standard 1/8&quot; joints.
-              </p>
-            </div>
+          </section>
+
+          {/* Closing Paragraph */}
+          <div className={styles.closingNote}>
+            <p>
+              Bookmark this <strong>tile sq ft calculator</strong> whenever you plan a kitchen remodel, master bathroom update, or commercial floor replacement. For surrounding surfaces, calculate wall and ceiling baseboard trims with our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>, plan whole-room dimensions with our <Link href="/square-footage-calculator/">Square Footage Calculator</Link>, evaluate moisture-resistant bathroom paints with our <Link href="/paint-cost-calculator/">Paint Cost Calculator</Link>, or explore plank flooring alternatives with our <Link href="/laminate-flooring-calculator/">Laminate Flooring Calculator</Link>.
+            </p>
           </div>
         </article>
-      </main>
+
+        {/* Bottom AdSlot */}
+        <AdSlot slotId="tile-calc-bottom" />
+      </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-11T11:00:36.924Z
+Run Date: 2026-11-11T11:12:26.813Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -41,7 +41,7 @@ Status: PASSED ✅
 | `/stone-calculator/` | Stone Calculator — Crushed Rock, Gravel  | 1670 | Stone Calculator: Estimate Ton | PASS |
 | `/stud-calculator/` | Stud Calculator — Wall Framing & Lumber  | 1955 | Stud Calculator: Estimate Wall | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 1279 | Tile Calculator (Tile Sq Ft &  | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 0 | Free Tile Sq Ft Calculator: Es | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter — Weight t | 1688 | Tons to Cubic Yards Converter: | PASS |
 | `/tools/` | All Online Tools & Generators | KKC Tool | 1083 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
