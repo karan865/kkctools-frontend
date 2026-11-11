@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-11T10:53:09.799Z
+Generated on: 2026-11-11T11:00:37.335Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-11T10:53:09.293Z
+Run Date: 2026-11-11T11:00:36.924Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -572,7 +572,7 @@ Status: PASSED ✅
 | `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 1294 | Laminate Flooring Calculator ( | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 936 | Paint Cost Calculator (Coverag | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2745 | Free Paint Cost Calculator: Es | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator — Crushed Stone &  | 1559 | Paver Base Calculator: Estimat | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator — Bedding & Polyme | 1675 | Paver Sand Calculator: Estimat | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
@@ -672,6 +672,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+0da3fb5 feat(cinder-block-calculator): rebuild tool 8 with multi-wall rows, openings deductions, and updated spec
 6a230e9 feat(square-footage-calc): rebuild tool 7 with multi-room subtract, shapes v1, area converter, and updated spec
 e33fecf 13 to 19 tools completed
 f31d161 docs & feat: standardize specifications and optimize keyword density for tools #7 to #12
@@ -691,7 +692,6 @@ ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and
 526dbcb feat: implement sand calculator with volume, paver bedding, and polymeric joint modes
 c435995 feat: implement cubic yard calculator with volume engine, bag yields, and full SEO spec
 43713b4 feat: implement asphalt calculator with multi-section area-depth engine, millings mode, and full SEO content
-a9aa2f8 fix custom SVG dropdown arrows with pixel-perfect alignment across all selects and accordions
 ```
 
 
@@ -707,18 +707,18 @@ a9aa2f8 fix custom SVG dropdown arrows with pixel-perfect alignment across all s
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 26ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 8.6s
+✓ Compiled successfully in 2.9s
   Running TypeScript ...
-  Finished TypeScript in 2.7s ...
+  Finished TypeScript in 1861ms ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/47) ...
-  Generating static pages using 15 workers (11/47) 
-  Generating static pages using 15 workers (23/47) 
-  Generating static pages using 15 workers (35/47) 
-✓ Generating static pages using 15 workers (47/47) in 1614ms
+  Generating static pages using 15 workers (0/48) ...
+  Generating static pages using 15 workers (12/48) 
+  Generating static pages using 15 workers (24/48) 
+  Generating static pages using 15 workers (36/48) 
+✓ Generating static pages using 15 workers (48/48) in 1244ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -753,6 +753,7 @@ Route (app)
 ├ ○ /linear-foot-calculator
 ├ ○ /opengraph-image
 ├ ○ /paint-cost-calculator
+├ ○ /paint-cost-calculator/opengraph-image
 ├ ○ /paver-base-calculator
 ├ ○ /paver-sand-calculator
 ├ ○ /privacy-policy
@@ -818,7 +819,18 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
   299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 8 problems (0 errors, 8 warnings)
+D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
+    4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+   12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
+   15:3   warning  'DEFAULT_PRIMER_PRICE' is defined but never used  @typescript-eslint/no-unused-vars
+   16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
+  299:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
+  4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
+  8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
+
+✖ 15 problems (0 errors, 15 warnings)
 
 
 ```
@@ -846,33 +858,33 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 38[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 39[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 44[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 47[2mms[22m[39m
  [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 11[2mms[22m[39m
  [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 102[2mms[22m[39m
  [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 108[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
  [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m22 passed[39m[22m[90m (22)[39m
-[2m      Tests [22m [1m[32m150 passed[39m[22m[90m (150)[39m
-[2m   Start at [22m 16:22:38
-[2m   Duration [22m 1.43s[2m (transform 3.90s, setup 0ms, import 5.26s, tests 439ms, environment 16ms)[22m
+[2m      Tests [22m [1m[32m158 passed[39m[22m[90m (158)[39m
+[2m   Start at [22m 16:30:14
+[2m   Duration [22m 1.10s[2m (transform 3.15s, setup 0ms, import 4.05s, tests 414ms, environment 5ms)[22m
 
 
 ```

@@ -15,5 +15,16 @@ D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardC
   299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
 
-✖ 8 problems (0 errors, 8 warnings)
+D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
+    4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
+   12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
+   15:3   warning  'DEFAULT_PRIMER_PRICE' is defined but never used  @typescript-eslint/no-unused-vars
+   16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
+  299:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
+  4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
+  8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
+
+✖ 15 problems (0 errors, 15 warnings)
 

@@ -1,2 +1,2 @@
-export { PaintCalculator } from './PaintCalculator';
-
+export { default as PaintCalculator } from './PaintCalculator';
+export { default } from './PaintCalculator';

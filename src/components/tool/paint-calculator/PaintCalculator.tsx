@@ -1,544 +1,866 @@
 'use client';
 
-import React, { useState, useId } from 'react';
-import styles from './PaintCalculator.module.css';
+import React, { useState, useId, useRef, useEffect } from 'react';
+import Link from 'next/link';
 import {
-  SURFACE_TEXTURES,
+  RoomPaintInput,
+  PaintCalculationInput,
   calculatePaint,
+  parseDimension,
 } from '@/lib/paint-engine';
+import {
+  COVERAGE,
+  CoverageTextureKey,
+  PRICE_PRESETS,
+  DEFAULT_PRIMER_PRICE,
+  DEFAULT_SUNDRIES,
+  MAX_ROOMS,
+} from '@/lib/paint-constants';
+import styles from './PaintCalculator.module.css';
 
-export function PaintCalculator() {
-  const lengthInputId = useId();
-  const widthInputId = useId();
-  const heightInputId = useId();
-  const directAreaInputId = useId();
-  const doorsInputId = useId();
-  const windowsInputId = useId();
-  const customDeductId = useId();
-  const textureSelectId = useId();
-  const pricePaintId = useId();
-  const pricePrimerId = useId();
-  const suppliesInputId = useId();
+const STORAGE_KEY = 'kkc_paint_calc_rooms_v2';
 
-  // Mode: 'room' | 'direct'
-  const [mode, setMode] = useState<'room' | 'direct'>('room');
+export default function PaintCalculator() {
+  const [calculationMode, setCalculationMode] = useState<'dimensions' | 'direct'>('dimensions');
 
-  // Room inputs
-  const [roomLength, setRoomLength] = useState<number>(14);
-  const [roomWidth, setRoomWidth] = useState<number>(12);
-  const [ceilingHeight, setCeilingHeight] = useState<number>(8);
-  const [includeCeiling, setIncludeCeiling] = useState<boolean>(false);
-  const [doorsCount, setDoorsCount] = useState<number>(1);
-  const [windowsCount, setWindowsCount] = useState<number>(2);
-  const [customDeduction, setCustomDeduction] = useState<number>(0);
-
-  // Direct area mode
-  const [directArea, setDirectArea] = useState<number>(400);
-
-  // Texture & coats
-  const [texturePresetId, setTexturePresetId] = useState<string>('smooth');
-  const [customCoverage, setCustomCoverage] = useState<number>(380);
-  const [coats, setCoats] = useState<number>(2);
-  const [includePrimer, setIncludePrimer] = useState<boolean>(false);
-
-  // Cost inputs
-  const [pricePerGallon, setPricePerGallon] = useState<string>('45');
-  const [pricePerPrimer, setPricePerPrimer] = useState<string>('25');
-  const [suppliesCost, setSuppliesCost] = useState<string>('25');
-
-  // Copy feedback
-  const [copied, setCopied] = useState<boolean>(false);
-
-  // Calculation
-  const result = calculatePaint({
-    mode,
-    roomLengthFeet: roomLength,
-    roomWidthFeet: roomWidth,
-    ceilingHeightFeet: ceilingHeight,
-    includeCeiling,
-    doorsCount,
-    windowsCount,
-    customDeductionsSqFt: customDeduction,
-    directWallAreaSqFt: directArea,
-    texturePresetId,
-    customCoverageSqFt: customCoverage,
-    coats,
-    includePrimer,
-    pricePerGallon: parseFloat(pricePerGallon) || 0,
-    pricePerPrimerGallon: parseFloat(pricePerPrimer) || 0,
-    suppliesCost: parseFloat(suppliesCost) || 0,
+  // Rooms state (1-10 rooms)
+  const [rooms, setRooms] = useState<RoomPaintInput[]>(() => {
+    if (typeof window !== 'undefined') {
+      try {
+        const saved = localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed = JSON.parse(saved);
+          if (Array.isArray(parsed) && parsed.length > 0) {
+            return parsed;
+          }
+        }
+      } catch {
+        // Ignore
+      }
+    }
+    return [
+      {
+        id: '1',
+        name: 'Room 1',
+        lengthFeet: 14,
+        widthFeet: 12,
+        heightFeet: 8,
+        doorsCount: 1,
+        windowsCount: 2,
+        includeCeiling: false,
+      },
+    ];
   });
 
-  const handleReset = () => {
-    setMode('room');
-    setRoomLength(14);
-    setRoomWidth(12);
-    setCeilingHeight(8);
-    setIncludeCeiling(false);
-    setDoorsCount(1);
-    setWindowsCount(2);
-    setCustomDeduction(0);
-    setDirectArea(400);
-    setTexturePresetId('smooth');
-    setCustomCoverage(380);
-    setCoats(2);
-    setIncludePrimer(false);
-    setPricePerGallon('45');
-    setPricePerPrimer('25');
-    setSuppliesCost('25');
+  useEffect(() => {
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(rooms));
+    } catch {
+      // Ignore
+    }
+  }, [rooms]);
+
+  // Direct area mode state
+  const [directGrossWall, setDirectGrossWall] = useState<string>('416');
+  const [directCeiling, setDirectCeiling] = useState<string>('168');
+  const [directIncludeCeiling, setDirectIncludeCeiling] = useState<boolean>(false);
+  const [directDoors, setDirectDoors] = useState<string>('1');
+  const [directWindows, setDirectWindows] = useState<string>('2');
+
+  // Paint specifications (Global)
+  const [textureKey, setTextureKey] = useState<CoverageTextureKey>('smooth');
+  const [customCoverage, setCustomCoverage] = useState<string>('380');
+  const [coats, setCoats] = useState<number>(2);
+  const [ceilingCoats, setCeilingCoats] = useState<number>(2);
+
+  // Primer (Global)
+  const [includePrimer, setIncludePrimer] = useState<boolean>(false);
+  const [primerCoverage, setPrimerCoverage] = useState<string>('300');
+
+  // Pricing (Global)
+  const [pricePreset, setPricePreset] = useState<'economy' | 'mid' | 'premium' | 'custom'>('mid');
+  const [wallPrice, setWallPrice] = useState<string>('45');
+  const [ceilingPrice, setCeilingPrice] = useState<string>('45');
+  const [primerPrice, setPrimerPrice] = useState<string>('25');
+  const [sundriesCost, setSundriesCost] = useState<string>('25');
+
+  const [copied, setCopied] = useState<boolean>(false);
+  const idPrefix = useId();
+  const resultsRef = useRef<HTMLDivElement>(null);
+
+  // Multi-room handlers
+  const handleAddRoom = () => {
+    if (rooms.length >= MAX_ROOMS) return;
+    const newId = String(Date.now());
+    setRooms([
+      ...rooms,
+      {
+        id: newId,
+        name: `Room ${rooms.length + 1}`,
+        lengthFeet: 12,
+        widthFeet: 10,
+        heightFeet: 8,
+        doorsCount: 1,
+        windowsCount: 1,
+        includeCeiling: false,
+      },
+    ]);
   };
 
-  const handleCopySummary = () => {
-    const summary = `--- Paint Coverage & Cost Estimate (kkctools.com) ---
-Mode: ${mode === 'room' ? `Room (${roomLength}ft L x ${roomWidth}ft W x ${ceilingHeight}ft H)` : `Direct Area (${directArea} sq ft)`}
-${mode === 'room' ? `Gross Wall Area: ${result.grossWallAreaSqFt} sq ft\nDeductions: ${result.openingsDeductionSqFt} sq ft (${doorsCount} doors, ${windowsCount} windows)\n` : ''}Net Paintable Wall Area: ${result.netWallAreaSqFt} sq ft
-${includeCeiling ? `Ceiling Area: ${result.ceilingAreaSqFt} sq ft\n` : ''}Number of Coats: ${coats} coat${coats > 1 ? 's' : ''}
-Surface Texture: ${texturePresetId === 'custom' ? `Custom (${customCoverage} sq ft/gal)` : SURFACE_TEXTURES[texturePresetId]?.name}
+  const handleRemoveRoom = (id: string) => {
+    if (rooms.length <= 1) return;
+    setRooms(rooms.filter((r) => r.id !== id));
+  };
 
-Results:
-• Paint Volume Required: ${result.containerSummary} (Exact: ${result.exactPaintGallons} gal for ${coats} coats)
-${result.hasFiveGallonPailOption ? `• Contractor Bulk Option: ${result.fiveGallonPails} five-gallon pail(s) + ${result.singleGallonsWithPails} one-gallon can(s)\n` : ''}${includePrimer ? `• Primer Needed: ~${result.exactPrimerGallons} gallons (Buy ${result.recommendedPrimerGallons} gal)\n` : ''}• Total Surface Area Covered: ${result.totalCoatAreaSqFt} sq ft total
-${result.totalDiyCost > 0 ? `• Estimated DIY Materials Cost: $${result.totalDiyCost.toFixed(2)} (Paint: $${result.paintCost.toFixed(2)}${includePrimer ? `, Primer: $${result.primerCost.toFixed(2)}` : ''}, Supplies: $${result.suppliesCost.toFixed(2)})\n• Pro Contractor Cost Range: $${result.proEstimatedCostLow} – $${result.proEstimatedCostHigh}` : ''}`;
+  const handleUpdateRoom = (id: string, updates: Partial<RoomPaintInput>) => {
+    setRooms(rooms.map((r) => (r.id === id ? { ...r, ...updates } : r)));
+  };
 
-    navigator.clipboard.writeText(summary);
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2500);
+  const handleApplyPresetChip = (length: number, width: number) => {
+    if (rooms.length > 0) {
+      handleUpdateRoom(rooms[0].id, { lengthFeet: length, widthFeet: width });
+    }
+  };
+
+  const handlePricePresetSelect = (preset: 'economy' | 'mid' | 'premium' | 'custom') => {
+    setPricePreset(preset);
+    if (preset !== 'custom') {
+      const p = String(PRICE_PRESETS[preset]);
+      setWallPrice(p);
+      setCeilingPrice(p);
+    }
+  };
+
+  const handleReset = () => {
+    setCalculationMode('dimensions');
+    setRooms([
+      {
+        id: '1',
+        name: 'Room 1',
+        lengthFeet: 14,
+        widthFeet: 12,
+        heightFeet: 8,
+        doorsCount: 1,
+        windowsCount: 2,
+        includeCeiling: false,
+      },
+    ]);
+    setDirectGrossWall('416');
+    setDirectCeiling('168');
+    setDirectIncludeCeiling(false);
+    setDirectDoors('1');
+    setDirectWindows('2');
+    setTextureKey('smooth');
+    setCustomCoverage('380');
+    setCoats(2);
+    setCeilingCoats(2);
+    setIncludePrimer(false);
+    setPrimerCoverage('300');
+    setPricePreset('mid');
+    setWallPrice('45');
+    setCeilingPrice('45');
+    setPrimerPrice('25');
+    setSundriesCost('25');
+    setCopied(false);
+  };
+
+  // Switch to smooth on conflict
+  const handleSwitchToSmooth = () => {
+    setTextureKey('smooth');
+  };
+
+  // Prepare input object
+  const activeRooms: RoomPaintInput[] =
+    calculationMode === 'direct'
+      ? [
+          {
+            id: 'direct-room',
+            name: 'Direct Wall Area',
+            lengthFeet: 0,
+            widthFeet: 0,
+            heightFeet: 0,
+            doorsCount: parseDimension(directDoors),
+            windowsCount: parseDimension(directWindows),
+            includeCeiling: directIncludeCeiling,
+            isDirectArea: true,
+            directGrossWallSqFt: parseDimension(directGrossWall),
+            directCeilingSqFt: parseDimension(directCeiling),
+          },
+        ]
+      : rooms;
+
+  const calculationInput: PaintCalculationInput = {
+    rooms: activeRooms,
+    textureKey,
+    customCoverageSqFt: parseDimension(customCoverage),
+    coats,
+    ceilingCoats,
+    includePrimer,
+    primerCoverageSqFt: parseDimension(primerCoverage),
+    wallPricePerGallon: parseDimension(wallPrice),
+    ceilingPricePerGallon: parseDimension(ceilingPrice),
+    primerPricePerGallon: parseDimension(primerPrice),
+    sundriesCost: parseDimension(sundriesCost),
+  };
+
+  const result = calculatePaint(calculationInput);
+
+  const handleCopy = () => {
+    let roomDetails = '';
+    result.roomBreakdowns.forEach((r, idx) => {
+      roomDetails += `  Room ${idx + 1} (${r.name}): Net Wall = ${r.netWallAreaSqFt} sq ft${r.ceilingAreaSqFt > 0 ? `, Ceiling = ${r.ceilingAreaSqFt} sq ft` : ''}\n`;
+    });
+
+    const summary = `Paint Cost & Coverage Takeoff Summary:
+• Total Net Wall Area: ${result.totalNetWallSqFt.toLocaleString()} sq ft
+${result.totalCeilingSqFt > 0 ? `• Total Ceiling Area: ${result.totalCeilingSqFt.toLocaleString()} sq ft\n` : ''}• Wall Paint to Buy: ${result.wallContainers.displayLabel} (${result.wallExactGallons} gal exact for ${coats} coats @ ${result.effectiveCoverage} sq ft/gal)
+${result.totalCeilingSqFt > 0 ? `• Ceiling Paint to Buy: ${result.ceilingContainers.displayLabel} (${result.ceilingExactGallons} gal exact)\n` : ''}${result.primerGallonsToBuy > 0 ? `• Primer to Buy: ${result.primerGallonsToBuy} Gallons (1 coat @ ${parseDimension(primerCoverage)} sq ft/gal)\n` : ''}
+Room Breakdown:
+${roomDetails}
+DIY Material Budget:
+• Wall Paint: $${result.wallPaintCost.toLocaleString()}
+${result.ceilingPaintCost > 0 ? `• Ceiling Paint: $${result.ceilingPaintCost.toLocaleString()}\n` : ''}${result.primerCost > 0 ? `• Primer: $${result.primerCost.toLocaleString()}\n` : ''}• Supplies & Sundries: $${result.sundriesCost.toLocaleString()}
+• Total DIY Cost: $${result.totalDIYCost.toLocaleString()}
+
+Professional Contractor Benchmark:
+• Typical Pro Labor & Materials: $${result.proEstimateLow.toLocaleString()} – $${result.proEstimateHigh.toLocaleString()} (Estimate only. Get 2–3 local quotes.)
+• Estimated DIY Savings: $${result.proSavingsLow.toLocaleString()} – $${result.proSavingsHigh.toLocaleString()}
+
+Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-calculator/)`;
+
+    if (navigator.clipboard) {
+      navigator.clipboard.writeText(summary);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 3000);
+    }
+  };
+
+  const handlePrint = () => {
+    window.print();
   };
 
   return (
-    <div className={styles.calculatorCard}>
-      {/* Mode Switch Tabs */}
-      <div className={styles.modeTabs} role="tablist" aria-label="Calculation Mode">
-        <button
-          type="button"
-          role="tab"
-          aria-selected={mode === 'room'}
-          className={`${styles.modeTab} ${mode === 'room' ? styles.activeTab : ''}`}
-          onClick={() => setMode('room')}
-        >
-          Room by Dimensions (L × W × H)
-        </button>
-        <button
-          type="button"
-          role="tab"
-          aria-selected={mode === 'direct'}
-          className={`${styles.modeTab} ${mode === 'direct' ? styles.activeTab : ''}`}
-          onClick={() => setMode('direct')}
-        >
-          Direct Wall Area (Sq Ft)
-        </button>
-      </div>
+    <div className={styles.calculatorContainer}>
+      <div className={styles.layoutGrid}>
+        {/* Left Inputs Panel */}
+        <div className={styles.inputsPanel}>
+          {/* Mode Switcher */}
+          <div className={styles.modeSwitcherRow}>
+            <button
+              type="button"
+              className={`${styles.modeButton} ${calculationMode === 'dimensions' ? styles.modeButtonActive : ''}`}
+              onClick={() => setCalculationMode('dimensions')}
+            >
+              Room Dimensions (L × W × H)
+            </button>
+            <button
+              type="button"
+              className={`${styles.modeButton} ${calculationMode === 'direct' ? styles.modeButtonActive : ''}`}
+              onClick={() => setCalculationMode('direct')}
+            >
+              Direct Wall Area (Sq Ft)
+            </button>
+          </div>
 
-      <div className={styles.twoColumnGrid}>
-        {/* Left Column: Inputs in Distinct Bordered Cards */}
-        <div className={styles.inputColumn}>
-          {mode === 'room' ? (
-            <>
-              {/* Card 1: Room Dimensions */}
-              <div className={styles.sectionCard}>
-                <div className={styles.sectionHeader}>
-                  <span className={styles.sectionNumber}>1</span>
-                  <span className={styles.sectionTitle}>Room Dimensions</span>
-                </div>
-                <div className={styles.inputRowThree}>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor={lengthInputId} className={styles.inputLabel}>
-                      Length <span>(feet)</span>
-                    </label>
-                    <input
-                      id={lengthInputId}
-                      type="number"
-                      min="0"
-                      step="0.5"
-                      value={roomLength || ''}
-                      onChange={(e) => setRoomLength(parseFloat(e.target.value) || 0)}
-                      className={styles.textInput}
-                      placeholder="14"
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor={widthInputId} className={styles.inputLabel}>
-                      Width <span>(feet)</span>
-                    </label>
-                    <input
-                      id={widthInputId}
-                      type="number"
-                      min="0"
-                      step="0.5"
-                      value={roomWidth || ''}
-                      onChange={(e) => setRoomWidth(parseFloat(e.target.value) || 0)}
-                      className={styles.textInput}
-                      placeholder="12"
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor={heightInputId} className={styles.inputLabel}>
-                      Height <span>(feet)</span>
-                    </label>
-                    <input
-                      id={heightInputId}
-                      type="number"
-                      min="0"
-                      step="0.5"
-                      value={ceilingHeight || ''}
-                      onChange={(e) => setCeilingHeight(parseFloat(e.target.value) || 0)}
-                      className={styles.textInput}
-                      placeholder="8"
-                    />
-                  </div>
-                </div>
-
-                {/* Include Ceiling Toggle Card */}
-                <label className={styles.toggleRow}>
-                  <input
-                    type="checkbox"
-                    checked={includeCeiling}
-                    onChange={(e) => setIncludeCeiling(e.target.checked)}
-                    className={styles.toggleCheckbox}
-                  />
-                  <div className={styles.toggleText}>
-                    <span className={styles.toggleTitle}>Include Ceiling in Paint Area</span>
-                    <span className={styles.toggleSub}>
-                      Adds {roomLength * roomWidth} sq ft (Length × Width) to coverage
-                    </span>
-                  </div>
-                </label>
-              </div>
-
-              {/* Card 2: Openings to Deduct */}
-              <div className={styles.sectionCard}>
-                <div className={styles.sectionHeader}>
-                  <span className={styles.sectionNumber}>2</span>
-                  <span className={styles.sectionTitle}>Openings to Deduct</span>
-                </div>
-                <div className={styles.inputRow}>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor={doorsInputId} className={styles.inputLabel}>
-                      Doors Count <span>(-21 sq ft ea)</span>
-                    </label>
-                    <input
-                      id={doorsInputId}
-                      type="number"
-                      min="0"
-                      value={doorsCount}
-                      onChange={(e) => setDoorsCount(parseInt(e.target.value, 10) || 0)}
-                      className={styles.textInput}
-                    />
-                  </div>
-                  <div className={styles.inputGroup}>
-                    <label htmlFor={windowsInputId} className={styles.inputLabel}>
-                      Windows Count <span>(-15 sq ft ea)</span>
-                    </label>
-                    <input
-                      id={windowsInputId}
-                      type="number"
-                      min="0"
-                      value={windowsCount}
-                      onChange={(e) => setWindowsCount(parseInt(e.target.value, 10) || 0)}
-                      className={styles.textInput}
-                    />
-                  </div>
-                </div>
-
-                <div className={styles.inputGroup}>
-                  <label htmlFor={customDeductId} className={styles.inputLabel}>
-                    Custom Deductions <span>(sq ft — fireplaces, archways)</span>
-                  </label>
-                  <input
-                    id={customDeductId}
-                    type="number"
-                    min="0"
-                    value={customDeduction || ''}
-                    onChange={(e) => setCustomDeduction(parseFloat(e.target.value) || 0)}
-                    className={styles.textInput}
-                    placeholder="e.g. 40"
-                  />
-                </div>
-              </div>
-            </>
-          ) : (
-            /* Direct Area Mode Card */
+          {/* Section 1: Dimensions or Direct Area */}
+          {calculationMode === 'dimensions' ? (
             <div className={styles.sectionCard}>
-              <div className={styles.sectionHeader}>
-                <span className={styles.sectionNumber}>1</span>
-                <span className={styles.sectionTitle}>Direct Wall Area</span>
+              <div className={styles.cardHeader}>
+                <h2 className={styles.cardTitle}>1. Room Dimensions &amp; Deductions</h2>
+                <span className={styles.cardSubText}>Add 1 to 10 rooms with individual ceiling toggles</span>
               </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor={directAreaInputId} className={styles.inputLabel}>
-                  Total Net Wall Surface Area <span>(sq ft)</span>
+
+              {/* Room Size Presets */}
+              <div className={styles.presetChipsWrapper}>
+                <span className={styles.presetChipLabel}>Quick Room Presets:</span>
+                <div className={styles.presetChipList}>
+                  {[
+                    { label: '10×10', l: 10, w: 10 },
+                    { label: '12×12', l: 12, w: 12 },
+                    { label: '12×14', l: 14, w: 12 },
+                    { label: '14×16', l: 16, w: 14 },
+                    { label: '16×20', l: 20, w: 16 },
+                  ].map((chip) => (
+                    <button
+                      key={chip.label}
+                      type="button"
+                      className={styles.presetChip}
+                      onClick={() => handleApplyPresetChip(chip.l, chip.w)}
+                      title={`Fill first room with ${chip.label} ft`}
+                    >
+                      {chip.label}
+                    </button>
+                  ))}
+                </div>
+              </div>
+
+              {/* Multi-room list */}
+              <div className={styles.roomsList}>
+                {rooms.map((room, idx) => (
+                  <div key={room.id} className={styles.roomItem}>
+                    <div className={styles.roomItemHeader}>
+                      <input
+                        type="text"
+                        className={styles.roomNameInput}
+                        value={room.name}
+                        onChange={(e) => handleUpdateRoom(room.id, { name: e.target.value })}
+                        aria-label="Room Name"
+                      />
+                      {rooms.length > 1 && (
+                        <button
+                          type="button"
+                          className={styles.removeSmallButton}
+                          onClick={() => handleRemoveRoom(room.id)}
+                          aria-label={`Remove ${room.name}`}
+                        >
+                          ✕ Remove
+                        </button>
+                      )}
+                    </div>
+
+                    <div className={styles.inputRow3}>
+                      <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Length (ft)</label>
+                        <input
+                          type="text"
+                          inputMode="decimal"
+                          className={styles.inputField}
+                          value={room.lengthFeet || ''}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { lengthFeet: parseDimension(e.target.value) })
+                          }
+                          placeholder="e.g. 14"
+                        />
+                      </div>
+                      <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Width (ft)</label>
+                        <input
+                          type="text"
+                          inputMode="decimal"
+                          className={styles.inputField}
+                          value={room.widthFeet || ''}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { widthFeet: parseDimension(e.target.value) })
+                          }
+                          placeholder="e.g. 12"
+                        />
+                      </div>
+                      <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Ceiling Ht (ft)</label>
+                        <input
+                          type="text"
+                          inputMode="decimal"
+                          className={styles.inputField}
+                          value={room.heightFeet || ''}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { heightFeet: parseDimension(e.target.value) })
+                          }
+                          placeholder="e.g. 8"
+                        />
+                      </div>
+                    </div>
+
+                    <div className={styles.inputRow}>
+                      <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Doors (21 sq ft)</label>
+                        <input
+                          type="text"
+                          inputMode="decimal"
+                          className={styles.inputField}
+                          value={room.doorsCount}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { doorsCount: parseDimension(e.target.value) })
+                          }
+                        />
+                      </div>
+                      <div className={styles.fieldGroup}>
+                        <label className={styles.label}>Windows (15 sq ft)</label>
+                        <input
+                          type="text"
+                          inputMode="decimal"
+                          className={styles.inputField}
+                          value={room.windowsCount}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { windowsCount: parseDimension(e.target.value) })
+                          }
+                        />
+                      </div>
+                    </div>
+
+                    <div className={styles.checkboxGroup}>
+                      <label className={styles.checkboxLabel}>
+                        <input
+                          type="checkbox"
+                          checked={room.includeCeiling}
+                          onChange={(e) =>
+                            handleUpdateRoom(room.id, { includeCeiling: e.target.checked })
+                          }
+                        />
+                        <span>Include ceiling ({room.lengthFeet * room.widthFeet || 0} sq ft)</span>
+                      </label>
+                    </div>
+                  </div>
+                ))}
+
+                {rooms.length < MAX_ROOMS && (
+                  <button type="button" className={styles.addRoomButton} onClick={handleAddRoom}>
+                    + Add Another Room ({rooms.length}/{MAX_ROOMS})
+                  </button>
+                )}
+              </div>
+            </div>
+          ) : (
+            /* Direct Area Mode */
+            <div className={styles.sectionCard}>
+              <div className={styles.cardHeader}>
+                <h2 className={styles.cardTitle}>1. Direct Wall &amp; Ceiling Area</h2>
+                <span className={styles.cardSubText}>Enter known surface square footage directly</span>
+              </div>
+
+              <div className={styles.fieldGroup}>
+                <label htmlFor={`${idPrefix}-direct-wall`} className={styles.label}>
+                  Gross Wall Area (sq ft)
                 </label>
                 <input
-                  id={directAreaInputId}
-                  type="number"
-                  min="0"
-                  step="10"
-                  value={directArea || ''}
-                  onChange={(e) => setDirectArea(parseFloat(e.target.value) || 0)}
-                  className={styles.textInput}
-                  placeholder="e.g. 500"
+                  id={`${idPrefix}-direct-wall`}
+                  type="text"
+                  inputMode="decimal"
+                  className={styles.inputField}
+                  value={directGrossWall}
+                  onChange={(e) => setDirectGrossWall(e.target.value)}
+                  placeholder="e.g. 416"
                 />
               </div>
+
+              <div className={styles.inputRow}>
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-direct-doors`} className={styles.label}>
+                    Doors (21 sq ft ea)
+                  </label>
+                  <input
+                    id={`${idPrefix}-direct-doors`}
+                    type="text"
+                    inputMode="decimal"
+                    className={styles.inputField}
+                    value={directDoors}
+                    onChange={(e) => setDirectDoors(e.target.value)}
+                    placeholder="1"
+                  />
+                </div>
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-direct-win`} className={styles.label}>
+                    Windows (15 sq ft ea)
+                  </label>
+                  <input
+                    id={`${idPrefix}-direct-win`}
+                    type="text"
+                    inputMode="decimal"
+                    className={styles.inputField}
+                    value={directWindows}
+                    onChange={(e) => setDirectWindows(e.target.value)}
+                    placeholder="2"
+                  />
+                </div>
+              </div>
+
+              <div className={styles.checkboxGroup}>
+                <label className={styles.checkboxLabel}>
+                  <input
+                    type="checkbox"
+                    checked={directIncludeCeiling}
+                    onChange={(e) => setDirectIncludeCeiling(e.target.checked)}
+                  />
+                  <span>Add ceiling area to paint</span>
+                </label>
+              </div>
+
+              {directIncludeCeiling && (
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-direct-ceiling`} className={styles.label}>
+                    Ceiling Area (sq ft)
+                  </label>
+                  <input
+                    id={`${idPrefix}-direct-ceiling`}
+                    type="text"
+                    inputMode="decimal"
+                    className={styles.inputField}
+                    value={directCeiling}
+                    onChange={(e) => setDirectCeiling(e.target.value)}
+                    placeholder="e.g. 168"
+                  />
+                </div>
+              )}
             </div>
           )}
 
-          {/* Card 3: Paint Coats & Texture */}
+          {/* Section 2: Texture, Coats & Primer */}
           <div className={styles.sectionCard}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>{mode === 'room' ? '3' : '2'}</span>
-              <span className={styles.sectionTitle}>Paint Coats &amp; Wall Texture</span>
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>2. Paint Surface &amp; Coats</h2>
+              <span className={styles.cardSubText}>Wall texture, coat count, and primer option</span>
             </div>
 
-            {/* Number of Coats */}
-            <div className={styles.inputGroup}>
-              <label className={styles.inputLabel}>Number of Paint Coats</label>
-              <div className={styles.pillGroup}>
-                {[1, 2, 3].map((c) => (
-                  <button
-                    key={c}
-                    type="button"
-                    onClick={() => setCoats(c)}
-                    className={`${styles.pillButton} ${coats === c ? styles.pillActive : ''}`}
-                  >
-                    {c === 1 ? '1 Coat (Touch-up)' : c === 2 ? '2 Coats (Recommended)' : '3 Coats (Dark to Light)'}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Surface Texture Dropdown */}
-            <div className={styles.inputGroup}>
-              <label htmlFor={textureSelectId} className={styles.inputLabel}>
-                Wall Surface Texture &amp; Porosity
+            <div className={styles.fieldGroup}>
+              <label htmlFor={`${idPrefix}-texture`} className={styles.label}>
+                Wall Surface Texture (Coverage Rate)
               </label>
               <select
-                id={textureSelectId}
-                value={texturePresetId}
-                onChange={(e) => setTexturePresetId(e.target.value)}
-                className={styles.selectInput}
+                id={`${idPrefix}-texture`}
+                className={styles.selectField}
+                value={textureKey}
+                onChange={(e) => setTextureKey(e.target.value as CoverageTextureKey)}
               >
-                {Object.values(SURFACE_TEXTURES).map((t) => (
-                  <option key={t.id} value={t.id}>
-                    {t.name} — {t.coverageSqFtPerGal} sq ft/gal
-                  </option>
-                ))}
-                <option value="custom">Custom Coverage Rate...</option>
+                <option value="smooth">Smooth Drywall — 380 sq ft / gal (Standard)</option>
+                <option value="orangePeel">Orange Peel / Light Texture — 350 sq ft / gal</option>
+                <option value="heavyTexture">Heavy Texture / Knockdown — 300 sq ft / gal</option>
+                <option value="unprimed">Unprimed Fresh Drywall — 250 sq ft / gal</option>
+                <option value="masonry">Rough Masonry / Brick — 225 sq ft / gal</option>
+                <option value="custom">Custom Coverage Rate</option>
               </select>
             </div>
 
-            {texturePresetId === 'custom' && (
-              <div className={styles.inputGroup}>
-                <label className={styles.inputLabel}>Custom Coverage Rate (sq ft per gallon)</label>
+            {textureKey === 'custom' && (
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>Custom Coverage Rate (sq ft / gallon)</label>
                 <input
-                  type="number"
-                  min="50"
-                  max="600"
+                  type="text"
+                  inputMode="decimal"
+                  className={styles.inputField}
                   value={customCoverage}
-                  onChange={(e) => setCustomCoverage(parseFloat(e.target.value) || 380)}
-                  className={styles.textInput}
+                  onChange={(e) => setCustomCoverage(e.target.value)}
+                  placeholder="380"
                 />
               </div>
             )}
 
-            {/* Primer Coat Toggle */}
-            <label className={styles.toggleRow}>
-              <input
-                type="checkbox"
-                checked={includePrimer}
-                onChange={(e) => setIncludePrimer(e.target.checked)}
-                className={styles.toggleCheckbox}
-              />
-              <div className={styles.toggleText}>
-                <span className={styles.toggleTitle}>Include 1 Dedicated Primer Coat</span>
-                <span className={styles.toggleSub}>
-                  Recommended for unpainted drywall, stain repairs, or dark-to-light colors
+            {/* E11 Unprimed + Primer Conflict Hint */}
+            {result.unprimedPrimerConflict && (
+              <div className={styles.conflictBox}>
+                <span>
+                  💡 You&apos;re priming first, so paint goes on a primed surface. Use the Smooth rate for your paint coats.
                 </span>
+                <button
+                  type="button"
+                  className={styles.conflictActionButton}
+                  onClick={handleSwitchToSmooth}
+                >
+                  Switch to Smooth (380)
+                </button>
               </div>
-            </label>
+            )}
+
+            <div className={styles.inputRow}>
+              <div className={styles.fieldGroup}>
+                <label htmlFor={`${idPrefix}-coats`} className={styles.label}>
+                  Wall Paint Coats
+                </label>
+                <select
+                  id={`${idPrefix}-coats`}
+                  className={styles.selectField}
+                  value={coats}
+                  onChange={(e) => setCoats(Number(e.target.value))}
+                >
+                  <option value={1}>1 Coat (Touch-up / Same Color)</option>
+                  <option value={2}>2 Coats (Standard Recommended)</option>
+                  <option value={3}>3 Coats (Dramatic Color Change)</option>
+                </select>
+              </div>
+
+              {result.totalCeilingSqFt > 0 && (
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-ceil-coats`} className={styles.label}>
+                    Ceiling Coats
+                  </label>
+                  <select
+                    id={`${idPrefix}-ceil-coats`}
+                    className={styles.selectField}
+                    value={ceilingCoats}
+                    onChange={(e) => setCeilingCoats(Number(e.target.value))}
+                  >
+                    <option value={1}>1 Coat</option>
+                    <option value={2}>2 Coats (Standard)</option>
+                  </select>
+                </div>
+              )}
+            </div>
+
+            {/* Separate Primer */}
+            <div className={styles.checkboxGroup}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={includePrimer}
+                  onChange={(e) => setIncludePrimer(e.target.checked)}
+                />
+                <span>Include separate primer coat (bare drywall, stains, or drastic color shifts)</span>
+              </label>
+            </div>
+
+            {includePrimer && (
+              <div className={styles.fieldGroup}>
+                <label className={styles.label}>Primer Coverage (sq ft / gal)</label>
+                <input
+                  type="text"
+                  inputMode="decimal"
+                  className={styles.inputField}
+                  value={primerCoverage}
+                  onChange={(e) => setPrimerCoverage(e.target.value)}
+                  placeholder="300"
+                />
+                <span className={styles.fieldHelper}>Default: 300 sq ft/gal for standard stain-blocking latex primer</span>
+              </div>
+            )}
           </div>
 
-          {/* Card 4: Cost Estimator (Optional) */}
+          {/* Section 3: Material Pricing */}
           <div className={styles.sectionCard}>
-            <div className={styles.sectionHeader}>
-              <span className={styles.sectionNumber}>{mode === 'room' ? '4' : '3'}</span>
-              <span className={styles.sectionTitle}>Budget &amp; Cost Estimator (Optional)</span>
+            <div className={styles.cardHeader}>
+              <h2 className={styles.cardTitle}>3. Paint Pricing &amp; Supplies</h2>
+              <span className={styles.cardSubText}>Gallon and quart budget estimates</span>
             </div>
-            <div className={styles.inputRowThree}>
-              <div className={styles.inputGroup}>
-                <label htmlFor={pricePaintId} className={styles.inputLabel}>
-                  Paint <span>($/gal)</span>
+
+            <div className={styles.fieldGroup}>
+              <label className={styles.label}>Paint Grade Presets</label>
+              <div className={styles.chipGroup}>
+                <button
+                  type="button"
+                  className={`${styles.chip} ${pricePreset === 'economy' ? styles.chipSelected : ''}`}
+                  onClick={() => handlePricePresetSelect('economy')}
+                >
+                  Economy ($30/gal)
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.chip} ${pricePreset === 'mid' ? styles.chipSelected : ''}`}
+                  onClick={() => handlePricePresetSelect('mid')}
+                >
+                  Mid-Grade ($45/gal)
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.chip} ${pricePreset === 'premium' ? styles.chipSelected : ''}`}
+                  onClick={() => handlePricePresetSelect('premium')}
+                >
+                  Premium ($65/gal)
+                </button>
+                <button
+                  type="button"
+                  className={`${styles.chip} ${pricePreset === 'custom' ? styles.chipSelected : ''}`}
+                  onClick={() => setPricePreset('custom')}
+                >
+                  Custom
+                </button>
+              </div>
+              <span className={styles.fieldHelper}>Quart price is estimated at 40% of the gallon price.</span>
+            </div>
+
+            <div className={styles.inputRow}>
+              <div className={styles.fieldGroup}>
+                <label htmlFor={`${idPrefix}-wall-price`} className={styles.label}>
+                  Wall Paint ($ / gal)
                 </label>
                 <input
-                  id={pricePaintId}
-                  type="number"
-                  step="1"
-                  min="0"
-                  value={pricePerGallon}
-                  onChange={(e) => setPricePerGallon(e.target.value)}
-                  className={styles.textInput}
+                  id={`${idPrefix}-wall-price`}
+                  type="text"
+                  inputMode="decimal"
+                  className={styles.inputField}
+                  value={wallPrice}
+                  onChange={(e) => {
+                    setWallPrice(e.target.value);
+                    setPricePreset('custom');
+                  }}
                   placeholder="45"
                 />
               </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor={pricePrimerId} className={styles.inputLabel}>
-                  Primer <span>($/gal)</span>
+
+              {result.totalCeilingSqFt > 0 && (
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-ceil-price`} className={styles.label}>
+                    Ceiling Paint ($ / gal)
+                  </label>
+                  <input
+                    id={`${idPrefix}-ceil-price`}
+                    type="text"
+                    inputMode="decimal"
+                    className={styles.inputField}
+                    value={ceilingPrice}
+                    onChange={(e) => setCeilingPrice(e.target.value)}
+                    placeholder="45"
+                  />
+                </div>
+              )}
+            </div>
+
+            <div className={styles.inputRow}>
+              {includePrimer && (
+                <div className={styles.fieldGroup}>
+                  <label htmlFor={`${idPrefix}-primer-price`} className={styles.label}>
+                    Primer ($ / gal)
+                  </label>
+                  <input
+                    id={`${idPrefix}-primer-price`}
+                    type="text"
+                    inputMode="decimal"
+                    className={styles.inputField}
+                    value={primerPrice}
+                    onChange={(e) => setPrimerPrice(e.target.value)}
+                    placeholder="25"
+                  />
+                </div>
+              )}
+
+              <div className={styles.fieldGroup}>
+                <label htmlFor={`${idPrefix}-sundries`} className={styles.label}>
+                  Sundries ($) — Tape, Rollers, Trays
                 </label>
                 <input
-                  id={pricePrimerId}
-                  type="number"
-                  step="1"
-                  min="0"
-                  value={pricePerPrimer}
-                  onChange={(e) => setPricePerPrimer(e.target.value)}
-                  className={styles.textInput}
-                  placeholder="25"
-                  disabled={!includePrimer}
-                />
-              </div>
-              <div className={styles.inputGroup}>
-                <label htmlFor={suppliesInputId} className={styles.inputLabel}>
-                  Supplies <span>($ tape, tray)</span>
-                </label>
-                <input
-                  id={suppliesInputId}
-                  type="number"
-                  step="5"
-                  min="0"
-                  value={suppliesCost}
-                  onChange={(e) => setSuppliesCost(e.target.value)}
-                  className={styles.textInput}
+                  id={`${idPrefix}-sundries`}
+                  type="text"
+                  inputMode="decimal"
+                  className={styles.inputField}
+                  value={sundriesCost}
+                  onChange={(e) => setSundriesCost(e.target.value)}
                   placeholder="25"
                 />
               </div>
             </div>
+          </div>
+
+          {/* Action Buttons */}
+          <div className={styles.actionButtonGroup}>
+            <button type="button" className={styles.secondaryActionButton} onClick={handleReset}>
+              Reset Fields
+            </button>
           </div>
         </div>
 
-        {/* Right Column: Output Summary Cards */}
-        <div className={styles.resultsColumn}>
-          {/* Hero Banner */}
-          <div className={styles.heroResultCard}>
-            <div className={styles.heroLabel}>Total Paint to Purchase</div>
-            <div className={styles.heroBigNumber}>
-              {result.containerSummary}
+        {/* Right Results Panel */}
+        <div className={styles.resultsPanel} ref={resultsRef} aria-live="polite">
+          {/* Primary Wall Paint Hero Card */}
+          <div className={styles.primaryResultCard}>
+            <div className={styles.primaryResultLabel}>Wall Paint to Buy</div>
+            <div className={styles.primaryResultValue}>
+              {result.wallContainers.displayLabel}
             </div>
-            <div className={styles.heroSubtext}>
-              Exact Volume: {result.exactPaintGallons} Gallons for {coats} coat{coats > 1 ? 's' : ''} ({result.totalCoatAreaSqFt} sq ft total)
+            <div className={styles.primaryResultSub}>
+              Exact requirement: <strong>{result.wallExactGallons} gallons</strong> for {coats} coats @ {result.effectiveCoverage} sq ft/gal
             </div>
-          </div>
-
-          {/* Secondary Specifications Card */}
-          <div className={styles.secondaryResultsCard}>
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Net Paintable Wall Area</span>
-              <span className={styles.outputValue}>
-                {result.netWallAreaSqFt} sq ft{' '}
-                {result.openingsDeductionSqFt > 0 && (
-                  <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 400 }}>
-                    (-{result.openingsDeductionSqFt} sq ft openings)
-                  </span>
-                )}
-              </span>
-            </div>
-
-            {includeCeiling && (
-              <div className={styles.outputRow}>
-                <span className={styles.outputLabel}>Ceiling Area</span>
-                <span className={styles.outputValue}>{result.ceilingAreaSqFt} sq ft</span>
-              </div>
-            )}
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Total Area per Single Coat</span>
-              <span className={styles.outputValue}>{result.singleCoatAreaSqFt} sq ft</span>
-            </div>
-
-            <div className={styles.outputRow}>
-              <span className={styles.outputLabel}>Coverage Spread Rate</span>
-              <span className={styles.outputValue}>
-                {texturePresetId === 'custom' ? customCoverage : SURFACE_TEXTURES[texturePresetId]?.coverageSqFtPerGal} sq ft / gal
-              </span>
-            </div>
-
-            {/* Primer info if enabled */}
-            {includePrimer && (
-              <div className={styles.outputRow}>
-                <span className={styles.outputLabel}>Dedicated Primer Needed</span>
-                <span className={styles.outputValue} style={{ color: '#0369A1' }}>
-                  {result.recommendedPrimerGallons} Gallon{result.recommendedPrimerGallons > 1 ? 's' : ''}{' '}
-                  <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 400 }}>
-                    (Exact: {result.exactPrimerGallons} gal)
-                  </span>
-                </span>
-              </div>
-            )}
-
-            {/* Contractor 5-gal bucket tip */}
-            {result.hasFiveGallonPailOption && (
-              <div className={styles.outputRow}>
-                <span className={styles.outputLabel}>Bulk Packaging Option</span>
-                <span className={styles.outputValue}>
-                  {result.fiveGallonPails} × 5-Gal Pail{result.fiveGallonPails > 1 ? 's' : ''}
-                  {result.singleGallonsWithPails > 0 ? ` + ${result.singleGallonsWithPails} Single Gallon(s)` : ''}
-                </span>
+            {result.wallContainers.suggestFiveGallonBucket && (
+              <div className={styles.bucketNotice}>
+                💡 5+ gallons: A 5-gallon bucket is often cheaper per gallon — compare prices at the store.
               </div>
             )}
           </div>
 
-          {/* Pricing & Cost Estimate Card */}
-          {result.totalDiyCost > 0 && (
-            <div className={styles.costSection}>
-              <div className={styles.outputRow}>
-                <span className={styles.outputLabel}>
-                  Paint ({result.recommendedGallons} gal @ ${pricePerGallon}):
-                </span>
-                <span className={styles.outputValue}>${result.paintCost.toFixed(2)}</span>
+          {/* Surface & Coverage Breakdown */}
+          <div className={styles.breakdownCard}>
+            <div className={styles.breakdownTitle}>Surface Area Breakdown</div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Net Wall Area</span>
+              <span className={styles.breakdownValue}>
+                {result.totalNetWallSqFt.toLocaleString()} sq ft{' '}
+                <span className={styles.subtextInline}>(Gross: {result.totalGrossWallSqFt} sq ft)</span>
+              </span>
+            </div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Doors &amp; Windows Deducted</span>
+              <span className={styles.breakdownValue}>−{result.totalOpeningsDeductionSqFt.toLocaleString()} sq ft</span>
+            </div>
+            {result.totalCeilingSqFt > 0 && (
+              <div className={styles.breakdownRow}>
+                <span className={styles.breakdownLabel}>Ceiling Area</span>
+                <span className={styles.breakdownValue}>{result.totalCeilingSqFt.toLocaleString()} sq ft</span>
               </div>
+            )}
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Total Paintable Surface</span>
+              <span className={styles.breakdownValue}>{result.totalPaintableSurfaceSqFt.toLocaleString()} sq ft</span>
+            </div>
+          </div>
 
-              {includePrimer && result.primerCost > 0 && (
-                <div className={styles.outputRow}>
-                  <span className={styles.outputLabel}>
-                    Primer ({result.recommendedPrimerGallons} gal @ ${pricePerPrimer}):
+          {/* Additional Paints Breakdown (Ceiling & Primer) */}
+          {(result.totalCeilingSqFt > 0 || result.primerGallonsToBuy > 0) && (
+            <div className={styles.breakdownCard}>
+              <div className={styles.breakdownTitle}>Ceiling &amp; Primer Materials</div>
+              {result.totalCeilingSqFt > 0 && (
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>Ceiling Paint to Buy</span>
+                  <span className={styles.breakdownValue}>
+                    {result.ceilingContainers.displayLabel}{' '}
+                    <span className={styles.subtextInline}>({result.ceilingExactGallons} gal exact)</span>
                   </span>
-                  <span className={styles.outputValue}>${result.primerCost.toFixed(2)}</span>
                 </div>
               )}
-
-              {result.suppliesCost > 0 && (
-                <div className={styles.outputRow}>
-                  <span className={styles.outputLabel}>Supplies &amp; Tape:</span>
-                  <span className={styles.outputValue}>${result.suppliesCost.toFixed(2)}</span>
+              {result.primerGallonsToBuy > 0 && (
+                <div className={styles.breakdownRow}>
+                  <span className={styles.breakdownLabel}>Primer to Buy (1 coat)</span>
+                  <span className={styles.breakdownValue}>
+                    {result.primerGallonsToBuy} Gallons{' '}
+                    <span className={styles.subtextInline}>({result.primerExactGallons} gal exact)</span>
+                  </span>
                 </div>
               )}
-
-              <div className={styles.costTotalRow}>
-                <span>Total Estimated DIY Cost:</span>
-                <span>${result.totalDiyCost.toFixed(2)}</span>
-              </div>
-
-              <div className={styles.savingsBox}>
-                <div className={styles.savingsTitle}>💡 Professional Painter Benchmark</div>
-                Contractor quote for this space: <strong>${result.proEstimatedCostLow} – ${result.proEstimatedCostHigh}</strong>. Doing it yourself saves approximately <strong>${Math.max(0, result.proEstimatedCostLow - result.totalDiyCost)} – ${Math.max(0, result.proEstimatedCostHigh - result.totalDiyCost)}</strong>!
-              </div>
             </div>
           )}
 
-          {/* Actions */}
-          <div className={styles.actionRow}>
-            <button
-              type="button"
-              onClick={handleCopySummary}
-              className={styles.copyButton}
-            >
-              {copied ? '✓ Calculation Copied!' : '📋 Copy Calculation Summary'}
+          {/* Cost Card (Always Visible on first load) */}
+          <div className={styles.breakdownCard}>
+            <div className={styles.breakdownTitle}>Estimated Material Budget (DIY)</div>
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Wall Paint</span>
+              <span className={styles.breakdownValue}>${result.wallPaintCost.toLocaleString()}</span>
+            </div>
+            {result.ceilingPaintCost > 0 && (
+              <div className={styles.breakdownRow}>
+                <span className={styles.breakdownLabel}>Ceiling Paint</span>
+                <span className={styles.breakdownValue}>${result.ceilingPaintCost.toLocaleString()}</span>
+              </div>
+            )}
+            {result.primerCost > 0 && (
+              <div className={styles.breakdownRow}>
+                <span className={styles.breakdownLabel}>Primer</span>
+                <span className={styles.breakdownValue}>${result.primerCost.toLocaleString()}</span>
+              </div>
+            )}
+            <div className={styles.breakdownRow}>
+              <span className={styles.breakdownLabel}>Supplies &amp; Sundries</span>
+              <span className={styles.breakdownValue}>${result.sundriesCost.toLocaleString()}</span>
+            </div>
+            <div className={styles.breakdownRow} style={{ borderTop: '1px solid var(--color-border, #e5e7eb)', paddingTop: '0.5rem' }}>
+              <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: 'var(--color-text, #0f172a)' }}>
+                Total Estimated DIY Cost
+              </span>
+              <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0284c7)', fontSize: '1.15rem' }}>
+                ${result.totalDIYCost.toLocaleString()}
+              </span>
+            </div>
+          </div>
+
+          {/* PRO Contractor Benchmark */}
+          <div className={styles.proBenchmarkCard}>
+            <div className={styles.proBenchmarkTitle}>Professional Contractor Benchmark</div>
+            <div className={styles.proBenchmarkPrice}>
+              ${result.proEstimateLow.toLocaleString()} – ${result.proEstimateHigh.toLocaleString()}
+            </div>
+            <div className={styles.proBenchmarkDesc}>
+              Estimated professional turnkey cost ($1.00–$2.50 per sq ft of surface). You save approximately{' '}
+              <strong>${result.proSavingsLow.toLocaleString()} – ${result.proSavingsHigh.toLocaleString()}</strong> by painting yourself.
+            </div>
+            <div className={styles.proBenchmarkFootnote}>
+              Estimate only. Get 2–3 local quotes for actual contractor bids.
+            </div>
+          </div>
+
+          {/* Utility Buttons */}
+          <div className={styles.resultsUtilityRow}>
+            <button type="button" className={styles.utilityButton} onClick={handleCopy}>
+              {copied ? '✓ Copied Summary' : '📋 Copy Calculation Summary'}
             </button>
-            <button
-              type="button"
-              onClick={handleReset}
-              className={styles.resetButton}
-            >
-              Reset
+            <button type="button" className={styles.utilityButton} onClick={handlePrint}>
+              🖨️ Print
             </button>
           </div>
+          {copied && <div className={styles.copiedMessage}>✓ Summary copied to clipboard!</div>}
         </div>
       </div>
     </div>
