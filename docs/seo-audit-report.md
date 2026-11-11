@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-11T11:18:50.882Z
+Run Date: 2026-11-11T11:25:17.574Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -21,7 +21,7 @@ Status: PASSED ✅
 | `/compost-calculator/` | Compost Calculator — Garden Beds, Lawns  | 1534 | Compost Calculator: Estimate C | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2187 | Cubic Yard Calculator: How Man | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2194 | Cubic Yard Calculator: How Man | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator — Gallons & Picke | 1751 | Fence Stain Calculator: Estima | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1489 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
@@ -38,7 +38,7 @@ Status: PASSED ✅
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3512 | Sqft Calculator – Free Square  | PASS |
-| `/stone-calculator/` | Stone Calculator — Crushed Rock, Gravel  | 1670 | Stone Calculator: Estimate Ton | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator — Wall Framing & Lumber  | 1955 | Stud Calculator: Estimate Wall | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 0 | Free Tile Sq Ft Calculator: Es | PASS |

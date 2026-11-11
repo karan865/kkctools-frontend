@@ -4,11 +4,14 @@ import { StoneCalculator } from '@/components/tool/stone-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import { STONE_FAQS, RELATED_STONE_TOOLS } from '@/content/pages/stone-calculator';
+import { STONE_MATERIALS, LAST_VERIFIED } from '@/lib/stone-constants';
+import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Stone Calculator — Crushed Rock, Gravel & Tons',
+  title: 'Stone Calculator (Tons, Yards & Bags)',
   description:
-    'Free stone calculator to estimate cubic yards, tons, and 50 lb bags for river rock, crushed stone, landscape rock, and aggregate. Instant weight & cost math.',
+    'Calculate how many tons of rock, stone, gravel, and river rock you need. Free stone calculator with cubic yards, bags, density chart, and cost estimate.',
   path: '/stone-calculator/',
 });
 
@@ -32,7 +35,7 @@ const jsonLd = [
       url: `${SITE_URL}/`,
     },
     description:
-      'Calculate exact stone, gravel, and crushed rock tonnage, cubic yards, and bag requirements for landscaping and driveway projects.',
+      'Free aggregate and rock calculator to convert length, width, and depth into cubic yards, tons, and 50 lb bags for landscape rock, #57 crushed stone, and river rock.',
   },
   {
     '@context': 'https://schema.org',
@@ -61,56 +64,14 @@ const jsonLd = [
   {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
-    mainEntity: [
-      {
-        '@type': 'Question',
-        name: 'How many cubic yards are in a ton of rock?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'On average, one US ton of crushed stone or gravel equals approximately 0.71 to 0.74 cubic yards (or roughly 1.35 to 1.4 tons per cubic yard). For lightweight volcanic lava rock, one ton equals approximately 1.6 cubic yards.',
-        },
+    mainEntity: STONE_FAQS.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
       },
-      {
-        '@type': 'Question',
-        name: 'How do I calculate how much rock I need?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'Multiply project length by width in feet to determine square footage, multiply by depth in feet (inches / 12) to get cubic feet, divide by 27 for cubic yards, and multiply cubic yards by your rock specific density (typically 1.35 to 1.4 tons per cubic yard). Finally, add 5% to 10% for ground settling.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How many square feet does 1 ton of rock cover?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'At a standard depth of 2 inches, 1 ton of typical crushed gravel or river rock covers approximately 100 to 115 square feet. At a thicker 3-inch depth, 1 ton covers approximately 70 to 80 square feet. At a deep 4-inch driveway depth, 1 ton covers roughly 50 to 55 square feet.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'How many 50 lb bags of stone make a cubic yard?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'One cubic yard of typical landscape rock weighs roughly 2,700 pounds. Dividing 2,700 by 50 pounds yields 54 bags. Therefore, you need 54 standard 50-pound bags to equal one bulk cubic yard.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'What is the difference between #57 stone and river rock?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: '#57 stone refers to crushed angular limestone or granite machine-sieved to approximately 1/2-inch to 1-inch sizes. Its sharp, jagged edges interlock tightly, making it the premier choice for driveways, shed bases, and drainage. River rock consists of naturally weathered, smooth, rounded pebbles harvested from river valleys, prized primarily for barefoot-friendly pathways and decorative flower bed landscaping.',
-        },
-      },
-      {
-        '@type': 'Question',
-        name: 'Can I put landscape rock directly on dirt?',
-        acceptedAnswer: {
-          '@type': 'Answer',
-          text: 'While possible, it is strongly discouraged. Without a commercial-grade landscape underlayment fabric, stone quickly sinks into the soil after rainy weather, while weeds grow aggressively through the gaps. A breathable needle-punched landscape fabric prevents weed growth while allowing rain to filter down into the subsoil.',
-        },
-      },
-    ],
+    })),
   },
 ];
 
@@ -122,269 +83,450 @@ export default function StoneCalculatorPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={styles.mainContainer}>
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
+        <nav aria-label="Breadcrumb" className={styles.breadcrumbNav}>
+          <ol className={styles.breadcrumbList}>
             <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
+              <Link href="/" className={styles.breadcrumbLink}>Home</Link>
             </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
+            <li className={styles.breadcrumbSeparator} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
+              <Link href="/tools/" className={styles.breadcrumbLink}>Calculators</Link>
             </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Stone Calculator</li>
+            <li className={styles.breadcrumbSeparator} aria-hidden="true">›</li>
+            <li className={styles.breadcrumbCurrent} aria-current="page">Stone Calculator</li>
           </ol>
         </nav>
 
-        {/* Header */}
-        <header style={{ marginBottom: '24px' }}>
-          <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Stone Calculator: Estimate Tons, Cubic Yards &amp; Bags of Rock
+        {/* Page Header */}
+        <header className={styles.header}>
+          <h1 className={styles.h1Title}>
+            Stone Calculator: How Many Tons of Rock Do You Need?
           </h1>
-          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately estimate how much stone, river rock, gravel, and crushed aggregate you need for your project using our free <strong>stone calculator</strong> (also functioning as a <strong>rock calculator</strong>, <strong>landscape rock calculator</strong>, and <strong>aggregate calculator</strong>). Instantly converts dimensions to cubic feet, cubic yards, and <strong>stone calculator tons</strong>.
+          <p className={styles.introParagraph}>
+            Use our free <strong>stone calculator</strong> to figure out exactly how many tons, cubic yards, and 50 lb bags of rock or aggregate you need for your landscaping or driveway project. Whether you need a <strong>rock calculator</strong> for decorative river rock, a <strong>landscape rock calculator</strong> for garden beds, a <strong>crushed stone calculator</strong> for bases, or an <strong>aggregate calculator</strong> for commercial site work, calculate your materials instantly below with accurate quarry densities.
           </p>
         </header>
 
         {/* Interactive Tool */}
-        <section aria-label="Stone and Rock Calculator Tool">
+        <section aria-label="Interactive Stone and Rock Calculator">
           <StoneCalculator />
         </section>
 
-        {/* Ad Placeholder */}
+        {/* Top Ad Slot */}
         <AdSlot slotId="stone-calc-middle" />
 
-        {/* Comprehensive SEO Editorial Content (2,200+ Words) */}
-        <article style={{ marginTop: '48px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
-            How to Calculate Stone and Rock Needed (Step-by-Step Formula)
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Planning a brand-new gravel driveway, backyard flagstone patio base, French drain trench, or decorative river rock garden border? One of the most critical steps in any hardscaping or landscaping project is calculating the exact quantity of bulk aggregate to purchase. Our comprehensive <strong>stone calculator</strong> serves as a reliable <strong>rock calculator</strong>, <strong>river rock calculator</strong>, and <strong>crushed stone calculator</strong> to estimate bulk quarry loads without expensive guesswork.
-          </p>
-          <p style={{ marginBottom: '16px' }}>
-            Whether you need a dedicated <strong>57 stone calculator</strong> for base trenches or wonder <strong>how many cubic yards in a ton of rock</strong> are delivered to your jobsite, quarries and commercial landscape supply yards quote and sell bulk aggregate by the ton rather than by the cubic foot. Calculating materials accurately requires translating three-dimensional volume into weight through these six contractor steps:
-          </p>
+        {/* Main Editorial Content */}
+        <article className={styles.editorialContent}>
+          {/* Section 1: Quick Answer */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Quick Answer: How Many Cubic Yards in a Ton of Rock?
+            </h2>
+            <p className={styles.paragraph}>
+              On average, <strong>1 US short ton of crushed rock contains approximately 0.71 to 0.74 cubic yards</strong>. Conversely, <strong>1 cubic yard of standard crushed stone or gravel weighs between 1.35 and 1.50 tons</strong> (2,700 to 3,000 pounds).
+            </p>
+            <p className={styles.paragraph}>
+              Because rock varieties have different porosities and mineral densities, the exact conversion depends on the material you order:
+            </p>
 
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Measure Surface Dimensions in Feet:</strong> Measure the length and width of the coverage area in feet. Multiply them together to find surface area in square feet: Length × Width. For example, a landscape border measuring 30 feet long by 6 feet wide has a surface area of 180 sq ft. For irregular curved garden beds or multi-zone layouts, sum individual sections using our <Link href="/square-footage-calculator/" style={{ color: '#0284C7' }}>square footage calculator</Link>.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Determine Recommended Layer Depth in Inches:</strong> Convert your desired thickness from inches into feet by dividing by 12: Depth in Feet = Depth in Inches / 12. For example, a 3-inch layer of river rock equals 3 / 12 = 0.25 feet.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Calculate Cubic Feet and Cubic Yards:</strong> Multiply surface area by depth to find total cubic feet, then divide by 27 (since there are 27 cubic feet in one cubic yard). For 180 sq ft at 0.25 ft depth: 180 × 0.25 = 45 cubic feet. Then 45 / 27 = 1.67 cubic yards. For general volume conversions, use our companion <Link href="/cubic-yard-calculator/" style={{ color: '#0284C7' }}>cubic yard calculator</Link>.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Multiply by Material Density (Pounds per Cubic Foot):</strong> Every rock variety possesses a distinct bulk density based on mineral composition, aggregate sizing, and void ratios. Dense crushed limestone weighs approximately 95 lbs per cubic foot, while smooth rounded river rock averages 100 lbs per cubic foot. 45 cu ft × 100 lbs/cu ft = 4,500 pounds.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Convert Pounds to US Short Tons:</strong> Because 1 US short ton equals 2,000 pounds, divide the total weight in pounds by 2,000: 4,500 / 2,000 = 2.25 tons. For fast bidirectional weight-volume math, check our <Link href="/tons-to-cubic-yards/" style={{ color: '#0284C7' }}>tons to cubic yards</Link> tool.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Factor in Compaction and Ground Settling (5% to 10%):</strong> Ground subgrades are never laser-flat. Natural subsoil settling, tire ruts, and trench compaction consume extra material. Always add 5% for flat flower beds or 10% for driveways and sloped pathways: 2.25 tons × 1.10 = 2.48 tons (order 2.5 tons from the quarry).
-            </li>
-          </ol>
+            <div className={styles.tableResponsive}>
+              <table className={styles.dataTable}>
+                <thead>
+                  <tr>
+                    <th>Material Type</th>
+                    <th>Tons per Cubic Yard</th>
+                    <th>Cubic Yards per Ton</th>
+                    <th>Pounds per Cubic Yard</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>#57 Crushed Stone</td>
+                    <td>1.40 tons</td>
+                    <td>0.71 yd³</td>
+                    <td>2,800 lbs</td>
+                  </tr>
+                  <tr>
+                    <td>Crusher Run (with Fines)</td>
+                    <td>1.50 tons</td>
+                    <td>0.67 yd³</td>
+                    <td>3,000 lbs</td>
+                  </tr>
+                  <tr>
+                    <td>River Rock (Smooth)</td>
+                    <td>1.35 tons</td>
+                    <td>0.74 yd³</td>
+                    <td>2,700 lbs</td>
+                  </tr>
+                  <tr>
+                    <td>Pea Gravel</td>
+                    <td>1.40 tons</td>
+                    <td>0.71 yd³</td>
+                    <td>2,800 lbs</td>
+                  </tr>
+                  <tr>
+                    <td>Lava Rock (Volcanic)</td>
+                    <td>0.61 tons</td>
+                    <td>1.64 yd³</td>
+                    <td>1,215 lbs</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className={styles.calloutText}>
+              Need to convert pure bulk weight to volume for other materials like soil, sand, or mulch? Use our dedicated <Link href="/tons-to-cubic-yards/" className={styles.inlineLink}>tons to cubic yards calculator</Link> for comprehensive weight-to-volume charts.
+            </p>
+          </section>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Material Density &amp; Rock Weight Comparison Chart
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            The density of stone is governed by rock type, moisture content, and whether the stones are crushed (angular with interlocking faces) or river-washed (rounded with open voids). Use this contractor reference table:
-          </p>
+          {/* Section 2: Step-by-Step Formula */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              How to Calculate Stone and Rock Needed (Step-by-Step Formula)
+            </h2>
+            <p className={styles.paragraph}>
+              Quarries and aggregate supply yards sell bulk rock by weight (tons), but you measure your landscaping beds in feet and inches. Translating your jobsite dimensions into tons involves six straightforward steps:
+            </p>
 
-          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
-            <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
-              <thead>
-                <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Material Type</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Sizing / Description</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Density (lbs / cu ft)</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Tons per Cubic Yard</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Coverage per Ton @ 2&quot;</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Common Applications</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>#57 Crushed Limestone</td>
-                  <td style={{ padding: '10px 14px' }}>1/2&quot; to 1&quot; angular stone</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>95 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.28 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~120 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Driveway base, French drains, concrete aggregate</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>River Rock (Smooth)</td>
-                  <td style={{ padding: '10px 14px' }}>1&quot; to 3&quot; rounded cobble</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>100 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.35 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~110 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Decorative landscape beds, dry riverbeds</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Pea Rock / Pea Gravel</td>
-                  <td style={{ padding: '10px 14px' }}>3/8&quot; smooth round pebbles</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>105 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.42 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~100 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Walkways, patios, dog runs, playgrounds</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Crushed Granite / Trap Rock</td>
-                  <td style={{ padding: '10px 14px' }}>3/4&quot; angular durable rock</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>105 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.42 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~100 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Heavy-duty driveways, commercial foundations</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Decomposed Granite (DG)</td>
-                  <td style={{ padding: '10px 14px' }}>Fine granite with natural fines</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>110 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.48 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~95 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Pathways, bocce ball courts, xeriscaping</td>
-                </tr>
-                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Heavy Rip Rap</td>
-                  <td style={{ padding: '10px 14px' }}>4&quot; to 8&quot;+ massive stone</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>115 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>1.55 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~80 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Shoreline erosion control, culverts, steep slopes</td>
-                </tr>
-                <tr>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Volcanic Lava Rock</td>
-                  <td style={{ padding: '10px 14px' }}>Porous, lightweight pumice</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>45 lbs</td>
-                  <td style={{ padding: '10px 14px' }}>0.61 tons</td>
-                  <td style={{ padding: '10px 14px' }}>~220 sq ft</td>
-                  <td style={{ padding: '10px 14px' }}>Lightweight planter mulch, gas fire pits</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
+            {/* Inline SVG Diagram */}
+            <div className={styles.diagramWrapper}>
+              <svg
+                viewBox="0 0 720 130"
+                className={styles.flowDiagram}
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Steps to convert dimensions to tons of rock"
+              >
+                <rect x="10" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <text x="70" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">1. Area</text>
+                <text x="70" y="74" textAnchor="middle" fontSize="11" fill="#64748B">L × W (sq ft)</text>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Landscape Rock Calculator: How Deep Should Your Stone Be?
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Selecting the correct depth ensures complete weed suppression without wasting money on buried, unseen rock:
-          </p>
-          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Decorative River Rock Beds (3&quot; to 4&quot; Depth):</strong> When replacing wood mulch with 1- to 3-inch river cobble, a shallow 2-inch layer leaves visible gaps where underlying landscape fabric peeks through. A generous 3- to 4-inch layer guarantees dense, overlapping coverage that completely hides the ground and blocks sunlight from germinating weed seeds.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Pea Gravel Walkways and Patios (2&quot; to 2.5&quot; Depth):</strong> Pea gravel is naturally round and tends to shift underfoot like dry beach sand. If installed deeper than 2.5 inches, pedestrians will experience excessive foot sinkage, making walking difficult and pushing strollers or wheelbarrows impossible.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Crushed Stone Driveways (#57 Stone: 4&quot; Depth):</strong> Residential driveways require angular crushed stone (#57 limestone or crushed granite) that mechanically locks together under vehicle tires. Install a minimum 4-inch layer over a stable road base to distribute tire weight and prevent mud churning.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>French Drains and Drainage Swales (6&quot; to 12&quot; Depth):</strong> Washed river rock or clean #57 stone without fines provides a 40% void ratio, allowing ground water to rush rapidly into perforated drainage pipes wrapped inside geotextile fabric.
-            </li>
-          </ul>
+                <path d="M 135 62 L 155 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Buying Bulk Stone by the Ton vs. 50 lb Retail Bags
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            Understanding when to purchase bagged rock at home improvement stores versus ordering bulk dump truck delivery saves significant money:
-          </p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '24px' }}>
-            <div style={{ padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>When to Buy 50 lb Bags</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', marginBottom: '8px' }}>
-                Ideal when your requirement is under 1,500 lbs (less than 30 bags), when your project site has restricted access where a 10-wheel dump truck cannot enter without cracking sidewalks or lawns, or when you are completing work solo over multiple weekends.
-              </p>
-            </div>
-            <div style={{ padding: '16px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
-              <h3 style={{ fontSize: '1.1rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>When to Order Bulk Delivery</h3>
-              <p style={{ fontSize: '0.9rem', color: '#475569', marginBottom: '8px' }}>
-                Essential for projects exceeding 1 ton (40 bags or ~0.75 cu yds). Bagged rock at retail stores costs $4.00–$6.00 per bag ($160–$240/ton), while quarries sell bulk stone for $35–$75 per ton. On a 5-ton driveway, ordering bulk saves over $600!
-              </p>
-            </div>
-          </div>
+                <rect x="160" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <text x="220" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">2. Volume</text>
+                <text x="220" y="74" textAnchor="middle" fontSize="11" fill="#64748B">Area × (Depth / 12)</text>
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            5 Essential Pro Tips for Laying Landscape Stone
-          </h2>
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Always Lay Heavy Commercial Geotextile Fabric First:</strong> Never spread rock directly onto raw topsoil. Over time, heavy rocks sink into mud while earthworms bring dirt to the surface, creating a seedbed for weeds. Use heavy non-woven landscape fabric secured with steel landscape staples.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Install Rigid Edging Borders:</strong> Round river rock and pea gravel migrate into adjacent grass lawns during heavy rainstorms or leaf blowing. Install commercial metal, poly, or concrete paver edging standing 1/2 inch above the finished rock line.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Wash the Stone After Installation:</strong> Bulk rock delivered directly from quarries contains stone dust from crushing and screening. Hose down your newly spread rock bed thoroughly with a garden hose nozzle to reveal vibrant natural mineral colors.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Use Plywood to Protect Driveways:</strong> When having 5 to 10 tons of rock delivered, ask the dump truck driver to dump the load on heavy sheets of 3/4-inch plywood laid over your concrete or asphalt driveway to avoid surface gouges.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>Account for Slope Runoff:</strong> On steep slopes exceeding 15 degrees, avoid small pea gravel or rounded river rock, which will wash downhill during torrential downpours. Use jagged, angular crushed rock (#57 or rip rap) that interlocks.
-            </li>
-          </ol>
+                <path d="M 285 62 L 305 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
 
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Frequently Asked Questions
-          </h2>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '40px' }}>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How many cubic yards are in a ton of rock?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                On average, one US ton of standard crushed stone or river rock equals approximately 0.71 to 0.74 cubic yards. Conversely, one cubic yard of crushed stone weighs approximately 1.35 to 1.40 tons (2,700 to 2,800 pounds). For ultra-lightweight volcanic lava rock, one ton yields approximately 1.64 cubic yards.
-              </p>
+                <rect x="310" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <text x="370" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">3. Cu Yards</text>
+                <text x="370" y="74" textAnchor="middle" fontSize="11" fill="#64748B">Cu Ft ÷ 27</text>
+
+                <path d="M 435 62 L 455 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+
+                <rect x="460" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <text x="520" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">4. Waste Factor</text>
+                <text x="520" y="74" textAnchor="middle" fontSize="11" fill="#64748B">+5% to 10% Extra</text>
+
+                <path d="M 585 62 L 605 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+
+                <rect x="610" y="20" width="100" height="85" rx="8" fill="#0284C7" stroke="#0284C7" strokeWidth="2" />
+                <text x="660" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#FFFFFF">5. Tons</text>
+                <text x="660" y="74" textAnchor="middle" fontSize="11" fill="#E0F2FE">Yards × Density</text>
+
+                <defs>
+                  <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284C7" />
+                  </marker>
+                </defs>
+              </svg>
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How do I calculate how much rock I need?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                Multiply project length by width in feet to determine square footage, multiply by depth in feet (inches / 12) to get cubic feet, divide by 27 for cubic yards, and multiply cubic yards by your rock&apos;s specific density (typically 1.35 to 1.4 tons per cubic yard). Finally, add 5% to 10% for ground settling.
-              </p>
+
+            <ol className={styles.orderedList}>
+              <li>
+                <strong>Measure Area in Square Feet:</strong> Multiply length by width in feet. For circular areas, measure diameter, calculate radius (diameter ÷ 2), and multiply 3.14159 × radius × radius. If you have several segmented areas, use our <Link href="/square-footage-calculator/" className={styles.inlineLink}>square footage calculator</Link> to sum your sub-zones.
+              </li>
+              <li>
+                <strong>Convert Depth to Feet:</strong> Divide your depth in inches by 12. For instance, a 3-inch depth equals 3 ÷ 12 = 0.25 feet.
+              </li>
+              <li>
+                <strong>Calculate Cubic Feet and Cubic Yards:</strong> Multiply square footage by depth in feet to get cubic feet, then divide by 27. For a 30 ft × 6 ft border (180 sq ft) at 3 inches deep: 180 × 0.25 = 45 cubic feet. Dividing 45 ÷ 27 gives 1.67 cubic yards. (Check general excavation quantities with our <Link href="/cubic-yard-calculator/" className={styles.inlineLink}>cubic yard calculator</Link>).
+              </li>
+              <li>
+                <strong>Apply a Waste and Settling Allowance:</strong> Subgrades have uneven dips, and aggregate settles when walked on or driven over. Always add 5% for garden borders or 10% for driveways and trenches. 1.67 gross cubic yards becomes 1.83 cubic yards with 10% waste.
+              </li>
+              <li>
+                <strong>Multiply by Stone Density:</strong> Multiply your gross cubic yards by the specific material density rating (in tons per cubic yard). At 1.35 tons per yard for river rock: 1.67 net yards × 1.35 = 2.25 net tons, or 1.83 gross yards × 1.35 = 2.48 gross tons (order 2.5 tons).
+              </li>
+            </ol>
+          </section>
+
+          {/* Section 3: Material Density & Weight Chart */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Rock Calculator: Material Density &amp; Weight Chart
+            </h2>
+            <p className={styles.paragraph}>
+              Aggregate density varies based on rock type, grain size, and whether the stones are crushed angular or river-rounded. Below are standard dry loose bulk densities used across North American quarries:
+            </p>
+
+            <div className={styles.tableResponsive}>
+              <table className={styles.dataTable}>
+                <thead>
+                  <tr>
+                    <th>Material</th>
+                    <th>Typical Size</th>
+                    <th>Tons / yd³</th>
+                    <th>lbs / cu ft</th>
+                    <th>Coverage / Ton @ 2&quot;</th>
+                    <th>Common Use Case</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {STONE_MATERIALS.map((mat) => (
+                    <tr key={mat.id}>
+                      <td style={{ fontWeight: 600 }}>{mat.name}</td>
+                      <td>{mat.typicalSize}</td>
+                      <td style={{ fontWeight: 600, color: '#0284C7' }}>{mat.tonsPerCuYard.toFixed(2)}</td>
+                      <td>{mat.densityLbsPerCuFt} lbs</td>
+                      <td>~{mat.coveragePerTonSqFtAt2In} sq ft</td>
+                      <td>{mat.typicalUse}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How many square feet does 1 ton of rock cover?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                At a standard depth of 2 inches, 1 ton of typical crushed gravel or river rock covers approximately 100 to 115 square feet. At a thicker 3-inch depth, 1 ton covers approximately 70 to 80 square feet. At a 4-inch driveway base depth, 1 ton covers roughly 50 to 55 square feet.
-              </p>
+            <p className={styles.helperNote}>
+              Source: Aggregate bulk density standards compiled across US and Canadian suppliers. Last verified: {LAST_VERIFIED}.
+            </p>
+          </section>
+
+          {/* Section 4: Stone Calculator Tons by Area & Depth */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Stone Calculator Tons: How Many Tons Do I Need?
+            </h2>
+            <p className={styles.paragraph}>
+              When ordering stone by the ton, homeowners frequently ask: &quot;How many tons do I need for my area?&quot; Below is a handy contractor reference table calculating net tons needed for common square footages using standard #57 stone / gravel (density of 1.40 tons/yd³, without waste):
+            </p>
+
+            <h3 className={styles.subHeading}>
+              Stone Calculator Tons by Area and Depth (#57 Crushed Stone at 1.40 tons/yd³)
+            </h3>
+            <div className={styles.tableResponsive}>
+              <table className={styles.dataTable}>
+                <thead>
+                  <tr>
+                    <th>Area (sq ft)</th>
+                    <th>Tons @ 2&quot; Depth</th>
+                    <th>Tons @ 3&quot; Depth</th>
+                    <th>Tons @ 4&quot; Depth</th>
+                    <th>50 lb Bags @ 3&quot;</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>100 sq ft</strong></td>
+                    <td>0.86 tons</td>
+                    <td>1.30 tons</td>
+                    <td>1.73 tons</td>
+                    <td>52 bags</td>
+                  </tr>
+                  <tr>
+                    <td><strong>200 sq ft</strong></td>
+                    <td>1.73 tons</td>
+                    <td>2.59 tons</td>
+                    <td>3.46 tons</td>
+                    <td>104 bags</td>
+                  </tr>
+                  <tr>
+                    <td><strong>500 sq ft</strong></td>
+                    <td>4.32 tons</td>
+                    <td>6.48 tons</td>
+                    <td>8.64 tons</td>
+                    <td>260 bags</td>
+                  </tr>
+                  <tr>
+                    <td><strong>1,000 sq ft</strong></td>
+                    <td>8.64 tons</td>
+                    <td>12.96 tons</td>
+                    <td>17.28 tons</td>
+                    <td>519 bags</td>
+                  </tr>
+                </tbody>
+              </table>
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                How many 50 lb bags of stone make a cubic yard?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                One cubic yard of typical landscape rock weighs roughly 2,700 pounds. Dividing 2,700 by 50 pounds yields 54 bags. Therefore, you need 54 standard 50-pound bags to equal one bulk cubic yard.
-              </p>
+          </section>
+
+          {/* Section 5: Landscape Rock Calculator - Depth Guide */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Landscape Rock Calculator: How Deep Should Your Stone Be?
+            </h2>
+            <p className={styles.paragraph}>
+              Depth is the most common factor DIYers get wrong. Too shallow, and underlying landscape fabric or soil shows through; too deep, and you waste hundreds of dollars on rock that sinks or creates an unstable, shifting walking surface.
+            </p>
+
+            <h3 className={styles.subHeading}>
+              River Rock Calculator: Coverage &amp; Depth
+            </h3>
+            <p className={styles.paragraph}>
+              When using a <strong>river rock calculator</strong> for decorative borders or dry creek beds, size dictates depth. For medium 1- to 3-inch river cobble, spread a minimum depth of <strong>3 inches</strong> (or twice the diameter of the largest rock). A 2-inch layer of 3-inch stones leaves noticeable bare voids. At 3 inches deep, 1 ton of river rock covers approximately 80 square feet.
+            </p>
+
+            <h3 className={styles.subHeading}>
+              Crushed Stone Calculator: #57 vs Crusher Run
+            </h3>
+            <p className={styles.paragraph}>
+              If you are using a <strong>crushed stone calculator</strong> or a dedicated <strong>57 stone calculator</strong>:
+            </p>
+            <ul className={styles.bulletList}>
+              <li>
+                <strong>#57 Stone (Clean angular 1/2&quot; to 1&quot;):</strong> Ideal for French drains, backfilling retaining walls, and clean decorative driveways. Recommended depth is <strong>3 to 4 inches</strong>. It has roughly 40% void space for rapid water drainage.
+              </li>
+              <li>
+                <strong>Crusher Run / Dense Grade (3/4&quot; down to stone dust):</strong> Ideal for structural driveway sub-bases and paver patio foundations. Recommended depth is <strong>4 to 6 inches</strong>, compacted in 2-inch lifts. The dust particles pack tightly between rocks, forming a rock-hard unshifting base.
+              </li>
+              <li>
+                <strong>Pea Gravel (3/8&quot; round pebbles):</strong> For patio floors and pathways, keep depth to <strong>2 to 2.5 inches</strong>. Any deeper and foot traffic will sink awkwardly into the loose stones.
+              </li>
+            </ul>
+          </section>
+
+          {/* Section 6: Aggregate Calculator - Contractor Estimating */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Aggregate Calculator: How Contractors Estimate Stone
+            </h2>
+            <p className={styles.paragraph}>
+              Professional excavators and landscape contractors use practical rules of thumb when ordering aggregate from commercial quarries:
+            </p>
+            <ul className={styles.bulletList}>
+              <li>
+                <strong>Certified Scale Tickets:</strong> Quarries weigh haul trucks on certified platform scales (gross weight minus empty tare weight). You pay for the scale weight, which includes natural stockpile moisture. After heavy rain, damp aggregate weighs 5% to 8% more.
+              </li>
+              <li>
+                <strong>Subgrade Settling Allowance:</strong> Raw dirt subgrade yields when heavy stone is spread. Excavators routinely round up to the nearest half-ton or full ton to prevent shortages that halt skid-steer crews.
+              </li>
+              <li>
+                <strong>Gradation Void Ratios:</strong> Clean single-size stone (#57) holds large voids, requiring less weight per yard than blended aggregates (crusher run or road base) where stone dust fills every pocket.
+              </li>
+            </ul>
+          </section>
+
+          {/* Section 7: Bulk vs Bags */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Buying Bulk Stone vs Bags
+            </h2>
+            <p className={styles.paragraph}>
+              Deciding between ordering bulk dump truck delivery or picking up 50 lb bags from the local home center comes down to two factors: total weight and site accessibility.
+            </p>
+
+            <div className={styles.comparisonGrid}>
+              <div className={styles.comparisonCard}>
+                <h3 className={styles.comparisonTitle}>When to Buy 50 lb Bags</h3>
+                <ul className={styles.cardList}>
+                  <li>Total project requirement is under 1,500 lbs (fewer than 30 bags).</li>
+                  <li>Backyard has tight gate access where dump trucks or skid-steers cannot fit.</li>
+                  <li>You plan to complete the work slowly over several weekends.</li>
+                  <li>No space on your driveway or lawn to store a large loose rock pile.</li>
+                </ul>
+              </div>
+
+              <div className={styles.comparisonCard}>
+                <h3 className={styles.comparisonTitle}>When to Order Bulk Delivery</h3>
+                <ul className={styles.cardList}>
+                  <li>Total requirement exceeds 1 ton (40 bags or ~0.75 cubic yards).</li>
+                  <li>Bulk quarry stone costs $35 to $75 per ton vs $160 to $240 per ton in retail bags.</li>
+                  <li>Saves hours of lifting, opening, and disposing of plastic bags.</li>
+                  <li>Truck can dump directly onto the driveway or near the installation trench.</li>
+                </ul>
+              </div>
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                What is the difference between #57 stone and river rock?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                #57 stone refers to crushed angular limestone or granite machine-sieved to approximately 1/2-inch to 1-inch sizes. Its sharp, jagged edges interlock tightly, making it the premier choice for driveways, shed bases, and drainage. River rock consists of naturally weathered, smooth, rounded pebbles harvested from river valleys, prized primarily for barefoot-friendly pathways and decorative flower bed landscaping.
-              </p>
+          </section>
+
+          {/* Section 8: Worked Example */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Worked Example: 24 ft × 12 ft River Rock Patio Border
+            </h2>
+            <p className={styles.paragraph}>
+              Let us walk through a complete real-world project example using our landscape rock calculator:
+            </p>
+            <div className={styles.exampleBox}>
+              <p><strong>Project:</strong> Decorative river rock border around a concrete patio</p>
+              <p><strong>Dimensions:</strong> 24 feet long × 12 feet wide × 3 inches deep (0.25 ft)</p>
+              <p><strong>Selected Material:</strong> Smooth River Rock (density = 1.35 tons / yd³)</p>
+              <p><strong>Waste Factor:</strong> 10% (for subgrade dips and edging overlap)</p>
+              <hr className={styles.divider} />
+              <p><strong>Step 1 (Surface Area):</strong> 24 ft × 12 ft = 288 sq ft</p>
+              <p><strong>Step 2 (Net Volume in Cu Ft):</strong> 288 sq ft × 0.25 ft = 72.0 cu ft</p>
+              <p><strong>Step 3 (Gross Volume with 10% Waste):</strong> 72.0 cu ft × 1.10 = 79.2 cu ft</p>
+              <p><strong>Step 4 (Cubic Yards):</strong> 79.2 cu ft ÷ 27 = 2.93 cubic yards</p>
+              <p><strong>Step 5 (Tonnage):</strong> 2.93 yd³ × 1.35 tons/yd³ = <strong>3.96 gross tons</strong> (order 4.0 tons)</p>
+              <p><strong>Step 6 (Bag Count Alternative):</strong> 3.96 tons = 7,920 lbs ÷ 50 lbs = <strong>159 bags</strong> (50 lb each)</p>
             </div>
-            <div>
-              <h3 style={{ fontSize: '1rem', fontWeight: 600, color: '#0F172A', marginBottom: '4px' }}>
-                Can I put landscape rock directly on dirt?
-              </h3>
-              <p style={{ color: '#475569', fontSize: '0.925rem' }}>
-                While possible, it is strongly discouraged. Without a commercial-grade landscape underlayment fabric, stone quickly sinks into the soil after rainy weather, while weeds grow aggressively through the gaps. A breathable needle-punched landscape fabric prevents weed growth while allowing rain to filter down into the subsoil.
-              </p>
+          </section>
+
+          {/* Section 9: 5 Pro Tips */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              5 Pro Tips for Laying Landscape Stone
+            </h2>
+            <ol className={styles.orderedList}>
+              <li>
+                <strong>Always Lay Heavy Commercial Geotextile Fabric First:</strong> Never spread rock directly onto raw subsoil. Without fabric, stones sink into mud while dirt worms migrate up. Use needle-punched non-woven landscape fabric secured with heavy 6-inch steel landscape staples every 3 feet.
+              </li>
+              <li>
+                <strong>Install Rigid Deep Edging:</strong> Rounded river stones and pea gravel migrate into grass lawns during leaf blowing or heavy rains. Install commercial poly, steel, or stone edging standing 1/2 inch to 1 inch above the final stone surface.
+              </li>
+              <li>
+                <strong>Lay Plywood Over Driveways Before Delivery:</strong> Dump truck wheel loads and tailgate dumps can scratch or crack concrete driveways. Lay two 4 ft × 8 ft sheets of 3/4-inch plywood on your driveway for the driver to dump the aggregate onto.
+              </li>
+              <li>
+                <strong>Hose Off Quarry Dust After Spreading:</strong> Freshly delivered bulk stone is coated with fine pulverized rock dust from crushing plants. Thoroughly wash your newly installed rock beds with a garden hose to reveal brilliant natural mineral colors.
+              </li>
+              <li>
+                <strong>Avoid Rounded River Rock on Slopes:</strong> Round river cobble rolls under gravity like marbles. For hillside swales, ditch linings, or slopes steeper than 3:1, always specify angular crushed stone or heavy rip rap that mechanically locks into place.
+              </li>
+            </ol>
+          </section>
+
+          {/* Section 10: Frequently Asked Questions */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Frequently Asked Questions
+            </h2>
+            <div className={styles.faqList}>
+              {STONE_FAQS.map((faq, idx) => (
+                <div key={idx} className={styles.faqCard}>
+                  <h3 className={styles.faqQuestion}>{faq.q}</h3>
+                  <p className={styles.faqAnswer}>{faq.a}</p>
+                </div>
+              ))}
             </div>
-          </div>
+          </section>
+
+          {/* Section 11: Related Calculators */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Related Hardscaping &amp; Construction Calculators
+            </h2>
+            <p className={styles.paragraph}>
+              Working on a multi-stage outdoor landscaping or building project? Explore our other free material calculators:
+            </p>
+            <div className={styles.relatedGrid}>
+              {RELATED_STONE_TOOLS.map((tool) => (
+                <div key={tool.href} className={styles.relatedCard}>
+                  <h3 className={styles.relatedTitle}>
+                    <Link href={tool.href} className={styles.relatedLink}>
+                      {tool.label}
+                    </Link>
+                  </h3>
+                  <p className={styles.relatedDesc}>{tool.description}</p>
+                </div>
+              ))}
+            </div>
+
+            <div className={styles.backToTopBox}>
+              <a href="#main-content" className={styles.backToTopLink}>
+                ↑ Back to Stone Calculator
+              </a>
+            </div>
+          </section>
         </article>
       </main>
     </>

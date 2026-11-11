@@ -26,9 +26,12 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
   299:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
+  11:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 17 problems (0 errors, 17 warnings)
+✖ 18 problems (0 errors, 18 warnings)
 

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-11T11:18:51.362Z
+Generated on: 2026-11-11T11:25:18.087Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-11T11:18:50.882Z
+Run Date: 2026-11-11T11:25:17.574Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -562,7 +562,7 @@ Status: PASSED ✅
 | `/compost-calculator/` | Compost Calculator — Garden Beds, Lawns  | 1534 | Compost Calculator: Estimate C | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2187 | Cubic Yard Calculator: How Man | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2194 | Cubic Yard Calculator: How Man | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator — Gallons & Picke | 1751 | Fence Stain Calculator: Estima | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1489 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
@@ -579,7 +579,7 @@ Status: PASSED ✅
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3512 | Sqft Calculator – Free Square  | PASS |
-| `/stone-calculator/` | Stone Calculator — Crushed Rock, Gravel  | 1670 | Stone Calculator: Estimate Ton | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator — Wall Framing & Lumber  | 1955 | Stud Calculator: Estimate Wall | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 0 | Free Tile Sq Ft Calculator: Es | PASS |
@@ -672,6 +672,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, spec v2
 9577d61 feat(tile-calculator): rebuild tool 11 with multi-area deductions, trowel mortar yields, grout volume, and updated spec
 39f1033 feat(paint-calculator): rebuild tool 10 with multi-room support, container rounding, pro benchmark, and updated spec
 0da3fb5 feat(cinder-block-calculator): rebuild tool 8 with multi-wall rows, openings deductions, and updated spec
@@ -691,7 +692,6 @@ d0eb0c4 feat(tools): add Paint Cost and Coverage Calculator with modular card la
 1e0813a feat: implement rafter calculator with length, pitch chart, cut angles and full SEO spec
 7bf6ddb feat: implement linear foot calculator with multi-row pieces, sqft-to-linear conversion, and full SEO spec
 ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and full SEO spec
-526dbcb feat: implement sand calculator with volume, paver bedding, and polymeric joint modes
 ```
 
 
@@ -707,18 +707,18 @@ ad74927 feat: implement fill dirt calculator with multi-shape, sloped depth, and
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 25ms
 
   Creating an optimized production build ...
 ✓ Compiled successfully in 3.3s
   Running TypeScript ...
-  Finished TypeScript in 2.7s ...
+  Finished TypeScript in 2.8s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/50) ...
-  Generating static pages using 15 workers (12/50) 
-  Generating static pages using 15 workers (24/50) 
-  Generating static pages using 15 workers (37/50) 
-✓ Generating static pages using 15 workers (50/50) in 1921ms
+  Generating static pages using 15 workers (0/51) ...
+  Generating static pages using 15 workers (12/51) 
+  Generating static pages using 15 workers (25/51) 
+  Generating static pages using 15 workers (38/51) 
+✓ Generating static pages using 15 workers (51/51) in 1705ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -765,6 +765,7 @@ Route (app)
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
 ├ ○ /stone-calculator
+├ ○ /stone-calculator/opengraph-image
 ├ ○ /stud-calculator
 ├ ○ /terms
 ├ ○ /tile-calculator
@@ -832,11 +833,14 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
   299:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
+  11:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 17 problems (0 errors, 17 warnings)
+✖ 18 problems (0 errors, 18 warnings)
 
 
 ```
@@ -864,33 +868,33 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 10[2mms[22m[39m
  [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
  [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 45[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 103[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 88[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m22 passed[39m[22m[90m (22)[39m
-[2m      Tests [22m [1m[32m174 passed[39m[22m[90m (174)[39m
-[2m   Start at [22m 16:48:24
-[2m   Duration [22m 1.48s[2m (transform 4.18s, setup 0ms, import 5.44s, tests 438ms, environment 11ms)[22m
+[2m      Tests [22m [1m[32m180 passed[39m[22m[90m (180)[39m
+[2m   Start at [22m 16:54:49
+[2m   Duration [22m 1.16s[2m (transform 3.56s, setup 0ms, import 4.60s, tests 409ms, environment 4ms)[22m
 
 
 ```

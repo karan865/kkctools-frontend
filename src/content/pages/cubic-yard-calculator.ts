@@ -91,8 +91,8 @@ export const CUBIC_YARD_PAGE_COPY = {
     { label: 'Concrete Slab Cost Calculator', href: '/concrete-slab-cost-calculator/', live: false },
     { label: 'Fill Dirt Calculator', href: '/fill-dirt-calculator/', live: true },
     { label: 'Sand Calculator', href: '/sand-calculator/', live: true },
-    { label: 'Stone Calculator', href: '/stone-calculator/', live: false },
-    { label: 'Tons to Cubic Yards Converter', href: '/tons-to-cubic-yards/', live: false },
+    { label: 'Stone Calculator', href: '/stone-calculator/', live: true },
+    { label: 'Tons to Cubic Yards Converter', href: '/tons-to-cubic-yards/', live: true },
   ] as RelatedCalculatorLink[],
   aboutText:
     'KKCTools calculators use standard unit conversions and commonly used planning figures. Results are estimates for planning and ordering. They are not engineering, structural or building-code advice. Always confirm quantities, bag yields, footing sizes and delivery terms with your supplier, building department or a qualified professional. Last updated November 10, 2026.',
