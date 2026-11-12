@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-12T17:22:15.850Z
+Run Date: 2026-11-12T17:29:18.254Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -33,7 +33,7 @@ Status: PASSED ✅
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2745 | Free Paint Cost Calculator: Es | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator — Crushed Stone &  | 1559 | Paver Base Calculator: Estimat | PASS |
-| `/paver-sand-calculator/` | Paver Sand Calculator — Bedding & Polyme | 1675 | Paver Sand Calculator: Estimat | PASS |
+| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
