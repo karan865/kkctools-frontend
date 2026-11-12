@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-12T17:49:01.875Z
+Run Date: 2026-11-12T18:09:58.652Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -8,7 +8,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About Our Mission & Philosophy | KKC Too | 371 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2211 | Asphalt Calculator: How Many T | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2236 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1017 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1007 | Heavy Metal Band Name Generato | PASS |
 | `/band-name-generator/` | Band Name Generator – Free Random Band N | 2194 | Band Name Generator | PASS |
@@ -19,7 +19,7 @@ Status: PASSED ✅
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2277 | Free Brick Calculator: Estimat | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3796 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2336 | Free Compost Calculator: Estim | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2870 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2194 | Cubic Yard Calculator: How Man | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2136 | Free Fence Stain Calculator: E | PASS |
@@ -29,9 +29,9 @@ Status: PASSED ✅
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
 | `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2549 | Laminate Flooring Calculator:  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2745 | Free Paint Cost Calculator: Es | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2822 | Free Paver Base Calculator: Es | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
@@ -41,7 +41,7 @@ Status: PASSED ✅
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 1935 | Stud Calculator: Free Wall Fra | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3045 | Free Tile Sq Ft Calculator: Es | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1548 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Online Tools & Generators | KKC Tool | 1083 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

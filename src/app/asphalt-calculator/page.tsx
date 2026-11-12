@@ -112,12 +112,46 @@ export default function AsphaltCalculatorPage() {
                 fontWeight: 800,
                 lineHeight: 1.15,
                 color: 'var(--ink)',
-                marginBottom: 'var(--space-3)',
+                marginBottom: 'var(--space-2)',
                 letterSpacing: '-0.025em',
               }}
             >
               {copy.h1}
             </h1>
+            <p
+              style={{
+                fontSize: '1rem',
+                lineHeight: 1.6,
+                color: 'var(--ink-2)',
+                margin: 0,
+              }}
+            >
+              Estimate how many tons and cubic yards of hot mix asphalt or millings you need for driveways, parking lots, and walkways with our free <strong>asphalt calculator</strong>.
+            </p>
+          </header>
+
+          <AsphaltCalculator />
+
+          {/* AD SLOT A — directly below tool card */}
+          <AdSlot slotId="ad-slot-a-asphalt" />
+        </Container>
+      </Section>
+
+      {/* In-depth Editorial Content (Section B6 Verbatim Copy) */}
+      <Section style={{ paddingTop: 'var(--space-2)', paddingBottom: 'var(--space-8)' }}>
+        <Container>
+          <div style={{ maxWidth: 'var(--prose)' }}>
+            <h2
+              style={{
+                fontFamily: 'var(--font-heading)',
+                fontSize: '1.5rem',
+                fontWeight: 700,
+                color: 'var(--ink)',
+                margin: '0 0 var(--space-2)',
+              }}
+            >
+              {copy.toolH2}
+            </h2>
             <p
               style={{
                 fontSize: '1.05rem',
@@ -133,41 +167,15 @@ export default function AsphaltCalculatorPage() {
                 fontSize: '0.875rem',
                 color: 'var(--muted)',
                 fontStyle: 'italic',
-                margin: 0,
+                marginBottom: 'var(--space-3)',
               }}
             >
               {copy.trustLine}
             </p>
-          </header>
+            <p style={{ fontSize: '0.875rem', color: 'var(--muted)', margin: 'var(--space-2) 0 var(--space-5)' }}>
+              {copy.toolFootnote}
+            </p>
 
-          {/* H2: Asphalt Tonnage Calculator (Tool Card) */}
-          <h2
-            style={{
-              fontFamily: 'var(--font-heading)',
-              fontSize: '1.5rem',
-              fontWeight: 700,
-              color: 'var(--ink)',
-              margin: 'var(--space-4) 0 var(--space-2)',
-            }}
-          >
-            {copy.toolH2}
-          </h2>
-
-          <AsphaltCalculator />
-
-          <p style={{ fontSize: '0.875rem', color: 'var(--muted)', margin: 'var(--space-2) 0 var(--space-5)' }}>
-            {copy.toolFootnote}
-          </p>
-
-          {/* AD SLOT A — directly below tool card */}
-          <AdSlot slotId="ad-slot-a-asphalt" />
-        </Container>
-      </Section>
-
-      {/* In-depth Editorial Content (Section B6 Verbatim Copy) */}
-      <Section style={{ paddingTop: 'var(--space-2)', paddingBottom: 'var(--space-8)' }}>
-        <Container>
-          <div style={{ maxWidth: 'var(--prose)' }}>
             {/* Section 1: How Much Does 1 Ton of Asphalt Cover? */}
             <h2>How Much Does 1 Ton of Asphalt Cover?</h2>
             <p>

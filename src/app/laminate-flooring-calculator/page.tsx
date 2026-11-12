@@ -108,17 +108,9 @@ export default function LaminateFlooringCalculatorPage() {
           <h1 className={styles.title}>
             Laminate Flooring Calculator: How Many Boxes Do You Need?
           </h1>
-          <p className={styles.dateVerified}>
-            Last updated: November 2026. Estimates based on typical US retail standards.
+          <p className={styles.subtitle} style={{ marginBottom: '16px' }}>
+            Instantly calculate boxes, square footage, underlayment, and moldings needed for your room with our free <strong>laminate flooring calculator</strong>.
           </p>
-          <div className={styles.intro}>
-            <p>
-              This free <strong>laminate flooring calculator</strong> instantly computes the exact number of cartons, gross square footage, underlayment rolls, and molding pieces you need to order for your next flooring installation. Whether you are re-flooring a single bedroom or taking off a multi-room open floor plan, ordering with precision ensures you finish without expensive dye-lot mismatches or heavy surplus boxes.
-            </p>
-            <p>
-              Use the interactive tool below to add rooms, deduct kitchen islands or fireplace hearths, select your pattern waste margin, and compare DIY material budgets against professional contractor benchmarks.
-            </p>
-          </div>
         </header>
 
         {/* Interactive Tool Above the Fold */}
@@ -129,6 +121,18 @@ export default function LaminateFlooringCalculatorPage() {
 
         {/* Comprehensive SEO Content & Reference Guide */}
         <article className={styles.content}>
+          <p className={styles.dateVerified} style={{ marginTop: '16px', marginBottom: '8px' }}>
+            Last updated: November 2026. Estimates based on typical US retail standards.
+          </p>
+          <div className={styles.intro} style={{ marginBottom: '28px' }}>
+            <p>
+              This free <strong>laminate flooring calculator</strong> instantly computes the exact number of cartons, gross square footage, underlayment rolls, and molding pieces you need to order for your next flooring installation. Whether you are re-flooring a single bedroom or taking off a multi-room open floor plan, ordering with precision ensures you finish without expensive dye-lot mismatches or heavy surplus boxes.
+            </p>
+            <p>
+              Our comprehensive guide accounts for multi-room floor plans, pattern waste margins, underlayment rolls, transitions, and professional contractor benchmarks.
+            </p>
+          </div>
+
           {/* Section 2: Quick Answer */}
           <section>
             <h2>Quick answer: How much laminate flooring do I need?</h2>

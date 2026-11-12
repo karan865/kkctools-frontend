@@ -150,27 +150,13 @@ export default function TonsToCubicYardsPage() {
         </nav>
 
         {/* Page Header */}
-        <header style={{ marginBottom: '24px' }}>
+        <header style={{ marginBottom: '20px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '6px' }}>
             Tons to Cubic Yards Converter
           </h1>
-          <p style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0284C7', marginBottom: '12px' }}>
-            Cubic yards to tons calculator included
+          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '16px' }}>
+            Convert US short tons or metric tonnes into cubic yards, cubic feet, and cubic meters with our free <strong>tons to cubic yards</strong> converter (cubic yards to tons calculator included).
           </p>
-
-          {/* Quick Answer Callout Box */}
-          <div style={{ padding: '16px 20px', backgroundColor: '#F0F9FF', border: '1.5px solid #BAE6FD', borderRadius: '8px', marginBottom: '16px' }}>
-            <p style={{ margin: 0, color: '#0369A1', fontSize: '0.975rem', lineHeight: 1.6 }}>
-              <strong>How many yards in a ton of gravel?</strong> About 0.71 cubic yards (1 cubic yard of gravel is about 1.4 tons, or 2,800 lb). Sand, topsoil and mulch weigh differently, so pick your material below.
-            </p>
-          </div>
-
-          <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Convert US short tons or metric tonnes into cubic yards, cubic feet, and cubic meters with accurate bulk densities. Contractors often just say yards. A yard of gravel means one cubic yard (CY). Use our bidirectional tool below to switch instantly between weight and volume.
-          </p>
-          <div style={{ marginTop: '8px', fontSize: '0.85rem', color: '#64748B' }}>
-            <span>Last updated: November 2026</span>
-          </div>
         </header>
 
         {/* Interactive Tool */}
@@ -182,7 +168,18 @@ export default function TonsToCubicYardsPage() {
         <AdSlot slotId="tons-yards-calc-middle" />
 
         {/* Editorial SEO Content */}
-        <article style={{ marginTop: '48px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
+        <article style={{ marginTop: '36px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
+          {/* Quick Answer Callout Box */}
+          <div style={{ padding: '16px 20px', backgroundColor: '#F0F9FF', border: '1.5px solid #BAE6FD', borderRadius: '8px', marginBottom: '24px' }}>
+            <p style={{ margin: 0, color: '#0369A1', fontSize: '0.975rem', lineHeight: 1.6 }}>
+              <strong>How many yards in a ton of gravel?</strong> About 0.71 cubic yards (1 cubic yard of gravel is about 1.4 tons, or 2,800 lb). Sand, topsoil and mulch weigh differently, so pick your material above or in the reference charts below.
+            </p>
+          </div>
+
+          <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '24px' }}>
+            Last updated: November 2026 · Contractor-verified material bulk densities.
+          </p>
+
           {/* Section 1: How Many Yards in a Ton of Gravel? */}
           <section style={{ marginBottom: '36px' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>

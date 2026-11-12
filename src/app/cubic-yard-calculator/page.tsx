@@ -128,32 +128,6 @@ export default function CubicYardCalculatorPage() {
             >
               {copy.introText}
             </p>
-
-            {/* Quick Answer Callout Box for AI Overviews / Featured Snippets */}
-            <div
-              style={{
-                background: 'var(--surface-2)',
-                borderLeft: '4px solid var(--accent)',
-                padding: 'var(--space-3) var(--space-4)',
-                borderRadius: '0 var(--radius-s) var(--radius-s) 0',
-                marginBottom: 'var(--space-3)',
-                fontSize: '0.9375rem',
-                color: 'var(--ink)',
-              }}
-            >
-              <strong>Quick answer:</strong> {copy.quickAnswer}
-            </div>
-
-            <p
-              style={{
-                fontSize: '0.875rem',
-                color: 'var(--muted)',
-                fontStyle: 'italic',
-                margin: 0,
-              }}
-            >
-              {copy.trustLine}
-            </p>
           </header>
 
           {/* H2: Cubic Yard and Concrete Volume Calculator (Tool Card) */}
@@ -171,8 +145,34 @@ export default function CubicYardCalculatorPage() {
 
           <CubicYardCalculator />
 
-          <p style={{ fontSize: '0.875rem', color: 'var(--muted)', margin: 'var(--space-2) 0 var(--space-5)' }}>
+          <p style={{ fontSize: '0.875rem', color: 'var(--muted)', margin: 'var(--space-2) 0 var(--space-4)' }}>
             {copy.toolFootnote}
+          </p>
+
+          {/* Quick Answer Callout Box for AI Overviews / Featured Snippets */}
+          <div
+            style={{
+              background: 'var(--surface-2)',
+              borderLeft: '4px solid var(--accent)',
+              padding: 'var(--space-3) var(--space-4)',
+              borderRadius: '0 var(--radius-s) var(--radius-s) 0',
+              marginBottom: 'var(--space-3)',
+              fontSize: '0.9375rem',
+              color: 'var(--ink)',
+            }}
+          >
+            <strong>Quick answer:</strong> {copy.quickAnswer}
+          </div>
+
+          <p
+            style={{
+              fontSize: '0.875rem',
+              color: 'var(--muted)',
+              fontStyle: 'italic',
+              margin: '0 0 var(--space-5)',
+            }}
+          >
+            {copy.trustLine}
           </p>
 
           {/* AD SLOT A — directly below tool card */}

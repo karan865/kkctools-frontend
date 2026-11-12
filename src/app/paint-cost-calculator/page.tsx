@@ -136,12 +136,8 @@ export default function PaintCostCalculatorPage() {
         <header className={styles.hero}>
           <div className={styles.badge}>Interior Finishes &amp; Wall Estimator</div>
           <h1 className={styles.title}>Free Paint Cost Calculator: Estimate Gallons, Quarts &amp; Total Project Costs</h1>
-          <p className={styles.dateVerified}>Last updated: November 2026. Prices are typical US retail and contractor ranges.</p>
-          <p className={styles.description}>
-            This free <strong>paint cost calculator</strong> tells you how many gallons and quarts of paint you need, and what the job will cost, for walls, ceilings and primer. Whether you are redecorating a single bedroom or estimating a full whole-home makeover, our tool accounts for multi-room floor plans, door and window deductions, wall textures, and professional contractor labor comparisons.
-          </p>
-          <p className={styles.secondaryDescription}>
-            As an easy-to-use <strong>interior paint cost calculator</strong>, it converts raw room dimensions into exact shopping quantities—so you know whether to order single gallon cans, quarts for touch-ups, or bulk 5-gallon buckets.
+          <p className={styles.description} style={{ marginBottom: '16px' }}>
+            Accurately calculate gallons, quarts, and total expenses for walls, ceilings, and primer using our free <strong>paint cost calculator</strong> (and <strong>interior paint cost calculator</strong>).
           </p>
         </header>
 
@@ -154,6 +150,18 @@ export default function PaintCostCalculatorPage() {
         <AdSlot slotId="paint-calc-top" />
 
         <div className={styles.contentWrapper}>
+          <p className={styles.dateVerified} style={{ marginTop: '16px', marginBottom: '8px' }}>
+            Last updated: November 2026. Prices are typical US retail and contractor ranges.
+          </p>
+          <div style={{ marginBottom: '24px', color: 'var(--ink-2)', lineHeight: 1.65 }}>
+            <p className={styles.paragraph}>
+              This free <strong>paint cost calculator</strong> tells you how many gallons and quarts of paint you need, and what the job will cost, for walls, ceilings and primer. Whether you are redecorating a single bedroom or estimating a full whole-home makeover, our tool accounts for multi-room floor plans, door and window deductions, wall textures, and professional contractor labor comparisons.
+            </p>
+            <p className={styles.paragraph}>
+              As an easy-to-use <strong>interior paint cost calculator</strong>, it converts raw room dimensions into exact shopping quantities—so you know whether to order single gallon cans, quarts for touch-ups, or bulk 5-gallon buckets.
+            </p>
+          </div>
+
           {/* Section 2: How Much Paint Do I Need? (Gallons & Quarts Formula) */}
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>How Much Paint Do I Need? (Gallons &amp; Quarts Formula)</h2>

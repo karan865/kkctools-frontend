@@ -56,7 +56,7 @@ export default function ConstructionEstimatePage() {
             ]}
           />
 
-          <header style={{ marginBottom: 'var(--space-5)', maxWidth: 'var(--prose)' }}>
+          <header style={{ marginBottom: 'var(--space-4)', maxWidth: 'var(--prose)' }}>
             <span className={styles.categoryTag}>Contracting • Business • Estimating</span>
             <h1
               style={{
@@ -65,7 +65,7 @@ export default function ConstructionEstimatePage() {
                 fontWeight: 800,
                 lineHeight: 1.15,
                 color: 'var(--ink)',
-                marginBottom: 'var(--space-3)',
+                marginBottom: 'var(--space-2)',
                 letterSpacing: '-0.02em',
               }}
             >
@@ -73,22 +73,13 @@ export default function ConstructionEstimatePage() {
             </h1>
             <p
               style={{
-                fontSize: '1.1rem',
+                fontSize: '1rem',
                 lineHeight: 1.6,
                 color: 'var(--ink-2)',
-                marginBottom: 'var(--space-3)',
+                margin: 0,
               }}
             >
-              {copy.subtitle}
-            </p>
-            <p
-              style={{
-                fontSize: '0.98rem',
-                lineHeight: 1.65,
-                color: 'var(--muted)',
-              }}
-            >
-              {copy.introText}
+              Generate detailed, accurate, and professional construction estimates with line items, tax, markup, and print-to-PDF right in your browser.
             </p>
           </header>
 
@@ -111,6 +102,30 @@ export default function ConstructionEstimatePage() {
             {/* Left Column: Educational Content & Breakdown */}
             <div className={styles.mainColumn} style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-7)' }}>
             
+            {/* Overview Intro Banner below Tool */}
+            <article style={{ borderBottom: '1px solid var(--line)', paddingBottom: 'var(--space-6)' }}>
+              <p
+                style={{
+                  fontSize: '1.05rem',
+                  lineHeight: 1.65,
+                  color: 'var(--ink-2)',
+                  marginBottom: 'var(--space-3)',
+                }}
+              >
+                {copy.subtitle}
+              </p>
+              <p
+                style={{
+                  fontSize: '0.98rem',
+                  lineHeight: 1.65,
+                  color: 'var(--muted)',
+                  margin: 0,
+                }}
+              >
+                {copy.introText}
+              </p>
+            </article>
+
             {/* Section 1: What is a Construction Estimate? */}
             <article>
               <h2

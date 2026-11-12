@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-12T17:49:02.292Z
+Generated on: 2026-11-12T18:09:59.059Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-12T17:49:01.875Z
+Run Date: 2026-11-12T18:09:58.652Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -549,7 +549,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About Our Mission & Philosophy | KKC Too | 371 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2211 | Asphalt Calculator: How Many T | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2236 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1017 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1007 | Heavy Metal Band Name Generato | PASS |
 | `/band-name-generator/` | Band Name Generator – Free Random Band N | 2194 | Band Name Generator | PASS |
@@ -560,7 +560,7 @@ Status: PASSED ✅
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2277 | Free Brick Calculator: Estimat | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3796 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2336 | Free Compost Calculator: Estim | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2853 | Free Construction Estimate Tem | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2870 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator: Concrete, Bags &  | 2194 | Cubic Yard Calculator: How Man | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2136 | Free Fence Stain Calculator: E | PASS |
@@ -570,9 +570,9 @@ Status: PASSED ✅
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
 | `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2549 | Laminate Flooring Calculator:  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2745 | Free Paint Cost Calculator: Es | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2822 | Free Paver Base Calculator: Es | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
@@ -582,8 +582,8 @@ Status: PASSED ✅
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 1935 | Stud Calculator: Free Wall Fra | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3045 | Free Tile Sq Ft Calculator: Es | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1548 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Online Tools & Generators | KKC Tool | 1083 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -672,6 +672,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep guide with picket style multipliers and porosity math
 2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
 8f044dd feat(paver-base): upgrade tool #17 spec and implement 2800+ word deep guide with ICPI compaction standards
 359b9d8 feat(paver-sand): upgrade tool #16 spec and implement comprehensive 2800+ word guide with verified ICPI standards
@@ -691,7 +692,6 @@ f31d161 docs & feat: standardize specifications and optimize keyword density for
 2072659 13 to 19 files completed
 9578784 feat(tools): implement laminate flooring calculator with SEO cluster optimization
 8b222f9 feat(tools): add Tile Calculator with modular card layout and box estimators
-d0eb0c4 feat(tools): add Paint Cost and Coverage Calculator with modular card layout
 ```
 
 
@@ -707,18 +707,18 @@ d0eb0c4 feat(tools): add Paint Cost and Coverage Calculator with modular card la
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 33ms
+✓ Running next.config.ts took 38ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.5s
+✓ Compiled successfully in 3.6s
   Running TypeScript ...
-  Finished TypeScript in 2.6s ...
+  Finished TypeScript in 2.5s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/52) ...
   Generating static pages using 15 workers (13/52) 
   Generating static pages using 15 workers (26/52) 
   Generating static pages using 15 workers (39/52) 
-✓ Generating static pages using 15 workers (52/52) in 1443ms
+✓ Generating static pages using 15 workers (52/52) in 2.4s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -869,33 +869,33 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 46[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 57[2mms[22m[39m
  [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 92[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 102[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 13[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m22 passed[39m[22m[90m (22)[39m
 [2m      Tests [22m [1m[32m189 passed[39m[22m[90m (189)[39m
-[2m   Start at [22m 23:18:36
-[2m   Duration [22m 1.22s[2m (transform 3.66s, setup 0ms, import 4.82s, tests 398ms, environment 7ms)[22m
+[2m   Start at [22m 23:39:30
+[2m   Duration [22m 1.95s[2m (transform 7.82s, setup 0ms, import 9.39s, tests 504ms, environment 26ms)[22m
 
 
 ```

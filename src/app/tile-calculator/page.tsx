@@ -108,20 +108,9 @@ export default function TileCalculatorPage() {
           <h1 className={styles.title}>
             Free Tile Sq Ft Calculator: Estimate Tiles, Boxes &amp; Grout
           </h1>
-          <p className={styles.dateVerified}>
-            Last updated: November 2026. Prices are typical US ranges.
+          <p className={styles.subtitle} style={{ marginBottom: '16px' }}>
+            Accurately calculate tiles, boxes, thin-set mortar, and grout needed for floors, shower walls, and backsplashes using our free <strong>tile calculator</strong>.
           </p>
-          <p className={styles.subtitle}>
-            The simple tile calculator for floors, shower walls and backsplashes, with pattern waste built in.
-          </p>
-          <div className={styles.intro}>
-            <p>
-              This free tile sq ft calculator tells you how many tiles, boxes, thin-set bags and grout you need for floors, shower walls and backsplashes. Whether you are laying classic 12&quot; × 12&quot; ceramic floor tiles, installing large-format 12&quot; × 24&quot; porcelain in an open bathroom, or refreshing a kitchen splash with classic 3&quot; × 6&quot; subway tile, ordering the exact quantity protects your budget and prevents mid-project delays.
-            </p>
-            <p>
-              Our comprehensive tile square footage calculator accounts for real-world installation factors: staggered layouts, angled perimeter cuts, manufacturer packaging yields (tiles per box vs sq ft per box), mortar trowel coverage, and sanded grout requirements. Use the interactive tool below to run your takeoff in seconds.
-            </p>
-          </div>
         </header>
 
         {/* Interactive Tile Calculator Tool */}
@@ -132,6 +121,18 @@ export default function TileCalculatorPage() {
 
         {/* Comprehensive SEO Content & Reference Guide */}
         <article className={styles.content}>
+          <p className={styles.dateVerified} style={{ marginTop: '16px', marginBottom: '8px' }}>
+            Last updated: November 2026. Prices are typical US ranges.
+          </p>
+          <div className={styles.intro} style={{ marginBottom: '28px' }}>
+            <p>
+              This free tile sq ft calculator tells you how many tiles, boxes, thin-set bags and grout you need for floors, shower walls and backsplashes. Whether you are laying classic 12&quot; × 12&quot; ceramic floor tiles, installing large-format 12&quot; × 24&quot; porcelain in an open bathroom, or refreshing a kitchen splash with classic 3&quot; × 6&quot; subway tile, ordering the exact quantity protects your budget and prevents mid-project delays.
+            </p>
+            <p>
+              Our comprehensive tile square footage calculator accounts for real-world installation factors: staggered layouts, angled perimeter cuts, manufacturer packaging yields (tiles per box vs sq ft per box), mortar trowel coverage, and sanded grout requirements. Use our verified calculations below to plan your installation.
+            </p>
+          </div>
+
           <section>
             <h2>How Many Tiles Do I Need? (Step-by-Step Formula)</h2>
             <p>
