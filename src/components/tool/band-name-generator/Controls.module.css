@@ -190,11 +190,11 @@
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: -0.01em;
-  background: var(--brand-gradient) !important;
-  box-shadow: 0 4px 16px rgba(194, 65, 12, 0.35) !important;
+  background: var(--brand-blue-gradient) !important;
+  box-shadow: 0 4px 16px rgba(2, 132, 199, 0.35) !important;
 }
 
 .generateBtn:hover {
-  background: var(--brand-orange-hover) !important;
+  background: var(--color-primary-hover, #0369A1) !important;
 }
 
