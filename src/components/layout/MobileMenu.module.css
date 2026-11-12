@@ -1,23 +1,36 @@
 .backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 200;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  height: 100dvh;
+  background: rgba(15, 23, 42, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 999999;
   display: flex;
   justify-content: flex-end;
 }
 
 .menu {
-  width: 100%;
+  position: relative;
+  width: 85%;
   max-width: 360px;
-  height: 100%;
-  background: var(--surface);
+  height: 100vh;
+  height: 100dvh;
+  background-color: var(--surface, #FFFFFF) !important;
   border-left: 1px solid var(--line);
   display: flex;
   flex-direction: column;
   padding: var(--space-5);
-  box-shadow: var(--shadow-m);
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  z-index: 1000000;
 }
 
 .header {

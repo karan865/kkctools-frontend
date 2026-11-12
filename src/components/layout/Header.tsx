@@ -39,6 +39,7 @@ export default function Header() {
   const isHomeActive = pathname === '/';
 
   return (
+    <>
     <header className={styles.header}>
       <div className={styles.container}>
         {/* Brand Wordmark with Modern Tech Emblem */}
@@ -68,9 +69,11 @@ export default function Header() {
             onMouseEnter={() => setToolsDropdownOpen(true)}
             onMouseLeave={() => setToolsDropdownOpen(false)}
           >
-            <Link
-              href="/tools/"
+            <button
+              type="button"
               className={`${styles.navLink} ${isToolsActive ? styles.navLinkActive : ''}`}
+              style={{ background: 'none', border: 'none', cursor: 'pointer', font: 'inherit' }}
+              onClick={() => setToolsDropdownOpen(!toolsDropdownOpen)}
               aria-expanded={toolsDropdownOpen}
               aria-haspopup="true"
             >
@@ -89,7 +92,7 @@ export default function Header() {
               >
                 <polyline points="6 9 12 15 18 9" />
               </svg>
-            </Link>
+            </button>
             {toolsDropdownOpen && (
               <div className={styles.dropdownMenu}>
                 <Link
@@ -205,9 +208,9 @@ export default function Header() {
           </button>
         </div>
       </div>
-
-      <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
     </header>
+    <MobileMenu isOpen={mobileMenuOpen} onClose={() => setMobileMenuOpen(false)} />
+    </>
   );
 }
 

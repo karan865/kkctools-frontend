@@ -254,3 +254,19 @@
   font-size: 1.15rem;
 }
 
+
+
+/* Mobile Responsiveness Enhancements */
+@media (max-width: 640px) {
+  .grid2,
+  .grid3 {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .card {
+    padding: 16px !important;
+  }
+  .input {
+    font-size: 16px !important; /* Prevents iOS auto-zoom */
+  }
+}

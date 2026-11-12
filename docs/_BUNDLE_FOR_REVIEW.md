@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-12T18:09:59.059Z
+Generated on: 2026-11-12T23:54:08.351Z
 
 
 
@@ -541,7 +541,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-12T18:09:58.652Z
+Run Date: 2026-11-12T23:54:07.929Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -672,6 +672,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+9e9c201 refactor(ux): place calculators immediately below title on asphalt and construction estimate pages
 ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep guide with picket style multipliers and porosity math
 2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
 8f044dd feat(paver-base): upgrade tool #17 spec and implement 2800+ word deep guide with ICPI compaction standards
@@ -691,7 +692,6 @@ e33fecf 13 to 19 tools completed
 f31d161 docs & feat: standardize specifications and optimize keyword density for tools #7 to #12
 2072659 13 to 19 files completed
 9578784 feat(tools): implement laminate flooring calculator with SEO cluster optimization
-8b222f9 feat(tools): add Tile Calculator with modular card layout and box estimators
 ```
 
 
@@ -707,18 +707,18 @@ f31d161 docs & feat: standardize specifications and optimize keyword density for
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 38ms
+✓ Running next.config.ts took 26ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.6s
+✓ Compiled successfully in 5.3s
   Running TypeScript ...
-  Finished TypeScript in 2.5s ...
+  Finished TypeScript in 2.3s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/52) ...
   Generating static pages using 15 workers (13/52) 
   Generating static pages using 15 workers (26/52) 
   Generating static pages using 15 workers (39/52) 
-✓ Generating static pages using 15 workers (52/52) in 2.4s
+✓ Generating static pages using 15 workers (52/52) in 1766ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -869,33 +869,33 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 46[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 57[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 38[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 15[2mms[22m[39m
  [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
  [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 102[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 62[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
 [2m Test Files [22m [1m[32m22 passed[39m[22m[90m (22)[39m
 [2m      Tests [22m [1m[32m189 passed[39m[22m[90m (189)[39m
-[2m   Start at [22m 23:39:30
-[2m   Duration [22m 1.95s[2m (transform 7.82s, setup 0ms, import 9.39s, tests 504ms, environment 26ms)[22m
+[2m   Start at [22m 05:23:38
+[2m   Duration [22m 1.30s[2m (transform 4.46s, setup 0ms, import 5.70s, tests 420ms, environment 5ms)[22m
 
 
 ```

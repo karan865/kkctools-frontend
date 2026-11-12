@@ -491,3 +491,18 @@
   padding: 0.4rem;
   border-radius: 6px;
 }
+
+
+/* Mobile Responsiveness Enhancements */
+@media (max-width: 640px) {
+  .grid2,
+  .grid3,
+  .inputGrid,
+  .rowGrid {
+    grid-template-columns: 1fr !important;
+    gap: 10px !important;
+  }
+  .card {
+    padding: 16px !important;
+  }
+}
