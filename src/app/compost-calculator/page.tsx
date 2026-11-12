@@ -7,14 +7,14 @@ import { SITE_NAME, SITE_URL } from '@/config/site';
 export const dynamic = 'force-static';
 
 export const metadata: Metadata = {
-  title: 'Compost Calculator — Garden Beds, Lawns & Bags',
+  title: 'Compost Calculator (Garden Beds & Lawns)',
   description:
     'Free compost calculator to estimate cubic yards, cubic feet, and bags of organic compost needed for raised garden beds, lawns, and soil amending.',
   alternates: {
     canonical: `${SITE_URL}/compost-calculator/`,
   },
   openGraph: {
-    title: 'Compost Calculator — Garden Beds, Lawns & Bags',
+    title: 'Compost Calculator (Garden Beds & Lawns)',
     description:
       'Calculate exact compost volume, bulk cubic yards, and 1 cu ft or 2 cu ft bag counts for vegetable gardens, Mel\'s Mix raised beds, and lawn top-dressing.',
     url: `${SITE_URL}/compost-calculator/`,
@@ -29,9 +29,19 @@ const jsonLd = [
     '@type': 'WebApplication',
     name: 'Compost Calculator',
     url: `${SITE_URL}/compost-calculator/`,
-    applicationCategory: 'UtilityApplication',
+    applicationCategory: 'UtilitiesApplication',
     operatingSystem: 'All',
-    browserRequirements: 'Requires JavaScript',
+    browserRequirements: 'Requires JavaScript. Requires HTML5.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    publisher: {
+      '@type': 'Organization',
+      name: SITE_NAME,
+      url: `${SITE_URL}/`,
+    },
     description:
       'Interactive compost calculator to calculate cubic feet, bulk cubic yards, and retail bag counts for raised garden beds, lawn top-dressing, and soil amending.',
   },
@@ -44,7 +54,7 @@ const jsonLd = [
         name: 'How much compost do I need for my garden bed?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'For existing vegetable and flower garden beds, spread a 1- to 2-inch layer of rich compost across the surface and fork it into the top 6 inches of soil. For a 100 square foot bed, a 2-inch layer requires approximately 16.7 cubic feet (or roughly 0.62 cubic yards) of compost.',
+          text: 'For existing in-ground vegetable patches and flower beds, spread a 1- to 2-inch layer of rich compost across the surface annually. For a 100 square foot bed, a 2-inch layer requires 16.7 cubic feet (or roughly 0.62 cubic yards) of compost. If you are starting a brand-new bed on heavy clay or depleted sand, increase the application depth to 3 inches and till it into the top 6 to 8 inches of native soil.',
         },
       },
       {
@@ -52,7 +62,7 @@ const jsonLd = [
         name: 'How many bags of compost equal one cubic yard?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'One cubic yard contains 27 cubic feet. If buying standard 1 cubic foot bags, you need 27 bags. If buying larger 2 cubic foot nursery bags, you need 14 bags to equal one cubic yard.',
+          text: 'Because one bulk cubic yard contains exactly 27 cubic feet: if buying standard 1.0 cubic foot retail bags, you need 27 bags; for medium 1.5 cubic foot bags, you need 18 bags; and for large 2.0 cubic foot commercial nursery sacks, you need 14 bags to equal 1 cubic yard.',
         },
       },
       {
@@ -60,7 +70,7 @@ const jsonLd = [
         name: 'How deep should compost be for lawn top-dressing?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'When top-dressing existing grass or after core aeration, apply a thin layer of strictly 1/4-inch to 1/2-inch of finely screened compost. Applying deeper than 1/2 inch can suffocate the grass blades, block sunlight, and promote fungal lawn diseases.',
+          text: 'When top-dressing existing turfgrass or overseeding bare lawn areas, apply a thin layer of strictly 1/4 inch to 1/2 inch (0.25" to 0.50") of finely screened compost. Applying compost deeper than 1/2 inch can smother living grass crowns, block photosynthetic sunlight, and encourage harmful fungal lawn diseases.',
         },
       },
       {
@@ -68,7 +78,7 @@ const jsonLd = [
         name: 'How much does a cubic yard of compost weigh?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'A cubic yard of typical finished organic compost weighs between 1,200 and 1,600 pounds (0.60 to 0.80 US short tons), depending on moisture level. Extremely dry compost weighs around 1,000 lbs per yard, while saturated wet compost can exceed 1,800 lbs.',
+          text: 'A cubic yard of typical finished organic compost weighs between 1,200 and 1,600 pounds (0.60 to 0.80 US short tons), with an average density of roughly 1,300 lbs per cubic yard (approx. 48 lbs per cubic foot), depending on moisture level.',
         },
       },
       {
@@ -76,15 +86,31 @@ const jsonLd = [
         name: 'Can I plant directly in 100% pure compost?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'While seeds will sprout in pure compost, plants perform best in a blended soil mix. Pure compost can hold excessive moisture, dry out too quickly when exposed to direct wind, and lacks the structural mineral anchor particles found in silt and loam. For raised beds, use 33% compost mixed with peat moss and vermiculite.',
+          text: 'While seeds will sprout and grow in pure compost, plants perform substantially better in a balanced soil blend. Pure compost can hold excessive moisture, shrink over time, and lacks structural mineral anchor particles. For raised beds, use 33% compost blended with 33% peat moss (or coconut coir) and 33% coarse horticultural vermiculite.',
         },
       },
       {
         '@type': 'Question',
-        name: 'What is the difference between compost and topsoil?',
+        name: 'When is the best time of year to apply compost?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: 'Topsoil is the uppermost natural mineral layer of the earth (consisting of sand, silt, and clay particles) containing small amounts of organic matter. Compost is 100% decomposed organic matter (plant matter, aged manure, vegetable scraps) packed with beneficial microbial life and plant nutrients, used primarily as an amendment rather than structural soil.',
+          text: 'The two premier seasons for applying compost are early Spring (2 to 3 weeks before planting spring seeds and transplants) and mid-Autumn (after clearing out summer crops), allowing winter moisture to incorporate nutrients deep into root zones.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'Is mushroom compost safe for all garden plants?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Mushroom compost is an outstanding, calcium-rich soil amendment for heavy clay soils and vegetable crops. However, because it contains higher levels of soluble salts and has a slightly alkaline pH (7.2 to 7.8), you should avoid using it around acid-loving plants such as blueberries, azaleas, and rhododendrons.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'What is the difference between compost and mulch?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Compost is fully decomposed organic matter containing balanced plant nutrients and billions of beneficial soil microbes applied to feed the soil. Mulch consists of coarse, uncomposted materials applied on top of the soil surface to suppress weeds and retain soil moisture.',
         },
       },
     ],
@@ -92,6 +118,8 @@ const jsonLd = [
 ];
 
 export default function CompostCalculatorPage() {
+  const faqData = jsonLd[1] as { mainEntity: Array<{ name: string; acceptedAnswer: { text: string } }> };
+
   return (
     <>
       <script
@@ -118,113 +146,163 @@ export default function CompostCalculatorPage() {
         {/* Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Compost Calculator: Estimate Cubic Yards &amp; Bags for Garden Beds &amp; Lawns
+            Free Compost Calculator: Estimate Cubic Yards &amp; Bags for Garden Beds &amp; Lawns
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately calculate your organic soil amendments using our free <strong>compost calculator</strong> (also functioning as an interactive <strong>compost volume calculator</strong>, <strong>garden compost calculator</strong>, and <strong>raised bed compost calculator</strong>). Instantly compute <strong>cubic yards of compost</strong> alongside retail packaging using our built-in <strong>compost bags calculator</strong>.
+            Accurately estimate how much organic compost you need for your raised beds, vegetable patches, or lawn aeration using our free <strong>compost calculator</strong> (also functioning as a dedicated <strong>garden compost calculator</strong>, <strong>raised bed compost calculator</strong>, and <strong>compost bags calculator</strong>). Instantly compute bulk cubic yards, cubic feet, and retail bag counts across 1.0, 1.5, and 2.0 cu ft packaging sizes.
           </p>
         </header>
 
         {/* Interactive Tool */}
-        <section aria-label="Compost and Soil Amendment Calculator Tool">
+        <section aria-label="Compost Calculator Tool">
           <CompostCalculator />
         </section>
 
-        {/* Ad Placeholder */}
-        <AdSlot slotId="compost-calc-middle" />
+        {/* Ad Placeholder Middle */}
+        <div style={{ margin: '32px 0' }}>
+          <AdSlot slotId="compost-middle" />
+        </div>
 
-        {/* Comprehensive SEO Editorial Content (2,200+ Words) */}
+        {/* Comprehensive SEO Editorial Content (2,800+ Words) */}
         <article style={{ marginTop: '48px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+            The Living Foundation of Organic Gardening: Why Accurate Compost Volume Matters
+          </h2>
+          <p style={{ marginBottom: '16px' }}>
+            Whether you are preparing rich organic soil for a flourishing backyard vegetable patch, revitalizing depleted perennial flower borders, blending a nutrient-dense potting soil mix for raised planter boxes, or top-dressing tired turfgrass following seasonal core aeration, compost is the undisputed black gold of organic horticulture. Rich, biologically active compost improves soil tilth, infuses billions of beneficial mycorrhizal fungi and bacteria into tired ground, unlocks vital plant micronutrients, breaks up heavy compacted clay, and dramatically boosts water-holding capacity in drought-prone sandy soils.
+          </p>
+          <p style={{ marginBottom: '24px' }}>
+            However, determining exactly how much compost to buy is notoriously challenging for gardeners and landscapers alike. Order too little, and your crops will struggle with stunted root growth, shallow nutrition, and rapid moisture depletion in the heat of summer. Order too much, and you risk suffocating your lawn roots, burning tender vegetable seedlings with excess nitrogen salts, or leaving an expensive mountain of bulk organic matter decomposing on your driveway. Furthermore, navigating the packaging divide between retail 1.0 cubic foot bags, 2.0 cubic foot commercial nursery sacks, and bulk dump truck deliveries by the cubic yard often leaves DIY growers confused.
+          </p>
+
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             How Much Compost Do I Need for Garden Beds &amp; Lawns?
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            Rich, dark, well-rotted organic compost is frequently described by master horticulturists and organic farmers as &quot;black gold&quot;. Whether you are preparing a spring vegetable patch, building elevated cedar raised garden beds, establishing fruit tree orchards, or top-dressing your residential turfgrass after core aeration, applying the right amount of organic matter is the secret to thriving plants.
+            Calculating organic soil amendments by hand is straightforward when you break the math down into five standardized horticultural steps:
           </p>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            1. Measure the Total Garden Surface Area
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            Measure the length and width of each individual garden bed, raised planter box, or lawn zone in feet. Multiply length by width to determine total square footage:
+          </p>
+          <div style={{ background: '#F8FAFC', padding: '14px 18px', borderRadius: '8px', border: '1px solid #E2E8F0', marginBottom: '16px', fontFamily: 'monospace', fontSize: '0.9rem', color: '#0F172A' }}>
+            Single Bed Area (sq ft) = Length (ft) × Width (ft)<br />
+            Total Garden Area (sq ft) = Single Bed Area × Number of Beds
+          </div>
           <p style={{ marginBottom: '16px' }}>
-            When wondering <strong>how much compost do i need</strong>, estimating the exact volume to purchase is notoriously difficult. Buying too few bags starves seedlings of beneficial mycorrhizal microbes, humic acids, and moisture retention. Purchasing excessive bulk cubic yards leaves you with an overwhelming mountain of black compost rotting on your driveway or lawn. Our interactive <strong>compost calculator</strong> provides exact measurements in cubic feet, cubic yards, and commercial retail bag counts. For structural excavation dirt, visit our <Link href="/fill-dirt-calculator/" style={{ color: '#0284C7' }}>fill dirt calculator</Link>, or check bulk volume conversions on our <Link href="/cubic-yard-calculator/" style={{ color: '#0284C7' }}>cubic yard calculator</Link>.
+            <em>Example:</em> Four standard 8 ft × 4 ft timber raised beds have a total area of (8 × 4) × 4 = 32 × 4 = <strong>128.0 Square Feet</strong>.
           </p>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            2. Determine Required Application Depth
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            Different horticultural applications require drastically different compost layer thicknesses:
+          </p>
+          <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
+            <li><strong>Lawn Top-Dressing &amp; Overseeding:</strong> 1/4 inch to 1/2 inch (0.25&quot; to 0.50&quot;)</li>
+            <li><strong>Annual Vegetable &amp; Flower Bed Amending:</strong> 1 to 2 inches (worked into the upper 6 inches of native dirt)</li>
+            <li><strong>Moisture Retention Mulch / Weed Barrier:</strong> 1 to 2 inches (left on top as an organic protective blanket)</li>
+            <li><strong>New Raised Planter Box Full Fill (Mel&apos;s Mix):</strong> 6 to 12 inches (blended with peat moss and coarse vermiculite)</li>
+          </ul>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            3. Calculate Total Compost Volume in Cubic Feet
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            Multiply your total garden square footage by the application depth in fractional feet (Depth in inches divided by 12):
+          </p>
+          <div style={{ background: '#F8FAFC', padding: '14px 18px', borderRadius: '8px', border: '1px solid #E2E8F0', marginBottom: '16px', fontFamily: 'monospace', fontSize: '0.9rem', color: '#0F172A' }}>
+            Compost Volume (cu ft) = Total Area (sq ft) × (Depth in inches / 12)<br />
+            Example: 128.0 sq ft × (2 in / 12) = 128.0 × 0.1667 = 21.33 Cubic Feet
+          </div>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            4. Convert to Bulk Cubic Yards
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            Because 1 cubic yard equals exactly 27 cubic feet:
+          </p>
+          <div style={{ background: '#F8FAFC', padding: '14px 18px', borderRadius: '8px', border: '1px solid #E2E8F0', marginBottom: '16px', fontFamily: 'monospace', fontSize: '0.9rem', color: '#0F172A' }}>
+            Bulk Cubic Yards = Volume (cu ft) / 27<br />
+            Example: 21.33 cu ft / 27 = 0.79 Cubic Yards
+          </div>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            5. Calculate Retail Bag Counts
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            Home improvement centers and garden nurseries sell bagged compost in three standard sizes:
+          </p>
+          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
+            <li><strong>1.0 Cubic Foot Bags:</strong> 21.33 / 1.0 = 21.33 → Round up to <strong>22 Bags</strong></li>
+            <li><strong>1.5 Cubic Foot Bags:</strong> 21.33 / 1.5 = 14.22 → Round up to <strong>15 Bags</strong></li>
+            <li><strong>2.0 Cubic Foot Bags:</strong> 21.33 / 2.0 = 10.67 → Round up to <strong>11 Bags</strong></li>
+          </ul>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            How to Calculate Compost Needed (Step-by-Step Volume Formula)
+            Compost Depth Guide: Vegetable Gardens, Lawns, Shrubs &amp; Raised Beds
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            To accurately determine the cubic yards or retail bags of compost needed for your garden or lawn, follow these 4 steps:
+            Applying the correct depth of compost ensures optimal root aeration and microbial colonization without smothering plants or introducing excess soluble salts. Use this verified horticultural reference chart:
           </p>
 
-          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Measure Your Garden Bed or Lawn Dimensions:</strong> Measure the length and width of your planting space in feet: Surface Area = Length (ft) × Width (ft). If you have multiple raised beds of the exact same size, multiply by the number of beds: Total Area = (Length × Width) × Bed Count. For example, three 8 ft × 4 ft raised garden beds have a total surface area of (8 × 4) × 3 = 96 square feet.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Choose the Recommended Depth in Inches:</strong> Convert your desired application depth into feet by dividing by 12: Depth in Feet = Depth in Inches / 12. A standard 2-inch soil amendment layer equals 2 / 12 = 0.1667 feet.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Compute Total Cubic Feet:</strong> Multiply your total surface square footage by depth in feet: Cubic Feet = 96 sq ft × 0.1667 ft = <strong>16.0 Cubic Feet</strong>.
-            </li>
-            <li style={{ marginBottom: '12px' }}>
-              <strong>Convert to Bulk Cubic Yards or Retail Bags:</strong>
-              <ul style={{ paddingLeft: '20px', marginTop: '6px' }}>
-                <li>For Bulk Delivery: Divide cubic feet by 27 (16.0 / 27 = <strong>0.59 Cubic Yards</strong>).</li>
-                <li>For 1.0 Cu Ft Retail Bags: Divide cubic feet by 1.0 (16.0 / 1.0 = <strong>16 Bags</strong>).</li>
-                <li>For 2.0 Cu Ft Nursery Bags: Divide cubic feet by 2.0 (16.0 / 2.0 = <strong>8 Bags</strong>).</li>
-              </ul>
-            </li>
-          </ol>
-
-          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            Compost Depth &amp; Application Rate Guide
-          </h2>
-          <p style={{ marginBottom: '16px' }}>
-            The ideal depth of compost depends entirely on how you are applying it to your soil:
-          </p>
-
-          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+          <div style={{ overflowX: 'auto', marginBottom: '28px' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
               <thead>
                 <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Application Type</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Recommended Depth</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Cu Ft per 100 Sq Ft</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>1 Cu Ft Bags per 100 Sq Ft</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Application Method</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Application Type</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Target Depth</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Coverage per Cu Yd</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Recommended Frequency</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Application Technique</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Lawn Top-Dressing</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>1/4&quot; to 1/2&quot;</td>
-                  <td style={{ padding: '10px 14px' }}>2.1 to 4.2 cu ft</td>
-                  <td style={{ padding: '10px 14px' }}>3 to 5 bags</td>
-                  <td style={{ padding: '10px 14px' }}>Once annually in Spring or Fall after aerating; rake into turf.</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Lawn Top-Dressing (Post-Aeration)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1/4 Inch (0.25&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>1,296 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>Annually (Spring / Fall)</td>
+                  <td style={{ padding: '12px 14px' }}>Spread finely and rake into core holes</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Flower Bed Maintenance</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>1.0 Inch</td>
-                  <td style={{ padding: '10px 14px' }}>8.3 cu ft</td>
-                  <td style={{ padding: '10px 14px' }}>9 bags</td>
-                  <td style={{ padding: '10px 14px' }}>Spread evenly around perennials; scratch into top 2 inches.</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Lawn Overseeding Bedding</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>3/8&quot; to 1/2&quot;</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>648 to 864 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>When reseeding patches</td>
+                  <td style={{ padding: '12px 14px' }}>Top seed and roll lightly for seed contact</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Annual Vegetable Bed Amending</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>2.0 Inches</td>
-                  <td style={{ padding: '10px 14px' }}>16.7 cu ft</td>
-                  <td style={{ padding: '10px 14px' }}>17 bags</td>
-                  <td style={{ padding: '10px 14px' }}>Spread in early Spring; till or fork into upper 6 inches of soil.</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Annual Vegetable Bed Amendment</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>2 Inches (2.0&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>162 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>Annually before planting</td>
+                  <td style={{ padding: '12px 14px' }}>Spread and till/fork into top 6&quot; soil</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Heavy Clay / Sand Soil Renovation</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>3.0 Inches</td>
-                  <td style={{ padding: '10px 14px' }}>25.0 cu ft</td>
-                  <td style={{ padding: '10px 14px' }}>25 bags</td>
-                  <td style={{ padding: '10px 14px' }}>For poor native dirt; mix deeply to improve aeration and drainage.</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Flower Border Mulch / Shield</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1 to 2 Inches</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>162 to 324 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>Annually in late Spring</td>
+                  <td style={{ padding: '12px 14px' }}>Top-dress around crowns; clear of stems</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>New Raised Garden Bed Fill</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>8.0&quot; to 12.0&quot;</td>
-                  <td style={{ padding: '10px 14px' }}>66.7 to 100 cu ft</td>
-                  <td style={{ padding: '10px 14px' }}>67 to 100 bags</td>
-                  <td style={{ padding: '10px 14px' }}>Mix 1/3 compost with 1/3 peat moss and 1/3 vermiculite (Mel&apos;s Mix).</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>New Native Soil Conversion</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>3 Inches (3.0&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>108 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>One-time site prep</td>
+                  <td style={{ padding: '12px 14px' }}>Till 3&quot; into upper 8&quot; clay or sand</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Raised Bed Full Fill (Mel&apos;s Mix)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>6 to 12 Inches</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>27 to 54 Sq Ft</td>
+                  <td style={{ padding: '12px 14px' }}>Initial build or recharge</td>
+                  <td style={{ padding: '12px 14px' }}>Blend 1/3 compost, 1/3 peat, 1/3 vermiculite</td>
                 </tr>
               </tbody>
             </table>
@@ -234,78 +312,146 @@ export default function CompostCalculatorPage() {
             Raised Bed Compost Calculator: The Famous Mel&apos;s Mix Formula
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            If you are filling newly constructed wooden, galvanized metal, or stone raised garden beds, you should never fill them with heavy native topsoil or pure dirt from your yard. Native soil compacts into dense, impenetrable mud inside container walls, suffocating tender vegetable roots.
+            Raised planter boxes are celebrated by backyard gardeners because they provide total control over soil quality, eliminate soil compaction from foot traffic, improve drainage, and warm up earlier in the spring. However, <strong>you must never fill a raised garden bed with 100% pure compost or native backyard garden dirt!</strong>
           </p>
-          <p style={{ marginBottom: '16px' }}>
-            Instead, square foot gardeners and master growers universally rely on <strong>Mel&apos;s Mix</strong>, an ultra-light, highly fertile raised bed potting soil blend developed by Mel Bartholomew:
-          </p>
-          <ul style={{ paddingLeft: '20px', marginBottom: '24px' }}>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>1/3 Coarse Horticultural Vermiculite (33%):</strong> Retains moisture and plant nutrients while keeping soil light and aerated.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>1/3 Sphagnum Peat Moss or Coconut Coir (33%):</strong> Provides water-holding capacity and structural soil loft.
-            </li>
-            <li style={{ marginBottom: '8px' }}>
-              <strong>1/3 Blended Organic Compost (33%):</strong> Supplies all the organic macro- and micro-nutrients, beneficial soil bacteria, and fungi required for plant life.
-            </li>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            Why 100% Pure Compost Fails in Raised Beds:
+          </h3>
+          <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
+            <li><strong>Compaction &amp; Shrinkage:</strong> As organic matter continues to decompose under active microbial respiration, pure compost rapidly shrinks, losing up to 40% of its volume in a single growing season.</li>
+            <li><strong>Excessive Moisture Retention:</strong> While compost holds water, pure wet compost turns into a dense, anaerobic sponge that deprives root systems of essential oxygen, encouraging root rot.</li>
+            <li><strong>Nutrient Imbalance:</strong> Extremely rich compost can contain high levels of soluble salts that stunt root tip development in young nightshades (tomatoes, peppers) and brassicas.</li>
           </ul>
+
+          <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>
+            The Proven 1/3 Square Foot Gardening Formula (Mel&apos;s Mix):
+          </h3>
+          <p style={{ marginBottom: '12px' }}>
+            The universal gold standard recipe for raised bed soil created by Mel Bartholomew consists of three equal parts measured by volume (not weight):
+          </p>
+          <ol style={{ paddingLeft: '20px', marginBottom: '24px' }}>
+            <li><strong>1/3 Organic Compost (33.3%):</strong> Ideally formulated from 4 to 5 diverse sources (e.g., aged bovine manure, poultry manure compost, worm castings, mushroom compost, and yard waste leaf mold) to ensure a full spectrum of plant micronutrients.</li>
+            <li><strong>1/3 Peat Moss or Coconut Coir (33.3%):</strong> Retains moisture and provides an airy, lightweight structural sponge that allows roots to breathe.</li>
+            <li><strong>1/3 Coarse Horticultural Vermiculite (33.3%):</strong> Expands under heat into mineral accordions that trap both moisture and vital nutrients, releasing them gradually to feeding root hairs.</li>
+          </ol>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             Buying Bagged Compost vs. Bulk Dump Truck Delivery
           </h2>
-          <div style={{ overflowX: 'auto', marginBottom: '24px' }}>
+          <p style={{ marginBottom: '16px' }}>
+            Before loading dozens of heavy, moisture-soaked bags into your car trunk, review the financial and labor breakdown between bagged retail compost and bulk quarry or nursery delivery:
+          </p>
+
+          <div style={{ overflowX: 'auto', marginBottom: '28px' }}>
             <table style={{ width: '100%', borderCollapse: 'collapse', textAlign: 'left', fontSize: '0.9rem' }}>
               <thead>
                 <tr style={{ backgroundColor: '#F1F5F9', borderBottom: '2px solid #CBD5E1' }}>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Metric</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Bagged Retail Compost (1.0 or 2.0 cu ft)</th>
-                  <th style={{ padding: '10px 14px', color: '#0F172A' }}>Bulk Compost Delivery (Cubic Yards)</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Key Comparison Metric</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Retail Bags (1.0 Cu Ft)</th>
+                  <th style={{ padding: '12px 14px', fontWeight: 700, color: '#0F172A' }}>Bulk Nursery Delivery (by Cubic Yard)</th>
                 </tr>
               </thead>
               <tbody>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Typical Price</td>
-                  <td style={{ padding: '10px 14px' }}>$4.50 to $7.50 per 1 cu ft bag ($120–$200/yd³)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#166534' }}>$30 to $55 per cubic yard</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Packaging &amp; Unit Size</td>
+                  <td style={{ padding: '12px 14px' }}>Sealed plastic bag (1.0 cu ft / ~40–50 lbs)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Loose open material in dump truck bed</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Packaging Quality</td>
-                  <td style={{ padding: '10px 14px' }}>Sealed plastic, sterile, pre-screened</td>
-                  <td style={{ padding: '10px 14px' }}>Loose dump pile; may contain occasional wood chunks</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Bags Needed per Cubic Yard</td>
+                  <td style={{ padding: '12px 14px' }}><strong>27 bags</strong> (27 cu ft / 1.0 cu ft)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>1.0 cubic yard delivered loose</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Ease of Transport</td>
-                  <td style={{ padding: '10px 14px' }}>Fits inside car trunks, SUVs, truck beds</td>
-                  <td style={{ padding: '10px 14px' }}>Delivered via heavy dump truck to driveway</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Price per Unit</td>
+                  <td style={{ padding: '12px 14px' }}>$4.50 to $7.00 per bag</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#166534' }}>$35.00 to $55.00 per cubic yard</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
-                  <td style={{ padding: '10px 14px', fontWeight: 600 }}>Best Choice For</td>
-                  <td style={{ padding: '10px 14px' }}>1 to 4 raised beds, under 20 cubic feet</td>
-                  <td style={{ padding: '10px 14px' }}>Entire garden renovations, large lawns (&gt; 1 yard)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Cost for 3 Cubic Yards</td>
+                  <td style={{ padding: '12px 14px' }}><strong>$364.50 to $567.00</strong> (81 bags)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#166534' }}><strong>$180.00 to $240.00</strong> (including $75 delivery)</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Vehicle Loading &amp; Hauling</td>
+                  <td style={{ padding: '12px 14px' }}>Multiple trips required; risk of trunk spills</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Single dump truck drops pile in driveway</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Plastic Waste</td>
+                  <td style={{ padding: '12px 14px' }}>80 to 160 heavy non-biodegradable bags</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Zero plastic waste</td>
+                </tr>
+                <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
+                  <td style={{ padding: '12px 14px', fontWeight: 600 }}>Best Used For</td>
+                  <td style={{ padding: '12px 14px' }}>Potted patio plants, 1–2 small raised beds</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#166534' }}>Any garden or lawn project needing &gt; 1 cu yd</td>
                 </tr>
               </tbody>
             </table>
           </div>
+          <p style={{ marginBottom: '24px' }}>
+            <strong>The Bottom Line:</strong> If your project requires more than **1.0 to 1.5 cubic yards (27 to 40 bags)**, ordering bulk compost from a local landscape supply yard or municipal composting facility will cut your material expenses by **50% to 65%** while eliminating significant physical hauling and plastic disposal.
+          </p>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
-            5 Essential Pro Tips for Using Compost
+            Real-World Worked Examples: Raised Beds, Lawns &amp; Garden Plots
+          </h2>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
+            <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Three Raised Planter Boxes (96 Sq Ft)</h3>
+              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>Three 8 ft × 4 ft beds · 2&quot; Soil Amendment</p>
+              <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
+                <li>Volume in Cu Ft: <strong>16.0 Cu Ft</strong></li>
+                <li>Volume in Cu Yds: <strong>0.59 Cubic Yards</strong></li>
+                <li>1.0 Cu Ft Bags: <strong>16 Bags</strong> (or 8 large 2.0 cu ft bags)</li>
+                <li>Est. Bagged Cost: <strong>~$95.84</strong></li>
+              </ul>
+            </div>
+            <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Lawn Top-Dressing (2,500 Sq Ft)</h3>
+              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>Post-Aeration Turf · 1/4&quot; Uniform Dressing</p>
+              <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
+                <li>Volume in Cu Ft: <strong>52.08 Cu Ft</strong></li>
+                <li>Volume in Cu Yds: <strong>1.93 Cubic Yards</strong></li>
+                <li>Bulk Order: <strong>2.0 Cubic Yards</strong></li>
+                <li>Est. Delivered Cost: <strong>~$149.00</strong></li>
+              </ul>
+            </div>
+            <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+              <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>In-Ground Garden Bed (300 Sq Ft)</h3>
+              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>20 ft × 15 ft bed · 3&quot; Deep Soil Amendment</p>
+              <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
+                <li>Volume in Cu Ft: <strong>75.0 Cu Ft</strong></li>
+                <li>Volume in Cu Yds: <strong>2.78 Cubic Yards</strong></li>
+                <li>Bulk Order: <strong>3.0 Cubic Yards</strong> (~1.95 Tons)</li>
+                <li>Est. Delivered Cost: <strong>~$184.00</strong></li>
+              </ul>
+            </div>
+          </div>
+
+          <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
+            6 Essential Pro Tips for Applying Compost Like a Master Gardener
           </h2>
           <ol style={{ paddingLeft: '20px', marginBottom: '32px' }}>
             <li style={{ marginBottom: '12px' }}>
-              <strong>Use Multiple Compost Sources for Biodiversity:</strong> If buying bagged compost, don&apos;t buy all 10 bags from the same brand. Mix cow manure compost, mushroom compost, worm castings, and decayed forest humus. Different feedstocks provide different microbial colonies and trace minerals.
+              <strong>Check for Finished Maturity (The &quot;Soil Smell&quot; Test):</strong> Never spread unfinished or raw compost on active crops. Unfinished compost continues decomposing, generating excessive heat and consuming available nitrogen right out of the soil (nitrogen immobilization), leaving plants yellow and stunted. True finished compost is dark brown or black, crumbly, cool to the touch, and smells like fresh forest earth with zero ammonia or rotten odors.
             </li>
             <li style={{ marginBottom: '12px' }}>
-              <strong>Never Apply Immature Compost:</strong> Finished compost smells sweet and earthy like a forest floor after rain, and possesses a uniform dark brown or black crumbly texture. If compost smells sour, like rotten eggs, or strongly of ammonia, it is still decomposing. Applying hot, unfinished compost will tie up nitrogen and burn delicate plant roots.
+              <strong>Till In Once, Then Switch to No-Till Top-Dressing:</strong> When establishing a brand-new in-ground garden bed over hard native dirt, tilling 2 to 3 inches of compost into the top 6 to 8 inches is helpful. However, in subsequent seasons, practice no-till gardening: simply spread a 1- to 2-inch blanket of compost across the surface each autumn or early spring. Earthworms and soil microorganisms will naturally digest and pull the organic nutrients down into root zones without disrupting delicate soil fungal networks.
             </li>
             <li style={{ marginBottom: '12px' }}>
-              <strong>Never Exceed 1/2 Inch on Lawns:</strong> While established garden beds love thick 2- to 3-inch compost layers, lawns can be easily smothered. Keep lawn top-dressing between 1/4 inch and 1/2 inch, and immediately drag a backside garden rake or leaf broom across the lawn to knock compost off grass blades down into the soil crowns.
+              <strong>Screen Compost for Lawn Top-Dressing:</strong> Never dump rough, chunky compost onto fine turfgrass. Large twigs, wood chips, and bark nuggets will sit on top of the grass, smothering blades and dulling lawnmower blades. Use finely sieved 1/4-inch screened compost, and distribute it evenly across your lawn using a rolling barrel compost spreader or the back of a bow rake.
             </li>
             <li style={{ marginBottom: '12px' }}>
-              <strong>Till Into Native Soil Gradually:</strong> When amending clay soil, don&apos;t dig a deep hole and fill it with pure compost (known as the &quot;bathtub effect&quot;, which traps standing water). Always thoroughly blend your 2-inch compost layer with the upper 4 to 6 inches of native dirt using a garden fork or rototiller.
+              <strong>Water Thoroughly Immediately After Application:</strong> Active compost is teeming with billions of live soil bacteria, actinomycetes, and mycorrhizae. Exposure to direct harsh ultraviolet sunlight can dehydrate and sterilize the top layer. Water your beds or lawn thoroughly right after spreading compost to settle particles and wash microbes down into the root zone.
             </li>
             <li style={{ marginBottom: '12px' }}>
-              <strong>Top With Mulch:</strong> In hot summer climates, bare compost exposed to intense direct sunlight dries out and loses microbial viability. Always cover your amended garden beds with 2 inches of shredded hardwood bark, straw, or cedar shavings to conserve moisture.
+              <strong>Keep Compost 2 Inches Clear of Tree and Shrub Trunks:</strong> When using compost as an organic moisture mulch around woody trees, shrubs, or perennial crowns, never pile it against the bark (known as &quot;mulch volcano&quot;). Moist organic matter against live bark fosters fungal cankers, bark rot, and rodent burrowing. Always maintain a 2- to 3-inch gap between the compost and woody trunks.
+            </li>
+            <li style={{ marginBottom: '12px' }}>
+              <strong>Combine Manure-Based Compost with Leaf Mold:</strong> For the healthiest microbial diversity, blend carbon-rich compost (such as aged leaf mold or municipal yard waste) with nutrient-rich animal compost (aged steer, dairy, or poultry manure). Carbon provides fungal energy and long-term soil structure, while nitrogen from manure powers rapid vegetable growth and leafy greens.
             </li>
           </ol>
 
@@ -313,7 +459,7 @@ export default function CompostCalculatorPage() {
             Frequently Asked Questions
           </h2>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', marginBottom: '32px' }}>
-            {((jsonLd[1] as { mainEntity: Array<{ name: string; acceptedAnswer: { text: string } }> }).mainEntity).map((item, idx) => (
+            {faqData.mainEntity.map((item, idx) => (
               <div key={idx} style={{ background: '#F8FAFC', padding: '18px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
                 <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '8px' }}>
                   {item.name}
@@ -327,23 +473,27 @@ export default function CompostCalculatorPage() {
 
           <div style={{ padding: '20px', backgroundColor: '#F0FDF4', borderRadius: '8px', border: '1px solid #BBF7D0', marginTop: '32px' }}>
             <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#166534', marginBottom: '8px' }}>
-              Related Soil &amp; Landscaping Calculators
+              Related Garden, Soil &amp; Landscaping Calculators
             </h3>
             <p style={{ color: '#15803D', marginBottom: '12px' }}>
-              Plan all your gardening, turf, and bulk landscaping materials with our specialized suite:
+              Explore our connected suite of garden and landscaping planning tools to calculate soil, mulch, and earthwork materials:
             </p>
             <ul style={{ paddingLeft: '20px', color: '#15803D', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '8px' }}>
               <li><Link href="/fill-dirt-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Fill Dirt Calculator</Link></li>
               <li><Link href="/sand-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Sand Calculator</Link></li>
               <li><Link href="/cubic-yard-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Cubic Yard Calculator</Link></li>
-              <li><Link href="/stone-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Stone &amp; Gravel Calculator</Link></li>
-              <li><Link href="/tons-to-cubic-yards/" style={{ color: '#15803D', fontWeight: 600 }}>Tons to Cubic Yards</Link></li>
               <li><Link href="/square-footage-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Square Footage Calculator</Link></li>
+              <li><Link href="/tons-to-cubic-yards/" style={{ color: '#15803D', fontWeight: 600 }}>Tons to Cubic Yards</Link></li>
+              <li><Link href="/stone-calculator/" style={{ color: '#15803D', fontWeight: 600 }}>Stone &amp; Gravel Calculator</Link></li>
             </ul>
           </div>
         </article>
+
+        {/* Ad Placeholder Bottom */}
+        <div style={{ marginTop: '32px' }}>
+          <AdSlot slotId="compost-bottom" />
+        </div>
       </main>
     </>
   );
 }
-
