@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-12T17:29:18.254Z
+Run Date: 2026-11-12T17:39:43.866Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -32,7 +32,7 @@ Status: PASSED ✅
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2549 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2745 | Free Paint Cost Calculator: Es | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator — Crushed Stone &  | 1559 | Paver Base Calculator: Estimat | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2822 | Free Paver Base Calculator: Es | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
