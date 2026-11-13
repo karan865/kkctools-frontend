@@ -121,6 +121,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     added: '2026-11-11',
   },
 
+  {
+    slug: '/rebar-calculator/',
+    name: 'Rebar Calculator',
+    category: 'concrete',
+    description: 'Reinforcement steel for slabs, footings & walls — bars, laps and weight in lb or kg.',
+    tags: ['#3–#11 · mm', 'Weight'],
+    icon: 'rebar',
+    keywords: ['rebar', 'reinforcement steel', 'reinforcing bar', 'steel bars', 'rebar weight', 'slab rebar', 'footing rebar', 'tmt bar'],
+    added: '2026-11-14',
+    isNew: true,
+  },
+
   // 2. Gravel, Sand & Pavers
   {
     slug: '/stone-calculator/',

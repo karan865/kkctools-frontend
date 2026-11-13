@@ -1,0 +1,32 @@
+.svg {
+  --dg-concrete: #e7e9ec;
+  --dg-concrete-2: #d5d9de;
+  --dg-edge: #475569;
+  --dg-faint: #94a3b8;
+  --dg-bar: #9a3412;
+  --dg-bar-2: #c2410c;
+  --dg-dim: #0369a1;
+  --dg-label-bg: #ffffff;
+  --dg-soil: #efe3cf;
+  --dg-soil-line: #d6c3a5;
+  --dg-chair: #64748b;
+  --dg-text: #334155;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:global(:root[data-theme='dark']) .svg {
+  --dg-concrete: #222b3a;
+  --dg-concrete-2: #2c3647;
+  --dg-edge: #94a3b8;
+  --dg-faint: #64748b;
+  --dg-bar: #fb923c;
+  --dg-bar-2: #fdba74;
+  --dg-dim: #7dd3fc;
+  --dg-label-bg: #11151f;
+  --dg-soil: #2a2419;
+  --dg-soil-line: #4b3f2c;
+  --dg-chair: #94a3b8;
+  --dg-text: #cbd5e1;
+}

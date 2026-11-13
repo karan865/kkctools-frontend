@@ -6,15 +6,15 @@
 ✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.6s
+✓ Compiled successfully in 3.2s
   Running TypeScript ...
-  Finished TypeScript in 2.5s ...
+  Finished TypeScript in 2.1s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/54) ...
-  Generating static pages using 15 workers (13/54) 
-  Generating static pages using 15 workers (26/54) 
-  Generating static pages using 15 workers (40/54) 
-✓ Generating static pages using 15 workers (54/54) in 1621ms
+  Generating static pages using 15 workers (0/55) ...
+  Generating static pages using 15 workers (13/55) 
+  Generating static pages using 15 workers (27/55) 
+  Generating static pages using 15 workers (41/55) 
+✓ Generating static pages using 15 workers (55/55) in 1544ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -58,6 +58,7 @@ Route (app)
 ├ ○ /paver-sand-calculator
 ├ ○ /privacy-policy
 ├ ○ /rafter-calculator
+├ ○ /rebar-calculator
 ├ ○ /robots.txt
 ├ ○ /sand-calculator
 ├ ○ /sitemap.xml

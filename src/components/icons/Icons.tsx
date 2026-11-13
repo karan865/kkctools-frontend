@@ -22,6 +22,7 @@ export type IconName =
   | 'paintRoller'
   | 'fence'
   | 'drywall'
+  | 'rebar'
   | 'clipboard'
   | 'guitar'
   | 'gridSearch'
@@ -243,6 +244,17 @@ export default function Icon({
           <rect x="4" y="2" width="16" height="6" rx="2" />
           <path d="M20 5h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-10v5" />
           <rect x="10" y="16" width="4" height="6" rx="1" />
+        </svg>
+      );
+    case 'rebar':
+      return (
+        <svg {...common}>
+          <line x1="3" y1="7" x2="21" y2="7" />
+          <line x1="3" y1="12" x2="21" y2="12" />
+          <line x1="3" y1="17" x2="21" y2="17" />
+          <line x1="7" y1="3" x2="7" y2="21" />
+          <line x1="12" y1="3" x2="12" y2="21" />
+          <line x1="17" y1="3" x2="17" y2="21" />
         </svg>
       );
     case 'drywall':

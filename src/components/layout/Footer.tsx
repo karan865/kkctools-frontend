@@ -85,6 +85,7 @@ export default function Footer() {
             <span className={styles.colTitle}>Concrete &amp; Masonry</span>
             <ul className={styles.linkList}>
               <li><Link href="/concrete-calculator/" className={styles.link}>Concrete Calculator</Link></li>
+              <li><Link href="/rebar-calculator/" className={styles.link}>Rebar Calculator</Link></li>
               <li><Link href="/cubic-yard-calculator/" className={styles.link}>Cubic Yard Calculator</Link></li>
               <li><Link href="/cinder-block-calculator/" className={styles.link}>Cinder Block Calculator</Link></li>
               <li><Link href="/brick-calculator/" className={styles.link}>Brick Calculator</Link></li>

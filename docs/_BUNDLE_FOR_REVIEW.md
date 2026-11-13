@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-13T17:00:48.135Z
+Generated on: 2026-11-13T17:35:58.963Z
 
 
 
@@ -14,8 +14,8 @@ Generated on: 2026-11-13T17:00:48.135Z
 - **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 244 vitest tests passing (25 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
+- **Current Phase:** Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -138,6 +138,40 @@ Generated on: 2026-11-13T17:00:48.135Z
 - [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
 - [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
+- [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:
+  - US bars #3–#11 with published ASTM A615 lb/ft, and metric 8–40 mm from 7,850 kg/m³ (BS 4449 masses);
+  - nearest-diameter bar mapping when units switch;
+  - slab grid, strip footing (long bars plus optional cross bars), wall (vertical and horizontal) and bar-list parts;
+  - bars across a span = ceil(span ÷ spacing) + 1;
+  - laps at 40 × d by default (user-editable), using 10/20/40 ft or 6/12 m stock bars;
+  - waste %, results grouped by bar size, weight, and optional cost per weight or per piece.
+  *(Evidence: `src/lib/rebar-engine.test.ts`, 19 tests passing)*
+- [x] RB-1 UI: `src/components/tool/rebar-calculator/`. It has:
+  - a multi-part job list and a unit switch that converts entered sizes;
+  - a live labelled SVG diagram for each part, plus a lap diagram;
+  - stock bar and lap controls, waste presets and optional prices;
+  - a hero "Rebar to buy" result, a by-size table and totals;
+  - copy, share link (URL only) and print;
+  - a mobile sticky bar.
+  *(Evidence: headless Edge screenshots at 1300 px light and dark and at 390 px. A shared metric link (6×3 m wall + 6×4 m slab, 12 mm @ 400 mm) restored 247.7 m → 42 × 6 m bars and 220 kg, matching a hand calculation. Slab cover-label and wall Sh-label overlaps fixed after review.)*
+- [x] RB-2 Page: `src/app/rebar-calculator/page.tsx`. It contains:
+  - 2,298 words in `<main>`;
+  - 6 engine-computed worked examples, plus a rounding callout that 125.68 m ÷ 6 m = 21 bars, not 20;
+  - US and metric bar tables, a slab bar-count table and a lap table;
+  - cover, mesh vs rebar, common mistakes, 11 FAQs and sources.
+  *(Evidence: `docs/seo-audit-report.md` row `/rebar-calculator/` PASS)*
+- [x] RB-3 Registration:
+  - route `rebarCalculator` (title `Rebar Calculator – Reinforcement Steel Bars & Weight`);
+  - catalog entry (Concrete category, New);
+  - new `rebar` icon and a footer link;
+  - min word count 1,500 in `scripts/seo-audit.mjs`.
+  *(Evidence: `src/lib/tools-catalog.test.ts` updated to 24 tools, passing)*
+- [x] RB-4 Verification: `npm run verify` passed — lint, 263 tests, no-network, build, SEO audit, docs bundle. *(Evidence: `docs/evidence/*.txt`, 2026-11-14)*
 
 ---
 
@@ -512,6 +546,15 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #22 — Rebar / Reinforcement Steel Calculator] — 2026-11-14
+- New page `/rebar-calculator/` with:
+  - engine `src/lib/rebar-engine.ts` (19 tests);
+  - UI `src/components/tool/rebar-calculator/`;
+  - theme-aware SVG diagrams: slab grid, footing, wall, bar list, lap splice, cover/chairs, bar sizes to scale.
+- Slabs, footings, walls and bar lists in one job. Supports US #3–#11 and metric 8–40 mm bars, laps at a user-set × d, 10/20/40 ft or 6/12 m stock bars, and waste. Results show bars to buy by size, weight and optional cost.
+- Bar weights from ASTM A615 (US) and 7,850 kg/m³ steel (metric, matches BS 4449). Cover note cites ACI 318. The 40 × d lap is labelled a rule of thumb.
+- Catalog now 24 tools. `npm run verify` passed: 263 tests, 0 SEO audit errors.
+
 ### [Tool #21 — Drywall Calculator] — 2026-11-14
 - New page `/drywall-calculator/` with engine `src/lib/drywall-engine.ts` (26 tests), UI `src/components/tool/drywall-calculator/` and theme-aware SVG diagrams (room, wall, ceiling, gable, area, sheet/screw layout, taped joint, sheet sizes).
 - Rooms, walls, ceilings, gable ends and known areas in one job; editable doors/windows; US and metric sheets; sheets by size; compound, tape, screws, corner bead, board weight and optional cost.
@@ -578,7 +621,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-13T17:00:47.686Z
+Run Date: 2026-11-13T17:35:58.480Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -608,7 +651,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Construction Calculators & Online T | 1176 | Free Construction Calculators  | PASS |
+| `/` | Free Construction Calculators & Online T | 1194 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
@@ -616,6 +659,7 @@ Status: PASSED ✅
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
+| `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
 | `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3512 | Sqft Calculator – Free Square  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
@@ -623,12 +667,12 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 509 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 527 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 ## Warnings (4)
 
-- Broken internal link target detected: "/terms-of-service/" (linked 84 times)
+- Broken internal link target detected: "/terms-of-service/" (linked 86 times)
 - Broken internal link target detected: "/guides/band-naming-guide/" (linked 1 times)
 - Broken internal link target detected: "/guides/genre-naming-trends/" (linked 1 times)
 - Broken internal link target detected: "/guides/trademark-and-availability/" (linked 1 times)
@@ -673,6 +717,7 @@ paver-base-calculator/index.html
 paver-sand-calculator/index.html
 privacy-policy/index.html
 rafter-calculator/index.html
+rebar-calculator/index.html
 sand-calculator/index.html
 square-footage-calculator/index.html
 stone-calculator/index.html
@@ -720,6 +765,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+051f668 2. Drywall calculator completed
 9ddcf8a home page redesigned
 02de99b blog 1 completed - Concrete calculator
 35c5ea2 removed unwanted files
@@ -739,7 +785,6 @@ fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, 
 9577d61 feat(tile-calculator): rebuild tool 11 with multi-area deductions, trowel mortar yields, grout volume, and updated spec
 39f1033 feat(paint-calculator): rebuild tool 10 with multi-room support, container rounding, pro benchmark, and updated spec
 0da3fb5 feat(cinder-block-calculator): rebuild tool 8 with multi-wall rows, openings deductions, and updated spec
-6a230e9 feat(square-footage-calc): rebuild tool 7 with multi-room subtract, shapes v1, area converter, and updated spec
 ```
 
 
@@ -758,15 +803,15 @@ fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, 
 ✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.6s
+✓ Compiled successfully in 3.2s
   Running TypeScript ...
-  Finished TypeScript in 2.5s ...
+  Finished TypeScript in 2.1s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/54) ...
-  Generating static pages using 15 workers (13/54) 
-  Generating static pages using 15 workers (26/54) 
-  Generating static pages using 15 workers (40/54) 
-✓ Generating static pages using 15 workers (54/54) in 1621ms
+  Generating static pages using 15 workers (0/55) ...
+  Generating static pages using 15 workers (13/55) 
+  Generating static pages using 15 workers (27/55) 
+  Generating static pages using 15 workers (41/55) 
+✓ Generating static pages using 15 workers (55/55) in 1544ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -810,6 +855,7 @@ Route (app)
 ├ ○ /paver-sand-calculator
 ├ ○ /privacy-policy
 ├ ○ /rafter-calculator
+├ ○ /rebar-calculator
 ├ ○ /robots.txt
 ├ ○ /sand-calculator
 ├ ○ /sitemap.xml
@@ -903,7 +949,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 42 HTML files in out/...
+Auditing 43 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -920,10 +966,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  25 passed (25)
-      Tests  244 passed (244)
-   Start at  22:30:22
-   Duration  1.35s (transform 4.07s, setup 0ms, import 5.33s, tests 443ms, environment 6ms)
+ Test Files  26 passed (26)
+      Tests  263 passed (263)
+   Start at  23:05:34
+   Duration  1.45s (transform 4.75s, setup 0ms, import 6.29s, tests 535ms, environment 6ms)
 
 
 ```

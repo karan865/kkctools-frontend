@@ -64,6 +64,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  rebarCalculator: {
+    path: '/rebar-calculator/',
+    title: 'Rebar Calculator – Reinforcement Steel Bars & Weight',
+    description: 'Free rebar and reinforcement steel calculator for slabs, footings and walls. Get bar count, laps, bars to buy and weight in lb or kg, US or metric.',
+    updated: '2026-11-14',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

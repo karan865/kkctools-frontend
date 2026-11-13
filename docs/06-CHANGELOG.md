@@ -4,6 +4,15 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #22 — Rebar / Reinforcement Steel Calculator] — 2026-11-14
+- New page `/rebar-calculator/` with:
+  - engine `src/lib/rebar-engine.ts` (19 tests);
+  - UI `src/components/tool/rebar-calculator/`;
+  - theme-aware SVG diagrams: slab grid, footing, wall, bar list, lap splice, cover/chairs, bar sizes to scale.
+- Slabs, footings, walls and bar lists in one job. Supports US #3–#11 and metric 8–40 mm bars, laps at a user-set × d, 10/20/40 ft or 6/12 m stock bars, and waste. Results show bars to buy by size, weight and optional cost.
+- Bar weights from ASTM A615 (US) and 7,850 kg/m³ steel (metric, matches BS 4449). Cover note cites ACI 318. The 40 × d lap is labelled a rule of thumb.
+- Catalog now 24 tools. `npm run verify` passed: 263 tests, 0 SEO audit errors.
+
 ### [Tool #21 — Drywall Calculator] — 2026-11-14
 - New page `/drywall-calculator/` with engine `src/lib/drywall-engine.ts` (26 tests), UI `src/components/tool/drywall-calculator/` and theme-aware SVG diagrams (room, wall, ceiling, gable, area, sheet/screw layout, taped joint, sheet sizes).
 - Rooms, walls, ceilings, gable ends and known areas in one job; editable doors/windows; US and metric sheets; sheets by size; compound, tape, screws, corner bead, board weight and optional cost.

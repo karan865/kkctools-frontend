@@ -5,8 +5,8 @@
 - **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 244 vitest tests passing (25 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
+- **Current Phase:** Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -129,6 +129,40 @@
 - [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
 - [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
+- [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:
+  - US bars #3–#11 with published ASTM A615 lb/ft, and metric 8–40 mm from 7,850 kg/m³ (BS 4449 masses);
+  - nearest-diameter bar mapping when units switch;
+  - slab grid, strip footing (long bars plus optional cross bars), wall (vertical and horizontal) and bar-list parts;
+  - bars across a span = ceil(span ÷ spacing) + 1;
+  - laps at 40 × d by default (user-editable), using 10/20/40 ft or 6/12 m stock bars;
+  - waste %, results grouped by bar size, weight, and optional cost per weight or per piece.
+  *(Evidence: `src/lib/rebar-engine.test.ts`, 19 tests passing)*
+- [x] RB-1 UI: `src/components/tool/rebar-calculator/`. It has:
+  - a multi-part job list and a unit switch that converts entered sizes;
+  - a live labelled SVG diagram for each part, plus a lap diagram;
+  - stock bar and lap controls, waste presets and optional prices;
+  - a hero "Rebar to buy" result, a by-size table and totals;
+  - copy, share link (URL only) and print;
+  - a mobile sticky bar.
+  *(Evidence: headless Edge screenshots at 1300 px light and dark and at 390 px. A shared metric link (6×3 m wall + 6×4 m slab, 12 mm @ 400 mm) restored 247.7 m → 42 × 6 m bars and 220 kg, matching a hand calculation. Slab cover-label and wall Sh-label overlaps fixed after review.)*
+- [x] RB-2 Page: `src/app/rebar-calculator/page.tsx`. It contains:
+  - 2,298 words in `<main>`;
+  - 6 engine-computed worked examples, plus a rounding callout that 125.68 m ÷ 6 m = 21 bars, not 20;
+  - US and metric bar tables, a slab bar-count table and a lap table;
+  - cover, mesh vs rebar, common mistakes, 11 FAQs and sources.
+  *(Evidence: `docs/seo-audit-report.md` row `/rebar-calculator/` PASS)*
+- [x] RB-3 Registration:
+  - route `rebarCalculator` (title `Rebar Calculator – Reinforcement Steel Bars & Weight`);
+  - catalog entry (Concrete category, New);
+  - new `rebar` icon and a footer link;
+  - min word count 1,500 in `scripts/seo-audit.mjs`.
+  *(Evidence: `src/lib/tools-catalog.test.ts` updated to 24 tools, passing)*
+- [x] RB-4 Verification: `npm run verify` passed — lint, 263 tests, no-network, build, SEO audit, docs bundle. *(Evidence: `docs/evidence/*.txt`, 2026-11-14)*
 
 ---
 
