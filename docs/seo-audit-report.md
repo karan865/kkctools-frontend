@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-13T11:22:28.169Z
+Run Date: 2026-11-13T12:27:38.166Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -29,7 +29,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Online Generators & Tools | 997 | Free Online Tools That Just Wo | PASS |
+| `/` | Free Construction Calculators & Online T | 1157 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
@@ -44,5 +44,12 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 1131 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 495 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
+
+## Warnings (4)
+
+- Broken internal link target detected: "/terms-of-service/" (linked 82 times)
+- Broken internal link target detected: "/guides/band-naming-guide/" (linked 1 times)
+- Broken internal link target detected: "/guides/genre-naming-trends/" (linked 1 times)
+- Broken internal link target detected: "/guides/trademark-and-availability/" (linked 1 times)

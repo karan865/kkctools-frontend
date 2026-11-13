@@ -1,447 +1,371 @@
 import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Container from '@/components/ui/Container';
-import Section from '@/components/ui/Section';
-import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
+import HomeHero from '@/components/home/HomeHero';
+import TrustStrip from '@/components/home/TrustStrip';
+import SectionHeader from '@/components/home/SectionHeader';
+import ToolCard from '@/components/home/ToolCard';
+import AdPlaceholder from '@/components/home/AdPlaceholder';
+import WhyUs from '@/components/home/WhyUs';
+import SuggestBanner from '@/components/home/SuggestBanner';
 import Faq from '@/components/ui/Faq';
-import BandNameGenerator from '@/components/tool/band-name-generator/BandNameGenerator';
 import { buildMetadata } from '@/components/seo/buildMetadata';
-import { ROUTES } from '@/lib/routes';
-import { OWNER_EMAIL } from '@/config/site';
+import {
+  CATEGORIES,
+  getToolsByCategory,
+  getNewAndUpdatedTools,
+} from '@/lib/tools-catalog';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
-  title: ROUTES.home.title,
-  description: ROUTES.home.description,
+  title: 'Free Construction Calculators & Online Tools',
+  description:
+    'Free calculators for concrete, gravel, lumber, roofing, flooring and paint, plus creative tools. No sign-up — everything runs in your browser.',
   path: '/',
 });
 
 const HOME_FAQ_ITEMS = [
   {
-    q: 'Are all the tools on this website free to use?',
-    a: 'Yes, every tool and generator published on our platform is 100% free with no hidden subscriptions, credit card prompts, or mandatory account creation.',
+    q: 'Are all the tools and calculators on KKC Tools free to use?',
+    a: 'Yes, 100% free with no hidden subscriptions, paywalls, credit card requirements, or forced account creation. All calculators are unrestricted for trade pros, contractors, and DIY homeowners.',
   },
   {
-    q: 'Do these tools send my personal data or entries to a server?',
-    a: 'No. All calculations, word combinations, and text transformations execute strictly inside your local web browser. We do not store, inspect, or transmit the words or options you enter.',
+    q: 'Do these tools store or send my dimensions and project entries anywhere?',
+    a: 'No. All calculations, unit conversions, and estimate math execute strictly inside your local web browser using client-side JavaScript. We do not store, inspect, or transmit your numbers or project data.',
   },
   {
-    q: 'Can I suggest a new tool or feature?',
-    a: 'We welcome suggestions from creators and developers. Feel free to use the contact email in our footer to propose new generator categories, developer utilities, or usability improvements.',
+    q: 'Can I use these calculators on a phone at the jobsite?',
+    a: 'Yes. Every tool is optimized for mobile touchscreens with 16px inputs, rapid calculations, and zero heavy dependencies, ensuring instant performance on construction sites even with weak data connections.',
   },
   {
-    q: 'Are these tools mobile friendly?',
-    a: 'Yes, every generator is engineered to be fully responsive and accessible across modern smartphones, tablets, laptops, and wide-screen desktop displays.',
+    q: 'How accurate are the material quantities and bag counts?',
+    a: 'Calculations adhere strictly to ASTM standards, civil engineering density benchmarks, and manufacturer coverage specs (such as 40, 60, and 80 lb concrete bags). We include editable compaction and waste percentages for real-world planning.',
+  },
+  {
+    q: 'Can I suggest a new calculator or contractor tool?',
+    a: 'Absolutely! Use the Suggest a Tool button or email contact@kkctools.com to propose new construction trades, formulas, or material calculators.',
   },
 ];
 
 export default function Home() {
+  const newAndUpdated = getNewAndUpdatedTools();
+  const concreteTools = getToolsByCategory('concrete');
+  const gravelTools = getToolsByCategory('gravel');
+  const earthworkTools = getToolsByCategory('earthwork');
+  const framingTools = getToolsByCategory('framing');
+  const finishesTools = getToolsByCategory('finishes');
+  const businessTools = getToolsByCategory('business');
+
   return (
-    <main id="main-content">
-      {/* 1. Hero Section */}
-      <Section variant="hero">
-        <Container>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))', gap: 'var(--space-6)', alignItems: 'center' }}>
-            <div>
-              <div className={styles.heroBadge}>
-                <span className={styles.badgeDot}></span>
-                <span>100% Free · Client-Side Execution · Zero Tracking</span>
+    <main id="main-content" className={styles.mainWrapper}>
+      {/* 1. Hero Banner with Instant LCP Headline & Unified Search */}
+      <HomeHero />
+
+      {/* 2. Trust Strip */}
+      <TrustStrip />
+
+      {/* 3. New & Updated Tools Section (No duplicate static cards) */}
+      <section className={styles.sectionCanvas}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow="NEW &amp; UPDATED"
+            categoryHue="concrete"
+            title="Recently Built &amp; Updated Tools"
+            subtitle="Fresh calculators and major feature upgrades engineered for fast jobsite math."
+            viewAllLink="/tools/"
+            viewAllText="Explore all 22 tools →"
+          />
+          <div className={styles.cardGrid}>
+            {newAndUpdated.map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 4. Category Sections — Exactly 4 Cards Each */}
+
+      {/* Category 1: Concrete & Masonry */}
+      <section id="concrete" className={styles.sectionBand}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.concrete.name}
+            categoryHue="concrete"
+            title={CATEGORIES.concrete.headline}
+            subtitle={CATEGORIES.concrete.blurb}
+            viewAllLink="/tools/#concrete"
+            viewAllText="View concrete tools →"
+          />
+          <div className={styles.cardGrid}>
+            {concreteTools.slice(0, 4).map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category 2: Gravel, Sand & Pavers */}
+      <section id="gravel" className={styles.sectionCanvas}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.gravel.name}
+            categoryHue="gravel"
+            title={CATEGORIES.gravel.headline}
+            subtitle={CATEGORIES.gravel.blurb}
+            viewAllLink="/tools/#gravel"
+            viewAllText="View gravel &amp; sand tools →"
+          />
+          <div className={styles.cardGrid}>
+            {gravelTools.slice(0, 4).map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Pre-reserved AdSlot to Prevent Future Cumulative Layout Shift (CLS) */}
+      <AdPlaceholder slotName="home-between-categories" />
+
+      {/* Category 3: Earthwork & Paving */}
+      <section id="earthwork" className={styles.sectionBand}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.earthwork.name}
+            categoryHue="earthwork"
+            title={CATEGORIES.earthwork.headline}
+            subtitle={CATEGORIES.earthwork.blurb}
+            viewAllLink="/tools/#earthwork"
+            viewAllText="View paving tools →"
+          />
+          <div className={styles.cardGrid}>
+            {earthworkTools.slice(0, 4).map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category 4: Framing, Roofing & Measuring */}
+      <section id="framing" className={styles.sectionCanvas}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.framing.name}
+            categoryHue="framing"
+            title={CATEGORIES.framing.headline}
+            subtitle={CATEGORIES.framing.blurb}
+            viewAllLink="/tools/#framing"
+            viewAllText="View framing tools →"
+          />
+          <div className={styles.cardGrid}>
+            {framingTools.slice(0, 4).map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category 5: Floors, Paint & Stain */}
+      <section id="finishes" className={styles.sectionBand}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.finishes.name}
+            categoryHue="finishes"
+            title={CATEGORIES.finishes.headline}
+            subtitle={CATEGORIES.finishes.blurb}
+            viewAllLink="/tools/#finishes"
+            viewAllText="View finish tools →"
+          />
+          <div className={styles.cardGrid}>
+            {finishesTools.slice(0, 4).map((tool) => (
+              <ToolCard
+                key={tool.slug}
+                slug={tool.slug}
+                name={tool.name}
+                category={tool.category}
+                description={tool.description}
+                tags={tool.tags}
+                icon={tool.icon}
+                isNew={tool.isNew}
+                isUpdated={tool.isUpdated}
+              />
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Category 6: Business & Creative (4 Cards Grid) */}
+      <section id="business" className={styles.sectionCanvas}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow={CATEGORIES.business.name}
+            categoryHue="business"
+            title={CATEGORIES.business.headline}
+            subtitle={CATEGORIES.business.blurb}
+            viewAllLink="/tools/#business"
+            viewAllText="View all directory →"
+          />
+          <div className={styles.cardGrid}>
+            {/* 1. Construction Estimate Template */}
+            <ToolCard
+              slug={businessTools[0].slug}
+              name={businessTools[0].name}
+              category={businessTools[0].category}
+              description={businessTools[0].description}
+              tags={businessTools[0].tags}
+              icon={businessTools[0].icon}
+            />
+
+            {/* 2. Band Name Generator */}
+            <ToolCard
+              slug={businessTools[1].slug}
+              name={businessTools[1].name}
+              category={businessTools[1].category}
+              description={businessTools[1].description}
+              tags={businessTools[1].tags}
+              icon={businessTools[1].icon}
+            />
+
+            {/* 3. Browse All Tools Directory Card (4th Card Fix) */}
+            <ToolCard
+              slug="/tools/"
+              name="Browse All Tools"
+              category="business"
+              description="Explore the complete directory of 22 calculators, converters and creative utilities."
+              tags={['Directory', 'All Tools']}
+              icon="gridSearch"
+            />
+
+            {/* 4. Suggest a Tool Card */}
+            <ToolCard
+              slug=""
+              name="Suggest a Calculator"
+              category="business"
+              description="Need another calculator for your trade? Tell us what formula or tool to build next."
+              icon="plus"
+              variant="suggest"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* 5. Why KKC Tools (Replaces redundant 3-step How It Works) */}
+      <WhyUs />
+
+      {/* 6. Guides & Knowledge Strip */}
+      <section className={styles.sectionCanvas}>
+        <div className={styles.container}>
+          <SectionHeader
+            eyebrow="KNOWLEDGE &amp; GUIDES"
+            title="Practical Estimating &amp; Creative Guides"
+            subtitle="In-depth tutorials, material rules of thumb, and formulas explained step-by-step."
+            viewAllLink="/guides/"
+            viewAllText="Read all guides →"
+          />
+          <div className={styles.guidesGrid}>
+            <Link href="/guides/band-naming-guide/" className={styles.guideCard}>
+              <div className={styles.guideCover}>
+                <span className={styles.guideBadge}>Naming Guide</span>
               </div>
-              <h1 style={{ letterSpacing: '-0.035em', lineHeight: 1.15 }}>Free Online Tools That Just Work</h1>
-              <p style={{ fontSize: '1.25rem', color: 'var(--ink-2)', marginBottom: 'var(--space-4)', lineHeight: 1.6 }}>
-                Fast, browser-native utility generators engineered with privacy first. No sign-ups, no monthly subscriptions, and zero remote tracking.
+              <h3 className={styles.guideTitle}>How to Choose a Band Name That Sticks</h3>
+              <p className={styles.guideExcerpt}>
+                Strategic naming principles, trademark safety, genre alignment, and phonetics for modern musicians.
               </p>
+              <span className={styles.guideLink}>Read article →</span>
+            </Link>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 'var(--space-3)', marginBottom: 'var(--space-5)' }}>
-                <div style={{ borderLeft: '3px solid var(--brand-orange)', paddingLeft: 'var(--space-3)', color: 'var(--ink-2)', fontSize: '0.96rem', lineHeight: 1.5 }}>
-                  Deliver static and dynamic results at ultra-fast speeds directly in your browser.
-                </div>
-                <div style={{ borderLeft: '3px solid var(--brand-orange)', paddingLeft: 'var(--space-3)', color: 'var(--ink-2)', fontSize: '0.96rem', lineHeight: 1.5 }}>
-                  Pure client-side computation with 0ms server latency and zero data tracking.
-                </div>
+            <Link href="/guides/genre-naming-trends/" className={styles.guideCard}>
+              <div className={styles.guideCover}>
+                <span className={styles.guideBadge}>Trends</span>
               </div>
+              <h3 className={styles.guideTitle}>Genre-Specific Naming Trends</h3>
+              <p className={styles.guideExcerpt}>
+                From indie dream-pop to death metal: patterns, archetypes, and linguistic styling across genres.
+              </p>
+              <span className={styles.guideLink}>Read article →</span>
+            </Link>
 
-              <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap' }}>
-                <Link href="/band-name-generator/">
-                  <Button variant="primary" size="lg">
-                    Try the Band Name Generator →
-                  </Button>
-                </Link>
-                <Link href="#tools">
-                  <Button variant="secondary" size="lg">
-                    Browse All Tools
-                  </Button>
-                </Link>
+            <Link href="/guides/trademark-and-availability/" className={styles.guideCard}>
+              <div className={styles.guideCover}>
+                <span className={styles.guideBadge}>Legal &amp; IP</span>
               </div>
-            </div>
-
-            {/* Compact Live Tool in Hero */}
-            <div>
-              <Card>
-                <div style={{ marginBottom: 'var(--space-3)' }}>
-                  <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange)' }}>
-                    ⚡ Instant Live Preview
-                  </span>
-                  <h2 style={{ fontSize: '1.35rem', margin: '4px 0 0' }}>Quick Band Name Generator</h2>
-                </div>
-                <BandNameGenerator initialGenre="any" compact={true} />
-              </Card>
-            </div>
+              <h3 className={styles.guideTitle}>Trademark &amp; Social Handle Checklist</h3>
+              <p className={styles.guideExcerpt}>
+                Avoid disputes before printing merch or registering domains. A straightforward trademark guide.
+              </p>
+              <span className={styles.guideLink}>Read article →</span>
+            </Link>
           </div>
+        </div>
+      </section>
 
-          {/* Trust & Performance Proof Strip */}
-          <div className={styles.trustStrip}>
-            <div className={styles.trustItem}>
-              <span className={styles.trustItemIcon}>⚡</span>
-              <span>0ms Server Lag</span>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustItemIcon}>🔒</span>
-              <span>100% Private In-Browser</span>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustItemIcon}>🚫</span>
-              <span>No Sign-ups Needed</span>
-            </div>
-            <div className={styles.trustItem}>
-              <span className={styles.trustItemIcon}>📄</span>
-              <span>Instant PDF &amp; CSV Export</span>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 2. Tools Section */}
-      <Section id="tools">
-        <Container>
-          <div style={{ maxWidth: '680px', marginBottom: 'var(--space-5)' }}>
-            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--accent)' }}>
-              Core Utilities
-            </span>
-            <h2 style={{ marginTop: 'var(--space-1)', marginBottom: 'var(--space-2)' }}>Featured Online Tools</h2>
-            <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)' }}>
-              We build focused utilities that solve specific creative and technical challenges without clutter or intrusive bloat.
+      {/* 7. Frequently Asked Questions with FAQ Schema */}
+      <section className={styles.sectionBand}>
+        <div className={styles.container}>
+          <div className={styles.faqHeader}>
+            <span className={styles.faqEyebrow}>FAQ</span>
+            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            <p className={styles.faqSubtitle}>
+              Everything you need to know about our privacy-first tools, accuracy, and browser computation.
             </p>
           </div>
-
-          <div className={styles.toolGrid}>
-            <Link href="/band-name-generator/" className={styles.toolCard}>
-              <span className={styles.badgePopular}>🔥 Popular</span>
-              <div className={styles.toolIconBox}>🎸</div>
-              <span className={styles.toolCategory}>Music &amp; Creative Branding</span>
-              <h3 className={styles.toolTitle}>Band Name Generator</h3>
-              <p className={styles.toolDesc}>
-                Generate original band names by genre and naming formula. Complete with availability lookup shortcuts, local favorites saving, and text export.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Rock</span>
-                <span className={styles.chipItem}>Metal</span>
-                <span className={styles.chipItem}>K-pop</span>
-                <span className={styles.chipItem}>Heavy Metal</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Band Name Generator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/construction-estimate-template/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>💼 Business Ready</span>
-              <div className={styles.toolIconBox}>📐</div>
-              <span className={styles.toolCategory}>Contracting &amp; Estimating</span>
-              <h3 className={styles.toolTitle}>Construction Estimate Template</h3>
-              <p className={styles.toolDesc}>
-                Create professional building and remodeling estimates with automated labor, materials, tax, and markup calculations. Export to PDF and CSV without signup.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Residential</span>
-                <span className={styles.chipItem}>Commercial</span>
-                <span className={styles.chipItem}>Print-to-PDF</span>
-                <span className={styles.chipItem}>CSV Export</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Estimate Builder <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/asphalt-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>🚜 Materials &amp; Paving</span>
-              <div className={styles.toolIconBox}>🏗️</div>
-              <span className={styles.toolCategory}>Outdoor &amp; Construction</span>
-              <h3 className={styles.toolTitle}>Asphalt Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate asphalt tons, cubic yards, and cost for driveways, parking lots, and paths. Includes millings mode, custom density, and binder estimates.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Hot Mix</span>
-                <span className={styles.chipItem}>Millings (RAP)</span>
-                <span className={styles.chipItem}>Metric &amp; US Tons</span>
-                <span className={styles.chipItem}>Cost &amp; Truckloads</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Asphalt Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/cubic-yard-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>📦 Volume &amp; Concrete</span>
-              <div className={styles.toolIconBox}>🧱</div>
-              <span className={styles.toolCategory}>Materials • Landscaping • Building</span>
-              <h3 className={styles.toolTitle}>Cubic Yard Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate cubic yards for concrete slabs, footings, walls, columns, soil, mulch, and gravel. Features multi-section projects and 40–80 lb concrete bag breakdowns.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Slab &amp; Patio</span>
-                <span className={styles.chipItem}>Footings &amp; Trench</span>
-                <span className={styles.chipItem}>Columns &amp; Piers</span>
-                <span className={styles.chipItem}>Concrete Bags</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Cubic Yard Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/sand-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>🏖️ Sand &amp; Masonry</span>
-              <div className={styles.toolIconBox}>🏖️</div>
-              <span className={styles.toolCategory}>Materials • Landscaping • Masonry</span>
-              <h3 className={styles.toolTitle}>Sand Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate cubic yards, tons, and bags of sand for paver bedding, polymeric joints, sandboxes, and site fill with editable densities and waste buffers.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Sand Volume</span>
-                <span className={styles.chipItem}>Paver Bedding</span>
-                <span className={styles.chipItem}>Polymeric Sand</span>
-                <span className={styles.chipItem}>Sandbox Preset</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Sand Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/fill-dirt-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>🌱 Soil &amp; Grading</span>
-              <div className={styles.toolIconBox}>🚜</div>
-              <span className={styles.toolCategory}>Materials • Excavation • Grading</span>
-              <h3 className={styles.toolTitle}>Fill Dirt Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate cubic yards, tons, and truckloads of fill dirt or topsoil for holes, grading, and lawn leveling with sloped depths and settling buffers.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Fill Dirt</span>
-                <span className={styles.chipItem}>Topsoil</span>
-                <span className={styles.chipItem}>Sloped Depth</span>
-                <span className={styles.chipItem}>Truckloads</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Fill Dirt Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/linear-foot-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>📏 Lumber &amp; Finishing</span>
-              <div className={styles.toolIconBox}>📐</div>
-              <span className={styles.toolCategory}>Construction • Lumber • Finishing</span>
-              <h3 className={styles.toolTitle}>Linear Foot Calculator</h3>
-              <p className={styles.toolDesc}>
-                Add up multiple lengths across feet, inches, yards, and meters, calculate total costs with waste %, and convert between square feet and linear feet using material width.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Linear Feet</span>
-                <span className={styles.chipItem}>Sq Ft ↔ Linear Ft</span>
-                <span className={styles.chipItem}>Mixed Units</span>
-                <span className={styles.chipItem}>Cost &amp; Waste</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Linear Foot Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/rafter-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>🏠 Roofing &amp; Framing</span>
-              <div className={styles.toolIconBox}>📐</div>
-              <span className={styles.toolCategory}>Roofing • Framing • Carpentry</span>
-              <h3 className={styles.toolTitle}>Rafter Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate common rafter length, roof pitch, plumb and seat cut angles, birdsmouth notch depth, and stock lumber buy lengths with live cross-section diagram.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Rafter Length</span>
-                <span className={styles.chipItem}>Roof Pitch</span>
-                <span className={styles.chipItem}>Cut Angles</span>
-                <span className={styles.chipItem}>Birdsmouth</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Rafter Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/square-footage-calculator/" className={styles.toolCard}>
-              <span className={styles.badgePopular}>🔥 High Demand</span>
-              <div className={styles.toolIconBox}>📐</div>
-              <span className={styles.toolCategory}>Measurement • Flooring • Remodeling</span>
-              <h3 className={styles.toolTitle}>Square Footage Calculator</h3>
-              <p className={styles.toolDesc}>
-                Calculate square footage for single rooms, multi-room houses, or odd geometric shapes with waste allowances, unit conversions (m², yd², in²), and material cost estimation.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>SqFt Calculator</span>
-                <span className={styles.chipItem}>Multi-Room</span>
-                <span className={styles.chipItem}>Odd Shapes</span>
-                <span className={styles.chipItem}>Cost &amp; Waste %</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Square Footage Calculator <span>→</span>
-              </div>
-            </Link>
-
-            <Link href="/cinder-block-calculator/" className={styles.toolCard}>
-              <span className={styles.badgeBusiness}>🧱 Masonry &amp; CMU</span>
-              <div className={styles.toolIconBox}>🧱</div>
-              <span className={styles.toolCategory}>Masonry • Concrete • CMU Walls</span>
-              <h3 className={styles.toolTitle}>Cinder Block Calculator</h3>
-              <p className={styles.toolDesc}>
-                Estimate cinder blocks, mortar bags, and core fill concrete volume for any wall with door and window cutout deductions, 5 block presets, and waste allowances.
-              </p>
-              <div className={styles.chipsRow}>
-                <span className={styles.chipItem}>Cinder Block</span>
-                <span className={styles.chipItem}>CMU Wall</span>
-                <span className={styles.chipItem}>8x8x16</span>
-                <span className={styles.chipItem}>Mortar &amp; Core Fill</span>
-              </div>
-              <div className={styles.openLink}>
-                Launch Cinder Block Calculator <span>→</span>
-              </div>
-            </Link>
+          <div className={styles.faqWrapper}>
+            <Faq items={HOME_FAQ_ITEMS} withSchema />
           </div>
+        </div>
+      </section>
 
-          <div style={{ textAlign: 'center', marginTop: 'var(--space-5)', color: 'var(--muted)', fontSize: '0.9375rem' }}>
-            More tools are on the way. Have a tool request?{' '}
-            <a href={`mailto:${OWNER_EMAIL}?subject=Tool%20Suggestion`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
-              Suggest a tool
-            </a>.
-          </div>
-        </Container>
-      </Section>
-
-      {/* 3. Popular Genres */}
-      <Section variant="surface">
-        <Container>
-          <h2>Popular Genre Generators</h2>
-          <p>Explore specialized word banks engineered for specific music styles:</p>
-          <div style={{ display: 'flex', gap: 'var(--space-3)', flexWrap: 'wrap', marginTop: 'var(--space-4)' }}>
-            <Link href="/band-name-generator/rock/"><Button variant="secondary">🎸 Rock Band Names</Button></Link>
-            <Link href="/band-name-generator/metal/"><Button variant="secondary">⚡ Metal Band Names</Button></Link>
-            <Link href="/band-name-generator/heavy-metal/"><Button variant="secondary">⚔️ Heavy Metal Names</Button></Link>
-            <Link href="/band-name-generator/kpop/"><Button variant="secondary">✨ K-pop Group Names</Button></Link>
-            <Link href="/band-name-generator/boy-band/"><Button variant="secondary">🎤 Boy Band Names</Button></Link>
-            <Link href="/band-name-generator/random/"><Button variant="secondary">🎲 Random Generator</Button></Link>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 4. How It Works */}
-      <Section>
-        <Container>
-          <h2>How It Works in 3 Simple Steps</h2>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))', gap: 'var(--space-5)', marginTop: 'var(--space-5)' }}>
-            <Card>
-              <span style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--accent)' }}>01</span>
-              <h3 style={{ marginTop: 'var(--space-2)' }}>Choose Your Options</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                Pick your target musical genre, select a structural naming formula, or optionally specify starting letters and keywords.
-              </p>
-            </Card>
-            <Card>
-              <span style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--accent)' }}>02</span>
-              <h3 style={{ marginTop: 'var(--space-2)' }}>Instant Generation</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                Click Generate or press Enter. Our deterministic engine assembles harmonious, rhythmically balanced titles right in your browser.
-              </p>
-            </Card>
-            <Card>
-              <span style={{ fontSize: '1.75rem', fontWeight: 800, color: 'var(--accent)' }}>03</span>
-              <h3 style={{ marginTop: 'var(--space-2)' }}>Save & Check Availability</h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                Bookmark your favorite names to your local device, export them as text, and launch direct searches on Spotify, YouTube, and Google.
-              </p>
-            </Card>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 5. Why Use These Tools */}
-      <Section variant="surface">
-        <Container>
-          <div style={{ maxWidth: '680px' }}>
-            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange)' }}>
-              Our Architecture
-            </span>
-            <h2 style={{ marginTop: 'var(--space-1)' }}>Why Choose Our Tools?</h2>
-            <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)' }}>
-              Built for creators and professionals who value speed, privacy, and clean software without distraction.
-            </p>
-          </div>
-          <div className={styles.valuePropsGrid}>
-            <div className={styles.valuePropCard}>
-              <h3 className={styles.valuePropTitle}>🔒 Pure Client-Side Privacy</h3>
-              <p className={styles.valuePropText}>
-                Nothing you type leaves your device. All name generation logic runs locally inside JavaScript in your browser with zero remote calls.
-              </p>
-            </div>
-            <div className={styles.valuePropCard}>
-              <h3 className={styles.valuePropTitle}>⚡ Zero Bloat &amp; Instant Speed</h3>
-              <p className={styles.valuePropText}>
-                No heavy tracking scripts, no video ads, and no modal pop-ups. Pages load instantaneously and remain lightweight.
-              </p>
-            </div>
-            <div className={styles.valuePropCard}>
-              <h3 className={styles.valuePropTitle}>🎨 Curated Craftsmanship</h3>
-              <p className={styles.valuePropText}>
-                We avoid generic dictionary scrapers. Our word lists, formulas, and estimation algorithms are meticulously engineered.
-              </p>
-            </div>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 6. From the Guides */}
-      <Section>
-        <Container>
-          <h2>Educational Band Naming Guides</h2>
-          <p>Read our in-depth guides crafted by our editorial team to help you navigate music branding:</p>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: 'var(--space-4)', marginTop: 'var(--space-4)' }}>
-            <Card hoverable>
-              <h3><Link href="/guides/how-to-choose-a-band-name/">How to Choose a Band Name</Link></h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                A step-by-step masterclass on brainstorming memorable monikers, testing pronunciation, and checking identity fit.
-              </p>
-            </Card>
-            <Card hoverable>
-              <h3><Link href="/guides/band-name-ideas-by-genre/">Band Name Ideas by Genre</Link></h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                Analyze convention patterns across Rock, Metal, K-pop, and Indie to match your band name to your sonic universe.
-              </p>
-            </Card>
-            <Card hoverable>
-              <h3><Link href="/guides/how-to-check-if-a-band-name-is-taken/">Check If a Band Name Is Taken</Link></h3>
-              <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                A practical checklist for searching Spotify, Bandcamp, social media handles, domains, and trademark registries.
-              </p>
-            </Card>
-          </div>
-        </Container>
-      </Section>
-
-      {/* 7. FAQ */}
-      <Section variant="surface">
-        <Container size="prose">
-          <Faq items={HOME_FAQ_ITEMS} title="Frequently Asked Questions" withSchema={true} />
-        </Container>
-      </Section>
+      {/* 8. Suggest a Tool Banner */}
+      <SuggestBanner />
     </main>
   );
 }

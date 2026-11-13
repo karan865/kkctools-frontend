@@ -1,0 +1,374 @@
+.heroSection {
+  position: relative;
+  overflow: hidden;
+  padding: 64px 0 88px;
+  background: transparent;
+}
+
+.container {
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Background Blobs & Dot Grid */
+.blobSky {
+  position: absolute;
+  top: -60px;
+  right: -60px;
+  width: 480px;
+  height: 480px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(2, 132, 199, 0.12) 0%, transparent 70%);
+  filter: blur(70px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.blobOrange {
+  position: absolute;
+  bottom: 0;
+  left: -80px;
+  width: 460px;
+  height: 460px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(194, 65, 12, 0.08) 0%, transparent 70%);
+  filter: blur(80px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.dotGrid {
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--line-strong) 1px, transparent 1px);
+  background-size: 24px 24px;
+  mask-image: radial-gradient(ellipse at 40% 40%, rgba(0, 0, 0, 0.6) 20%, transparent 75%);
+  -webkit-mask-image: radial-gradient(ellipse at 40% 40%, rgba(0, 0, 0, 0.6) 20%, transparent 75%);
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.7;
+}
+
+.heroGrid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+@media (min-width: 960px) {
+  .heroGrid {
+    grid-template-columns: 56% 40%;
+    column-gap: 4%;
+  }
+}
+
+.leftCol {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Announcement Pill */
+.announcementPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  align-self: flex-start;
+  padding: 6px 14px 6px 6px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-pill);
+  box-shadow: var(--shadow-s);
+  text-decoration: none;
+  margin-bottom: 24px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.announcementPill:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-m);
+}
+
+.pillBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-gradient);
+  color: #FFFFFF;
+}
+
+.pillText {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pillArrow {
+  color: var(--muted);
+  transition: transform 0.2s ease;
+}
+
+.announcementPill:hover .pillArrow {
+  transform: translateX(3px);
+  color: var(--accent);
+}
+
+/* Instant LCP Protected H1 */
+.heading {
+  font-family: var(--font-heading);
+  font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.035em;
+  color: var(--ink);
+  margin-bottom: 16px;
+  /* Strictly instant render — zero opacity delay */
+  opacity: 1 !important;
+}
+
+.headingAccent {
+  color: var(--color-primary);
+}
+
+/* Lead text */
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+  margin-bottom: 28px;
+  max-width: 540px;
+  opacity: 1 !important;
+}
+
+.searchWrapper {
+  margin-bottom: 20px;
+}
+
+/* Chips */
+.chipsScroll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  margin-bottom: 32px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.chip:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+.chipDot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.dotConcrete { background-color: var(--cat-concrete); }
+.dotGravel { background-color: var(--cat-gravel); }
+.dotEarthwork { background-color: var(--cat-earthwork); }
+.dotFraming { background-color: var(--cat-framing); }
+.dotFinishes { background-color: var(--cat-finishes); }
+
+/* Buttons */
+.actionButtons {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.btnPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 24px;
+  border-radius: var(--radius-pill);
+  background: var(--brand-blue-gradient);
+  color: #FFFFFF !important;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.28);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btnPrimary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(2, 132, 199, 0.38);
+}
+
+.btnSecondary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 13px 20px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink) !important;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.btnSecondary:hover {
+  background: var(--surface-hover);
+  border-color: var(--accent);
+}
+
+/* Right Column Floating Glass Cards */
+.rightCol {
+  display: none;
+  position: relative;
+  height: 380px;
+}
+
+@media (min-width: 960px) {
+  .rightCol {
+    display: block;
+  }
+}
+
+.glassCard {
+  position: absolute;
+  width: 280px;
+  background: color-mix(in srgb, var(--surface) 92%, transparent);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 16px);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-pop);
+  animation: floatAnim 6s ease-in-out infinite alternate;
+}
+
+.cardTop {
+  top: 10px;
+  right: 20px;
+  transform: rotate(-3deg);
+  animation-delay: 0s;
+}
+
+.cardMiddle {
+  top: 125px;
+  left: 10px;
+  transform: rotate(2deg);
+  animation-delay: 1.5s;
+}
+
+.cardBottom {
+  top: 240px;
+  right: 40px;
+  transform: rotate(-1.5deg);
+  animation-delay: 3s;
+}
+
+@keyframes floatAnim {
+  0% { transform: translateY(0px) rotate(var(--rot, 0deg)); }
+  100% { transform: translateY(-8px) rotate(var(--rot, 0deg)); }
+}
+
+.glassHeader {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.glassIconSky {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--cat-concrete-soft);
+  color: var(--cat-concrete-ink);
+}
+
+.glassIconAmber {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--cat-earthwork-soft);
+  color: var(--cat-earthwork-ink);
+}
+
+.glassIconOrange {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  border-radius: 8px;
+  background: var(--cat-framing-soft);
+  color: var(--cat-framing-ink);
+}
+
+.glassLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.glassValue {
+  font-family: var(--font-heading);
+  font-size: 1.35rem;
+  font-weight: 750;
+  color: var(--ink);
+  letter-spacing: -0.02em;
+  margin-bottom: 2px;
+}
+
+.glassMeta {
+  font-size: 0.75rem;
+  color: var(--ink-2);
+}
+
+@media (max-width: 640px) {
+  .heroSection {
+    padding: 36px 0 60px;
+  }
+
+  .actionButtons {
+    flex-direction: column;
+  }
+
+  .btnPrimary, .btnSecondary {
+    width: 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .glassCard {
+    animation: none !important;
+  }
+}
+

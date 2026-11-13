@@ -41,6 +41,16 @@ export default function ToolsIndexPage() {
 
       <Section>
         <Container>
+          <div style={{ marginBottom: 'var(--space-6)' }}>
+            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--color-primary)' }}>
+              Directory Catalog
+            </span>
+            <h2 style={{ fontSize: '1.75rem', marginTop: 'var(--space-1)' }}>Explore Online Tools &amp; Calculators</h2>
+            <p style={{ color: 'var(--ink-2)', maxWidth: '680px' }}>
+              Filter by material, trade category, or search keywords to find the exact calculator for your project.
+            </p>
+          </div>
+
           {/* Interactive Live Search and Filterable Directory */}
           <ToolsDirectory />
 

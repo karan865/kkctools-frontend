@@ -1,8 +1,14 @@
 'use client';
 
-import React, { useEffect, useRef, useSyncExternalStore } from 'react';
+import React, { useEffect, useRef, useSyncExternalStore, useState } from 'react';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
+import Icon from '@/components/icons/Icons';
+import {
+  CATEGORIES,
+  getToolsByCategory,
+  CategoryId,
+} from '@/lib/tools-catalog';
 import styles from './MobileMenu.module.css';
 
 interface MobileMenuProps {
@@ -15,6 +21,9 @@ const emptySubscribe = () => () => {};
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
   const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
+  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
+    concrete: true,
+  });
 
   useEffect(() => {
     if (isOpen) {
@@ -30,6 +39,22 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   }, [isOpen]);
 
   if (!isOpen || !isMounted) return null;
+
+  const toggleCategory = (catId: string) => {
+    setOpenCategories((prev) => ({
+      ...prev,
+      [catId]: !prev[catId],
+    }));
+  };
+
+  const categoryKeys: CategoryId[] = [
+    'concrete',
+    'gravel',
+    'earthwork',
+    'framing',
+    'finishes',
+    'business',
+  ];
 
   return createPortal(
     <div className={styles.backdrop} onClick={onClose} role="dialog" aria-modal="true" aria-label="Mobile Navigation Menu">
@@ -52,100 +77,73 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
         <nav className={styles.nav}>
           <div className={styles.section}>
-            <span className={styles.sectionTitle}>Calculators &amp; Tools</span>
-            <Link href="/concrete-calculator/" className={styles.navLink} onClick={onClose}>
-              🧮 Concrete Calculator
-            </Link>
-            <Link href="/paver-sand-calculator/" className={styles.navLink} onClick={onClose}>
-              🧱 Paver Sand Calculator
-            </Link>
-            <Link href="/paver-base-calculator/" className={styles.navLink} onClick={onClose}>
-              🏗️ Paver Base Calculator
-            </Link>
-            <Link href="/compost-calculator/" className={styles.navLink} onClick={onClose}>
-              🍂 Compost Calculator
-            </Link>
-            <Link href="/fence-stain-calculator/" className={styles.navLink} onClick={onClose}>
-              🪵 Fence Stain Calculator
-            </Link>
-            <Link href="/tons-to-cubic-yards/" className={styles.navLink} onClick={onClose}>
-              ⚖️ Tons to Cubic Yards
-            </Link>
-            <Link href="/stud-calculator/" className={styles.navLink} onClick={onClose}>
-              🪚 Stud Framing Calculator
-            </Link>
-            <Link href="/stone-calculator/" className={styles.navLink} onClick={onClose}>
-              🪨 Stone &amp; Gravel Calculator
-            </Link>
-            <Link href="/laminate-flooring-calculator/" className={styles.navLink} onClick={onClose}>
-              🪵 Laminate Flooring Calculator
-            </Link>
-            <Link href="/tile-calculator/" className={styles.navLink} onClick={onClose}>
-              📐 Tile Calculator
-            </Link>
-            <Link href="/paint-cost-calculator/" className={styles.navLink} onClick={onClose}>
-              🎨 Paint Cost Calculator
-            </Link>
-            <Link href="/brick-calculator/" className={styles.navLink} onClick={onClose}>
-              🧱 Brick Calculator
-            </Link>
-            <Link href="/cinder-block-calculator/" className={styles.navLink} onClick={onClose}>
-              🧱 Cinder Block Calculator
-            </Link>
-            <Link href="/square-footage-calculator/" className={styles.navLink} onClick={onClose}>
-              📐 Square Footage Calculator
-            </Link>
-            <Link href="/asphalt-calculator/" className={styles.navLink} onClick={onClose}>
-              🚜 Asphalt Calculator
-            </Link>
-            <Link href="/cubic-yard-calculator/" className={styles.navLink} onClick={onClose}>
-              📦 Cubic Yard Calculator
-            </Link>
-            <Link href="/sand-calculator/" className={styles.navLink} onClick={onClose}>
-              🏖️ Sand Calculator
-            </Link>
-            <Link href="/fill-dirt-calculator/" className={styles.navLink} onClick={onClose}>
-              🌱 Fill Dirt Calculator
-            </Link>
-            <Link href="/linear-foot-calculator/" className={styles.navLink} onClick={onClose}>
-              📏 Linear Foot Calculator
-            </Link>
-            <Link href="/rafter-calculator/" className={styles.navLink} onClick={onClose}>
-              🏠 Rafter Calculator
-            </Link>
-            <Link href="/construction-estimate-template/" className={styles.navLink} onClick={onClose}>
-              📋 Construction Estimate Template
-            </Link>
-            <Link href="/band-name-generator/" className={styles.navLink} onClick={onClose}>
-              🎸 Band Name Generator
-            </Link>
-            <Link href="/tools/" className={styles.navLinkSub} onClick={onClose}>
-              All 19 Tools Directory →
-            </Link>
-          </div>
+            <span className={styles.sectionTitle}>Calculators by Category</span>
 
-          <div className={styles.section}>
-            <span className={styles.sectionTitle}>Popular Genres</span>
-            <div className={styles.genreGrid}>
-              <Link href="/band-name-generator/rock/" className={styles.genrePill} onClick={onClose}>Rock</Link>
-              <Link href="/band-name-generator/metal/" className={styles.genrePill} onClick={onClose}>Metal</Link>
-              <Link href="/band-name-generator/kpop/" className={styles.genrePill} onClick={onClose}>K-pop</Link>
-              <Link href="/band-name-generator/heavy-metal/" className={styles.genrePill} onClick={onClose}>Heavy Metal</Link>
-              <Link href="/band-name-generator/boy-band/" className={styles.genrePill} onClick={onClose}>Boy Band</Link>
-              <Link href="/band-name-generator/random/" className={styles.genrePill} onClick={onClose}>Random</Link>
+            <div className={styles.accordionList}>
+              {categoryKeys.map((catKey) => {
+                const cat = CATEGORIES[catKey];
+                const tools = getToolsByCategory(catKey);
+                const isExpanded = !!openCategories[catKey];
+
+                return (
+                  <div key={catKey} className={styles.accordionGroup}>
+                    <button
+                      type="button"
+                      className={styles.accordionTrigger}
+                      onClick={() => toggleCategory(catKey)}
+                      aria-expanded={isExpanded}
+                    >
+                      <span className={styles.catLabel}>{cat.name}</span>
+                      <span className={`${styles.chevron} ${isExpanded ? styles.chevronOpen : ''}`}>
+                        <Icon name="chevronDown" size={16} />
+                      </span>
+                    </button>
+
+                    {isExpanded && (
+                      <div className={styles.accordionBody}>
+                        {tools.slice(0, 5).map((tool) => (
+                          <Link
+                            key={tool.slug}
+                            href={tool.slug}
+                            className={styles.navLink}
+                            onClick={onClose}
+                          >
+                            <span className={styles.toolIcon}>
+                              <Icon name={tool.icon} size={16} />
+                            </span>
+                            <span>{tool.name}</span>
+                          </Link>
+                        ))}
+                        {tools.length > 5 && (
+                          <Link
+                            href={`/tools/#${catKey}`}
+                            className={styles.viewCategoryAll}
+                            onClick={onClose}
+                          >
+                            View all {tools.length} in {cat.name} →
+                          </Link>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
 
           <div className={styles.section}>
-            <span className={styles.sectionTitle}>Resources</span>
-            <Link href="/guides/" className={styles.navLink} onClick={onClose}>
-              Guides & Articles
+            <span className={styles.sectionTitle}>Resources &amp; Company</span>
+            <Link href="/tools/" className={styles.resourceLink} onClick={onClose}>
+              All 22 Tools Directory →
             </Link>
-            <Link href="/about/" className={styles.navLink} onClick={onClose}>
+            <Link href="/guides/" className={styles.resourceLink} onClick={onClose}>
+              Guides &amp; Articles
+            </Link>
+            <Link href="/about/" className={styles.resourceLink} onClick={onClose}>
               About Us
             </Link>
-            <Link href="/contact/" className={styles.navLink} onClick={onClose}>
-              Contact & Feedback
+            <Link href="/contact/" className={styles.resourceLink} onClick={onClose}>
+              Contact &amp; Feedback
             </Link>
           </div>
         </nav>
@@ -154,4 +152,3 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     document.body
   );
 }
-

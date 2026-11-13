@@ -1,255 +1,158 @@
-.heroBadge {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 16px;
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--ink-2);
-  margin-bottom: var(--space-4);
-  box-shadow: var(--shadow-s);
-}
-
-.badgeDot {
-  width: 8px;
-  height: 8px;
-  border-radius: 50%;
-  background: var(--brand-orange);
-  box-shadow: 0 0 0 3px var(--brand-orange-soft);
-  display: inline-block;
-}
-
-.badgePopular {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--brand-orange-soft);
-  color: var(--brand-orange);
-  border: 1px solid color-mix(in srgb, var(--brand-orange) 30%, transparent);
-}
-
-.badgeBusiness {
-  position: absolute;
-  top: 20px;
-  right: 20px;
-  font-size: 0.6875rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  padding: 4px 10px;
-  border-radius: var(--radius-pill);
-  background: var(--accent-soft);
-  color: var(--accent);
-  border: 1px solid color-mix(in srgb, var(--accent) 30%, transparent);
-}
-
-.trustStrip {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-  margin-top: var(--space-7);
-  padding: var(--space-4) var(--space-5);
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
-  box-shadow: var(--shadow-s);
-}
-
-.trustItem {
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  font-size: 0.875rem;
-  font-weight: 600;
-  color: var(--ink);
-}
-
-.trustItemIcon {
-  font-size: 1.1rem;
-}
-
-.searchContainer {
-  margin: var(--space-5) 0 var(--space-6);
-  position: relative;
-  max-width: 580px;
-}
-
-.searchInput {
-  width: 100%;
-  padding: 14px 24px 14px 48px;
-  font-size: 1rem;
-  font-family: var(--font-body);
-  color: var(--ink);
-  background: var(--input-bg, var(--surface));
-  border: 1px solid var(--line);
-  border-radius: var(--radius-pill);
-  box-shadow: var(--shadow-s);
-  transition: all 0.2s ease;
-  outline: none;
-}
-
-.searchInput:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 0 3px var(--accent-soft);
-}
-
-.searchIcon {
-  position: absolute;
-  left: 18px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: var(--muted);
-  pointer-events: none;
-}
-
-/* Tool Cards Grid (Inspired by MKSAnalytiq & Cloudflare) */
-.toolGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
-  margin: var(--space-6) 0;
-}
-
-@media (min-width: 640px) {
-  .toolGrid {
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  }
-}
-
-.toolCard {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-l);
-  padding: 28px;
-  box-shadow: var(--shadow-m);
+.mainWrapper {
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
-  position: relative;
-  text-decoration: none;
-  color: inherit;
+  background-color: var(--bg);
+  min-height: 100%;
 }
 
-.toolCard:hover {
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-l);
-  border-color: var(--line-strong);
+.container {
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
-.toolIconBox {
-  width: 48px;
-  height: 48px;
-  border-radius: 12px;
-  background: var(--surface-2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  margin-bottom: var(--space-4);
-  border: 1px solid var(--line);
+.sectionCanvas {
+  padding: 56px 0;
+  background-color: var(--bg);
 }
 
-.toolCategory {
-  font-size: 0.75rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  color: var(--accent);
-  margin-bottom: 4px;
+.sectionBand {
+  padding: 56px 0;
+  background-color: var(--surface-band, #FBFAF7);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
 }
 
-.toolTitle {
-  font-size: 1.35rem;
-  font-weight: 700;
-  color: var(--ink);
-  margin: 0 0 var(--space-2);
-  letter-spacing: -0.02em;
-}
-
-.toolDesc {
-  font-size: 0.9375rem;
-  color: var(--ink-2);
-  line-height: 1.6;
-  margin-bottom: var(--space-4);
-  flex-grow: 1;
-}
-
-.chipsRow {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px;
-  margin-bottom: var(--space-5);
-}
-
-.chipItem {
-  font-size: 0.8125rem;
-  padding: 4px 10px;
-  border-radius: 6px;
-  background: var(--surface-2);
-  color: var(--ink-2);
-  border: 1px solid var(--line);
-  font-weight: 500;
-}
-
-.openLink {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 0.9375rem;
-  font-weight: 600;
-  color: var(--accent);
-  transition: gap 0.2s ease, color 0.2s ease;
-}
-
-.toolCard:hover .openLink {
-  gap: 10px;
-  color: var(--accent-hover);
-}
-
-/* Value Props with Vertical Bars (Inspired by Cloudflare Screenshot) */
-.valuePropsGrid {
+.cardGrid {
   display: grid;
-  grid-template-columns: 1fr;
-  gap: var(--space-5);
-  margin: var(--space-6) 0;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
-@media (min-width: 768px) {
-  .valuePropsGrid {
-    grid-template-columns: repeat(3, 1fr);
+@media (max-width: 1100px) {
+  .cardGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
   }
 }
 
-.valuePropCard {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-m);
-  padding: var(--space-5);
-  border-left: 4px solid var(--brand-orange);
-  box-shadow: var(--shadow-m);
+@media (max-width: 640px) {
+  .cardGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .sectionCanvas,
+  .sectionBand {
+    padding: 36px 0;
+  }
 }
 
-.valuePropTitle {
+/* Guides Section */
+.guidesGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 860px) {
+  .guidesGrid {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+}
+
+.guideCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 16px);
+  padding: 24px;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.guideCard:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.guideCover {
+  display: flex;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.guideBadge {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--surface-2);
+  color: var(--accent);
+  border: 1px solid var(--line);
+  padding: 3px 8px;
+  border-radius: 6px;
+}
+
+.guideTitle {
+  font-family: var(--font-heading);
   font-size: 1.125rem;
   font-weight: 700;
   color: var(--ink);
-  margin-bottom: var(--space-2);
+  line-height: 1.35;
+  margin-bottom: 8px;
 }
 
-.valuePropText {
+.guideExcerpt {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--ink-2);
+  margin-bottom: 16px;
+  flex: 1 0 auto;
+}
+
+.guideLink {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* FAQ Block */
+.faqHeader {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto 36px;
+}
+
+.faqEyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+}
+
+.faqTitle {
+  font-family: var(--font-heading);
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  font-weight: 750;
+  color: var(--ink);
+  margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+
+.faqSubtitle {
   font-size: 0.9375rem;
   color: var(--ink-2);
-  line-height: 1.6;
-  margin: 0;
+  line-height: 1.5;
+}
+
+.faqWrapper {
+  max-width: 760px;
+  margin: 0 auto;
 }

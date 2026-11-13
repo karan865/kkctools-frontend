@@ -1,0 +1,69 @@
+.directoryWrapper {
+  width: 100%;
+}
+
+.searchHeader {
+  margin-bottom: 36px;
+}
+
+.searchBoxWrapper {
+  max-width: 640px;
+  margin-bottom: 20px;
+}
+
+.filterBar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  overflow-x: auto;
+  padding-bottom: 6px;
+  -webkit-overflow-scrolling: touch;
+}
+
+.filterPill {
+  display: inline-flex;
+  align-items: center;
+  padding: 8px 16px;
+  border-radius: var(--radius-pill);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink-2);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all 0.15s ease;
+}
+
+.filterPill:hover {
+  background: var(--surface-hover);
+  color: var(--ink);
+}
+
+.filterActive {
+  background: var(--color-primary) !important;
+  border-color: var(--color-primary) !important;
+  color: #FFFFFF !important;
+}
+
+.toolsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+
+@media (max-width: 1100px) {
+  .toolsGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 640px) {
+  .toolsGrid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+

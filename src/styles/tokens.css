@@ -54,8 +54,42 @@
   --space-7: 48px;
   --space-8: 64px;
   --space-9: 96px;
-  --container: 1160px;
+  --container: 1200px;
   --prose: 68ch;
+
+  /* Redesign Section Bands & Radius */
+  --surface-band: #FBFAF7;
+  --radius-card: 16px;
+  --radius-tile: 12px;
+  --radius-input: 14px;
+  --shadow-card: 0 1px 2px rgba(23, 33, 58, 0.04), 0 2px 8px -2px rgba(23, 33, 58, 0.06);
+  --shadow-card-hover: 0 2px 4px rgba(23, 33, 58, 0.05), 0 16px 32px -12px rgba(23, 33, 58, 0.16);
+  --shadow-pop: 0 24px 48px -16px rgba(23, 33, 58, 0.22), 0 0 0 1px rgba(23, 33, 58, 0.05);
+
+  /* Category Color Themes (Light) */
+  --cat-concrete: #0284C7;
+  --cat-concrete-soft: #E0F2FE;
+  --cat-concrete-ink: #0369A1;
+
+  --cat-gravel: #059669;
+  --cat-gravel-soft: #D1FAE5;
+  --cat-gravel-ink: #047857;
+
+  --cat-earthwork: #D97706;
+  --cat-earthwork-soft: #FEF3C7;
+  --cat-earthwork-ink: #B45309;
+
+  --cat-framing: #EA580C;
+  --cat-framing-soft: #FFEDD5;
+  --cat-framing-ink: #C2410C;
+
+  --cat-finishes: #7C3AED;
+  --cat-finishes-soft: #EDE9FE;
+  --cat-finishes-ink: #6D28D9;
+
+  --cat-business: #E11D48;
+  --cat-business-soft: #FFE4E6;
+  --cat-business-ink: #BE123C;
 
   /* Typography Fluid Scale */
   --font-heading: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -104,4 +138,35 @@
   --shadow-s: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
   --shadow-m: 0 4px 18px -2px rgba(0, 0, 0, 0.75), 0 0 0 1px rgba(255, 255, 255, 0.07);
   --shadow-l: 0 16px 40px -4px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* Redesign Section Bands & Radius (Dark) */
+  --surface-band: #0D1119;
+  --shadow-card: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 1px rgba(255, 255, 255, 0.05);
+  --shadow-card-hover: 0 6px 22px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --shadow-pop: 0 24px 48px rgba(0, 0, 0, 0.9), 0 0 0 1px rgba(255, 255, 255, 0.1);
+
+  /* Category Color Themes (Dark) */
+  --cat-concrete: #38BDF8;
+  --cat-concrete-soft: rgba(56, 189, 248, 0.14);
+  --cat-concrete-ink: #7DD3FC;
+
+  --cat-gravel: #34D399;
+  --cat-gravel-soft: rgba(52, 211, 153, 0.14);
+  --cat-gravel-ink: #6EE7B7;
+
+  --cat-earthwork: #FBBF24;
+  --cat-earthwork-soft: rgba(251, 191, 36, 0.14);
+  --cat-earthwork-ink: #FCD34D;
+
+  --cat-framing: #F97316;
+  --cat-framing-soft: rgba(249, 115, 22, 0.15);
+  --cat-framing-ink: #FDBA74;
+
+  --cat-finishes: #A78BFA;
+  --cat-finishes-soft: rgba(167, 139, 250, 0.15);
+  --cat-finishes-ink: #C4B5FD;
+
+  --cat-business: #FB7185;
+  --cat-business-soft: rgba(251, 113, 133, 0.15);
+  --cat-business-ink: #FDA4AF;
 }

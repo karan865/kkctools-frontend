@@ -26,7 +26,7 @@
   border-left: 1px solid var(--line);
   display: flex;
   flex-direction: column;
-  padding: var(--space-5);
+  padding: 20px;
   box-shadow: -4px 0 24px rgba(0, 0, 0, 0.25);
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
@@ -37,8 +37,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: var(--space-5);
-  padding-bottom: var(--space-3);
+  margin-bottom: 20px;
+  padding-bottom: 14px;
   border-bottom: 1px solid var(--line);
 }
 
@@ -50,8 +50,8 @@
 }
 
 .closeBtn {
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -59,58 +59,120 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-s);
   color: var(--ink);
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   cursor: pointer;
 }
 
 .nav {
   display: flex;
   flex-direction: column;
-  gap: var(--space-5);
+  gap: 24px;
 }
 
 .section {
   display: flex;
   flex-direction: column;
-  gap: var(--space-2);
 }
 
 .sectionTitle {
-  font-size: 0.75rem;
+  font-size: 0.6875rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.08em;
   color: var(--muted);
-  margin-bottom: var(--space-1);
+  margin-bottom: 12px;
+}
+
+.accordionList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.accordionGroup {
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.accordionTrigger {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  text-align: left;
+}
+
+.catLabel {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.chevron {
+  color: var(--muted);
+  display: flex;
+  transition: transform 0.2s ease;
+}
+
+.chevronOpen {
+  transform: rotate(180deg);
+}
+
+.accordionBody {
+  display: flex;
+  flex-direction: column;
+  padding: 6px 8px 10px;
+  gap: 2px;
 }
 
 .navLink {
-  font-size: 1.0625rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 0.875rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
-  padding: var(--space-2) 0;
+  padding: 8px 10px;
+  border-radius: 6px;
+  transition: background 0.15s ease;
 }
 
-.navLinkSub {
-  font-size: 0.875rem;
+.navLink:hover {
+  background: var(--surface-hover);
+}
+
+.toolIcon {
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+}
+
+.viewCategoryAll {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 600;
   color: var(--accent);
   text-decoration: none;
+  padding: 6px 10px;
 }
 
-.genreGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: var(--space-2);
-}
-
-.genrePill {
-  font-size: 0.875rem;
-  padding: 6px 12px;
-  border-radius: var(--radius-pill);
-  background: var(--surface-2);
-  color: var(--ink-2);
-  border: 1px solid var(--line);
+.resourceLink {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--ink);
   text-decoration: none;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--line);
 }
 
+.resourceLink:last-child {
+  border-bottom: none;
+}
