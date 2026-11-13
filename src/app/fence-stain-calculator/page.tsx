@@ -1,27 +1,21 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import FenceStainCalculator from '@/components/tool/fence-stain-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Fence Stain Calculator (Gallons & Pickets)',
   description:
     'Free fence stain calculator to estimate gallons of stain needed for wood privacy fences, board-on-board, shadowbox, and split rail with coat & porosity math.',
-  alternates: {
-    canonical: `${SITE_URL}/fence-stain-calculator/`,
-  },
-  openGraph: {
-    title: 'Fence Stain Calculator (Gallons & Pickets)',
-    description:
-      'Calculate exact exterior wood stain gallons, 5-gallon pails, 1-gallon cans, and total costs for cedar, pine, and redwood fences.',
-    url: `${SITE_URL}/fence-stain-calculator/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/fence-stain-calculator/',
+});
 
 const jsonLd = [
   {
@@ -122,31 +116,15 @@ export default function FenceStainCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
-            <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Fence Stain Calculator</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Fence Stain Calculator', path: '/fence-stain-calculator/' }]} />
 
         {/* Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Free Fence Stain Calculator: Estimate Gallons &amp; Picket Coverage
+            Fence Stain Calculator: Gallons for Any Fence
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
             Accurately calculate how many gallons of exterior wood stain you need using our free <strong>fence stain calculator</strong> (also functioning as a dedicated <strong>wood fence stain calculator</strong> and <strong>stain calculator for fence</strong>). Instantly compute single-side and double-side coverage, picket overlap multipliers for board-on-board and shadowbox styles, and contractor 5-gallon pail requirements.
@@ -247,7 +225,7 @@ export default function FenceStainCalculatorPage() {
             Fence Picket Styles &amp; Wood Overlap Multiplier Guide
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            Never calculate a specialized architectural fence as flat wood. Use this verified multiplier table when estimating stain requirements for different fence styles:
+            Never calculate a specialized architectural fence as flat wood. Use this multiplier table when estimating stain requirements for different fence styles:
           </p>
 
           <div style={{ overflowX: 'auto', marginBottom: '28px' }}>
@@ -434,6 +412,7 @@ export default function FenceStainCalculatorPage() {
             </li>
           </ol>
 
+          <HowWeCalculate slug="fence-stain-calculator" />
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             Frequently Asked Questions
           </h2>

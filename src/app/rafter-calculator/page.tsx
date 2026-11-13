@@ -11,6 +11,8 @@ import {
   buildFaqSchema,
 } from '@/components/seo/buildSchema';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Rafter Calculator: Length, Pitch & Cut Angles',
@@ -31,7 +33,7 @@ export default function RafterCalculatorPage() {
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Calculators', path: '/tools/' },
+    { name: 'Tools', path: '/tools/' },
     { name: 'Rafter Calculator', path: '/rafter-calculator/' },
   ]);
 
@@ -39,25 +41,16 @@ export default function RafterCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={webAppSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span className={styles.breadcrumbSeparator}>›</span>
-          <Link href="/tools/">Calculators</Link>
+          <Link href="/tools/">Tools</Link>
           <span className={styles.breadcrumbSeparator}>›</span>
           <span aria-current="page">Rafter Calculator</span>
         </nav>
@@ -239,10 +232,12 @@ export default function RafterCalculatorPage() {
             </ul>
           </section>
 
+          <HowWeCalculate slug="rafter-calculator" />
+
           {/* FAQ Section */}
           <section className={styles.sectionBlock}>
             <h2>Rafter Calculator FAQ</h2>
-            <Faq items={content.faqs} />
+            <Faq items={content.faqs} title="" withSchema={false} />
           </section>
 
           {/* Disclaimer & Footer */}

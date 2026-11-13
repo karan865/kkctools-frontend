@@ -12,7 +12,7 @@ export default function WhyUs() {
     {
       icon: 'bookOpen' as const,
       title: 'Built on Real Formulas',
-      desc: 'Calculations use verified ASTM, civil engineering standards, and industry density constants, with clear math shown.',
+      desc: 'Every calculator shows its formula and default values (densities, bag yields, coverage rates), and you can edit them to match your supplier.',
     },
     {
       icon: 'zap' as const,
@@ -31,9 +31,9 @@ export default function WhyUs() {
       <div className={styles.container}>
         <div className={styles.header}>
           <span className={styles.eyebrow}>WHY KKC TOOLS</span>
-          <h2 className={styles.title}>Calculators Built for Accuracy &amp; Speed</h2>
+          <h2 className={styles.title}>Calculators You Can Check</h2>
           <p className={styles.subtitle}>
-            Engineered for homeowners, DIY builders, and trade pros who need fast, dependable quantities on the job.
+            For homeowners, DIY builders and trade pros who need quick quantities and want to see how each number is worked out.
           </p>
         </div>
 

@@ -17,9 +17,13 @@ import {
   getNewAndUpdatedTools,
 } from '@/lib/tools-catalog';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import { ROUTES } from '@/lib/routes';
+import { SITE_URL as LD_SITE_URL, WEBSITE_ID as LD_WEBSITE_ID, ORG_ID as LD_ORG_ID } from '@/config/site';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Free Construction Calculators & Online Tools',
+  title: 'KKC Tools – Free Construction Calculators & Online Tools',
+  absoluteTitle: true,
   description:
     'Free calculators for concrete, gravel, lumber, roofing, flooring and paint, plus creative tools. No sign-up — everything runs in your browser.',
   path: '/',
@@ -40,7 +44,7 @@ const HOME_FAQ_ITEMS = [
   },
   {
     q: 'How accurate are the material quantities and bag counts?',
-    a: 'Calculations adhere strictly to ASTM standards, civil engineering density benchmarks, and manufacturer coverage specs (such as 40, 60, and 80 lb concrete bags). We include editable compaction and waste percentages for real-world planning.',
+    a: 'Each calculator shows the formula and the default values it uses (for example bag yields for 40, 60 and 80 lb concrete bags, or material densities), and you can edit densities, compaction and waste percentages to match your supplier. Results are planning estimates: confirm final quantities with your supplier or contractor before you order.',
   },
   {
     q: 'Can I suggest a new calculator or contractor tool?',
@@ -59,6 +63,19 @@ export default function Home() {
 
   return (
     <main id="main-content" className={styles.mainWrapper}>
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'WebPage',
+          '@id': `${LD_SITE_URL}/#webpage`,
+          url: `${LD_SITE_URL}/`,
+          name: ROUTES.home.title,
+          description: ROUTES.home.description,
+          inLanguage: 'en-US',
+          isPartOf: { '@id': LD_WEBSITE_ID },
+          about: { '@id': LD_ORG_ID },
+        }}
+      />
       {/* 1. Hero Banner with Instant LCP Headline & Unified Search */}
       <HomeHero />
 
@@ -307,13 +324,13 @@ export default function Home() {
         <div className={styles.container}>
           <SectionHeader
             eyebrow="KNOWLEDGE &amp; GUIDES"
-            title="Practical Estimating &amp; Creative Guides"
-            subtitle="In-depth tutorials, material rules of thumb, and formulas explained step-by-step."
+            title="Band Naming Guides"
+            subtitle="Step-by-step guides for naming a band and checking that a name is free. Each calculator page also explains its own formula."
             viewAllLink="/guides/"
             viewAllText="Read all guides →"
           />
           <div className={styles.guidesGrid}>
-            <Link href="/guides/band-naming-guide/" className={styles.guideCard}>
+            <Link href="/guides/how-to-choose-a-band-name/" className={styles.guideCard}>
               <div className={styles.guideCover}>
                 <span className={styles.guideBadge}>Naming Guide</span>
               </div>
@@ -324,7 +341,7 @@ export default function Home() {
               <span className={styles.guideLink}>Read article →</span>
             </Link>
 
-            <Link href="/guides/genre-naming-trends/" className={styles.guideCard}>
+            <Link href="/guides/band-name-ideas-by-genre/" className={styles.guideCard}>
               <div className={styles.guideCover}>
                 <span className={styles.guideBadge}>Trends</span>
               </div>
@@ -335,7 +352,7 @@ export default function Home() {
               <span className={styles.guideLink}>Read article →</span>
             </Link>
 
-            <Link href="/guides/trademark-and-availability/" className={styles.guideCard}>
+            <Link href="/guides/how-to-check-if-a-band-name-is-taken/" className={styles.guideCard}>
               <div className={styles.guideCover}>
                 <span className={styles.guideBadge}>Legal &amp; IP</span>
               </div>
@@ -360,7 +377,7 @@ export default function Home() {
             </p>
           </div>
           <div className={styles.faqWrapper}>
-            <Faq items={HOME_FAQ_ITEMS} withSchema />
+            <Faq items={HOME_FAQ_ITEMS} title="" withSchema />
           </div>
         </div>
       </section>

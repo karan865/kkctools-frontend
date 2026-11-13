@@ -9,6 +9,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { OWNER_EMAIL, SITE_NAME } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import { SITE_URL as LD_SITE_URL, WEBSITE_ID as LD_WEBSITE_ID, ORG_ID as LD_ORG_ID } from '@/config/site';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.contact.title,
@@ -21,12 +23,26 @@ const BREADCRUMBS = [{ name: 'Contact', path: '/contact/' }];
 export default function ContactPage() {
   return (
     <main id="main-content">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'ContactPage',
+          '@id': `${LD_SITE_URL}/contact/#webpage`,
+          url: `${LD_SITE_URL}/contact/`,
+          name: ROUTES.contact.title,
+          description: ROUTES.contact.description,
+          inLanguage: 'en-US',
+          isPartOf: { '@id': LD_WEBSITE_ID },
+          breadcrumb: { '@id': `${LD_SITE_URL}/contact/#breadcrumb` },
+          about: { '@id': LD_ORG_ID },
+        }}
+      />
       <Section variant="hero">
         <Container>
           <Breadcrumbs items={BREADCRUMBS} />
           <h1 style={{ marginTop: 'var(--space-4)' }}>Contact {SITE_NAME}</h1>
           <p style={{ fontSize: '1.25rem', color: 'var(--ink-2)', maxWidth: '780px', lineHeight: 1.6 }}>
-            Have a question, feedback, bug report, or a suggestion for a new generator? We are always happy to hear from creators and visitors.
+            Found a number that looks wrong, hit a bug, or want a calculator we do not have yet? Email us. Every message is read.
           </p>
         </Container>
       </Section>
@@ -36,11 +52,11 @@ export default function ContactPage() {
           <div className="prose">
             <h2>Get in Touch via Email</h2>
             <p>
-              To maintain our strict commitment to zero third-party tracking scripts, we do not use intrusive third-party contact form widgets or external ticketing databases. The fastest, most direct way to reach our team is via direct email:
+              We do not use third-party contact forms or ticket systems (they would add tracking scripts to the site), so email is the way to reach us:
             </p>
 
             <Card style={{ margin: 'var(--space-5) 0', padding: 'var(--space-5)' }}>
-              <h3 style={{ marginTop: 0 }}>Direct Support & Editorial Inquiries</h3>
+              <h3 style={{ marginTop: 0 }}>Questions, corrections and suggestions</h3>
               <p style={{ fontSize: '1.125rem', margin: 'var(--space-2) 0 var(--space-4)' }}>
                 <strong>Email:</strong>{' '}
                 <a href={`mailto:${OWNER_EMAIL}`} style={{ color: 'var(--accent)', fontWeight: 700 }}>
@@ -54,20 +70,20 @@ export default function ContactPage() {
 
             <h2>Expected Response Time</h2>
             <p>
-              We typically review incoming correspondence and respond within 24 to 48 business hours (Monday through Friday). If you are submitting a bug report, including the browser version and device type you were using helps us identify and patch issues quickly.
+              We read every email and reply as soon as we can. For a bug report, please include the page address, what you entered, what you expected, and your browser and device. For a wrong result, the material, your supplier’s figure, or the standard you are working to helps us check it quickly.
             </p>
 
             <h2>Feature & Tool Suggestions</h2>
             <p>
-              We are actively expanding our catalog of browser-based utilities. If there is a specific creative naming formula, text converter, or music branding calculator you would like to see added to our platform, please describe your use case in an email. We prioritize tools that can run entirely client-side with zero latency.
+              We keep adding construction, landscaping and everyday calculators. If there is one you need, describe the job and the numbers you work with in an email. We build tools that can run entirely in the browser.
             </p>
 
             <p style={{ marginTop: 'var(--space-6)' }}>
-              Looking for our tools in the meantime? Explore our{' '}
-              <Link href="/band-name-generator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>
-                Band Name Generator
+              Looking for a tool in the meantime? Try the{' '}
+              <Link href="/concrete-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>
+                Concrete Calculator
               </Link>{' '}
-              or browse the complete directory on our{' '}
+              or browse every calculator on our{' '}
               <Link href="/tools/" style={{ color: 'var(--accent)', fontWeight: 600 }}>
                 Tools page
               </Link>.

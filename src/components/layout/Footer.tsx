@@ -149,7 +149,7 @@ export default function Footer() {
               <li><Link href="/guides/" className={styles.link}>Guides &amp; Articles</Link></li>
               <li><Link href="/contact/" className={styles.link}>Contact &amp; Support</Link></li>
               <li><Link href="/privacy-policy/" className={styles.link}>Privacy Policy</Link></li>
-              <li><Link href="/terms-of-service/" className={styles.link}>Terms of Service</Link></li>
+              <li><Link href="/terms/" className={styles.link}>Terms of Service</Link></li>
             </ul>
           </div>
         </div>
@@ -162,7 +162,7 @@ export default function Footer() {
           <div className={styles.bottomLinks}>
             <Link href="/privacy-policy/" className={styles.bottomLink}>Privacy</Link>
             <span className={styles.dot}>·</span>
-            <Link href="/terms-of-service/" className={styles.bottomLink}>Terms</Link>
+            <Link href="/terms/" className={styles.bottomLink}>Terms</Link>
             <span className={styles.dot}>·</span>
             <Link href="/contact/" className={styles.bottomLink}>Contact</Link>
           </div>

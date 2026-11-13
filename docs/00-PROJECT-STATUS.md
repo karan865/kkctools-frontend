@@ -5,7 +5,7 @@
 - **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Current Phase:** SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
 - **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
@@ -132,6 +132,125 @@
 
 ---
 
+### Phase SA — SEO audit fixes (audit `docs/seo/2026-11-14/`, fixed 2026-11-14)
+Audit score 72/100 (live site). Code-side fixes are below; owner and deploy items are in Sections 3–4.
+- [x] SA-01 **Connected schema graph.**
+  - The root layout (`src/app/layout.tsx`) now emits one sitewide `@graph`: Organization `#organization` (512 px logo, contactPoint) and WebSite `#website` (publisher, inLanguage).
+  - All page JSON-LD passes through `src/components/seo/normalizeSchema.ts` (via `<JsonLd>`). It adds:
+    - `@id`s on every node;
+    - a WebPage node for each tool and guide;
+    - one WebApplication template: OS `Any`, `UtilitiesApplication`, `isAccessibleForFree`, `dateModified`;
+    - an Article image, full ISO dates, and `@id` refs for author and publisher.
+
+    It also drops any duplicate page-level Organization.
+  - 17 pages that wrote raw `<script type="application/ld+json">` now use `<JsonLd>`.
+  - Added AboutPage, ContactPage, CollectionPage (/tools/, /guides/) and a home WebPage.
+
+  *(Evidence: built HTML has exactly 1 Organization per page and 0 dangling `@id` refs across 43 pages; `npm run seo:audit` 0 errors)*
+- [x] SA-02 **Duplicate FAQPage removed on 7 pages**, not just the 1 the audit found: square-footage, cinder-block, fill-dirt, linear-foot, paint-cost, rafter, sand. The duplicate "Frequently Asked Questions" H2 is gone from those pages and the home page. *(Evidence: the seo-audit check "max 1 FAQPage" passes on all pages)*
+- [x] SA-03 **Breadcrumbs.**
+  - BreadcrumbList added to compost, fence-stain, paver-base and paver-sand.
+  - The parent label is now "Tools" everywhere. It used to vary between Calculators, All Tools and Tools.
+  - Fixed the visible "Home › Home ›" on asphalt and cubic-yard.
+  - Added the Tools level on the 6 genre pages.
+
+  *(Evidence: every non-home page has exactly 1 BreadcrumbList)*
+- [x] SA-04 **Broken assets and links**, found while fixing the above:
+  - `og:image` `/opengraph-image.png` returned 404 on every page. The OG image and the apple touch icon are now real `.png` route files (`src/app/opengraph-image.png/route.tsx`, `src/app/apple-touch-icon.png/route.tsx`), plus a new `src/app/logo.png/route.tsx`.
+  - The footer "Terms" link pointed to `/terms-of-service/` (404) on all 43 pages. It now points to `/terms/`.
+  - The 3 homepage guide cards pointed to slugs that do not exist.
+
+  *(Evidence: `out/opengraph-image.png` is 1200×630, `out/logo.png` 512×512, `out/apple-touch-icon.png` 180×180; the new seo-audit checks for broken internal links and og:image pass)*
+- [x] SA-05 **Unverifiable claims removed or softened** (AGENTS.md rule 3):
+  - "0ms server lag" (all 7 band pages);
+  - the unlinked Angi report (tile);
+  - "hand-picked by our editors";
+  - "Contractor-verified" (tons);
+  - "verified manufacturer" (paint);
+  - "Millions of building contractors" (estimate template);
+  - "verified ASTM" (home FAQ and WhyUs);
+  - "verified" wording on cinder-block, sq-ft, fence-stain and laminate;
+  - "crafted by independent musicians" (/guides/);
+  - "guarantee sub-second" (about).
+
+  The About counts now come from the code: 9 genres, about 4,000 vocabulary entries, 306 blocklisted bands. *(Evidence: `grep` for the audit phrases returns 0 matches in `src/`)*
+- [x] SA-06 **Identity copy now covers the whole site (calculators + generators):**
+  - home title is now "KKC Tools – Free Construction Calculators & Online Tools" (brand added, absolute title);
+  - /tools/ H1 and copy;
+  - About fully rewritten: what the site is, how the calculators and the generator work, privacy, corrections;
+  - Contact, with no response-time promise;
+  - /guides/, which now links to the calculator guides;
+  - route titles and descriptions, and `SITE_TAGLINE`.
+
+  *(Evidence: out/index.html `<title>`; seo-audit passed)*
+- [x] SA-07 **Square footage page:**
+  - title and H1 lead with "Square Footage Calculator";
+  - the GLA rules section moved above the FAQ and is linked from the intro;
+  - the waste chips are now a `radiogroup` with `aria-checked` and `aria-label`;
+  - the tabs have `aria-controls`, and the panel has `role="tabpanel"`.
+- [x] SA-08 **Metadata.**
+  - The tons-to-cubic-yards title no longer has a double brand.
+  - 6 pages (compost, fence-stain, paver-base, paver-sand, stud, tons) moved to `buildMetadata()`. They now have an explicit robots meta, og:image and a twitter card.
+
+  *(Evidence: the seo-audit check "explicit meta robots" passes on every page)*
+- [x] SA-09 **Crawl files.**
+  - `llms.txt` is generated from `INDEXABLE_ROUTES` (`src/app/llms.txt/route.ts`). The dead topsoil, gravel and mulch links are gone and all 40 pages are listed.
+  - The sitemap has only loc + lastmod (40 URLs).
+  - robots.txt explicitly allows OAI-SearchBot, Claude-SearchBot, Claude-User and Applebot-Extended.
+
+  *(Evidence: `out/llms.txt`; `out/sitemap.xml` has 40 `<loc>`)*
+- [x] SA-10 **Security headers** in `public/_headers`:
+  - Content-Security-Policy is `'self'` only. Inline is allowed because the Next static export uses inline bootstrap scripts.
+  - HSTS now has `includeSubDomains`.
+
+  *(Evidence: no external script or style origins in `out/*.html`)*
+- [x] SA-11 **`scripts/seo-audit.mjs` now also checks:**
+  - @graph parsing;
+  - at most 1 FAQPage and exactly 1 Organization;
+  - exactly 1 BreadcrumbList (except home);
+  - no dangling @id;
+  - the required WebApplication fields;
+  - an explicit robots meta;
+  - og:image resolves to a file;
+  - no broken internal links.
+
+  *(Evidence: `npm run verify` 2026-11-14, all 6 steps passed, 263 tests)*
+- [ ] SA-12 **Deploy the current build to production.** The audit found /concrete-, /drywall- and /rebar-calculator/ returning 404 live, because the repo is ahead of the deploy. Owner action.
+- [ ] SA-13 **Netlify still injects `/.netlify/scripts/hud?variant=public`.** `netlify.toml` cannot turn it off. The owner must disable the Netlify Drawer / collaboration toolbar in the Netlify UI, then check with `curl -s https://www.kkctools.com/ | grep hud`.
+- [x] SA-14 **"How this calculator works" block on 20 calculator pages** (M5, plus LOW 7 "Last updated"):
+  - shared `src/components/seo/HowWeCalculate.tsx`, with content in `src/content/calculation-methods.ts`;
+  - shows the formula, default values and sources, the last-updated date from `routes.ts`, and a correction email/contact link;
+  - every formula and default matches the engine;
+  - only sources that were checked to exist on 2026-11-14 are linked (NIST SP 811, BIA Technical Note 10, NCMA CMU sizes, the QUIKRETE 1101 data sheet);
+  - typical trade values with no single public source are labelled that way, never given a made-up citation;
+  - concrete, drywall and rebar already had their own Sources sections.
+
+  *(Evidence: `npm run build` + `npm run seo:audit` 0 errors)*
+- [x] SA-15 **Brick calculator metric mode** (M6). There is a US / Metric toggle.
+  - New engine `src/lib/brick-metric-engine.ts` (10 tests) and UI `MetricBrickCalculator.tsx`.
+  - Presets: UK standard 215×102.5×65, UK imperial, Australian 230×110×76, German NF and DF.
+  - Inputs: 10 mm joints, half-brick or one-brick wall, m² openings, waste.
+  - Mortar is shown in m³ / litres; the bag count uses the bag-label yield.
+  - New page section "How Many Bricks Per m²?" with an engine-generated table. H1 and meta now mention metric.
+
+  *(Evidence: vitest 273 tests passed; UK standard = 59.26 per m² matches 1 ÷ (0.225 × 0.075))*
+- [x] SA-16 **Guides** (M8):
+  - all 3 guides now open with a direct answer;
+  - "masterclass / zero-fluff" wording removed;
+  - **factual fix:** they cited the USPTO "TESS" system, which was retired in 2023. They now link USPTO Trademark Search, the gov.uk trade mark search, TMview, the WIPO Global Brand Database and the Nice Classification (all links checked on 2026-11-14);
+  - an outdated registrar example was removed;
+  - new sections: common mistakes, a worked example, "what to do if your name is taken", and punk / indie / pop formulas.
+
+  *(Evidence: seo-audit word counts 1,686 / 1,826 / 1,888)*
+- [x] SA-17 **Genre pages rewritten in plain language** (M7) for metal, heavy-metal, rock, kpop, random and boy-band: intro, 4 sections and 5 FAQs each. FAQ answers match the real generator options. The real song title used as an example was replaced. *(Evidence: Flesch reading ease 63.5–72.5, measured on the built pages; the audit had 12.9–21.5. The seo-audit Jaccard check still passes; 618–743 words of prose per page)*
+- [x] SA-18 **H1 style made consistent** ("X Calculator: what it gives you") on compost, fence-stain, paint, paver-base, paver-sand, tile and stud. `updated` was bumped to 2026-11-14 on 33 tool, genre and guide routes whose content changed today.
+- [x] SA-19 **Mobile TBT (M1) re-measured with Lighthouse 13.6 (mobile, throttled).** `/band-name-generator/` gave TBT 109 ms and 108 ms on the local build, and 91 ms live; the score is 99–100. The audit's 980 ms single run did not reproduce, so no code change was needed. The biggest item is the shared React chunk `3794` (~300 ms boot-up), which is framework cost. *(Evidence: Lighthouse JSON runs, 2026-11-14)*
+- [ ] SA-20 **Not done (low priority or owner decision):**
+  - per-page OG images (a static export serves extension-less image routes as `text/plain`, so this needs a different build approach);
+  - an IndexNow key and ping (needs an owner-held key and a deploy hook);
+  - HSTS preload (owner decision, hard to undo);
+  - a free-text "describe your sound" field on the band generator (SXO idea).
+
 ### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
 - [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:
@@ -240,6 +359,8 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
 | `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
 | `src/config/site.ts` | `OWNER_EMAIL = 'contact@kkctools.com'` | Contact link mailto | Set to contact@kkctools.com |
 | `src/config/site.ts` | `OWNER_NAME = 'KKC Tools Team'` | About page owner identity | Set to KKC Tools Team |
+| `src/app/about/page.tsx` ("Who runs KKC Tools") | `TODO(owner)` | Real owner/author name, role, relevant background (SEO audit H4, E-E-A-T) | **Open** — do not invent |
+| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `sameAs` (real profile URLs) and `founder` (real person) | **Open** — do not invent |
 
 ---
 
@@ -250,6 +371,12 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
    - `pop band name generator`
    - *Status:* Blocked in Phase 4 (P4-11, P4-12) until owner provides SEMrush data.
 2. **Production Domain & Email**: Required before Phase 7 deployment.
+3. **SEO audit 2026-11-14 owner items:**
+   - deploy the current build (SA-12);
+   - disable the Netlify Drawer / HUD (SA-13);
+   - supply the owner identity and real profile URLs for About and the Organization schema;
+   - register the site in Google Search Console and Bing Webmaster Tools;
+   - decide on HSTS preload.
 
 ---
 

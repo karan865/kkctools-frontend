@@ -41,7 +41,7 @@ export const PAINT_FAQS: FaqItem[] = [
   },
   {
     q: 'Is this paint cost calculator accurate?',
-    a: 'This paint cost calculator uses verified manufacturer coverage benchmarks (350 to 380 sq ft per gallon for smooth drywall) and current national retail material pricing ($30 to $65 per gallon). While actual results can vary slightly depending on wall porosity, roller nap thickness, and painter application technique, the calculated quantities provide a dependable, contractor-grade buying estimate. Always check your specific paint can label and obtain 2 to 3 written local contractor quotes.',
+    a: 'This paint cost calculator uses a typical coverage figure of 350 to 380 sq ft per gallon for smooth drywall (the range most paint can labels print) and a typical retail price range of $30 to $65 per gallon, both of which you can edit. While actual results can vary slightly depending on wall porosity, roller nap thickness, and painter application technique, the calculated quantities provide a dependable, contractor-grade buying estimate. Always check your specific paint can label and obtain 2 to 3 written local contractor quotes.',
   },
 ];
 

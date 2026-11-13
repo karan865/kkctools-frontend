@@ -152,7 +152,7 @@ export const CONSTRUCTION_ESTIMATE_COPY = {
 
   excelSection: {
     heading: 'Construction Estimate Template for Excel and Spreadsheets',
-    p1: 'Millions of building contractors historically relied on a static construction estimate template excel file or a downloaded xls spreadsheet to balance project financials. While spreadsheets offer initial familiarity, they introduce severe operational vulnerabilities that compromise contracting efficiency.',
+    p1: 'Many contractors still build estimates in a static Excel or xls spreadsheet template. While spreadsheets offer initial familiarity, they introduce severe operational vulnerabilities that compromise contracting efficiency.',
     p2: 'Spreadsheets are vulnerable to broken formulas, accidental cell overwrites, duplicate file versions on shared work drives, and complex mobile formatting hurdles. When estimators enter formulas in jobsite trucks on tablet screens, a single misplaced comma or dropped sum range can quietly understate project costs by tens of thousands of dollars.',
     p3: 'Our free online construction estimate template solves these spreadsheet headaches while delivering identical calculation power. It eliminates formula breakage through dedicated client-side validation logic, renders cleanly on smartphone and tablet screens, automatically calculates sales tax and profit margins, and prints pristine, camera-ready PDF proposals directly without requiring expensive Microsoft Office subscriptions or desktop licenses.',
   },

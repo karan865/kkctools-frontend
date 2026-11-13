@@ -6,6 +6,8 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import { LAMINATE_FAQS, RELATED_LAMINATE_TOOLS } from '@/content/pages/laminate-calculator';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 // Title: 44 chars (with template | KKC Tools = 56 chars <= 60 chars)
 // Meta Description: 143 chars (within 155 limit)
@@ -51,7 +53,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -79,10 +81,7 @@ const jsonLd = [
 export default function LaminateFlooringCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
@@ -93,7 +92,7 @@ export default function LaminateFlooringCalculatorPage() {
             </li>
             <li className={styles.breadcrumbSeparator}>/</li>
             <li className={styles.breadcrumbItem}>
-              <Link href="/tools/">Calculators</Link>
+              <Link href="/tools/">Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator}>/</li>
             <li className={`${styles.breadcrumbItem} ${styles.breadcrumbItemActive}`} aria-current="page">
@@ -537,9 +536,11 @@ export default function LaminateFlooringCalculatorPage() {
           <div className={styles.methodologyCard}>
             <h3>How We Calculate: Accurate Flooring Computation</h3>
             <p>
-              Our calculation engine executes verified flooring computation algorithms using single-rounding floating-point guards. Unlike naive web calculators that double-round intermediate steps, our engine calculates net square footage, applies layout waste, and rounds to whole cartons using an epsilon guard (1e-9) to eliminate float distortion. All professional benchmarks are verified against 2026 US remodeling industry guides.
+              Our calculation engine uses the flooring formulas shown on this page using single-rounding floating-point guards. Unlike naive web calculators that double-round intermediate steps, our engine calculates net square footage, applies layout waste, and rounds to whole cartons using an epsilon guard (1e-9) to eliminate float distortion. All professional benchmarks are verified against 2026 US remodeling industry guides.
             </p>
           </div>
+
+          <HowWeCalculate slug="laminate-flooring-calculator" />
 
           {/* Section 12: FAQ */}
           <section className={styles.faqSection}>

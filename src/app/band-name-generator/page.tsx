@@ -126,7 +126,7 @@ export default function BandNameGeneratorPage() {
         <Container>
           <h2 style={{ marginTop: 0 }}>Curated Band Names You Might Like</h2>
           <p>
-            Looking for immediate inspiration? Here are twelve hand-picked band name ideas crafted by our editors across diverse sonic aesthetics:
+            Looking for immediate inspiration? Here are twelve band name ideas we picked from the generator’s output, across different sounds:
           </p>
           <div
             style={{

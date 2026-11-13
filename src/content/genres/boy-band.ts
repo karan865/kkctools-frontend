@@ -6,7 +6,7 @@ export const boyBandConfig: GenreConfig = {
   generatorGenre: 'boy-band',
   h1: 'Boy Band Name Generator',
   intro:
-    'Craft smooth, charismatic, and instantly marketable vocal group name ideas engineered for radio airplay, acoustic serenades, and multi-part vocal harmonies. Whether you are creating a modern R&B vocal quintet, a nostalgia-packed 90s pop boy band, or a soulful acoustic indie collective, generate titles that radiate charm, youth, and irresistible melodic appeal.',
+    'Find boy band and vocal group names that are easy to sing along to: short, friendly, upbeat and simple to spell. The generator mixes city streets, numbers, night skies and romantic words, so you get names that work for pop boy bands, R&B harmony groups and modern vocal acts.',
   curatedExamples: [
     'Midnight Avenue',
     'Golden Harbor',
@@ -23,54 +23,54 @@ export const boyBandConfig: GenreConfig = {
   ],
   sections: [
     {
-      title: 'The Psychology of Boy Band and Vocal Group Branding',
+      title: 'What a boy band name needs to do',
       paragraphs: [
-        'Vocal group and boy band nomenclature operates on warmth, intimate emotional connection, and effortless approachability. Unlike guitar-driven bands that project outsider rebellion or underground grit, successful vocal groups project camaraderie, magnetic charm, and relatable romantic nostalgia. The moniker must feel like an invitation into a close-knit circle of close friends sharing four-part harmonies.',
-        'Lexical fields centering on twilight hours, urban romance, coastal scenery, and heartfelt letters evoke a bittersweet romantic atmosphere. Terms like avenue, midnight, Sunday, skyline, and harbor conjure vivid cinematic tableaus of late-night car rides, sun-drenched road trips, and unspoken confessions that harmonize perfectly with heartfelt pop melodies.',
+        'A boy band name has to be friendly and easy. Fans will chant it at shows, write it on signs and type it into search bars, often while very excited. That means short words, simple spelling and a warm or upbeat feeling. The name should sound like a group of friends, not a heavy concept.',
+        'Romantic and night-time words work well, such as stars, summer, heart and city lights, along with simple collective words that show the group is a unit. The aim is a name that feels welcoming to new fans straight away.',
       ],
     },
     {
-      title: 'Numeric Harmonization and Street Address Styling',
+      title: 'Numbers, streets and places',
       paragraphs: [
-        'A celebrated trademark throughout vocal pop history is the integration of numbers and street address designations. Incorporating numeric words (such as Four, Five, or Seven) accomplishes double duty: it visually celebrates the structural member configuration while lending the group a punchy, athletic brevity that looks clean across apparel and merchandise.',
-        'Similarly, pairing an emotive time of day or gemstone adjective with a civic pathway—such as "Midnight Avenue" or "Velvet Boulevard"—roots the vocal group in a romantic, timeless urban geography. It gives fans an imaginary meeting place, creating a loyal subculture around the shared world of the group’s music.',
+        'Many vocal groups use a number or an address-style name, for example a number plus a word, or a street, avenue or block. Numbers can show how many members there are, and street names give the group a sense of coming from somewhere together.',
+        'If you use the member count, think ahead. Line-ups change, and a name with a number in it can become awkward if someone leaves or joins. A street or place name avoids that problem while keeping the same friendly feel.',
       ],
     },
     {
-      title: 'Cross-Generation Appeal and Fandom Identity',
+      title: 'Appealing to fans of all ages',
       paragraphs: [
-        'A superior boy band moniker appeals simultaneously to energetic teen audiences and mature pop consumers. Striking this delicate tonal balance requires avoiding gimmicky puns or childish diminutives that age poorly as group members mature into sophisticated singer-songwriters and solo performers.',
-        'Consider also how your prospective name naturally breeds fan nicknames and social media hashtags. Clean two-word phrases or evocative single words allow enthusiastic fanbases to coin playful, affectionate community banners that organically fuel viral online campaigns, live concert signages, and streaming listener parties.',
+        'Pop groups often have fans across a wide age range, and parents often buy the tickets. A name that is positive and clean is easier to share, play on the radio and print on merch for younger fans. Avoid words that only work as an inside joke.',
+        'Think about the fandom name as well. Groups with a simple, positive name usually find it easy to create a matching nickname for their fans, which helps the community feel like part of the story.',
       ],
     },
     {
-      title: 'Verifying Global Appeal and Streaming Distinction',
+      title: 'Make sure you stand out online',
       paragraphs: [
-        'Because pop music is an inherently international commercial medium, your moniker must travel smoothly across multiple languages and cultural territories without awkward phonetic obstacles or unintended comedic double-meanings. Simple vowel harmonies and universally understood words like "Dreamer", "Harbor", or "Radio" transcend regional borders effortlessly.',
-        'Before committing your vocal ensemble to a permanent moniker, verify that major social media handles across Instagram, TikTok, and YouTube are accessible or adaptable with simple prefixes. Having a unified social handle across digital channels is indispensable for growing a dedicated digital fanbase.',
+        'Friendly words are popular, so many simple names are already taken by other groups, songs or brands. Search the exact name with the words band and group, and check Spotify, YouTube, TikTok and Instagram before you commit.',
+        'If your favourite is taken, try a small twist: a different number, a new street name, or a second word that makes it yours. Then grab the same handle on every platform so fans can find you in one search.',
       ],
     },
   ],
   faq: [
     {
-      q: 'What makes an effective boy band name?',
-      a: 'Effective boy band names evoke emotional warmth, romantic nostalgia, and vocal harmony using terms tied to time, travel, street addresses, and shared heartfelt experiences.',
+      q: 'What makes a good boy band name?',
+      a: 'It is short, positive, easy to spell and easy to chant. It should sound like a group of friends and look good on posters, signs and social profiles.',
     },
     {
-      q: 'Should a boy band name include the number of members?',
-      a: 'While numeric references (like Four, Five, or One) are classic and create memorable branding, keep in mind that lineup changes over time can make member-specific numbers awkward later.',
+      q: 'Should we put the number of members in our name?',
+      a: 'Only if you are confident the line-up will stay the same. If members may change, a street, place or concept name is a safer choice.',
     },
     {
-      q: 'Can this generator create names for R&B vocal harmony groups?',
-      a: 'Yes. Our vocabulary incorporates smooth, soulful descriptors like velvet, midnight, harbor, and late that seamlessly match R&B and neo-soul vocal outfits.',
+      q: 'Does the generator work for R&B and vocal harmony groups?',
+      a: 'Yes. The boy band word list suits R&B, soul and harmony groups too. Try different styles until the mood matches your sound.',
     },
     {
-      q: 'How can our group test if our name appeals to pop listeners?',
-      a: 'Say the name aloud as part of a radio introduction or concert opener. If it sounds effortless and warm, and creates an immediate positive mental image, it will connect with pop fans.',
+      q: 'How can we test if our name will appeal to pop fans?',
+      a: 'Show your shortlist to people who listen to pop, ask which one they would remember tomorrow, and check that they can spell it after hearing it once.',
     },
     {
-      q: 'What is the best way to develop an official fandom nickname?',
-      a: 'Look for the core emotional noun or keyword in your moniker. Fans frequently adopt companion terminology, such as calling themselves "Dreamers" or "Avenue Walkers" based on the group title.',
+      q: 'How do we choose a name for our fans?',
+      a: 'Start from your group name or its main idea and find a short, positive word that fits it. Check that no other fandom already uses it.',
     },
   ],
   siblings: [

@@ -1,4 +1,4 @@
-import { SITE_NAME, SITE_URL } from '@/config/site';
+import { SITE_URL, ORG_ID } from '@/config/site';
 
 export interface WebApplicationSchemaOptions {
   name: string;
@@ -16,24 +16,15 @@ export function buildWebApplicationSchema({
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = `${SITE_URL}${cleanPath}`;
 
+  // Remaining shared fields (@id, operatingSystem, dateModified, …) are filled in by
+  // normalizeSchema() inside <JsonLd>, so every tool page gets the same template.
   return {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
     name,
     url: canonicalUrl,
     applicationCategory,
-    operatingSystem: 'All',
-    browserRequirements: 'Requires JavaScript. Requires HTML5.',
-    offers: {
-      '@type': 'Offer',
-      price: '0',
-      priceCurrency: 'USD',
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-    },
+    publisher: { '@id': ORG_ID },
     description,
   };
 }

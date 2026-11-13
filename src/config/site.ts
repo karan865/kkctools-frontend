@@ -7,7 +7,16 @@ export const SITE_URL = (
   process.env.NEXT_PUBLIC_SITE_URL || 'https://www.kkctools.com'
 ).replace(/\/+$/, '');
 
-export const SITE_TAGLINE = 'Free Online Generators & Creative Tools';
+export const SITE_TAGLINE = 'Free Construction Calculators & Online Tools';
+
+export const SITE_DESCRIPTION =
+  'Free construction and landscaping calculators (concrete, drywall, rebar, gravel, brick, paint and more) plus naming generators. Everything runs in your browser; nothing you type is sent anywhere.';
+
+// Stable schema.org node ids, shared by every page so the JSON-LD forms one connected graph.
+export const ORG_ID = `${SITE_URL}/#organization`;
+export const WEBSITE_ID = `${SITE_URL}/#website`;
+export const SITE_LOGO_URL = `${SITE_URL}/logo.png`;
+export const DEFAULT_OG_IMAGE_URL = `${SITE_URL}/opengraph-image.png`;
 
 export const OWNER_EMAIL = 'contact@kkctools.com';
 

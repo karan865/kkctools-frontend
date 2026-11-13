@@ -47,6 +47,7 @@ export default async function GenrePage({ params }: PageProps) {
   }
 
   const breadcrumbItems = [
+    { name: 'Tools', path: '/tools/' },
     { name: 'Band Name Generator', path: '/band-name-generator/' },
     { name: config.h1, path: `/band-name-generator/${config.slug}/` },
   ];

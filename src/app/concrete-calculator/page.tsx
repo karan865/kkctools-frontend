@@ -168,7 +168,7 @@ export default function ConcreteCalculatorPage() {
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
       <main id="main-content" className={styles.main}>
-        <Breadcrumbs items={[{ name: 'Calculators', path: '/tools/' }, { name: 'Concrete Calculator', path: route.path }]} />
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Concrete Calculator', path: route.path }]} />
 
         <header className={styles.header}>
           <h1 className={styles.h1}>Concrete Calculator: Volume in Cubic Yards, m³ &amp; Bags</h1>

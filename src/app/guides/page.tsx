@@ -8,6 +8,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { getAllGuides } from '@/lib/guides';
+import JsonLd from '@/components/seo/JsonLd';
+import { SITE_URL as LD_SITE_URL, WEBSITE_ID as LD_WEBSITE_ID, ORG_ID as LD_ORG_ID } from '@/config/site';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.guides.title,
@@ -22,15 +24,38 @@ export default function GuidesIndexPage() {
 
   return (
     <main id="main-content">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': `${LD_SITE_URL}/guides/#webpage`,
+          url: `${LD_SITE_URL}/guides/`,
+          name: ROUTES.guides.title,
+          description: ROUTES.guides.description,
+          inLanguage: 'en-US',
+          isPartOf: { '@id': LD_WEBSITE_ID },
+          breadcrumb: { '@id': `${LD_SITE_URL}/guides/#breadcrumb` },
+          
+        }}
+      />
       <Section variant="hero">
         <Container>
           <Breadcrumbs items={BREADCRUMBS} />
-          <h1 style={{ marginTop: 'var(--space-4)' }}>Band Naming & Music Branding Guides</h1>
+          <h1 style={{ marginTop: 'var(--space-4)' }}>Guides: Band Naming and Checking a Name</h1>
           <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)', maxWidth: '780px', lineHeight: 1.6 }}>
-            Welcome to our comprehensive library of practical, in-depth music branding resources. Choosing an enduring moniker for your musical project requires balancing sonic authenticity, phonetic rhythm, live audience recall, and international legal clearance.
+            Step-by-step guides for naming a band: how to brainstorm and test a name, what works in each genre, and how to
+            check that nobody else is already using it before you print merch or register a domain.
           </p>
           <p style={{ fontSize: '1rem', color: 'var(--ink-2)', maxWidth: '780px', marginTop: 'var(--space-2)', lineHeight: 1.6 }}>
-            Our editorial guides are crafted by independent musicians and digital strategists to help you navigate every stage of the branding journey—from brainstorming initial concept lists and analyzing genre-specific linguistic trends to verifying streaming platform exclusivity and conducting preliminary government trademark searches. Explore our published guides below.
+            Working on a building or landscaping project instead? Each calculator page has its own full guide with the formula,
+            worked examples and buying tips, for example the{' '}
+            <Link href="/concrete-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>concrete</Link>,{' '}
+            <Link href="/drywall-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>drywall</Link>,{' '}
+            <Link href="/rebar-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>rebar</Link>,{' '}
+            <Link href="/brick-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>brick</Link> and{' '}
+            <Link href="/square-footage-calculator/" style={{ color: 'var(--accent)', fontWeight: 600 }}>square footage</Link>{' '}
+            calculators. The full list is on the{' '}
+            <Link href="/tools/" style={{ color: 'var(--accent)', fontWeight: 600 }}>Tools page</Link>.
           </p>
         </Container>
       </Section>

@@ -1,12 +1,10 @@
+// Served as a real .png file so og:image / apple-touch-icon URLs resolve with an image content type.
 import { ImageResponse } from 'next/og';
 import { SITE_NAME, SITE_TAGLINE } from '@/config/site';
 
 export const dynamic = 'force-static';
-export const alt = `${SITE_NAME} - ${SITE_TAGLINE}`;
-export const size = { width: 1200, height: 630 };
-export const contentType = 'image/png';
 
-export default async function Image() {
+export async function GET() {
   return new ImageResponse(
     (
       <div
@@ -61,7 +59,8 @@ export default async function Image() {
       </div>
     ),
     {
-      ...size,
+      width: 1200,
+      height: 630,
     }
   );
 }

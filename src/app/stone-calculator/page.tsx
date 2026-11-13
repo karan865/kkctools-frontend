@@ -7,6 +7,8 @@ import { SITE_NAME, SITE_URL } from '@/config/site';
 import { STONE_FAQS, RELATED_STONE_TOOLS } from '@/content/pages/stone-calculator';
 import { STONE_MATERIALS, LAST_VERIFIED } from '@/lib/stone-constants';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Stone Calculator (Tons, Yards & Bags)',
@@ -50,7 +52,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -78,10 +80,7 @@ const jsonLd = [
 export default function StoneCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" className={styles.mainContainer}>
         {/* Breadcrumb Navigation */}
@@ -92,7 +91,7 @@ export default function StoneCalculatorPage() {
             </li>
             <li className={styles.breadcrumbSeparator} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" className={styles.breadcrumbLink}>Calculators</Link>
+              <Link href="/tools/" className={styles.breadcrumbLink}>Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator} aria-hidden="true">›</li>
             <li className={styles.breadcrumbCurrent} aria-current="page">Stone Calculator</li>
@@ -484,6 +483,8 @@ export default function StoneCalculatorPage() {
               </li>
             </ol>
           </section>
+
+          <HowWeCalculate slug="stone-calculator" />
 
           {/* Section 10: Frequently Asked Questions */}
           <section className={styles.sectionBlock}>

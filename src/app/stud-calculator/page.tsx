@@ -1,27 +1,20 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import StudCalculator from '@/components/tool/stud-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Stud Calculator: Wall Framing & Lumber Cost',
   description:
     'Free stud calculator for wall framing. Get the exact stud count for 16" or 24" OC spacing, corners, doors, windows, plates and lumber cost.',
-  alternates: {
-    canonical: `${SITE_URL}/stud-calculator/`,
-  },
-  openGraph: {
-    title: 'Stud Calculator: Wall Framing & Lumber Cost',
-    description:
-      'Free stud calculator for wall framing. Get the exact stud count for 16" or 24" OC spacing, corners, doors, windows, plates and lumber cost.',
-    url: `${SITE_URL}/stud-calculator/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/stud-calculator/',
+});
 
 const jsonLd = [
   {
@@ -58,7 +51,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -128,10 +121,7 @@ const jsonLd = [
 export default function StudCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
@@ -142,7 +132,7 @@ export default function StudCalculatorPage() {
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
+              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Stud Calculator</li>
@@ -152,7 +142,7 @@ export default function StudCalculatorPage() {
         {/* Page Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Stud Calculator: Free Wall Framing Lumber &amp; Cost Estimator
+            Stud Calculator: Wall Framing Studs, Plates &amp; Cost
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
             Built around common International Residential Code (IRC) framing practices, this tool estimates counts for standard 2x4 and 2x6 wall runs.
@@ -436,6 +426,8 @@ export default function StudCalculatorPage() {
               </li>
             </ol>
           </section>
+
+          <HowWeCalculate slug="stud-calculator" />
 
           {/* Section: FAQ */}
           <section style={{ marginBottom: '36px' }}>

@@ -9,8 +9,9 @@ import {
   MortarType,
   calculateBricks,
 } from '@/lib/brick-engine';
+import { MetricBrickCalculator } from './MetricBrickCalculator';
 
-export function BrickCalculator() {
+function UsBrickCalculator() {
   const presetSelectId = useId();
   const mortarJointId = useId();
   const mortarTypeId = useId();
@@ -762,6 +763,37 @@ Calculated at KKCTools.com`;
           </p>
         </div>
       </div>
+    </div>
+  );
+}
+
+type BrickUnits = 'us' | 'metric';
+
+export function BrickCalculator() {
+  const [units, setUnits] = useState<BrickUnits>('us');
+  return (
+    <div>
+      <div className={styles.quickPillsRow} role="radiogroup" aria-label="Units" style={{ marginBottom: 12 }}>
+        <button
+          type="button"
+          role="radio"
+          aria-checked={units === 'us'}
+          className={`${styles.quickPill} ${units === 'us' ? styles.quickPillActive : ''}`}
+          onClick={() => setUnits('us')}
+        >
+          US (feet &amp; inches)
+        </button>
+        <button
+          type="button"
+          role="radio"
+          aria-checked={units === 'metric'}
+          className={`${styles.quickPill} ${units === 'metric' ? styles.quickPillActive : ''}`}
+          onClick={() => setUnits('metric')}
+        >
+          Metric (m² &amp; mm) — UK, EU, AU
+        </button>
+      </div>
+      {units === 'us' ? <UsBrickCalculator /> : <MetricBrickCalculator />}
     </div>
   );
 }

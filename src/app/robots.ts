@@ -12,7 +12,17 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/404.html', '/404/'],
       },
       {
-        userAgent: ['GPTBot', 'ChatGPT-User', 'PerplexityBot', 'ClaudeBot', 'Google-Extended'],
+        userAgent: [
+          'GPTBot',
+          'ChatGPT-User',
+          'OAI-SearchBot',
+          'PerplexityBot',
+          'ClaudeBot',
+          'Claude-SearchBot',
+          'Claude-User',
+          'Google-Extended',
+          'Applebot-Extended',
+        ],
         allow: '/',
       },
     ],

@@ -10,9 +10,11 @@ import {
   RELATED_CONSTRUCTION_TOOLS,
 } from '@/content/pages/square-footage-calculator';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
-  title: 'Sqft Calculator – Square Footage Calculator',
+  title: 'Square Footage Calculator – Sq Ft of Rooms & Homes',
   description:
     'Free sqft calculator to quickly calculate square footage of any room or house. Supports multi-room layouts, odd shapes, waste %, and price per square foot.',
   path: '/square-footage-calculator/',
@@ -74,7 +76,7 @@ export default function SquareFootageCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -104,18 +106,9 @@ export default function SquareFootageCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={webAppSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
@@ -128,7 +121,7 @@ export default function SquareFootageCalculatorPage() {
               ›
             </li>
             <li className={styles.breadcrumbItem}>
-              <Link href="/tools/">Calculators</Link>
+              <Link href="/tools/">Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator} aria-hidden="true">
               ›
@@ -142,9 +135,9 @@ export default function SquareFootageCalculatorPage() {
         {/* Section 1: H1 + Intro + Calculator Card */}
         <header className={styles.hero}>
           <div className={styles.badge}>Area &amp; Surface Estimator</div>
-          <h1 className={styles.title}>Sqft Calculator – Free Square Footage Calculator</h1>
+          <h1 className={styles.title}>Square Footage Calculator (Sq Ft) for Rooms, Homes &amp; Odd Shapes</h1>
           <p className={styles.description}>
-            Use this fast, client-side <strong>sqft calculator</strong> to accurately determine the exact area of any room, home renovation, or landscaping surface. Our free <strong>square footage calculator</strong> supports single rooms, full multi-room home projects with closet cutouts, and odd geometric shapes with instant waste percentage and material cost estimates.
+            Use this fast, client-side <strong>sqft calculator</strong> to accurately determine the exact area of any room, home renovation, or landscaping surface. Our free <strong>square footage calculator</strong> supports single rooms, full multi-room home projects with closet cutouts, and odd geometric shapes with instant waste percentage and material cost estimates. Measuring a whole house for a listing? See the <a href="#gla-rules">GLA rules</a>.
           </p>
         </header>
 
@@ -535,34 +528,11 @@ export default function SquareFootageCalculatorPage() {
             </p>
           </section>
 
-          {/* Section 9: Related Calculators & Construction Tools */}
-          <section className={styles.relatedSection}>
-            <h2 className={styles.sectionHeading}>Related Calculators &amp; Construction Tools</h2>
-            <p className={styles.paragraph}>
-              Expand your estimating toolkit with our verified, live construction and material calculators:
-            </p>
-            <div className={styles.relatedGrid}>
-              {liveRelatedTools.map((tool, idx) => (
-                <Link key={idx} href={tool.href} className={styles.relatedCard}>
-                  <div className={styles.relatedCardTitle}>{tool.label}</div>
-                  <div className={styles.relatedCardDesc}>{tool.description}</div>
-                </Link>
-              ))}
-            </div>
-          </section>
+          <HowWeCalculate slug="square-footage-calculator" />
 
-          {/* Ad Slot 2: Mid-Content Ad Slot */}
-          <AdSlot slotId="sqft-calc-middle" />
-
-          {/* Section 10: Square Footage Calculator FAQ (Exact 8 questions) */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionHeading}>Square Footage Calculator FAQ</h2>
-            <Faq items={SQUARE_FOOTAGE_FAQS} />
-          </section>
-
-          {/* Section 11: Real Estate GLA Rules & Closing Wrap-Up */}
-          <section className={styles.section}>
-            <h2 className={styles.sectionHeading}>Real Estate Gross Living Area (GLA) Rules &amp; Final Thoughts</h2>
+          {/* Section 9: Real Estate GLA Rules (moved above related tools and FAQ) */}
+          <section className={styles.section} id="gla-rules">
+            <h2 className={styles.sectionHeading}>Measuring a Whole House: Gross Living Area (GLA) Rules</h2>
             <p className={styles.paragraph}>
               In United States residential real estate, house square footage is strictly defined by the American National Standards Institute (ANSI Z765) standard for Gross Living Area (GLA). Licensed appraisers and Multiple Listing Services (MLS) adhere to strict criteria when calculating official home square footage:
             </p>
@@ -584,6 +554,31 @@ export default function SquareFootageCalculatorPage() {
               Whether you are preparing a property listing, calculating vinyl plank flooring for three bedrooms, or measuring an irregular patio, having an accurate <strong>sqft calculator</strong> eliminates guesswork, prevents expensive contractor change orders, and saves hours of manual math. Bookmark this page for all your future home renovation and construction estimating needs.
             </p>
           </section>
+          {/* Section 9: Related Calculators & Construction Tools */}
+          <section className={styles.relatedSection}>
+            <h2 className={styles.sectionHeading}>Related Calculators &amp; Construction Tools</h2>
+            <p className={styles.paragraph}>
+              Expand your estimating toolkit with our other construction and material calculators:
+            </p>
+            <div className={styles.relatedGrid}>
+              {liveRelatedTools.map((tool, idx) => (
+                <Link key={idx} href={tool.href} className={styles.relatedCard}>
+                  <div className={styles.relatedCardTitle}>{tool.label}</div>
+                  <div className={styles.relatedCardDesc}>{tool.description}</div>
+                </Link>
+              ))}
+            </div>
+          </section>
+
+          {/* Ad Slot 2: Mid-Content Ad Slot */}
+          <AdSlot slotId="sqft-calc-middle" />
+
+          {/* Section 10: Square Footage Calculator FAQ (Exact 8 questions) */}
+          <section className={styles.section}>
+            <h2 className={styles.sectionHeading}>Square Footage Calculator FAQ</h2>
+            <Faq items={SQUARE_FOOTAGE_FAQS} title="" withSchema={false} />
+          </section>
+
         </div>
       </main>
     </>

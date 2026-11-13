@@ -13,6 +13,7 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
 import styles from './page.module.css';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.asphaltCalculator.title,
@@ -61,6 +62,12 @@ export default function AsphaltCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
+        name: 'Tools',
+        item: `${SITE_URL}/tools/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: 'Asphalt Calculator',
         item: canonicalUrl,
       },
@@ -98,7 +105,7 @@ export default function AsphaltCalculatorPage() {
           <Breadcrumbs
             withSchema={false}
             items={[
-              { name: 'Home', path: '/' },
+              { name: 'Tools', path: '/tools/' },
               { name: 'Asphalt Calculator', path: '/asphalt-calculator/' },
             ]}
           />
@@ -434,6 +441,8 @@ export default function AsphaltCalculatorPage() {
                 tonnage.
               </li>
             </ul>
+
+            <HowWeCalculate slug="asphalt-calculator" />
 
             {/* Section 10: Frequently Asked Questions (10 FAQs) */}
             <Faq items={copy.faqs} title="Frequently Asked Questions" withSchema={false} />

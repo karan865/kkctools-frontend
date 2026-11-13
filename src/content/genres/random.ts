@@ -6,7 +6,7 @@ export const randomConfig: GenreConfig = {
   generatorGenre: 'any',
   h1: 'Random Band Name Generator',
   intro:
-    'Need completely uninhibited, genre-defying musical inspiration? Our random band name generator shuffles across every stylistic pool, vocabulary tier, and grammatical template simultaneously. Break free from creative ruts and discover surreal, witty, and boundary-pushing moniker combinations in a single click.',
+    'Not sure what genre you are? The random band name generator mixes words from every genre list at once, so you get surprising pairings you would never think of on your own. It is a fast way to break a creative block, find a name for a side project, or spark a better idea.',
   curatedExamples: [
     'Velvet Blizzard',
     'Neon Orchard',
@@ -23,54 +23,54 @@ export const randomConfig: GenreConfig = {
   ],
   sections: [
     {
-      title: 'The Creative Power of Unconstrained Randomness',
+      title: 'Why random names help',
       paragraphs: [
-        'Creative breakthroughs often arrive when unrelated concepts collide unexpectedly. In music, confining your brainstorming sessions strictly within traditional genre boundaries can lead to tired clichés—every rock band considers the same five gritty nouns, while every metal band circles the same subterranean crypts. Unconstrained algorithmic randomization disrupts these habitual patterns, introducing fresh serendipity to the brainstorming table.',
-        'When an algorithmic engine randomly juxtaposes an acoustic, pastoral adjective with a high-voltage mechanical noun—such as "Whispering Diesel" or "Neon Orchard"—it triggers instantaneous narrative curiosity. Listeners immediately wonder what kind of sonic world such an eclectic ensemble inhabits, transforming a quirky juxtaposition into a compelling artistic hook.',
+        'When a band is stuck, it is usually because everyone keeps suggesting the same kind of name. A random generator breaks that habit. By pulling one word from the rock list and another from the K-pop or metal list, it creates pairs that feel fresh precisely because nobody would put them together on purpose.',
+        'Not every result will be good, and that is fine. The goal is volume. Generate twenty names, read them out loud, and you will usually find one or two that make the band laugh, react or argue. That reaction is a sign the name has some energy.',
       ],
     },
     {
-      title: 'Eclectic Fusion for Genre-Bending Ensembles',
+      title: 'Good for bands that mix styles',
       paragraphs: [
-        'Modern independent music rarely stays confined to neat marketing categories. Today’s most innovative bands freely blend shoegaze textures, bedroom pop lyricism, post-hardcore riffs, and electronic ambient soundscapes. An overly conventional or rigid genre name can pigeonhole an eclectic band, frustrating listeners when your sound evolves across successive records.',
-        'A randomized moniker offers unparalleled conceptual elasticity. Because it does not explicitly declare allegiance to one strict musical doctrine, it provides your project with the creative freedom to pivot from dreamy acoustic ballads on your first EP to thunderous electronic anthems on your sophomore release without necessitating a confusing total rebrand.',
+        'If your music sits between genres, a name from one genre\'s list can feel wrong. A dream pop band with heavy riffs, or an electronic act with a punk attitude, does not fit neatly anywhere. Random pairings like "Neon Orchard" or "Paper Titan" do not lock you into one sound.',
+        'Mixed names also leave room to change. If your second album sounds different from your first, a name that was never tied to one genre ages better.',
       ],
     },
     {
-      title: 'Filtering the Absurd: Finding the Gold in Randomness',
+      title: 'How to find the good ones',
       paragraphs: [
-        'True randomness inevitably yields a spectrum ranging from the wildly absurd to the poetic and profound. The art of utilizing a random generator lies in adopting an editor’s mindset rather than expecting every single roll of the dice to deliver an instant masterpiece.',
-        'Use our batch generation feature to generate batches of 10 or 20 names in rapid succession. Save intriguing fragments into your local browser favorites panel. Frequently, the most unforgettable band titles are formed by hybridizing two disparate generated fragments—taking the unexpected adjective from one result and fusing it with a striking noun from another.',
+        'Treat the results as raw material, not final answers. Save anything with one great word in it, even if the full name is not right. Often the best name comes from taking a word from one result and a word from another.',
+        'Then run your favourites through three quick tests: can you say it clearly, can a friend spell it after hearing it once, and does it still feel right after a day? Names that survive all three are worth checking properly.',
       ],
     },
     {
-      title: 'Establishing Trademark Viability for Eclectic Monikers',
+      title: 'Unusual names are easier to own',
       paragraphs: [
-        'One of the greatest competitive advantages of generating unconventional, randomized band names is improved trademark and digital availability. Standard single-word nouns and predictable genre pairings have often been claimed by bands dating back to the 1970s. In contrast, surreal and idiosyncratic word pairings are far more likely to have unclaimed streaming profiles and clean domain availability.',
-        'Once you uncover a random combination that sparks excitement, use our one-click verification shortcuts to search Spotify, Bandcamp, YouTube, and global search engines. Ensure your surreal discovery is free from active trademark filings so your group can claim unified digital real estate right from the start.',
+        'One real advantage of random names is that odd combinations are less likely to be taken. A strange pair of words is more likely to be free on streaming services, social media and domains than a common phrase.',
+        'That does not mean you can skip checking. Search the exact name, check the main platforms, and look at trademark registers for music before you print anything. Our guide on how to check if a band name is taken walks through it.',
       ],
     },
   ],
   faq: [
     {
       q: 'How does the random band name generator work?',
-      a: 'It samples vocabulary from all nine musical genre pools (rock, metal, heavy metal, pop, K-pop, boy band, indie, and punk) across weighted structural formulas, producing unique combinations without stylistic constraints.',
+      a: 'It picks words from all of our genre word lists at once and combines them with naming patterns, then removes offensive words and names of well-known bands. Everything runs in your browser.',
     },
     {
-      q: 'Why should I choose a random name over a genre-specific name?',
-      a: 'Random names offer superior creative versatility and help multi-genre, progressive, or experimental bands avoid being boxed into a narrow subculture before their musical sound fully matures.',
+      q: 'Why choose a random name instead of a genre-specific one?',
+      a: 'Random names are good when your music mixes styles, when you want something unusual, or when you are stuck and need fresh ideas. Genre names are better when you want fans of one scene to recognise you.',
     },
     {
-      q: 'Can I filter the random generation by starting letter or required words?',
-      a: 'Yes. You can lock in a specific starting letter or inject a required word while still enjoying cross-genre vocabulary randomness for the remaining phrase slots.',
+      q: 'Can I control the random results at all?',
+      a: 'Yes. You can choose a naming style, the number of names, a starting letter and a word that every name must include, which is a quick way to steer the results.',
     },
     {
-      q: 'Are random names easier to trademark and register as digital domains?',
-      a: 'Generally, yes. Unusual juxtapositions of words (like "Neon Orchard" or "Paper Titan") are substantially less likely to conflict with existing musical acts or registered corporate trademarks.',
+      q: 'Are random names easier to register and find online?',
+      a: 'Often, yes. Unusual word pairs are less likely to be taken as handles, domains or trademarks. You still need to check, because nothing is guaranteed to be free.',
     },
     {
-      q: 'What should I do if a generated combination feels slightly too bizarre?',
-      a: 'Treat random results as creative jump-starts. You can save promising candidates to your local panel, tweak a single syllable, or swap one word out for something personal to your musical story.',
+      q: 'What if a result is almost right but a bit too strange?',
+      a: 'Keep the word you like and swap the other one, either by generating again or by choosing a word yourself. Many final band names start as a half-right random result.',
     },
   ],
   siblings: [

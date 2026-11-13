@@ -6,7 +6,7 @@ export const metalConfig: GenreConfig = {
   generatorGenre: 'metal',
   h1: 'Metal Band Name Generator',
   intro:
-    'Summon brutal, atmospheric, and unyielding moniker ideas for death metal, black metal, doom, and thrash projects. Our generator pairs menacing adjectives with cataclysmic nouns to forge titles that echo with subterranean intensity, ancient dread, and uncompromising sonic weight.',
+    'Get dark, heavy name ideas for death metal, black metal, doom and thrash bands. The generator pairs grim adjectives with words for ruins, rituals and decay, so every result sounds like it belongs on a black T-shirt. Pick a style, generate a batch, and save the ones your band argues about.',
   curatedExamples: [
     'Crimson Throne',
     'Abyssal Altar',
@@ -23,54 +23,54 @@ export const metalConfig: GenreConfig = {
   ],
   sections: [
     {
-      title: 'Decoding the Subterranean Aesthetics of Metal Monikers',
+      title: 'What makes a name sound like metal',
       paragraphs: [
-        'Extreme metal nomenclature is an exercise in atmospheric world-building. Across death metal, black metal, funeral doom, and blackened thrash, a band title establishes an immediate visceral threshold. It signals the acoustic brutality of down-tuned guitars, blast-beat percussion, guttural vocalizations, and lyrical explorations of cosmic insignificance, mortal frailty, or esoteric folklore.',
-        'Potent extreme metal monikers frequently exploit anatomical, subterranean, and apocalyptic lexical fields. Words like sepulcher, obsidian, carrion, wraith, and inferno bypass conventional melody in favor of ancient, immovable weight. The aesthetic goal is not radio accessibility but subcultural resonance—crafting a title that commands reverence on underground tour flyers and festival billing.',
+        'Extreme metal names set the mood before anyone hears a note. A good one tells people to expect down-tuned guitars, fast drums and harsh vocals. Most of them pull from the same few places: old buildings like tombs and altars, the body and decay, war, and very old myths.',
+        'That is why words like sepulcher, carrion, wraith and obsidian show up so often. They are heavy, a little old-fashioned, and they sound serious. A metal name is not trying to get on the radio. It is trying to look right on an underground show flyer next to five other bands.',
       ],
     },
     {
-      title: 'Grammatical Structures: The Art of the Ominous Phrase',
+      title: 'Patterns that work',
       paragraphs: [
-        'While classic rock leans heavily on definitive articles and garage-band slang, extreme metal thrives on evocative genitive formulations ("Noun of Noun") and devastating adjective-noun pairings. Titles such as "Dominion of Carrion" or "Abyssal Sepulcher" carry an ecclesiastical solemnity that evokes desolate cathedrals, forgotten crypts, and decaying civilizations.',
-        'Single-word titles also deliver exceptional punch when drawn from medical antiquity, geological catastrophes, or occult mythology. However, single words in the metal ecosystem carry high trademark saturation, making composite two-word phrases or prepositional constructions much more practical for emerging underground ensembles seeking unclaimed digital territory.',
+        'Two patterns do most of the work. The first is a dark adjective plus a heavy noun, such as "Abyssal Altar" or "Ashen Ritual". The second is "Noun of Noun", such as "Tomb of Torment". The second pattern sounds more formal, almost like the title of an old book, which suits doom and symphonic bands.',
+        'Single words can hit hard too, but they are risky. Most short, dark nouns have been used by some band in the last forty years, so a one-word name is much harder to find in search and much more likely to clash. Two words, or a short phrase, give you far more room.',
       ],
     },
     {
-      title: 'The Visual Geometry: Designing for the Underground Logo',
+      title: 'Think about the logo early',
       paragraphs: [
-        'In no other musical subculture is the band moniker so inextricably bound to typographical graphic design. An extreme metal moniker must translate seamlessly into the ornate symmetry of gothic blackletter, the sprawling barbed-wire branches of black metal script, or the jagged, chiseled architectural lettering of classic death metal.',
-        'When evaluating your generated results, visualize the orthographic silhouette. Symmetrical letter counts, sharp terminal consonants (such as K, T, X, and Z), and balanced ascenders or descenders provide graphic illustrators with structural anchor points when illustrating the band insignia for vinyl backdrops, embroidered patches, and screen-printed tour apparel.',
+        'Metal is the one genre where the logo matters as much as the name. Death metal logos are often sharp and spiky, black metal logos can be almost unreadable branches, and doom logos tend to be heavy blocks. Before you commit, sketch the name, or ask a friend who draws, and see if it can carry that kind of lettering.',
+        'Names with a good mix of tall and short letters, and a few hard letters such as K, T, X or Z, are easier to turn into a symmetrical logo. Very long names can work, but they shrink on patches and shirts, so test them at small sizes too.',
       ],
     },
     {
-      title: 'Sub-Genre Nuances and Atmosphere Calibration',
+      title: 'Match the name to your sub-genre',
       paragraphs: [
-        'Calibrating your title to your specific extreme metal lineage prevents tonal incongruity. While death metal demands visceral, anatomical grit and clinical precision, black metal demands glacial solitude, archaic nocturnal wilderness, and esoteric philosophy. Doom metal conversely calls for geological slowness, crushing mourning, and monolithic sorrow.',
-        'Avoid comical shock tropes that compromise artistic longevity. The underground community rewards genuine atmospheric immersion, artistic integrity, and poetic darkness over disposable shock value. Choose a title that withstands decades of live performance, album releases, and musical maturation.',
+        'Fans can tell the sub-genres apart, so a name that fits your exact style earns trust. Death metal names tend to be gory and physical. Black metal names lean on cold, winter, forests and night. Doom names feel slow and huge, built on stone, grief and ancient time. Thrash names are often more aggressive and modern.',
+        'Try to avoid jokes and pure shock words unless your band is deliberately funny. The scene tends to respect bands that take the atmosphere seriously, and a shock name can feel tired after the first album. Ask yourselves whether you would still be happy to say the name in ten years.',
       ],
     },
   ],
   faq: [
     {
-      q: 'What distinguishes extreme metal names from traditional heavy metal names?',
-      a: 'Extreme metal titles focus on subterranean, anatomical, occult, and apocalyptic themes with solemn gravitas, whereas traditional heavy metal leans on fantasy mythology, high-voltage anthems, martial valor, and 80s arena theatricality.',
+      q: 'How are extreme metal names different from classic heavy metal names?',
+      a: 'Extreme metal names lean on death, decay, the occult and ruins, and they sound grim and serious. Classic heavy metal names are usually more upbeat and heroic: steel, fire, dragons, thunder and battle.',
     },
     {
-      q: 'How can I ensure my metal band name works well with extreme logo typography?',
-      a: 'Look for names with balanced word lengths and symmetrical consonants. Titles with distinct capital anchors and balanced letter shapes make it easier for underground illustrators to craft legible or blackened symmetrical logos.',
+      q: 'How do I know if a metal name will work as a logo?',
+      a: 'Sketch it. Names with balanced word lengths and a few strong, sharp letters are easier to draw as a symmetrical or spiky logo. Also check that it is still readable when printed small on a patch.',
     },
     {
-      q: 'Does this generator filter out inappropriate or hateful terms?',
-      a: 'Yes. Our generator strictly enforces comprehensive offensive filters and sanitization routines to ensure names convey authentic atmospheric darkness without crossing into prohibited or hateful terminology.',
+      q: 'Does the generator filter out offensive or hateful words?',
+      a: 'Yes. Every result is checked against a list of offensive terms, so you get dark names without slurs or hate speech. Results are also checked against a list of well-known bands.',
     },
     {
-      q: 'Are single-word metal names or multi-word phrases better for digital discovery?',
-      a: 'Two-word compound names and "Noun of Noun" phrases offer far superior search engine discovery and streaming distinctiveness, as most single-word metal nouns have been claimed by legacy bands over the past four decades.',
+      q: 'Is a one-word or a two-word metal name better?',
+      a: 'Two words, or a "Noun of Noun" phrase, are usually better. Most single dark nouns are already used by other bands, which makes them hard to search for and more likely to cause a clash.',
     },
     {
-      q: 'How should a doom or sludge metal group tweak these generated suggestions?',
-      a: 'Doom and sludge ensembles often favor monolithic, glacial nouns paired with earthen or mourning adjectives. Look for generated entries referencing stone, sorrow, cosmic voids, and ancient time.',
+      q: 'What should a doom or sludge band look for in the results?',
+      a: 'Look for slow, heavy words such as stone, monolith, grief, void and ancient. Pair one of those with a mournful adjective and you will usually get something that fits.',
     },
   ],
   siblings: [

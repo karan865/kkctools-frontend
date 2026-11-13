@@ -1,27 +1,21 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import PaverSandCalculator from '@/components/tool/paver-sand-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Paver Sand Calculator (Bedding & Polymeric)',
   description:
     'Free paver sand calculator to calculate bedding sand and polymeric sand needed for patios and walkways. Estimate tons, cubic yards, and 50 lb bags.',
-  alternates: {
-    canonical: `${SITE_URL}/paver-sand-calculator/`,
-  },
-  openGraph: {
-    title: 'Paver Sand Calculator (Bedding & Polymeric)',
-    description:
-      'Estimate ASTM C33 coarse concrete bedding sand (cubic yards & tons) and 50 lb polymeric joint locking sand bags with compaction allowances.',
-    url: `${SITE_URL}/paver-sand-calculator/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/paver-sand-calculator/',
+});
 
 const jsonLd = [
   {
@@ -122,31 +116,15 @@ export default function PaverSandCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
-            <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Paver Sand Calculator</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Paver Sand Calculator', path: '/paver-sand-calculator/' }]} />
 
         {/* Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Free Paver Sand Calculator: Estimate Bedding Sand &amp; Polymeric Joint Sand
+            Paver Sand Calculator: Bedding &amp; Polymeric Sand
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
             Accurately estimate how much sand you need for your patio, walkway, or driveway using our free <strong>paver sand calculator</strong> (also functioning as a dedicated <strong>polymeric sand calculator</strong>, <strong>sand for pavers calculator</strong>, and <strong>paver joint sand calculator</strong>). Instantly compute bedding layer volume in cubic yards and tons alongside 50 lb bags of joint locking sand.
@@ -413,6 +391,7 @@ export default function PaverSandCalculatorPage() {
             </li>
           </ol>
 
+          <HowWeCalculate slug="paver-sand-calculator" />
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             Frequently Asked Questions
           </h2>

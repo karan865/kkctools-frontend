@@ -4,6 +4,51 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [SEO audit fixes, part 2: content] — 2026-11-14
+- **"How This Calculator Works" block on 20 calculators.** It shows the formula, defaults, sources (verified links only), the last-updated date and a correction link.
+- **Brick calculator US / Metric toggle.**
+  - Metric engine with UK, Australian and German brick sizes (10 tests).
+  - New "How Many Bricks Per m²?" section.
+- **Guides.**
+  - All 3 open with a direct answer.
+  - Retired USPTO "TESS" references replaced with current, checked registry links.
+  - New sections added; each guide is now 1,686–1,888 words.
+- **Genre pages rewritten in plain language.** Flesch score went from 12.9–21.5 to 63.5–72.5.
+- **H1 style made consistent** on 7 calculators.
+- **Mobile TBT re-measured** at 91–109 ms, so no change was needed.
+- `npm run verify` passed: 273 tests, 0 SEO audit errors.
+
+### [SEO audit fixes] — 2026-11-14
+- **Schema:**
+  - one connected JSON-LD graph, with Organization + WebSite `@id`s in the layout and a shared normalizer (`normalizeSchema.ts`) for all page JSON-LD;
+  - WebPage, AboutPage, ContactPage and CollectionPage nodes;
+  - duplicate FAQPage removed on 7 pages;
+  - breadcrumbs added on 4 pages and the parent label unified to "Tools".
+- **Broken items fixed:**
+  - og:image returned 404 on every page; it is now a real `/opengraph-image.png`;
+  - `/apple-touch-icon.png` returned 404;
+  - the footer Terms link returned 404 on every page;
+  - 3 dead homepage guide links;
+  - "Home › Home ›" breadcrumbs.
+- **Trust:**
+  - unverifiable claims removed or softened;
+  - About rewritten with counts taken from the code;
+  - Contact, /tools/, /guides/ and the home title rewritten for the whole site.
+- **Crawl and headers:**
+  - `llms.txt` is generated from the route list;
+  - the sitemap has loc + lastmod only;
+  - robots.txt allows AI search bots explicitly;
+  - CSP and HSTS `includeSubDomains` in `_headers`.
+- **`seo-audit.mjs` now fails on:**
+  - a duplicate FAQPage or Organization;
+  - a missing breadcrumb;
+  - a dangling @id;
+  - an incomplete WebApplication;
+  - a missing robots meta;
+  - a missing og:image file;
+  - a broken internal link.
+- `npm run verify` passed: 263 tests, 0 SEO audit errors.
+
 ### [Tool #22 — Rebar / Reinforcement Steel Calculator] — 2026-11-14
 - New page `/rebar-calculator/` with:
   - engine `src/lib/rebar-engine.ts` (19 tests);

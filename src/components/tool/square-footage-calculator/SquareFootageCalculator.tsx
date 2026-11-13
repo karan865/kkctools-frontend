@@ -250,6 +250,8 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
           <button
             type="button"
             role="tab"
+            id="sqft-tab-single"
+            aria-controls="sqft-panel"
             aria-selected={activeTab === 'single'}
             className={`${styles.tabButton} ${activeTab === 'single' ? styles.tabActive : ''}`}
             onClick={() => setActiveTab('single')}
@@ -259,6 +261,8 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
           <button
             type="button"
             role="tab"
+            id="sqft-tab-multiple"
+            aria-controls="sqft-panel"
             aria-selected={activeTab === 'multiple'}
             className={`${styles.tabButton} ${activeTab === 'multiple' ? styles.tabActive : ''}`}
             onClick={() => setActiveTab('multiple')}
@@ -268,6 +272,8 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
           <button
             type="button"
             role="tab"
+            id="sqft-tab-shapes"
+            aria-controls="sqft-panel"
             aria-selected={activeTab === 'shapes'}
             className={`${styles.tabButton} ${activeTab === 'shapes' ? styles.tabActive : ''}`}
             onClick={() => setActiveTab('shapes')}
@@ -278,7 +284,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
 
         <div className={styles.layoutGrid}>
           {/* Left Inputs Panel */}
-          <div className={styles.inputsPanel}>
+          <div className={styles.inputsPanel} id="sqft-panel" role="tabpanel" aria-labelledby={`sqft-tab-${activeTab}`}>
             {/* Single Room Tab */}
             {activeTab === 'single' && (
               <div className={styles.roomCard}>
@@ -672,12 +678,15 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
             {/* Waste Preset Chips + Custom */}
             <div className={styles.globalControls}>
               <div className={styles.fieldGroup}>
-                <label className={styles.label}>Waste Allowance</label>
-                <div className={styles.chipGroup}>
+                <span className={styles.label} id="sqft-waste-label">Waste Allowance</span>
+                <div className={styles.chipGroup} role="radiogroup" aria-labelledby="sqft-waste-label">
                   {[0, 5, 10, 15].map((pct) => (
                     <button
                       key={pct}
                       type="button"
+                      role="radio"
+                      aria-checked={wastePercentage === pct}
+                      aria-label={`${pct}% waste`}
                       className={`${styles.chip} ${wastePercentage === pct ? styles.chipSelected : ''}`}
                       onClick={() => setWastePercentage(pct)}
                     >
@@ -686,6 +695,9 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
                   ))}
                   <button
                     type="button"
+                    role="radio"
+                    aria-checked={wastePercentage === -1}
+                    aria-label="Custom waste percentage"
                     className={`${styles.chip} ${wastePercentage === -1 ? styles.chipSelected : ''}`}
                     onClick={() => setWastePercentage(-1)}
                   >

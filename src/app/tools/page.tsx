@@ -7,7 +7,8 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import ToolsDirectory from '@/components/tools/ToolsDirectory';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
-import { OWNER_EMAIL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import { OWNER_EMAIL, SITE_URL, WEBSITE_ID } from '@/config/site';
 import styles from '../page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -16,11 +17,24 @@ export const metadata: Metadata = buildMetadata({
   path: '/tools/',
 });
 
-const BREADCRUMBS = [{ name: 'All Tools', path: '/tools/' }];
+const BREADCRUMBS = [{ name: 'Tools', path: '/tools/' }];
 
 export default function ToolsIndexPage() {
   return (
     <main id="main-content">
+      <JsonLd
+        data={{
+          '@context': 'https://schema.org',
+          '@type': 'CollectionPage',
+          '@id': `${SITE_URL}/tools/#webpage`,
+          url: `${SITE_URL}/tools/`,
+          name: ROUTES.tools.title,
+          description: ROUTES.tools.description,
+          inLanguage: 'en-US',
+          isPartOf: { '@id': WEBSITE_ID },
+          breadcrumb: { '@id': `${SITE_URL}/tools/#breadcrumb` },
+        }}
+      />
       <Section variant="hero">
         <Container>
           <Breadcrumbs items={BREADCRUMBS} />
@@ -28,13 +42,13 @@ export default function ToolsIndexPage() {
             <span className={styles.badgeDot}></span>
             <span>Free tools · KKC Tools</span>
           </div>
-          <h1 style={{ marginTop: 'var(--space-2)' }}>Practical tools for your website and everyday work.</h1>
+          <h1 style={{ marginTop: 'var(--space-2)' }}>All Free Tools: Construction Calculators, Estimates &amp; Name Generators</h1>
           <p style={{ fontSize: '1.25rem', color: 'var(--ink-2)', maxWidth: '780px', lineHeight: 1.6 }}>
-            Generate creative band names, calculate accurate construction estimates, or export formatted project documents. From KKC Tools. Nothing to install.
+            Construction and landscaping calculators for concrete, rebar, drywall, gravel, brick, paint, tile and more, a free construction estimate template, and a band name generator. Nothing to install.
           </p>
 
           <p style={{ fontSize: '1rem', color: 'var(--muted)', maxWidth: '780px', marginTop: 'var(--space-3)', lineHeight: 1.6 }}>
-            Every utility on our platform is engineered from the ground up to operate strictly inside your web browser. That means zero server-side processing delays, zero data collection on what you enter, and completely unrestricted access without paywalls, subscriptions, or login forms.
+            Every tool runs inside your browser, so nothing you enter is sent anywhere, and there are no accounts, paywalls or sign-up forms. Each calculator page explains the formula and the default values it uses.
           </p>
         </Container>
       </Section>
@@ -96,7 +110,7 @@ export default function ToolsIndexPage() {
             <Card style={{ background: 'var(--surface)', borderLeft: '4px solid var(--brand-orange)', padding: 'var(--space-6)' }}>
               <h3 style={{ marginTop: 0, fontSize: '1.25rem' }}>Need a specific browser tool?</h3>
               <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)', maxWidth: '640px', lineHeight: 1.6 }}>
-                If you have a calculation, naming convention, or text utility that you use regularly and want a clean, zero-ad browser version for, reach out to our team at{' '}
+                If there is a calculation you do often on the job and want a quick browser version of, tell us at{' '}
                 <a href={`mailto:${OWNER_EMAIL}?subject=Tool%20Request`} style={{ color: 'var(--accent)', fontWeight: 600 }}>
                   {OWNER_EMAIL}
                 </a>.

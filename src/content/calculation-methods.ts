@@ -1,0 +1,307 @@
+/**
+ * "How this calculator works" content for every calculator page (SEO audit 2026-11-14, M5).
+ *
+ * Rules:
+ * - Formulas and defaults must match the engine in src/lib/ (they are the same numbers the code uses).
+ * - Only link sources that were checked to exist (2026-11-14). Where a default is a typical trade value with
+ *   no single public source, say so plainly instead of inventing a citation.
+ */
+
+export interface MethodSource {
+  label: string;
+  url?: string;
+  note?: string;
+}
+
+export interface CalculationMethod {
+  formula: string[];
+  defaults: { label: string; value: string }[];
+  sources: MethodSource[];
+}
+
+const NIST: MethodSource = {
+  label: 'NIST Special Publication 811, Guide for the Use of the International System of Units',
+  url: 'https://www.nist.gov/pml/special-publication-811',
+  note: 'unit conversion factors (1 yd³ = 27 ft³, 1 ft = 0.3048 m, 1 lb = 0.45359237 kg)',
+};
+const TYPICAL_DENSITY: MethodSource = {
+  label: 'Typical loose (bulk) material weights used in the trade',
+  note: 'no single published standard; quarry and supplier figures vary by about 10–20%, so enter your supplier’s weight when you have it',
+};
+const QUIKRETE: MethodSource = {
+  label: 'QUIKRETE Concrete Mix (No. 1101) product data sheet',
+  url: 'https://www.quikrete.com/pdfs/data_sheet-concrete%20mix%201101.pdf',
+  note: 'bag yields: 40 lb = 0.30 ft³, 60 lb = 0.45 ft³, 80 lb = 0.60 ft³',
+};
+
+export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
+  'asphalt-calculator': {
+    formula: [
+      'Volume (ft³) = area (ft²) × thickness (in) ÷ 12',
+      'Tons = volume × density (lb/ft³) ÷ 2,000, then × (1 + waste %)',
+      'Cubic yards = volume ÷ 27',
+    ],
+    defaults: [
+      { label: 'Compacted hot-mix asphalt density', value: '145 lb/ft³ (editable; millings use a lower value)' },
+      { label: 'Waste', value: 'editable percentage' },
+    ],
+    sources: [NIST, { ...TYPICAL_DENSITY, label: 'Typical compacted hot-mix asphalt density (about 140–150 lb/ft³)' }],
+  },
+  'cubic-yard-calculator': {
+    formula: [
+      'Cubic feet = length × width × depth (all in feet); circles use π × r² × depth',
+      'Cubic yards = cubic feet ÷ 27',
+      'Weight = cubic yards × material density',
+    ],
+    defaults: [
+      { label: 'Material densities', value: 'typical loose weights per material, shown in the material list and editable' },
+      { label: 'Concrete bags', value: 'yields from the QUIKRETE data sheet' },
+    ],
+    sources: [NIST, QUIKRETE, TYPICAL_DENSITY],
+  },
+  'sand-calculator': {
+    formula: [
+      'Volume (yd³) = area × depth ÷ 27, then × (1 + waste %)',
+      'Tons = yd³ × density (lb/yd³) ÷ 2,000',
+      'Polymeric joint sand = joint length × joint width × joint depth',
+    ],
+    defaults: [
+      { label: 'Sand density', value: 'dry 2,600 · damp 2,900 · wet 3,200 lb/yd³ (custom allowed)' },
+      { label: 'Polymeric sand', value: '2,700 lb/yd³ (100 lb/ft³)' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'fill-dirt-calculator': {
+    formula: [
+      'Volume = area × depth (sloped areas use the average of the shallow and deep ends)',
+      'Cubic yards = cubic feet ÷ 27, then × (1 + settling %)',
+      'Tons = yd³ × density ÷ 2,000; truckloads = yd³ ÷ your truck capacity',
+    ],
+    defaults: [
+      { label: 'Fill dirt density', value: '2,700 lb/yd³' },
+      { label: 'Topsoil density', value: '2,200 lb/yd³ (custom allowed)' },
+      { label: 'Settling / extra', value: 'editable 0–50%' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'linear-foot-calculator': {
+    formula: [
+      'Linear feet = sum of all piece lengths (converted to feet) × quantity, then × (1 + waste %)',
+      'Square feet → linear feet: linear feet = square feet ÷ material width (in feet)',
+    ],
+    defaults: [{ label: 'Waste', value: 'editable percentage; price per linear foot optional' }],
+    sources: [NIST],
+  },
+  'rafter-calculator': {
+    formula: [
+      'Rise = run × pitch ÷ 12 (pitch in inches of rise per 12 inches of run); run = half the span for a gable roof',
+      'Rafter length = √(run² + rise²), plus the overhang measured along the slope',
+      'Roof angle = arctan(rise ÷ run); this is the plumb-cut angle',
+    ],
+    defaults: [
+      { label: 'Overhang', value: '0 in unless you enter one' },
+      { label: 'Stock lengths', value: 'the next standard lumber length that covers the rafter' },
+    ],
+    sources: [
+      { label: 'Right-triangle (Pythagorean) geometry', note: 'no material defaults are involved; always check member sizes and spans against your plans and local code' },
+    ],
+  },
+  'square-footage-calculator': {
+    formula: [
+      'Rectangle = length × width · triangle = ½ × base × height · circle = π × r²',
+      'Trapezoid = ½ × (base₁ + base₂) × height · L-shape = sum of its two rectangles',
+      'Total = added areas − subtracted areas, then × (1 + waste %)',
+    ],
+    defaults: [
+      { label: 'Metric conversion', value: '1 sq ft = 0.09290304 m² (exact)' },
+      { label: 'Waste', value: '0, 5, 10, 15% or custom' },
+    ],
+    sources: [
+      NIST,
+      { label: 'ANSI Z765 (Square Footage — Method for Calculating)', note: 'the US standard for measuring house living area, summarised in the GLA section above' },
+    ],
+  },
+  'cinder-block-calculator': {
+    formula: [
+      'Blocks = net wall area (in²) ÷ nominal block face (in²); an 8 × 16 in face is 128 in², so 1.125 blocks per ft²',
+      'Net area = wall area − doors and windows; then × (1 + waste %)',
+      'Core fill (ft³) = blocks × core volume per block × share of cores filled',
+    ],
+    defaults: [
+      { label: 'Core volume per block', value: '4" 0.06 · 6" 0.17 · 8" 0.27 · 10" 0.38 · 12" 0.48 ft³ (typical hollow CMU)' },
+      { label: 'Pre-blended mortar', value: '80 lb bag ≈ 13 blocks, 60 lb bag ≈ 9.75 blocks (typical; check your bag)' },
+    ],
+    sources: [
+      {
+        label: 'NCMA — Concrete Masonry Unit Shapes, Sizes, Properties and Specifications',
+        url: 'https://ncma.org/resource/concrete-masonry-unit-shapes-sizes-properties-and-specifications/',
+        note: 'nominal vs actual CMU sizes (8 × 8 × 16 nominal = 7⅝ × 7⅝ × 15⅝ in)',
+      },
+      { label: 'ASTM C90 (Standard Specification for Loadbearing Concrete Masonry Units)', note: 'the US product standard for hollow block' },
+      NIST,
+    ],
+  },
+  'brick-calculator': {
+    formula: [
+      'US: bricks per ft² = 144 ÷ ((brick length + joint) × (brick height + joint)), in inches',
+      'Metric: bricks per m² = 1 ÷ ((length + joint) × (height + joint)), in metres',
+      'Bricks = net wall area × bricks per unit area × wall thickness (× 2 for a double wythe / one-brick wall), then × (1 + waste %)',
+    ],
+    defaults: [
+      { label: 'Mortar joint', value: '3/8 in (US) or 10 mm (metric)' },
+      { label: 'US pre-blended mortar', value: '80 lb bag ≈ 35 modular bricks at 3/8 in, scaled for other sizes (typical; check your bag)' },
+      { label: 'Metric mortar', value: 'joint volume per brick × bricks; bag count uses the yield printed on your bag' },
+      { label: 'Pallet / pack size', value: '500 bricks (editable)' },
+    ],
+    sources: [
+      {
+        label: 'Brick Industry Association, Technical Note 10: Dimensioning and Estimating Brick Masonry',
+        url: 'https://www.gobrick.com/media/file/10-dimensioning-and-estimating-brick-masonry.pdf',
+        note: 'nominal sizes and the bricks-per-area method',
+      },
+      NIST,
+    ],
+  },
+  'paint-cost-calculator': {
+    formula: [
+      'Wall area = room perimeter × wall height − doors − windows (+ ceiling if selected)',
+      'Gallons = area × coats ÷ coverage per gallon; primer uses its own coverage',
+      'Cost = gallons (split into gallons and quarts) × price + primer + sundries',
+    ],
+    defaults: [
+      { label: 'Coverage per gallon', value: 'smooth 380 · orange peel 350 · heavy texture 300 · unprimed 250 · masonry 225 ft²' },
+      { label: 'Primer coverage', value: '300 ft² per gallon' },
+      { label: 'Deductions', value: 'door 21 ft², window 15 ft²' },
+      { label: 'Prices', value: 'typical US retail ranges, editable' },
+    ],
+    sources: [
+      { label: 'Coverage printed on paint can labels', note: 'most interior paints state about 350–400 ft² per gallon on smooth surfaces; use the figure on your can' },
+    ],
+  },
+  'tile-calculator': {
+    formula: [
+      'Tiles = net area ÷ area of one tile (with its grout joint), then × (1 + waste %); boxes = tiles ÷ tiles per box',
+      'Thin-set bags = net area ÷ coverage per 50 lb bag (set by tile size and trowel)',
+      'Grout = joint volume (joint width × tile thickness × joint length) × about 100 lb/ft³ for sanded grout, +10%, in 25 lb bags',
+    ],
+    defaults: [
+      { label: 'Thin-set coverage per 50 lb bag', value: 'tiles up to 8 in: 80 ft² · 8–15 in: 60 ft² · larger: 50 ft²' },
+      { label: 'Waste', value: 'straight lay vs diagonal / herringbone presets, editable' },
+    ],
+    sources: [
+      { label: 'Typical thin-set coverage printed on 50 lb mortar bags', note: 'coverage depends on trowel notch; follow your mortar’s data sheet' },
+      NIST,
+    ],
+  },
+  'laminate-flooring-calculator': {
+    formula: [
+      'Net area = sum of rooms; order area = net area × (1 + pattern waste %)',
+      'Boxes = order area ÷ coverage per box (rounded up); underlayment rolls = net area ÷ roll coverage',
+      'Moldings = room perimeter ÷ piece length, +10%',
+    ],
+    defaults: [
+      { label: 'Coverage per box', value: '20 ft² (quick picks 18–24 ft²; read your box label)' },
+      { label: 'Underlayment roll', value: '100 ft²' },
+      { label: 'Molding piece length', value: '7.8 ft (about 94 in)' },
+    ],
+    sources: [{ label: 'Coverage printed on the flooring box and underlayment roll', note: 'always use the figure on your product' }],
+  },
+  'stone-calculator': {
+    formula: [
+      'Cubic yards = area × depth ÷ 27 (summed over all areas)',
+      'Tons = cubic yards × tons per yd³, then × (1 + waste %)',
+      'Bags = cubic feet ÷ bag size',
+    ],
+    defaults: [
+      { label: 'Crushed stone / gravel', value: 'about 1.35–1.55 tons per yd³ by type (preset list, editable)' },
+      { label: 'Mulch / light materials', value: 'much lighter (about 0.6 tons per yd³)' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'stud-calculator': {
+    formula: [
+      'Field studs = wall length (in) ÷ on-center spacing, rounded up, + 1 for the end stud',
+      'Extras: + 2 per corner, + 2 per T-junction, + 4 per door or window (2 king + 2 jack)',
+      'Plates = wall length × number of plate layers ÷ 16 ft stock boards',
+    ],
+    defaults: [
+      { label: 'Spacing', value: '16 in or 24 in on center' },
+      { label: 'Headers', value: '2 boards per rough opening' },
+      { label: 'Plate stock', value: '16 ft boards' },
+    ],
+    sources: [
+      { label: 'Common US platform-framing layout (16 or 24 in on center)', note: 'stud size, spacing and headers must follow your plans and local building code' },
+    ],
+  },
+  'tons-to-cubic-yards': {
+    formula: ['Cubic yards = tons × 2,000 ÷ density (lb/yd³)', 'Tons = cubic yards × density ÷ 2,000'],
+    defaults: [
+      { label: 'Crushed stone / road base', value: '2,800 lb/yd³' },
+      { label: 'Topsoil', value: '2,200 lb/yd³' },
+      { label: 'Compost', value: '1,300 lb/yd³ · mulch 800 lb/yd³ (all materials in the table above, editable)' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'paver-sand-calculator': {
+    formula: [
+      'Bedding sand (yd³) = area × bedding depth ÷ 27; tons = yd³ × 1.35',
+      'Joint sand bags = area ÷ coverage per 50 lb bag (by paver style and joint width), then × (1 + buffer %)',
+    ],
+    defaults: [
+      { label: 'Bedding depth', value: '1 in (0.75–1.25 in options)' },
+      { label: 'Concrete sand density', value: '1.35 tons per yd³' },
+      { label: 'Polymeric sand coverage', value: 'e.g. standard brick pavers: 85 ft² (1/8 in joint), 45 ft² (1/4 in), 25 ft² (1/2 in) per 50 lb bag' },
+    ],
+    sources: [
+      { label: 'Polymeric sand coverage charts printed on the bag', note: 'coverage changes with joint width and paver size; follow your product' },
+      NIST,
+      TYPICAL_DENSITY,
+    ],
+  },
+  'paver-base-calculator': {
+    formula: [
+      'Compacted volume (yd³) = area × base depth ÷ 27',
+      'Loose volume to order = compacted volume × (1 + compaction %)',
+      'Tons = loose yd³ × density; 0.5 ft³ bags = loose ft³ ÷ 0.5',
+    ],
+    defaults: [
+      { label: 'Base depth', value: '4–10 in presets (walkways and patios thinner, driveways thicker)' },
+      { label: 'Compaction allowance', value: '15% (0–20% options)' },
+      { label: 'Base density', value: '1.40 tons per yd³ (editable)' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'compost-calculator': {
+    formula: [
+      'Volume (ft³) = area × depth (in) ÷ 12; cubic yards = ft³ ÷ 27',
+      'Bags = ft³ ÷ bag size (1, 1.5 or 2 ft³), rounded up',
+      'Weight = yd³ × density',
+    ],
+    defaults: [
+      { label: 'Depth', value: '2 in top-dressing (editable)' },
+      { label: 'Compost density', value: 'about 0.65 tons per yd³ (1,300 lb/yd³)' },
+    ],
+    sources: [NIST, TYPICAL_DENSITY],
+  },
+  'fence-stain-calculator': {
+    formula: [
+      'Area = fence length × height × sides × style multiplier (board-on-board, shadowbox, etc.)',
+      'Coat 1 gallons = area ÷ coverage for your wood; coat 2 uses 1.3 × that coverage',
+      'Add 10% for brush / roller or 15% for a sprayer; split into 5-gallon pails and 1-gallon cans',
+    ],
+    defaults: [
+      { label: 'Coverage per gallon (coat 1)', value: 'rough-sawn 175 · weathered 150 · smooth-planed 225 ft²' },
+      { label: 'Second coat', value: 'covers about 30% more area per gallon' },
+    ],
+    sources: [{ label: 'Coverage printed on stain can labels', note: 'rough and weathered wood absorbs more; use your product’s range' }],
+  },
+  'construction-estimate-template': {
+    formula: [
+      'Line total = quantity × unit price',
+      'Subtotal = sum of line totals; markup = subtotal × markup %',
+      'Tax = taxable amount × tax %; grand total = subtotal + markup + tax',
+    ],
+    defaults: [{ label: 'Markup and tax', value: 'you enter your own rates; nothing is preset for your area' }],
+    sources: [{ label: 'Plain arithmetic', note: 'no outside data; check tax rules for your state or country' }],
+  },
+};

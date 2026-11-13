@@ -1,27 +1,21 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import PaverBaseCalculator from '@/components/tool/paver-base-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Paver Base Calculator (Tons & Cubic Yards)',
   description:
     'Free paver base calculator to calculate tons, cubic yards, and bags of crushed stone or road base for patios, walkways, and driveways with compaction loss.',
-  alternates: {
-    canonical: `${SITE_URL}/paver-base-calculator/`,
-  },
-  openGraph: {
-    title: 'Paver Base Calculator (Tons & Cubic Yards)',
-    description:
-      'Calculate crushed stone paver base, crusher run, road base (#21A), and gravel tonnage with 15% to 20% mechanical plate compaction factor.',
-    url: `${SITE_URL}/paver-base-calculator/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/paver-base-calculator/',
+});
 
 const jsonLd = [
   {
@@ -122,31 +116,15 @@ export default function PaverBaseCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
-            <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Paver Base Calculator</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Paver Base Calculator', path: '/paver-base-calculator/' }]} />
 
         {/* Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Free Paver Base Calculator: Estimate Tons &amp; Cubic Yards of Crushed Stone
+            Paver Base Calculator: Tons &amp; Cubic Yards of Gravel Base
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
             Accurately plan your patio foundation using our free <strong>paver base calculator</strong> (also functioning as a dedicated <strong>crushed stone paver base calculator</strong> and <strong>paver base tons calculator</strong>). Instantly compute loose aggregate volume, required <strong>paver base depth</strong>, and quarry delivery tonnage while automatically accounting for 15% to 20% mechanical compaction loss.
@@ -469,6 +447,7 @@ export default function PaverBaseCalculatorPage() {
             </li>
           </ol>
 
+          <HowWeCalculate slug="paver-base-calculator" />
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             Frequently Asked Questions
           </h2>

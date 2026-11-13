@@ -10,6 +10,8 @@ import {
   RELATED_FINISHING_TOOLS,
 } from '@/content/pages/paint-calculator';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Paint Cost Calculator (Coverage & Price)',
@@ -68,7 +70,7 @@ export default function PaintCostCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -97,18 +99,9 @@ export default function PaintCostCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={webAppSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
@@ -121,7 +114,7 @@ export default function PaintCostCalculatorPage() {
               ›
             </li>
             <li className={styles.breadcrumbItem}>
-              <Link href="/tools/">Calculators</Link>
+              <Link href="/tools/">Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator} aria-hidden="true">
               ›
@@ -135,7 +128,7 @@ export default function PaintCostCalculatorPage() {
         {/* Section 1: Hero + Intro */}
         <header className={styles.hero}>
           <div className={styles.badge}>Interior Finishes &amp; Wall Estimator</div>
-          <h1 className={styles.title}>Free Paint Cost Calculator: Estimate Gallons, Quarts &amp; Total Project Costs</h1>
+          <h1 className={styles.title}>Paint Cost Calculator: Gallons, Quarts &amp; Total Cost</h1>
           <p className={styles.description} style={{ marginBottom: '16px' }}>
             Accurately calculate gallons, quarts, and total expenses for walls, ceilings, and primer using our free <strong>paint cost calculator</strong> (and <strong>interior paint cost calculator</strong>).
           </p>
@@ -411,10 +404,12 @@ export default function PaintCostCalculatorPage() {
           {/* Ad Slot 2: Mid Content */}
           <AdSlot slotId="paint-calc-middle" />
 
+          <HowWeCalculate slug="paint-cost-calculator" />
+
           {/* Section 9: FAQ */}
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>Paint Cost Calculator FAQ</h2>
-            <Faq items={PAINT_FAQS} />
+            <Faq items={PAINT_FAQS} title="" withSchema={false} />
           </section>
 
           {/* Section 10: Closing Wrap-up */}

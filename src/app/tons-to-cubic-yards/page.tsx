@@ -1,27 +1,20 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import TonsYardsConverter from '@/components/tool/tons-yards-converter';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
-  title: 'Tons to Cubic Yards Converter by Material | KKCTools',
+export const metadata: Metadata = buildMetadata({
+  title: 'Tons to Cubic Yards Converter by Material',
   description:
     'Free tons to cubic yards converter with real material densities for gravel, sand, topsoil, mulch and asphalt. Also converts cubic yards to tons.',
-  alternates: {
-    canonical: `${SITE_URL}/tons-to-cubic-yards/`,
-  },
-  openGraph: {
-    title: 'Tons to Cubic Yards Converter by Material | KKCTools',
-    description:
-      'Free tons to cubic yards converter with real material densities for gravel, sand, topsoil, mulch and asphalt. Also converts cubic yards to tons.',
-    url: `${SITE_URL}/tons-to-cubic-yards/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/tons-to-cubic-yards/',
+});
 
 const jsonLd = [
   {
@@ -58,7 +51,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -128,10 +121,7 @@ const jsonLd = [
 export default function TonsToCubicYardsPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
@@ -142,7 +132,7 @@ export default function TonsToCubicYardsPage() {
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
+              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Tons to Cubic Yards</li>
@@ -177,7 +167,7 @@ export default function TonsToCubicYardsPage() {
           </div>
 
           <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '24px' }}>
-            Last updated: November 2026 · Contractor-verified material bulk densities.
+            Last updated: November 2026 · Densities are typical loose (bulk) values; your supplier’s figure for their material always wins.
           </p>
 
           {/* Section 1: How Many Yards in a Ton of Gravel? */}
@@ -486,6 +476,8 @@ export default function TonsToCubicYardsPage() {
               </li>
             </ol>
           </section>
+
+          <HowWeCalculate slug="tons-to-cubic-yards" />
 
           {/* Section 8: FAQ */}
           <section style={{ marginBottom: '36px' }}>

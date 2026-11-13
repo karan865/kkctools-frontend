@@ -10,6 +10,8 @@ import {
   RELATED_MASONRY_TOOLS,
 } from '@/content/pages/cinder-block-calculator';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Cinder Block Calculator – CMU & Concrete Block',
@@ -65,7 +67,7 @@ export default function CinderBlockCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -94,18 +96,9 @@ export default function CinderBlockCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={webAppSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
@@ -118,7 +111,7 @@ export default function CinderBlockCalculatorPage() {
               ›
             </li>
             <li className={styles.breadcrumbItem}>
-              <Link href="/tools/">Calculators</Link>
+              <Link href="/tools/">Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator} aria-hidden="true">
               ›
@@ -422,7 +415,7 @@ export default function CinderBlockCalculatorPage() {
           <section className={styles.relatedSection}>
             <h2 className={styles.sectionHeading}>Related Masonry &amp; Construction Calculators</h2>
             <p className={styles.paragraph}>
-              Explore our verified, live companion estimators for concrete, masonry, and foundation projects:
+              Explore our companion estimators for concrete, masonry, and foundation projects:
             </p>
             <div className={styles.relatedGrid}>
               {liveRelatedTools.map((tool, idx) => (
@@ -437,10 +430,12 @@ export default function CinderBlockCalculatorPage() {
           {/* Ad Slot 2: Mid-Content Ad Slot */}
           <AdSlot slotId="cinder-calc-middle" />
 
+          <HowWeCalculate slug="cinder-block-calculator" />
+
           {/* Section 10: Cinder Block Calculator FAQ (Exact 8 questions) */}
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>Cinder Block Calculator FAQ</h2>
-            <Faq items={CINDER_BLOCK_FAQS} />
+            <Faq items={CINDER_BLOCK_FAQS} title="" withSchema={false} />
           </section>
 
           {/* Section 11: Closing Wrap-up, Last Updated, How We Calculate & Disclaimer */}

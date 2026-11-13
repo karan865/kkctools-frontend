@@ -11,6 +11,8 @@ import {
   buildFaqSchema,
 } from '@/components/seo/buildSchema';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Linear Foot Calculator (Sq Ft to Linear Ft)',
@@ -31,7 +33,7 @@ export default function LinearFootCalculatorPage() {
 
   const breadcrumbSchema = buildBreadcrumbSchema([
     { name: 'Home', path: '/' },
-    { name: 'Calculators', path: '/tools/' },
+    { name: 'Tools', path: '/tools/' },
     { name: 'Linear Foot Calculator', path: '/linear-foot-calculator/' },
   ]);
 
@@ -39,25 +41,16 @@ export default function LinearFootCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd data={webAppSchema} />
+      <JsonLd data={breadcrumbSchema} />
+      <JsonLd data={faqSchema} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
           <span className={styles.breadcrumbSeparator}>›</span>
-          <Link href="/tools/">Calculators</Link>
+          <Link href="/tools/">Tools</Link>
           <span className={styles.breadcrumbSeparator}>›</span>
           <span aria-current="page">Linear Foot Calculator</span>
         </nav>
@@ -228,10 +221,12 @@ export default function LinearFootCalculatorPage() {
             </ul>
           </section>
 
+          <HowWeCalculate slug="linear-foot-calculator" />
+
           {/* FAQ Section */}
           <section className={styles.sectionBlock}>
             <h2>Linear Foot Calculator FAQ</h2>
-            <Faq items={content.faqs} />
+            <Faq items={content.faqs} title="" withSchema={false} />
           </section>
 
           {/* Disclaimer & Footer Line */}

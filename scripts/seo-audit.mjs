@@ -157,18 +157,72 @@ for (const file of htmlFiles) {
   });
 
   // 10. JSON-LD validation
+  const ldNodes = [];
   $('script[type="application/ld+json"]').each((i, el) => {
     try {
       const data = JSON.parse($(el).html());
       const items = Array.isArray(data) ? data : [data];
       for (const item of items) {
-        if (!item['@context'] || !item['@type']) {
-          pageErrors.push('JSON-LD missing @context or @type');
+        if (!item['@context']) pageErrors.push('JSON-LD missing @context');
+        const nodes = Array.isArray(item['@graph']) ? item['@graph'] : [item];
+        for (const node of nodes) {
+          if (!node['@type']) pageErrors.push('JSON-LD node missing @type');
+          ldNodes.push(node);
         }
       }
     } catch (e) {
       pageErrors.push(`Invalid JSON-LD syntax: ${e.message}`);
     }
+  });
+
+  // 10b. Schema graph consistency (audit 2026-11-14: duplicate FAQPage, missing breadcrumbs, duplicate Organization)
+  const countType = (t) => ldNodes.filter((n) => n['@type'] === t).length;
+  if (countType('FAQPage') > 1) pageErrors.push(`JSON-LD has ${countType('FAQPage')} FAQPage nodes (max 1)`);
+  if (countType('Organization') !== 1) pageErrors.push(`JSON-LD has ${countType('Organization')} Organization nodes (expected exactly 1, from the layout)`);
+  if (!is404 && routePath !== '/' && countType('BreadcrumbList') !== 1) {
+    pageErrors.push(`Expected exactly 1 BreadcrumbList, found ${countType('BreadcrumbList')}`);
+  }
+  const definedIds = new Set();
+  const collectIds = (v) => {
+    if (Array.isArray(v)) return v.forEach(collectIds);
+    if (v && typeof v === 'object') {
+      if (v['@id'] && Object.keys(v).length > 1) definedIds.add(v['@id']);
+      Object.values(v).forEach(collectIds);
+    }
+  };
+  ldNodes.forEach(collectIds);
+  const danglingRefs = [];
+  const findRefs = (v) => {
+    if (Array.isArray(v)) return v.forEach(findRefs);
+    if (v && typeof v === 'object') {
+      const keys = Object.keys(v);
+      if (keys.length === 1 && keys[0] === '@id' && !definedIds.has(v['@id'])) danglingRefs.push(v['@id']);
+      for (const k of keys) if (k !== '@id') findRefs(v[k]);
+    }
+  };
+  ldNodes.forEach(findRefs);
+  if (danglingRefs.length) pageErrors.push(`JSON-LD references undefined @id: ${[...new Set(danglingRefs)].join(', ')}`);
+  for (const app of ldNodes.filter((n) => n['@type'] === 'WebApplication')) {
+    for (const field of ['@id', 'description', 'operatingSystem', 'applicationCategory', 'isAccessibleForFree', 'publisher', 'dateModified']) {
+      if (app[field] === undefined) pageErrors.push(`WebApplication missing ${field}`);
+    }
+  }
+
+  // 10c. Robots meta must be explicit; og:image must resolve to a real file
+  if (!is404 && !robotsMeta) pageErrors.push('Missing explicit meta robots');
+  $('meta[property="og:image"]').each((i, el) => {
+    const url = $(el).attr('content') || '';
+    const local = url.replace(/^https?:\/\/[^/]+/, '');
+    if (!fs.existsSync(path.join(OUT_DIR, local))) pageErrors.push(`og:image does not exist in out/: ${local}`);
+  });
+
+  // 10d. Internal links must resolve to an exported page or file
+  $('a[href^="/"]').each((i, el) => {
+    const href = ($(el).attr('href') || '').split('#')[0].split('?')[0];
+    if (!href || href === '/' || href.startsWith('//')) return;
+    const target = path.join(OUT_DIR, href);
+    const ok = fs.existsSync(path.join(target, 'index.html')) || (fs.existsSync(target) && fs.statSync(target).isFile());
+    if (!ok) pageErrors.push(`Broken internal link: ${href}`);
   });
 
   // 11. Word count in <main>

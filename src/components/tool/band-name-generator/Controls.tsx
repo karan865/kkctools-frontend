@@ -212,7 +212,7 @@ export default function Controls({
           ⚡ Generate Band Names
         </Button>
         <p style={{ fontSize: '0.8125rem', color: 'var(--muted)', textAlign: 'center', marginTop: 'var(--space-2)', lineHeight: 1.5, marginBottom: 0 }}>
-          ⚡ 100% in-browser generation · 0ms server lag · No sign-ups required
+          ⚡ Runs in your browser · Nothing you type is sent anywhere · No sign-up
         </p>
       </div>
     </div>

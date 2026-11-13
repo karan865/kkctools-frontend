@@ -1,11 +1,13 @@
 import type { Metadata } from 'next';
-import { SITE_NAME, SITE_URL } from '@/config/site';
+import { SITE_NAME, SITE_URL, DEFAULT_OG_IMAGE_URL } from '@/config/site';
 
 interface BuildMetadataOptions {
   title: string;
   description: string;
   path: string;
   noindex?: boolean;
+  /** Use the title as-is, without the " | KKC Tools" template (the home page). */
+  absoluteTitle?: boolean;
 }
 
 export function buildMetadata({
@@ -13,13 +15,14 @@ export function buildMetadata({
   description,
   path,
   noindex = false,
+  absoluteTitle = false,
 }: BuildMetadataOptions): Metadata {
   const cleanPath = path.startsWith('/') ? path : `/${path}`;
   const canonicalUrl = `${SITE_URL}${cleanPath}`;
-  const ogImageUrl = `${SITE_URL}/opengraph-image.png`;
+  const ogImageUrl = DEFAULT_OG_IMAGE_URL;
 
   return {
-    title,
+    title: absoluteTitle ? { absolute: title } : title,
     description,
     alternates: {
       canonical: canonicalUrl,

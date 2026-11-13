@@ -1,27 +1,21 @@
 import type { Metadata } from 'next';
+import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import CompostCalculator from '@/components/tool/compost-calculator';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import JsonLd from '@/components/seo/JsonLd';
+import Breadcrumbs from '@/components/layout/Breadcrumbs';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const dynamic = 'force-static';
 
-export const metadata: Metadata = {
+export const metadata: Metadata = buildMetadata({
   title: 'Compost Calculator (Garden Beds & Lawns)',
   description:
     'Free compost calculator to estimate cubic yards, cubic feet, and bags of organic compost needed for raised garden beds, lawns, and soil amending.',
-  alternates: {
-    canonical: `${SITE_URL}/compost-calculator/`,
-  },
-  openGraph: {
-    title: 'Compost Calculator (Garden Beds & Lawns)',
-    description:
-      'Calculate exact compost volume, bulk cubic yards, and 1 cu ft or 2 cu ft bag counts for vegetable gardens, Mel\'s Mix raised beds, and lawn top-dressing.',
-    url: `${SITE_URL}/compost-calculator/`,
-    siteName: SITE_NAME,
-    type: 'website',
-  },
-};
+  path: '/compost-calculator/',
+});
 
 const jsonLd = [
   {
@@ -122,31 +116,15 @@ export default function CompostCalculatorPage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
-        {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
-          <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
-            <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
-            </li>
-            <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
-            <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Compost Calculator</li>
-          </ol>
-        </nav>
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Compost Calculator', path: '/compost-calculator/' }]} />
 
         {/* Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Free Compost Calculator: Estimate Cubic Yards &amp; Bags for Garden Beds &amp; Lawns
+            Compost Calculator: Cubic Yards &amp; Bags for Beds and Lawns
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
             Accurately estimate how much organic compost you need for your raised beds, vegetable patches, or lawn aeration using our free <strong>compost calculator</strong> (also functioning as a dedicated <strong>garden compost calculator</strong>, <strong>raised bed compost calculator</strong>, and <strong>compost bags calculator</strong>). Instantly compute bulk cubic yards, cubic feet, and retail bag counts across 1.0, 1.5, and 2.0 cu ft packaging sizes.
@@ -455,6 +433,7 @@ export default function CompostCalculatorPage() {
             </li>
           </ol>
 
+          <HowWeCalculate slug="compost-calculator" />
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
             Frequently Asked Questions
           </h2>

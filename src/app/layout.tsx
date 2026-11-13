@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import './globals.css';
-import { SITE_NAME, SITE_URL, SITE_TAGLINE } from '@/config/site';
+import { SITE_NAME, SITE_URL, SITE_TAGLINE, SITE_DESCRIPTION, OWNER_EMAIL, ORG_ID, WEBSITE_ID, SITE_LOGO_URL } from '@/config/site';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SkipLink from '@/components/layout/SkipLink';
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
     template: `%s | ${SITE_NAME}`,
     default: `${SITE_NAME} – ${SITE_TAGLINE}`,
   },
-  description: 'Free online browser-based generators and utilities. Fast, privacy-friendly, zero network calls.',
+  description: SITE_DESCRIPTION,
   verification: {
     google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION || undefined,
     other: {
@@ -43,21 +43,50 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const globalSchema = [
-    {
-      '@context': 'https://schema.org',
-      '@type': 'WebSite',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-      description: SITE_TAGLINE,
-    },
-    {
-      '@context': 'https://schema.org',
-      '@type': 'Organization',
-      name: SITE_NAME,
-      url: `${SITE_URL}/`,
-    },
-  ];
+  // One sitewide graph. Pages reference these nodes by @id (see normalizeSchema.ts).
+  // TODO(owner): add `sameAs` (real social / directory profile URLs) and `founder`
+  // (a real, named person) once the owner supplies them. Do not invent either.
+  const globalSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Organization',
+        '@id': ORG_ID,
+        name: SITE_NAME,
+        url: `${SITE_URL}/`,
+        description: SITE_DESCRIPTION,
+        email: OWNER_EMAIL,
+        logo: {
+          '@type': 'ImageObject',
+          '@id': `${SITE_URL}/#logo`,
+          url: SITE_LOGO_URL,
+          contentUrl: SITE_LOGO_URL,
+          width: 512,
+          height: 512,
+          caption: SITE_NAME,
+        },
+        image: { '@id': `${SITE_URL}/#logo` },
+        contactPoint: {
+          '@type': 'ContactPoint',
+          contactType: 'customer support',
+          email: OWNER_EMAIL,
+          url: `${SITE_URL}/contact/`,
+          availableLanguage: 'English',
+        },
+      },
+      {
+        '@type': 'WebSite',
+        '@id': WEBSITE_ID,
+        name: SITE_NAME,
+        alternateName: 'KKCTools',
+        url: `${SITE_URL}/`,
+        description: SITE_TAGLINE,
+        inLanguage: 'en-US',
+        publisher: { '@id': ORG_ID },
+      },
+    ],
+  };
+
 
   return (
     <html lang="en" className={`${bricolageGrotesque.variable} ${inter.variable}`} suppressHydrationWarning>
@@ -86,7 +115,7 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <JsonLd data={globalSchema} />
+        <JsonLd data={globalSchema} raw />
         <SkipLink />
         <Header />
         <div style={{ flex: '1 0 auto' }}>

@@ -6,6 +6,8 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import { TILE_FAQS, RELATED_TILE_TOOLS } from '@/content/pages/tile-calculator';
 import styles from './page.module.css';
+import JsonLd from '@/components/seo/JsonLd';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 // Title: 47 chars (with template | KKC Tools = 59 chars <= 65)
 // Meta Description: exactly 160 chars
@@ -51,7 +53,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -79,10 +81,7 @@ const jsonLd = [
 export default function TileCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" className={styles.container}>
         {/* Breadcrumbs */}
@@ -93,7 +92,7 @@ export default function TileCalculatorPage() {
             </li>
             <li className={styles.breadcrumbSeparator}>/</li>
             <li className={styles.breadcrumbItem}>
-              <Link href="/tools/">Calculators</Link>
+              <Link href="/tools/">Tools</Link>
             </li>
             <li className={styles.breadcrumbSeparator}>/</li>
             <li className={`${styles.breadcrumbItem} ${styles.breadcrumbItemActive}`} aria-current="page">
@@ -106,7 +105,7 @@ export default function TileCalculatorPage() {
         <header className={styles.hero}>
           <span className={styles.badge}>Flooring &amp; Tiling Estimator</span>
           <h1 className={styles.title}>
-            Free Tile Sq Ft Calculator: Estimate Tiles, Boxes &amp; Grout
+            Tile Calculator: Square Feet, Tiles, Boxes &amp; Grout
           </h1>
           <p className={styles.subtitle} style={{ marginBottom: '16px' }}>
             Accurately calculate tiles, boxes, thin-set mortar, and grout needed for floors, shower walls, and backsplashes using our free <strong>tile calculator</strong>.
@@ -492,13 +491,15 @@ export default function TileCalculatorPage() {
                 <strong>DIY Materials (100 sq ft room):</strong> Typically costs $350 to $750. This assumes mid-grade ceramic or porcelain tile ($2 to $5/sq ft), 10% waste, 2 bags of polymer-modified thin-set ($56), 1 bag of grout ($22), and an $85 allowance for sponges, spacers, trowels, and bucket supplies. (Underlayment like cement board or uncoupling membrane is not included in this tool, adding roughly $1.20 to $2.00 per sq ft).
               </li>
               <li>
-                <strong>Professional Contractor Installation:</strong> Professional labor typically charges $5 to $15 per square foot of net area for standard straight-lay floor tile (Angi and industry guides report $3 to $15/sq ft). Diagonal and herringbone layouts add a ~20% labor surge ($6 to $18/sq ft). For a 100 sq ft room, contractor labor ranges from $500 to $1,500, producing an all-in completed price of $800 to $2,100 including materials.
+                <strong>Professional Contractor Installation:</strong> Professional labor typically charges $5 to $15 per square foot of net area for standard straight-lay floor tile. Diagonal and herringbone layouts add a ~20% labor surge ($6 to $18/sq ft). For a 100 sq ft room, contractor labor ranges from $500 to $1,500, producing an all-in completed price of $800 to $2,100 including materials.
               </li>
               <li>
                 <strong>Wet Area Waterproofing:</strong> Waterproofing a walk-in shower enclosure (hot-mop, liquid membrane like RedGard, or sheet membrane like Schluter Kerdi) represents a specialized trade service typically costing an extra $450 to $750.
               </li>
             </ul>
           </section>
+
+          <HowWeCalculate slug="tile-calculator" />
 
           {/* FAQ Section */}
           <section className={styles.faqSection}>

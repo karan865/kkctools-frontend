@@ -5,11 +5,14 @@ import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import { BRICK_FAQS } from '@/content/pages/brick-calculator';
+import JsonLd from '@/components/seo/JsonLd';
+import { METRIC_BRICK_PRESETS, bricksPerSquareMetre } from '@/lib/brick-metric-engine';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: 'Brick Calculator (Brick Wall & Mortar)',
   description:
-    'Free brick calculator to estimate bricks, mortar bags, and pallets for any wall. Supports standard, modular, king sizes, window deductions, waste, and costs.',
+    'Free brick calculator for bricks, mortar and pallets. US sizes in sq ft, or metric bricks per m² for UK, EU and Australian bricks, with openings and waste.',
   path: '/brick-calculator/',
 });
 
@@ -48,7 +51,7 @@ const jsonLd = [
       {
         '@type': 'ListItem',
         position: 2,
-        name: 'Calculators',
+        name: 'Tools',
         item: `${SITE_URL}/tools/`,
       },
       {
@@ -76,10 +79,7 @@ const jsonLd = [
 export default function BrickCalculatorPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={jsonLd} />
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
@@ -90,7 +90,7 @@ export default function BrickCalculatorPage() {
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Calculators</Link>
+              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Brick Calculator</li>
@@ -100,13 +100,13 @@ export default function BrickCalculatorPage() {
         {/* Page Header */}
         <header style={{ marginBottom: '24px' }}>
           <h1 style={{ fontSize: '2rem', fontWeight: 800, color: '#0F172A', marginBottom: '8px' }}>
-            Free Brick Calculator: Estimate Bricks, Mortar &amp; Costs Accurately
+            Brick Calculator: Bricks, Mortar &amp; Cost (US or Metric)
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
             Planning a new brick veneer siding, patio garden wall, retaining wall facade, or brick mailbox pillar and asking yourself: <em>how many bricks do I need?</em> Use our free <strong>brick calculator</strong> to quickly find your total brick order, pre-blended mortar bags, site-mixed cement and sand, pallet quantities, and total material budget.
           </p>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Whether you are using our <strong>calculator bricks</strong> feature for a single garden wall or configuring a multi-run <strong>brick wall calculator</strong> with window and door deductions, get an accurate estimate in seconds below.
+            Whether you are using our <strong>calculator bricks</strong> feature for a single garden wall or configuring a multi-run <strong>brick wall calculator</strong> with window and door deductions, get an estimate in seconds below. Building in the UK, Europe or Australia? Switch to <strong>Metric</strong> for bricks per m² with millimetre brick sizes (<a href="#bricks-per-m2">how it works</a>).
           </p>
         </header>
 
@@ -298,6 +298,57 @@ export default function BrickCalculatorPage() {
             </p>
           </section>
 
+          {/* Section 6a: Metric bricks per m² (UK, Europe, Australia) */}
+          <section style={{ marginBottom: '36px' }} id="bricks-per-m2">
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              How Many Bricks Per m²? (UK, Europe &amp; Australia)
+            </h2>
+            <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: '14px' }}>
+              Outside the US, bricks are sold in millimetres and walls are measured in square metres. Switch the
+              calculator above to <strong>Metric</strong> to use them. The rule is the same as in imperial units: divide
+              one square metre by the face of one brick <em>plus</em> one joint.
+            </p>
+            <p style={{ color: '#334155', lineHeight: 1.7, marginBottom: '14px' }}>
+              <strong>Bricks per m² = 1 ÷ ((length + joint) × (height + joint))</strong>, with sizes in metres. A UK
+              standard brick is 215 × 102.5 × 65 mm; with 10 mm joints that is 1 ÷ (0.225 × 0.075) = 59.3, which is
+              why bricklayers say “60 bricks per square metre” for a half-brick wall. A one-brick wall (two leaves, 215 mm
+              thick) needs twice as many.
+            </p>
+            <div style={{ overflowX: 'auto' }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.92rem' }}>
+                <thead>
+                  <tr style={{ background: '#F1F5F9' }}>
+                    <th style={{ textAlign: 'left', padding: '8px' }}>Brick (work size)</th>
+                    <th style={{ textAlign: 'right', padding: '8px' }}>Half-brick wall</th>
+                    <th style={{ textAlign: 'right', padding: '8px' }}>One-brick wall</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {Object.values(METRIC_BRICK_PRESETS).map((p) => {
+                    const rate = bricksPerSquareMetre(p.lengthMm, p.heightMm, 10);
+                    return (
+                      <tr key={p.id} style={{ borderTop: '1px solid #E2E8F0' }}>
+                        <td style={{ padding: '8px' }}>{p.name}</td>
+                        <td style={{ padding: '8px', textAlign: 'right' }}>{rate.toFixed(1)} per m²</td>
+                        <td style={{ padding: '8px', textAlign: 'right' }}>{(rate * 2).toFixed(1)} per m²</td>
+                      </tr>
+                    );
+                  })}
+                </tbody>
+              </table>
+            </div>
+            <p style={{ color: '#64748B', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '10px' }}>
+              All rows use 10 mm joints and no allowance for cutting or breakage; add 5–10% when you order. Rates are
+              calculated with the formula above, so they match the calculator exactly.
+            </p>
+            <p style={{ color: '#334155', lineHeight: 1.7, marginTop: '14px' }}>
+              <strong>Mortar in metric:</strong> the calculator works out the joint volume each brick carries (one bed
+              joint and one vertical joint) and multiplies by the number of bricks. For UK bricks and 10 mm joints that is
+              about 0.018 m³ (18 litres) of mortar per m² of half-brick wall, before losses. Mortar bag yields differ by
+              product, so enter the litres per bag printed on your bag to get a bag count.
+            </p>
+          </section>
+
           {/* Section 6: Single Wythe vs. Double Wythe */}
           <section style={{ marginBottom: '36px' }}>
             <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
@@ -429,6 +480,8 @@ export default function BrickCalculatorPage() {
 
           {/* Ad Slot 3: Before FAQ */}
           <AdSlot slotId="brick-calc-before-faq" />
+
+          <HowWeCalculate slug="brick-calculator" />
 
           {/* Section 10: FAQ */}
           <section style={{ marginBottom: '36px' }}>

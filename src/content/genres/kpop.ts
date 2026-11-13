@@ -6,7 +6,7 @@ export const kpopConfig: GenreConfig = {
   generatorGenre: 'kpop',
   h1: 'K-pop Band Name Generator',
   intro:
-    'Generate cutting-edge K-pop idol group and band name ideas designed for international charisma. Our algorithm blends celestial concept vocabulary, numerical symbolism, and modern typographical aesthetics to help your fictional or debut Korean music project establish an unforgettable brand identity.',
+    'Create K-pop style group names: short, stylised words, cosmic and futuristic concepts, and clean all-caps branding. The generator mixes English concept words with letters, numbers and symbols the way many idol groups do, and works for boy groups, girl groups and co-ed or virtual groups.',
   curatedExamples: [
     'NOVA-X',
     'ZENITH NINE',
@@ -23,54 +23,54 @@ export const kpopConfig: GenreConfig = {
   ],
   sections: [
     {
-      title: 'The Anatomy of Modern K-pop Group Naming',
+      title: 'How K-pop group names are built',
       paragraphs: [
-        'Korean pop music naming traditions differ significantly from Western rock conventions. Rather than leaning on descriptive blues idioms or rebellious grit, Korean agencies deliberately engineer moniker identities around thematic mythologies, universe lore, and global phonetic appeal. An impactful Korean idol moniker functions simultaneously as a musical signature, a multimedia trademark, and a unifying banner for an international fandom community.',
-        'Modern agencies place immense value on celestial, geometrical, and luminescent terminology. Concepts evoking cosmic expanses, planetary orbits, prismatic refractions, and astronomical zenith points convey youth, infinite potential, and polished visual choreography. When building an idol identity, prioritizing brevity, visual symmetry in Latin characters, and sharp vowel endings ensures effortless pronunciation across global entertainment markets.',
+        'K-pop names are usually short, bold and easy to say in many languages. Many groups use one or two English words, an acronym, or a made-up word that sounds futuristic. The name is part of a wider concept that also covers the logo, colours, outfits and the story behind the group.',
+        'Cosmic and light-related words are especially common, such as nova, orbit, aura or eclipse, because they suggest something bright and rising. The generator\'s K-pop word list leans on these concept words, and it can add letters or numbers to make the result look like a real group brand.',
       ],
     },
     {
-      title: 'Capitalization, Romanization, and Typographic Flair',
+      title: 'Capital letters, letters and symbols',
       paragraphs: [
-        'A defining visual trait across contemporary Korean entertainment is the deliberate use of all-caps lettering, strategic hyphens, and stylized letter substitutions. Full uppercase styling gives titles an authoritative presence across digital streaming banners, concert posters, and album artwork. It signals high-energy production and dynamic team cohesion.',
-        'Furthermore, stylized suffixes such as -X, -IZ, -EN, or -ONE frequently denote member configurations, conceptual rebirths, or generational milestones. Combining abstract cosmic roots with numeric anchors provides a sleek, futuristic silhouette that looks striking on physical lightsticks, stage merchandise, and streaming playlists.',
+        'Many K-pop names are written in all capitals, sometimes with dots, numbers or a stylised letter. Capitals make a short name look strong in a logo and on album covers. Numbers can point to the number of members or to a concept, and symbols can make a name feel more designed.',
+        'Be careful not to overdo it. A name full of symbols is hard to type, hard to search and easy to misspell. A good test is whether fans could type the name on a phone in two seconds. If not, keep the decoration for the logo and keep the searchable name simple.',
       ],
     },
     {
-      title: 'Sub-Unit Formulations and Concept Fluidity',
+      title: 'Units, sub-units and changing concepts',
       paragraphs: [
-        'Versatility is an essential hallmark of long-term Korean pop longevity. Groups regularly rotate between dark cinematic story arcs, bright summer pop anthems, and sophisticated retro synthwave aesthetics. A superior idol group title maintains sufficient abstract elegance to accommodate radical sonic transformations without feeling misaligned.',
-        'Consider whether your chosen moniker naturally subdivides into sub-unit designations or fan collective titles. Titles that incorporate planetary coordinates, spatial dimensions, or numeric harmonies easily spin off into dedicated choreography teams, rap units, or vocal ensembles while reinforcing the central group mythology.',
+        'K-pop groups often release music as smaller sub-units or switch concept between albums. A flexible name makes that easier. Short concept words like "PRISM" or "ORBIT" can take a suffix for a sub-unit or a new era without losing the main brand.',
+        'When you pick a name, think about how it will look with a unit name next to it, and whether it still fits if the group\'s style changes from bright to dark. Names that are too tied to one season or one trend can be hard to grow with.',
       ],
     },
     {
-      title: 'Avoiding Intellectual Property Pitfalls in the Idol Sphere',
+      title: 'Check the name before you use it',
       paragraphs: [
-        'The international K-pop landscape is extraordinarily dense with registered trademarks spanning entertainment management, physical merchandising, cosmetics, and virtual avatars. Because idol groups register identical names across worldwide trademark registries, comprehensive validation is crucial before finalizing your brand.',
-        'Always conduct exact-phrase searches across streaming platforms, YouTube entertainment networks, and official trademark registers in major entertainment territories. Ensure that your proposed moniker does not infringe upon debut trainee rosters, established agency trademarks, or existing Korean entertainment patents.',
+        'Short English words are popular, which means many are already used by other groups, brands or apps. Search the exact name with the words K-pop and group, check streaming services and social handles, and check trademark registers before you announce anything.',
+        'If the exact word is taken, try a small change that still sounds natural, such as adding a letter or combining two concept words. Our guide on checking whether a band name is taken shows how to search streaming services and trademark registers step by step.',
       ],
     },
   ],
   faq: [
     {
-      q: 'Why are K-pop group names commonly stylized in all uppercase letters?',
-      a: 'All-caps styling provides immediate visual impact on digital streaming cards, billboard promotions, and merchandise. It also ensures consistent visual balance when printed alongside Korean Hangul characters.',
+      q: 'Why are K-pop group names often written in capital letters?',
+      a: 'Capitals make short names look bold and balanced in logos, on screens and on album covers. They also help a short word stand out as a brand rather than an ordinary word.',
     },
     {
-      q: 'What role do numbers and suffixes play in idol group branding?',
-      a: 'Numbers often symbolize member counts, conceptual unities, or dimensional story arcs, while suffixes like -X or -IZ provide a futuristic cadence that distinguishes the title from ordinary dictionary vocabulary.',
+      q: 'What do numbers and extra letters add to a group name?',
+      a: 'They can hint at the number of members, a concept or a debut year, and they make a short name more distinctive and easier to protect. Keep them simple enough for fans to type.',
     },
     {
-      q: 'Can this generator produce names suitable for both boy and girl idol groups?',
-      a: 'Yes. Our celestial, luminescent, and abstract concept pools are universally adaptable across boy groups, girl groups, co-ed ensembles, and virtual idol projects.',
+      q: 'Can the generator make names for both boy groups and girl groups?',
+      a: 'Yes. The K-pop word list is concept based rather than gendered, so the same results can suit boy groups, girl groups, co-ed groups or virtual idols.',
     },
     {
-      q: 'Do the generated K-pop names use real Korean words?',
-      a: 'No. To guarantee linguistic authenticity and prevent inaccurate translations, our generator relies exclusively on verified global Latin roots, astronomical terms, and international phonetic structures.',
+      q: 'Are the generated K-pop names real Korean words?',
+      a: 'No. The generator uses English concept words, letters and numbers, which is how many K-pop groups brand themselves internationally. If you want a Korean word, check the meaning and spelling with a native speaker.',
     },
     {
-      q: 'How should I develop an official fandom name from my generated group moniker?',
-      a: 'Select a lyrical element or emotional harmonic within your generated title. For example, celestial monikers frequently derive fandom titles from constellation names, light frequencies, or companion celestial bodies.',
+      q: 'How do we come up with a fandom name from our group name?',
+      a: 'Start from the group\'s concept word and look for a related idea, such as a star for a space concept. Keep it short, positive and easy to chant, and check it is not already used by another fandom.',
     },
   ],
   siblings: [
@@ -99,7 +99,7 @@ export const kpopConfig: GenreConfig = {
     {
       path: '/guides/how-to-check-if-a-band-name-is-taken/',
       title: 'How to Check If a Band Name Is Taken',
-      description: 'A practical, zero-fluff checklist for auditing streaming services, social media handles, and trademark databases.',
+      description: 'A practical checklist for checking streaming services, social media handles, and trademark databases.',
     },
   ],
 };

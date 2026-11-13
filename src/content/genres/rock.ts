@@ -6,7 +6,7 @@ export const rockConfig: GenreConfig = {
   generatorGenre: 'rock',
   h1: 'Rock Band Name Generator',
   intro:
-    'Discover electric, gritty, and soulful rock and roll band name ideas built for raw guitar amplifiers, smoky clubs, and wide-open highway soundscapes. Whether you are launching an indie alternative outfit, a vintage garage rock power trio, or a modern blues-rock revival, generate titles that resonate with authentic swagger and timeless attitude.',
+    'Get rock band name ideas with grit: highways, engines, neon, whiskey and late nights. The generator works for garage rock, classic rock, hard rock and indie rock, and mixes plain everyday words with a bit of attitude so the names sound like a band, not a product.',
   curatedExamples: [
     'Electric Highway',
     'Rusty Jackals',
@@ -23,54 +23,54 @@ export const rockConfig: GenreConfig = {
   ],
   sections: [
     {
-      title: 'The Enduring Chemistry of Rock & Roll Monikers',
+      title: 'Why rock names feel the way they do',
       paragraphs: [
-        'Rock music has spent over seven decades reinventing itself across sub-genres, yet its naming conventions remain rooted in tangible, physical Americana, visceral urban romance, and countercultural restlessness. An effective rock band title smells of valve amp vacuum tubes, worn leather jackets, asphalt highways, and vinyl record dust.',
-        'Unlike extreme metal’s focus on the underworld or pop’s polished gloss, rock monikers draw beauty from the weathered and the imperfect. Descriptors like rusty, broken, dusty, electric, and velvet communicate a tactile history—suggesting instruments beaten up in tour vans, smoky rehearsals, and relentless sweat under stage lights.',
+        'Rock names usually sound physical and a little worn. They come from roads, cars, bars, weather and city nights rather than outer space or fantasy. That fits the music: guitars, drums and songs about restlessness, love and getting out of town.',
+        'Because of that, rock names work best with real, concrete words. "Rusty", "electric", "midnight", "highway", "engine" and "wolves" all paint a picture straight away. A good rock name makes you imagine a sticker on a guitar case or a sign outside a small venue.',
       ],
     },
     {
-      title: 'Classic Rock Naming Archetypes: From Garage to Arena',
+      title: 'Classic rock name shapes',
       paragraphs: [
-        'Rock bands typically gravitate toward a handful of proven grammatical structures that have dominated music charts since the 1960s. The definitive article ("The Adjective Plural" or "The Noun Plural") remains the quintessential rock archetype, projecting an immediate sense of gang cohesion, neighborhood brotherhood, and shared purpose.',
-        'Compound two-word phrases that juxtapose organic vulnerability with mechanical power—such as "Velvet Engine" or "Electric Wolves"—create an intriguing cognitive tension. Such pairings tell a vivid story before a single guitar riff is struck, making them magnetic choices for modern alternative, indie, and post-punk ensembles.',
+        'The oldest trick is "The" plus a plural, such as "The Neon Wolves" or "The Midnight Rebels". It makes the band sound like a gang. Another common shape is an adjective plus an everyday object, like "Velvet Static" or "Rusty Engine". Both are easy to say and easy to remember.',
+        'A third option is a place or a road: "Silver Roadhouse", "Route Nine", "Canyon Echo". Place names give the band a home in the listener\'s head. They work especially well for bands with a country, blues or Americana edge.',
       ],
     },
     {
-      title: 'Testing Auditory Impact and Stage Delivery',
+      title: 'Test it out loud',
       paragraphs: [
-        'Rock music lives or dies on live stage delivery. A great rock name must roll off the tongue with effortless rhythm when shouted into a club microphone by a promoter, chanted between encore requests, or painted onto the front head of a bass drum kit.',
-        'Pay close attention to plosive consonants (P, T, K, B, D, G) that punch through loud room acoustics. Avoid convoluted multi-syllabic phrases or awkward tongue-twisters that require repetition. If you cannot introduce your band over the ambient roar of a crowded venue in under two seconds, the name is too complex.',
+        'Rock bands play loud rooms, so the name has to survive being shouted over noise. Say it into a phone at a rehearsal, or ask a friend to announce it across the room. If people mishear it or ask you to spell it, that is a warning sign.',
+        'Also check how it sounds after a few drinks and in a hurry, because that is how promoters and fans will say it. Two or three short words with clear vowels are usually safest. Long names can work, but fans will shorten them, so make sure the short version still sounds good.',
       ],
     },
     {
-      title: 'Vetting Digital Availability for the Modern Rock Band',
+      title: 'Make sure you can be found',
       paragraphs: [
-        'Because millions of rock and roll groups have formed across high school garages and rehearsal spaces over the decades, basic rock words often face fierce name collisions on streaming platforms. Having three obscure acoustic artists sharing your identical name on Spotify can dilute your release day algorithmic momentum and confuse potential fans.',
-        'Always test your shortlist using our direct search shortcuts across Spotify, Bandcamp, YouTube, and Google. If an existing band with that title hasn’t released music or performed in fifteen years, investigate whether their trademarks remain active or consider adding a regional modifier to stake an unambiguous digital claim.',
+        'The internet is full of rock bands, so check your name early. Search it in quotes with the word band, then look on Spotify, Bandcamp and Instagram. If an active band already uses it, keep looking. It is much cheaper to change a name before you print merch than after.',
+        'Try to get the same handle on every platform. If the exact name is taken, adding "band", "theband" or your city is a normal workaround. A matching website domain is a bonus and makes you look established.',
       ],
     },
   ],
   faq: [
     {
-      q: 'What makes a rock band name instantly memorable?',
-      a: 'Memorable rock names combine sensory, physical words (like neon, leather, smoke, or wire) with punchy, rhythmic cadences that sound authentic when announced on stage or displayed on vintage posters.',
+      q: 'What makes a rock band name memorable?',
+      a: 'Short, concrete words that create a picture straight away, an easy rhythm when you say it, and no spelling surprises. If someone can hear it once and find you online, it works.',
     },
     {
-      q: 'Why do so many iconic rock bands use "The" in their names?',
-      a: 'Starting with "The" projects a feeling of solidarity, identity, and gang mentality, suggesting that the members are a unified collective rather than just individual session players.',
+      q: 'Why do so many rock bands start their name with "The"?',
+      a: 'It makes the band sound like a group of people rather than a single idea, a bit like a gang. It has been popular since the 1960s and still works well for garage and indie rock.',
     },
     {
-      q: 'Can this generator produce names for both indie rock and hard rock projects?',
-      a: 'Yes. Our rock vocabulary pools span soulful blues roots, alternative grunge textures, indie rock poetry, and high-octane hard rock imagery for versatile styling.',
+      q: 'Does this generator work for indie rock and hard rock?',
+      a: 'Yes. Keep the Rock genre selected and try different styles. Softer, odd pairings suit indie rock, while harder words like riot, engine and thunder suit hard rock.',
     },
     {
-      q: 'How do I know if my rock band name sounds too cliché?',
-      a: 'If a combination immediately reminds you of an existing household stadium band, it may lean too close to parody. Strive for unexpected pairings that spark curiosity while honoring classic rock energy.',
+      q: 'How can I tell if my rock band name is too much of a cliché?',
+      a: 'Search it. If you find lots of bands using the same pattern and the same words, it is probably a cliché. Swapping one word for something more specific to your band usually fixes it.',
     },
     {
-      q: 'Should my band name reflect our hometown or region?',
-      a: 'While not required, incorporating evocative geographical metaphors (like highway, coast, canyon, or avenue) adds evocative regional color that roots your musical narrative in a specific place.',
+      q: 'Should our band name mention our hometown?',
+      a: 'It can help local fans connect with you, but it can also feel limiting if you tour widely. A safer option is to keep the city out of the name and add it to your handles and bio instead.',
     },
   ],
   siblings: [
@@ -94,7 +94,7 @@ export const rockConfig: GenreConfig = {
     {
       path: '/guides/how-to-choose-a-band-name/',
       title: 'How to Choose a Band Name: The Practical Guide',
-      description: 'A complete masterclass on brainstorming, testing live pronunciation, and securing legal trademark availability.',
+      description: 'A step-by-step guide to brainstorming, testing pronunciation, and checking legal trademark availability.',
     },
     {
       path: '/guides/band-name-ideas-by-genre/',

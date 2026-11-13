@@ -15,6 +15,7 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
 import styles from '../band-name-generator/page.module.css';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.constructionEstimateTemplate.title,
@@ -371,6 +372,8 @@ export default function ConstructionEstimatePage() {
                 ))}
               </div>
             </article>
+
+            <HowWeCalculate slug="construction-estimate-template" />
 
             {/* Section 8: FAQ */}
             <article>

@@ -155,7 +155,7 @@ export default function RebarCalculatorPage() {
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
       <main id="main-content" className={styles.main}>
-        <Breadcrumbs items={[{ name: 'Calculators', path: '/tools/' }, { name: 'Rebar Calculator', path: route.path }]} />
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Rebar Calculator', path: route.path }]} />
 
         <header className={styles.header}>
           <h1 className={styles.h1}>Reinforcement Steel Calculator: Rebar Quantity &amp; Weight</h1>

@@ -212,7 +212,7 @@ export default function DrywallCalculatorPage() {
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
       <main id="main-content" className={styles.main}>
-        <Breadcrumbs items={[{ name: 'Calculators', path: '/tools/' }, { name: 'Drywall Calculator', path: route.path }]} />
+        <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Drywall Calculator', path: route.path }]} />
 
         <header className={styles.header}>
           <h1 className={styles.h1}>Drywall Calculator: Sheets, Joint Compound, Tape &amp; Screws</h1>

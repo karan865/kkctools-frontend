@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-13T17:35:58.963Z
+Generated on: 2026-11-13T23:27:45.508Z
 
 
 
@@ -14,7 +14,7 @@ Generated on: 2026-11-13T17:35:58.963Z
 - **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Current Phase:** SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
 - **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
@@ -141,6 +141,125 @@ Generated on: 2026-11-13T17:35:58.963Z
 
 ---
 
+### Phase SA — SEO audit fixes (audit `docs/seo/2026-11-14/`, fixed 2026-11-14)
+Audit score 72/100 (live site). Code-side fixes are below; owner and deploy items are in Sections 3–4.
+- [x] SA-01 **Connected schema graph.**
+  - The root layout (`src/app/layout.tsx`) now emits one sitewide `@graph`: Organization `#organization` (512 px logo, contactPoint) and WebSite `#website` (publisher, inLanguage).
+  - All page JSON-LD passes through `src/components/seo/normalizeSchema.ts` (via `<JsonLd>`). It adds:
+    - `@id`s on every node;
+    - a WebPage node for each tool and guide;
+    - one WebApplication template: OS `Any`, `UtilitiesApplication`, `isAccessibleForFree`, `dateModified`;
+    - an Article image, full ISO dates, and `@id` refs for author and publisher.
+
+    It also drops any duplicate page-level Organization.
+  - 17 pages that wrote raw `<script type="application/ld+json">` now use `<JsonLd>`.
+  - Added AboutPage, ContactPage, CollectionPage (/tools/, /guides/) and a home WebPage.
+
+  *(Evidence: built HTML has exactly 1 Organization per page and 0 dangling `@id` refs across 43 pages; `npm run seo:audit` 0 errors)*
+- [x] SA-02 **Duplicate FAQPage removed on 7 pages**, not just the 1 the audit found: square-footage, cinder-block, fill-dirt, linear-foot, paint-cost, rafter, sand. The duplicate "Frequently Asked Questions" H2 is gone from those pages and the home page. *(Evidence: the seo-audit check "max 1 FAQPage" passes on all pages)*
+- [x] SA-03 **Breadcrumbs.**
+  - BreadcrumbList added to compost, fence-stain, paver-base and paver-sand.
+  - The parent label is now "Tools" everywhere. It used to vary between Calculators, All Tools and Tools.
+  - Fixed the visible "Home › Home ›" on asphalt and cubic-yard.
+  - Added the Tools level on the 6 genre pages.
+
+  *(Evidence: every non-home page has exactly 1 BreadcrumbList)*
+- [x] SA-04 **Broken assets and links**, found while fixing the above:
+  - `og:image` `/opengraph-image.png` returned 404 on every page. The OG image and the apple touch icon are now real `.png` route files (`src/app/opengraph-image.png/route.tsx`, `src/app/apple-touch-icon.png/route.tsx`), plus a new `src/app/logo.png/route.tsx`.
+  - The footer "Terms" link pointed to `/terms-of-service/` (404) on all 43 pages. It now points to `/terms/`.
+  - The 3 homepage guide cards pointed to slugs that do not exist.
+
+  *(Evidence: `out/opengraph-image.png` is 1200×630, `out/logo.png` 512×512, `out/apple-touch-icon.png` 180×180; the new seo-audit checks for broken internal links and og:image pass)*
+- [x] SA-05 **Unverifiable claims removed or softened** (AGENTS.md rule 3):
+  - "0ms server lag" (all 7 band pages);
+  - the unlinked Angi report (tile);
+  - "hand-picked by our editors";
+  - "Contractor-verified" (tons);
+  - "verified manufacturer" (paint);
+  - "Millions of building contractors" (estimate template);
+  - "verified ASTM" (home FAQ and WhyUs);
+  - "verified" wording on cinder-block, sq-ft, fence-stain and laminate;
+  - "crafted by independent musicians" (/guides/);
+  - "guarantee sub-second" (about).
+
+  The About counts now come from the code: 9 genres, about 4,000 vocabulary entries, 306 blocklisted bands. *(Evidence: `grep` for the audit phrases returns 0 matches in `src/`)*
+- [x] SA-06 **Identity copy now covers the whole site (calculators + generators):**
+  - home title is now "KKC Tools – Free Construction Calculators & Online Tools" (brand added, absolute title);
+  - /tools/ H1 and copy;
+  - About fully rewritten: what the site is, how the calculators and the generator work, privacy, corrections;
+  - Contact, with no response-time promise;
+  - /guides/, which now links to the calculator guides;
+  - route titles and descriptions, and `SITE_TAGLINE`.
+
+  *(Evidence: out/index.html `<title>`; seo-audit passed)*
+- [x] SA-07 **Square footage page:**
+  - title and H1 lead with "Square Footage Calculator";
+  - the GLA rules section moved above the FAQ and is linked from the intro;
+  - the waste chips are now a `radiogroup` with `aria-checked` and `aria-label`;
+  - the tabs have `aria-controls`, and the panel has `role="tabpanel"`.
+- [x] SA-08 **Metadata.**
+  - The tons-to-cubic-yards title no longer has a double brand.
+  - 6 pages (compost, fence-stain, paver-base, paver-sand, stud, tons) moved to `buildMetadata()`. They now have an explicit robots meta, og:image and a twitter card.
+
+  *(Evidence: the seo-audit check "explicit meta robots" passes on every page)*
+- [x] SA-09 **Crawl files.**
+  - `llms.txt` is generated from `INDEXABLE_ROUTES` (`src/app/llms.txt/route.ts`). The dead topsoil, gravel and mulch links are gone and all 40 pages are listed.
+  - The sitemap has only loc + lastmod (40 URLs).
+  - robots.txt explicitly allows OAI-SearchBot, Claude-SearchBot, Claude-User and Applebot-Extended.
+
+  *(Evidence: `out/llms.txt`; `out/sitemap.xml` has 40 `<loc>`)*
+- [x] SA-10 **Security headers** in `public/_headers`:
+  - Content-Security-Policy is `'self'` only. Inline is allowed because the Next static export uses inline bootstrap scripts.
+  - HSTS now has `includeSubDomains`.
+
+  *(Evidence: no external script or style origins in `out/*.html`)*
+- [x] SA-11 **`scripts/seo-audit.mjs` now also checks:**
+  - @graph parsing;
+  - at most 1 FAQPage and exactly 1 Organization;
+  - exactly 1 BreadcrumbList (except home);
+  - no dangling @id;
+  - the required WebApplication fields;
+  - an explicit robots meta;
+  - og:image resolves to a file;
+  - no broken internal links.
+
+  *(Evidence: `npm run verify` 2026-11-14, all 6 steps passed, 263 tests)*
+- [ ] SA-12 **Deploy the current build to production.** The audit found /concrete-, /drywall- and /rebar-calculator/ returning 404 live, because the repo is ahead of the deploy. Owner action.
+- [ ] SA-13 **Netlify still injects `/.netlify/scripts/hud?variant=public`.** `netlify.toml` cannot turn it off. The owner must disable the Netlify Drawer / collaboration toolbar in the Netlify UI, then check with `curl -s https://www.kkctools.com/ | grep hud`.
+- [x] SA-14 **"How this calculator works" block on 20 calculator pages** (M5, plus LOW 7 "Last updated"):
+  - shared `src/components/seo/HowWeCalculate.tsx`, with content in `src/content/calculation-methods.ts`;
+  - shows the formula, default values and sources, the last-updated date from `routes.ts`, and a correction email/contact link;
+  - every formula and default matches the engine;
+  - only sources that were checked to exist on 2026-11-14 are linked (NIST SP 811, BIA Technical Note 10, NCMA CMU sizes, the QUIKRETE 1101 data sheet);
+  - typical trade values with no single public source are labelled that way, never given a made-up citation;
+  - concrete, drywall and rebar already had their own Sources sections.
+
+  *(Evidence: `npm run build` + `npm run seo:audit` 0 errors)*
+- [x] SA-15 **Brick calculator metric mode** (M6). There is a US / Metric toggle.
+  - New engine `src/lib/brick-metric-engine.ts` (10 tests) and UI `MetricBrickCalculator.tsx`.
+  - Presets: UK standard 215×102.5×65, UK imperial, Australian 230×110×76, German NF and DF.
+  - Inputs: 10 mm joints, half-brick or one-brick wall, m² openings, waste.
+  - Mortar is shown in m³ / litres; the bag count uses the bag-label yield.
+  - New page section "How Many Bricks Per m²?" with an engine-generated table. H1 and meta now mention metric.
+
+  *(Evidence: vitest 273 tests passed; UK standard = 59.26 per m² matches 1 ÷ (0.225 × 0.075))*
+- [x] SA-16 **Guides** (M8):
+  - all 3 guides now open with a direct answer;
+  - "masterclass / zero-fluff" wording removed;
+  - **factual fix:** they cited the USPTO "TESS" system, which was retired in 2023. They now link USPTO Trademark Search, the gov.uk trade mark search, TMview, the WIPO Global Brand Database and the Nice Classification (all links checked on 2026-11-14);
+  - an outdated registrar example was removed;
+  - new sections: common mistakes, a worked example, "what to do if your name is taken", and punk / indie / pop formulas.
+
+  *(Evidence: seo-audit word counts 1,686 / 1,826 / 1,888)*
+- [x] SA-17 **Genre pages rewritten in plain language** (M7) for metal, heavy-metal, rock, kpop, random and boy-band: intro, 4 sections and 5 FAQs each. FAQ answers match the real generator options. The real song title used as an example was replaced. *(Evidence: Flesch reading ease 63.5–72.5, measured on the built pages; the audit had 12.9–21.5. The seo-audit Jaccard check still passes; 618–743 words of prose per page)*
+- [x] SA-18 **H1 style made consistent** ("X Calculator: what it gives you") on compost, fence-stain, paint, paver-base, paver-sand, tile and stud. `updated` was bumped to 2026-11-14 on 33 tool, genre and guide routes whose content changed today.
+- [x] SA-19 **Mobile TBT (M1) re-measured with Lighthouse 13.6 (mobile, throttled).** `/band-name-generator/` gave TBT 109 ms and 108 ms on the local build, and 91 ms live; the score is 99–100. The audit's 980 ms single run did not reproduce, so no code change was needed. The biggest item is the shared React chunk `3794` (~300 ms boot-up), which is framework cost. *(Evidence: Lighthouse JSON runs, 2026-11-14)*
+- [ ] SA-20 **Not done (low priority or owner decision):**
+  - per-page OG images (a static export serves extension-less image routes as `text/plain`, so this needs a different build approach);
+  - an IndexNow key and ping (needs an owner-held key and a deploy hook);
+  - HSTS preload (owner decision, hard to undo);
+  - a free-text "describe your sound" field on the band generator (SXO idea).
+
 ### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
 - [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:
@@ -249,6 +368,8 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
 | `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
 | `src/config/site.ts` | `OWNER_EMAIL = 'contact@kkctools.com'` | Contact link mailto | Set to contact@kkctools.com |
 | `src/config/site.ts` | `OWNER_NAME = 'KKC Tools Team'` | About page owner identity | Set to KKC Tools Team |
+| `src/app/about/page.tsx` ("Who runs KKC Tools") | `TODO(owner)` | Real owner/author name, role, relevant background (SEO audit H4, E-E-A-T) | **Open** — do not invent |
+| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `sameAs` (real profile URLs) and `founder` (real person) | **Open** — do not invent |
 
 ---
 
@@ -259,6 +380,12 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
    - `pop band name generator`
    - *Status:* Blocked in Phase 4 (P4-11, P4-12) until owner provides SEMrush data.
 2. **Production Domain & Email**: Required before Phase 7 deployment.
+3. **SEO audit 2026-11-14 owner items:**
+   - deploy the current build (SA-12);
+   - disable the Netlify Drawer / HUD (SA-13);
+   - supply the owner identity and real profile URLs for About and the Organization schema;
+   - register the site in Google Search Console and Bing Webmaster Tools;
+   - decide on HSTS preload.
 
 ---
 
@@ -546,6 +673,51 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [SEO audit fixes, part 2: content] — 2026-11-14
+- **"How This Calculator Works" block on 20 calculators.** It shows the formula, defaults, sources (verified links only), the last-updated date and a correction link.
+- **Brick calculator US / Metric toggle.**
+  - Metric engine with UK, Australian and German brick sizes (10 tests).
+  - New "How Many Bricks Per m²?" section.
+- **Guides.**
+  - All 3 open with a direct answer.
+  - Retired USPTO "TESS" references replaced with current, checked registry links.
+  - New sections added; each guide is now 1,686–1,888 words.
+- **Genre pages rewritten in plain language.** Flesch score went from 12.9–21.5 to 63.5–72.5.
+- **H1 style made consistent** on 7 calculators.
+- **Mobile TBT re-measured** at 91–109 ms, so no change was needed.
+- `npm run verify` passed: 273 tests, 0 SEO audit errors.
+
+### [SEO audit fixes] — 2026-11-14
+- **Schema:**
+  - one connected JSON-LD graph, with Organization + WebSite `@id`s in the layout and a shared normalizer (`normalizeSchema.ts`) for all page JSON-LD;
+  - WebPage, AboutPage, ContactPage and CollectionPage nodes;
+  - duplicate FAQPage removed on 7 pages;
+  - breadcrumbs added on 4 pages and the parent label unified to "Tools".
+- **Broken items fixed:**
+  - og:image returned 404 on every page; it is now a real `/opengraph-image.png`;
+  - `/apple-touch-icon.png` returned 404;
+  - the footer Terms link returned 404 on every page;
+  - 3 dead homepage guide links;
+  - "Home › Home ›" breadcrumbs.
+- **Trust:**
+  - unverifiable claims removed or softened;
+  - About rewritten with counts taken from the code;
+  - Contact, /tools/, /guides/ and the home title rewritten for the whole site.
+- **Crawl and headers:**
+  - `llms.txt` is generated from the route list;
+  - the sitemap has loc + lastmod only;
+  - robots.txt allows AI search bots explicitly;
+  - CSP and HSTS `includeSubDomains` in `_headers`.
+- **`seo-audit.mjs` now fails on:**
+  - a duplicate FAQPage or Organization;
+  - a missing breadcrumb;
+  - a dangling @id;
+  - an incomplete WebApplication;
+  - a missing robots meta;
+  - a missing og:image file;
+  - a broken internal link.
+- `npm run verify` passed: 263 tests, 0 SEO audit errors.
+
 ### [Tool #22 — Rebar / Reinforcement Steel Calculator] — 2026-11-14
 - New page `/rebar-calculator/` with:
   - engine `src/lib/rebar-engine.ts` (19 tests);
@@ -621,61 +793,54 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-13T17:35:58.480Z
+Run Date: 2026-11-13T23:27:45.042Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
 |---|---|---|---|---|
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
-| `/about/` | About Our Mission & Philosophy | KKC Too | 371 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2236 | Asphalt Calculator: How Many T | PASS |
-| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1017 | Boy Band Name Generator | PASS |
-| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1007 | Heavy Metal Band Name Generato | PASS |
-| `/band-name-generator/` | Band Name Generator – Free Random Band N | 2194 | Band Name Generator | PASS |
-| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1002 | K-pop Band Name Generator | PASS |
-| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1051 | Metal Band Name Generator | PASS |
-| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1044 | Random Band Name Generator | PASS |
-| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1038 | Rock Band Name Generator | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2277 | Free Brick Calculator: Estimat | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3796 | Cinder Block Calculator – Conc | PASS |
-| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2336 | Free Compost Calculator: Estim | PASS |
+| `/about/` | About KKC Tools – How Our Calculators Wo | 413 | About KKC Tools | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2385 | Asphalt Calculator: How Many T | PASS |
+| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 991 | Boy Band Name Generator | PASS |
+| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1059 | Heavy Metal Band Name Generato | PASS |
+| `/band-name-generator/` | Band Name Generator – Free Random Band N | 2198 | Band Name Generator | PASS |
+| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1113 | K-pop Band Name Generator | PASS |
+| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1164 | Metal Band Name Generator | PASS |
+| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1045 | Random Band Name Generator | PASS |
+| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1090 | Rock Band Name Generator | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2790 | Brick Calculator: Bricks, Mort | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3342 | Cinder Block Calculator – Conc | PASS |
+| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2485 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2870 | Free Construction Estimate Tem | PASS |
-| `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2227 | Cubic Yard Calculator: How Man | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
+| `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 204 | Contact KKC Tools | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
-| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2136 | Free Fence Stain Calculator: E | PASS |
-| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1489 | Fill Dirt Calculator | PASS |
-| `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
-| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
-| `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
-| `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Construction Calculators & Online T | 1194 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2822 | Free Paver Base Calculator: Es | PASS |
-| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2175 | Free Paver Sand Calculator: Es | PASS |
+| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1453 | Fill Dirt Calculator | PASS |
+| `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
+| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
+| `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
+| `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1281 | Free Construction Calculators  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
+| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2372 | Paver Sand Calculator: Bedding | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
-| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2589 | Rafter Calculator – Find Rafte | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
-| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1484 | Sand Calculator | PASS |
-| `/square-footage-calculator/` | Sqft Calculator – Square Footage Calcula | 3512 | Sqft Calculator – Free Square  | PASS |
-| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2604 | Stone Calculator: How Many Ton | PASS |
-| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 1935 | Stud Calculator: Free Wall Fra | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
+| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 527 | Practical tools for your websi | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 551 | All Free Tools: Construction C | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
-
-## Warnings (4)
-
-- Broken internal link target detected: "/terms-of-service/" (linked 86 times)
-- Broken internal link target detected: "/guides/band-naming-guide/" (linked 1 times)
-- Broken internal link target detected: "/guides/genre-naming-trends/" (linked 1 times)
-- Broken internal link target detected: "/guides/trademark-and-availability/" (linked 1 times)
 
 
 
@@ -765,6 +930,9 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+4e8a8db keywords files added
+dc6099e files rearranged
+c08b669 reinforcement steel calculator
 051f668 2. Drywall calculator completed
 9ddcf8a home page redesigned
 02de99b blog 1 completed - Concrete calculator
@@ -782,9 +950,6 @@ ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar
 9b8b877 feat(tool-14): update stud wall framing calculator spec and app implementation
 2d19a9f feat(tool-13): implement stone / rock / aggregate calculator with multi-area engine & DA-1 SEO
 fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, spec v2
-9577d61 feat(tile-calculator): rebuild tool 11 with multi-area deductions, trowel mortar yields, grout volume, and updated spec
-39f1033 feat(paint-calculator): rebuild tool 10 with multi-room support, container rounding, pro benchmark, and updated spec
-0da3fb5 feat(cinder-block-calculator): rebuild tool 8 with multi-wall rows, openings deductions, and updated spec
 ```
 
 
@@ -800,18 +965,18 @@ fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, 
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 27ms
+✓ Running next.config.ts took 33ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.2s
+✓ Compiled successfully in 3.8s
   Running TypeScript ...
   Finished TypeScript in 2.1s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/55) ...
-  Generating static pages using 15 workers (13/55) 
-  Generating static pages using 15 workers (27/55) 
-  Generating static pages using 15 workers (41/55) 
-✓ Generating static pages using 15 workers (55/55) in 1544ms
+  Generating static pages using 15 workers (0/57) ...
+  Generating static pages using 15 workers (14/57) 
+  Generating static pages using 15 workers (28/57) 
+  Generating static pages using 15 workers (42/57) 
+✓ Generating static pages using 15 workers (57/57) in 2.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -819,7 +984,7 @@ Route (app)
 ┌ ○ /
 ├ ○ /_not-found
 ├ ○ /about
-├ ○ /apple-icon
+├ ○ /apple-touch-icon.png
 ├ ○ /asphalt-calculator
 ├ ○ /band-name-generator
 ├   /band-name-generator/[genre]
@@ -848,7 +1013,9 @@ Route (app)
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /linear-foot-calculator
-├ ○ /opengraph-image
+├ ○ /llms.txt
+├ ○ /logo.png
+├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
 ├ ○ /paver-base-calculator
@@ -907,6 +1074,9 @@ Route (app)
 > eslint src
 
 
+D:\1_programmins\5.kkctools\src\app\guides\page.tsx
+  12:74  warning  'LD_ORG_ID' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\asphalt-calculator\AsphaltCalculator.tsx
   292:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
   300:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
@@ -937,7 +1107,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 18 problems (0 errors, 18 warnings)
+✖ 19 problems (0 errors, 19 warnings)
 
 
 ```
@@ -966,10 +1136,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  26 passed (26)
-      Tests  263 passed (263)
-   Start at  23:05:34
-   Duration  1.45s (transform 4.75s, setup 0ms, import 6.29s, tests 535ms, environment 6ms)
+ Test Files  27 passed (27)
+      Tests  273 passed (273)
+   Start at  04:57:15
+   Duration  1.50s (transform 4.45s, setup 0ms, import 5.91s, tests 536ms, environment 17ms)
 
 
 ```

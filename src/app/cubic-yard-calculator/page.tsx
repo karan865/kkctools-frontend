@@ -13,6 +13,7 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
 import styles from '../asphalt-calculator/page.module.css';
+import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.cubicYardCalculator.title,
@@ -61,6 +62,12 @@ export default function CubicYardCalculatorPage() {
       {
         '@type': 'ListItem',
         position: 2,
+        name: 'Tools',
+        item: `${SITE_URL}/tools/`,
+      },
+      {
+        '@type': 'ListItem',
+        position: 3,
         name: 'Cubic Yard Calculator',
         item: canonicalUrl,
       },
@@ -98,7 +105,7 @@ export default function CubicYardCalculatorPage() {
           <Breadcrumbs
             withSchema={false}
             items={[
-              { name: 'Home', path: '/' },
+              { name: 'Tools', path: '/tools/' },
               { name: 'Cubic Yard Calculator', path: '/cubic-yard-calculator/' },
             ]}
           />
@@ -432,6 +439,8 @@ export default function CubicYardCalculatorPage() {
                 <strong>Add every part of the job.</strong> Thickened edges, footings and steps need their own sections.
               </li>
             </ul>
+
+            <HowWeCalculate slug="cubic-yard-calculator" />
 
             {/* Section 9: Frequently Asked Questions (10 FAQs) */}
             <Faq items={copy.faqs} title="Frequently Asked Questions" withSchema={false} />
