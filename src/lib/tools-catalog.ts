@@ -63,7 +63,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     id: 'finishes',
     name: 'Floors, Paint & Stain',
     headline: 'Tile, Flooring & Coating Calculators',
-    blurb: 'Ceramic tiles, laminate planks, interior paint gallons, and exterior fence stain.',
+    blurb: 'Drywall sheets and mud, ceramic tiles, laminate planks, paint gallons and fence stain.',
     order: 5,
   },
   business: {
@@ -252,6 +252,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
   },
 
   // 5. Floors, Paint & Stain
+  {
+    slug: '/drywall-calculator/',
+    name: 'Drywall Calculator',
+    category: 'finishes',
+    description: 'Sheetrock sheets, joint compound, tape & screws for rooms, walls and ceilings.',
+    tags: ['Sheets', 'Mud & Tape'],
+    icon: 'drywall',
+    keywords: ['drywall', 'sheetrock', 'plasterboard', 'gypsum board', 'joint compound', 'drywall mud', 'drywall screws', 'drywall tape'],
+    added: '2026-11-14',
+    isNew: true,
+    featured: true,
+  },
   {
     slug: '/tile-calculator/',
     name: 'Tile Calculator',

@@ -10,6 +10,7 @@ import ToolSearch from '@/components/home/ToolSearch';
 import Icon from '@/components/icons/Icons';
 import {
   CATEGORIES,
+  TOOLS_CATALOG,
   getToolsByCategory,
   CategoryId,
 } from '@/lib/tools-catalog';
@@ -157,7 +158,7 @@ export default function Header() {
                       className={styles.megaAllBtn}
                       onClick={() => setToolsDropdownOpen(false)}
                     >
-                      View all 22 tools directory →
+                      View all {TOOLS_CATALOG.length} tools directory →
                     </Link>
                     <span className={styles.megaNewPill}>
                       New: Concrete Calculator

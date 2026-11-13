@@ -26,7 +26,7 @@ export default function ToolsDirectory() {
       {/* Search Header */}
       <div className={styles.searchHeader}>
         <div className={styles.searchBoxWrapper}>
-          <ToolSearch mode="inline" placeholder="Search all 22 tools by material, trade or keyword..." />
+          <ToolSearch mode="inline" placeholder={`Search all ${TOOLS_CATALOG.length} tools by material, trade or keyword...`} />
         </div>
 
         {/* Filter Pills */}

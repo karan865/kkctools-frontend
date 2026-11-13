@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import Icon from '@/components/icons/Icons';
 import { SITE_NAME } from '@/config/site';
+import { TOOLS_CATALOG } from '@/lib/tools-catalog';
 import styles from './Footer.module.css';
 
 export default function Footer() {
@@ -20,7 +21,7 @@ export default function Footer() {
           </div>
           <div className={styles.topBandActions}>
             <Link href="/tools/" className={styles.topBandBtn}>
-              All 22 tools directory
+              All {TOOLS_CATALOG.length} tools directory
             </Link>
             <a
               href="mailto:contact@kkctools.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
@@ -113,6 +114,7 @@ export default function Footer() {
               <li><Link href="/stud-calculator/" className={styles.link}>Stud Framing</Link></li>
               <li><Link href="/square-footage-calculator/" className={styles.link}>Square Footage</Link></li>
               <li><Link href="/linear-foot-calculator/" className={styles.link}>Linear Foot</Link></li>
+              <li><Link href="/drywall-calculator/" className={styles.link}>Drywall Calculator</Link></li>
               <li><Link href="/tile-calculator/" className={styles.link}>Tile Calculator</Link></li>
               <li><Link href="/laminate-flooring-calculator/" className={styles.link}>Laminate Flooring</Link></li>
               <li><Link href="/paint-cost-calculator/" className={styles.link}>Paint Cost</Link></li>

@@ -2,11 +2,11 @@
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-13
+- **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 214 vitest tests passing (23 files, 100% green), 41 HTML pages pass the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-13, evidence in `docs/evidence/`).
+- **Current Phase:** Batch 2 (new keyword research) — Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 244 vitest tests passing (25 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -129,6 +129,16 @@
 - [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
 - [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase DW — Tool #21: Drywall Calculator (Batch 2 Tier 1 #2, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/2/02_Drywall_Calculator_Competitor_Analysis.md` (primary keyword `drywall calculator`, US 12,100 / KD 41; 5 of the top 10 are Domain AS 7–19).
+- [x] DW-0 Engine: `src/lib/drywall-engine.ts` — 5 surface types (room, single wall, ceiling, gable, known area), editable door/window deductions, US 4×8–4×16 and metric 1200×2400/2700/3000 sheets, sheets-by-size, screws per sheet from framing + screw spacing (IRC Table R702.3.5 defaults, user-overridable), compound (USG J1969: ≈ 10 gal / 1,000 sq ft), tape (Georgia-Pacific WallWorks Guide: ≈ 350 ft / 1,000 sq ft), corner bead, board weight (USG nominal 1.6 / 1.25 / 2.2 lb/sq ft), optional cost incl. labour. *(Evidence: `src/lib/drywall-engine.test.ts`, 26 tests passing)*
+- [x] DW-1 UI: `src/components/tool/drywall-calculator/` — multi-surface job list, unit switch that converts entered sizes, ft + in inputs, room quick-fill presets, live labelled SVG diagram per surface, sheet + framing diagram with screw pattern, clickable sheets-by-size grid, finishing materials, weight, cost, copy / share link (URL only) / print, mobile sticky result bar; styled with site tokens so light and dark themes both work. *(Evidence: headless Edge screenshots at 1300 px light and dark and at 390 px; a shared 2-surface metric link restored 52.7 m² → 21 sheets and 23.6 L compound, matching a hand calculation)*
+- [x] DW-2 Page: `src/app/drywall-calculator/page.tsx` — 2,789 words in `<main>`; all examples, tables and FAQ numbers computed by the engine at build time; diagrams for measuring, sheet sizes, screw pattern and the three-coat taped joint; sources section. *(Evidence: `docs/seo-audit-report.md` row `/drywall-calculator/` PASS)*
+- [x] DW-3 Registration: route `drywallCalculator` (title `Drywall Calculator – Sheetrock Sheets, Mud & Tape`), catalog entry (Floors, Paint & Stain, first card, New), new `drywall` icon, footer link, min word count 1,500 in `scripts/seo-audit.mjs`; hard-coded "22 tools" counts replaced by `TOOLS_CATALOG.length`. *(Evidence: `src/lib/tools-catalog.test.ts` updated to 23 tools, passing)*
+- [x] DW-4 Verification: `npm run verify` passed — lint, 244 tests, no-network, build, SEO audit, docs bundle. *(Evidence: `docs/evidence/*.txt`, 2026-11-14)*
 
 ---
 

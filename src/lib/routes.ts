@@ -64,6 +64,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  drywallCalculator: {
+    path: '/drywall-calculator/',
+    title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',
+    description: 'Free drywall calculator: enter rooms, walls and ceilings, subtract doors and windows, and get sheetrock sheets, joint compound, tape and screws.',
+    updated: '2026-11-14',
+    type: 'tool',
+    indexable: true,
+  },
   sandCalculator: {
     path: '/sand-calculator/',
     title: 'Sand Calculator: Cubic Yards, Tons & Bags',

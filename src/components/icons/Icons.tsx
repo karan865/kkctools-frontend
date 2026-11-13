@@ -21,6 +21,7 @@ export type IconName =
   | 'floorPlanks'
   | 'paintRoller'
   | 'fence'
+  | 'drywall'
   | 'clipboard'
   | 'guitar'
   | 'gridSearch'
@@ -242,6 +243,19 @@ export default function Icon({
           <rect x="4" y="2" width="16" height="6" rx="2" />
           <path d="M20 5h2a2 2 0 0 1 2 2v2a2 2 0 0 1-2 2h-10v5" />
           <rect x="10" y="16" width="4" height="6" rx="1" />
+        </svg>
+      );
+    case 'drywall':
+      return (
+        <svg {...common}>
+          <rect x="3" y="3" width="18" height="18" rx="1.5" />
+          <line x1="3" y1="12" x2="21" y2="12" strokeDasharray="2.5 2" />
+          <circle cx="7" cy="7" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="7" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="17" cy="7" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="7" cy="17" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="12" cy="17" r="0.9" fill="currentColor" stroke="none" />
+          <circle cx="17" cy="17" r="0.9" fill="currentColor" stroke="none" />
         </svg>
       );
     case 'fence':

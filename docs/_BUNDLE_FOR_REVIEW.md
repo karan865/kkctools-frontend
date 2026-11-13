@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-13T12:27:38.615Z
+Generated on: 2026-11-13T17:00:48.135Z
 
 
 
@@ -11,11 +11,11 @@ Generated on: 2026-11-13T12:27:38.615Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-13
+- **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
-- **Current Phase:** Batch 2 (new keyword research) — Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 214 vitest tests passing (23 files, 100% green), 41 HTML pages pass the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-13, evidence in `docs/evidence/`).
+- **Current Phase:** Batch 2 (new keyword research) — Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 244 vitest tests passing (25 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -138,6 +138,16 @@ Generated on: 2026-11-13T12:27:38.615Z
 - [x] P8-08 Tool #3 (Asphalt Calculator fully built, 2,212 words, 100% client-side, 12 engine test cases passing, verified by npm run verify). *(Evidence: out/asphalt-calculator/index.html, 40 tests passing, zero errors in strict SEO audit)*
 - [x] P8-09 Tool #4 (Cubic Yard Calculator fully built, 2,184 words, 100% client-side, 16 engine test cases passing, verified by npm run verify). *(Evidence: out/cubic-yard-calculator/index.html, 56 tests passing, zero errors in strict SEO audit)*
 - [ ] P8-07 Off-site work by the owner: genuinely useful posts and answers in music communities.
+
+---
+
+### Phase DW — Tool #21: Drywall Calculator (Batch 2 Tier 1 #2, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/2/02_Drywall_Calculator_Competitor_Analysis.md` (primary keyword `drywall calculator`, US 12,100 / KD 41; 5 of the top 10 are Domain AS 7–19).
+- [x] DW-0 Engine: `src/lib/drywall-engine.ts` — 5 surface types (room, single wall, ceiling, gable, known area), editable door/window deductions, US 4×8–4×16 and metric 1200×2400/2700/3000 sheets, sheets-by-size, screws per sheet from framing + screw spacing (IRC Table R702.3.5 defaults, user-overridable), compound (USG J1969: ≈ 10 gal / 1,000 sq ft), tape (Georgia-Pacific WallWorks Guide: ≈ 350 ft / 1,000 sq ft), corner bead, board weight (USG nominal 1.6 / 1.25 / 2.2 lb/sq ft), optional cost incl. labour. *(Evidence: `src/lib/drywall-engine.test.ts`, 26 tests passing)*
+- [x] DW-1 UI: `src/components/tool/drywall-calculator/` — multi-surface job list, unit switch that converts entered sizes, ft + in inputs, room quick-fill presets, live labelled SVG diagram per surface, sheet + framing diagram with screw pattern, clickable sheets-by-size grid, finishing materials, weight, cost, copy / share link (URL only) / print, mobile sticky result bar; styled with site tokens so light and dark themes both work. *(Evidence: headless Edge screenshots at 1300 px light and dark and at 390 px; a shared 2-surface metric link restored 52.7 m² → 21 sheets and 23.6 L compound, matching a hand calculation)*
+- [x] DW-2 Page: `src/app/drywall-calculator/page.tsx` — 2,789 words in `<main>`; all examples, tables and FAQ numbers computed by the engine at build time; diagrams for measuring, sheet sizes, screw pattern and the three-coat taped joint; sources section. *(Evidence: `docs/seo-audit-report.md` row `/drywall-calculator/` PASS)*
+- [x] DW-3 Registration: route `drywallCalculator` (title `Drywall Calculator – Sheetrock Sheets, Mud & Tape`), catalog entry (Floors, Paint & Stain, first card, New), new `drywall` icon, footer link, min word count 1,500 in `scripts/seo-audit.mjs`; hard-coded "22 tools" counts replaced by `TOOLS_CATALOG.length`. *(Evidence: `src/lib/tools-catalog.test.ts` updated to 23 tools, passing)*
+- [x] DW-4 Verification: `npm run verify` passed — lint, 244 tests, no-network, build, SEO audit, docs bundle. *(Evidence: `docs/evidence/*.txt`, 2026-11-14)*
 
 ---
 
@@ -502,6 +512,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #21 — Drywall Calculator] — 2026-11-14
+- New page `/drywall-calculator/` with engine `src/lib/drywall-engine.ts` (26 tests), UI `src/components/tool/drywall-calculator/` and theme-aware SVG diagrams (room, wall, ceiling, gable, area, sheet/screw layout, taped joint, sheet sizes).
+- Rooms, walls, ceilings, gable ends and known areas in one job; editable doors/windows; US and metric sheets; sheets by size; compound, tape, screws, corner bead, board weight and optional cost.
+- Rates sourced from USG (compound, board weights), Georgia-Pacific (tape, 10–15% overage) and IRC Table R702.3.5 (screw spacing).
+- Catalog now 23 tools; "22 tools" text across header, footer, hero, home and directory now reads the catalog length.
+
 ### [Tool #20 — Concrete Calculator] — 2026-11-13
 - New page `/concrete-calculator/` with engine `src/lib/concrete-engine.ts` (25 tests), UI `src/components/tool/concrete-calculator/` and labelled SVG shape diagrams.
 - 8 shapes, multi-pour totals, US/metric with value conversion, bag counts (QUIKRETE data-sheet yields + derived kg sizes), ready-mix rounding and truck loads, optional cost, site-mix split, copy/share/print.
@@ -562,7 +578,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-13T12:27:38.166Z
+Run Date: 2026-11-13T17:00:47.686Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -585,13 +601,14 @@ Status: PASSED ✅
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2870 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact Us & Suggest a Feature | KKC Too | 187 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2227 | Cubic Yard Calculator: How Man | PASS |
+| `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2136 | Free Fence Stain Calculator: E | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1489 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1237 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1527 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1427 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Band Naming & Music Branding Guides | KK | 203 | Band Naming & Music Branding G | PASS |
-| `/` | Free Construction Calculators & Online T | 1157 | Free Construction Calculators  | PASS |
+| `/` | Free Construction Calculators & Online T | 1176 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2556 | Laminate Flooring Calculator:  | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1570 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2767 | Free Paint Cost Calculator: Es | PASS |
@@ -606,12 +623,12 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3048 | Free Tile Sq Ft Calculator: Es | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1538 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Online Tools & Generators | KKC Tool | 495 | Practical tools for your websi | PASS |
+| `/tools/` | All Online Tools & Generators | KKC Tool | 509 | Practical tools for your websi | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 ## Warnings (4)
 
-- Broken internal link target detected: "/terms-of-service/" (linked 82 times)
+- Broken internal link target detected: "/terms-of-service/" (linked 84 times)
 - Broken internal link target detected: "/guides/band-naming-guide/" (linked 1 times)
 - Broken internal link target detected: "/guides/genre-naming-trends/" (linked 1 times)
 - Broken internal link target detected: "/guides/trademark-and-availability/" (linked 1 times)
@@ -641,6 +658,7 @@ concrete-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-yard-calculator/index.html
+drywall-calculator/index.html
 fence-stain-calculator/index.html
 fill-dirt-calculator/index.html
 guides/band-name-ideas-by-genre/index.html
@@ -702,6 +720,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+9ddcf8a home page redesigned
 02de99b blog 1 completed - Concrete calculator
 35c5ea2 removed unwanted files
 5c5d5f4 make pages responsive
@@ -721,7 +740,6 @@ fdd6099 feat(laminate): multi-room, float-safe rounding, KD-1 keyword retarget, 
 39f1033 feat(paint-calculator): rebuild tool 10 with multi-room support, container rounding, pro benchmark, and updated spec
 0da3fb5 feat(cinder-block-calculator): rebuild tool 8 with multi-wall rows, openings deductions, and updated spec
 6a230e9 feat(square-footage-calc): rebuild tool 7 with multi-room subtract, shapes v1, area converter, and updated spec
-e33fecf 13 to 19 tools completed
 ```
 
 
@@ -737,18 +755,18 @@ e33fecf 13 to 19 tools completed
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 36ms
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.4s
+✓ Compiled successfully in 3.6s
   Running TypeScript ...
-  Finished TypeScript in 2.3s ...
+  Finished TypeScript in 2.5s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/53) ...
-  Generating static pages using 15 workers (13/53) 
-  Generating static pages using 15 workers (26/53) 
-  Generating static pages using 15 workers (39/53) 
-✓ Generating static pages using 15 workers (53/53) in 1796ms
+  Generating static pages using 15 workers (0/54) ...
+  Generating static pages using 15 workers (13/54) 
+  Generating static pages using 15 workers (26/54) 
+  Generating static pages using 15 workers (40/54) 
+✓ Generating static pages using 15 workers (54/54) in 1621ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -774,6 +792,7 @@ Route (app)
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
 ├ ○ /cubic-yard-calculator
+├ ○ /drywall-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
 ├ ○ /guides
@@ -884,7 +903,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 41 HTML files in out/...
+Auditing 42 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -898,37 +917,13 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
-[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
+ RUN  v4.1.12 D:/1_programmins/5.kkctools
 
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 39[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 48[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 33[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 132[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m24 passed[39m[22m[90m (24)[39m
-[2m      Tests [22m [1m[32m218 passed[39m[22m[90m (218)[39m
-[2m   Start at [22m 17:57:06
-[2m   Duration [22m 1.88s[2m (transform 6.87s, setup 0ms, import 8.69s, tests 542ms, environment 12ms)[22m
+ Test Files  25 passed (25)
+      Tests  244 passed (244)
+   Start at  22:30:22
+   Duration  1.35s (transform 4.07s, setup 0ms, import 5.33s, tests 443ms, environment 6ms)
 
 
 ```

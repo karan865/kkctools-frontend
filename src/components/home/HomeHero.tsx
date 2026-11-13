@@ -2,6 +2,7 @@ import React from 'react';
 import Link from 'next/link';
 import ToolSearch from './ToolSearch';
 import Icon from '@/components/icons/Icons';
+import { TOOLS_CATALOG } from '@/lib/tools-catalog';
 import styles from './HomeHero.module.css';
 
 export default function HomeHero() {
@@ -65,7 +66,7 @@ export default function HomeHero() {
             {/* Action Buttons */}
             <div className={styles.actionButtons}>
               <Link href="/tools/" className={styles.btnPrimary}>
-                Browse all 22 tools →
+                Browse all {TOOLS_CATALOG.length} tools →
               </Link>
               <Link href="/concrete-calculator/" className={styles.btnSecondary}>
                 Try Concrete Calculator

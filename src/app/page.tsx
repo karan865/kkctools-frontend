@@ -12,6 +12,7 @@ import Faq from '@/components/ui/Faq';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import {
   CATEGORIES,
+  TOOLS_CATALOG,
   getToolsByCategory,
   getNewAndUpdatedTools,
 } from '@/lib/tools-catalog';
@@ -73,7 +74,7 @@ export default function Home() {
             title="Recently Built &amp; Updated Tools"
             subtitle="Fresh calculators and major feature upgrades engineered for fast jobsite math."
             viewAllLink="/tools/"
-            viewAllText="Explore all 22 tools →"
+            viewAllText={`Explore all ${TOOLS_CATALOG.length} tools →`}
           />
           <div className={styles.cardGrid}>
             {newAndUpdated.map((tool) => (
