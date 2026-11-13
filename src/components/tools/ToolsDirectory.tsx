@@ -270,6 +270,18 @@ const TOOLS_DATA: ToolItem[] = [
     link: '/fence-stain-calculator/',
     actionText: 'Open tool',
   },
+  {
+    id: 'concrete-calculator',
+    title: 'Concrete Calculator',
+    category: 'Concrete • Slabs • Footings',
+    icon: '🧮',
+    badge: '🆕 New',
+    badgeType: 'popular',
+    desc: 'Work out concrete volume for slabs, footings, round pads, walls, columns, Sonotubes, post holes and steps. Combine several pours and get cubic yards, m³, 40–90 lb or kg bag counts and ready-mix truck loads.',
+    chips: ['Concrete Volume', 'Cubic Yards', 'Bags per Yard', 'Post Holes', 'Metric & US'],
+    link: '/concrete-calculator/',
+    actionText: 'Open tool',
+  },
 ];
 
 export default function ToolsDirectory() {

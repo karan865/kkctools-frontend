@@ -25,6 +25,11 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
+                    <Link href="/concrete-calculator/" className={styles.link}>
+                      Concrete Calculator
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/tons-to-cubic-yards/" className={styles.link}>
                       Tons to Cubic Yards
                     </Link>

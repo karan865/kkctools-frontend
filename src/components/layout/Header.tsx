@@ -30,6 +30,7 @@ export default function Header() {
     pathname.startsWith('/construction-estimate') ||
     pathname.startsWith('/asphalt-calculator') ||
     pathname.startsWith('/cubic-yard-calculator') ||
+    pathname.startsWith('/concrete-calculator') ||
     pathname.startsWith('/sand-calculator') ||
     pathname.startsWith('/fill-dirt-calculator') ||
     pathname.startsWith('/linear-foot-calculator') ||
@@ -125,7 +126,15 @@ export default function Header() {
                   onClick={() => setToolsDropdownOpen(false)}
                 >
                   <span className={styles.dropdownTitle}>Cubic Yard Calculator</span>
-                  <span className={styles.dropdownDesc}>Calculate yards, concrete bags & weight</span>
+                  <span className={styles.dropdownDesc}>Cubic yards of soil, gravel, mulch & more</span>
+                </Link>
+                <Link
+                  href="/concrete-calculator/"
+                  className={styles.dropdownItem}
+                  onClick={() => setToolsDropdownOpen(false)}
+                >
+                  <span className={styles.dropdownTitle}>Concrete Calculator</span>
+                  <span className={styles.dropdownDesc}>Slabs, footings, post holes, steps & bags</span>
                 </Link>
                 <Link
                   href="/sand-calculator/"

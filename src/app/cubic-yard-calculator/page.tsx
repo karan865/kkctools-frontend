@@ -164,6 +164,12 @@ export default function CubicYardCalculatorPage() {
             <strong>Quick answer:</strong> {copy.quickAnswer}
           </div>
 
+          <p style={{ fontSize: '0.9375rem', color: 'var(--ink)', margin: '0 0 var(--space-3)' }}>
+            Pouring concrete with several parts — a slab plus footings, post holes or steps? The{' '}
+            <Link href="/concrete-calculator/">Concrete Calculator</Link> adds every pour together and shows bag counts and
+            ready-mix truck loads in US or metric units.
+          </p>
+
           <p
             style={{
               fontSize: '0.875rem',

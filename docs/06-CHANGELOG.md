@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #20 — Concrete Calculator] — 2026-11-13
+- New page `/concrete-calculator/` with engine `src/lib/concrete-engine.ts` (25 tests), UI `src/components/tool/concrete-calculator/` and labelled SVG shape diagrams.
+- 8 shapes, multi-pour totals, US/metric with value conversion, bag counts (QUIKRETE data-sheet yields + derived kg sizes), ready-mix rounding and truck loads, optional cost, site-mix split, copy/share/print.
+- Article numbers (examples, tables, FAQ) generated from the engine at build time.
+- `/cubic-yard-calculator/` retitled to avoid keyword cannibalisation; nav, footer and tools directory updated.
+- `npm run verify` passed: 214 tests, 0 SEO audit errors.
+
 ### [Phase 3 Complete — Checkpoint 1] — 2026-11-08
 - **Tasks Completed:** P3-01, P3-02, P3-03, P3-04, P3-05, P3-06, P3-07, P3-08, P3-09.
 - **Details:**

@@ -53,6 +53,9 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
         <nav className={styles.nav}>
           <div className={styles.section}>
             <span className={styles.sectionTitle}>Calculators &amp; Tools</span>
+            <Link href="/concrete-calculator/" className={styles.navLink} onClick={onClose}>
+              🧮 Concrete Calculator
+            </Link>
             <Link href="/paver-sand-calculator/" className={styles.navLink} onClick={onClose}>
               🧱 Paver Sand Calculator
             </Link>
