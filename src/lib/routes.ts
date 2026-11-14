@@ -104,6 +104,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  wireGaugeCalculator: {
+    path: '/wire-gauge-calculator/',
+    title: 'Wire Gauge Calculator – Wire Size by Amps & Distance',
+    description: 'Find the right wire gauge (AWG) or mm² for your circuit. Enter amps, voltage and run length to check voltage drop and a suggested wire size.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

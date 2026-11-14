@@ -2,8 +2,8 @@
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 28 — 1 generator, 1 estimate template, 26 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 361 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 29 — 1 generator, 1 estimate template, 27 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 392 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -40,6 +40,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
 | 27 | Board and Batten Calculator (accent wall + exterior siding) | `/board-and-batten-calculator/` | `board-batten-calculator/` | `board-batten-engine.ts` |
 | 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
+| 29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive) | `/wire-gauge-calculator/` | `wire-gauge-calculator/` | `wire-gauge-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).

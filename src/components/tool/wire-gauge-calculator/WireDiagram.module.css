@@ -1,0 +1,30 @@
+.svg {
+  --dg-wire: #c2410c;
+  --dg-wire-2: #0369a1;
+  --dg-copper: #d97706;
+  --dg-alu: #94a3b8;
+  --dg-box: #e2e8f0;
+  --dg-edge: #334155;
+  --dg-ok: #15803d;
+  --dg-warn: #b91c1c;
+  --dg-dim: #0369a1;
+  --dg-label-bg: #ffffff;
+  --dg-text: #334155;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:global(:root[data-theme='dark']) .svg {
+  --dg-wire: #fb923c;
+  --dg-wire-2: #7dd3fc;
+  --dg-copper: #fbbf24;
+  --dg-alu: #cbd5e1;
+  --dg-box: #1e2633;
+  --dg-edge: #e2e8f0;
+  --dg-ok: #4ade80;
+  --dg-warn: #f87171;
+  --dg-dim: #7dd3fc;
+  --dg-label-bg: #11151f;
+  --dg-text: #cbd5e1;
+}

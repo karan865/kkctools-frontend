@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase WG — Tool #27: Wire Gauge Calculator (Batch 2 Tier 1 #8, built 2026-11-15, safety-sensitive)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/08_Wire_Gauge_Calculator_Competitor_Analysis.md` (primary `wire gauge calculator`, US 5,400 / KD 11; 4 tool pages with AS ≤ 11 rank).
+- [x] WG-1 Engine `src/lib/wire-gauge-engine.ts` + 31 tests (AWG geometry, resistance vs NEC Table 8 within 1.5 %, IEC 60228 metric, load/drop formulas, 310.16 ampacity, ambient/bundling factors, terminal cap, 240.4(D), sizing cases incl. continuous, aluminium, metric, 12 V DC, lookup). *(Evidence: `npx vitest run` → 392 passed)*
+- [x] WG-2 Calculator UI: 3 modes, systems/voltages, amps or watts, ft/m, drop presets, AWG/mm², Cu/Al, insulation/terminal/ambient/bundling, safety banner, live diagrams, share/copy/print. *(Evidence: `src/components/tool/wire-gauge-calculator/`)*
+- [x] WG-3 Page: title 64 chars incl. brand, meta 140, one H1, ~2,500 words, 11 FAQs, engine-generated tables; FAQ/table numbers reviewed in the built HTML and 3 issues fixed. *(Evidence: cheerio dump of `out/wire-gauge-calculator/index.html`)*
+- [x] WG-4 Wiring: routes, catalog (29), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] WG-5 `npm run verify` all steps passed after the review fixes. *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] WG-6 `TODO(owner)` (safety): verify Table 310.16 values against the NEC edition your audience uses (conflicting reproductions for Cu 3 AWG 90 °C and Al 300 kcmil — lower values used); consider a licensed-electrician review of the page; decide whether to add BS 7671 / IEC 60364 current-carrying-capacity tables for metric mode; consider a new "Electrical & Plumbing" category (pipe + wire) — needs a colour token and home-page CSS; re-check wiresizecalculator.net by hand (SSL expired).
+
 ### Phase PV — Tool #26: Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md` (primary `tube volume calculator`, US 1,600 / Global 4,800 / KD 12; no dedicated tube tool from a big site in the SERP).
 - [x] PV-1 Engine `src/lib/pipe-volume-engine.ts` + 19 tests (preset IDs vs ASME B36.10M / ASTM B88, round/rect areas, unit outputs, runs, fill time, per-length tables, steel weight vs standard). *(Evidence: `npx vitest run` → 361 passed)*

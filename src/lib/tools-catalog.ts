@@ -56,7 +56,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     id: 'framing',
     name: 'Framing, Roofing & Measuring',
     headline: 'Framing, Rafter & Area Calculators',
-    blurb: 'Wall studs, roof rafters, shingle bundles, square footage, and linear-to-square foot conversions.',
+    blurb: 'Wall studs, roof rafters, shingle bundles, wire sizing, square footage, and linear-to-square foot conversions.',
     order: 4,
   },
   finishes: {
@@ -262,6 +262,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'shingles',
     keywords: ['shingles', 'roof shingles', 'roofing squares', 'bundles', 'roof area', 'ridge cap', 'starter strip', 'underlayment', 'pitch'],
     added: '2026-11-14',
+    isNew: true,
+  },
+  {
+    slug: '/wire-gauge-calculator/',
+    name: 'Wire Gauge Calculator',
+    category: 'framing',
+    description: 'Wire size (AWG or mm²) by amps, voltage and distance, with voltage drop and breaker size.',
+    tags: ['AWG · mm²', 'Voltage drop'],
+    icon: 'bolt',
+    keywords: ['wire gauge', 'wire size', 'awg', 'mm2 cable', 'voltage drop', 'ampacity', 'electrical wire', '12v wire', 'breaker size'],
+    added: '2026-11-15',
     isNew: true,
   },
   {

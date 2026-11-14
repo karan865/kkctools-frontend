@@ -16,6 +16,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Shingle Roof Calculator — `shingle roof calculator`, US 1,300 / KD 10; real traffic in the bundle questions (`how many shingles in a bundle` 2,900/10, `how many bundles of shingles in a square` 2,400/6 + variants 1,900 and 1,300), all answered as H2s/FAQs.
 - Board and Batten Calculator — `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55. No secondary keywords in the export — `TODO(owner)`: export `batten spacing calculator`, `board and batten spacing`, `accent wall calculator`, `wainscoting calculator`.
 - Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
+- Wire Gauge Calculator — `wire gauge calculator`, US 5,400 / Global 8,600 / KD 11; secondaries `size electrical wire calculator` 5,400/13, `wire gauge length calculator` 1,600/14 ("Wire gauge by length" H2), `wire size calculator` 5,400/24.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 

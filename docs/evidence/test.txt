@@ -6,8 +6,8 @@
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  31 passed (31)
-      Tests  361 passed (361)
-   Start at  00:14:17
-   Duration  1.69s (transform 4.84s, setup 0ms, import 6.40s, tests 626ms, environment 16ms)
+ Test Files  32 passed (32)
+      Tests  392 passed (392)
+   Start at  00:37:54
+   Duration  1.73s (transform 5.77s, setup 0ms, import 7.61s, tests 582ms, environment 20ms)
 

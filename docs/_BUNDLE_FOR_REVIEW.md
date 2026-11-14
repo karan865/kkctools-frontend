@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T18:46:22.528Z
+Generated on: 2026-11-14T19:09:03.924Z
 
 
 
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase WG — Tool #27: Wire Gauge Calculator (Batch 2 Tier 1 #8, built 2026-11-15, safety-sensitive)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/08_Wire_Gauge_Calculator_Competitor_Analysis.md` (primary `wire gauge calculator`, US 5,400 / KD 11; 4 tool pages with AS ≤ 11 rank).
+- [x] WG-1 Engine `src/lib/wire-gauge-engine.ts` + 31 tests (AWG geometry, resistance vs NEC Table 8 within 1.5 %, IEC 60228 metric, load/drop formulas, 310.16 ampacity, ambient/bundling factors, terminal cap, 240.4(D), sizing cases incl. continuous, aluminium, metric, 12 V DC, lookup). *(Evidence: `npx vitest run` → 392 passed)*
+- [x] WG-2 Calculator UI: 3 modes, systems/voltages, amps or watts, ft/m, drop presets, AWG/mm², Cu/Al, insulation/terminal/ambient/bundling, safety banner, live diagrams, share/copy/print. *(Evidence: `src/components/tool/wire-gauge-calculator/`)*
+- [x] WG-3 Page: title 64 chars incl. brand, meta 140, one H1, ~2,500 words, 11 FAQs, engine-generated tables; FAQ/table numbers reviewed in the built HTML and 3 issues fixed. *(Evidence: cheerio dump of `out/wire-gauge-calculator/index.html`)*
+- [x] WG-4 Wiring: routes, catalog (29), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] WG-5 `npm run verify` all steps passed after the review fixes. *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] WG-6 `TODO(owner)` (safety): verify Table 310.16 values against the NEC edition your audience uses (conflicting reproductions for Cu 3 AWG 90 °C and Al 300 kcmil — lower values used); consider a licensed-electrician review of the page; decide whether to add BS 7671 / IEC 60364 current-carrying-capacity tables for metric mode; consider a new "Electrical & Plumbing" category (pipe + wire) — needs a colour token and home-page CSS; re-check wiresizecalculator.net by hand (SSL expired).
+
 ### Phase PV — Tool #26: Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md` (primary `tube volume calculator`, US 1,600 / Global 4,800 / KD 12; no dedicated tube tool from a big site in the SERP).
 - [x] PV-1 Engine `src/lib/pipe-volume-engine.ts` + 19 tests (preset IDs vs ASME B36.10M / ASTM B88, round/rect areas, unit outputs, runs, fill time, per-length tables, steel weight vs standard). *(Evidence: `npx vitest run` → 361 passed)*
@@ -490,8 +499,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 28 — 1 generator, 1 estimate template, 26 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 361 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 29 — 1 generator, 1 estimate template, 27 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 392 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -528,6 +537,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
 | 27 | Board and Batten Calculator (accent wall + exterior siding) | `/board-and-batten-calculator/` | `board-batten-calculator/` | `board-batten-engine.ts` |
 | 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
+| 29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive) | `/wire-gauge-calculator/` | `wire-gauge-calculator/` | `wire-gauge-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -573,7 +583,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (44 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (45 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -583,7 +593,7 @@ Source of truth: `src/lib/routes.ts` (44 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (26) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (27) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
@@ -722,6 +732,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Shingle Roof Calculator — `shingle roof calculator`, US 1,300 / KD 10; real traffic in the bundle questions (`how many shingles in a bundle` 2,900/10, `how many bundles of shingles in a square` 2,400/6 + variants 1,900 and 1,300), all answered as H2s/FAQs.
 - Board and Batten Calculator — `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55. No secondary keywords in the export — `TODO(owner)`: export `batten spacing calculator`, `board and batten spacing`, `accent wall calculator`, `wainscoting calculator`.
 - Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
+- Wire Gauge Calculator — `wire gauge calculator`, US 5,400 / Global 8,600 / KD 11; secondaries `size electrical wire calculator` 5,400/13, `wire gauge length calculator` 1,600/14 ("Wire gauge by length" H2), `wire size calculator` 5,400/24.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -809,6 +820,14 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #27 — Wire Gauge Calculator] — 2026-11-15
+- New page `/wire-gauge-calculator/` (Batch 2 Tier 1 #8, safety-sensitive), built from `08_Wire_Gauge_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/wire-gauge-engine.ts`): three modes (size a wire, check a wire, gauge lookup); DC / single-phase / three-phase; amps or watts (+ power factor); voltage drop 2·I·R·L or √3·I·R·L; AWG resistance from geometry (ASTM B258 formula) and IACS resistivity at 75 °C ×1.02 stranding (matches NEC Ch. 9 Table 8 within 1.5 %, tested); mm² from IEC 60228 class 2 at 20 °C → 70 °C; NEC Table 310.16 ampacity with Tables 310.15(B)(1)/(C)(1) corrections, terminal-temperature cap, 125 % continuous loads, 240.4(D) limits and standard breaker sizes; picks the larger of the drop and ampacity sizes.
+- Where published Table 310.16 reproductions differed (Cu 3 AWG 90 °C, Al 300 kcmil) the lower value is used. Metric mode sizes by voltage drop only and tells users to check current capacity under BS 7671 / IEC 60364 for their installation method.
+- Review fixes before publishing: 60 °C column blanked above 100 A (NEC 110.14(C)(1)(b)) with a UI hint; aluminium FAQ wording; 14 AWG minimum and motor-circuit notes.
+- Page: safety banner, two-checks explanation with live ladder diagram, circuit diagram, formulas, 4 engine-computed examples, wire-by-amps, wire-by-length and 12 V DC tables, AWG ↔ mm² table, copper vs aluminium, breakers & 125 % rule, 11 FAQs + schema, disclaimer; ~2,500 words. Title 64 chars incl. brand.
+- Wiring: routes, catalog (29 tools, category "Framing, Roofing & Measuring" for now), new `bolt` icon, footer. 31 new tests (392 total); `npm run verify` all passed.
 
 ### [Tool #26 — Pipe & Tube Volume Calculator] — 2026-11-15
 - New page `/pipe-volume-calculator/` (Batch 2 Tier 1 #7), built from `07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md`.
@@ -972,7 +991,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T18:45:49.712Z
+Run Date: 2026-11-14T19:08:29.693Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1003,7 +1022,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1364 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1389 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -1022,7 +1041,8 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 623 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 643 | All Free Tools: Construction C | PASS |
+| `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -1078,6 +1098,7 @@ terms/index.html
 tile-calculator/index.html
 tons-to-cubic-yards/index.html
 tools/index.html
+wire-gauge-calculator/index.html
 _not-found/index.html
 ```
 
@@ -1117,6 +1138,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+08bee22 Add Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7)
 3d2e579 shingle roof calculator- completed
 1278ed3 completed page shingle roof calculator
 603df95 Lawn Mowing Cost Calculator
@@ -1136,7 +1158,6 @@ c08b669 reinforcement steel calculator
 ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep guide with picket style multipliers and porosity math
 2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
 8f044dd feat(paver-base): upgrade tool #17 spec and implement 2800+ word deep guide with ICPI compaction standards
-359b9d8 feat(paver-sand): upgrade tool #16 spec and implement comprehensive 2800+ word guide with verified ICPI standards
 ```
 
 
@@ -1152,18 +1173,18 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 26ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 7.1s
+✓ Compiled successfully in 5.2s
   Running TypeScript ...
-  Finished TypeScript in 12.8s ...
+  Finished TypeScript in 3.7s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/61) ...
-  Generating static pages using 15 workers (15/61) 
-  Generating static pages using 15 workers (30/61) 
-  Generating static pages using 15 workers (45/61) 
-✓ Generating static pages using 15 workers (61/61) in 2.3s
+  Generating static pages using 15 workers (0/62) ...
+  Generating static pages using 15 workers (15/62) 
+  Generating static pages using 15 workers (30/62) 
+  Generating static pages using 15 workers (46/62) 
+✓ Generating static pages using 15 workers (62/62) in 3.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1226,7 +1247,8 @@ Route (app)
 ├ ○ /tile-calculator
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards
-└ ○ /tools
+├ ○ /tools
+└ ○ /wire-gauge-calculator
 
 
 ○  (Static)  prerendered as static content
@@ -1310,7 +1332,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 47 HTML files in out/...
+Auditing 48 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1327,10 +1349,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  31 passed (31)
-      Tests  361 passed (361)
-   Start at  00:14:17
-   Duration  1.69s (transform 4.84s, setup 0ms, import 6.40s, tests 626ms, environment 16ms)
+ Test Files  32 passed (32)
+      Tests  392 passed (392)
+   Start at  00:37:54
+   Duration  1.73s (transform 5.77s, setup 0ms, import 7.61s, tests 582ms, environment 20ms)
 
 
 ```

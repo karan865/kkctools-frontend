@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 26ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 7.1s
+✓ Compiled successfully in 5.2s
   Running TypeScript ...
-  Finished TypeScript in 12.8s ...
+  Finished TypeScript in 3.7s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/61) ...
-  Generating static pages using 15 workers (15/61) 
-  Generating static pages using 15 workers (30/61) 
-  Generating static pages using 15 workers (45/61) 
-✓ Generating static pages using 15 workers (61/61) in 2.3s
+  Generating static pages using 15 workers (0/62) ...
+  Generating static pages using 15 workers (15/62) 
+  Generating static pages using 15 workers (30/62) 
+  Generating static pages using 15 workers (46/62) 
+✓ Generating static pages using 15 workers (62/62) in 3.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -77,7 +77,8 @@ Route (app)
 ├ ○ /tile-calculator
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards
-└ ○ /tools
+├ ○ /tools
+└ ○ /wire-gauge-calculator
 
 
 ○  (Static)  prerendered as static content

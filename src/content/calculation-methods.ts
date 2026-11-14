@@ -283,6 +283,36 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'wire-gauge-calculator': {
+    formula: [
+      'Current from power: DC I = W ÷ V; single-phase I = W ÷ (V × power factor); three-phase I = W ÷ (√3 × V × power factor)',
+      'Voltage drop: DC and single-phase VD = 2 × I × R × L; three-phase VD = √3 × I × R × L (L = one-way length, R = resistance per length of one conductor)',
+      'Resistance (AWG/kcmil) = resistivity at 75 °C ÷ conductor area × 1.02 for stranding; area from the AWG formula d = 0.005 in × 92^((36 − n) ÷ 39)',
+      'Resistance (mm²) = IEC 60228 class 2 maximum at 20 °C × (1 + α × (70 − 20))',
+      'Allowable current = NEC Table 310.16 (insulation column) × ambient factor × bundling factor, but not more than the terminal-temperature column; continuous loads × 125%',
+      'Wire = the larger of the voltage-drop size and the current-rating size; breaker = the smallest standard rating ≥ the required current and ≤ the wire’s limit (240.4(D) for 14–10 AWG)',
+    ],
+    defaults: [
+      { label: 'Resistivity at 20 °C', value: 'copper 1.7241 µΩ·cm (100% IACS), α 0.00393/°C; aluminium 2.8264 µΩ·cm (61% IACS), α 0.00403/°C' },
+      { label: 'Voltage-drop limit', value: '3% (NEC informational note for branch circuits; not a code requirement in most cases)' },
+      { label: 'Temperature basis', value: 'AWG resistance at 75 °C (NEC Chapter 9 Table 8 basis); metric at 70 °C (PVC); ampacity table at 30 °C ambient' },
+      { label: 'Terminals', value: '60 °C by default (most equipment ≤ 100 A and NM-B cable), change to 75 °C for equipment marked 75 °C' },
+      { label: 'Table conflicts', value: 'where published reproductions of Table 310.16 differed (Cu 3 AWG 90 °C, Al 300 kcmil), the lower value is used' },
+    ],
+    sources: [
+      { label: 'NFPA 70, National Electrical Code — Table 310.16, Tables 310.15(B)(1) and (C)(1), 240.4(D), 240.6(A), 110.14(C), Chapter 9 Table 8', note: 'values checked against published reproductions; verify against the edition your area adopts' },
+      {
+        label: 'Ambient and bundling adjustment factors (Tables 310.15(B)(1) and (C)(1)) — study guide reproduction',
+        url: 'https://open-exam-prep.com/study-guides/ct-electrician/conductors-ampacity-cables/ampacity-derating',
+      },
+      {
+        label: 'IEC 60228 class 2 conductor resistance — Bayka technical information',
+        url: 'https://www.bayka.de/en/service/technical-information/conductor-resistance',
+      },
+      { label: 'IEC 60028 / IACS', note: 'standard annealed copper resistivity 1/58 Ω·mm²/m at 20 °C' },
+      NIST,
+    ],
+  },
   'pipe-volume-calculator': {
     formula: [
       'Capacity (round) = π × (inside diameter ÷ 2)² × length; inside diameter = outside diameter − 2 × wall',
