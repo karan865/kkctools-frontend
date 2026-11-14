@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #31 — Cubic Feet ↔ Square Feet Converter] — 2026-11-15
+- New page `/cubic-feet-to-square-feet/` (Batch 2 Tier 2 #12), built from `12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md`.
+- **Engine** (`src/lib/cubic-square-engine.ts`): area = volume ÷ depth and volume = area × depth with exact factors for in/ft/cm/mm/m, ft³/yd³/m³/L and ft²/m²/yd²; bags; coverage tables.
+- UI: two-way with a Reverse button, volume or bag count, area or length × width, material presets (slab, mulch, topsoil, base, bedding sand, stone mulch) with sourced notes, working shown and a spread diagram.
+- Page: short-answer box (“you need a depth”), worked examples (mulch bag, topsoil yard, slab, mulch bed, Purdue lawn check), coverage tables in imperial and metric, material depths, cft/brass section for India, 9 FAQs; ~1,340 words.
+- 11 new tests (467 total); `npm run verify` all passed.
+
 ### [Tool #30 — Fence Cost Calculator] — 2026-11-15
 - New page `/fence-cost-calculator/` (Batch 2 Tier 2 #11), built from `11_Fence_Cost_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/fence-cost-engine.ts`): fence sides with walk/double gates (gates split a side and add a post), shared corner posts and closed loops, terminal vs line posts, materials list by type (pickets + rails, panels, chain link fabric + top rail), concrete per post from hole and post size, slope surcharge, removal, permit, materials vs labour share, DIY cost and a low–high range from published prices.

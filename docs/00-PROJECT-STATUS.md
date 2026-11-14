@@ -6,8 +6,8 @@
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #30 Fence Cost Calculator built and verified (Phase FC, 2026-11-15). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 456 vitest tests passing (35 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #31 Cubic Feet ↔ Square Feet Converter built and verified (Phase CF, 2026-11-15). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 467 vitest tests passing (36 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase CF — Tool #31: Cubic Feet ↔ Square Feet Converter (Batch 2 Tier 2 #12, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md` (primary `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; half the SERP is Q&A).
+- [x] CF-1 Engine `src/lib/cubic-square-engine.ts` + 11 tests: exact unit factors (NIST), both directions, metric, bags, coverage tables, Purdue 19 yd³ cross-check, no division by zero. *(Evidence: `npx vitest run` → 467 passed)*
+- [x] CF-2 Depth presets from university extensions (Illinois, Minnesota, Maryland, Penn State, Purdue) and our own slab/paver pages — in `calculation-methods.ts`.
+- [x] CF-3 UI: direction toggle with Reverse, volume or bags, area or L × W, 4 volume / 3 area / 5 depth units, presets with notes, working shown, spread diagram, copy/share. Fixed after review: presets with the same depth highlighted the wrong one; slab drawing redrawn. *(Evidence: screenshots at 1440 px)*
+- [x] CF-4 Page: title 64 chars incl. brand, meta 143, one H1, ~1,340 words (blueprint 1,000–1,400), short-answer box, 9 FAQs + schema, imperial and metric coverage tables, material depth table, cft/brass section. *(Evidence: cheerio dump)*
+- [x] CF-5 Wiring: routes (51), catalog (33, new `cubeToArea` icon and card art), footer; `npm run verify` passed; Lighthouse mobile 90/100/96/100, desktop 100/100/96/100.
+- [ ] CF-6 `TODO(owner)`: re-check cubicfeettosquarefeet.com (DNS error during research) and confirm the Indian “cft” intent in Semrush for India.
 
 ### Phase FC — Tool #30: Fence Cost Calculator (Batch 2 Tier 2 #11, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/11_Fence_Cost_Calculator_Competitor_Analysis.md` (primary `fence cost calculator`, US 1,600 / KD 21; cluster 51,900 US vol).

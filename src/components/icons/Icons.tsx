@@ -4,6 +4,7 @@ export type IconName =
   | 'slab'
   | 'slabCost'
   | 'cube'
+  | 'cubeToArea'
   | 'blockWall'
   | 'brickWall'
   | 'stonePile'
@@ -109,6 +110,18 @@ export default function Icon({
           <polygon points="13 5 14.5 8 11.5 8 13 5" />
           <circle cx="17.5" cy="17.5" r="4.5" />
           <path d="M18.9 15.9h-2a.9.9 0 0 0 0 1.8h1.2a.9.9 0 0 1 0 1.8h-2.1M17.5 14.9v1M17.5 19.5v1" />
+        </svg>
+      );
+    case 'cubeToArea':
+      return (
+        <svg {...common}>
+          <polygon points="6 3 10 5 6 7 2 5 6 3" />
+          <polyline points="2 5 2 10 6 12 10 10 10 5" />
+          <line x1="6" y1="7" x2="6" y2="12" />
+          <path d="M12 8h4m-1.5-1.5L16 8l-1.5 1.5" />
+          <polygon points="14 15 22 15 20 19 12 19 14 15" />
+          <line x1="12" y1="19" x2="12" y2="20.5" />
+          <line x1="20" y1="19" x2="20" y2="20.5" />
         </svg>
       );
     case 'cube':

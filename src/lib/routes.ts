@@ -136,6 +136,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  cubicFeetToSquareFeet: {
+    path: '/cubic-feet-to-square-feet/',
+    title: 'Cubic Feet to Square Feet Converter (with Thickness)',
+    description: 'Convert cubic feet to square feet and square feet to cubic feet using thickness or depth. Works for concrete, soil, mulch, insulation and more.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

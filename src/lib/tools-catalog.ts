@@ -239,7 +239,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'scale',
     keywords: ['tons to yards', 'tons to cubic yards', 'cubic yards to tons', 'weight volume converter', 'material density'],
     added: '2026-11-11',
+  },  {
+    slug: '/cubic-feet-to-square-feet/',
+    name: 'Cubic Feet ↔ Square Feet',
+    category: 'earthwork',
+    description: 'Convert ft³ to ft² and back with a depth — mulch, soil, gravel, concrete; yd³, m³, cft and bags.',
+    tags: ['ft³ ↔ ft²', 'cft · m³'],
+    icon: 'cubeToArea',
+    keywords: ['cubic feet to square feet', 'square feet to cubic feet', 'cft', 'cft to sq ft', 'volume to area', 'depth', 'coverage', 'cubic metres', 'mulch coverage'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
   {
     slug: '/pipe-volume-calculator/',
     name: 'Pipe & Tube Volume Calculator',

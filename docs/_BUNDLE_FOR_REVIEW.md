@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T23:27:39.560Z
+Generated on: 2026-11-14T23:39:23.427Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-14T23:27:39.560Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #30 Fence Cost Calculator built and verified (Phase FC, 2026-11-15). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 456 vitest tests passing (35 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #31 Cubic Feet ↔ Square Feet Converter built and verified (Phase CF, 2026-11-15). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 467 vitest tests passing (36 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase CF — Tool #31: Cubic Feet ↔ Square Feet Converter (Batch 2 Tier 2 #12, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md` (primary `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; half the SERP is Q&A).
+- [x] CF-1 Engine `src/lib/cubic-square-engine.ts` + 11 tests: exact unit factors (NIST), both directions, metric, bags, coverage tables, Purdue 19 yd³ cross-check, no division by zero. *(Evidence: `npx vitest run` → 467 passed)*
+- [x] CF-2 Depth presets from university extensions (Illinois, Minnesota, Maryland, Penn State, Purdue) and our own slab/paver pages — in `calculation-methods.ts`.
+- [x] CF-3 UI: direction toggle with Reverse, volume or bags, area or L × W, 4 volume / 3 area / 5 depth units, presets with notes, working shown, spread diagram, copy/share. Fixed after review: presets with the same depth highlighted the wrong one; slab drawing redrawn. *(Evidence: screenshots at 1440 px)*
+- [x] CF-4 Page: title 64 chars incl. brand, meta 143, one H1, ~1,340 words (blueprint 1,000–1,400), short-answer box, 9 FAQs + schema, imperial and metric coverage tables, material depth table, cft/brass section. *(Evidence: cheerio dump)*
+- [x] CF-5 Wiring: routes (51), catalog (33, new `cubeToArea` icon and card art), footer; `npm run verify` passed; Lighthouse mobile 90/100/96/100, desktop 100/100/96/100.
+- [ ] CF-6 `TODO(owner)`: re-check cubicfeettosquarefeet.com (DNS error during research) and confirm the Indian “cft” intent in Semrush for India.
 
 ### Phase FC — Tool #30: Fence Cost Calculator (Batch 2 Tier 2 #11, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/11_Fence_Cost_Calculator_Competitor_Analysis.md` (primary `fence cost calculator`, US 1,600 / KD 21; cluster 51,900 US vol).
@@ -598,6 +607,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies) | `/concrete-slab-cost-calculator/` | `slab-cost-calculator/` | `slab-cost-engine.ts` |
 | 31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro) | `/deck-stain-calculator/` | `deck-stain-calculator/` | `deck-stain-engine.ts` |
 | 32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro) | `/fence-cost-calculator/` | `fence-cost-calculator/` | `fence-cost-engine.ts` |
+| 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -643,7 +653,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (50 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (51 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -653,7 +663,7 @@ Source of truth: `src/lib/routes.ts` (50 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (30) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (31) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -848,6 +858,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Concrete Slab Cost Calculator — `concrete slab cost calculator`, US 8,100 / Global 10,100 / KD 16 / CPC $2.36; H2/FAQ targets `how much is a yard of concrete` 8,100/12, `concrete slab cost per sq ft` 1,300/10, `how much is a 10 yard truck of concrete` 1,000/7, `concrete patio cost` 2,400/7. Cost lives here; quantity stays on `/concrete-calculator/` (pages link to each other).
 - Deck Stain Calculator — `deck stain calculator`, US 720 / Global 860 / KD 14; secondaries `stain calculator deck` 1,300/20, `deck staining cost calculator` 390/20 (DIY vs pro cost block), `deck stain coverage calculator` 90/18 (coverage H2). Cross-linked with Fence Stain.
 - Fence Cost Calculator — `fence cost calculator`, US 1,600 / Global 2,100 / KD 21 / CPC $1.83; H2/FAQ targets `fence prices chain link` 9,900/16, `cyclone fence cost` 8,100/11, `cost to replace a fence` 3,600/11, `privacy fence cost` 2,400/10, `vinyl fence cost` 2,400/12, `how much does a fence cost` 2,400/10.
+- Cubic Feet ↔ Square Feet Converter — `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; Indian wording `cft to square feet` 2,400/20 and `square feet to cft` 2,400/23 answered in a cft section and FAQ (cft, brass = 100 cft).
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -946,6 +957,13 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #31 — Cubic Feet ↔ Square Feet Converter] — 2026-11-15
+- New page `/cubic-feet-to-square-feet/` (Batch 2 Tier 2 #12), built from `12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md`.
+- **Engine** (`src/lib/cubic-square-engine.ts`): area = volume ÷ depth and volume = area × depth with exact factors for in/ft/cm/mm/m, ft³/yd³/m³/L and ft²/m²/yd²; bags; coverage tables.
+- UI: two-way with a Reverse button, volume or bag count, area or length × width, material presets (slab, mulch, topsoil, base, bedding sand, stone mulch) with sourced notes, working shown and a spread diagram.
+- Page: short-answer box (“you need a depth”), worked examples (mulch bag, topsoil yard, slab, mulch bed, Purdue lawn check), coverage tables in imperial and metric, material depths, cft/brass section for India, 9 FAQs; ~1,340 words.
+- 11 new tests (467 total); `npm run verify` all passed.
 
 ### [Tool #30 — Fence Cost Calculator] — 2026-11-15
 - New page `/fence-cost-calculator/` (Batch 2 Tier 2 #11), built from `11_Fence_Cost_Calculator_Competitor_Analysis.md`.
@@ -1188,7 +1206,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T23:27:39.006Z
+Run Date: 2026-11-14T23:39:22.875Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1212,6 +1230,7 @@ Status: PASSED ✅
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3323 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
+| `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
@@ -1223,7 +1242,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1835 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1850 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -1236,14 +1255,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 638 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 662 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 925 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 959 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1273,6 +1292,7 @@ concrete-calculator/index.html
 concrete-slab-cost-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
+cubic-feet-to-square-feet/index.html
 cubic-yard-calculator/index.html
 deck-stain-calculator/index.html
 disclaimer/index.html
@@ -1345,6 +1365,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+573cd37 Add Fence Cost Calculator (Batch 2 Tier 2 #11); darken danger token
 7d3a5bd Add Deck Stain Calculator (Batch 2 Tier 1 #10); delay GTM fallback to 5 s
 6844232 Add Concrete Slab Cost Calculator (Batch 2 Tier 1 #9)
 7159a8c google analytics setup
@@ -1364,7 +1385,6 @@ dc6099e files rearranged
 c08b669 reinforcement steel calculator
 051f668 2. Drywall calculator completed
 9ddcf8a home page redesigned
-02de99b blog 1 completed - Concrete calculator
 ```
 
 
@@ -1380,18 +1400,18 @@ c08b669 reinforcement steel calculator
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 34ms
+✓ Running next.config.ts took 33ms
 
   Creating an optimized production build ...
 ✓ Compiled successfully in 4.9s
   Running TypeScript ...
   Finished TypeScript in 2.7s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/67) ...
-  Generating static pages using 15 workers (16/67) 
-  Generating static pages using 15 workers (33/67) 
-  Generating static pages using 15 workers (50/67) 
-✓ Generating static pages using 15 workers (67/67) in 1942ms
+  Generating static pages using 15 workers (0/68) ...
+  Generating static pages using 15 workers (17/68) 
+  Generating static pages using 15 workers (34/68) 
+  Generating static pages using 15 workers (51/68) 
+✓ Generating static pages using 15 workers (68/68) in 2.1s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1418,6 +1438,7 @@ Route (app)
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
+├ ○ /cubic-feet-to-square-feet
 ├ ○ /cubic-yard-calculator
 ├ ○ /deck-stain-calculator
 ├ ○ /disclaimer
@@ -1535,7 +1556,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 53 HTML files in out/...
+Auditing 54 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1552,10 +1573,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  35 passed (35)
-      Tests  456 passed (456)
-   Start at  04:57:07
-   Duration  1.80s (transform 4.51s, setup 0ms, import 6.20s, tests 726ms, environment 19ms)
+ Test Files  36 passed (36)
+      Tests  467 passed (467)
+   Start at  05:08:51
+   Duration  1.95s (transform 6.65s, setup 0ms, import 8.50s, tests 741ms, environment 10ms)
 
 
 ```

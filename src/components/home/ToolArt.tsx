@@ -119,6 +119,25 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* A cube spread into a thin layer: volume ÷ depth = area */
+  cubeToArea: (
+    <>
+      <polygon className={k('fl', 's2')} points="40,20 64,32 40,44 16,32" />
+      <polygon className={s.f1} points="16,32 40,44 40,72 16,60" />
+      <polygon className={s.f2} points="40,44 64,32 64,60 40,72" />
+      <text className={s.tx} x={40} y={88} textAnchor="middle">
+        ft³
+      </text>
+      <line className={k('s2', 'thick')} x1={74} y1={46} x2={98} y2={46} />
+      <polygon className={s.f2} points="98,40 108,46 98,52" />
+      <polygon className={k('fl', 's2')} points="116,52 170,34 196,46 142,64" />
+      <polygon className={s.f1} points="116,52 142,64 142,68 116,56" />
+      <polygon className={s.f2} points="142,64 196,46 196,50 142,68" />
+      <text className={s.tx} x={156} y={84} textAnchor="middle">
+        ft² × depth
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>

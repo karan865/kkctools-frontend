@@ -352,6 +352,49 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'cubic-feet-to-square-feet': {
+    formula: [
+      'Square feet = cubic feet ÷ depth (ft); depth (ft) = inches ÷ 12, cm ÷ 30.48, mm ÷ 304.8, m ÷ 0.3048',
+      'Cubic feet = square feet × depth (ft); cubic yards = cubic feet ÷ 27',
+      'Metric: m² = m³ ÷ depth (m); m³ = m² × depth (m)',
+      'Bags = volume ÷ bag size, rounded up; 1 ft³ = 28.3168 L',
+    ],
+    defaults: [
+      { label: 'Concrete slab', value: '4 in (patios, walkways and shed bases)' },
+      { label: 'Mulch', value: '3 in — Illinois Extension: 2–3 in settled; Minnesota Extension: 2–4 in; Maryland Extension: 3 in or less' },
+      { label: 'Topsoil for a lawn', value: '4 in — Penn State Extension: at least 4–6 in settled' },
+      { label: 'Paver base / bedding sand', value: '4 in / 1 in (same as the Paver Base and Paver Sand calculators)' },
+      { label: 'Stone mulch', value: '1 in — Maryland Extension' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'University of Illinois Extension — Edging and mulching landscape beds',
+        url: 'https://extension.illinois.edu/blogs/down-garden-path/2018-05-23-edging-and-mulching-landscape-beds',
+        note: '2–3 in of settled mulch in shrub and evergreen beds',
+      },
+      {
+        label: 'University of Minnesota Extension — Mulching for soil and garden health',
+        url: 'https://extension.umn.edu/managing-soil-and-nutrients/mulching-soil-and-garden-health',
+        note: '2–4 in of mulch',
+      },
+      {
+        label: 'University of Maryland Extension — Mulching Trees and Shrubs',
+        url: 'https://extension.umd.edu/resource/mulching-trees-and-shrubs',
+        note: 'mulch 3 in or less; gravel or stone about 1 in',
+      },
+      {
+        label: 'Penn State Extension — Lawn Establishment',
+        url: 'https://extension.psu.edu/lawn-establishment',
+        note: 'at least 4–6 in of good topsoil',
+      },
+      {
+        label: 'Purdue Extension — Establishing Turfgrass Areas (AY-3-W)',
+        url: 'https://www.extension.purdue.edu/extmedia/ay/ay-3-w.pdf',
+        note: 'about 19 yd³ of topsoil for 6 in over 1,000 ft²',
+      },
+    ],
+  },
   'fence-cost-calculator': {
     formula: [
       'For each side: fence length = side length − gate widths; gates split the side into pieces',

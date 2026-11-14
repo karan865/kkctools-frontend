@@ -44,6 +44,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies) | `/concrete-slab-cost-calculator/` | `slab-cost-calculator/` | `slab-cost-engine.ts` |
 | 31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro) | `/deck-stain-calculator/` | `deck-stain-calculator/` | `deck-stain-engine.ts` |
 | 32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro) | `/fence-cost-calculator/` | `fence-cost-calculator/` | `fence-cost-engine.ts` |
+| 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
