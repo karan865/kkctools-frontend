@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #30 — Fence Cost Calculator] — 2026-11-15
+- New page `/fence-cost-calculator/` (Batch 2 Tier 2 #11), built from `11_Fence_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/fence-cost-engine.ts`): fence sides with walk/double gates (gates split a side and add a post), shared corner posts and closed loops, terminal vs line posts, materials list by type (pickets + rails, panels, chain link fabric + top rail), concrete per post from hole and post size, slope surcharge, removal, permit, materials vs labour share, DIY cost and a low–high range from published prices.
+- **Prices:** This Old House (Jun 2026) and HomeGuide 2026 per-foot ranges (midpoints as defaults), Angi/HomeGuide gate prices, Angi removal, QUIKRETE hole sizing; all editable.
+- UI with live plan view (posts, corners, gate swings) and front view (post set in concrete); page with cost-by-material table, worked backyard example, concrete per post, replace, DIY vs pro, permits/811 and 12 FAQs; ~2,200 words.
+- `--danger` token darkened to `#B91C1C` (remove buttons failed contrast).
+- 15 new tests (456 total); `npm run verify` all passed.
+
 ### [Tool #29 — Deck Stain Calculator] — 2026-11-15
 - New page `/deck-stain-calculator/` (Batch 2 Tier 1 #10), built from `10_Deck_Stain_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/deck-stain-engine.ts`): floor sections and optional board edges; railings quick (L × H × 2) or detailed (posts every N ft, rail perimeters, square or round balusters from width + gap); stairs (treads, risers, visible stringers); skirting; coverage by opacity × wood condition, second coat × factor, extra %; cheapest 5-gal/1-gal mix or 5/2.5/1 L tins; deck cleaner; DIY vs pro with wash/strip/sand prep.

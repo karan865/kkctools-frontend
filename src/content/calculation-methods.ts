@@ -352,6 +352,57 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'fence-cost-calculator': {
+    formula: [
+      'For each side: fence length = side length − gate widths; gates split the side into pieces',
+      'Sections per piece = piece length ÷ post spacing, rounded up; posts = sections + 1 per piece; connected sides share a corner post (a closed loop shares one more)',
+      'Materials: pickets = fence length × 12 ÷ (picket width + gap), rails = sections × rails per section (wood); panels = sections (vinyl, aluminium); fabric = fence length, top rail = fence length ÷ 10.5 ft (chain link)',
+      'Concrete per post = (π × hole radius² − post area) × depth; bags = posts × concrete ÷ bag yield (80 lb = 0.60 ft³), rounded up',
+      'Cost = fence length × price per ft × (1 + slope %) + gates + removal × total length + permit; DIY = materials share × (fence + gates) + permit',
+      'Range = fence length × the published low / high price per ft + gates, removal and permit',
+    ],
+    defaults: [
+      { label: 'Price per foot (installed)', value: 'midpoints: chain link $20 ($13–$27), wood privacy $37.50 ($25–$50), wood picket $25 ($15–$35), vinyl privacy $50 ($40–$60), vinyl picket $27.50 ($15–$40) — This Old House, Jun 2026; aluminium $50 ($25–$75) — HomeGuide 2026' },
+      { label: 'Materials share', value: '50% — This Old House: professional installation is about half the cost' },
+      { label: 'Gates (installed)', value: 'chain link walk $262.50 ($110–$415), double $480 ($185–$775) — Angi 2026; wood / vinyl / metal walk $450 ($300–$600), drive $750 ($300–$1,200) — HomeGuide 2026' },
+      { label: 'Removal', value: '$4 per linear foot ($3–$5, Angi 2026)' },
+      { label: 'Post spacing', value: 'chain link 10 ft, wood and vinyl 8 ft, aluminium 6 ft (typical; editable)' },
+      { label: 'Post holes', value: 'diameter 3 × post width; depth ⅓ of the fence height, at least 24 in (QUIKRETE guidance); 80 lb bag $6.65' },
+    ],
+    sources: [
+      {
+        label: 'This Old House — A Comprehensive Guide to Fencing Options (updated Jun 8, 2026)',
+        url: 'https://www.thisoldhouse.com/lawns/fencing-options',
+        note: 'installed cost per linear foot by material; privacy fence ranges; labour about half',
+      },
+      {
+        label: 'HomeGuide — How Much Does Fence Installation Cost? (2026)',
+        url: 'https://homeguide.com/costs/fence-installation-cost',
+        note: 'aluminium and privacy fence ranges; garden and driveway gate prices',
+      },
+      {
+        label: 'Angi — How Much Does Fence Installation Cost? (2026 data)',
+        url: 'https://www.angi.com/articles/how-much-does-fence-installation-cost.htm',
+        note: 'removing an existing fence $3–$5 per linear foot',
+      },
+      {
+        label: 'Angi — How Much Does a Black Chain-Link Fence Cost? (2026 data)',
+        url: 'https://www.angi.com/articles/black-chain-link-fence-cost.htm',
+        note: 'single and double walk-through chain link gates',
+      },
+      {
+        label: 'QUIKRETE — How to Set a Fence Post',
+        url: 'https://www.quikrete.com/athome/video-setting-fence-post.asp',
+        note: 'hole about 3 × the post width and ⅓ of the height above ground deep',
+      },
+      QUIKRETE,
+      {
+        label: '811 — Call Before You Dig',
+        url: 'https://call811.com/',
+        note: 'free utility-line marking before any digging',
+      },
+    ],
+  },
   'wire-gauge-calculator': {
     formula: [
       'Current from power: DC I = W ÷ V; single-phase I = W ÷ (V × power factor); three-phase I = W ÷ (√3 × V × power factor)',

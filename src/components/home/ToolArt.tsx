@@ -97,6 +97,28 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Fence run with a gate and a price tag */
+  fenceCost: (
+    <>
+      <rect className={s.f2} x={10} y={40} width={124} height={5} rx={1} />
+      <rect className={s.f2} x={10} y={66} width={124} height={5} rx={1} />
+      {Array.from({ length: 9 }).map((_, i) => {
+        const x = 12 + i * 10;
+        return <path key={i} className={s.f1} d={`M${x} 86 V28 L${x + 4} 22 L${x + 8} 28 V86 Z`} />;
+      })}
+      <rect className={k('fn', 's2')} x={104} y={30} width={28} height={50} rx={2} strokeDasharray="3 2" />
+      <line className={k('s2')} x1={104} y1={30} x2={132} y2={80} />
+      <line className={s.dim} x1={6} y1={92} x2={194} y2={92} />
+      <path className={s.f2} d="M146 18 H184 a4 4 0 0 1 4 4 V42 a4 4 0 0 1 -4 4 H146 L134 32 Z" />
+      <circle className={s.fp} cx={144} cy={32} r={3} />
+      <text className={s.txW} x={166} y={36} textAnchor="middle">
+        $/ft
+      </text>
+      <text className={s.tx} x={152} y={72} textAnchor="middle">
+        posts · gates
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>

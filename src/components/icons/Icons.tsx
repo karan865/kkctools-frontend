@@ -27,6 +27,7 @@ export type IconName =
   | 'floorPlanks'
   | 'paintRoller'
   | 'fence'
+  | 'fenceCost'
   | 'deck'
   | 'drywall'
   | 'rebar'
@@ -96,6 +97,18 @@ export default function Icon({
           <path d="M3 14v6M21 14v6M12 14v6" />
           <path d="M4 14V7M20 14V7M8 14V9M12 14V9M16 14V9" />
           <path d="M4 7h16" />
+        </svg>
+      );
+    case 'fenceCost':
+      return (
+        <svg {...common}>
+          <path d="M3 8v12M8 8v12M13 8v5" />
+          <path d="M1.5 11h13M1.5 16h7" />
+          <polygon points="3 5 4.5 8 1.5 8 3 5" />
+          <polygon points="8 5 9.5 8 6.5 8 8 5" />
+          <polygon points="13 5 14.5 8 11.5 8 13 5" />
+          <circle cx="17.5" cy="17.5" r="4.5" />
+          <path d="M18.9 15.9h-2a.9.9 0 0 0 0 1.8h1.2a.9.9 0 0 1 0 1.8h-2.1M17.5 14.9v1M17.5 19.5v1" />
         </svg>
       );
     case 'cube':

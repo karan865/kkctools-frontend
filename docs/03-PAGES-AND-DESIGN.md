@@ -97,3 +97,5 @@ Goal: every section looks different while scrolling, and each trade has its own 
 - `AdPlaceholder` renders nothing while `NEXT_PUBLIC_ADS_ENABLED` is false, so visitors never see an empty "advertisement" box.
 - Section `overflow: clip` (not `hidden`) so the sticky heading works.
 - Lighthouse after the redesign (local build, 2026-11-15): mobile 96 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100 (Perf / A11y / BP / SEO); CLS 0.001; Best Practices 96 only from the local-only `__next.*.txt` 404.
+
+**`--danger` (2026-11-15):** light value darkened from `#DC2626` to `#B91C1C` (5.5:1 on the tinted remove-button background, 6.5:1 on white). The old value failed contrast on the "Remove" buttons that appear when a tool has more than one row.

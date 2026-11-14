@@ -6,8 +6,8 @@
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #29 Deck Stain Calculator built and verified (Phase DS, 2026-11-15). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 441 vitest tests passing (34 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #30 Fence Cost Calculator built and verified (Phase FC, 2026-11-15). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 456 vitest tests passing (35 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -252,6 +252,16 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase FC — Tool #30: Fence Cost Calculator (Batch 2 Tier 2 #11, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/11_Fence_Cost_Calculator_Competitor_Analysis.md` (primary `fence cost calculator`, US 1,600 / KD 21; cluster 51,900 US vol).
+- [x] FC-1 Engine `src/lib/fence-cost-engine.ts` + 15 tests: sides with gate openings, pieces, sections and posts, shared corners and closed loops, terminal vs line posts, pickets/rails, panels, chain link fabric rolls and top rail, concrete per post (hole − post) and bags, cost with slope surcharge, gates, removal, permit, materials vs labour, DIY, published low–high range. *(Evidence: `npx vitest run` → 456 passed)*
+- [x] FC-2 Prices: installed per-foot midpoints from This Old House (Jun 2026) and HomeGuide 2026, gates from Angi/HomeGuide 2026, removal from Angi 2026, labour share 50% (This Old House), hole sizing from QUIKRETE — in `calculation-methods.ts`.
+- [x] FC-3 UI: 6 materials, sides with gates, corners/closed loop, ft or m, 7 currencies, live plan view and front-view diagram with post in concrete, materials list, copy/share/print. *(Evidence: screenshots at 1440 px)*
+- [x] FC-4 Page: title 63 chars incl. brand, meta 150, H1 with the full keyword set, ~2,200 words, 12 FAQs + schema, cost-by-material table (100/150/200 ft + DIY), worked backyard example, concrete-per-post section, replace, permits/811. One FAQ ordering error fixed after review. *(Evidence: cheerio dump of `out/fence-cost-calculator/index.html`)*
+- [x] FC-5 Wiring: routes (50), catalog (32, new `fenceCost` icon and card art, category Framing/Roofing/Measuring), footer; `npm run verify` passed; Lighthouse mobile 90/100/96/100, desktop 100/100/96/100.
+- [x] FC-6 `--danger` token darkened to `#B91C1C` site-wide (remove buttons failed contrast at 4.08:1 once a tool shows more than one row). *(Evidence: fence and slab pages a11y 100)*
+- [ ] FC-7 `TODO(owner)`: Home Depot, Menards and Hoover Fence calculators could not be read by the research tool — check by hand; consider adding farm/split-rail fencing if users ask.
 
 ### Phase DS — Tool #29: Deck Stain Calculator (Batch 2 Tier 1 #10, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/10_Deck_Stain_Calculator_Competitor_Analysis.md` (primary `deck stain calculator`, US 720 / KD 14; 7 of 10 SERP slots open).

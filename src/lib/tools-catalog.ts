@@ -285,7 +285,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['wire gauge', 'wire size', 'awg', 'mm2 cable', 'voltage drop', 'ampacity', 'electrical wire', '12v wire', 'breaker size'],
     added: '2026-11-15',
     isNew: true,
+  },  {
+    slug: '/fence-cost-calculator/',
+    name: 'Fence Cost Calculator',
+    category: 'framing',
+    description: 'Chain link, wood, vinyl & aluminium fence cost — posts, gates, concrete, removal and DIY vs pro.',
+    tags: ['$/ft', 'Gates'],
+    icon: 'fenceCost',
+    keywords: ['fence cost', 'fence price', 'chain link', 'cyclone fence', 'vinyl fence', 'privacy fence', 'wood fence', 'fence posts', 'replace fence', 'gate'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
   {
     slug: '/stud-calculator/',
     name: 'Stud Framing Calculator',

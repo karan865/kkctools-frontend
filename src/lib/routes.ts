@@ -128,6 +128,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  fenceCostCalculator: {
+    path: '/fence-cost-calculator/',
+    title: 'Fence Cost Calculator – Chain Link, Vinyl & Privacy',
+    description: 'Estimate fence cost by length, height and material. Chain link, vinyl/PVC, wood privacy and cyclone fences, with posts, gates and labour you can edit.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',
