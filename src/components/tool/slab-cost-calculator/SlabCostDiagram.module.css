@@ -1,0 +1,73 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* section */
+.soil { fill: color-mix(in srgb, var(--cat-earthwork-g2) 22%, var(--surface)); }
+.soilMark { fill: none; stroke: color-mix(in srgb, var(--cat-earthwork-g2) 45%, transparent); stroke-width: 1.4; }
+.base { fill: color-mix(in srgb, var(--cat-gravel-g1) 18%, var(--surface)); }
+.stone { fill: color-mix(in srgb, var(--cat-gravel-g1) 55%, var(--surface)); }
+.stoneDark { fill: var(--cat-gravel-g2); }
+.barrier { fill: #1F2937; }
+.slab { fill: color-mix(in srgb, var(--cat-concrete-g1) 26%, var(--surface)); stroke: var(--cat-concrete-g2); stroke-width: 1.2; }
+.slabTop { fill: color-mix(in srgb, var(--cat-concrete-g1) 12%, var(--surface)); stroke: var(--cat-concrete-g2); stroke-width: 1.2; }
+.slabSide { fill: color-mix(in srgb, var(--cat-concrete-g1) 45%, var(--surface)); stroke: var(--cat-concrete-g2); stroke-width: 1.2; }
+.aggregate { fill: color-mix(in srgb, var(--cat-concrete-g2) 45%, transparent); }
+.mesh { stroke: var(--cat-framing-g2); stroke-width: 3; stroke-dasharray: 6 3; }
+.rebar { fill: var(--cat-framing-g2); }
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.label { fill: var(--ink); font: 700 12px var(--font-body), system-ui, sans-serif; }
+.labelOn { fill: var(--cat-concrete-deep); font: 700 11px var(--font-body), system-ui, sans-serif; }
+.labelSmall { fill: var(--ink-2); font: 600 10px var(--font-body), system-ui, sans-serif; }
+/* light halo so labels stay readable over stones, mesh and soil */
+.label,
+.labelOn,
+.labelSmall {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+
+/* truck */
+.drum { fill: color-mix(in srgb, var(--cat-concrete-g1) 10%, var(--surface)); stroke: var(--cat-concrete-g2); stroke-width: 2; }
+.drumFill { fill: color-mix(in srgb, var(--cat-concrete-g1) 55%, var(--surface)); }
+.drumTick { stroke: color-mix(in srgb, var(--cat-concrete-g2) 30%, transparent); stroke-width: 1; }
+.threshold { stroke: var(--brand-orange); stroke-width: 2.5; stroke-dasharray: 5 3; }
+.chassis { fill: #334155; }
+.cab { fill: var(--cat-earthwork-g1); }
+.window { fill: color-mix(in srgb, var(--cat-concrete-soft) 90%, var(--surface)); }
+.wheel { fill: #1F2937; }
+.hub { fill: #CBD5E1; }
+
+/* cost bar */
+.costBar { display: flex; flex-direction: column; gap: 10px; }
+.bar {
+  display: flex;
+  height: 16px;
+  border-radius: 99px;
+  overflow: hidden;
+  background: var(--surface-2);
+}
+.seg { height: 100%; }
+.seg + .seg { border-left: 2px solid var(--surface); }
+.concrete { background: var(--cat-concrete-g1); }
+.prep { background: var(--cat-gravel-g1); }
+.labour { background: var(--cat-framing-g1); }
+.extras { background: var(--cat-business-g1); }
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 16px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: 0.875rem;
+  color: var(--ink-2);
+}
+.legend li { display: inline-flex; align-items: center; gap: 6px; }
+.legend strong { color: var(--ink); }
+.swatch { width: 10px; height: 10px; border-radius: 3px; }
+.pct { color: var(--muted); }

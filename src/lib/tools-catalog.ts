@@ -90,6 +90,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     featured: true,
   },
   {
+    slug: '/concrete-slab-cost-calculator/',
+    name: 'Concrete Slab Cost Calculator',
+    category: 'concrete',
+    description: 'Slab, patio & driveway cost — price per yard and sq ft, delivery, pump, labour and DIY vs pro.',
+    tags: ['$/yd³ · $/ft²', 'DIY vs pro'],
+    icon: 'slabCost',
+    keywords: ['concrete cost', 'slab cost', 'price per yard', 'cost per square foot', 'patio cost', 'driveway cost', 'ready mix price', 'concrete estimate', 'short load fee'],
+    added: '2026-11-15',
+    isNew: true,
+  },
+  {
     slug: '/cubic-yard-calculator/',
     name: 'Cubic Yard Calculator',
     category: 'concrete',

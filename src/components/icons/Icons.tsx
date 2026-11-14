@@ -2,6 +2,7 @@ import React from 'react';
 
 export type IconName =
   | 'slab'
+  | 'slabCost'
   | 'cube'
   | 'blockWall'
   | 'brickWall'
@@ -76,6 +77,15 @@ export default function Icon({
           <polygon points="12 2 2 7 12 12 22 7 12 2" />
           <polyline points="2 17 12 22 22 17" />
           <polyline points="2 12 12 17 22 12" />
+        </svg>
+      );
+    case 'slabCost':
+      return (
+        <svg {...common}>
+          <polygon points="10 4 2 8 10 12 18 8 10 4" />
+          <polyline points="2 12 10 16 18 12" />
+          <circle cx="18" cy="17" r="4.5" />
+          <path d="M19.4 15.4h-2a.9.9 0 0 0 0 1.8h1.2a.9.9 0 0 1 0 1.8h-2.1M18 14.4v1M18 19v1" />
         </svg>
       );
     case 'cube':

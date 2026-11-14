@@ -112,6 +112,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  concreteSlabCostCalculator: {
+    path: '/concrete-slab-cost-calculator/',
+    title: 'Concrete Slab Cost Calculator – Per Yard & Sq Ft',
+    description: 'Estimate the cost of a concrete slab, patio, pad or driveway. Enter size and thickness, set your local price per yard, and add delivery, pump and labour.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

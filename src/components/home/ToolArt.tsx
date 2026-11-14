@@ -49,6 +49,29 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={176} y1={46} x2={176} y2={60} label="4 in" lx={181} ly={56} anchor="start" />
     </>
   ),
+  /* Slab with a price tag and a stack of coins */
+  slabCost: (
+    <>
+      <polygon className={k('fl', 's2')} points="18,52 92,38 132,54 58,68" />
+      <polygon className={s.f1} points="58,68 132,54 132,66 58,80" />
+      <polygon className={s.f2} points="18,52 58,68 58,80 18,64" />
+      <Dim x1={58} y1={88} x2={132} y2={74} label="sq ft" lx={104} ly={95} />
+      <path className={s.f2} d="M140 22 H178 a4 4 0 0 1 4 4 V46 a4 4 0 0 1 -4 4 H140 L128 36 Z" />
+      <circle className={s.fp} cx={138} cy={36} r={3} />
+      <text className={s.txW} x={160} y={40} textAnchor="middle">
+        $/yd³
+      </text>
+      {[0, 1, 2, 3].map((i) => (
+        <g key={i}>
+          <ellipse className={s.f2} cx={166} cy={86 - i * 7} rx={14} ry={4.5} />
+          <ellipse className={s.fm} cx={166} cy={84 - i * 7} rx={14} ry={4.5} />
+        </g>
+      ))}
+      <text className={s.txL} x={166} y={66} textAnchor="middle">
+        $
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>

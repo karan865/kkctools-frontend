@@ -4,7 +4,7 @@ import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
   it('contains exactly 29 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(29);
+    expect(TOOLS_CATALOG.length).toBe(30);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {

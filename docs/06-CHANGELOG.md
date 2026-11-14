@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #28 — Concrete Slab Cost Calculator] — 2026-11-15
+- New page `/concrete-slab-cost-calculator/` (Batch 2 Tier 1 #9), built from `09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/slab-cost-engine.ts`): itemised estimate — ready-mix by the yard (¼ yd³ rounding, trucks), short-load fee (per yard or flat, editable threshold), delivery, line/boom pump minimum, gravel base (15% compaction, 1.40 t/yd³), mesh or rebar, vapour barrier, forms, labour, coloured/stamped finish, sealer, removal, region factor, overhead & profit, permit; totals per ft² and per yard ordered; DIY bags vs DIY ready-mix vs contractor; check against 2026 published installed prices.
+- **Prices:** every default is inside a dated 2026 published range (LawnStarter, Concrete Network/NRMCA, This Old House, Angi, HomeGuide, Inch Calculator) and editable; sources listed in "How This Calculator Works".
+- UI: 6 project presets, several slabs, US/metric with price conversion, 7 currency symbols, psi presets, cost bar, comparison, truck and slab-section diagrams, copy / share / print.
+- Page: price per yard by psi, cost per ft² by thickness, cost by size and by project, quote line items, worked 20 × 20 example, bags vs ready-mix vs contractor, saving tips, remove & replace, 13 FAQs + schema; ~2,760 words. Title shortened to 60 chars incl. brand (blueprint title was 66).
+- Wiring: routes (48), catalog (30 tools), new `slabCost` icon and card diagram, footer. 26 new tests (418 total); `npm run verify` all passed; Lighthouse mobile 90 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100.
+
 ### [Google Analytics via Google Tag Manager] — 2026-11-15
 - Installed the owner's Google tag (`GTM-5CDW8CXG` → GA4 `G-DVNM8TFRQE`) in the root layout with Consent Mode v2 defaults: analytics cookies off in the EEA, UK and Switzerland; ad storage off everywhere.
 - `gtm.js` is injected on first interaction or 1.5 s after `load` (in `<head>` it dropped mobile Lighthouse 94 → 86; now 90–93, desktop 100). GA collect requests confirmed (204).

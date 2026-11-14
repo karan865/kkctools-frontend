@@ -283,6 +283,75 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'concrete-slab-cost-calculator': {
+    formula: [
+      'Slab volume (yd³) = length (ft) × width (ft) × thickness (in) ÷ 324; several slabs are added together',
+      'Concrete to order = volume × (1 + waste %), rounded up to the next ¼ yd³; trucks = order ÷ truck capacity, rounded up',
+      'Short-load fee = fee × yd³ ordered (or a flat fee) when the order is under the threshold; delivery = yd³ × delivery rate; pump = minimum charge',
+      'Gravel base (tons) = area × depth (in) ÷ 12 ÷ 27 × (1 + 15% compaction) × 1.40 tons/yd³',
+      'Mesh, rebar, vapour barrier, labour, finish, sealer and removal = area (ft²) × rate; forms = number of slabs × rate',
+      'Total = (sum of lines) × region factor × (1 + overhead %) + permit; per ft² = total ÷ area; per yard = total ÷ yd³ ordered',
+      'DIY bags = volume with waste ÷ bag yield (80 lb = 0.60 ft³) × bag price + base, reinforcement and forms; DIY ready-mix = concrete, fees and pump + the same prep',
+    ],
+    defaults: [
+      { label: 'Ready-mix price', value: '$167/yd³ (4,000 psi); 3,000–5,000 psi presets $151–$186 — midpoints of LawnStarter 2026 ranges' },
+      { label: 'Short-load fee', value: '$43 per yd³ ordered under a 10 yd³ truckload (LawnStarter); flat-fee option' },
+      { label: 'Delivery', value: '$0 (often included within about 20 miles); LawnStarter lists $18–$20/yd³ when charged' },
+      { label: 'Pump', value: 'line $500, boom $900 minimum — inside the Angi 2026 ranges ($400–$600 and $800–$1,000)' },
+      { label: 'Gravel base', value: '$40/ton delivered — HomeGuide 2026: road base $18–$30/ton plus $10–$25/ton delivery' },
+      { label: 'Reinforcement & barrier', value: 'wire mesh $0.35/ft², rebar grid $2.50/ft² ($2–$3), vapour barrier $0.50/ft² (This Old House, Mar 2026)' },
+      { label: 'Labour', value: '$3.50/ft² placing & finishing — published labour figures run from $2–$5/ft² (Inch Calculator) to $5.50–$9/ft² (LawnStarter); chosen so a plain slab lands inside the 2026 installed ranges' },
+      { label: 'Finishes', value: 'colour/stain $5.50/ft² ($3.50–$7.50), stamped $12/ft² ($10–$14) (This Old House); sealer $1.50/ft² ($1–$2, Inch Calculator)' },
+      { label: 'Forms & joints', value: '$75 per slab ($50–$100 lumber and stakes, Inch Calculator)' },
+      { label: 'Removal', value: '$4/ft² including disposal ($2–$6, Angi and LawnStarter 2026)' },
+      { label: 'Bags', value: '80 lb bag $6.65 (LawnStarter, Sep 2026); kilogram bags scaled from 80 lb = 0.60 ft³' },
+      { label: 'Published check', value: 'plain installed slab $4.34–$10.50/ft² (LawnStarter Nov 2026, average $6.60; Concrete Network Jul 2026, $6.50–$10.50)' },
+    ],
+    sources: [
+      {
+        label: 'LawnStarter — How Much Does Concrete Cost Per Yard in 2026? (updated Sep 24, 2026)',
+        url: 'https://www.lawnstarter.com/blog/cost/concrete-price-per-yard/',
+        note: 'price per yd³ by psi, short-load fee, delivery rates, bag price',
+      },
+      {
+        label: 'LawnStarter — How Much Does a Concrete Slab Cost? (updated Nov 3, 2026)',
+        url: 'https://www.lawnstarter.com/blog/cost/concrete-slab-price/',
+        note: 'national average and range for an installed slab',
+      },
+      {
+        label: 'Concrete Network — Concrete Prices 2026 (updated Jul 14, 2026)',
+        url: 'https://www.concretenetwork.com/concrete-prices.html',
+        note: 'NRMCA 2025 average $179.95/yd³; installed plain slab $6.50–$10.50/ft²',
+      },
+      {
+        label: 'This Old House — How Much Does a Concrete Slab Cost? (updated Mar 17, 2026)',
+        url: 'https://www.thisoldhouse.com/foundations/concrete-slab-cost',
+        note: 'wire mesh, rebar, vapour barrier, colour and stamping costs',
+      },
+      {
+        label: 'Angi — What Does Concrete Pumping Cost? (2026 data)',
+        url: 'https://www.angi.com/articles/concrete-pumping-cost.htm',
+        note: 'line and boom pump hourly rates and minimums',
+      },
+      {
+        label: 'Angi — How Much Does Concrete Removal Cost? (2026 data)',
+        url: 'https://www.angi.com/articles/how-much-should-concrete-demo-cost-square-foot.htm',
+        note: 'removal and disposal per ft²',
+      },
+      {
+        label: 'HomeGuide — Crushed Stone and Gravel Prices (2026)',
+        url: 'https://homeguide.com/costs/gravel-prices',
+        note: 'road base and delivery per ton',
+      },
+      {
+        label: 'Inch Calculator — Cost to Install a Concrete Slab',
+        url: 'https://www.inchcalculator.com/how-much-does-a-concrete-slab-cost/',
+        note: 'labour, sealer, forms and lumber ranges',
+      },
+      QUIKRETE,
+      NIST,
+    ],
+  },
   'wire-gauge-calculator': {
     formula: [
       'Current from power: DC I = W ÷ V; single-phase I = W ÷ (V × power factor); three-phase I = W ÷ (√3 × V × power factor)',

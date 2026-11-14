@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T21:19:57.187Z
+Generated on: 2026-11-14T22:41:11.886Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-14T21:19:57.187Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 392 vitest tests passing (32 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #28 Concrete Slab Cost Calculator built and verified (Phase SC, 2026-11-15). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 418 vitest tests passing (33 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase SC — Tool #28: Concrete Slab Cost Calculator (Batch 2 Tier 1 #9, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md` (primary `concrete slab cost calculator`, US 8,100 / KD 16 / CPC $2.36; 6 of 10 SERP slots open).
+- [x] SC-1 Engine `src/lib/slab-cost-engine.ts` + 26 tests: L×W×T ÷ 324 volume, waste, ¼ yd³ order rounding, trucks, short-load (per-yard or flat), delivery, pump minimums, gravel base with 15% compaction at 1.40 t/yd³ (same as Paver Base), mesh/rebar/vapour barrier, forms per slab, labour, colour/stamped/sealer, removal, region factor, overhead, permit, cost per ft² and per yard ordered, DIY bags vs DIY ready-mix vs contractor, published-range check, metric/currency display. *(Evidence: `npx vitest run` → 418 passed)*
+- [x] SC-2 Default prices all dated 2026 and cited (LawnStarter Sep/Nov 2026, Concrete Network Jul 2026, This Old House Mar 2026, Angi 2026, HomeGuide 2026, Inch Calculator); listed in `calculation-methods.ts` and shown on the page. Default 20 × 20 ft, 4 in slab = $3,088 ($7.72/ft²), inside the published $4.34–$10.50/ft² range. *(Evidence: engine test "sits inside the 2026 published installed range")*
+- [x] SC-3 Calculator UI: 6 project presets, several slabs, US/metric with automatic price conversion, 7 currency symbols, PSI price presets, every rate editable, itemised list, cost bar, comparison, order panel with truck diagram, live slab section diagram, copy/share/print, mobile summary bar. *(Evidence: `src/components/tool/slab-cost-calculator/`; screenshots at 1440 px and 500 px)*
+- [x] SC-4 Page: title 60 chars incl. brand, meta 153, one H1, ~2,760 words, 13 FAQs + FAQ schema, engine-generated tables (price by psi, cost per ft² by thickness, cost by size, cost by project, worked example), 3 diagrams. *(Evidence: cheerio dump of `out/concrete-slab-cost-calculator/index.html`)*
+- [x] SC-5 Wiring: routes (48), catalog (30, new `slabCost` icon and card diagram), footer, sitemap, llms.txt, /tools/, site map; `npm run verify` all passed; Lighthouse mobile 90/100/96/100, desktop 100/100/96/100. *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] SC-6 `TODO(owner)`: prices change — re-check the cited guides every few months and update `DEFAULT_RATES` / `PSI_PRICES` and `PRICE_BASIS`; consider adding real local supplier prices if you have them. Check Lowe's and HomeGuide slab pages by hand (blocked to the research tool).
 
 ### Phase HD — Home page redesign (owner request, 2026-11-15)
 - [x] HD-1 Colourful, varied home page: category tiles, per-category bands with alternating layouts, coloured tool cards, dark "why us" band, gradient guide covers. *(Evidence: `src/components/home/CategorySection.tsx`, `CategoryTiles.tsx`; screenshots checked at 1440 px and 500 px)*
@@ -566,6 +575,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 27 | Board and Batten Calculator (accent wall + exterior siding) | `/board-and-batten-calculator/` | `board-batten-calculator/` | `board-batten-engine.ts` |
 | 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
 | 29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive) | `/wire-gauge-calculator/` | `wire-gauge-calculator/` | `wire-gauge-engine.ts` |
+| 30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies) | `/concrete-slab-cost-calculator/` | `slab-cost-calculator/` | `slab-cost-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -611,7 +621,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (47 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (48 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -621,7 +631,7 @@ Source of truth: `src/lib/routes.ts` (47 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (27) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (28) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -811,6 +821,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Board and Batten Calculator — `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55. No secondary keywords in the export — `TODO(owner)`: export `batten spacing calculator`, `board and batten spacing`, `accent wall calculator`, `wainscoting calculator`.
 - Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
 - Wire Gauge Calculator — `wire gauge calculator`, US 5,400 / Global 8,600 / KD 11; secondaries `size electrical wire calculator` 5,400/13, `wire gauge length calculator` 1,600/14 ("Wire gauge by length" H2), `wire size calculator` 5,400/24.
+- Concrete Slab Cost Calculator — `concrete slab cost calculator`, US 8,100 / Global 10,100 / KD 16 / CPC $2.36; H2/FAQ targets `how much is a yard of concrete` 8,100/12, `concrete slab cost per sq ft` 1,300/10, `how much is a 10 yard truck of concrete` 1,000/7, `concrete patio cost` 2,400/7. Cost lives here; quantity stays on `/concrete-calculator/` (pages link to each other).
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -909,6 +920,14 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #28 — Concrete Slab Cost Calculator] — 2026-11-15
+- New page `/concrete-slab-cost-calculator/` (Batch 2 Tier 1 #9), built from `09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/slab-cost-engine.ts`): itemised estimate — ready-mix by the yard (¼ yd³ rounding, trucks), short-load fee (per yard or flat, editable threshold), delivery, line/boom pump minimum, gravel base (15% compaction, 1.40 t/yd³), mesh or rebar, vapour barrier, forms, labour, coloured/stamped finish, sealer, removal, region factor, overhead & profit, permit; totals per ft² and per yard ordered; DIY bags vs DIY ready-mix vs contractor; check against 2026 published installed prices.
+- **Prices:** every default is inside a dated 2026 published range (LawnStarter, Concrete Network/NRMCA, This Old House, Angi, HomeGuide, Inch Calculator) and editable; sources listed in "How This Calculator Works".
+- UI: 6 project presets, several slabs, US/metric with price conversion, 7 currency symbols, psi presets, cost bar, comparison, truck and slab-section diagrams, copy / share / print.
+- Page: price per yard by psi, cost per ft² by thickness, cost by size and by project, quote line items, worked 20 × 20 example, bags vs ready-mix vs contractor, saving tips, remove & replace, 13 FAQs + schema; ~2,760 words. Title shortened to 60 chars incl. brand (blueprint title was 66).
+- Wiring: routes (48), catalog (30 tools), new `slabCost` icon and card diagram, footer. 26 new tests (418 total); `npm run verify` all passed; Lighthouse mobile 90 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100.
 
 ### [Google Analytics via Google Tag Manager] — 2026-11-15
 - Installed the owner's Google tag (`GTM-5CDW8CXG` → GA4 `G-DVNM8TFRQE`) in the root layout with Consent Mode v2 defaults: analytics cookies off in the EEA, UK and Switzerland; ad storage off everywhere.
@@ -1127,7 +1146,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T21:19:56.679Z
+Run Date: 2026-11-14T22:41:11.391Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1148,6 +1167,7 @@ Status: PASSED ✅
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3342 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2485 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
+| `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3323 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
@@ -1159,7 +1179,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1735 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1754 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -1172,14 +1192,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 575 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 598 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 841 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 873 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1206,6 +1226,7 @@ brick-calculator/index.html
 cinder-block-calculator/index.html
 compost-calculator/index.html
 concrete-calculator/index.html
+concrete-slab-cost-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-yard-calculator/index.html
@@ -1278,6 +1299,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+7159a8c google analytics setup
 43cf389 cards and colors redesigns
 fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner identity
 085eee7 wire gauge calculator-completed
@@ -1297,7 +1319,6 @@ c08b669 reinforcement steel calculator
 02de99b blog 1 completed - Concrete calculator
 35c5ea2 removed unwanted files
 5c5d5f4 make pages responsive
-9e9c201 refactor(ux): place calculators immediately below title on asphalt and construction estimate pages
 ```
 
 
@@ -1313,18 +1334,18 @@ c08b669 reinforcement steel calculator
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 34ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.6s
+✓ Compiled successfully in 4.1s
   Running TypeScript ...
-  Finished TypeScript in 2.4s ...
+  Finished TypeScript in 2.2s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/64) ...
-  Generating static pages using 15 workers (16/64) 
-  Generating static pages using 15 workers (32/64) 
-  Generating static pages using 15 workers (48/64) 
-✓ Generating static pages using 15 workers (64/64) in 2.5s
+  Generating static pages using 15 workers (0/65) ...
+  Generating static pages using 15 workers (16/65) 
+  Generating static pages using 15 workers (32/65) 
+  Generating static pages using 15 workers (48/65) 
+✓ Generating static pages using 15 workers (65/65) in 2.7s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1347,6 +1368,7 @@ Route (app)
 ├ ○ /cinder-block-calculator/opengraph-image
 ├ ○ /compost-calculator
 ├ ○ /concrete-calculator
+├ ○ /concrete-slab-cost-calculator
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
@@ -1465,7 +1487,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 50 HTML files in out/...
+Auditing 51 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1482,10 +1504,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  32 passed (32)
-      Tests  392 passed (392)
-   Start at  02:49:22
-   Duration  2.19s (transform 5.50s, setup 0ms, import 7.24s, tests 721ms, environment 13ms)
+ Test Files  33 passed (33)
+      Tests  418 passed (418)
+   Start at  04:10:40
+   Duration  1.86s (transform 6.18s, setup 0ms, import 8.01s, tests 690ms, environment 7ms)
 
 
 ```
