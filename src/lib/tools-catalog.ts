@@ -285,7 +285,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['shingles', 'roof shingles', 'roofing squares', 'bundles', 'roof area', 'ridge cap', 'starter strip', 'underlayment', 'pitch'],
     added: '2026-11-14',
     isNew: true,
+  },  {
+    slug: '/metal-roof-cost-calculator/',
+    name: 'Metal Roof Cost Calculator',
+    category: 'framing',
+    description: 'Standing seam, corrugated or metal shingle roof cost vs asphalt — per sq ft, per year, panels and trim.',
+    tags: ['Metal vs shingle', 'Panels'],
+    icon: 'metalRoof',
+    keywords: ['metal roof cost', 'standing seam', 'corrugated metal roof', 'metal vs shingle', 'roof replacement', 'cost per square foot', 'metal roof panels', 'roofing square'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
   {
     slug: '/wire-gauge-calculator/',
     name: 'Wire Gauge Calculator',

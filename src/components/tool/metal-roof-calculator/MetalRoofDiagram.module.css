@@ -1,0 +1,40 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.plane { fill: #94A3B8; stroke: #475569; stroke-width: 1.5; }
+.seam { stroke: #E2E8F0; stroke-width: 3; }
+.rib { stroke: #CBD5E1; stroke-width: 2; }
+.lap { stroke: #475569; stroke-width: 1.5; }
+.screw { fill: #1E293B; }
+.tile { fill: #64748B; stroke: #CBD5E1; stroke-width: 1; }
+.ridge { fill: #475569; }
+.eave { fill: #475569; }
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.dimAccent { stroke: var(--brand-orange); stroke-width: 2; }
+
+.label,
+.small,
+.labelAccent {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.label { fill: var(--ink); font: 700 11px var(--font-body), system-ui, sans-serif; }
+.small { fill: var(--ink-2); font: 600 10px var(--font-body), system-ui, sans-serif; }
+.labelAccent { fill: var(--brand-orange-text); font: 700 10px var(--font-body), system-ui, sans-serif; }
+
+/* comparison bars */
+.compare { display: flex; flex-direction: column; gap: 14px; }
+.group { display: flex; flex-direction: column; gap: 6px; }
+.groupLabel { margin: 0; font-size: 0.85rem; font-weight: 700; color: var(--ink); }
+.barRow { display: grid; grid-template-columns: 64px 1fr auto; align-items: center; gap: 10px; font-size: 0.85rem; color: var(--ink-2); }
+.barName { font-weight: 600; }
+.track { height: 12px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.fill { display: block; height: 100%; border-radius: 99px; }
+.metal { background: linear-gradient(90deg, var(--cat-framing-g1), var(--cat-framing-g2)); }
+.asphalt { background: #475569; }
+.barValue { color: var(--ink); font-variant-numeric: tabular-nums; }

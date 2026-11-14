@@ -352,6 +352,45 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'metal-roof-cost-calculator': {
+    formula: [
+      'Roof area = (length + 2 × overhang) × (width + 2 × overhang) × √(1 + (rise ÷ 12)²) per section (same geometry as the Shingle Roof Calculator); squares = area ÷ 100',
+      'Metal total = area × installed price + area × tear-off price (if replacing) + permit',
+      'Shingle total = area × tear-off-and-replace price (minus the tear-off price if not replacing) + permit',
+      'Cost per year = total ÷ mid-point life; shingle roofs over one metal roof = metal life ÷ shingle life, rounded up',
+      'Panels per slope = eave length ÷ coverage width, rounded up; panel length = eave-to-ridge distance × pitch factor (gable and shed); hips: total length = area ÷ coverage width',
+      'Underlayment rolls = area ÷ 1,000 ft² (synthetic), rounded up',
+    ],
+    defaults: [
+      { label: 'Metal, installed', value: 'standing seam $12.50 ($9–$16), corrugated $8.50 ($5–$12), metal shingles $10 ($6–$14) per ft² — HomeGuide 2026 midpoints' },
+      { label: 'Asphalt, tear-off and replace', value: 'architectural $5 ($4–$6), 3-tab $4 ($3–$5) per ft² — HomeGuide 2026' },
+      { label: 'Tear-off', value: '$2 per ft² ($1–$3, HomeGuide 2026)' },
+      { label: 'Life', value: 'metal 55 years (40–70, This Old House Mar 2026); architectural 27.5 (25–30) and 3-tab 17.5 (15–20) years — Fixr 2026' },
+      { label: 'Panel width', value: 'standing seam 16 in, corrugated 36 in coverage (typical; editable)' },
+    ],
+    sources: [
+      {
+        label: 'HomeGuide — How Much Does a Metal Roof Cost? (2026)',
+        url: 'https://homeguide.com/costs/metal-roof-cost',
+        note: 'installed price per ft² for corrugated, standing seam and metal shingles',
+      },
+      {
+        label: 'HomeGuide — Average Cost to Tear Off and Replace a Roof (2026)',
+        url: 'https://homeguide.com/costs/average-cost-to-tear-off-and-replace-roof',
+        note: 'asphalt tear-off and replace per ft²; tear-off alone $1–$3 per ft²',
+      },
+      {
+        label: 'This Old House — Metal vs. Asphalt Roofing (updated Mar 30, 2026)',
+        url: 'https://www.thisoldhouse.com/roofing/metal-vs-asphalt-roof',
+        note: 'metal 40–70 years, asphalt 15–30 years',
+      },
+      {
+        label: 'Fixr — How Much Does an Asphalt Shingle Roof Cost? (2026)',
+        url: 'https://www.fixr.com/costs/asphalt-roof-shingles-installation',
+        note: '3-tab 15–20 years, architectural 25–30 years',
+      },
+    ],
+  },
   'cubic-feet-to-square-feet': {
     formula: [
       'Square feet = cubic feet ÷ depth (ft); depth (ft) = inches ÷ 12, cm ÷ 30.48, mm ÷ 304.8, m ÷ 0.3048',

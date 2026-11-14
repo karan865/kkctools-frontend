@@ -117,6 +117,7 @@ export default function Footer() {
             <ul className={styles.linkList}>
               <li><Link href="/rafter-calculator/" className={styles.link}>Rafter Calculator</Link></li>
               <li><Link href="/shingle-calculator/" className={styles.link}>Shingle Roof Calculator</Link></li>
+              <li><Link href="/metal-roof-cost-calculator/" className={styles.link}>Metal Roof Cost</Link></li>
               <li><Link href="/board-and-batten-calculator/" className={styles.link}>Board and Batten</Link></li>
               <li><Link href="/wire-gauge-calculator/" className={styles.link}>Wire Gauge</Link></li>
               <li><Link href="/fence-cost-calculator/" className={styles.link}>Fence Cost</Link></li>

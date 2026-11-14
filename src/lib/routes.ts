@@ -144,6 +144,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  metalRoofCostCalculator: {
+    path: '/metal-roof-cost-calculator/',
+    title: 'Metal Roof Cost Calculator – Standing Seam vs Shingle',
+    description: 'Estimate metal roof cost by roof area and panel type. Compare standing seam, corrugated and shingle roofs with editable material and labour prices.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

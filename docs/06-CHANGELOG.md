@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #32 — Metal Roof Cost Calculator] — 2026-11-15
+- New page `/metal-roof-cost-calculator/` (Batch 2 Tier 2 #13), built from `13_Metal_Roof_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/metal-roof-engine.ts`): roof area and edges from the Shingle engine's section geometry; metal total with tear-off and permit; asphalt tear-off-and-replace comparison; cost per year of life; panels per slope and length (gable/shed), total panel length on hips; trim and underlayment; low–high ranges.
+- **Data:** HomeGuide 2026 installed ranges (midpoints) for standing seam, corrugated, metal shingles and asphalt; tear-off $1–$3; lifespans from This Old House and Fixr.
+- UI with comparison bars, materials list, panel diagram and roof plan; page with cost-by-type and cost-by-size tables, standing seam and metal-vs-shingle sections (honest per-year comparison), measuring and tear-off guidance, 10 FAQs; ~1,610 words.
+- 13 new tests (480 total); `npm run verify` all passed.
+
 ### [Tool #31 — Cubic Feet ↔ Square Feet Converter] — 2026-11-15
 - New page `/cubic-feet-to-square-feet/` (Batch 2 Tier 2 #12), built from `12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md`.
 - **Engine** (`src/lib/cubic-square-engine.ts`): area = volume ÷ depth and volume = area × depth with exact factors for in/ft/cm/mm/m, ft³/yd³/m³/L and ft²/m²/yd²; bags; coverage tables.

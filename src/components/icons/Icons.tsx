@@ -16,6 +16,7 @@ export type IconName =
   | 'leaf'
   | 'mower'
   | 'shingles'
+  | 'metalRoof'
   | 'battenWall'
   | 'pipe'
   | 'bolt'
@@ -122,6 +123,14 @@ export default function Icon({
           <polygon points="14 15 22 15 20 19 12 19 14 15" />
           <line x1="12" y1="19" x2="12" y2="20.5" />
           <line x1="20" y1="19" x2="20" y2="20.5" />
+        </svg>
+      );
+    case 'metalRoof':
+      return (
+        <svg {...common}>
+          <path d="M2 12 12 4l10 8" />
+          <path d="M4 10.5V20h16v-9.5" />
+          <path d="M7 8.2V20M10 6V20M14 6V20M17 8.2V20" />
         </svg>
       );
     case 'cube':

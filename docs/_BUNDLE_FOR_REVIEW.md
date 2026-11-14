@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T23:39:23.427Z
+Generated on: 2026-11-14T23:59:46.854Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-14T23:39:23.427Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #31 Cubic Feet ↔ Square Feet Converter built and verified (Phase CF, 2026-11-15). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 467 vitest tests passing (36 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #32 Metal Roof Cost Calculator built and verified (Phase MR, 2026-11-15). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 480 vitest tests passing (37 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase MR — Tool #32: Metal Roof Cost Calculator (Batch 2 Tier 2 #13, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/13_Metal_Roof_Cost_Calculator_Competitor_Analysis.md` (primary `metal roof cost calculator`, US 1,900 / KD 24 / CPC $4.11).
+- [x] MR-1 Engine `src/lib/metal-roof-engine.ts` + 13 tests, reusing `sectionGeometry` from the Shingle engine: metal total with tear-off and permit, asphalt tear-off-and-replace comparison (tear-off removed when not replacing), cost per year, roofs over one metal life, panels per slope and length, hip panel length from area, trim, underlayment, low–high ranges. *(Evidence: `npx vitest run` → 480 passed)*
+- [x] MR-2 Prices: HomeGuide 2026 midpoints for every metal type and for asphalt (single source so they compare fairly), tear-off $1–$3 (HomeGuide), life 40–70 (This Old House) and 15–30 (Fixr) — in `calculation-methods.ts`. The page states honestly that standing seam still costs more per year than shingles at these prices.
+- [x] MR-3 UI: roof sections (gable/hip/shed/area), ft or m, 7 currencies, metal and asphalt pickers, comparison bars, cost breakdown, materials list, panel diagram, roof plan (reused Shingle diagram), copy/share/print. *(Evidence: screenshots at 1440 px)*
+- [x] MR-4 Page: title 65 chars incl. brand, meta 147, ~1,610 words, 10 FAQs + schema, cost-by-type and cost-by-size tables, standing seam section, metal vs shingle with bars, measuring with the pitch diagram. Price formatting fixed after review ($8.50 not $8.5).
+- [x] MR-5 Wiring: routes (52), catalog (34, new `metalRoof` icon and card art), footer; `npm run verify` passed; a11y 100, desktop performance 100; mobile performance 79 in this run, the same as the Fence and Shingle pages re-measured at the same time (machine load), so not page-specific.
+- [ ] MR-6 `TODO(owner)`: Houzz, Omni and RoofingCalculator pages could not all be read; consider adding gauge/coating (Galvalume, PVDF) modifiers if a sourced price difference is found.
 
 ### Phase CF — Tool #31: Cubic Feet ↔ Square Feet Converter (Batch 2 Tier 2 #12, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md` (primary `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; half the SERP is Q&A).
@@ -608,6 +617,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro) | `/deck-stain-calculator/` | `deck-stain-calculator/` | `deck-stain-engine.ts` |
 | 32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro) | `/fence-cost-calculator/` | `fence-cost-calculator/` | `fence-cost-engine.ts` |
 | 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
+| 34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment) | `/metal-roof-cost-calculator/` | `metal-roof-calculator/` | `metal-roof-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -653,7 +663,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (51 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (52 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -663,7 +673,7 @@ Source of truth: `src/lib/routes.ts` (51 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (31) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (32) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -859,6 +869,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Deck Stain Calculator — `deck stain calculator`, US 720 / Global 860 / KD 14; secondaries `stain calculator deck` 1,300/20, `deck staining cost calculator` 390/20 (DIY vs pro cost block), `deck stain coverage calculator` 90/18 (coverage H2). Cross-linked with Fence Stain.
 - Fence Cost Calculator — `fence cost calculator`, US 1,600 / Global 2,100 / KD 21 / CPC $1.83; H2/FAQ targets `fence prices chain link` 9,900/16, `cyclone fence cost` 8,100/11, `cost to replace a fence` 3,600/11, `privacy fence cost` 2,400/10, `vinyl fence cost` 2,400/12, `how much does a fence cost` 2,400/10.
 - Cubic Feet ↔ Square Feet Converter — `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; Indian wording `cft to square feet` 2,400/20 and `square feet to cft` 2,400/23 answered in a cft section and FAQ (cft, brass = 100 cft).
+- Metal Roof Cost Calculator — `metal roof cost calculator`, US 1,900 / KD 24 / CPC $4.11; H2/FAQ targets `standing seam metal roof cost` 2,900/7, `roofing cost metal vs shingle` 2,900/13, `how much does a metal roof cost` 2,400/20, `metal roof cost per square foot` 1,300/13.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -957,6 +968,13 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #32 — Metal Roof Cost Calculator] — 2026-11-15
+- New page `/metal-roof-cost-calculator/` (Batch 2 Tier 2 #13), built from `13_Metal_Roof_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/metal-roof-engine.ts`): roof area and edges from the Shingle engine's section geometry; metal total with tear-off and permit; asphalt tear-off-and-replace comparison; cost per year of life; panels per slope and length (gable/shed), total panel length on hips; trim and underlayment; low–high ranges.
+- **Data:** HomeGuide 2026 installed ranges (midpoints) for standing seam, corrugated, metal shingles and asphalt; tear-off $1–$3; lifespans from This Old House and Fixr.
+- UI with comparison bars, materials list, panel diagram and roof plan; page with cost-by-type and cost-by-size tables, standing seam and metal-vs-shingle sections (honest per-year comparison), measuring and tear-off guidance, 10 FAQs; ~1,610 words.
+- 13 new tests (480 total); `npm run verify` all passed.
 
 ### [Tool #31 — Cubic Feet ↔ Square Feet Converter] — 2026-11-15
 - New page `/cubic-feet-to-square-feet/` (Batch 2 Tier 2 #12), built from `12_Cubic_Feet_to_Square_Feet_Converter_Competitor_Analysis.md`.
@@ -1206,7 +1224,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T23:39:22.875Z
+Run Date: 2026-11-14T23:59:45.818Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1242,10 +1260,11 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1850 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1858 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
+| `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2001 | Metal Roof Cost Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2372 | Paver Sand Calculator: Bedding | PASS |
@@ -1255,14 +1274,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 662 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 685 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 959 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 988 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1308,6 +1327,7 @@ index.html
 laminate-flooring-calculator/index.html
 lawn-mowing-cost-calculator/index.html
 linear-foot-calculator/index.html
+metal-roof-cost-calculator/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
 paver-sand-calculator/index.html
@@ -1365,6 +1385,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+90482c5 Add Cubic Feet to Square Feet Converter (Batch 2 Tier 2 #12)
 573cd37 Add Fence Cost Calculator (Batch 2 Tier 2 #11); darken danger token
 7d3a5bd Add Deck Stain Calculator (Batch 2 Tier 1 #10); delay GTM fallback to 5 s
 6844232 Add Concrete Slab Cost Calculator (Batch 2 Tier 1 #9)
@@ -1384,7 +1405,6 @@ a9885e9 SEO optimization /audit
 dc6099e files rearranged
 c08b669 reinforcement steel calculator
 051f668 2. Drywall calculator completed
-9ddcf8a home page redesigned
 ```
 
 
@@ -1400,18 +1420,18 @@ c08b669 reinforcement steel calculator
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 33ms
+✓ Running next.config.ts took 68ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.9s
+✓ Compiled successfully in 10.1s
   Running TypeScript ...
-  Finished TypeScript in 2.7s ...
+  Finished TypeScript in 6.0s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/68) ...
-  Generating static pages using 15 workers (17/68) 
-  Generating static pages using 15 workers (34/68) 
-  Generating static pages using 15 workers (51/68) 
-✓ Generating static pages using 15 workers (68/68) in 2.1s
+  Generating static pages using 15 workers (0/69) ...
+  Generating static pages using 15 workers (17/69) 
+  Generating static pages using 15 workers (34/69) 
+  Generating static pages using 15 workers (51/69) 
+✓ Generating static pages using 15 workers (69/69) in 3.8s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1457,6 +1477,7 @@ Route (app)
 ├ ○ /linear-foot-calculator
 ├ ○ /llms.txt
 ├ ○ /logo.png
+├ ○ /metal-roof-cost-calculator
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
@@ -1556,7 +1577,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 54 HTML files in out/...
+Auditing 55 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1573,10 +1594,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  36 passed (36)
-      Tests  467 passed (467)
-   Start at  05:08:51
-   Duration  1.95s (transform 6.65s, setup 0ms, import 8.50s, tests 741ms, environment 10ms)
+ Test Files  37 passed (37)
+      Tests  480 passed (480)
+   Start at  05:28:47
+   Duration  2.97s (transform 8.13s, setup 0ms, import 10.73s, tests 1.27s, environment 26ms)
 
 
 ```

@@ -138,6 +138,29 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* House with a standing-seam metal roof next to a shingle roof */
+  metalRoof: (
+    <>
+      <polygon className={s.fm} points="14,50 62,18 110,50" />
+      {[24, 34, 44, 54, 62, 70, 80, 90, 100].map((x) => (
+        <line key={x} className={s.sp} x1={x} y1={50} x2={x < 62 ? 62 - (62 - x) * 0.32 : 62 + (x - 62) * 0.32} y2={x < 62 ? 18 + (62 - x) * 0.2 : 18 + (x - 62) * 0.2} strokeWidth={1.6} />
+      ))}
+      <rect className={s.fl} x={24} y={50} width={76} height={36} />
+      <rect className={s.f2} x={54} y={64} width={16} height={22} />
+      <line className={s.dim} x1={6} y1={88} x2={194} y2={88} />
+      <polygon className={s.f2} points="122,60 154,38 186,60" opacity={0.85} />
+      {[0, 1, 2].map((r) => (
+        <line key={r} className={s.sp} x1={130 + r * 4} y1={54 - r * 6} x2={178 - r * 4} y2={54 - r * 6} strokeWidth={1.2} />
+      ))}
+      <rect className={s.fl} x={130} y={60} width={48} height={26} />
+      <text className={s.tx} x={62} y={14} textAnchor="middle">
+        metal
+      </text>
+      <text className={s.tx} x={154} y={32} textAnchor="middle">
+        shingle
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>
