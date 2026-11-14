@@ -114,11 +114,11 @@ export default function RootLayout({
             {/* Google tag (owner-supplied). Consent Mode v2: analytics cookies stay off by default in the
                 EEA, UK and Switzerland (no consent banner yet); ad storage is off everywhere until AdSense
                 is enabled with Google's certified consent message. gtm.js is added on the first interaction
-                (scroll, tap, key) or 1.5 s after the load event, whichever comes first, so it does not compete
+                (scroll, tap, key) or 5 s after the load event, whichever comes first, so it does not compete
                 with the first paint (keeps mobile LCP/TBT low). */}
             <script
               dangerouslySetInnerHTML={{
-                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});gtag('js',new Date());function l(){if(window.__gtmLoaded)return;window.__gtmLoaded=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=${GTM_ID}';document.head.appendChild(s);}['scroll','pointerdown','keydown','touchstart'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});function t(){setTimeout(l,1500);}if(document.readyState==='complete'){t();}else{window.addEventListener('load',t);}`,
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});gtag('js',new Date());function l(){if(window.__gtmLoaded)return;window.__gtmLoaded=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=${GTM_ID}';document.head.appendChild(s);}['scroll','pointerdown','keydown','touchstart'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});function t(){setTimeout(l,5000);}if(document.readyState==='complete'){t();}else{window.addEventListener('load',t);}`,
               }}
             />
           </>

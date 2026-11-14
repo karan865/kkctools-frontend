@@ -523,6 +523,69 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'deck-stain-calculator': {
+    formula: [
+      'Floor = Σ length × width; board edges (optional) = floor × 2 × board thickness ÷ (board width + gap)',
+      'Railing (detailed) = posts × 4 × post width × height + rails × (2 × width + 2 × thickness) × length + balusters × 4 × width (or π × diameter) × (height − rail thicknesses); balusters = length ÷ (width + gap); posts = length ÷ spacing + 1',
+      'Railing (quick) = length × height × 2 faces',
+      'Stairs = steps × width × (tread + riser) + visible stringers × 2 faces × stringer length × depth',
+      'Coat 1 (gal) = area ÷ (label coverage × wood factor); coat 2 = area ÷ (coat-1 coverage × second-coat factor)',
+      'To buy = (coat 1 + coat 2) × (1 + extra %), split into 5-gallon pails and 1-gallon cans (or 5 L, 2.5 L and 1 L tins)',
+      'DIY = stain + cleaner; pro = stain + labour × area + prep × area',
+    ],
+    defaults: [
+      { label: 'Coverage, 1st coat', value: 'transparent 300, semi-transparent 250, solid 250 ft²/gal — low end of the BEHR PREMIUM ranges (300–350, 250–300, 200–400)' },
+      { label: 'Second coat', value: '1.5× the first-coat coverage — between TWP (about 1.3–1.5×) and BEHR (about 2×)' },
+      { label: 'Wood condition', value: 'smooth × 1.0; weathered × 0.8 (working assumption); rough-sawn × 0.62 (Duckback SuperDeck rough 175–225 vs smooth 275–375)' },
+      { label: 'Extra allowance', value: '10% brush, roller or pad; 15% sprayer (working assumptions — editable)' },
+      { label: 'Railing', value: '36 in high (IRC minimum guard height for most decks), 4×4 posts every 6 ft, two 2×4 rails, 2×2 balusters with gaps under 4 in (IRC R312)' },
+      { label: 'Stain price', value: '$45 per gallon (Fixr: $25–$90 by type and brand)' },
+      { label: 'Deck cleaner', value: '250 ft²/gal ready to use (Olympic: 250–350); $17/gal (Fixr brightener $16–$18)' },
+      { label: 'Pro rates', value: 'labour $1.50/ft² (Angi 2026: $1–$2.50); washing $0.35, stripping $2, sanding $2.50 per ft² (Fixr)' },
+    ],
+    sources: [
+      {
+        label: 'BEHR PREMIUM Semi-Transparent Waterproofing Stain & Sealer (No. 5077) — product page and technical data sheet',
+        url: 'https://www.behr.com/products/wood-stains/behr-premium-semi-transparent-waterproofing-stain-and-sealer',
+        note: '1st coat 250–300 ft²/gal, thinner 2nd coat 500–600 ft²/gal; two thin coats',
+      },
+      {
+        label: 'BEHR PREMIUM Solid Color Waterproofing Stain & Sealer (No. 5011) — technical data sheet',
+        url: 'https://images.thdstatic.com/catalog/pdfImages/d5/d5da37ed-6793-4b75-8cb3-dcde8c8d6849.pdf',
+        note: '200–400 ft²/gal depending on application method and porosity; product page: 2nd coat 400–800',
+      },
+      {
+        label: 'BEHR PREMIUM Transparent Waterproofing Wood Finish (No. 500)',
+        url: 'https://www.behr.com/pro/products/exterior-products/exterior-wood-stains-and-finishes/wood-stains-and-finishes/behr-premium-transparent-waterproofing-wood-finish',
+        note: '1st coat 300–350 ft²/gal, 2nd coat 600–700 ft²/gal',
+      },
+      {
+        label: 'Duckback SuperDeck semi-transparent stain — retailer product data (True Value)',
+        url: 'https://www.truevalue.com/product/780642/duckback-superdeck-semi-transparent-exterior-stain-redwood-1-gal-780642/',
+        note: 'smooth 275–375 ft²/gal, rough 175–225 ft²/gal',
+      },
+      {
+        label: 'Olympic Exterior Deck Cleaner — product page',
+        url: 'https://olympic.com/products/specialty/premium-deck-cleaner',
+        note: 'about 250–350 ft² per gallon',
+      },
+      {
+        label: 'Angi — How Much Does It Cost to Stain a Deck? (2026 data)',
+        url: 'https://www.angi.com/articles/how-much-does-it-cost-stain-deck.htm',
+        note: 'labour about $1–$2.50 per ft²',
+      },
+      {
+        label: 'Fixr — Cost to Stain a Deck (updated Jan 31, 2025)',
+        url: 'https://www.fixr.com/costs/stain-deck',
+        note: 'stain $25–$90 per gallon; washing, stripping, sanding and brightener costs',
+      },
+      {
+        label: 'International Residential Code (IRC) R312 — Guards',
+        url: 'https://codes.iccsafe.org/content/IRC2021P1/chapter-3-building-planning',
+        note: '36 in minimum guard height for most residential decks; openings must not pass a 4 in sphere',
+      },
+    ],
+  },
   'fence-stain-calculator': {
     formula: [
       'Area = fence length × height × sides × style multiplier (board-on-board, shadowbox, etc.)',

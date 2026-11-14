@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #29 — Deck Stain Calculator] — 2026-11-15
+- New page `/deck-stain-calculator/` (Batch 2 Tier 1 #10), built from `10_Deck_Stain_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/deck-stain-engine.ts`): floor sections and optional board edges; railings quick (L × H × 2) or detailed (posts every N ft, rail perimeters, square or round balusters from width + gap); stairs (treads, risers, visible stringers); skirting; coverage by opacity × wood condition, second coat × factor, extra %; cheapest 5-gal/1-gal mix or 5/2.5/1 L tins; deck cleaner; DIY vs pro with wash/strip/sand prep.
+- **Data:** BEHR PREMIUM coverage ranges (low end used), Duckback rough vs smooth, IRC R312 railing defaults, Fixr and Angi 2026 prices.
+- UI with live isometric deck diagram and railing diagram; page with coverage-by-type, stain-by-deck-size and railing tables, worked example, 10 FAQs; ~2,290 words. Title 60 chars incl. brand.
+- **Analytics:** GTM now loads on first interaction or 5 s after load (was 1.5 s) — mobile Lighthouse on tool pages 79–86 → 89–90.
+- 23 new tests (441 total); `npm run verify` all passed.
+
 ### [Tool #28 — Concrete Slab Cost Calculator] — 2026-11-15
 - New page `/concrete-slab-cost-calculator/` (Batch 2 Tier 1 #9), built from `09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/slab-cost-engine.ts`): itemised estimate — ready-mix by the yard (¼ yd³ rounding, trucks), short-load fee (per yard or flat, editable threshold), delivery, line/boom pump minimum, gravel base (15% compaction, 1.40 t/yd³), mesh or rebar, vapour barrier, forms, labour, coloured/stamped finish, sealer, removal, region factor, overhead & profit, permit; totals per ft² and per yard ordered; DIY bags vs DIY ready-mix vs contractor; check against 2026 published installed prices.

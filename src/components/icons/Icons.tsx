@@ -27,6 +27,7 @@ export type IconName =
   | 'floorPlanks'
   | 'paintRoller'
   | 'fence'
+  | 'deck'
   | 'drywall'
   | 'rebar'
   | 'clipboard'
@@ -86,6 +87,15 @@ export default function Icon({
           <polyline points="2 12 10 16 18 12" />
           <circle cx="18" cy="17" r="4.5" />
           <path d="M19.4 15.4h-2a.9.9 0 0 0 0 1.8h1.2a.9.9 0 0 1 0 1.8h-2.1M18 14.4v1M18 19v1" />
+        </svg>
+      );
+    case 'deck':
+      return (
+        <svg {...common}>
+          <path d="M2 14h20" />
+          <path d="M3 14v6M21 14v6M12 14v6" />
+          <path d="M4 14V7M20 14V7M8 14V9M12 14V9M16 14V9" />
+          <path d="M4 7h16" />
         </svg>
       );
     case 'cube':

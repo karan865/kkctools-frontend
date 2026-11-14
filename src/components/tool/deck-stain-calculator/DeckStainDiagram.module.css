@@ -1,0 +1,56 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* stained wood tones are fixed so the drawing reads the same in both themes */
+.shadow { fill: rgba(15, 23, 42, 0.08); }
+.floor { fill: #C98A4B; stroke: #7C4A1E; stroke-width: 1.2; }
+.board { stroke: #9A5F2C; stroke-width: 0.9; }
+.fascia { fill: #A8662F; }
+.fasciaSide { fill: #8E5423; }
+.leg { stroke: #94A3B8; stroke-width: 4; stroke-linecap: round; }
+
+.skirtOn { fill: #B9773C; stroke: #7C4A1E; stroke-width: 1; }
+.skirtSideOn { fill: #9C602B; stroke: #7C4A1E; stroke-width: 1; }
+.skirtOff { fill: none; }
+.skirtSideOff { fill: none; }
+
+.railOn .post { stroke: #7C4A1E; stroke-width: 4; stroke-linecap: round; }
+.railOn .baluster { stroke: #A8662F; stroke-width: 1.6; }
+.railOn .rail { fill: none; stroke: #7C4A1E; stroke-width: 4; stroke-linejoin: round; }
+.railOn .railThin { fill: none; stroke: #8E5423; stroke-width: 2; }
+
+.off .post,
+.off .baluster,
+.off .rail,
+.off .railThin { stroke: color-mix(in srgb, var(--muted) 45%, transparent); fill: none; stroke-width: 1.2; }
+.off .riser,
+.off .tread { fill: color-mix(in srgb, var(--muted) 18%, var(--surface)); stroke: color-mix(in srgb, var(--muted) 50%, transparent); stroke-width: 1; }
+polygon.off { fill: color-mix(in srgb, var(--muted) 14%, var(--surface)); stroke: color-mix(in srgb, var(--muted) 45%, transparent); }
+
+.stairOn .riser { fill: #A8662F; stroke: #7C4A1E; stroke-width: 1; }
+.stairOn .tread { fill: #C98A4B; stroke: #7C4A1E; stroke-width: 1; }
+.stringerOn { fill: #8E5423; stroke: #7C4A1E; stroke-width: 1; }
+
+/* railing front view */
+.deckLine { fill: #A8662F; }
+.balusterFront { fill: #C98A4B; stroke: #7C4A1E; stroke-width: 1; }
+.railFront { fill: #A8662F; stroke: #7C4A1E; stroke-width: 1; }
+.postFront { fill: #8E5423; stroke: #5B3412; stroke-width: 1; }
+
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.dimAccent { stroke: var(--brand-orange); stroke-width: 2; }
+
+.label,
+.labelSmall,
+.labelAccent {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.label { fill: var(--ink); font: 700 11px var(--font-body), system-ui, sans-serif; }
+.labelSmall { fill: var(--ink-2); font: 600 10px var(--font-body), system-ui, sans-serif; }
+.labelAccent { fill: var(--brand-orange-text); font: 700 10px var(--font-body), system-ui, sans-serif; }

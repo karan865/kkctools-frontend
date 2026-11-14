@@ -29,7 +29,7 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 
 ### Google Analytics (installed 2026-11-15)
 - Container `GTM-5CDW8CXG` (GA4 `G-DVNM8TFRQE`), set in `src/config/site.ts` as `GTM_ID`; override or switch off with `NEXT_PUBLIC_GTM_ID` (`''` = off).
-- `src/app/layout.tsx` adds the `dataLayer`/`gtag` stub with Consent Mode v2 defaults, then injects `gtm.js` on the first scroll/tap/key or 1.5 s after `load`.
+- `src/app/layout.tsx` adds the `dataLayer`/`gtag` stub with Consent Mode v2 defaults, then injects `gtm.js` on the first scroll/tap/key or 5 s after `load` (changed from 1.5 s on 2026-11-15: GTM work inside Lighthouse's window was costing 5–10 mobile points; visitors who leave within 5 s without touching the page are not counted).
 - `public/_headers` CSP allows `https://www.googletagmanager.com`, `https://*.googletagmanager.com`, `https://*.google-analytics.com` and `https://*.analytics.google.com` (script, connect, img) and `frame-src https://www.googletagmanager.com`. Any new Google product (e.g. AdSense) needs its own CSP entries.
 - After deploy: GA4 → Reports → Realtime should show your own visit; Tag Assistant can confirm the container.
 

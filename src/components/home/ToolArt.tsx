@@ -72,6 +72,31 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Deck with railing and a stain can */
+  deck: (
+    <>
+      <polygon className={s.fm} points="20,58 120,58 150,40 50,40" />
+      {[0, 1, 2, 3, 4, 5].map((i) => (
+        <line key={i} className={k('s2')} x1={23 + i * 5} y1={58 - i * 3} x2={123 + i * 5} y2={58 - i * 3} />
+      ))}
+      <polygon className={s.f2} points="20,58 120,58 120,64 20,64" />
+      <polygon className={s.f1} points="120,58 150,40 150,46 120,64" />
+      <line className={k('s2', 'thick')} x1={50} y1={40} x2={50} y2={16} />
+      <line className={k('s2', 'thick')} x1={150} y1={40} x2={150} y2={16} />
+      <line className={k('s2', 'thick')} x1={100} y1={40} x2={100} y2={16} />
+      <line className={k('s2', 'thick')} x1={48} y1={16} x2={152} y2={16} />
+      {[58, 66, 74, 82, 90, 108, 116, 124, 132, 140].map((x) => (
+        <line key={x} className={s.s1} x1={x} y1={18} x2={x} y2={40} />
+      ))}
+      <line className={s.leg} x1={30} y1={64} x2={30} y2={84} />
+      <line className={s.leg} x1={110} y1={64} x2={110} y2={84} />
+      <path className={s.f2} d="M158 62 H190 V88 Q174 93 158 88 Z" />
+      <ellipse className={s.f1} cx={174} cy={62} rx={16} ry={4.5} />
+      <text className={s.txW} x={174} y={80} textAnchor="middle">
+        gal
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>

@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-14T22:41:11.391Z
+Run Date: 2026-11-14T23:08:14.343Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -25,6 +25,7 @@ Status: PASSED ✅
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
+| `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
@@ -46,13 +47,13 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 598 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 618 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 873 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 899 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

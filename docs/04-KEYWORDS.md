@@ -18,6 +18,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
 - Wire Gauge Calculator — `wire gauge calculator`, US 5,400 / Global 8,600 / KD 11; secondaries `size electrical wire calculator` 5,400/13, `wire gauge length calculator` 1,600/14 ("Wire gauge by length" H2), `wire size calculator` 5,400/24.
 - Concrete Slab Cost Calculator — `concrete slab cost calculator`, US 8,100 / Global 10,100 / KD 16 / CPC $2.36; H2/FAQ targets `how much is a yard of concrete` 8,100/12, `concrete slab cost per sq ft` 1,300/10, `how much is a 10 yard truck of concrete` 1,000/7, `concrete patio cost` 2,400/7. Cost lives here; quantity stays on `/concrete-calculator/` (pages link to each other).
+- Deck Stain Calculator — `deck stain calculator`, US 720 / Global 860 / KD 14; secondaries `stain calculator deck` 1,300/20, `deck staining cost calculator` 390/20 (DIY vs pro cost block), `deck stain coverage calculator` 90/18 (coverage H2). Cross-linked with Fence Stain.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 

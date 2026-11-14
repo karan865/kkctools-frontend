@@ -370,7 +370,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'fence',
     keywords: ['fence stain', 'wood stain', 'privacy fence', 'picket fence', 'gallons', 'coats', 'sealer'],
     added: '2026-11-11',
+  },  {
+    slug: '/deck-stain-calculator/',
+    name: 'Deck Stain Calculator',
+    category: 'finishes',
+    description: 'Gallons of stain for deck boards, railings and stairs — coats, coverage, cans to buy and cost.',
+    tags: ['Gallons · L', 'Railings'],
+    icon: 'deck',
+    keywords: ['deck stain', 'stain calculator', 'deck sealer', 'stain coverage', 'how much stain', 'railing', 'balusters', 'deck staining cost', 'gallons'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
   {
     slug: '/board-and-batten-calculator/',
     name: 'Board and Batten Calculator',

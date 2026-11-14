@@ -45,6 +45,7 @@
 }
 
 .copper { fill: #D97706; }
+.leg { stroke: var(--g2, var(--accent-hover)); stroke-width: 4; stroke-linecap: round; }
 
 .dim {
   stroke: var(--cat-deep, var(--ink-2));

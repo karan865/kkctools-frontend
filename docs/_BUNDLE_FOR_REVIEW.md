@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T22:41:11.886Z
+Generated on: 2026-11-14T23:08:14.933Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-14T22:41:11.886Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #28 Concrete Slab Cost Calculator built and verified (Phase SC, 2026-11-15). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 418 vitest tests passing (33 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #29 Deck Stain Calculator built and verified (Phase DS, 2026-11-15). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 441 vitest tests passing (34 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,16 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase DS — Tool #29: Deck Stain Calculator (Batch 2 Tier 1 #10, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/10_Deck_Stain_Calculator_Competitor_Analysis.md` (primary `deck stain calculator`, US 720 / KD 14; 7 of 10 SERP slots open).
+- [x] DS-1 Engine `src/lib/deck-stain-engine.ts` (new, more complete than the Fence Stain engine) + 23 tests: floor sections, board edges, railing quick or detailed (posts, rails, square/round balusters), stairs (treads, risers, stringers), skirting, coverage by opacity, wood-condition factor, second-coat factor, extra %, 5-gal/1-gal and 5/2.5/1 L can plans, cleaner, DIY vs pro with prep. *(Evidence: `npx vitest run` → 441 passed)*
+- [x] DS-2 Coverage from manufacturer data (BEHR PREMIUM transparent 300–350, semi 250–300, solid 200–400 ft²/gal; Duckback rough vs smooth), railing defaults from IRC R312, prices from Fixr and Angi 2026 — all in `calculation-methods.ts`. Weathered ×0.8 and the 10%/15% allowances are labelled as working assumptions.
+- [x] DS-3 UI: US/metric with conversion, 7 currencies, 6 cards, live isometric deck diagram, railing front-view diagram, coat-by-coat panel, DIY vs pro, copy/share/print, mobile bar. *(Evidence: screenshots at 1440 px and 500 px)*
+- [x] DS-4 Page: title 60 chars incl. brand (blueprint title was 70), meta 142, one H1, ~2,290 words, 10 FAQs + schema, engine tables (coverage by type, stain by deck size, railing by length), 2 diagrams. *(Evidence: cheerio dump of `out/deck-stain-calculator/index.html`)*
+- [x] DS-5 Wiring: routes (49), catalog (31, new `deck` icon and card art), footer, sitemap, llms.txt; `npm run verify` passed; Lighthouse mobile 89 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100 after the GTM delay change below.
+- [x] DS-6 GTM fallback delay raised from 1.5 s to 5 s (first interaction still loads it at once): mobile Lighthouse on tool pages went from 79–86 to 89–90. Verified with a DOM dump: no gtm.js tag at 3 s, tag present at 9 s.
+- [ ] DS-7 `TODO(owner)`: check your preferred stain brand’s label and, if different, consider changing the default coverage; re-check stain prices yearly.
 
 ### Phase SC — Tool #28: Concrete Slab Cost Calculator (Batch 2 Tier 1 #9, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md` (primary `concrete slab cost calculator`, US 8,100 / KD 16 / CPC $2.36; 6 of 10 SERP slots open).
@@ -576,6 +586,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
 | 29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive) | `/wire-gauge-calculator/` | `wire-gauge-calculator/` | `wire-gauge-engine.ts` |
 | 30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies) | `/concrete-slab-cost-calculator/` | `slab-cost-calculator/` | `slab-cost-engine.ts` |
+| 31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro) | `/deck-stain-calculator/` | `deck-stain-calculator/` | `deck-stain-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -621,7 +632,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (48 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (49 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -631,7 +642,7 @@ Source of truth: `src/lib/routes.ts` (48 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (28) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (29) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -822,6 +833,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
 - Wire Gauge Calculator — `wire gauge calculator`, US 5,400 / Global 8,600 / KD 11; secondaries `size electrical wire calculator` 5,400/13, `wire gauge length calculator` 1,600/14 ("Wire gauge by length" H2), `wire size calculator` 5,400/24.
 - Concrete Slab Cost Calculator — `concrete slab cost calculator`, US 8,100 / Global 10,100 / KD 16 / CPC $2.36; H2/FAQ targets `how much is a yard of concrete` 8,100/12, `concrete slab cost per sq ft` 1,300/10, `how much is a 10 yard truck of concrete` 1,000/7, `concrete patio cost` 2,400/7. Cost lives here; quantity stays on `/concrete-calculator/` (pages link to each other).
+- Deck Stain Calculator — `deck stain calculator`, US 720 / Global 860 / KD 14; secondaries `stain calculator deck` 1,300/20, `deck staining cost calculator` 390/20 (DIY vs pro cost block), `deck stain coverage calculator` 90/18 (coverage H2). Cross-linked with Fence Stain.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -884,7 +896,7 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 
 ### Google Analytics (installed 2026-11-15)
 - Container `GTM-5CDW8CXG` (GA4 `G-DVNM8TFRQE`), set in `src/config/site.ts` as `GTM_ID`; override or switch off with `NEXT_PUBLIC_GTM_ID` (`''` = off).
-- `src/app/layout.tsx` adds the `dataLayer`/`gtag` stub with Consent Mode v2 defaults, then injects `gtm.js` on the first scroll/tap/key or 1.5 s after `load`.
+- `src/app/layout.tsx` adds the `dataLayer`/`gtag` stub with Consent Mode v2 defaults, then injects `gtm.js` on the first scroll/tap/key or 5 s after `load` (changed from 1.5 s on 2026-11-15: GTM work inside Lighthouse's window was costing 5–10 mobile points; visitors who leave within 5 s without touching the page are not counted).
 - `public/_headers` CSP allows `https://www.googletagmanager.com`, `https://*.googletagmanager.com`, `https://*.google-analytics.com` and `https://*.analytics.google.com` (script, connect, img) and `frame-src https://www.googletagmanager.com`. Any new Google product (e.g. AdSense) needs its own CSP entries.
 - After deploy: GA4 → Reports → Realtime should show your own visit; Tag Assistant can confirm the container.
 
@@ -920,6 +932,14 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #29 — Deck Stain Calculator] — 2026-11-15
+- New page `/deck-stain-calculator/` (Batch 2 Tier 1 #10), built from `10_Deck_Stain_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/deck-stain-engine.ts`): floor sections and optional board edges; railings quick (L × H × 2) or detailed (posts every N ft, rail perimeters, square or round balusters from width + gap); stairs (treads, risers, visible stringers); skirting; coverage by opacity × wood condition, second coat × factor, extra %; cheapest 5-gal/1-gal mix or 5/2.5/1 L tins; deck cleaner; DIY vs pro with wash/strip/sand prep.
+- **Data:** BEHR PREMIUM coverage ranges (low end used), Duckback rough vs smooth, IRC R312 railing defaults, Fixr and Angi 2026 prices.
+- UI with live isometric deck diagram and railing diagram; page with coverage-by-type, stain-by-deck-size and railing tables, worked example, 10 FAQs; ~2,290 words. Title 60 chars incl. brand.
+- **Analytics:** GTM now loads on first interaction or 5 s after load (was 1.5 s) — mobile Lighthouse on tool pages 79–86 → 89–90.
+- 23 new tests (441 total); `npm run verify` all passed.
 
 ### [Tool #28 — Concrete Slab Cost Calculator] — 2026-11-15
 - New page `/concrete-slab-cost-calculator/` (Batch 2 Tier 1 #9), built from `09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md`.
@@ -1146,7 +1166,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T22:41:11.391Z
+Run Date: 2026-11-14T23:08:14.343Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1171,6 +1191,7 @@ Status: PASSED ✅
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
+| `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
@@ -1192,14 +1213,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 598 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 618 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 873 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 899 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1230,6 +1251,7 @@ concrete-slab-cost-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-yard-calculator/index.html
+deck-stain-calculator/index.html
 disclaimer/index.html
 drywall-calculator/index.html
 fence-stain-calculator/index.html
@@ -1299,6 +1321,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+6844232 Add Concrete Slab Cost Calculator (Batch 2 Tier 1 #9)
 7159a8c google analytics setup
 43cf389 cards and colors redesigns
 fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner identity
@@ -1318,7 +1341,6 @@ c08b669 reinforcement steel calculator
 9ddcf8a home page redesigned
 02de99b blog 1 completed - Concrete calculator
 35c5ea2 removed unwanted files
-5c5d5f4 make pages responsive
 ```
 
 
@@ -1334,18 +1356,18 @@ c08b669 reinforcement steel calculator
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 34ms
+✓ Running next.config.ts took 37ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.1s
+✓ Compiled successfully in 5.2s
   Running TypeScript ...
-  Finished TypeScript in 2.2s ...
+  Finished TypeScript in 2.9s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/65) ...
-  Generating static pages using 15 workers (16/65) 
-  Generating static pages using 15 workers (32/65) 
-  Generating static pages using 15 workers (48/65) 
-✓ Generating static pages using 15 workers (65/65) in 2.7s
+  Generating static pages using 15 workers (0/66) ...
+  Generating static pages using 15 workers (16/66) 
+  Generating static pages using 15 workers (32/66) 
+  Generating static pages using 15 workers (49/66) 
+✓ Generating static pages using 15 workers (66/66) in 2.4s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1373,6 +1395,7 @@ Route (app)
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
 ├ ○ /cubic-yard-calculator
+├ ○ /deck-stain-calculator
 ├ ○ /disclaimer
 ├ ○ /drywall-calculator
 ├ ○ /fence-stain-calculator
@@ -1487,7 +1510,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 51 HTML files in out/...
+Auditing 52 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1504,10 +1527,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  33 passed (33)
-      Tests  418 passed (418)
-   Start at  04:10:40
-   Duration  1.86s (transform 6.18s, setup 0ms, import 8.01s, tests 690ms, environment 7ms)
+ Test Files  34 passed (34)
+      Tests  441 passed (441)
+   Start at  04:37:40
+   Duration  2.27s (transform 8.45s, setup 0ms, import 10.98s, tests 750ms, environment 31ms)
 
 
 ```

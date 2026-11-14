@@ -120,6 +120,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  deckStainCalculator: {
+    path: '/deck-stain-calculator/',
+    title: 'Deck Stain Calculator – Gallons, Coverage & Cost',
+    description: 'Work out how much deck stain you need. Add deck boards, railings and stairs, choose coats and coverage, and get gallons plus total stain cost.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

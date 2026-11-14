@@ -6,8 +6,8 @@
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #28 Concrete Slab Cost Calculator built and verified (Phase SC, 2026-11-15). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 418 vitest tests passing (33 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #29 Deck Stain Calculator built and verified (Phase DS, 2026-11-15). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 441 vitest tests passing (34 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -252,6 +252,16 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase DS — Tool #29: Deck Stain Calculator (Batch 2 Tier 1 #10, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/10_Deck_Stain_Calculator_Competitor_Analysis.md` (primary `deck stain calculator`, US 720 / KD 14; 7 of 10 SERP slots open).
+- [x] DS-1 Engine `src/lib/deck-stain-engine.ts` (new, more complete than the Fence Stain engine) + 23 tests: floor sections, board edges, railing quick or detailed (posts, rails, square/round balusters), stairs (treads, risers, stringers), skirting, coverage by opacity, wood-condition factor, second-coat factor, extra %, 5-gal/1-gal and 5/2.5/1 L can plans, cleaner, DIY vs pro with prep. *(Evidence: `npx vitest run` → 441 passed)*
+- [x] DS-2 Coverage from manufacturer data (BEHR PREMIUM transparent 300–350, semi 250–300, solid 200–400 ft²/gal; Duckback rough vs smooth), railing defaults from IRC R312, prices from Fixr and Angi 2026 — all in `calculation-methods.ts`. Weathered ×0.8 and the 10%/15% allowances are labelled as working assumptions.
+- [x] DS-3 UI: US/metric with conversion, 7 currencies, 6 cards, live isometric deck diagram, railing front-view diagram, coat-by-coat panel, DIY vs pro, copy/share/print, mobile bar. *(Evidence: screenshots at 1440 px and 500 px)*
+- [x] DS-4 Page: title 60 chars incl. brand (blueprint title was 70), meta 142, one H1, ~2,290 words, 10 FAQs + schema, engine tables (coverage by type, stain by deck size, railing by length), 2 diagrams. *(Evidence: cheerio dump of `out/deck-stain-calculator/index.html`)*
+- [x] DS-5 Wiring: routes (49), catalog (31, new `deck` icon and card art), footer, sitemap, llms.txt; `npm run verify` passed; Lighthouse mobile 89 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100 after the GTM delay change below.
+- [x] DS-6 GTM fallback delay raised from 1.5 s to 5 s (first interaction still loads it at once): mobile Lighthouse on tool pages went from 79–86 to 89–90. Verified with a DOM dump: no gtm.js tag at 3 s, tag present at 9 s.
+- [ ] DS-7 `TODO(owner)`: check your preferred stain brand’s label and, if different, consider changing the default coverage; re-check stain prices yearly.
 
 ### Phase SC — Tool #28: Concrete Slab Cost Calculator (Batch 2 Tier 1 #9, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/09_Concrete_Slab_Cost_Calculator_Competitor_Analysis.md` (primary `concrete slab cost calculator`, US 8,100 / KD 16 / CPC $2.36; 6 of 10 SERP slots open).
