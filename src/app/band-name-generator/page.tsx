@@ -326,7 +326,7 @@ export default function BandNameGeneratorPage() {
                 <strong>Strict Quality & Blocklist Filtering:</strong> Every generated combination is normalized and screened against an internal blocklist of over 260 world-famous artists, explicit slurs, and repetitive word anomalies before appearing on your screen.
               </li>
               <li>
-                <strong>100% Client-Side Browser Privacy:</strong> Nothing you enter, click, or generate is ever transmitted to a server or external analytics network. Your creative brainstorming remains entirely confidential on your own machine.
+                <strong>100% Client-Side Browser Privacy:</strong> The words you enter and the names you generate are never sent to a server or to our analytics. Your creative brainstorming stays on your own machine.
               </li>
             </ul>
 

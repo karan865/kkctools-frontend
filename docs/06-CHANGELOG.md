@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Google Analytics via Google Tag Manager] — 2026-11-15
+- Installed the owner's Google tag (`GTM-5CDW8CXG` → GA4 `G-DVNM8TFRQE`) in the root layout with Consent Mode v2 defaults: analytics cookies off in the EEA, UK and Switzerland; ad storage off everywhere.
+- `gtm.js` is injected on first interaction or 1.5 s after `load` (in `<head>` it dropped mobile Lighthouse 94 → 86; now 90–93, desktop 100). GA collect requests confirmed (204).
+- CSP in `public/_headers` widened for Google Tag Manager / Analytics.
+- Privacy Policy: new section 5 "Analytics (Google Analytics)" (what is and is not collected, `_ga` cookies, EEA/UK defaults, opt-out); advertising moved to section 6; last updated 2026-11-15. Removed "no tracking" wording from About, Why us, Footer, Contact and the band generator page.
+
 ### [Hero banner illustration] — 2026-11-15
 - Owner asked for a more attractive hero with images/diagrams.
 - New `HeroScene.tsx`: inline-SVG building site touching every category (concrete slab, framed wall, roof truss + shingles with 8/12 pitch marker, painted wall with roller, gravel pile, crane lifting a beam, tree, 24 ft tape measure) on a blueprint sky panel; shown on all screen sizes.

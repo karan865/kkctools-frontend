@@ -115,6 +115,7 @@
 - [x] P7-05 `NEXT_PUBLIC_SITE_URL` set to the real domain and the site redeployed. *(Evidence: out/sitemap.xml and out/robots.txt verified with https://www.kkctools.com)*
 - [x] P7-06 Google Search Console domain property verified, sitemap submitted. *(Evidence: GSC dashboard verified, sitemap.xml status Success with 18 discovered pages on Nov 9, 2026)*
 - [x] P7-07 Bing Webmaster Tools set up (Bing meta tag msvalidate.01 FA0261B08D394DFD4C117F158B1A04A8 added to layout.tsx and verified in build). *(Evidence: out/index.html contains msvalidate.01 meta tag)*
+- [x] P7-07b Google tag installed (owner-supplied GTM container `GTM-5CDW8CXG`, GA4 property `G-DVNM8TFRQE`) with Consent Mode v2 defaults (analytics cookies off in EEA/UK/CH, ad storage off everywhere); gtm.js loads on first interaction or 1.5 s after `load`; CSP widened for Google Tag Manager/Analytics; Privacy Policy section 5 rewritten and "no tracking" claims removed from About, Why us, Footer, Contact and the band generator. *(Evidence: `out/index.html` contains the consent defaults and gtm.js loader; local Lighthouse network log shows `gtm.js` 200 and `google-analytics.com/g/collect?tid=G-DVNM8TFRQE` 204; home mobile 90–93 / desktop 100)*
 - [ ] P7-08 URL Inspection → request indexing for Home, main tool page, and each genre page.
 - [ ] P7-09 PageSpeed Insights run on the live URL; results recorded in `docs/evidence/`.
 - [ ] P7-10 Wait until the pages are indexed and the site has been live for a few weeks, then apply for AdSense (owner).
@@ -448,6 +449,7 @@ No competitor text was copied.
 | `src/app/about/page.tsx` ("Who runs KKC Tools") | — | Real owner name, role, contact (SEO audit H4, E-E-A-T) | Resolved 2026-11-15. Optional: owner may add real background/experience later — do not invent |
 | `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles |
 | Cloudflare dashboard | `TODO(owner)` | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11 | **Open** |
+| Google Analytics admin | `TODO(owner)` | Set data retention and review Enhanced measurement for property `G-DVNM8TFRQE` | **Open** |
 
 ---
 
@@ -490,6 +492,7 @@ No competitor text was copied.
 
 ## 5. Known Issues / Decisions Log
 
+- **Decision (2026-11-15):** Owner asked to install Google Analytics (Phase 7, so third-party scripts are now allowed under AGENTS.md rule 5). Loaded via GTM with Consent Mode v2 region defaults instead of a cookie banner; gtm.js is delayed until the first interaction or 1.5 s after load because loading it in `<head>` cut mobile Lighthouse from 94 to 86. Tool code still makes zero network calls (`check:no-network`). `TODO(owner)`: in GA4 set data retention (Admin → Data retention) and review Enhanced measurement; if a consent banner is ever wanted for EEA/UK, use a Google-certified CMP.
 - **Decision (2026-11-14):** Deploy to Cloudflare as static assets (`wrangler.jsonc` → `out/`), not OpenNext. OpenNext needs `output: 'standalone'` and a non-allowed dependency; the site is 100% static. Steps in `05-DEPLOY-AND-LAUNCH.md`.
 - **Resolved (2026-11-15):** the 4 token pairs that were below 4.5:1 (light `--muted` on `--bg`, white on `--accent`, dark `--muted` on `--bg`/`--surface`) were darkened/lightened; all pairs now pass. Values in `03-PAGES-AND-DESIGN.md` §3.
 

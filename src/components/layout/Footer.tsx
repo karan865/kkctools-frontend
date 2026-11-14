@@ -60,7 +60,7 @@ export default function Footer() {
             </Link>
 
             <p className={styles.brandDesc}>
-              Fast, privacy-first online calculators for construction, materials, hardscaping, and creative naming. Built with zero tracking and real-world math.
+              Fast, privacy-first online calculators for construction, materials, hardscaping, and creative naming. Your inputs never leave your browser.
             </p>
 
             <ul className={styles.trustList}>

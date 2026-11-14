@@ -6,6 +6,9 @@
 D:\1_programmins\5.kkctools\src\app\guides\page.tsx
   12:74  warning  'LD_ORG_ID' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\app\layout.tsx
+  119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
    9:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
   24:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
@@ -24,5 +27,5 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 11 problems (0 errors, 11 warnings)
+✖ 12 problems (0 errors, 12 warnings)
 

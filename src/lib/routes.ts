@@ -355,8 +355,8 @@ export const ROUTES: Record<string, RouteDefinition> = {
   privacy: {
     path: '/privacy-policy/',
     title: 'Privacy Policy – Transparent & Privacy First',
-    description: 'Read our transparent privacy policy. Our tools process all data locally inside your browser without harvesting personal info.',
-    updated: '2026-11-08',
+    description: 'How KKC Tools handles data: tool inputs stay in your browser, and Google Analytics measures visits with consent defaults for the EEA and UK.',
+    updated: '2026-11-15',
     type: 'legal',
     indexable: true,
   },

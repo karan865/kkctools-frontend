@@ -85,8 +85,8 @@ export default function AboutPage() {
 
             <h2>Privacy</h2>
             <p>
-              Nothing you type into a tool is sent to us or anyone else. There are no accounts, no tracking scripts
-              and no third-party widgets. Saved items (such as favourite band names) stay in your own browser’s
+              Nothing you type into a tool is sent to us or anyone else. There are no accounts and no third-party
+              widgets. We use Google Analytics to count visits and see which pages are used; it never receives what you type. Saved items (such as favourite band names) stay in your own browser’s
               storage. The details are in our <Link href="/privacy-policy/" style={link}>privacy policy</Link>.
             </p>
 

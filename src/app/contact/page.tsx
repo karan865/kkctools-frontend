@@ -52,7 +52,7 @@ export default function ContactPage() {
           <div className="prose">
             <h2>Get in Touch via Email</h2>
             <p>
-              We do not use third-party contact forms or ticket systems (they would add tracking scripts to the site), so email is the way to reach us:
+              We do not use third-party contact forms or ticket systems (they would add more third-party scripts to the site), so email is the way to reach us:
             </p>
 
             <Card style={{ margin: 'var(--space-5) 0', padding: 'var(--space-5)' }}>

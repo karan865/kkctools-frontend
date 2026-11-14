@@ -2,7 +2,7 @@ import React from 'react';
 import type { Metadata } from 'next';
 import { Bricolage_Grotesque, Inter } from 'next/font/google';
 import './globals.css';
-import { SITE_NAME, SITE_URL, SITE_TAGLINE, SITE_DESCRIPTION, OWNER_EMAIL, ORG_ID, WEBSITE_ID, SITE_LOGO_URL, FOUNDER, FOUNDER_ID } from '@/config/site';
+import { SITE_NAME, SITE_URL, SITE_TAGLINE, SITE_DESCRIPTION, OWNER_EMAIL, ORG_ID, WEBSITE_ID, SITE_LOGO_URL, FOUNDER, FOUNDER_ID, GTM_ID } from '@/config/site';
 import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import SkipLink from '@/components/layout/SkipLink';
@@ -109,6 +109,20 @@ export default function RootLayout({
             __html: `(function(){try{var t=localStorage.getItem('kkc_theme_pref');if(t==='dark'){document.documentElement.setAttribute('data-theme','dark');}else{document.documentElement.removeAttribute('data-theme');if(localStorage.getItem('theme')){localStorage.removeItem('theme');}}}catch(e){}})();`,
           }}
         />
+        {GTM_ID && (
+          <>
+            {/* Google tag (owner-supplied). Consent Mode v2: analytics cookies stay off by default in the
+                EEA, UK and Switzerland (no consent banner yet); ad storage is off everywhere until AdSense
+                is enabled with Google's certified consent message. gtm.js is added on the first interaction
+                (scroll, tap, key) or 1.5 s after the load event, whichever comes first, so it does not compete
+                with the first paint (keeps mobile LCP/TBT low). */}
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'denied',region:['AT','BE','BG','HR','CY','CZ','DK','EE','FI','FR','DE','GR','HU','IE','IT','LV','LT','LU','MT','NL','PL','PT','RO','SK','SI','ES','SE','IS','LI','NO','GB','CH']});gtag('consent','default',{ad_storage:'denied',ad_user_data:'denied',ad_personalization:'denied',analytics_storage:'granted'});gtag('js',new Date());function l(){if(window.__gtmLoaded)return;window.__gtmLoaded=1;var s=document.createElement('script');s.async=true;s.src='https://www.googletagmanager.com/gtm.js?id=${GTM_ID}';document.head.appendChild(s);}['scroll','pointerdown','keydown','touchstart'].forEach(function(e){window.addEventListener(e,l,{once:true,passive:true});});function t(){setTimeout(l,1500);}if(document.readyState==='complete'){t();}else{window.addEventListener('load',t);}`,
+              }}
+            />
+          </>
+        )}
         <link rel="icon" href="/icon.svg" type="image/svg+xml" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <meta name="msvalidate.01" content="FA0261B08D394DFD4C117F158B1A04A8" />

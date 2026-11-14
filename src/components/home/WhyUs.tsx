@@ -7,7 +7,7 @@ export default function WhyUs() {
     {
       icon: 'shield' as const,
       title: 'Private by Design',
-      desc: 'Your inputs and dimensions never leave your browser. Zero accounts, no tracking pixels, and zero server logging.',
+      desc: 'Your inputs and dimensions never leave your browser. No accounts, and our visit statistics never see what you type.',
     },
     {
       icon: 'bookOpen' as const,

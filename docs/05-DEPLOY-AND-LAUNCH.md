@@ -27,9 +27,16 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 ### Netlify (previous host)
 `netlify.toml`: build `npm run build`, publish `out`, HUD disabled. Keep until the domain is moved to Cloudflare, then remove the Netlify site and `netlify.toml`. `TODO(owner)`: confirm the cut-over date.
 
+### Google Analytics (installed 2026-11-15)
+- Container `GTM-5CDW8CXG` (GA4 `G-DVNM8TFRQE`), set in `src/config/site.ts` as `GTM_ID`; override or switch off with `NEXT_PUBLIC_GTM_ID` (`''` = off).
+- `src/app/layout.tsx` adds the `dataLayer`/`gtag` stub with Consent Mode v2 defaults, then injects `gtm.js` on the first scroll/tap/key or 1.5 s after `load`.
+- `public/_headers` CSP allows `https://www.googletagmanager.com`, `https://*.googletagmanager.com`, `https://*.google-analytics.com` and `https://*.analytics.google.com` (script, connect, img) and `frame-src https://www.googletagmanager.com`. Any new Google product (e.g. AdSense) needs its own CSP entries.
+- After deploy: GA4 → Reports → Realtime should show your own visit; Tag Assistant can confirm the container.
+
 ### Environment variables
 - `NEXT_PUBLIC_SITE_URL`: production domain (`https://www.kkctools.com`).
 - `NEXT_PUBLIC_ADS_ENABLED`: `false` until AdSense approval.
+- `NEXT_PUBLIC_GTM_ID`: optional; defaults to `GTM-5CDW8CXG`.
 
 ---
 
