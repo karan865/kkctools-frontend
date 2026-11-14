@@ -96,6 +96,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  pipeVolumeCalculator: {
+    path: '/pipe-volume-calculator/',
+    title: 'Pipe & Tube Volume Calculator – Gallons & Litres',
+    description: 'Calculate how much water a pipe or tube holds. Enter inside diameter and length to get gallons, litres and cubic feet, or tube wall volume.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

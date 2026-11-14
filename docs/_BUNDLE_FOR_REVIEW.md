@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T18:16:26.705Z
+Generated on: 2026-11-14T18:46:22.528Z
 
 
 
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase PV — Tool #26: Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md` (primary `tube volume calculator`, US 1,600 / Global 4,800 / KD 12; no dedicated tube tool from a big site in the SERP).
+- [x] PV-1 Engine `src/lib/pipe-volume-engine.ts` + 19 tests (preset IDs vs ASME B36.10M / ASTM B88, round/rect areas, unit outputs, runs, fill time, per-length tables, steel weight vs standard). *(Evidence: `npx vitest run` → 361 passed)*
+- [x] PV-2 Calculator UI: presets, custom round, square/rect, runs, densities, flow, formula, share/copy/print. *(Evidence: `src/components/tool/pipe-volume-calculator/`)*
+- [x] PV-3 Page: title 60 chars incl. brand, meta 139, one H1, ~2,500 words, 10 FAQs, WebApplication + FAQPage + BreadcrumbList, no duplicate ids. *(Evidence: cheerio check of `out/pipe-volume-calculator/index.html`; hero shows 17.43 gal for 100 ft of 2 in Sch 40)*
+- [x] PV-4 Wiring: routes, catalog (28), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] PV-5 `npm run verify` all steps passed; SEO audit re-run after the final text fix (0 errors). *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] PV-6 `TODO(owner)`: Semrush "questions" export for pipe/tube volume to confirm FAQ wording; optionally add metric copper (EN 1057) presets once a dimension source is approved.
+
 ### Phase BB — Tool #25: Board and Batten Calculator (Batch 2 Tier 1 #6, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/06_Board_and_Batten_Calculator_Competitor_Analysis.md` (primary `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55; 6 of 10 slots weak or irrelevant).
 - [x] BB-1 Engine `src/lib/board-batten-engine.ts` + 27 tests (PS 20 widths, fraction parser/formatter, 3 edge modes, count↔gap, marks, clashes, cut list, rails/grid, supplies, siding). *(Evidence: `npx vitest run` → 342 passed)*
@@ -481,8 +490,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 27 — 1 generator, 1 estimate template, 25 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 342 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 28 — 1 generator, 1 estimate template, 26 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 361 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -518,6 +527,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 25 | Lawn Mowing Cost Calculator (homeowner + pro views) | `/lawn-mowing-cost-calculator/` | `lawn-mowing-calculator/` | `lawn-mowing-engine.ts` |
 | 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
 | 27 | Board and Batten Calculator (accent wall + exterior siding) | `/board-and-batten-calculator/` | `board-batten-calculator/` | `board-batten-engine.ts` |
+| 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -563,7 +573,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (43 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (44 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -573,7 +583,7 @@ Source of truth: `src/lib/routes.ts` (43 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (25) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (26) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
@@ -711,6 +721,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Lawn Mowing Cost Calculator — `lawn mowing cost calculator`, US 1,000 / KD 3 (secondaries: `free lawn mowing cost calculator` 140/0, `lawn mowing cost calculation` 50/1, `lawn mowing cost calculator per acre` 70/20).
 - Shingle Roof Calculator — `shingle roof calculator`, US 1,300 / KD 10; real traffic in the bundle questions (`how many shingles in a bundle` 2,900/10, `how many bundles of shingles in a square` 2,400/6 + variants 1,900 and 1,300), all answered as H2s/FAQs.
 - Board and Batten Calculator — `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55. No secondary keywords in the export — `TODO(owner)`: export `batten spacing calculator`, `board and batten spacing`, `accent wall calculator`, `wainscoting calculator`.
+- Pipe & Tube Volume Calculator — `tube volume calculator`, US 1,600 / Global 4,800 / KD 12 (in the first paragraph and an H2); support `pipe volume calculator` 3,600 / KD 25 (title + H1).
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -798,6 +809,14 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #26 — Pipe & Tube Volume Calculator] — 2026-11-15
+- New page `/pipe-volume-calculator/` (Batch 2 Tier 1 #7), built from `07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/pipe-volume-engine.ts`): runs list for round (preset, OD + wall, OD + ID, ID only) and rectangular tubes; capacity in US gal, imp gal, L, ft³, in³, m³; per-foot / per-metre; liquid weight; wall volume and tube weight by material; fill time from a flow rate.
+- **Presets from published dimensions:** steel/PVC Schedule 40 & 80 (ASME B36.10M, ½–12 in), copper Types K/L/M (ASTM B88, ⅜–4 in), PEX SDR 9 (ASTM F876), metric PE SDR 11 (EN 12201 / ISO 4427). Weight check: 1 in Sch 40 steel = 1.68 lb/ft, 4 in = 10.79 lb/ft, matching the standard.
+- UI: US or metric, live cross-section per run, several runs, liquid and material density, formula with the user's numbers, copy / share / print.
+- Page: capacity and hollow-cylinder formulas with engine-computed examples, ID vs OD vs nominal, gallons-per-foot / litres-per-metre tables (Sch 40/80, copper L, PEX, PE), house plumbing example, tube weight, rectangular tubes, conversions, 10 FAQs + schema; ~2,500 words. Title shortened to 60 chars (incl. brand); one wrong claim about OD/nominal overstatement corrected to the computed 82% before publishing.
+- Wiring: routes, catalog (28 tools), new `pipe` icon, footer. 19 new tests (361 total); `npm run verify` all passed.
 
 ### [Tool #25 — Board and Batten Calculator] — 2026-11-14
 - New page `/board-and-batten-calculator/` (Batch 2 Tier 1 #6), built from `06_Board_and_Batten_Calculator_Competitor_Analysis.md`.
@@ -953,7 +972,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T18:15:51.008Z
+Run Date: 2026-11-14T18:45:49.712Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -984,13 +1003,14 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1344 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1364 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2372 | Paver Sand Calculator: Bedding | PASS |
+| `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 664 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
@@ -1002,7 +1022,7 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 603 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 623 | All Free Tools: Construction C | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -1045,6 +1065,7 @@ linear-foot-calculator/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
 paver-sand-calculator/index.html
+pipe-volume-calculator/index.html
 privacy-policy/index.html
 rafter-calculator/index.html
 rebar-calculator/index.html
@@ -1096,6 +1117,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+3d2e579 shingle roof calculator- completed
 1278ed3 completed page shingle roof calculator
 603df95 Lawn Mowing Cost Calculator
 6a68583 project docs updated successfully
@@ -1115,7 +1137,6 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
 8f044dd feat(paver-base): upgrade tool #17 spec and implement 2800+ word deep guide with ICPI compaction standards
 359b9d8 feat(paver-sand): upgrade tool #16 spec and implement comprehensive 2800+ word guide with verified ICPI standards
-ddbd302 style(home): align generate button color to primary ocean blue
 ```
 
 
@@ -1131,18 +1152,18 @@ ddbd302 style(home): align generate button color to primary ocean blue
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 38ms
+✓ Running next.config.ts took 29ms
 
   Creating an optimized production build ...
 ✓ Compiled successfully in 7.1s
   Running TypeScript ...
-  Finished TypeScript in 12.3s ...
+  Finished TypeScript in 12.8s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/60) ...
-  Generating static pages using 15 workers (15/60) 
-  Generating static pages using 15 workers (30/60) 
-  Generating static pages using 15 workers (45/60) 
-✓ Generating static pages using 15 workers (60/60) in 2.1s
+  Generating static pages using 15 workers (0/61) ...
+  Generating static pages using 15 workers (15/61) 
+  Generating static pages using 15 workers (30/61) 
+  Generating static pages using 15 workers (45/61) 
+✓ Generating static pages using 15 workers (61/61) in 2.3s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1188,6 +1209,7 @@ Route (app)
 ├ ○ /paint-cost-calculator/opengraph-image
 ├ ○ /paver-base-calculator
 ├ ○ /paver-sand-calculator
+├ ○ /pipe-volume-calculator
 ├ ○ /privacy-policy
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
@@ -1288,7 +1310,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 46 HTML files in out/...
+Auditing 47 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1305,10 +1327,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  30 passed (30)
-      Tests  342 passed (342)
-   Start at  23:45:08
-   Duration  1.58s (transform 4.61s, setup 0ms, import 6.12s, tests 584ms, environment 21ms)
+ Test Files  31 passed (31)
+      Tests  361 passed (361)
+   Start at  00:14:17
+   Duration  1.69s (transform 4.84s, setup 0ms, import 6.40s, tests 626ms, environment 16ms)
 
 
 ```

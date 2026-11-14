@@ -229,6 +229,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['tons to yards', 'tons to cubic yards', 'cubic yards to tons', 'weight volume converter', 'material density'],
     added: '2026-11-11',
   },
+  {
+    slug: '/pipe-volume-calculator/',
+    name: 'Pipe & Tube Volume Calculator',
+    category: 'earthwork',
+    description: 'Gallons and litres in any pipe or tube, Sch 40/80, copper & PEX sizes, plus tube weight.',
+    tags: ['Gallons', 'Litres'],
+    icon: 'pipe',
+    keywords: ['pipe volume', 'tube volume', 'pipe capacity', 'gallons per foot', 'litres per metre', 'schedule 40', 'copper pipe', 'pex', 'hollow cylinder'],
+    added: '2026-11-15',
+    isNew: true,
+  },
 
   // 4. Framing, Roofing & Measuring
   {

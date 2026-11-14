@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase PV — Tool #26: Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/07_Pipe_Tube_Volume_Calculator_Competitor_Analysis.md` (primary `tube volume calculator`, US 1,600 / Global 4,800 / KD 12; no dedicated tube tool from a big site in the SERP).
+- [x] PV-1 Engine `src/lib/pipe-volume-engine.ts` + 19 tests (preset IDs vs ASME B36.10M / ASTM B88, round/rect areas, unit outputs, runs, fill time, per-length tables, steel weight vs standard). *(Evidence: `npx vitest run` → 361 passed)*
+- [x] PV-2 Calculator UI: presets, custom round, square/rect, runs, densities, flow, formula, share/copy/print. *(Evidence: `src/components/tool/pipe-volume-calculator/`)*
+- [x] PV-3 Page: title 60 chars incl. brand, meta 139, one H1, ~2,500 words, 10 FAQs, WebApplication + FAQPage + BreadcrumbList, no duplicate ids. *(Evidence: cheerio check of `out/pipe-volume-calculator/index.html`; hero shows 17.43 gal for 100 ft of 2 in Sch 40)*
+- [x] PV-4 Wiring: routes, catalog (28), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] PV-5 `npm run verify` all steps passed; SEO audit re-run after the final text fix (0 errors). *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] PV-6 `TODO(owner)`: Semrush "questions" export for pipe/tube volume to confirm FAQ wording; optionally add metric copper (EN 1057) presets once a dimension source is approved.
+
 ### Phase BB — Tool #25: Board and Batten Calculator (Batch 2 Tier 1 #6, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/06_Board_and_Batten_Calculator_Competitor_Analysis.md` (primary `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55; 6 of 10 slots weak or irrelevant).
 - [x] BB-1 Engine `src/lib/board-batten-engine.ts` + 27 tests (PS 20 widths, fraction parser/formatter, 3 edge modes, count↔gap, marks, clashes, cut list, rails/grid, supplies, siding). *(Evidence: `npx vitest run` → 342 passed)*

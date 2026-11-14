@@ -1,0 +1,26 @@
+.svg {
+  --dg-metal: #94a3b8;
+  --dg-metal-2: #cbd5e1;
+  --dg-edge: #334155;
+  --dg-water: #7dd3fc;
+  --dg-water-2: #0ea5e9;
+  --dg-dim: #0369a1;
+  --dg-accent: #c2410c;
+  --dg-label-bg: #ffffff;
+  --dg-text: #334155;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:global(:root[data-theme='dark']) .svg {
+  --dg-metal: #64748b;
+  --dg-metal-2: #475569;
+  --dg-edge: #e2e8f0;
+  --dg-water: #0c4a6e;
+  --dg-water-2: #38bdf8;
+  --dg-dim: #7dd3fc;
+  --dg-accent: #fb923c;
+  --dg-label-bg: #11151f;
+  --dg-text: #cbd5e1;
+}

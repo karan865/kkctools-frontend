@@ -283,6 +283,39 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'pipe-volume-calculator': {
+    formula: [
+      'Capacity (round) = π × (inside diameter ÷ 2)² × length; inside diameter = outside diameter − 2 × wall',
+      'Tube wall volume = π ÷ 4 × (OD² − ID²) × length',
+      'Rectangular tube: capacity = (W − 2t) × (H − 2t) × length; wall = (W × H − inner area) × length',
+      'US gallons = cubic inches ÷ 231; litres = cubic inches × 0.016387064; imperial gallons = litres ÷ 4.54609',
+      'Liquid weight = litres × density (kg/L); tube weight = wall volume × material density; fill time = litres ÷ flow rate',
+    ],
+    defaults: [
+      { label: 'Steel & PVC Schedule 40/80', value: 'outside diameter and wall from ASME B36.10M (PVC to ASTM D1785 uses the same OD and walls for these sizes)' },
+      { label: 'Copper Types K, L, M', value: 'ASTM B88: OD = nominal size + ⅛ in, wall per type' },
+      { label: 'PEX', value: 'copper tube size OD, SDR 9 (wall = OD ÷ 9, at least 0.070 in) — ASTM F876' },
+      { label: 'Metric PE', value: 'SDR 11 (e.g. 32 mm × 2.9 mm) — EN 12201 / ISO 4427' },
+      { label: 'Liquid', value: 'water 1.0 kg/L, seawater 1.025 kg/L, or your own density' },
+      { label: 'Material densities', value: 'steel 7,850 · stainless 8,000 · copper 8,940 · aluminium 2,700 · brass 8,500 · PVC 1,400 · HDPE 950 kg/m³ (typical)' },
+    ],
+    sources: [
+      {
+        label: 'Engineers Edge — Schedule 40 steel pipe dimensions (ASME B36.10M)',
+        url: 'https://engineersedge.com/fluid_flow/steel-pipe-schedule-40.htm',
+      },
+      {
+        label: 'Engineers Edge — Schedule 80 steel pipe dimensions (ASME B36.10M)',
+        url: 'https://engineersedge.com/fluid_flow/steel-pipe-schedule-80.htm',
+      },
+      {
+        label: 'The Engineering ToolBox — ASTM B88 seamless copper water tube dimensions',
+        url: 'https://engineeringtoolbox.com/astm-copper-tubes-d_779.html',
+      },
+      { label: 'Material densities', note: 'typical handbook values; check the grade you are using' },
+      NIST,
+    ],
+  },
   'board-and-batten-calculator': {
     formula: [
       'Battens at both edges: gap = (wall width − battens × batten width) ÷ (battens − 1)',
