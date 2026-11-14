@@ -1,8 +1,23 @@
 # 04 — Keyword Strategy & Intelligence
 
-Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total volume 20,880, average KD 13%.
+## 1. Where the keyword data lives
 
-## 1. Verified Keyword Targets
+| Scope | Source |
+|---|---|
+| Band Name Generator cluster (Batch 1) | §2 below — SEMrush US, Desktop, Nov 2026 (939 keywords, 20,880 volume, avg KD 13%) |
+| Construction calculators (Batch 2) | `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools_Batch2_Final_Tool_Keywords.md` |
+| Planned tools (Batches 3–8) | `docs/keywords analysis/Batch N …/2. … filtered master keywords/` (one final-keywords file per batch) |
+| Competitor analysis per tool | `docs/keywords analysis/Batch N …/` "All Blogs Data" folders (121 files across Batches 2–8) |
+
+Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
+- Concrete Calculator — `concrete volume calculator`, US 3,600 / KD 5.
+- Drywall Calculator — `drywall calculator`, US 12,100 / KD 41.
+
+⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
+
+---
+
+## 2. Band Name Generator — Verified Keyword Targets
 
 | Keyword | US Volume | KD % | Intent | Target Page |
 |---|---|---|---|---|
@@ -17,13 +32,7 @@ Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total vol
 | heavy metal band name generator | 390 | 4% | Commercial | `/band-name-generator/heavy-metal/` |
 | rock band name generator | 390 | 8% | Commercial | `/band-name-generator/rock/` |
 
----
-
-## 2. Unverified / Pending Owner Input (Blocked Pages)
-
-- `punk band name generator`: Pending owner verification
-- `pop band name generator`: Pending owner verification
-- `ai band name generator`: Note — generator must stay pure browser logic without AI
-- India-related variants
-- Word-based variants ("band name generator from words")
-
+### Unverified / pending owner input
+- `punk band name generator`, `pop band name generator` — pages blocked until owner provides Semrush data.
+- `ai band name generator` — the generator stays pure browser logic, no AI.
+- India-related and word-based variants ("band name generator from words").

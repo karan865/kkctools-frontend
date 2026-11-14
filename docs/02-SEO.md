@@ -2,8 +2,25 @@
 
 ## 1. Page Inventory & SEO Targets
 
-| Path | Primary Target Keyword | Min Words | Schema Types | Status |
-|---|---|---|---|---|
+Source of truth: `src/lib/routes.ts` (40 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+
+| Group | Paths | Schema (JSON-LD graph) | Status |
+|---|---|---|---|
+| Home | `/` | WebSite, Organization, WebPage | Live |
+| Tools index | `/tools/` | CollectionPage, BreadcrumbList | Live |
+| Band Name Generator | `/band-name-generator/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
+| Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Calculators (22) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
+| Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
+| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
+| System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
+
+Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
+
+---|---|---|---|---|
 | `/` | free online tools | 350 | WebSite, Organization | Planned |
 | `/tools/` | free online generators | 150 | BreadcrumbList | Planned |
 | `/band-name-generator/` | band name generator | 1,000 | WebApplication, BreadcrumbList, FAQPage | Planned |
@@ -43,5 +60,9 @@
 - **Title Limits**: ≤ 65 chars hard limit. Keyword placed first.
 - **Meta Description**: 70–160 chars.
 - **Zero Third-Party Scripts**: No render-blocking tags, no external analytics or ad scripts until Phase 7.
+- **One connected JSON-LD graph**: Organization + WebSite `@id`s in the layout; page schema normalized by `normalizeSchema.ts`; only one FAQPage per page.
+- **Sitemap**: `loc` + `lastmod` only; generated from the route list. `llms.txt` is generated from the same list.
+- **robots.txt**: allows AI search bots explicitly.
+- **Hosting headers**: `public/_headers` (CSP, HSTS, nosniff, immutable cache for `/_next/static/*`) — served by Cloudflare Static Assets.
 - **JSON-LD**: Validated Schema.org markup matching on-page content.
 

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T14:24:35.255Z
+Generated on: 2026-11-14T17:23:49.844Z
 
 
 
@@ -14,6 +14,7 @@ Generated on: 2026-11-14T14:24:35.255Z
 - **Last Updated:** 2026-11-14
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
+- **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
 - **Current Phase:** SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
 - **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
 
@@ -428,6 +429,9 @@ No competitor text was copied.
 
 ## 5. Known Issues / Decisions Log
 
+- **Decision (2026-11-14):** Deploy to Cloudflare as static assets (`wrangler.jsonc` → `out/`), not OpenNext. OpenNext needs `output: 'standalone'` and a non-allowed dependency; the site is 100% static. Steps in `05-DEPLOY-AND-LAUNCH.md`.
+- **Known issue (2026-11-14):** 4 token pairs are below 4.5:1 contrast for small body text: light `--muted` on `--bg` 3.8, light `--accent-ink` on `--accent` 4.1, dark `--muted` on `--bg` 4.1 and on `--surface` 3.8. Details in `03-PAGES-AND-DESIGN.md` §3. Not yet fixed in code.
+
 - **Decision (2026-11-13):** Retitled `/cubic-yard-calculator/` to “Cubic Yard Calculator – Soil, Gravel, Mulch & More” so it no longer competes with the new `/concrete-calculator/`. Semrush shows `cubic yard calculator` and `concrete volume calculator` have different top-10 results, so each page owns one intent. The cubic-yard page body still contains concrete sections; trim them later if both pages are seen competing in Search Console.
 
 - **Decision 01 (2026-11-08):** Use Next.js 16 App Router with static export (`output: 'export'`).
@@ -449,41 +453,75 @@ No competitor text was copied.
 # 01 — Features & Tool Directory
 
 ## 1. Overview
-This website is a fast, multi-tool platform hosting client-side utilities.
-- **Total Tools:** 1 (Tool #1: Band Name Generator)
-- **Architecture:** Pure browser execution (zero API/server dependencies)
+KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
+- **Live tools:** 24 — 1 generator, 1 estimate template, 22 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 273 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
 
-## 2. Tool #1: Band Name Generator Features
+## 2. Tool Directory (live)
+
+| # | Tool | URL | UI component (`src/components/tool/`) | Engine (`src/lib/`) |
+|---:|---|---|---|---|
+| 1 | Band Name Generator (+ 6 genre pages) | `/band-name-generator/` | `band-name-generator/` | `generator/` |
+| 2 | Construction Estimate Template | `/construction-estimate-template/` | `construction-estimate/` | (in component) |
+| 3 | Asphalt Calculator | `/asphalt-calculator/` | `asphalt-calculator/` | `volume-engine.ts` |
+| 4 | Cubic Yard Calculator | `/cubic-yard-calculator/` | `cubic-yard-calculator/` | `volume-engine.ts` |
+| 5 | Concrete Calculator | `/concrete-calculator/` | `concrete-calculator/` | `concrete-engine.ts` |
+| 6 | Rebar Calculator | `/rebar-calculator/` | `rebar-calculator/` | `rebar-engine.ts` |
+| 7 | Drywall Calculator | `/drywall-calculator/` | `drywall-calculator/` | `drywall-engine.ts` |
+| 8 | Sand Calculator | `/sand-calculator/` | `sand-calculator/` | `sand-engine.ts` |
+| 9 | Fill Dirt Calculator | `/fill-dirt-calculator/` | `fill-dirt-calculator/` | `fill-dirt-engine.ts` |
+| 10 | Linear Foot Calculator | `/linear-foot-calculator/` | `linear-foot-calculator/` | `linear-foot-engine.ts` |
+| 11 | Rafter Calculator | `/rafter-calculator/` | `rafter-calculator/` | `rafter-engine.ts` |
+| 12 | Square Footage Calculator | `/square-footage-calculator/` | `square-footage-calculator/` | `square-footage-engine.ts` |
+| 13 | Cinder Block Calculator | `/cinder-block-calculator/` | `cinder-block-calculator/` | `cinder-block-engine.ts` |
+| 14 | Brick Calculator (US + Metric) | `/brick-calculator/` | `brick-calculator/` | `brick-engine.ts`, `brick-metric-engine.ts` |
+| 15 | Paint Cost Calculator | `/paint-cost-calculator/` | `paint-calculator/` | `paint-engine.ts` |
+| 16 | Tile Calculator | `/tile-calculator/` | `tile-calculator/` | `tile-engine.ts` |
+| 17 | Laminate Flooring Calculator | `/laminate-flooring-calculator/` | `laminate-calculator/` | `laminate-engine.ts` |
+| 18 | Stone Calculator | `/stone-calculator/` | `stone-calculator/` | `stone-engine.ts` |
+| 19 | Stud Calculator | `/stud-calculator/` | `stud-calculator/` | `stud-engine.ts` |
+| 20 | Tons to Cubic Yards Converter | `/tons-to-cubic-yards/` | `tons-yards-converter/` | `tons-yards-engine.ts` |
+| 21 | Paver Sand Calculator | `/paver-sand-calculator/` | `paver-sand-calculator/` | `paver-sand-engine.ts` |
+| 22 | Paver Base Calculator | `/paver-base-calculator/` | `paver-base-calculator/` | `paver-base-engine.ts` |
+| 23 | Compost Calculator | `/compost-calculator/` | `compost-calculator/` | `compost-engine.ts` |
+| 24 | Fence Stain Calculator | `/fence-stain-calculator/` | `fence-stain-calculator/` | `fence-stain-engine.ts` |
+
+Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
+Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
+
+Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each has a competitor-analysis file with a page blueprint.
+
+---
+
+## 3. Tool #1: Band Name Generator Features
 
 | Feature ID | Feature Name | Description | Status | Code Path |
 |---|---|---|---|---|
 | **F1** | Genre Selector | Radio chips: Any, Rock, Metal, Heavy Metal, Punk, Pop, K-pop, Boy Band, Indie | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F2** | Name Style | Select: Any, "The ...", Two words, One word, "X of Y" | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F3** | Batch Count | Options for 5, 10 (default), 20 names per generation | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F4** | Starts With | A–Z letter filter on first significant word | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F5** | Must Include Word | Custom word injected into compatible template, sanitized & filtered | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F6** | ALL CAPS Toggle | Capitalize entire output (default ON for K-pop) | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F7** | Generate Action | Large button + Enter key triggers new batch avoiding last 50 names | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F8** | Results List | Ordered list with large styled text, copy, save, and check buttons | Done ✅ | `src/components/tool/band-name-generator/Results.tsx` |
-| **F9** | Copy Actions | One-click copy and copy-all with fallback & non-shifting "Copied" alert | Done ✅ | `src/components/tool/band-name-generator/ResultRow.tsx` |
-| **F10** | Saved Names Panel | LocalStorage-backed favorites with copy-all & download .txt export | Done ✅ | `src/components/tool/band-name-generator/SavedPanel.tsx` |
-| **F11** | Availability Check Menu | Google, Spotify, Bandcamp, and YouTube search links with disclaimer | Done ✅ | `src/components/tool/band-name-generator/CheckMenu.tsx` |
-| **F12** | Friendly Constraint Warning | Announce "Try fewer filters" if constraints yield fewer names | Done ✅ | `src/components/tool/band-name-generator/Results.tsx` |
-| **F13** | Server Starter Names | Curated starter names rendered in static HTML (no hydration mismatch) | Done ✅ | `src/components/tool/band-name-generator/BandNameGenerator.tsx` |
+| **F2** | Name Style | Select: Any, "The ...", Two words, One word, "X of Y" | Done ✅ | `Controls.tsx` |
+| **F3** | Batch Count | 5, 10 (default), 20 names per generation | Done ✅ | `Controls.tsx` |
+| **F4** | Starts With | A–Z letter filter on first significant word | Done ✅ | `Controls.tsx` |
+| **F5** | Must Include Word | Custom word injected into a compatible template, sanitized & filtered | Done ✅ | `Controls.tsx` |
+| **F6** | ALL CAPS Toggle | Capitalize output (default ON for K-pop) | Done ✅ | `Controls.tsx` |
+| **F7** | Generate Action | Button + Enter key; avoids the last 50 names | Done ✅ | `Controls.tsx` |
+| **F8** | Results List | Styled list with copy, save and check buttons | Done ✅ | `Results.tsx` |
+| **F9** | Copy Actions | Copy and copy-all with fallback and non-shifting "Copied" alert | Done ✅ | `ResultRow.tsx` |
+| **F10** | Saved Names Panel | localStorage favorites with copy-all & .txt download | Done ✅ | `SavedPanel.tsx` |
+| **F11** | Availability Check Menu | Google, Spotify, Bandcamp, YouTube search links with disclaimer | Done ✅ | `CheckMenu.tsx` |
+| **F12** | Constraint Warning | "Try fewer filters" when constraints yield fewer names | Done ✅ | `Results.tsx` |
+| **F13** | Server Starter Names | Curated starter names in static HTML (no hydration mismatch) | Done ✅ | `BandNameGenerator.tsx` |
 
----
-
-## 3. Core Engine Modules (`src/lib/generator/`)
-
+### Core Engine Modules (`src/lib/generator/`)
 - `types.ts`: GenreId, StyleId, GenerateOptions, GenerateResult.
-- `rng.ts`: Seeded PRNG using mulberry32 algorithm.
-- `pools/*.ts`: Word pools for all 9 genres (80+ words per pool).
-- `patterns.ts`: Weighted template patterns per genre (8+ per genre, >5,000 combinations per genre).
-- `blocklist.ts`: 260+ famous band/artist names to avoid duplicates.
-- `offensive.ts`: Explicit/slur sanitization filter.
-- `engine.ts`: Core name assembly and constraint validation engine.
+- `rng.ts`: Seeded PRNG (mulberry32).
+- `pools/*.ts`: Word pools for all 9 genres (80+ words each).
+- `patterns.ts`: Weighted templates per genre (8+ each).
+- `blocklist.ts`: 260+ famous band/artist names to avoid.
+- `offensive.ts`: Slur/explicit sanitization filter.
+- `engine.ts`: Name assembly and constraint validation.
 
 
 
@@ -495,8 +533,25 @@ This website is a fast, multi-tool platform hosting client-side utilities.
 
 ## 1. Page Inventory & SEO Targets
 
-| Path | Primary Target Keyword | Min Words | Schema Types | Status |
-|---|---|---|---|---|
+Source of truth: `src/lib/routes.ts` (40 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+
+| Group | Paths | Schema (JSON-LD graph) | Status |
+|---|---|---|---|
+| Home | `/` | WebSite, Organization, WebPage | Live |
+| Tools index | `/tools/` | CollectionPage, BreadcrumbList | Live |
+| Band Name Generator | `/band-name-generator/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
+| Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
+| Calculators (22) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
+| Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
+| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
+| System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
+
+Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
+
+---|---|---|---|---|
 | `/` | free online tools | 350 | WebSite, Organization | Planned |
 | `/tools/` | free online generators | 150 | BreadcrumbList | Planned |
 | `/band-name-generator/` | band name generator | 1,000 | WebApplication, BreadcrumbList, FAQPage | Planned |
@@ -536,6 +591,10 @@ This website is a fast, multi-tool platform hosting client-side utilities.
 - **Title Limits**: ≤ 65 chars hard limit. Keyword placed first.
 - **Meta Description**: 70–160 chars.
 - **Zero Third-Party Scripts**: No render-blocking tags, no external analytics or ad scripts until Phase 7.
+- **One connected JSON-LD graph**: Organization + WebSite `@id`s in the layout; page schema normalized by `normalizeSchema.ts`; only one FAQPage per page.
+- **Sitemap**: `loc` + `lastmod` only; generated from the route list. `llms.txt` is generated from the same list.
+- **robots.txt**: allows AI search bots explicitly.
+- **Hosting headers**: `public/_headers` (CSP, HSTS, nosniff, immutable cache for `/_next/static/*`) — served by Cloudflare Static Assets.
 - **JSON-LD**: Validated Schema.org markup matching on-page content.
 
 
@@ -547,83 +606,57 @@ This website is a fast, multi-tool platform hosting client-side utilities.
 
 # 03 — Pages & Design System
 
-## 1. Design Direction: "Stage Lights"
-- Modern typography: **Bricolage Grotesque** (headings) + **Inter** (body), self-hosted via `next/font/google`.
-- Accent palette: Purple (`#6D28D9` in light, `#A78BFA` in dark) with Amber highlight (`#F59E0B` / `#FBBF24`).
-- Zero layout shift (CLS ≤ 0.1).
-- Native theme toggle without flash of wrong theme (inline script in `<head>`).
+## 1. Design Direction (current, see Decisions 04–09 in `00-PROJECT-STATUS.md`)
+- Typography: **Bricolage Grotesque** (headings) + **Inter** (body), self-hosted via `next/font/google` (`src/app/layout.tsx`).
+- Light theme: warm sand canvas, white cards, slate ink, sky-blue actions, terracotta-orange CTAs.
+- Dark theme: "Obsidian Carbon" — near-black canvas, elevated charcoal cards, light-blue accent, orange CTAs.
+- Category colour themes per tool group (`--cat-*` tokens: concrete, gravel, earthwork, …).
+- No theme flash (inline script in `<head>`); theme key `kkc_theme_pref`, default Light.
+- Zero layout shift target (CLS ≤ 0.1).
+
+The original "Stage Lights" purple palette (Phase 1) has been replaced.
 
 ---
 
-## 2. Token Definitions (`src/styles/tokens.css`)
+## 2. Key Tokens (`src/styles/tokens.css` — the file is the source of truth)
 
-```css
-:root {
-  --bg: #FAF8F5;
-  --surface: #FFFFFF;
-  --surface-2: #F3F0EA;
-  --ink: #14121A;
-  --ink-2: #4A4757;
-  --muted: #6B6780;
-  --line: #E7E3EC;
-  --accent: #6D28D9;
-  --accent-ink: #FFFFFF;
-  --accent-soft: #EFE7FD;
-  --highlight: #F59E0B;
-  --success: #15803D;
-  --danger: #B91C1C;
-  --radius-s: 8px;
-  --radius-m: 14px;
-  --radius-pill: 999px;
-  --shadow-s: 0 1px 2px rgb(20 18 26 / 6%);
-  --shadow-m: 0 8px 24px rgb(20 18 26 / 8%);
-  --space-1: 4px;
-  --space-2: 8px;
-  --space-3: 12px;
-  --space-4: 16px;
-  --space-5: 24px;
-  --space-6: 32px;
-  --space-7: 48px;
-  --space-8: 64px;
-  --space-9: 96px;
-  --container: 1120px;
-  --prose: 68ch;
-}
+| Token | Light | Dark |
+|---|---|---|
+| `--bg` | `#EBE4D6` | `#090C12` |
+| `--surface` | `#FFFFFF` | `#11151F` |
+| `--ink` | `#0F172A` | `#F1F5F9` |
+| `--ink-2` | `#334155` | `#94A3B8` |
+| `--muted` | `#64748B` | `#64748B` |
+| `--accent` | `#0284C7` | `#38BDF8` |
+| `--accent-ink` | `#FFFFFF` | `#090C12` |
+| `--brand-orange` | `#C2410C` | `#F97316` |
 
-:root[data-theme="dark"] {
-  --bg: #0E0C14;
-  --surface: #17141F;
-  --surface-2: #1F1B2A;
-  --ink: #F4F1FA;
-  --ink-2: #C4BFD3;
-  --muted: #9690A8;
-  --line: #2A2536;
-  --accent: #A78BFA;
-  --accent-ink: #0E0C14;
-  --accent-soft: #261D3D;
-  --highlight: #FBBF24;
-  --shadow-s: none;
-  --shadow-m: 0 8px 24px rgb(0 0 0 / 40%);
-}
-```
+Other tokens: radii (`--radius-s` 8, `-m` 14, `-l` 18, `-card` 16, `-pill`), shadows (`-s/-m/-l/-card/-pop`), spacing `--space-1…9` (4–96 px), `--container` 1200 px, `--prose` 68ch.
 
 ---
 
-## 3. Contrast Verification Table (Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text/borders)
+## 3. Contrast Verification (measured 2026-11-14 with the WCAG 2.x formula on the values above)
 
-| Mode | Text Token | Background Token | Measured Contrast | Target | Result |
-|---|---|---|---|---|---|
-| Light | `--ink` (#14121A) | `--bg` (#FAF8F5) | 16.4:1 | ≥ 4.5:1 | PASS ✅ |
-| Light | `--ink` (#14121A) | `--surface` (#FFFFFF) | 17.5:1 | ≥ 4.5:1 | PASS ✅ |
-| Light | `--ink-2` (#4A4757) | `--bg` (#FAF8F5) | 7.6:1 | ≥ 4.5:1 | PASS ✅ |
-| Light | `--muted` (#6B6780) | `--bg` (#FAF8F5) | 4.8:1 | ≥ 4.5:1 | PASS ✅ |
-| Light | `--accent-ink` (#FFFFFF) | `--accent` (#6D28D9) | 7.2:1 | ≥ 4.5:1 | PASS ✅ |
-| Dark | `--ink` (#F4F1FA) | `--bg` (#0E0C14) | 16.3:1 | ≥ 4.5:1 | PASS ✅ |
-| Dark | `--ink` (#F4F1FA) | `--surface` (#17141F) | 14.8:1 | ≥ 4.5:1 | PASS ✅ |
-| Dark | `--ink-2` (#C4BFD3) | `--bg` (#0E0C14) | 10.5:1 | ≥ 4.5:1 | PASS ✅ |
-| Dark | `--muted` (#9690A8) | `--bg` (#0E0C14) | 6.2:1 | ≥ 4.5:1 | PASS ✅ |
-| Dark | `--accent-ink` (#0E0C14) | `--accent` (#A78BFA) | 11.2:1 | ≥ 4.5:1 | PASS ✅ |
+Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders.
 
+| Mode | Text | Background | Ratio | Body text |
+|---|---|---|---|---|
+| Light | `--ink` | `--bg` | 14.1:1 | PASS ✅ |
+| Light | `--ink` | `--surface` | 17.9:1 | PASS ✅ |
+| Light | `--ink-2` | `--surface` | 10.4:1 | PASS ✅ |
+| Light | `--muted` | `--surface` | 4.8:1 | PASS ✅ |
+| Light | `--muted` | `--bg` | 3.8:1 | ⚠️ large text only |
+| Light | `--accent-ink` | `--accent` | 4.1:1 | ⚠️ large/bold text only |
+| Light | white | `--brand-orange` | 5.2:1 | PASS ✅ |
+| Dark | `--ink` | `--bg` | 17.9:1 | PASS ✅ |
+| Dark | `--ink` | `--surface` | 16.7:1 | PASS ✅ |
+| Dark | `--ink-2` | `--surface` | 7.1:1 | PASS ✅ |
+| Dark | `--muted` | `--bg` | 4.1:1 | ⚠️ large text only |
+| Dark | `--muted` | `--surface` | 3.8:1 | ⚠️ large text only |
+| Dark | `--accent-ink` | `--accent` | 9.1:1 | PASS ✅ |
+| Dark | `--bg` | `--brand-orange` | 7.0:1 | PASS ✅ |
+
+**Open issue:** four pairs are below 4.5:1. They are fine for large or bold text but not for small body text. Either use them only for large/bold text, or darken `--muted` (light on `--bg`, and dark mode) and `--accent` (light). Logged in `00-PROJECT-STATUS.md` §5. Not yet changed in code.
 
 
 
@@ -633,9 +666,24 @@ This website is a fast, multi-tool platform hosting client-side utilities.
 
 # 04 — Keyword Strategy & Intelligence
 
-Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total volume 20,880, average KD 13%.
+## 1. Where the keyword data lives
 
-## 1. Verified Keyword Targets
+| Scope | Source |
+|---|---|
+| Band Name Generator cluster (Batch 1) | §2 below — SEMrush US, Desktop, Nov 2026 (939 keywords, 20,880 volume, avg KD 13%) |
+| Construction calculators (Batch 2) | `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools_Batch2_Final_Tool_Keywords.md` |
+| Planned tools (Batches 3–8) | `docs/keywords analysis/Batch N …/2. … filtered master keywords/` (one final-keywords file per batch) |
+| Competitor analysis per tool | `docs/keywords analysis/Batch N …/` "All Blogs Data" folders (121 files across Batches 2–8) |
+
+Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
+- Concrete Calculator — `concrete volume calculator`, US 3,600 / KD 5.
+- Drywall Calculator — `drywall calculator`, US 12,100 / KD 41.
+
+⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
+
+---
+
+## 2. Band Name Generator — Verified Keyword Targets
 
 | Keyword | US Volume | KD % | Intent | Target Page |
 |---|---|---|---|---|
@@ -650,16 +698,10 @@ Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total vol
 | heavy metal band name generator | 390 | 4% | Commercial | `/band-name-generator/heavy-metal/` |
 | rock band name generator | 390 | 8% | Commercial | `/band-name-generator/rock/` |
 
----
-
-## 2. Unverified / Pending Owner Input (Blocked Pages)
-
-- `punk band name generator`: Pending owner verification
-- `pop band name generator`: Pending owner verification
-- `ai band name generator`: Note — generator must stay pure browser logic without AI
-- India-related variants
-- Word-based variants ("band name generator from words")
-
+### Unverified / pending owner input
+- `punk band name generator`, `pop band name generator` — pages blocked until owner provides Semrush data.
+- `ai band name generator` — the generator stays pure browser logic, no AI.
+- India-related and word-based variants ("band name generator from words").
 
 
 
@@ -670,33 +712,47 @@ Source: SEMrush US Database, Desktop, Nov 2026. Cluster: 939 keywords, total vol
 # 05 — Deployment, Launch & Maintenance Guide
 
 ## 1. Honest Expectation & Reality
-Technical SEO, fast pages, useful tools, and good content give the site a fair chance. Nobody can guarantee rankings. Rankings depend on content quality, competition, backlinks, and time. The main keyword has KD 10 with 7 dedicated tool pages ranking, so our tool must be genuinely cleaner, faster, and more practical.
+Technical SEO, fast pages, useful tools, and good content give the site a fair chance. Nobody can guarantee rankings. Rankings depend on content quality, competition, backlinks, and time.
 
 ---
 
 ## 2. Deployment Setup
 
-### Netlify Deployment
-1. Connect GitHub repository to Netlify.
-2. Build Settings:
-   - **Build command:** `npm run build`
-   - **Publish directory:** `out`
-   - **Node.js version:** Set to `.nvmrc` (`22` or `20.9+`)
-3. Environment variables:
-   - `NEXT_PUBLIC_SITE_URL`: Set to production custom apex domain (e.g. `https://yourdomain.com`).
-   - `NEXT_PUBLIC_ADS_ENABLED`: `false` (until approved).
+The site is a **pure static export** (`next.config.ts`: `output: 'export'`, `trailingSlash: true`). `npm run build` writes everything to `out/`. No server runtime is needed.
+
+### Cloudflare (current target, 2026-11-14)
+Served as **Workers Static Assets** from `out/`, configured in `wrangler.jsonc`:
+- `assets.directory: "./out"`
+- `html_handling: "auto-trailing-slash"`
+- `not_found_handling: "404-page"` (serves `out/404.html`)
+- Security and cache headers come from `public/_headers` (copied into `out/`).
+
+Dashboard → Workers & Pages → `kkctools-frontend` → Settings → Build:
+- **Build command:** `npm run build`
+- **Deploy command:** `npx wrangler deploy`
+
+Do **not** use OpenNext / `@opennextjs/cloudflare`. It needs `output: 'standalone'`, which breaks the static-export rule and is not an allowed dependency. The first Cloudflare deploy failed for exactly this reason (`.next/standalone/.next/server/pages-manifest.json` not found); having `wrangler.jsonc` in the repo stops Cloudflare's auto-setup from adding OpenNext again.
+
+Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (verified 2026-11-14: 522 files read from `out/`).
+
+### Netlify (previous host)
+`netlify.toml`: build `npm run build`, publish `out`, HUD disabled. Keep until the domain is moved to Cloudflare, then remove the Netlify site and `netlify.toml`. `TODO(owner)`: confirm the cut-over date.
+
+### Environment variables
+- `NEXT_PUBLIC_SITE_URL`: production domain (`https://www.kkctools.com`).
+- `NEXT_PUBLIC_ADS_ENABLED`: `false` until AdSense approval.
 
 ---
 
 ## 3. Post-Launch Steps
 
-1. Verify domain property in Google Search Console.
-2. Submit `https://yourdomain.com/sitemap.xml`.
-3. Request indexing for Home, main tool, and active genre pages.
-4. Run PageSpeed Insights on live URLs and save results in `docs/evidence/`.
-5. After organic indexing and steady traffic (few weeks), submit site to Google AdSense.
-6. Post-AdSense approval: configure certified CMP for EEA/UK and place `ads.txt`.
-
+1. Point the domain DNS at Cloudflare and attach the custom domain to the Worker.
+2. Verify the domain in Google Search Console and Bing Webmaster Tools.
+3. Submit `https://www.kkctools.com/sitemap.xml`.
+4. Request indexing for Home, `/tools/`, and the main tool pages.
+5. Run PageSpeed Insights on live URLs; save results in `docs/evidence/`.
+6. Confirm the `_headers` (CSP, HSTS) are served by Cloudflare on the live site.
+7. After indexing and steady traffic, apply to Google AdSense; then set up a certified CMP for EEA/UK and add `ads.txt`.
 
 
 
@@ -709,6 +765,15 @@ Technical SEO, fast pages, useful tools, and good content give the site a fair c
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Cloudflare deploy fix + docs refresh] — 2026-11-14
+- **Cloudflare deploy fixed.** The first deploy failed because Cloudflare's auto-setup added OpenNext, which needs a `standalone` build (`pages-manifest.json` not found).
+  - Added `wrangler.jsonc`: serve `out/` as Workers Static Assets (`auto-trailing-slash`, `404-page`).
+  - Removed `@opennextjs/cloudflare` and `wrangler` from `package.json` (not on the allowed dependency list; `npx wrangler deploy` fetches wrangler at deploy time).
+  - `next.config.ts` unchanged (`output: 'export'`).
+  - Evidence: `npx wrangler deploy --dry-run` read 522 files from `out/`; `npm run verify` all steps passed.
+- **Competitor research (Phase KR):** 121 competitor-analysis files for planned tools, Batches 2–8 (docs only).
+- **Docs refreshed:** `01` (24-tool directory), `02` (live page inventory), `03` (current tokens + measured contrast), `04` (keyword data map), `05` (Cloudflare deploy steps).
 
 ### [SEO audit fixes, part 2: content] — 2026-11-14
 - **"How This Calculator Works" block on 20 calculators.** It shows the formula, defaults, sources (verified links only), the last-updated date and a correction link.
@@ -967,6 +1032,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+7bbdb09 cloudfare setup
 4333b29 all competetiors data collected
 a9885e9 SEO optimization /audit
 4e8a8db keywords files added
@@ -986,7 +1052,6 @@ ddbd302 style(home): align generate button color to primary ocean blue
 aa1896e fix(seo): resolve audit issues, standardize structured data and disable netlify hud - Add public/llms.txt to eliminate 404 error and support AI search crawlers - Standardize WebApplication, BreadcrumbList, and FAQPage schemas via buildSchema.ts - Synchronize canonical URLs and sitemap entries with strict trailing slashes - Add semantic <main> tags on tile and laminate calculators to resolve low text ratio - Add netlify.toml with hud_enabled=false to suppress unminified Netlify HUD injection - Organize footer tools section into a responsive 2-column layout - Update docs/SEO-SITE-AUDIT-REPORT.md with verified evidence
 ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar math & unified UI
 29c5149 feat(tool-15): update tons to cubic yards converter spec and app implementation
-9b8b877 feat(tool-14): update stud wall framing calculator spec and app implementation
 ```
 
 
