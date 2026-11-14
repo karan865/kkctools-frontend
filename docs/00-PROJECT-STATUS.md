@@ -349,6 +349,22 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
 - [x] CE-4 Site Integration: added to Home page tools showcase, tools index (`/tools/`), footer nav, and band name generator related utilities. *(Evidence: out/index.html, out/tools/index.html)*
 - [x] CE-5 SEO Audit & Verify: 0 errors across 21 routes, word count 2,767 > 1,500, zero network calls, all 6 verification steps green. *(Evidence: docs/evidence/build.txt, test.txt, seo-audit.txt)*
 
+### Phase KR — Competitor research for planned tools (Batches 2–8, research only, 2026-11-14)
+This is documentation only; no site code changed. Each file follows the `01_Concrete_Calculator_Competitor_Analysis.md` format:
+- competitor links, a snapshot table, and feature and trust matrices
+- competitor-by-competitor errors, each re-checked by arithmetic
+- patterns, an FAQ bank, gaps, and a page blueprint with `TODO(owner)` items
+
+No competitor text was copied.
+- [x] KR-2 Batch 2: 19 files in `docs/keywords analysis/Batch 2/`. *(Evidence: `find … -iname "*Competitor_Analysis.md" | wc -l` → 19)*
+- [x] KR-3 Batch 3 (Business tools): 27 files in `…/Batch 3 - Business tools/3. All Blogs Data/`. *(Evidence: same count → 27)*
+- [x] KR-4 Batch 4 (3D Printing / CNC / Engineering): 8 files. *(Evidence: count → 8)*
+- [x] KR-5 Batch 5 (Math & Financial): 20 files. *(Evidence: count → 20)*
+- [x] KR-6 Batch 6 (Text & Writing): 10 files. *(Evidence: count → 10)*
+- [x] KR-7 Batch 7 (Developer & Web): 5 files. *(Evidence: count → 5)*
+- [x] KR-8 Batch 8 (Health & Fitness, Everyday Utilities): 32 files, `01_…` to `32_…`. *(Evidence: count → 32)*
+- [ ] KR-9 Replace the web-search competitor lists with real Google top-10 SERP exports. *(Blocked: needs the owner's Semrush/SERP pulls. Every file carries a `TODO(owner): pull Google top 10…` line.)*
+
 ---
 
 ## 3. Open Placeholders (TODO(owner))
@@ -377,6 +393,27 @@ Research basis: `docs/keywords analysis/Batch 2/1. master filtered file/KKCTools
    - supply the owner identity and real profile URLs for About and the Organization schema;
    - register the site in Google Search Console and Bing Webmaster Tools;
    - decide on HSTS preload.
+4. **Competitor research owner items (Phase KR, before building each planned tool):**
+   - **SERP data.** Batches 3–8 have no Semrush SERP export. Pull the Google top 10 for each primary keyword.
+   - **Blocked pages to review by hand.** Each affected file lists the competitor pages that returned 403/404/DNS errors.
+   - **YMYL health tools (Batch 8 #9–#13, #19–#22, #24–#26).** Before launch, each needs:
+     - a qualified reviewer, with name and date
+     - primary-source citations, for example:
+       - the Navy/Army body-fat guides
+       - Mifflin 1990 and Roza & Shizgal 1984
+       - Gallagher 2000
+       - the CDC growth-chart LMS data
+       - NASEM 2023 energy and breastfeeding figures
+       - Hall 2011
+       - CDC safe-rate guidance
+       - ISSN 2017 protein
+       - Kouri 1995
+     - approval of the special-population wording
+   - **Data sources and licences.**
+     - Ingredient densities for Grams to Cups: USDA FoodData Central is proposed.
+     - Compendium of Physical Activities edition, plus water-density, IWF/IPF and DST-rule sources.
+     - Discord timestamp styles, to be checked against Discord's docs.
+   - **Trademark wording:** the "Pomodoro Technique®" name.
 
 ---
 
