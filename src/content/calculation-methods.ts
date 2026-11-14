@@ -283,6 +283,40 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'lawn-mowing-cost-calculator': {
+    formula: [
+      'Acres per hour = mower width (ft) × speed (mph) × 5,280 × efficiency ÷ 43,560',
+      'Mowing minutes = acres ÷ acres per hour × 60 × grass × slope × obstacle × frequency factors',
+      'Minutes per visit = mowing + extras (trim, edge, blow, bagging) + setup + drive time',
+      'Price per visit = the larger of the minimum charge and minutes ÷ 60 × hourly rate',
+      'Visits = season weeks × 7 ÷ days between cuts (rounded); season = price per visit × visits; month = season ÷ (weeks ÷ 4.33)',
+    ],
+    defaults: [
+      { label: 'Hourly rate', value: '$50 (presets $32 / $50 / $68), inside the $30–$68 per hour range published by Jobber and Housecall Pro in 2026' },
+      { label: 'Minimum charge', value: '$35, near the low end of published per-visit prices for the smallest lawns; set your own' },
+      { label: 'Drive + setup time', value: '12 + 8 minutes per visit (working assumption)' },
+      { label: 'Mowers', value: '21 in push 3 mph · 36 in walk-behind 4 mph · 48 in / 60 in zero-turn 6 / 7 mph; 75–80% efficiency (working assumptions)' },
+      { label: 'Condition factors', value: 'long grass ×1.25, overgrown ×1.5; some slope ×1.15, steep ×1.35; some obstacles ×1.1, many ×1.25; every 10 days ×1.1, every 2 weeks ×1.2, monthly ×1.4 (working assumptions)' },
+      { label: 'Season', value: '30 weeks (about April–October)' },
+    ],
+    sources: [
+      {
+        label: 'Jobber Academy — How much to charge for lawn mowing (updated March 2026)',
+        url: 'https://getjobber.com/academy/lawn-care/how-to-price-out-lawn-care-services/',
+        note: '“between $30 and $65 per hour for lawn care”',
+      },
+      {
+        label: 'Housecall Pro — How much to charge for lawn mowing (updated October 2026)',
+        url: 'https://www.housecallpro.com/resources/how-much-charge-lawn-mowing/',
+        note: '“$32–$68 per hour for lawn mowing”; per-visit ranges by lawn size used to check the model',
+      },
+      {
+        label: 'Mower productivity and condition factors',
+        note: 'no single published standard; the physics (width × speed) is exact, the efficiency and factors are working assumptions — change them to match your crew',
+      },
+      NIST,
+    ],
+  },
   'fence-stain-calculator': {
     formula: [
       'Area = fence length × height × sides × style multiplier (board-on-board, shadowbox, etc.)',

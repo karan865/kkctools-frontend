@@ -3,8 +3,8 @@ import { TOOLS_CATALOG, CATEGORIES, CategoryId } from './tools-catalog';
 import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
-  it('contains exactly 24 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(24);
+  it('contains exactly 25 tools currently', () => {
+    expect(TOOLS_CATALOG.length).toBe(25);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {

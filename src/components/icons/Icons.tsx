@@ -12,6 +12,7 @@ export type IconName =
   | 'road'
   | 'shovel'
   | 'leaf'
+  | 'mower'
   | 'scale'
   | 'roofTruss'
   | 'studWall'
@@ -163,6 +164,16 @@ export default function Icon({
         <svg {...common}>
           <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
           <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+        </svg>
+      );
+    case 'mower':
+      return (
+        <svg {...common}>
+          <path d="M3 15h13l3-5h2" />
+          <path d="M5 15V11h9l2 4" />
+          <circle cx="7" cy="18" r="2" />
+          <circle cx="16" cy="18" r="2" />
+          <path d="M2 21h2M10 21h2M19 21h3" />
         </svg>
       );
     case 'scale':

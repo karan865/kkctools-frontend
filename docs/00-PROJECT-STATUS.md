@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase LM — Tool #23: Lawn Mowing Cost Calculator (Batch 2 Tier 1 #4, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md` (primary keyword `lawn mowing cost calculator`, US 1,000 / KD 3; 6 of the top 10 are Domain AS ≤ 20).
+- [x] LM-1 Engine `src/lib/lawn-mowing-engine.ts` + 22 tests (visit counts, time model, minimum, season/month, per acre, range, published-range guard). *(Evidence: `npx vitest run` → 295 passed)*
+- [x] LM-2 Calculator UI (homeowner/pro, sq ft/acres/m², rectangles, frequency, season, conditions, extras, pricing, share/copy/print) + 4 SVG diagrams. *(Evidence: `src/components/tool/lawn-mowing-calculator/`)*
+- [x] LM-3 Page with title 64 chars incl. brand, meta 134 chars, one H1, 19 H2s, ~2,730 words in main, 12 FAQs, WebApplication + FAQPage + BreadcrumbList schema. *(Evidence: cheerio check of `out/lawn-mowing-cost-calculator/index.html`)*
+- [x] LM-4 Wiring: routes, catalog (25), icon, footer, sitemap, llms.txt, home and /tools/. *(Evidence: grep of `out/sitemap.xml`, `out/llms.txt`, `out/tools/index.html`, `out/index.html`)*
+- [x] LM-5 `npm run verify` all steps passed (lint, test, no-network, build, SEO audit, docs bundle). *(Evidence: 2026-11-14 run, `docs/evidence/`)*
+- [ ] LM-6 `TODO(owner)`: review lawnbeast.com (#4, blocked to the reader) by hand; confirm hourly presets and $35 minimum suit your market; request indexing after deploy.
+
 ### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
 - [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:

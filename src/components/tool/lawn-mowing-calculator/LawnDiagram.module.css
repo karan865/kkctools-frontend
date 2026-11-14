@@ -1,0 +1,36 @@
+.svg {
+  --dg-grass: #bbf7d0;
+  --dg-grass-2: #86efac;
+  --dg-grass-dark: #15803d;
+  --dg-house: #e2e8f0;
+  --dg-drive: #cbd5e1;
+  --dg-edge: #475569;
+  --dg-faint: #94a3b8;
+  --dg-dim: #0369a1;
+  --dg-label-bg: #ffffff;
+  --dg-mow: #16a34a;
+  --dg-extra: #0284c7;
+  --dg-setup: #f59e0b;
+  --dg-travel: #c2410c;
+  --dg-text: #334155;
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+:global(:root[data-theme='dark']) .svg {
+  --dg-grass: #14532d;
+  --dg-grass-2: #166534;
+  --dg-grass-dark: #4ade80;
+  --dg-house: #2c3647;
+  --dg-drive: #222b3a;
+  --dg-edge: #94a3b8;
+  --dg-faint: #64748b;
+  --dg-dim: #7dd3fc;
+  --dg-label-bg: #11151f;
+  --dg-mow: #4ade80;
+  --dg-extra: #38bdf8;
+  --dg-setup: #fbbf24;
+  --dg-travel: #fb923c;
+  --dg-text: #cbd5e1;
+}

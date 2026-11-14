@@ -103,6 +103,7 @@ export default function Footer() {
               <li><Link href="/asphalt-calculator/" className={styles.link}>Asphalt Calculator</Link></li>
               <li><Link href="/fill-dirt-calculator/" className={styles.link}>Fill Dirt &amp; Topsoil</Link></li>
               <li><Link href="/compost-calculator/" className={styles.link}>Compost Calculator</Link></li>
+              <li><Link href="/lawn-mowing-cost-calculator/" className={styles.link}>Lawn Mowing Cost</Link></li>
               <li><Link href="/tons-to-cubic-yards/" className={styles.link}>Tons ↔ Yards</Link></li>
             </ul>
           </div>

@@ -49,7 +49,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     id: 'earthwork',
     name: 'Earthwork & Paving',
     headline: 'Asphalt, Soil & Grading Calculators',
-    blurb: 'Hot mix asphalt, fill dirt, garden compost, and tons-to-cubic-yards density math.',
+    blurb: 'Hot mix asphalt, fill dirt, garden compost, lawn mowing costs and tons-to-cubic-yards math.',
     order: 3,
   },
   framing: {
@@ -207,6 +207,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'leaf',
     keywords: ['compost', 'garden bed', 'raised bed', 'organic matter', 'topdressing', 'soil amend', 'bags'],
     added: '2026-11-11',
+  },
+  {
+    slug: '/lawn-mowing-cost-calculator/',
+    name: 'Lawn Mowing Cost Calculator',
+    category: 'earthwork',
+    description: 'Lawn mowing price per visit, month & season — homeowner cost or what pros should charge.',
+    tags: ['Per visit', 'Per acre'],
+    icon: 'mower',
+    keywords: ['lawn mowing', 'lawn care', 'grass cutting', 'mowing price', 'lawn service', 'how much to charge', 'per acre'],
+    added: '2026-11-14',
+    isNew: true,
   },
   {
     slug: '/tons-to-cubic-yards/',

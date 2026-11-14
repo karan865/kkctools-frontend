@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T17:23:49.844Z
+Generated on: 2026-11-14T17:44:55.046Z
 
 
 
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase LM — Tool #23: Lawn Mowing Cost Calculator (Batch 2 Tier 1 #4, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md` (primary keyword `lawn mowing cost calculator`, US 1,000 / KD 3; 6 of the top 10 are Domain AS ≤ 20).
+- [x] LM-1 Engine `src/lib/lawn-mowing-engine.ts` + 22 tests (visit counts, time model, minimum, season/month, per acre, range, published-range guard). *(Evidence: `npx vitest run` → 295 passed)*
+- [x] LM-2 Calculator UI (homeowner/pro, sq ft/acres/m², rectangles, frequency, season, conditions, extras, pricing, share/copy/print) + 4 SVG diagrams. *(Evidence: `src/components/tool/lawn-mowing-calculator/`)*
+- [x] LM-3 Page with title 64 chars incl. brand, meta 134 chars, one H1, 19 H2s, ~2,730 words in main, 12 FAQs, WebApplication + FAQPage + BreadcrumbList schema. *(Evidence: cheerio check of `out/lawn-mowing-cost-calculator/index.html`)*
+- [x] LM-4 Wiring: routes, catalog (25), icon, footer, sitemap, llms.txt, home and /tools/. *(Evidence: grep of `out/sitemap.xml`, `out/llms.txt`, `out/tools/index.html`, `out/index.html`)*
+- [x] LM-5 `npm run verify` all steps passed (lint, test, no-network, build, SEO audit, docs bundle). *(Evidence: 2026-11-14 run, `docs/evidence/`)*
+- [ ] LM-6 `TODO(owner)`: review lawnbeast.com (#4, blocked to the reader) by hand; confirm hourly presets and $35 minimum suit your market; request indexing after deploy.
+
 ### Phase RB — Tool #22: Rebar / Reinforcement Steel Calculator (Batch 2 Tier 1 #3, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/3/03_Reinforcement_Steel_Calculator_Competitor_Analysis.md`.
 - [x] RB-0 Engine: `src/lib/rebar-engine.ts`. It covers:
@@ -454,8 +463,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 24 — 1 generator, 1 estimate template, 22 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 273 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 25 — 1 generator, 1 estimate template, 23 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 295 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -488,6 +497,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 22 | Paver Base Calculator | `/paver-base-calculator/` | `paver-base-calculator/` | `paver-base-engine.ts` |
 | 23 | Compost Calculator | `/compost-calculator/` | `compost-calculator/` | `compost-engine.ts` |
 | 24 | Fence Stain Calculator | `/fence-stain-calculator/` | `fence-stain-calculator/` | `fence-stain-engine.ts` |
+| 25 | Lawn Mowing Cost Calculator (homeowner + pro views) | `/lawn-mowing-cost-calculator/` | `lawn-mowing-calculator/` | `lawn-mowing-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -533,7 +543,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (40 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (41 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -543,7 +553,7 @@ Source of truth: `src/lib/routes.ts` (40 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (22) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (23) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
@@ -678,6 +688,7 @@ Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders.
 Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Concrete Calculator — `concrete volume calculator`, US 3,600 / KD 5.
 - Drywall Calculator — `drywall calculator`, US 12,100 / KD 41.
+- Lawn Mowing Cost Calculator — `lawn mowing cost calculator`, US 1,000 / KD 3 (secondaries: `free lawn mowing cost calculator` 140/0, `lawn mowing cost calculation` 50/1, `lawn mowing cost calculator per acre` 70/20).
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -765,6 +776,15 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #23 — Lawn Mowing Cost Calculator] — 2026-11-14
+- New page `/lawn-mowing-cost-calculator/` (Batch 2 Tier 1 #4), built from `04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md`.
+- **Two views in one tool:** "What will I pay?" (homeowner) and "What should I charge?" (pro, with profit per visit).
+- **Time-based engine** (`src/lib/lawn-mowing-engine.ts`): mower width × speed → acres per hour; grass, slope, obstacle and frequency factors; extras as time; setup + drive time; minimum charge; exact visits per season; per visit / month / season / acre / 1,000 sq ft; low–typical–high range.
+- Lawn size in sq ft, acres or m², presets, or a rectangle adder with subtract areas; narrow-gate option; currency selector; copy, share link, print.
+- Hourly presets ($32 / $50 / $68) sit inside the $30–$68/h range published by Jobber (Mar 2026) and Housecall Pro (Oct 2026); tested to stay inside their per-visit ranges for ¼, ½ and 1 acre. Mower speeds and condition factors are labelled as working assumptions.
+- 4 SVG diagrams (measuring, mower path, grass growth, live time bar); every table and FAQ number computed by the engine; 12 FAQs + FAQPage and WebApplication schema; "How This Calculator Works" block; ~2,700 words.
+- Wiring: routes, tools catalog (25 tools), new `mower` icon, footer link. 22 new tests (295 total); `npm run verify` all passed.
 
 ### [Cloudflare deploy fix + docs refresh] — 2026-11-14
 - **Cloudflare deploy fixed.** The first deploy failed because Cloudflare's auto-setup added OpenNext, which needs a `standalone` build (`pages-manifest.json` not found).
@@ -895,7 +915,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T14:24:34.801Z
+Run Date: 2026-11-14T17:43:59.093Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -925,8 +945,9 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1281 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1308 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
+| `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
@@ -941,7 +962,7 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 551 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 571 | All Free Tools: Construction C | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -978,6 +999,7 @@ guides/how-to-choose-a-band-name/index.html
 guides/index.html
 index.html
 laminate-flooring-calculator/index.html
+lawn-mowing-cost-calculator/index.html
 linear-foot-calculator/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
@@ -1032,6 +1054,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+6a68583 project docs updated successfully
 7bbdb09 cloudfare setup
 4333b29 all competetiors data collected
 a9885e9 SEO optimization /audit
@@ -1051,7 +1074,6 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 ddbd302 style(home): align generate button color to primary ocean blue
 aa1896e fix(seo): resolve audit issues, standardize structured data and disable netlify hud - Add public/llms.txt to eliminate 404 error and support AI search crawlers - Standardize WebApplication, BreadcrumbList, and FAQPage schemas via buildSchema.ts - Synchronize canonical URLs and sitemap entries with strict trailing slashes - Add semantic <main> tags on tile and laminate calculators to resolve low text ratio - Add netlify.toml with hud_enabled=false to suppress unminified Netlify HUD injection - Organize footer tools section into a responsive 2-column layout - Update docs/SEO-SITE-AUDIT-REPORT.md with verified evidence
 ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar math & unified UI
-29c5149 feat(tool-15): update tons to cubic yards converter spec and app implementation
 ```
 
 
@@ -1067,18 +1089,18 @@ ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 1179ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 3.5s
+✓ Compiled successfully in 6.4s
   Running TypeScript ...
-  Finished TypeScript in 2.2s ...
+  Finished TypeScript in 10.5s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/57) ...
-  Generating static pages using 15 workers (14/57) 
-  Generating static pages using 15 workers (28/57) 
-  Generating static pages using 15 workers (42/57) 
-✓ Generating static pages using 15 workers (57/57) in 1763ms
+  Generating static pages using 15 workers (0/58) ...
+  Generating static pages using 15 workers (14/58) 
+  Generating static pages using 15 workers (28/58) 
+  Generating static pages using 15 workers (43/58) 
+✓ Generating static pages using 15 workers (58/58) in 1776ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1114,6 +1136,7 @@ Route (app)
 │ └ ● /guides/band-name-ideas-by-genre
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
+├ ○ /lawn-mowing-cost-calculator
 ├ ○ /linear-foot-calculator
 ├ ○ /llms.txt
 ├ ○ /logo.png
@@ -1221,7 +1244,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 43 HTML files in out/...
+Auditing 44 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1238,10 +1261,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  27 passed (27)
-      Tests  273 passed (273)
-   Start at  19:54:09
-   Duration  1.59s (transform 4.62s, setup 0ms, import 6.09s, tests 548ms, environment 17ms)
+ Test Files  28 passed (28)
+      Tests  295 passed (295)
+   Start at  23:13:20
+   Duration  1.56s (transform 5.26s, setup 0ms, import 6.86s, tests 594ms, environment 25ms)
 
 
 ```

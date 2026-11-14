@@ -72,6 +72,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  lawnMowingCostCalculator: {
+    path: '/lawn-mowing-cost-calculator/',
+    title: 'Lawn Mowing Cost Calculator – Price per Acre & Visit',
+    description: 'Estimate lawn mowing cost by lawn size, visit frequency and extras like edging and bagging. Price per visit, per month and per season.',
+    updated: '2026-11-14',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',
