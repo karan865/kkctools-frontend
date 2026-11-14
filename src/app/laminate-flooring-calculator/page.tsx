@@ -358,10 +358,10 @@ export default function LaminateFlooringCalculatorPage() {
                 {/* Diagonal Lay */}
                 <g transform="translate(230, 20)">
                   <rect width="180" height="80" fill="#e2e8f0" stroke="#94a3b8" />
-                  <line x1="20" y1="80" x2="100" y2="0" stroke="#0284c7" strokeWidth="6" />
-                  <line x1="60" y1="80" x2="140" y2="0" stroke="#0284c7" strokeWidth="6" />
-                  <line x1="100" y1="80" x2="180" y2="0" stroke="#0284c7" strokeWidth="6" />
-                  <line x1="0" y1="60" x2="60" y2="0" stroke="#0284c7" strokeWidth="6" />
+                  <line x1="20" y1="80" x2="100" y2="0" stroke="#0369A1" strokeWidth="6" />
+                  <line x1="60" y1="80" x2="140" y2="0" stroke="#0369A1" strokeWidth="6" />
+                  <line x1="100" y1="80" x2="180" y2="0" stroke="#0369A1" strokeWidth="6" />
+                  <line x1="0" y1="60" x2="60" y2="0" stroke="#0369A1" strokeWidth="6" />
                   <text x="90" y="105" textAnchor="middle" fontSize="12" fontWeight="700" fill="#0f172a">
                     Diagonal 45° (15% Waste)
                   </text>

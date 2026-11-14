@@ -68,6 +68,15 @@ export function getAllGuides(): GuideData[] {
       }
       return `<h${depth}>${text}</h${depth}>`;
     };
+    // Task-list items: a plain box symbol instead of an unlabelled disabled <input> (accessibility)
+    renderer.checkbox = ({ checked }: { checked: boolean }) => `<span aria-hidden="true">${checked ? '☑' : '☐'}</span> `;
+    // External links open in a new tab and don't pass the referrer or window access
+    renderer.link = ({ href, title, text }: { href: string; title?: string | null; text: string }) => {
+      const t = title ? ` title="${title}"` : '';
+      return /^https?:\/\//.test(href) && !href.includes('kkctools.com')
+        ? `<a href="${href}"${t} target="_blank" rel="noopener noreferrer">${text}</a>`
+        : `<a href="${href}"${t}>${text}</a>`;
+    };
 
     const html = marked.parse(content, { renderer }) as string;
     const words = content.replace(/\s+/g, ' ').trim().split(' ').length;

@@ -293,7 +293,7 @@ export default function AsphaltCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${material === 'hotmix' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleMaterialChange('hotmix')}
-            aria-checked={material === 'hotmix'}
+            aria-pressed={material === 'hotmix'}
           >
             Hot mix asphalt
           </button>
@@ -301,7 +301,7 @@ export default function AsphaltCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${material === 'millings' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleMaterialChange('millings')}
-            aria-checked={material === 'millings'}
+            aria-pressed={material === 'millings'}
           >
             Millings (RAP)
           </button>
@@ -312,7 +312,7 @@ export default function AsphaltCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${unitSystem === 'imperial' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleUnitSystemChange('imperial')}
-            aria-checked={unitSystem === 'imperial'}
+            aria-pressed={unitSystem === 'imperial'}
           >
             Imperial (ft / in)
           </button>
@@ -320,7 +320,7 @@ export default function AsphaltCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${unitSystem === 'metric' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleUnitSystemChange('metric')}
-            aria-checked={unitSystem === 'metric'}
+            aria-pressed={unitSystem === 'metric'}
           >
             Metric (m / mm)
           </button>
@@ -390,7 +390,7 @@ export default function AsphaltCalculator() {
                           className={styles.inputField}
                           placeholder="40"
                         />
-                        <select
+                        <select aria-label="Length unit"
                           className={styles.unitSelect}
                           value={sec.lengthUnit}
                           onChange={(e) => updateSection(sec.id, { lengthUnit: e.target.value as LengthUnit })}
@@ -417,7 +417,7 @@ export default function AsphaltCalculator() {
                           className={styles.inputField}
                           placeholder="20"
                         />
-                        <select
+                        <select aria-label="Width unit"
                           className={styles.unitSelect}
                           value={sec.widthUnit}
                           onChange={(e) => updateSection(sec.id, { widthUnit: e.target.value as LengthUnit })}
@@ -447,7 +447,7 @@ export default function AsphaltCalculator() {
                         className={styles.inputField}
                         placeholder="20"
                       />
-                      <select
+                      <select aria-label="Diameter unit"
                         className={styles.unitSelect}
                         value={sec.diameterUnit}
                         onChange={(e) => updateSection(sec.id, { diameterUnit: e.target.value as LengthUnit })}
@@ -476,7 +476,7 @@ export default function AsphaltCalculator() {
                           className={styles.inputField}
                           placeholder="30"
                         />
-                        <select
+                        <select aria-label="Base unit"
                           className={styles.unitSelect}
                           value={sec.baseUnit}
                           onChange={(e) => updateSection(sec.id, { baseUnit: e.target.value as LengthUnit })}
@@ -502,7 +502,7 @@ export default function AsphaltCalculator() {
                           className={styles.inputField}
                           placeholder="20"
                         />
-                        <select
+                        <select aria-label="Height unit"
                           className={styles.unitSelect}
                           value={sec.heightUnit}
                           onChange={(e) => updateSection(sec.id, { heightUnit: e.target.value as LengthUnit })}
@@ -531,7 +531,7 @@ export default function AsphaltCalculator() {
                         className={styles.inputField}
                         placeholder="800"
                       />
-                      <select
+                      <select aria-label="Area unit"
                         className={styles.unitSelect}
                         value={sec.areaUnit}
                         onChange={(e) => updateSection(sec.id, { areaUnit: e.target.value as AreaUnit })}
@@ -562,7 +562,7 @@ export default function AsphaltCalculator() {
                 className={styles.inputField}
                 placeholder="2"
               />
-              <select
+              <select aria-label="Thickness unit"
                 className={styles.unitSelect}
                 value={thicknessUnit}
                 onChange={(e) => setThicknessUnit(e.target.value as LengthUnit)}
@@ -658,7 +658,7 @@ export default function AsphaltCalculator() {
               {/* Density Preset & Value */}
               <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Density Preset</label>
-                <select
+                <select aria-label="Density Preset"
                   className={styles.unitSelect}
                   style={{ width: '100%', height: '42px' }}
                   value={densityPreset}
@@ -685,7 +685,7 @@ export default function AsphaltCalculator() {
                     }}
                     className={styles.inputField}
                   />
-                  <select
+                  <select aria-label="Density unit"
                     className={styles.unitSelect}
                     value={densityUnit}
                     onChange={(e) => {
@@ -704,7 +704,7 @@ export default function AsphaltCalculator() {
               {/* Truck Capacity */}
               <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Truck Capacity (US Tons, Optional)</label>
-                <input
+                <input aria-label="Truck Capacity (US Tons, Optional)"
                   type="number"
                   inputMode="decimal"
                   min="0"

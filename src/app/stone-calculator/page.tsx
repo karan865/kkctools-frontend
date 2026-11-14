@@ -197,37 +197,37 @@ export default function StoneCalculatorPage() {
                 role="img"
                 aria-label="Steps to convert dimensions to tons of rock"
               >
-                <rect x="10" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <rect x="10" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0369A1" strokeWidth="2" />
                 <text x="70" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">1. Area</text>
                 <text x="70" y="74" textAnchor="middle" fontSize="11" fill="#64748B">L × W (sq ft)</text>
 
-                <path d="M 135 62 L 155 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+                <path d="M 135 62 L 155 62" stroke="#0369A1" strokeWidth="2" markerEnd="url(#arrow)" />
 
-                <rect x="160" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <rect x="160" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0369A1" strokeWidth="2" />
                 <text x="220" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">2. Volume</text>
                 <text x="220" y="74" textAnchor="middle" fontSize="11" fill="#64748B">Area × (Depth / 12)</text>
 
-                <path d="M 285 62 L 305 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+                <path d="M 285 62 L 305 62" stroke="#0369A1" strokeWidth="2" markerEnd="url(#arrow)" />
 
-                <rect x="310" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <rect x="310" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0369A1" strokeWidth="2" />
                 <text x="370" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">3. Cu Yards</text>
                 <text x="370" y="74" textAnchor="middle" fontSize="11" fill="#64748B">Cu Ft ÷ 27</text>
 
-                <path d="M 435 62 L 455 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+                <path d="M 435 62 L 455 62" stroke="#0369A1" strokeWidth="2" markerEnd="url(#arrow)" />
 
-                <rect x="460" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0284C7" strokeWidth="2" />
+                <rect x="460" y="20" width="120" height="85" rx="8" fill="#F8FAFC" stroke="#0369A1" strokeWidth="2" />
                 <text x="520" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#0F172A">4. Waste Factor</text>
                 <text x="520" y="74" textAnchor="middle" fontSize="11" fill="#64748B">+5% to 10% Extra</text>
 
-                <path d="M 585 62 L 605 62" stroke="#0284C7" strokeWidth="2" markerEnd="url(#arrow)" />
+                <path d="M 585 62 L 605 62" stroke="#0369A1" strokeWidth="2" markerEnd="url(#arrow)" />
 
-                <rect x="610" y="20" width="100" height="85" rx="8" fill="#0284C7" stroke="#0284C7" strokeWidth="2" />
+                <rect x="610" y="20" width="100" height="85" rx="8" fill="#0369A1" stroke="#0369A1" strokeWidth="2" />
                 <text x="660" y="52" textAnchor="middle" fontSize="13" fontWeight="700" fill="#FFFFFF">5. Tons</text>
                 <text x="660" y="74" textAnchor="middle" fontSize="11" fill="#E0F2FE">Yards × Density</text>
 
                 <defs>
                   <marker id="arrow" viewBox="0 0 10 10" refX="6" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
-                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#0284C7" />
+                    <path d="M 0 1 L 8 5 L 0 9 z" fill="#0369A1" />
                   </marker>
                 </defs>
               </svg>
@@ -278,7 +278,7 @@ export default function StoneCalculatorPage() {
                     <tr key={mat.id}>
                       <td style={{ fontWeight: 600 }}>{mat.name}</td>
                       <td>{mat.typicalSize}</td>
-                      <td style={{ fontWeight: 600, color: '#0284C7' }}>{mat.tonsPerCuYard.toFixed(2)}</td>
+                      <td style={{ fontWeight: 600, color: '#0369A1' }}>{mat.tonsPerCuYard.toFixed(2)}</td>
                       <td>{mat.densityLbsPerCuFt} lbs</td>
                       <td>~{mat.coveragePerTonSqFtAt2In} sq ft</td>
                       <td>{mat.typicalUse}</td>

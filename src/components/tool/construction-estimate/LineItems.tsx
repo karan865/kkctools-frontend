@@ -24,7 +24,7 @@ export default function LineItems({
     <div className={styles.sectionCard}>
       <div className={styles.lineItemsHeader}>
         <div>
-          <h3 className={styles.sectionTitle}>Scope of Work &amp; Line Items</h3>
+          <h2 className={styles.sectionTitle}>Scope of Work &amp; Line Items</h2>
           <p className={styles.sectionSubtitle}>
             Break down materials, labor hours, subcontractors, equipment, and permits.
           </p>

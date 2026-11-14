@@ -246,7 +246,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                   <div className={styles.inputRow3}>
                     <div className={styles.fieldGroup}>
                       <label className={styles.label}>Length (ft)</label>
-                      <input
+                      <input aria-label="Length (ft)"
                         type="text"
                         inputMode="decimal"
                         className={styles.inputField}
@@ -301,7 +301,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
 
                     <div className={styles.fieldGroup}>
                       <label className={styles.label}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="text"
                         inputMode="decimal"
                         className={styles.inputField}
@@ -354,7 +354,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                     <div className={styles.inputRow}>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Custom Area (sq ft)</label>
-                        <input
+                        <input aria-label="Custom Area (sq ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -367,7 +367,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Count</label>
-                        <input
+                        <input aria-label="Count"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -382,7 +382,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                     <div className={styles.inputRow3}>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Width (ft)</label>
-                        <input
+                        <input aria-label="Width (ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -395,7 +395,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Height (ft)</label>
-                        <input
+                        <input aria-label="Height (ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -408,7 +408,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Count</label>
-                        <input
+                        <input aria-label="Count"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -482,7 +482,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                 <div className={styles.inputRow3}>
                   <div className={styles.fieldGroup}>
                     <label className={styles.label}>Actual Length (in)</label>
-                    <input
+                    <input aria-label="Actual Length (in)"
                       type="text"
                       inputMode="decimal"
                       className={styles.inputField}
@@ -493,7 +493,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                   </div>
                   <div className={styles.fieldGroup}>
                     <label className={styles.label}>Actual Height (in)</label>
-                    <input
+                    <input aria-label="Actual Height (in)"
                       type="text"
                       inputMode="decimal"
                       className={styles.inputField}
@@ -504,7 +504,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                   </div>
                   <div className={styles.fieldGroup}>
                     <label className={styles.label}>Actual Thickness (in)</label>
-                    <input
+                    <input aria-label="Actual Thickness (in)"
                       type="text"
                       inputMode="decimal"
                       className={styles.inputField}
@@ -874,7 +874,7 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
                 <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: 'var(--color-text, #0f172a)' }}>
                   Total Estimated Material
                 </span>
-                <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0284c7)', fontSize: '1.05rem' }}>
+                <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0369A1)', fontSize: '1.05rem' }}>
                   ${result.totalEstimatedCost.toLocaleString()}
                 </span>
               </div>

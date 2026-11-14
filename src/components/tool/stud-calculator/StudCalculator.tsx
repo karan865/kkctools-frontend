@@ -158,12 +158,12 @@ export default function StudCalculator() {
               ) : (
                 <div className={styles.inputGroup}>
                   <label className={styles.label}>Stud Length Needed</label>
-                  <input
+                  <input aria-label="Stud Length Needed"
                     type="text"
                     readOnly
                     className={styles.input}
                     value={results.studLengthOutput}
-                    style={{ backgroundColor: '#F8FAFC', color: '#0369A1', fontWeight: 600 }}
+                    style={{ backgroundColor: '#F8FAFC', color: '#075985', fontWeight: 600 }}
                   />
                 </div>
               )}
@@ -361,7 +361,7 @@ export default function StudCalculator() {
             <div className={styles.rowInputs}>
               <div className={styles.inputGroup}>
                 <label htmlFor={studCostId} className={styles.label}>
-                  Cost per Stud ($) <span style={{ fontWeight: 400, color: '#64748B' }}>(example)</span>
+                  Cost per Stud ($) <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(example)</span>
                 </label>
                 <input
                   id={studCostId}
@@ -377,7 +377,7 @@ export default function StudCalculator() {
 
               <div className={styles.inputGroup}>
                 <label htmlFor={bottomPlateCostId} className={styles.label}>
-                  16-ft Bottom Plate ($) <span style={{ fontWeight: 400, color: '#64748B' }}>(example PT)</span>
+                  16-ft Bottom Plate ($) <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(example PT)</span>
                 </label>
                 <input
                   id={bottomPlateCostId}
@@ -395,7 +395,7 @@ export default function StudCalculator() {
             <div className={styles.rowInputs}>
               <div className={styles.inputGroup}>
                 <label htmlFor={topPlateCostId} className={styles.label}>
-                  16-ft Top Plate ($) <span style={{ fontWeight: 400, color: '#64748B' }}>(example)</span>
+                  16-ft Top Plate ($) <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(example)</span>
                 </label>
                 <input
                   id={topPlateCostId}
@@ -411,7 +411,7 @@ export default function StudCalculator() {
 
               <div className={styles.inputGroup}>
                 <label htmlFor={laborCostId} className={styles.label}>
-                  Labor per Linear Foot ($) <span style={{ fontWeight: 400, color: '#64748B' }}>(optional)</span>
+                  Labor per Linear Foot ($) <span style={{ fontWeight: 400, color: 'var(--muted)' }}>(optional)</span>
                 </label>
                 <input
                   id={laborCostId}
@@ -467,7 +467,7 @@ export default function StudCalculator() {
             </div>
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Stud Length to Buy</span>
-              <span className={styles.breakdownValue} style={{ color: '#0369A1' }}>{results.studLengthOutput}</span>
+              <span className={styles.breakdownValue} style={{ color: '#075985' }}>{results.studLengthOutput}</span>
             </div>
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Header Boards (2 per opening)</span>
@@ -487,7 +487,7 @@ export default function StudCalculator() {
             </div>
             <div className={styles.breakdownRow} style={{ borderTop: '2px solid #E2E8F0', marginTop: '6px', paddingTop: '10px' }}>
               <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: '#0F172A' }}>Total 16-ft Plate Boards</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontSize: '1.05rem' }}>{results.totalPlateBoards} boards</span>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>{results.totalPlateBoards} boards</span>
             </div>
           </div>
 

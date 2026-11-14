@@ -27,7 +27,7 @@ export default function TotalsPanel({
     <div className={styles.totalsContainer} aria-live="polite">
       {/* Category Breakdown Sidebar */}
       <div className={styles.categoryBreakdown}>
-        <h4 className={styles.totalsSubheading}>Category Breakdown</h4>
+        <h3 className={styles.totalsSubheading}>Category Breakdown</h3>
         <ul className={styles.categoryList}>
           {CATEGORIES.map((cat) => {
             const amount = totals.categorySubtotals[cat.value] || 0;

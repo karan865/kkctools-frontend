@@ -234,7 +234,7 @@ Calculated at KKCTools.com`;
                 <div className={styles.wallRowGrid}>
                   <div>
                     <label className={styles.inputLabel}>Wall Name</label>
-                    <input
+                    <input aria-label="Wall Name"
                       type="text"
                       className={styles.textInput}
                       value={wall.name}
@@ -243,7 +243,7 @@ Calculated at KKCTools.com`;
                   </div>
                   <div>
                     <label className={styles.inputLabel}>Length (ft)</label>
-                    <input
+                    <input aria-label="Length (ft)"
                       type="number"
                       min="0.5"
                       step="any"
@@ -255,7 +255,7 @@ Calculated at KKCTools.com`;
                   </div>
                   <div>
                     <label className={styles.inputLabel}>Height (ft)</label>
-                    <input
+                    <input aria-label="Height (ft)"
                       type="number"
                       min="0.5"
                       step="any"
@@ -267,7 +267,7 @@ Calculated at KKCTools.com`;
                   </div>
                   <div>
                     <label className={styles.inputLabel}>Qty</label>
-                    <input
+                    <input aria-label="Qty"
                       type="number"
                       min="1"
                       step="1"
@@ -329,7 +329,7 @@ Calculated at KKCTools.com`;
                   <div className={styles.wallRowGrid}>
                     <div>
                       <label className={styles.inputLabel}>Opening</label>
-                      <input
+                      <input aria-label="Opening"
                         type="text"
                         className={styles.textInput}
                         value={op.name}
@@ -338,7 +338,7 @@ Calculated at KKCTools.com`;
                     </div>
                     <div>
                       <label className={styles.inputLabel}>Width (ft)</label>
-                      <input
+                      <input aria-label="Width (ft)"
                         type="number"
                         min="0.5"
                         step="any"
@@ -350,7 +350,7 @@ Calculated at KKCTools.com`;
                     </div>
                     <div>
                       <label className={styles.inputLabel}>Height (ft)</label>
-                      <input
+                      <input aria-label="Height (ft)"
                         type="number"
                         min="0.5"
                         step="any"
@@ -362,7 +362,7 @@ Calculated at KKCTools.com`;
                     </div>
                     <div>
                       <label className={styles.inputLabel}>Qty</label>
-                      <input
+                      <input aria-label="Qty"
                         type="number"
                         min="1"
                         step="1"
@@ -423,7 +423,7 @@ Calculated at KKCTools.com`;
               <div className={styles.inputRow} style={{ marginTop: '10px' }}>
                 <div className={styles.inputGroup}>
                   <label className={styles.inputLabel}>Length (in)</label>
-                  <input
+                  <input aria-label="Length (in)"
                     type="number"
                     step="0.125"
                     className={styles.textInput}
@@ -433,7 +433,7 @@ Calculated at KKCTools.com`;
                 </div>
                 <div className={styles.inputGroup}>
                   <label className={styles.inputLabel}>Height (in)</label>
-                  <input
+                  <input aria-label="Height (in)"
                     type="number"
                     step="0.125"
                     className={styles.textInput}
@@ -443,7 +443,7 @@ Calculated at KKCTools.com`;
                 </div>
                 <div className={styles.inputGroup}>
                   <label className={styles.inputLabel}>Width / Bed (in)</label>
-                  <input
+                  <input aria-label="Width / Bed (in)"
                     type="number"
                     step="0.125"
                     className={styles.textInput}
@@ -453,7 +453,7 @@ Calculated at KKCTools.com`;
                 </div>
                 <div className={styles.inputGroup}>
                   <label className={styles.inputLabel}>Weight (lb)</label>
-                  <input
+                  <input aria-label="Weight (lb)"
                     type="number"
                     step="0.1"
                     className={styles.textInput}
@@ -661,7 +661,7 @@ Calculated at KKCTools.com`;
             </div>
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Net Wall Area</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.netWallAreaSqFt.toFixed(1)} sq ft
               </span>
             </div>
@@ -697,7 +697,7 @@ Calculated at KKCTools.com`;
               <>
                 <div className={styles.breakdownRow}>
                   <span className={styles.breakdownLabel}>80 lb Pre-Blended Bags</span>
-                  <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>
+                  <span className={styles.breakdownValue} style={{ color: '#075985', fontSize: '1.05rem' }}>
                     {results.mortarBags80lb} bags
                   </span>
                 </div>
@@ -719,7 +719,7 @@ Calculated at KKCTools.com`;
               <>
                 <div className={styles.breakdownRow}>
                   <span className={styles.breakdownLabel}>70 lb Masonry Cement</span>
-                  <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>
+                  <span className={styles.breakdownValue} style={{ color: '#075985', fontSize: '1.05rem' }}>
                     {results.masonryCementBags70lb} bags
                   </span>
                 </div>

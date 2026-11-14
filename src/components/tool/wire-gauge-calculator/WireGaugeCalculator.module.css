@@ -396,7 +396,7 @@ details[open] > .summary {
 
 /* results */
 .hero {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   color: #ffffff;
   border-radius: 14px;
   padding: 22px;
@@ -566,7 +566,7 @@ details[open] > .summary {
   gap: 10px;
   padding: 10px 14px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   color: #ffffff;
   font-size: 0.86rem;
   box-shadow: 0 8px 24px rgba(2, 132, 199, 0.35);

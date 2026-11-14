@@ -373,7 +373,7 @@ export function TileCalculator() {
                     <div className={styles.areaInputsGrid}>
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Section Label</label>
-                        <input
+                        <input aria-label="Section Label"
                           type="text"
                           value={area.name}
                           onChange={(e) => handleUpdateArea(area.id, 'name', e.target.value)}
@@ -385,6 +385,7 @@ export function TileCalculator() {
                           {isWallProject ? 'Width (ft)' : 'Length (ft)'}
                         </label>
                         <input
+                          aria-label={isWallProject ? 'Width (ft)' : 'Length (ft)'}
                           type="number"
                           min="0"
                           max="500"
@@ -401,6 +402,7 @@ export function TileCalculator() {
                           {isWallProject ? 'Height (ft)' : 'Width (ft)'}
                         </label>
                         <input
+                          aria-label={isWallProject ? 'Height (ft)' : 'Width (ft)'}
                           type="number"
                           min="0"
                           max="500"
@@ -566,7 +568,7 @@ export function TileCalculator() {
             {patternId === 'custom' && (
               <div className={styles.inputGroup}>
                 <label className={styles.inputLabel}>Custom Waste Factor (0% to 25%)</label>
-                <input
+                <input aria-label="Custom Waste Factor (0% to 25%)"
                   type="number"
                   min="0"
                   max="25"
@@ -852,7 +854,7 @@ export function TileCalculator() {
               <div className={styles.benchmarkRange}>
                 ${result.proAllInLow.toLocaleString()} – ${result.proAllInHigh.toLocaleString()}
               </div>
-              <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+              <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>
                 Labor only: ${result.proLaborLow.toLocaleString()} – ${result.proLaborHigh.toLocaleString()} ($5–$15/sq ft)
               </div>
               <div className={styles.savingsPill}>

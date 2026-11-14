@@ -28,10 +28,10 @@ export default function CompanyInfo({ data, onChange }: CompanyInfoProps) {
         aria-expanded={isOpen}
       >
         <div className={styles.accordionTitleBlock}>
-          <h3 className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle}>
             Contractor &amp; Business Information{' '}
             <span className={styles.optionalBadge}>(Optional Letterhead)</span>
-          </h3>
+          </h2>
           <p className={styles.sectionSubtitle}>
             {data.companyName
               ? `${data.companyName} • ${data.licenseNumber || 'License on file'}`

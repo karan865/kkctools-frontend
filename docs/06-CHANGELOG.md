@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [AdSense-readiness report — verified and fixed] — 2026-11-15
+- Checked every item of `docs/Adsence Approval reports/Adsence aprooval - report.pdf` against the live site and the code. Results and the owner list are in `00-PROJECT-STATUS.md` → Phase AR.
+- **New pages:** `/disclaimer/` (estimates not advice, electrical/structural safety, prices, corrections, generated names, external links, advertising/affiliates, no affiliation, contact) and `/site-map/` (HTML site map built from the tool catalog and route list). Both are in the footer, `sitemap.xml` and `llms.txt` (47 routes).
+- **Terms:** section 2 now covers calculators and templates and links to the Disclaimer; last updated 2026-11-15.
+- **Accessibility:**
+  - Darker `--muted`, `--accent` and `--success` tokens, plus the footer copyright colour; all token pairs now ≥ 4.5:1.
+  - Older tool components used hardcoded colours. 52 text uses of `#64748B` now use `var(--muted)`. Across 73 files, `#0284C7` → `#0369A1`, `#0369A1` hover → `#075985` and `#059669` → `#065F46`.
+  - 54 tool inputs whose `<label>` had no `htmlFor` now have an `aria-label`.
+  - Underlines added to links in running text.
+  - Guide task lists no longer render unlabelled disabled checkboxes.
+  - Second pass after a full sweep: undefined `--color-text-muted` fallbacks → `var(--muted)`; grey/red text in tool CSS; new `--brand-orange-text` token for orange labels; unit `<select>`s named; `aria-checked` → `aria-pressed` on segmented buttons; Rafter `tablist` → `group`; heading order on Construction Estimate, Square Footage and Tile; empty header cell on Board & Batten.
+  - Lighthouse accessibility: 100 on all 47 built pages (was 87–98 on 14 pages).
+  - Fixed home search ARIA (`aria-controls` only while results exist; `aria-autocomplete`), and removed tool-card `aria-label`s that did not match the visible text.
+- **Links:** external source links use `rel="noopener noreferrer"` and open in a new tab (How We Calculate, guide Markdown); the Quikrete link is `nofollow`.
+- **Fonts:** Bricolage Grotesque uses `display: 'optional'` to avoid a late swap moving LCP.
+- **Owner identity:** About → "Who runs KKC Tools" now names Karan Kumar (founder & developer) with email and Instagram; JSON-LD has a `Person` node (`/#founder`, occupation: senior software engineer) linked from the Organization's `founder`.
+- **Contact email:** `contact@kkctools.com` was not a real mailbox (owner); every mailto, the Organization schema and `llms.txt` now use `kkchub1@gmail.com`.
+- `npm run verify` passed after the fixes.
+
 ### [Tool #27 — Wire Gauge Calculator] — 2026-11-15
 - New page `/wire-gauge-calculator/` (Batch 2 Tier 1 #8, safety-sensitive), built from `08_Wire_Gauge_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/wire-gauge-engine.ts`): three modes (size a wire, check a wire, gauge lookup); DC / single-phase / three-phase; amps or watts (+ power factor); voltage drop 2·I·R·L or √3·I·R·L; AWG resistance from geometry (ASTM B258 formula) and IACS resistivity at 75 °C ×1.02 stranding (matches NEC Ch. 9 Table 8 within 1.5 %, tested); mm² from IEC 60228 class 2 at 20 °C → 70 °C; NEC Table 310.16 ampacity with Tables 310.15(B)(1)/(C)(1) corrections, terminal-temperature cap, 125 % continuous loads, 240.4(D) limits and standard breaker sizes; picks the larger of the drop and ampacity sizes.

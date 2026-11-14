@@ -70,7 +70,7 @@ export default function ToolsIndexPage() {
 
           {/* Upcoming Section */}
           <div style={{ marginTop: 'var(--space-8)' }}>
-            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange)' }}>
+            <span style={{ fontSize: '0.8125rem', fontWeight: 700, textTransform: 'uppercase', letterSpacing: '0.05em', color: 'var(--brand-orange-text)' }}>
               Roadmap
             </span>
             <h2 style={{ fontSize: '1.75rem', marginTop: 'var(--space-1)' }}>Upcoming Utilities</h2>

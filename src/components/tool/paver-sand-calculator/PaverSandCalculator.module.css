@@ -48,7 +48,7 @@
   justify-content: center;
   width: 26px;
   height: 26px;
-  background-color: #0284C7;
+  background-color: #0369A1;
   color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 700;
@@ -82,9 +82,9 @@
 }
 
 .modeBtnActive {
-  background: #0284C7;
+  background: #0369A1;
   color: #FFFFFF;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .grid2 {
@@ -124,7 +124,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .select {
@@ -159,8 +159,8 @@
 
 .toggleButtonActive {
   background: #E0F2FE;
-  color: #0369A1;
-  border-color: #0284C7;
+  color: #075985;
+  border-color: #0369A1;
 }
 
 .pillsRow {
@@ -182,21 +182,21 @@
 }
 
 .pillButtonActive {
-  background: #0284C7;
+  background: #0369A1;
   color: #FFFFFF;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .helperText {
   display: block;
   font-size: 0.8rem;
-  color: #64748B;
+  color: var(--muted);
   margin-top: 4px;
 }
 
 /* Results Hero Card */
 .heroCard {
-  background: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   color: #FFFFFF;
   border-radius: 12px;
   padding: 24px;
@@ -267,7 +267,7 @@
 }
 
 .costHighlight {
-  color: #059669;
+  color: #065F46;
   font-weight: 800;
   font-size: 1.15rem;
 }

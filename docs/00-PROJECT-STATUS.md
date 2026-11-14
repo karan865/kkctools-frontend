@@ -2,12 +2,12 @@
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-14
+- **Last Updated:** 2026-11-15
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
+- **Current Phase:** AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 392 vitest tests passing (32 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -252,6 +252,24 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase AR — AdSense-readiness report check (report `docs/Adsence Approval reports/Adsence aprooval - report.pdf`, 2026-11-15)
+The report came from an external scanner. Each item was checked on the live site (curl, local Lighthouse 12.6.0) and in the code. Items the scanner got wrong are recorded, not "fixed".
+- [x] AR-01 "Google Analytics detected" — **false**. The live HTML has no GA/GTM. The script it saw is Cloudflare Web Analytics (`static.cloudflareinsights.com/beacon.min.js`), injected by Cloudflare; our CSP blocks it (console error). *(Evidence: curl of live home page + Lighthouse `errors-in-console`)*
+- [x] AR-02 Title `&amp;` warning — not a fault; `&` is correctly escaped in HTML. *(Evidence: `out/index.html` `<title>`)*
+- [x] AR-03 Speed — mobile 94 / desktop 100 on home, CLS 0, TBT 80 ms; meets the report's thresholds. *(Evidence: local Lighthouse runs, scratchpad JSON)*
+- [x] AR-04 Broken links, font size (17 px body), images (no `<img>` without alt — no `<img>` at all), breadcrumbs, footer navigation — already fine. *(Evidence: `npm run seo:audit` 0 errors; Lighthouse SEO 100)*
+- [x] AR-05 Disclaimer page added `/disclaimer/` (+ footer, sitemap, llms.txt). *(Evidence: `out/disclaimer/index.html`)*
+- [x] AR-06 HTML site map added `/site-map/`. *(Evidence: `out/site-map/index.html`; `out/sitemap.xml` has 47 `<loc>`)*
+- [x] AR-07 Terms updated (calculators/templates, link to Disclaimer, 2026-11-15). *(Evidence: `src/app/terms/page.tsx`)*
+- [x] AR-08 External links: `noopener noreferrer` + new tab for citations; `nofollow` on commercial link. *(Evidence: `HowWeCalculate.tsx`, `guides.ts` renderer, concrete page)*
+- [x] AR-09 Accessibility: contrast tokens and hardcoded colours, undefined `--color-text-muted` fallbacks, input/select labels, segmented-button ARIA, heading order, empty table header, link underlines, search ARIA, card labels, guide checkboxes. *(Evidence: local Lighthouse 12.6.0 accessibility sweep of all 47 built pages on 2026-11-15 → 47/47 score 100, zero failed audits; before the fixes 14 pages scored 87–98)*
+- [x] AR-10 `npm run verify` all steps passed after the fixes. *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] AR-11 `TODO(owner)`: disable Cloudflare Web Analytics (steps in `05-DEPLOY-AND-LAUNCH.md` §3 6a).
+- [ ] AR-12 `TODO(owner)`: redeploy — live site is an old build (shows 24 tools; the new tools, Disclaimer and Site Map are missing).
+- [x] AR-13 Owner identity: Karan Kumar (founder & developer; senior software engineer), kkchub1@gmail.com, Instagram — on `/about/` and as a `Person` node linked from Organization `founder`. `kkchub1@gmail.com` is now the site-wide contact (owner said `contact@kkctools.com` did not exist). *(Evidence: `out/about/index.html`, JSON-LD graph in `out/index.html`)*
+- [ ] AR-14 `TODO(owner)`: request indexing in Search Console for the new pages after the redeploy (P7-08); the domain is about a week old, so wait for pages to be indexed and some traffic before applying (P7-10).
+- Note: local-only console 404 for `…/__next.<route>.__PAGE__.txt` comes from the Windows build output layout; the same URL returns 200 on the live Cloudflare build, so no change is needed.
+
 ### Phase WG — Tool #27: Wire Gauge Calculator (Batch 2 Tier 1 #8, built 2026-11-15, safety-sensitive)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/08_Wire_Gauge_Calculator_Competitor_Analysis.md` (primary `wire gauge calculator`, US 5,400 / KD 11; 4 tool pages with AS ≤ 11 rank).
 - [x] WG-1 Engine `src/lib/wire-gauge-engine.ts` + 31 tests (AWG geometry, resistance vs NEC Table 8 within 1.5 %, IEC 60228 metric, load/drop formulas, 310.16 ampacity, ambient/bundling factors, terminal cap, 240.4(D), sizing cases incl. continuous, aluminium, metric, 12 V DC, lookup). *(Evidence: `npx vitest run` → 392 passed)*
@@ -419,10 +437,11 @@ No competitor text was copied.
 |---|---|---|---|
 | `src/config/site.ts` | `SITE_NAME = 'KKC Tools'` | Site branding | Resolved (KKC Tools) |
 | `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
-| `src/config/site.ts` | `OWNER_EMAIL = 'contact@kkctools.com'` | Contact link mailto | Set to contact@kkctools.com |
-| `src/config/site.ts` | `OWNER_NAME = 'KKC Tools Team'` | About page owner identity | Set to KKC Tools Team |
-| `src/app/about/page.tsx` ("Who runs KKC Tools") | `TODO(owner)` | Real owner/author name, role, relevant background (SEO audit H4, E-E-A-T) | **Open** — do not invent |
-| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `sameAs` (real profile URLs) and `founder` (real person) | **Open** — do not invent |
+| `src/config/site.ts` | `OWNER_EMAIL = 'kkchub1@gmail.com'` | Site-wide contact mailto | Resolved 2026-11-15 (owner: `contact@kkctools.com` was not a real mailbox) |
+| `src/config/site.ts` | `FOUNDER` (name, role, email, Instagram) | About page owner identity + Person schema | Resolved 2026-11-15 (Karan Kumar, owner-supplied) |
+| `src/app/about/page.tsx` ("Who runs KKC Tools") | — | Real owner name, role, contact (SEO audit H4, E-E-A-T) | Resolved 2026-11-15. Optional: owner may add real background/experience later — do not invent |
+| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles |
+| Cloudflare dashboard | `TODO(owner)` | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11 | **Open** |
 
 ---
 
@@ -466,7 +485,7 @@ No competitor text was copied.
 ## 5. Known Issues / Decisions Log
 
 - **Decision (2026-11-14):** Deploy to Cloudflare as static assets (`wrangler.jsonc` → `out/`), not OpenNext. OpenNext needs `output: 'standalone'` and a non-allowed dependency; the site is 100% static. Steps in `05-DEPLOY-AND-LAUNCH.md`.
-- **Known issue (2026-11-14):** 4 token pairs are below 4.5:1 contrast for small body text: light `--muted` on `--bg` 3.8, light `--accent-ink` on `--accent` 4.1, dark `--muted` on `--bg` 4.1 and on `--surface` 3.8. Details in `03-PAGES-AND-DESIGN.md` §3. Not yet fixed in code.
+- **Resolved (2026-11-15):** the 4 token pairs that were below 4.5:1 (light `--muted` on `--bg`, white on `--accent`, dark `--muted` on `--bg`/`--surface`) were darkened/lightened; all pairs now pass. Values in `03-PAGES-AND-DESIGN.md` §3.
 
 - **Decision (2026-11-13):** Retitled `/cubic-yard-calculator/` to “Cubic Yard Calculator – Soil, Gravel, Mulch & More” so it no longer competes with the new `/concrete-calculator/`. Semrush shows `cubic yard calculator` and `concrete volume calculator` have different top-10 results, so each page owns one intent. The cubic-yard page body still contains concrete sections; trim them later if both pages are seen competing in Search Console.
 

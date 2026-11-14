@@ -7,7 +7,7 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
-import { SITE_NAME, SITE_URL, OWNER_NAME, OWNER_EMAIL, ORG_ID, WEBSITE_ID } from '@/config/site';
+import { SITE_NAME, SITE_URL, OWNER_EMAIL, ORG_ID, WEBSITE_ID, FOUNDER } from '@/config/site';
 
 export const metadata: Metadata = buildMetadata({
   title: ROUTES.about.title,
@@ -91,11 +91,20 @@ export default function AboutPage() {
             </p>
 
             <h2>Who runs {SITE_NAME}</h2>
-            {/* TODO(owner): replace this paragraph with the real owner / author name, role and relevant
-                background (and add matching Person + sameAs schema). Do not invent any of these details. */}
             <p>
-              {SITE_NAME} is an independent project run by the {OWNER_NAME}. We build and test every calculator
-              ourselves and keep this page up to date as the site grows.
+              {SITE_NAME} is built and run by <strong>{FOUNDER.name}</strong>, the site&rsquo;s founder and developer.
+              Karan is a senior software engineer and writes the code for every calculator and generator, checks each formula against the standards,
+              tables and manufacturer data named in the &ldquo;How we calculate&rdquo; section of that page, and tests
+              the results before a tool goes live.
+            </p>
+            <p>
+              Our calculators are planning tools, not professional advice. For structural, electrical or other
+              safety-critical work, please read our <Link href="/disclaimer/" style={link}>disclaimer</Link> and check
+              the numbers with a qualified professional.
+            </p>
+            <p>
+              You can reach Karan at <a href={`mailto:${FOUNDER.email}`} style={link}>{FOUNDER.email}</a> or on{' '}
+              <a href={FOUNDER.instagram} style={link} target="_blank" rel="me noopener noreferrer">Instagram</a>.
             </p>
 
             <h2>Found a mistake?</h2>

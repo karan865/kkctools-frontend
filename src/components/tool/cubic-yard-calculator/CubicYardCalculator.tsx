@@ -281,7 +281,7 @@ export default function CubicYardCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${material === 'concrete' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleMaterialChange('concrete')}
-            aria-checked={material === 'concrete'}
+            aria-pressed={material === 'concrete'}
           >
             Concrete
           </button>
@@ -289,7 +289,7 @@ export default function CubicYardCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${material === 'other' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleMaterialChange('other')}
-            aria-checked={material === 'other'}
+            aria-pressed={material === 'other'}
           >
             Other (soil, mulch, gravel)
           </button>
@@ -300,7 +300,7 @@ export default function CubicYardCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${unitSystem === 'imperial' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleUnitSystemChange('imperial')}
-            aria-checked={unitSystem === 'imperial'}
+            aria-pressed={unitSystem === 'imperial'}
           >
             Imperial (ft / in)
           </button>
@@ -308,7 +308,7 @@ export default function CubicYardCalculator() {
             type="button"
             className={`${styles.segmentBtn} ${unitSystem === 'metric' ? styles.segmentBtnActive : ''}`}
             onClick={() => handleUnitSystemChange('metric')}
-            aria-checked={unitSystem === 'metric'}
+            aria-pressed={unitSystem === 'metric'}
           >
             Metric (m / mm)
           </button>
@@ -388,7 +388,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="10"
                         />
-                        <select
+                        <select aria-label="Length unit"
                           className={styles.unitSelect}
                           value={sec.lengthUnit}
                           onChange={(e) => updateSection(sec.id, { lengthUnit: e.target.value as VolumeLengthUnit })}
@@ -415,7 +415,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="12"
                         />
-                        <select
+                        <select aria-label="Width unit"
                           className={styles.unitSelect}
                           value={sec.widthUnit}
                           onChange={(e) => updateSection(sec.id, { widthUnit: e.target.value as VolumeLengthUnit })}
@@ -442,7 +442,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="4"
                         />
-                        <select
+                        <select aria-label="Depth unit"
                           className={styles.unitSelect}
                           value={sec.depthUnit}
                           onChange={(e) => updateSection(sec.id, { depthUnit: e.target.value as VolumeLengthUnit })}
@@ -457,7 +457,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -486,7 +486,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="100"
                         />
-                        <select
+                        <select aria-label="Length unit"
                           className={styles.unitSelect}
                           value={sec.lengthUnit}
                           onChange={(e) => updateSection(sec.id, { lengthUnit: e.target.value as VolumeLengthUnit })}
@@ -511,7 +511,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="16"
                         />
-                        <select
+                        <select aria-label="Width unit"
                           className={styles.unitSelect}
                           value={sec.widthUnit}
                           onChange={(e) => updateSection(sec.id, { widthUnit: e.target.value as VolumeLengthUnit })}
@@ -537,7 +537,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="8"
                         />
-                        <select
+                        <select aria-label="Depth unit"
                           className={styles.unitSelect}
                           value={sec.depthUnit}
                           onChange={(e) => updateSection(sec.id, { depthUnit: e.target.value as VolumeLengthUnit })}
@@ -552,7 +552,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -580,7 +580,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="20"
                         />
-                        <select
+                        <select aria-label="Length unit"
                           className={styles.unitSelect}
                           value={sec.lengthUnit}
                           onChange={(e) => updateSection(sec.id, { lengthUnit: e.target.value as VolumeLengthUnit })}
@@ -604,7 +604,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="4"
                         />
-                        <select
+                        <select aria-label="Height unit"
                           className={styles.unitSelect}
                           value={sec.heightUnit}
                           onChange={(e) => updateSection(sec.id, { heightUnit: e.target.value as VolumeLengthUnit })}
@@ -629,7 +629,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="8"
                         />
-                        <select
+                        <select aria-label="Depth unit"
                           className={styles.unitSelect}
                           value={sec.depthUnit}
                           onChange={(e) => updateSection(sec.id, { depthUnit: e.target.value as VolumeLengthUnit })}
@@ -644,7 +644,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -672,7 +672,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="12"
                         />
-                        <select
+                        <select aria-label="Diameter unit"
                           className={styles.unitSelect}
                           value={sec.diameterUnit}
                           onChange={(e) => updateSection(sec.id, { diameterUnit: e.target.value as VolumeLengthUnit })}
@@ -698,7 +698,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="4"
                         />
-                        <select
+                        <select aria-label="Height unit"
                           className={styles.unitSelect}
                           value={sec.heightUnit}
                           onChange={(e) => updateSection(sec.id, { heightUnit: e.target.value as VolumeLengthUnit })}
@@ -712,7 +712,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -740,7 +740,7 @@ export default function CubicYardCalculator() {
                           onChange={(e) => updateSection(sec.id, { length: e.target.value })}
                           className={styles.inputField}
                         />
-                        <select
+                        <select aria-label="Length unit"
                           className={styles.unitSelect}
                           value={sec.lengthUnit}
                           onChange={(e) => updateSection(sec.id, { lengthUnit: e.target.value as VolumeLengthUnit })}
@@ -765,7 +765,7 @@ export default function CubicYardCalculator() {
                           onChange={(e) => updateSection(sec.id, { width: e.target.value })}
                           className={styles.inputField}
                         />
-                        <select
+                        <select aria-label="Width unit"
                           className={styles.unitSelect}
                           value={sec.widthUnit}
                           onChange={(e) => updateSection(sec.id, { widthUnit: e.target.value as VolumeLengthUnit })}
@@ -790,7 +790,7 @@ export default function CubicYardCalculator() {
                           onChange={(e) => updateSection(sec.id, { depth: e.target.value })}
                           className={styles.inputField}
                         />
-                        <select
+                        <select aria-label="Depth unit"
                           className={styles.unitSelect}
                           value={sec.depthUnit}
                           onChange={(e) => updateSection(sec.id, { depthUnit: e.target.value as VolumeLengthUnit })}
@@ -805,7 +805,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -833,7 +833,7 @@ export default function CubicYardCalculator() {
                           className={styles.inputField}
                           placeholder="27"
                         />
-                        <select
+                        <select aria-label="Volume unit"
                           className={styles.unitSelect}
                           value={sec.volumeUnit}
                           onChange={(e) => updateSection(sec.id, { volumeUnit: e.target.value as VolumeUnit })}
@@ -849,7 +849,7 @@ export default function CubicYardCalculator() {
 
                     <div className={styles.fieldGroup} style={{ maxWidth: '90px' }}>
                       <label className={styles.fieldLabel}>Quantity</label>
-                      <input
+                      <input aria-label="Quantity"
                         type="number"
                         min="1"
                         max="1000"
@@ -917,7 +917,7 @@ export default function CubicYardCalculator() {
             <div className={styles.advancedContent}>
               <div className={styles.fieldGroup}>
                 <label className={styles.fieldLabel}>Density Preset</label>
-                <select
+                <select aria-label="Density Preset"
                   className={styles.unitSelect}
                   style={{ width: '100%', height: '42px' }}
                   value={densityPreset}
@@ -954,7 +954,7 @@ export default function CubicYardCalculator() {
                       className={styles.inputField}
                       placeholder="150"
                     />
-                    <select
+                    <select aria-label="Density unit"
                       className={styles.unitSelect}
                       value={densityUnit}
                       onChange={(e) => {

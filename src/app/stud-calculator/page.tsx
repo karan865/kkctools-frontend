@@ -125,14 +125,14 @@ export default function StudCalculatorPage() {
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
+        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
             <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
+              <Link href="/" style={{ color: '#0369A1', textDecoration: 'none' }}>Home</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
+              <Link href="/tools/" style={{ color: '#0369A1', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Stud Calculator</li>
@@ -150,7 +150,7 @@ export default function StudCalculatorPage() {
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
             Looking for a stud wall calculator that handles real walls, not just a straight run? Enter your wall length, height and stud spacing, and this stud calculator for wall framing adds the extra studs for corners, partition tie-ins, doors and windows. It then shows how many 16-foot plate boards to buy and what the lumber will cost.
           </p>
-          <div style={{ marginTop: '8px', fontSize: '0.85rem', color: '#64748B' }}>
+          <div style={{ marginTop: '8px', fontSize: '0.85rem', color: 'var(--muted)' }}>
             <span>Last updated: November 2026</span>
           </div>
         </header>
@@ -221,13 +221,13 @@ export default function StudCalculatorPage() {
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>16 Inches OC (Standard)</td>
                     <td style={{ padding: '10px 14px' }}>Load-bearing exterior walls, multi-story buildings, heavy drywall tile backer</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.75 studs/LF + 1</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>0.75 studs/LF + 1</td>
                     <td style={{ padding: '10px 14px' }}>Universal code compliance, solid nailing for 1/2&quot; drywall, rigid tile and cabinet support</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>24 Inches OC (Advanced Framing)</td>
                     <td style={{ padding: '10px 14px' }}>Interior non-bearing partitions, single-story exterior walls, garage walls</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.50 studs/LF + 1</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>0.50 studs/LF + 1</td>
                     <td style={{ padding: '10px 14px' }}>Uses roughly 25-30% fewer field studs; less wood means less thermal bridging (Advanced Framing / OVE); 5/8&quot; drywall is often recommended for a flatter finish.</td>
                   </tr>
                 </tbody>
@@ -493,33 +493,33 @@ export default function StudCalculatorPage() {
 
           {/* Section: Related Framing & Building Calculators */}
           <section style={{ padding: '24px', backgroundColor: '#F0F9FF', borderRadius: '12px', border: '1px solid #BAE6FD', marginTop: '40px' }}>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0369A1', marginBottom: '8px' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#075985', marginBottom: '8px' }}>
               Related Framing &amp; Building Calculators
             </h2>
             <p style={{ color: '#0C4A6E', marginBottom: '16px' }}>
               Plan all stages of your carpentry and home renovation project with our companion tools:
             </p>
-            <ul style={{ paddingLeft: '20px', color: '#0369A1', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+            <ul style={{ paddingLeft: '20px', color: '#075985', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
               <li>
-                <Link href="/rafter-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/rafter-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Rafter Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Calculate roof rafter lengths, pitch &amp; overhangs</span>
               </li>
               <li>
-                <Link href="/linear-foot-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/linear-foot-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Linear Foot Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Estimate wall runs, baseboard trim &amp; plate lumber</span>
               </li>
               <li>
-                <Link href="/square-footage-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/square-footage-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Square Footage Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Drywall and exterior wall sheathing square footage</span>
               </li>
               <li>
-                <Link href="/paint-cost-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/paint-cost-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Paint Cost Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Calculate paint gallons and costs for finished walls</span>

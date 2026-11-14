@@ -48,7 +48,7 @@ const HOME_FAQ_ITEMS = [
   },
   {
     q: 'Can I suggest a new calculator or contractor tool?',
-    a: 'Absolutely! Use the Suggest a Tool button or email contact@kkctools.com to propose new construction trades, formulas, or material calculators.',
+    a: 'Absolutely! Use the Suggest a Tool button or email kkchub1@gmail.com to propose new construction trades, formulas, or material calculators.',
   },
 ];
 

@@ -421,7 +421,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
                       <div className={styles.inputRow}>
                         <div className={styles.fieldGroup}>
                           <label className={styles.label}>Length (ft)</label>
-                          <input
+                          <input aria-label="Length (ft)"
                             type="text"
                             inputMode="decimal"
                             className={styles.inputField}
@@ -434,7 +434,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
                         </div>
                         <div className={styles.fieldGroup}>
                           <label className={styles.label}>Width (ft)</label>
-                          <input
+                          <input aria-label="Width (ft)"
                             type="text"
                             inputMode="decimal"
                             className={styles.inputField}
@@ -813,7 +813,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
                 </div>
                 <div className={styles.breakdownRow}>
                   <span className={styles.breakdownLabel}>With +{effectiveWaste}% Waste Buffer</span>
-                  <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0284c7)' }}>
+                  <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0369A1)' }}>
                     ${result.estimatedCostWithWaste.toLocaleString()}
                   </span>
                 </div>
@@ -836,7 +836,7 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
       {/* Quick Area Converter Widget */}
       <div className={styles.quickConverterCard}>
         <div className={styles.quickConverterHeader}>
-          <h3 className={styles.quickConverterTitle}>Quick Area Converter</h3>
+          <h2 className={styles.quickConverterTitle}>Quick Area Converter</h2>
           <p className={styles.quickConverterDesc}>
             Instant bidirectional conversion between square feet, square meters, square inches, square yards, and acres.
           </p>

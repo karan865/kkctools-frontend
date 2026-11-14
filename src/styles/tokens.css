@@ -10,33 +10,34 @@
   /* Crisp Typography: Headings #0F172A, Body #334155, Muted #64748B */
   --ink: #0F172A;
   --ink-2: #334155;
-  --muted: #64748B;
+  --muted: #556274;
   
   /* Clean Borders */
   --line: #E2E8F0;
   --line-strong: #CBD5E1;
   
   /* Modern Blue Action & Primary Theme */
-  --accent: #0284C7;
-  --accent-hover: #0369A1;
+  --accent: #0369A1;
+  --accent-hover: #075985;
   --accent-ink: #FFFFFF;
   --accent-soft: #E0F2FE;
   
   /* Secondary / Color Primary aliases */
-  --color-primary: #0284C7;
-  --color-primary-hover: #0369A1;
+  --color-primary: #0369A1;
+  --color-primary-hover: #075985;
   --color-primary-subtle: #E0F2FE;
   
   /* Terracotta Orange CTA & Brand Highlights */
   --brand-orange: #C2410C;
   --brand-orange-hover: #9A3412;
   --brand-orange-soft: #FDE8DE;
+  --brand-orange-text: #9A3412; /* orange text on sand/white: 6.0:1+ */
   --brand-gradient: linear-gradient(135deg, #D9480F 0%, #C2410C 100%);
   --brand-blue-gradient: linear-gradient(135deg, #0284C7 0%, #0369A1 100%);
   --hero-glow: radial-gradient(circle at 85% 15%, rgba(194, 65, 12, 0.04) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(2, 132, 199, 0.03) 0%, transparent 45%);
   
   --highlight: #F59E0B;
-  --success: #15803D;
+  --success: #166534;
   --danger: #DC2626;
   --radius-s: 8px;
   --radius-m: 14px;
@@ -110,7 +111,7 @@
   /* Crisp Obsidian & Slate Typography */
   --ink: #F1F5F9;
   --ink-2: #94A3B8;
-  --muted: #64748B;
+  --muted: #8291A6;
   
   /* Precision Micro-Borders */
   --line: #1E2636;
@@ -126,6 +127,7 @@
   --brand-orange: #F97316;
   --brand-orange-hover: #FB923C;
   --brand-orange-soft: rgba(249, 115, 22, 0.15);
+  --brand-orange-text: #FB923C;
   --brand-gradient: linear-gradient(135deg, #F97316 0%, #EA580C 100%);
   --brand-blue-gradient: linear-gradient(135deg, #38BDF8 0%, #0284C7 100%);
   --hero-glow: radial-gradient(circle at 85% 15%, rgba(249, 115, 22, 0.08) 0%, transparent 45%), radial-gradient(circle at 15% 85%, rgba(56, 189, 248, 0.07) 0%, transparent 45%);

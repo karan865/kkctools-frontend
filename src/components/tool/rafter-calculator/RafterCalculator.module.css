@@ -61,7 +61,7 @@
 
 .unitBtnActive {
   background: var(--color-primary-subtle, #e0f2fe);
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   box-shadow: var(--shadow-s);
 }
 
@@ -113,7 +113,7 @@
 
 .segmentBtnActive {
   background: var(--color-primary-subtle, #e0f2fe);
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   box-shadow: var(--shadow-s);
 }
 
@@ -219,7 +219,7 @@
 }
 
 .primaryResultCard {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   border: 1px solid rgba(2, 132, 199, 0.4);
   border-radius: var(--radius-m, 12px);
   padding: var(--space-4) var(--space-5);
@@ -319,7 +319,7 @@
   padding: 10px 14px;
   border-radius: var(--radius-md, 8px);
   border: none;
-  background: var(--color-primary, #0284c7);
+  background: var(--color-primary, #0369A1);
   color: #ffffff;
   font-size: 0.875rem;
   font-weight: 600;
@@ -332,7 +332,7 @@
 }
 
 .actionBtn:hover {
-  background: #0369a1;
+  background: #075985;
   color: #ffffff;
 }
 

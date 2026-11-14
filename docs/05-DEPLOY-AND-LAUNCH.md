@@ -40,5 +40,9 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 3. Submit `https://www.kkctools.com/sitemap.xml`.
 4. Request indexing for Home, `/tools/`, and the main tool pages.
 5. Run PageSpeed Insights on live URLs; save results in `docs/evidence/`.
-6. Confirm the `_headers` (CSP, HSTS) are served by Cloudflare on the live site.
+6. Confirm the `_headers` (CSP, HSTS) are served by Cloudflare on the live site. *(Checked 2026-11-15: CSP, HSTS and the other headers are served.)*
+6a. **Turn off Cloudflare Web Analytics** (`TODO(owner)`): Dashboard → Workers & Pages → `kkctools-frontend` → Metrics / Settings → Web Analytics → disable (also check the zone under Analytics & Logs → Web Analytics). Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into every page; our CSP blocks it, which shows a console error (Lighthouse "Best Practices"), and it would break the "no third-party scripts until Phase 7" rule. An external AdSense-readiness scanner mistook this beacon for Google Analytics.
+6b. Redeploy after every merge. On 2026-11-15 the live site was still an older build (home page said "Search 24 tools"; the newest 5 tools, Disclaimer and Site Map were missing).
 7. After indexing and steady traffic, apply to Google AdSense; then set up a certified CMP for EEA/UK and add `ads.txt`.
+   - Cookie banner: not needed today, because the site sets no cookies and loads no third-party scripts (theme choice is `localStorage` only). When ads are switched on, use Google's own certified consent message (AdSense → Privacy & messaging), not a custom banner.
+   - Before applying: Disclaimer (`/disclaimer/`), HTML site map (`/site-map/`), Privacy, Terms, About and Contact pages are all live in the build and linked from the footer.

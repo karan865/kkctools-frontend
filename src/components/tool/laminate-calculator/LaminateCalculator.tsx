@@ -314,7 +314,7 @@ export function LaminateCalculator() {
                     <div className={styles.areaInputsGrid}>
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Room / Section Label</label>
-                        <input
+                        <input aria-label="Room / Section Label"
                           type="text"
                           value={area.label || ''}
                           onChange={(e) => handleUpdateArea(area.id, 'label', e.target.value)}
@@ -324,7 +324,7 @@ export function LaminateCalculator() {
                       </div>
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Length (ft)</label>
-                        <input
+                        <input aria-label="Length (ft)"
                           type="number"
                           inputMode="decimal"
                           min="0"
@@ -340,7 +340,7 @@ export function LaminateCalculator() {
                       </div>
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Width (ft)</label>
-                        <input
+                        <input aria-label="Width (ft)"
                           type="number"
                           inputMode="decimal"
                           min="0"
@@ -505,7 +505,7 @@ export function LaminateCalculator() {
             {patternId === 'custom' && (
               <div className={styles.inputGroup}>
                 <label className={styles.inputLabel}>Custom Waste % (0% to 30%)</label>
-                <input
+                <input aria-label="Custom Waste % (0% to 30%)"
                   type="number"
                   inputMode="numeric"
                   min="0"
@@ -741,7 +741,7 @@ export function LaminateCalculator() {
                 <div className={styles.benchmarkRange}>
                   ${result.proLaborLow.toLocaleString()} – ${result.proLaborHigh.toLocaleString()}
                 </div>
-                <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>
                   Mid-range contractor labor ($2.00 – $5.00/sq ft). DIYing saves this entire labor cost.
                 </div>
               </div>
@@ -785,7 +785,7 @@ export function LaminateCalculator() {
           type="button"
           onClick={handleCopySummary}
           style={{
-            background: '#0284c7',
+            background: '#0369A1',
             color: '#fff',
             border: 'none',
             padding: '0.4rem 0.8rem',

@@ -248,42 +248,42 @@ export default function PaverBaseCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Garden Walkway / Light Footpath</td>
                   <td style={{ padding: '12px 14px' }}>Well-Drained Sandy Loam</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>4 Inches (100 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>4 Inches (100 mm)</td>
                   <td style={{ padding: '12px 14px' }}>7.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>2 passes in two 2-inch lifts</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Standard Residential Patio</td>
                   <td style={{ padding: '12px 14px' }}>Normal Soil / Mixed Loam</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>4 Inches (100 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>4 Inches (100 mm)</td>
                   <td style={{ padding: '12px 14px' }}>7.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>3 passes in two 2-inch lifts</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Patio with Fire Pit / Outdoor Kitchen</td>
                   <td style={{ padding: '12px 14px' }}>Heavy Clay or Wet Subsoil</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>6 Inches (150 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>6 Inches (150 mm)</td>
                   <td style={{ padding: '12px 14px' }}>9.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>3 passes in two 3-inch lifts</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Hot Tub / Swim Spa Concrete Paver Pad</td>
                   <td style={{ padding: '12px 14px' }}>Any Stable Soil Type</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>6 to 8 Inches (150–200 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>6 to 8 Inches (150–200 mm)</td>
                   <td style={{ padding: '12px 14px' }}>9.5 to 11.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>4 passes in 2.5-inch lifts</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Residential Driveway (Cars &amp; Light Trucks)</td>
                   <td style={{ padding: '12px 14px' }}>Standard Well-Drained Soil</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>8 Inches (200 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>8 Inches (200 mm)</td>
                   <td style={{ padding: '12px 14px' }}>11.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>4 passes in 2.5 to 3-inch lifts</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Heavy Commercial / RV Parking Pad</td>
                   <td style={{ padding: '12px 14px' }}>Clay / High Water Table</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>10 to 12 Inches (250–300 mm)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>10 to 12 Inches (250–300 mm)</td>
                   <td style={{ padding: '12px 14px' }}>13.5 to 15.5 Inches</td>
                   <td style={{ padding: '12px 14px' }}>5 passes in 2.5 to 3-inch lifts</td>
                 </tr>
@@ -348,12 +348,12 @@ export default function PaverBaseCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Packaging &amp; Unit Size</td>
                   <td style={{ padding: '12px 14px' }}>Heavy plastic bag (0.5 cu ft / ~50 lbs)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Loose open aggregate in dump truck bed</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Loose open aggregate in dump truck bed</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Bags Needed per Cubic Yard</td>
                   <td style={{ padding: '12px 14px' }}><strong>54 bags</strong> (27 cu ft / 0.5 cu ft)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>1.40 tons equals 1 cubic yard</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>1.40 tons equals 1 cubic yard</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Material Cost per Cubic Yard</td>
@@ -368,12 +368,12 @@ export default function PaverBaseCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Vehicle Transport Requirements</td>
                   <td style={{ padding: '12px 14px' }}>Requires multiple pickup truck trips</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Single commercial dump truck delivery</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Single commercial dump truck delivery</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Packaging Waste</td>
                   <td style={{ padding: '12px 14px' }}>Hundreds of empty plastic bags</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Zero packaging waste</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Zero packaging waste</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Best Application</td>
@@ -393,7 +393,7 @@ export default function PaverBaseCalculatorPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Backyard Dining Patio (300 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>21 ft × 16 ft excavation · 4&quot; Base · 15% Compaction</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>21 ft × 16 ft excavation · 4&quot; Base · 15% Compaction</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Compacted Volume: <strong>112.0 Cu Ft</strong> (4.15 cu yds)</li>
                 <li>Loose Volume (+15%): <strong>128.8 Cu Ft</strong> (4.77 cu yds)</li>
@@ -403,7 +403,7 @@ export default function PaverBaseCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Clay Soil Fire Pit Patio (400 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>21 ft × 21 ft excavation · 6&quot; Base · 20% Compaction</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>21 ft × 21 ft excavation · 6&quot; Base · 20% Compaction</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Compacted Volume: <strong>220.5 Cu Ft</strong> (8.17 cu yds)</li>
                 <li>Loose Volume (+20%): <strong>264.6 Cu Ft</strong> (9.80 cu yds)</li>
@@ -413,7 +413,7 @@ export default function PaverBaseCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Two-Car Paver Driveway (600 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>31 ft × 21 ft excavation · 8&quot; Base · 20% Compaction</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>31 ft × 21 ft excavation · 8&quot; Base · 20% Compaction</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Compacted Volume: <strong>434.0 Cu Ft</strong> (16.07 cu yds)</li>
                 <li>Loose Volume (+20%): <strong>520.8 Cu Ft</strong> (19.29 cu yds)</li>

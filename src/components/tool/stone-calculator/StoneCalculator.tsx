@@ -283,7 +283,7 @@ export function StoneCalculator() {
               {areas.map((area) => (
                 <div key={area.id} className={styles.areaRow}>
                   <div className={styles.areaRowHeader}>
-                    <select
+                    <select aria-label="Shape"
                       className={styles.shapeSelect}
                       value={area.shape}
                       onChange={(e) => handleUpdateArea(area.id, 'shape', e.target.value as AreaShape)}
@@ -307,7 +307,7 @@ export function StoneCalculator() {
                   <div className={styles.areaInputsGrid}>
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}>Section Label</label>
-                      <input
+                      <input aria-label="Section Label"
                         type="text"
                         value={area.label || ''}
                         onChange={(e) => handleUpdateArea(area.id, 'label', e.target.value)}
@@ -319,7 +319,7 @@ export function StoneCalculator() {
                     {area.shape === 'circle' ? (
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Diameter (ft)</label>
-                        <input
+                        <input aria-label="Diameter (ft)"
                           type="number"
                           inputMode="decimal"
                           min="0"
@@ -335,7 +335,7 @@ export function StoneCalculator() {
                     ) : area.shape === 'direct' ? (
                       <div className={styles.inputGroup}>
                         <label className={styles.inputLabel}>Surface Area (sq ft)</label>
-                        <input
+                        <input aria-label="Surface Area (sq ft)"
                           type="number"
                           inputMode="decimal"
                           min="0"
@@ -352,7 +352,7 @@ export function StoneCalculator() {
                       <>
                         <div className={styles.inputGroup}>
                           <label className={styles.inputLabel}>Length (ft)</label>
-                          <input
+                          <input aria-label="Length (ft)"
                             type="number"
                             inputMode="decimal"
                             min="0"
@@ -367,7 +367,7 @@ export function StoneCalculator() {
                         </div>
                         <div className={styles.inputGroup}>
                           <label className={styles.inputLabel}>Width (ft)</label>
-                          <input
+                          <input aria-label="Width (ft)"
                             type="number"
                             inputMode="decimal"
                             min="0"
@@ -385,7 +385,7 @@ export function StoneCalculator() {
 
                     <div className={styles.inputGroup}>
                       <label className={styles.inputLabel}>Depth (inches)</label>
-                      <input
+                      <input aria-label="Depth (inches)"
                         type="number"
                         inputMode="decimal"
                         min="0"
@@ -446,7 +446,7 @@ export function StoneCalculator() {
               <div className={styles.areaInputsGrid}>
                 <div className={styles.inputGroup}>
                   <label className={styles.inputLabel}>Density Unit</label>
-                  <select
+                  <select aria-label="Density Unit"
                     value={customDensityUnit}
                     onChange={(e) => setCustomDensityUnit(e.target.value as DensityInputUnit)}
                     className={styles.selectField}
@@ -748,7 +748,7 @@ export function StoneCalculator() {
                   <div className={styles.savingsRange}>
                     Save ~${result.bulkWiseSavings.toFixed(2)} buying bulk
                   </div>
-                  <div style={{ fontSize: '0.8rem', color: '#64748b' }}>
+                  <div style={{ fontSize: '0.8rem', color: 'var(--muted)' }}>
                     {result.bagsCount} bags @ ${pricePerBag} = ${result.bagPurchaseCost.toFixed(2)} vs ${result.totalDeliveredCost.toFixed(2)} bulk delivered.
                   </div>
                 </div>
@@ -793,7 +793,7 @@ export function StoneCalculator() {
           type="button"
           onClick={handleCopySummary}
           style={{
-            background: '#0284c7',
+            background: '#0369A1',
             color: '#fff',
             border: 'none',
             padding: '0.4rem 0.8rem',

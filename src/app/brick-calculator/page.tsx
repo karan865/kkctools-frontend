@@ -83,14 +83,14 @@ export default function BrickCalculatorPage() {
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
+        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
             <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
+              <Link href="/" style={{ color: '#0369A1', textDecoration: 'none' }}>Home</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
+              <Link href="/tools/" style={{ color: '#0369A1', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Brick Calculator</li>
@@ -154,7 +154,7 @@ export default function BrickCalculatorPage() {
             </p>
             <ol style={{ paddingLeft: '20px', marginBottom: '16px' }}>
               <li style={{ marginBottom: '12px' }}>
-                <strong>Calculate Gross Wall Area:</strong> Measure the length and height of each wall in feet and multiply: Gross Area = Length × Height. For complex buildings, sum individual wall segments with our companion <Link href="/square-footage-calculator/" style={{ color: '#0284C7' }}>square footage calculator</Link>.
+                <strong>Calculate Gross Wall Area:</strong> Measure the length and height of each wall in feet and multiply: Gross Area = Length × Height. For complex buildings, sum individual wall segments with our companion <Link href="/square-footage-calculator/" style={{ color: '#0369A1' }}>square footage calculator</Link>.
               </li>
               <li style={{ marginBottom: '12px' }}>
                 <strong>Deduct Openings for Net Area:</strong> Measure every rough door and window opening. Deduct their combined area: Net Wall Area = Gross Area − Total Openings Area.
@@ -183,7 +183,7 @@ export default function BrickCalculatorPage() {
             <h3 style={{ fontSize: '1.15rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '12px' }}>
               Standard Brick Dimensions &amp; Modular Brick Size Chart
             </h3>
-            <p style={{ marginBottom: '12px', fontSize: '0.9rem', color: '#64748B' }}>
+            <p style={{ marginBottom: '12px', fontSize: '0.9rem', color: 'var(--muted)' }}>
               Actual manufactured sizes vary by manufacturer; confirm dimensions with your supplier or use Custom size.
             </p>
 
@@ -203,69 +203,69 @@ export default function BrickCalculatorPage() {
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Modular</td>
                     <td style={{ padding: '10px 12px' }}>7-5/8&quot; × 2-1/4&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>8&quot; × 2-5/8&quot; (21.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>6.857</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>6.857</td>
                     <td style={{ padding: '10px 12px' }}>~4.5 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Standard</td>
                     <td style={{ padding: '10px 12px' }}>8&quot; × 2-1/4&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>8-3/8&quot; × 2-5/8&quot; (22.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>6.550</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>6.550</td>
                     <td style={{ padding: '10px 12px' }}>~4.8 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Engineer Modular</td>
                     <td style={{ padding: '10px 12px' }}>7-5/8&quot; × 2-13/16&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>8&quot; × 3-3/16&quot; (25.5 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>5.647</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>5.647</td>
                     <td style={{ padding: '10px 12px' }}>~5.6 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Closure Modular</td>
                     <td style={{ padding: '10px 12px' }}>7-5/8&quot; × 3-5/8&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>8&quot; × 4&quot; (32.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>4.500</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>4.500</td>
                     <td style={{ padding: '10px 12px' }}>~7.2 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Norman</td>
                     <td style={{ padding: '10px 12px' }}>11-5/8&quot; × 2-1/4&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>12&quot; × 2-5/8&quot; (31.5 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>4.571</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>4.571</td>
                     <td style={{ padding: '10px 12px' }}>~6.9 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Roman</td>
                     <td style={{ padding: '10px 12px' }}>11-5/8&quot; × 1-5/8&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>12&quot; × 2&quot; (24.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>6.000</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>6.000</td>
                     <td style={{ padding: '10px 12px' }}>~5.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Utility</td>
                     <td style={{ padding: '10px 12px' }}>11-5/8&quot; × 3-5/8&quot; × 3-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>12&quot; × 4&quot; (48.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>3.000</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>3.000</td>
                     <td style={{ padding: '10px 12px' }}>~11.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>Queen</td>
                     <td style={{ padding: '10px 12px' }}>7-5/8&quot; × 2-3/4&quot; × 2-3/4&quot;</td>
                     <td style={{ padding: '10px 12px' }}>8&quot; × 3-1/8&quot; (25.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>5.760</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>5.760</td>
                     <td style={{ padding: '10px 12px' }}>~4.2 lb</td>
                   </tr>
                   <tr>
                     <td style={{ padding: '10px 12px', fontWeight: 600 }}>King</td>
                     <td style={{ padding: '10px 12px' }}>9-5/8&quot; × 2-5/8&quot; × 2-5/8&quot;</td>
                     <td style={{ padding: '10px 12px' }}>10&quot; × 3&quot; (30.0 sq in)</td>
-                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0284C7' }}>4.800</td>
+                    <td style={{ padding: '10px 12px', fontWeight: 600, color: '#0369A1' }}>4.800</td>
                     <td style={{ padding: '10px 12px' }}>~5.5 lb</td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#64748B' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
               Note: Some manufacturers make Queen larger (for example 9-5/8&quot; × 2-3/4&quot; × 3-1/8&quot; with ~4.61 bricks/sq ft) or King in proprietary regional dimensions. Use Custom size if your jobsite brick differs.
             </p>
           </section>
@@ -283,7 +283,7 @@ export default function BrickCalculatorPage() {
                 <strong>Pre-Blended Mortar Mix (Sand Included):</strong> Just add clean water. One 80 lb bag of pre-blended mix lays about 35 standard modular bricks with a 3/8-inch joint. A 60 lb bag lays approximately 26.25 modular bricks.
               </li>
               <li style={{ marginBottom: '8px' }}>
-                <strong>Site-Mixed (Cement + Sand):</strong> Masons mixing on-site combine masonry cement (typically Type N or Type S in 70 lb bags) with clean washed masonry sand. If choosing bulk sand, use our <Link href="/sand-calculator/" style={{ color: '#0284C7' }}>sand calculator</Link> to coordinate quarry deliveries.
+                <strong>Site-Mixed (Cement + Sand):</strong> Masons mixing on-site combine masonry cement (typically Type N or Type S in 70 lb bags) with clean washed masonry sand. If choosing bulk sand, use our <Link href="/sand-calculator/" style={{ color: '#0369A1' }}>sand calculator</Link> to coordinate quarry deliveries.
               </li>
             </ul>
 
@@ -337,7 +337,7 @@ export default function BrickCalculatorPage() {
                 </tbody>
               </table>
             </div>
-            <p style={{ color: '#64748B', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '10px' }}>
+            <p style={{ color: 'var(--muted)', fontSize: '0.85rem', lineHeight: 1.6, marginTop: '10px' }}>
               All rows use 10 mm joints and no allowance for cutting or breakage; add 5–10% when you order. Rates are
               calculated with the formula above, so they match the calculator exactly.
             </p>
@@ -359,14 +359,14 @@ export default function BrickCalculatorPage() {
             </p>
             <ul style={{ paddingLeft: '20px', marginBottom: '16px' }}>
               <li style={{ marginBottom: '10px' }}>
-                <strong>Single Wythe (Veneer Wall):</strong> A single thickness of brick (approx 3-5/8&quot; to 4&quot; thick). In modern residential construction, this serves as an exterior rainscreen and decorative skin tied back to wood studs, steel framing, or a <Link href="/cinder-block-calculator/" style={{ color: '#0284C7' }}>cinder block backup wall</Link> with corrugated metal masonry ties.
+                <strong>Single Wythe (Veneer Wall):</strong> A single thickness of brick (approx 3-5/8&quot; to 4&quot; thick). In modern residential construction, this serves as an exterior rainscreen and decorative skin tied back to wood studs, steel framing, or a <Link href="/cinder-block-calculator/" style={{ color: '#0369A1' }}>cinder block backup wall</Link> with corrugated metal masonry ties.
               </li>
               <li style={{ marginBottom: '10px' }}>
                 <strong>Double Wythe (Solid Structural Wall):</strong> Two separate, parallel layers of brick bonded together with continuous wire ladder mesh or metal wall ties. Double wythe requires <strong>about twice the bricks and mortar</strong>. If the 3/4-inch space between wythes (the collar joint) is grouted full of mortar, check the &quot;Fill collar joint&quot; option in the calculator to add additional bags.
               </li>
             </ul>
-            <p style={{ fontSize: '0.85rem', color: '#64748B' }}>
-              Disclaimer: Free-standing garden walls, retaining walls, and load-bearing multi-wythe walls require a continuous concrete footing. Always check footing dimensions with our <Link href="/cubic-yard-calculator/" style={{ color: '#0284C7' }}>cubic yard calculator</Link> and consult a licensed structural engineer.
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
+              Disclaimer: Free-standing garden walls, retaining walls, and load-bearing multi-wythe walls require a continuous concrete footing. Always check footing dimensions with our <Link href="/cubic-yard-calculator/" style={{ color: '#0369A1' }}>cubic yard calculator</Link> and consult a licensed structural engineer.
             </p>
           </section>
 
@@ -417,7 +417,7 @@ export default function BrickCalculatorPage() {
                 </tbody>
               </table>
             </div>
-            <p style={{ fontSize: '0.85rem', color: '#64748B' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)' }}>
               Note: Pallet packaging varies by manufacturer; confirm with your supplier. Cored or frogged bricks weigh less than solid pavers. Use our built-in <strong>brick weight calculator</strong> feature to estimate haul truck requirements.
             </p>
           </section>
@@ -444,33 +444,33 @@ export default function BrickCalculatorPage() {
 
           {/* Section 9: Related Masonry & Construction Calculators */}
           <section style={{ padding: '24px', backgroundColor: '#F0F9FF', borderRadius: '12px', border: '1px solid #BAE6FD', marginBottom: '40px' }}>
-            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#0369A1', marginBottom: '8px' }}>
+            <h2 style={{ fontSize: '1.25rem', fontWeight: 700, color: '#075985', marginBottom: '8px' }}>
               Related Masonry &amp; Construction Calculators
             </h2>
             <p style={{ color: '#0C4A6E', marginBottom: '16px' }}>
               Calculate all phases of your masonry, concrete, and landscaping projects with our companion tools:
             </p>
-            <ul style={{ paddingLeft: '20px', color: '#0369A1', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
+            <ul style={{ paddingLeft: '20px', color: '#075985', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
               <li>
-                <Link href="/cinder-block-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/cinder-block-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Cinder Block Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>CMU blocks, cores &amp; concrete fill for backup walls</span>
               </li>
               <li>
-                <Link href="/sand-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/sand-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Sand Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Mason sand, bedding sand &amp; mortar bulk deliveries</span>
               </li>
               <li>
-                <Link href="/square-footage-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/square-footage-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Square Footage Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Calculate multi-room surface areas &amp; wall square footage</span>
               </li>
               <li>
-                <Link href="/cubic-yard-calculator/" style={{ color: '#0284C7', fontWeight: 600 }}>
+                <Link href="/cubic-yard-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Cubic Yard Calculator
                 </Link>
                 <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Concrete footings, slabs &amp; structural subgrades</span>
@@ -507,13 +507,13 @@ export default function BrickCalculatorPage() {
             <p style={{ marginBottom: '12px' }}>
               Whether ordering a single pallet for a decorative garden walkway or scheduling tandem dump truckloads for a full residential exterior veneer, our <strong>brick calculator</strong> ensures you order accurate materials and avoid costly jobsite delays.
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '6px' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: '6px' }}>
               <strong>Last updated:</strong> November 2026
             </p>
-            <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '8px' }}>
+            <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: '8px' }}>
               <strong>How we calculate:</strong> Calculations use nominal face geometry (actual brick dimensions plus mortar joint thickness) and empirical material yields based on US masonry trade standards. All estimates compute client-side with zero external network requests.
             </p>
-            <p style={{ fontSize: '0.8rem', color: '#94A3B8', fontStyle: 'italic', margin: 0 }}>
+            <p style={{ fontSize: '0.8rem', color: 'var(--muted)', fontStyle: 'italic', margin: 0 }}>
               Disclaimer: Results are estimates. Structural, load-bearing and retaining walls must follow engineered plans and local code; confirm brick size, weight, pallet count and mortar yield with your supplier or the product label.
             </p>
           </section>

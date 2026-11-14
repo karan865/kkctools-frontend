@@ -241,31 +241,31 @@ export default function FenceStainCalculatorPage() {
               <tbody>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Standard Solid Privacy</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1.00× (Base Area)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>1.00× (Base Area)</td>
                   <td style={{ padding: '12px 14px' }}>Pickets flush edge-to-edge with minimal edge exposure.</td>
                   <td style={{ padding: '12px 14px' }}>Sprayer with back-brushing or 3/4&quot; roller</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Board-on-Board Privacy</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1.30× (+30% Area)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>1.30× (+30% Area)</td>
                   <td style={{ padding: '12px 14px' }}>Overlapping pickets create extra exposed faces and vertical edges.</td>
                   <td style={{ padding: '12px 14px' }}>Sprayer essential to coat inside channels</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Shadowbox (Good Neighbor)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1.25× (+25% Area)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>1.25× (+25% Area)</td>
                   <td style={{ padding: '12px 14px' }}>Pickets alternate on stringers, exposing deep internal wood edges.</td>
                   <td style={{ padding: '12px 14px' }}>Sprayer with extension wand &amp; back-brushing</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Spaced Ornamental Picket</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>0.80× (-20% Area)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>0.80× (-20% Area)</td>
                   <td style={{ padding: '12px 14px' }}>Air gaps between pickets reduce total wood surface area.</td>
                   <td style={{ padding: '12px 14px' }}>4&quot; mini roller and angled sash brush</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Split Rail / Ranch Fence</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>0.40× (-60% Area)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>0.40× (-60% Area)</td>
                   <td style={{ padding: '12px 14px' }}>Consists only of round posts and 2 to 3 horizontal rails.</td>
                   <td style={{ padding: '12px 14px' }}>Hand stain mitt or thick 1&quot; nap roller</td>
                 </tr>
@@ -321,7 +321,7 @@ export default function FenceStainCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Average Cost per Unit</td>
                   <td style={{ padding: '12px 14px' }}>$40.00 to $55.00 per can</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>$150.00 to $210.00 per pail</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>$150.00 to $210.00 per pail</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Equivalent Cost per Gallon</td>
@@ -336,7 +336,7 @@ export default function FenceStainCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Application Convenience</td>
                   <td style={{ padding: '12px 14px' }}>Easy to carry; good for touch-up</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Ideal for 5-gal roller grids &amp; spray tubes</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Ideal for 5-gal roller grids &amp; spray tubes</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Color Consistency (Boxing)</td>
@@ -358,7 +358,7 @@ export default function FenceStainCalculatorPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Suburban Privacy Fence (150 Linear Feet)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>150 ft × 6 ft · Both Sides · Rough Cedar · 2 Coats</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>150 ft × 6 ft · Both Sides · Rough Cedar · 2 Coats</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Effective Stained Area: <strong>1,800.0 Sq Ft</strong></li>
                 <li>Raw Stain: <strong>18.20 Gallons</strong></li>
@@ -368,7 +368,7 @@ export default function FenceStainCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Board-on-Board Fence (200 Linear Feet)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>200 ft × 8 ft · Both Sides · 1.30× Overlap · Sprayer</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>200 ft × 8 ft · Both Sides · 1.30× Overlap · Sprayer</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Effective Stained Area: <strong>4,160.0 Sq Ft</strong></li>
                 <li>Raw Stain: <strong>49.06 Gallons</strong></li>
@@ -378,7 +378,7 @@ export default function FenceStainCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Garden Picket Fence (75 Linear Feet)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>75 ft × 4 ft · One Side · 0.80× Spaced · 1 Refresh Coat</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>75 ft × 4 ft · One Side · 0.80× Spaced · 1 Refresh Coat</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Effective Stained Area: <strong>240.0 Sq Ft</strong></li>
                 <li>Raw Stain: <strong>1.07 Gallons</strong></li>

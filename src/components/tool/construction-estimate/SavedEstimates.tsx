@@ -26,10 +26,10 @@ export default function SavedEstimates({ savedList, onLoad, onDelete }: SavedEst
         aria-expanded={isOpen}
       >
         <div className={styles.accordionTitleBlock}>
-          <h3 className={styles.sectionTitle}>
+          <h2 className={styles.sectionTitle}>
             Saved Estimates in Browser{' '}
             <span className={styles.savedCountBadge}>({savedList.length})</span>
-          </h3>
+          </h2>
           <p className={styles.sectionSubtitle}>
             Access previously saved estimates stored privately on this device.
           </p>

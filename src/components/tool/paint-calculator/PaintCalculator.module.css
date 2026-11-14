@@ -40,7 +40,7 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -48,7 +48,7 @@
 
 .modeButtonActive {
   background: #ffffff;
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -79,7 +79,7 @@
 
 .cardSubText {
   font-size: 0.85rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   margin: 0;
 }
 
@@ -92,7 +92,7 @@
 .presetChipLabel {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -115,7 +115,7 @@
 }
 
 .presetChip:hover {
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
   background: var(--color-primary-subtle, #e0f2fe);
 }
 
@@ -154,7 +154,7 @@
 }
 
 .roomNameInput:focus {
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
   background: #ffffff;
   outline: none;
 }
@@ -162,7 +162,7 @@
 .removeSmallButton {
   background: none;
   border: 1px solid #fecaca;
-  color: #ef4444;
+  color: #B91C1C;
   font-size: 0.75rem;
   font-weight: 600;
   cursor: pointer;
@@ -176,8 +176,8 @@
 
 .addRoomButton {
   background: #ffffff;
-  border: 1px dashed var(--color-primary, #0284c7);
-  color: var(--color-primary, #0284c7);
+  border: 1px dashed var(--color-primary, #0369A1);
+  color: var(--color-primary, #0369A1);
   padding: 0.625rem;
   border-radius: var(--radius-md, 8px);
   font-weight: 600;
@@ -204,7 +204,7 @@
 
 .fieldHelper {
   font-size: 0.75rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
 }
 
 .inputField,
@@ -221,7 +221,7 @@
 
 .inputField:focus,
 .selectField:focus {
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
   outline: 2px solid rgba(2, 132, 199, 0.2);
 }
 
@@ -271,7 +271,7 @@
 }
 
 .conflictActionButton {
-  background: var(--color-primary, #0284c7);
+  background: var(--color-primary, #0369A1);
   color: #ffffff;
   border: none;
   padding: 0.35rem 0.75rem;
@@ -300,13 +300,13 @@
 }
 
 .chip:hover {
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
 }
 
 .chipSelected {
-  background: var(--color-primary, #0284c7);
+  background: var(--color-primary, #0369A1);
   color: #ffffff;
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
 }
 
 .actionButtonGroup {
@@ -339,7 +339,7 @@
 }
 
 .primaryResultCard {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   color: #ffffff;
   border-radius: var(--radius-md, 8px);
   padding: 1.25rem 1.5rem;
@@ -404,12 +404,12 @@
 }
 
 .breakdownLabel {
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
 }
 
 .subtextInline {
   font-size: 0.8rem;
-  color: #94a3b8;
+  color: var(--muted);
 }
 
 .breakdownValue {
@@ -479,7 +479,7 @@
 
 .utilityButton:hover {
   background: var(--color-surface-hover, #f1f5f9);
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
 }
 
 .copiedMessage {

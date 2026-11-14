@@ -2,7 +2,7 @@
 
 .categoryTag {
   display: inline-block;
-  color: var(--brand-orange);
+  color: var(--brand-orange-text);
   font-size: 0.8125rem;
   font-weight: 700;
   text-transform: uppercase;

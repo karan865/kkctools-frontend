@@ -7,7 +7,7 @@
 .breadcrumbs {
   margin-bottom: 1.25rem;
   font-size: 0.875rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
 }
 
 .breadcrumbList {
@@ -21,12 +21,12 @@
 }
 
 .breadcrumbItem a {
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   text-decoration: none;
 }
 
 .breadcrumbItem a:hover {
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   text-decoration: underline;
 }
 
@@ -47,7 +47,7 @@
   display: inline-block;
   padding: 0.25rem 0.75rem;
   background: var(--color-primary-subtle, #e0f2fe);
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   border-radius: 9999px;
   font-size: 0.85rem;
   font-weight: 600;
@@ -64,7 +64,7 @@
 
 .dateVerified {
   font-size: 0.85rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   margin: 0 0 0.75rem 0;
   font-style: italic;
 }
@@ -121,13 +121,13 @@
 .formulaBox {
   background: var(--color-surface-subtle, #f8fafc);
   border: 1px solid var(--color-border, #e2e8f0);
-  border-left: 4px solid var(--color-primary, #0284c7);
+  border-left: 4px solid var(--color-primary, #0369A1);
   border-radius: 8px;
   padding: 1.25rem 1.5rem;
   margin: 1.5rem 0;
   font-family: var(--font-mono, monospace);
   font-size: 1rem;
-  color: #0369a1;
+  color: #075985;
   line-height: 1.6;
 }
 
@@ -186,7 +186,7 @@
 .methodologyCard h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: #0369a1;
+  color: #075985;
   margin-top: 0;
 }
 
@@ -250,13 +250,13 @@
 
 .relatedName {
   font-weight: 700;
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   margin-bottom: 0.35rem;
 }
 
 .relatedDesc {
   font-size: 0.875rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   line-height: 1.45;
 }
 

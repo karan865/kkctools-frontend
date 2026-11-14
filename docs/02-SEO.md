@@ -2,7 +2,7 @@
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (45 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (47 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -15,7 +15,8 @@ Source of truth: `src/lib/routes.ts` (45 routes) and `src/app/`. All pages below
 | Calculators (27) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
-| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
+| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
+| HTML site map | `/site-map/` | WebPage, BreadcrumbList | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
 | System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
 
 Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
@@ -66,3 +67,6 @@ Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.
 - **Hosting headers**: `public/_headers` (CSP, HSTS, nosniff, immutable cache for `/_next/static/*`) — served by Cloudflare Static Assets.
 - **JSON-LD**: Validated Schema.org markup matching on-page content.
 
+## External links (2026-11-15)
+- External source links in "How We Calculate" and in guide Markdown open in a new tab with `rel="noopener noreferrer"` (`HowWeCalculate.tsx`, `renderer.link` in `src/lib/guides.ts`).
+- Commercial/manufacturer links that are not citations use `rel="nofollow noopener noreferrer"` (e.g. the Quikrete link on `/concrete-calculator/`).

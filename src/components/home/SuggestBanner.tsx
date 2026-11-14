@@ -17,7 +17,7 @@ export default function SuggestBanner() {
 
           <div className={styles.actionCol}>
             <a
-              href="mailto:contact@kkctools.com?subject=New%20Tool%20Suggestion%20for%20KKC%20Tools"
+              href="mailto:kkchub1@gmail.com?subject=New%20Tool%20Suggestion%20for%20KKC%20Tools"
               className={styles.ctaButton}
             >
               <span>Suggest a Tool</span>

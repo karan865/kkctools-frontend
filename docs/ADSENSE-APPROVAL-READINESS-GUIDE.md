@@ -41,7 +41,7 @@ Humne poore app ke sabhi 27 HTML pages aur code ko Google AdSense Publisher Poli
 | **Privacy Policy (`/privacy-policy/`)** | Live & Indexed | 664 words | ✅ **Pass** (Contains dedicated AdSense cookie & CMP clauses) |
 | **Terms of Service (`/terms/`)** | Live & Indexed | 518 words | ✅ **Pass** (Clear usage rules, disclaimer of liability) |
 | **About Page (`/about/`)** | Live & Indexed | 371 words | ✅ **Pass** (Explains mission, client-side philosophy, team) |
-| **Contact Page (`/contact/`)** | Live & Indexed | 186 words | ✅ **Pass** (Real contact email `contact@kkctools.com`) |
+| **Contact Page (`/contact/`)** | Live & Indexed | 186 words | ✅ **Pass** (Real contact email `kkchub1@gmail.com`) |
 
 ---
 
@@ -52,7 +52,7 @@ Humne poore app ke sabhi 27 HTML pages aur code ko Google AdSense Publisher Poli
   - `Privacy Policy`: Isme Google AdSense cookies, personalized ads opt-out links (`aboutads.info`, `google.com/settings/ads`), aur EEA/UK CMP consent ka zikr pehle se hai.
   - `Terms of Service`: Saaf shabdon me rules aur liability disclaimers hain.
   - `About Us`: Platform ka purpose aur client-side privacy philosophy batata hai.
-  - `Contact Us`: Real email address (`contact@kkctools.com`) transparently diya hua hai.
+  - `Contact Us`: Real email address (`kkchub1@gmail.com`) transparently diya hua hai.
 - [x] **AdSense Policy Compliant Ad Placement**:
   - `src/components/ads/AdSlot.tsx` inert hai aur iska default `minHeight: 280px` hai taaki ads aane par **Cumulative Layout Shift (CLS)** zero rahe.
   - Kisi bhi calculator ke input buttons ke upar ya andar ad nahi rakha gaya hai (Accidental clicks policy strictly followed).

@@ -33,9 +33,8 @@ export default function ToolCard({
   if (isSuggest) {
     return (
       <a
-        href="mailto:contact@kkctools.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
+        href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
         className={`${styles.card} ${styles.cardSuggest}`}
-        aria-label="Suggest a new tool or calculator"
       >
         <div className={styles.tileWrapper}>
           <div className={`${styles.iconTile} ${styles.suggestTile}`}>
@@ -58,7 +57,6 @@ export default function ToolCard({
     <Link
       href={slug}
       className={`${styles.card} ${catClass}`}
-      aria-label={`${name} – ${description}`}
     >
       <div className={styles.tileWrapper}>
         <div className={styles.iconTile}>

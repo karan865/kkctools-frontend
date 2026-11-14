@@ -311,7 +311,7 @@ export default function PaverSandCalculator() {
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Bedding Sand Bulk Volume</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.beddingCubicYards} Cubic Yards
               </span>
             </div>
@@ -331,7 +331,7 @@ export default function PaverSandCalculator() {
                 <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: '#0F172A' }}>
                   Polymeric Joint Sand (50 lb Bags)
                 </span>
-                <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800, fontSize: '1.05rem' }}>
+                <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800, fontSize: '1.05rem' }}>
                   {results.jointSandBags50Lb} Bags
                 </span>
               </div>

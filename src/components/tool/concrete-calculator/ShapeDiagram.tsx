@@ -12,7 +12,7 @@ const C = {
   front: '#CBD5E1',
   side: '#94A3B8',
   edge: '#475569',
-  dim: '#0369A1',
+  dim: '#075985',
   soil: '#F3E8D8',
   soilLine: '#D6C3A5',
   wood: '#D97706',

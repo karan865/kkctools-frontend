@@ -584,7 +584,7 @@ export default function BoardBattenCalculator() {
                         <th scope="col">Battens</th>
                         <th scope="col">Gap</th>
                         <th scope="col">On center</th>
-                        <th scope="col"></th>
+                        <th scope="col"><span className="sr-only">Action</span></th>
                       </tr>
                     </thead>
                     <tbody>

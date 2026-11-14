@@ -429,7 +429,7 @@ export default function TileCalculatorPage() {
             <h2>Worked Examples</h2>
 
             <div className={styles.exampleCard}>
-              <h4>Worked Example 1: Kitchen Backsplash with 3&quot; × 6&quot; Subway Tile</h4>
+              <h3>Worked Example 1: Kitchen Backsplash with 3&quot; × 6&quot; Subway Tile</h3>
               <p>
                 <strong>Room measurements:</strong> A countertop wall run measuring 14 feet long by 1.5 feet high between the counter and upper cabinets equals 21 net square feet.
               </p>
@@ -439,7 +439,7 @@ export default function TileCalculatorPage() {
             </div>
 
             <div className={styles.exampleCard}>
-              <h4>Worked Example 2: Walk-In Shower Walls with 12&quot; × 24&quot; Large-Format Tile</h4>
+              <h3>Worked Example 2: Walk-In Shower Walls with 12&quot; × 24&quot; Large-Format Tile</h3>
               <p>
                 <strong>Room measurements:</strong> Two side walls measuring 3 ft × 8 ft (24 sq ft each = 48 sq ft) plus one rear wall measuring 5 ft × 8 ft (40 sq ft) give 88 gross square feet. Deducting a 1 ft × 2 ft built-in shower niche (2 sq ft) leaves 86 net square feet.
               </p>

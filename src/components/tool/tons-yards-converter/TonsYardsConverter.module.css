@@ -50,7 +50,7 @@
   justify-content: center;
   width: 26px;
   height: 26px;
-  background-color: #0284C7;
+  background-color: #0369A1;
   color: #FFFFFF;
   font-size: 0.85rem;
   font-weight: 700;
@@ -96,7 +96,7 @@
 
 .input:focus {
   outline: none;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .select {
@@ -113,7 +113,7 @@
 
 .select:focus {
   outline: none;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .directionToggle {
@@ -137,15 +137,15 @@
 }
 
 .dirBtnActive {
-  background: #0284C7;
+  background: #0369A1;
   color: #FFFFFF;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .helperText {
   display: block;
   font-size: 0.8rem;
-  color: #64748B;
+  color: var(--muted);
   margin-top: 4px;
   line-height: 1.4;
 }
@@ -176,9 +176,9 @@
 }
 
 .pillButtonActive {
-  background: #0284C7;
+  background: #0369A1;
   color: #FFFFFF;
-  border-color: #0284C7;
+  border-color: #0369A1;
 }
 
 .toggleRow {
@@ -201,13 +201,13 @@
 
 .toggleButtonActive {
   background: #E0F2FE;
-  color: #0369A1;
-  border-color: #0284C7;
+  color: #075985;
+  border-color: #0369A1;
 }
 
-/* Results Hero Card - using #0369A1 dark blue base with high contrast (>= 5.9:1) */
+/* Results Hero Card - using #075985 dark blue base with high contrast (>= 5.9:1) */
 .heroCard {
-  background: #0369A1;
+  background: #075985;
   color: #FFFFFF;
   border-radius: 12px;
   padding: 24px;
@@ -280,14 +280,14 @@
 }
 
 .costHighlight {
-  color: #059669;
+  color: #065F46;
   font-weight: 800;
   font-size: 1.15rem;
 }
 
 .disclaimerNote {
   font-size: 0.8rem;
-  color: #64748B;
+  color: var(--muted);
   line-height: 1.5;
   margin-top: 14px;
   padding-top: 12px;

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T19:09:03.924Z
+Generated on: 2026-11-14T20:08:38.712Z
 
 
 
@@ -11,12 +11,12 @@ Generated on: 2026-11-14T19:09:03.924Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-14
+- **Last Updated:** 2026-11-15
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 263 vitest tests passing (26 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-14, evidence in `docs/evidence/`).
+- **Current Phase:** AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 392 vitest tests passing (32 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,24 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase AR — AdSense-readiness report check (report `docs/Adsence Approval reports/Adsence aprooval - report.pdf`, 2026-11-15)
+The report came from an external scanner. Each item was checked on the live site (curl, local Lighthouse 12.6.0) and in the code. Items the scanner got wrong are recorded, not "fixed".
+- [x] AR-01 "Google Analytics detected" — **false**. The live HTML has no GA/GTM. The script it saw is Cloudflare Web Analytics (`static.cloudflareinsights.com/beacon.min.js`), injected by Cloudflare; our CSP blocks it (console error). *(Evidence: curl of live home page + Lighthouse `errors-in-console`)*
+- [x] AR-02 Title `&amp;` warning — not a fault; `&` is correctly escaped in HTML. *(Evidence: `out/index.html` `<title>`)*
+- [x] AR-03 Speed — mobile 94 / desktop 100 on home, CLS 0, TBT 80 ms; meets the report's thresholds. *(Evidence: local Lighthouse runs, scratchpad JSON)*
+- [x] AR-04 Broken links, font size (17 px body), images (no `<img>` without alt — no `<img>` at all), breadcrumbs, footer navigation — already fine. *(Evidence: `npm run seo:audit` 0 errors; Lighthouse SEO 100)*
+- [x] AR-05 Disclaimer page added `/disclaimer/` (+ footer, sitemap, llms.txt). *(Evidence: `out/disclaimer/index.html`)*
+- [x] AR-06 HTML site map added `/site-map/`. *(Evidence: `out/site-map/index.html`; `out/sitemap.xml` has 47 `<loc>`)*
+- [x] AR-07 Terms updated (calculators/templates, link to Disclaimer, 2026-11-15). *(Evidence: `src/app/terms/page.tsx`)*
+- [x] AR-08 External links: `noopener noreferrer` + new tab for citations; `nofollow` on commercial link. *(Evidence: `HowWeCalculate.tsx`, `guides.ts` renderer, concrete page)*
+- [x] AR-09 Accessibility: contrast tokens and hardcoded colours, undefined `--color-text-muted` fallbacks, input/select labels, segmented-button ARIA, heading order, empty table header, link underlines, search ARIA, card labels, guide checkboxes. *(Evidence: local Lighthouse 12.6.0 accessibility sweep of all 47 built pages on 2026-11-15 → 47/47 score 100, zero failed audits; before the fixes 14 pages scored 87–98)*
+- [x] AR-10 `npm run verify` all steps passed after the fixes. *(Evidence: 2026-11-15 run, `docs/evidence/`)*
+- [ ] AR-11 `TODO(owner)`: disable Cloudflare Web Analytics (steps in `05-DEPLOY-AND-LAUNCH.md` §3 6a).
+- [ ] AR-12 `TODO(owner)`: redeploy — live site is an old build (shows 24 tools; the new tools, Disclaimer and Site Map are missing).
+- [x] AR-13 Owner identity: Karan Kumar (founder & developer; senior software engineer), kkchub1@gmail.com, Instagram — on `/about/` and as a `Person` node linked from Organization `founder`. `kkchub1@gmail.com` is now the site-wide contact (owner said `contact@kkctools.com` did not exist). *(Evidence: `out/about/index.html`, JSON-LD graph in `out/index.html`)*
+- [ ] AR-14 `TODO(owner)`: request indexing in Search Console for the new pages after the redeploy (P7-08); the domain is about a week old, so wait for pages to be indexed and some traffic before applying (P7-10).
+- Note: local-only console 404 for `…/__next.<route>.__PAGE__.txt` comes from the Windows build output layout; the same URL returns 200 on the live Cloudflare build, so no change is needed.
+
 ### Phase WG — Tool #27: Wire Gauge Calculator (Batch 2 Tier 1 #8, built 2026-11-15, safety-sensitive)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/08_Wire_Gauge_Calculator_Competitor_Analysis.md` (primary `wire gauge calculator`, US 5,400 / KD 11; 4 tool pages with AS ≤ 11 rank).
 - [x] WG-1 Engine `src/lib/wire-gauge-engine.ts` + 31 tests (AWG geometry, resistance vs NEC Table 8 within 1.5 %, IEC 60228 metric, load/drop formulas, 310.16 ampacity, ambient/bundling factors, terminal cap, 240.4(D), sizing cases incl. continuous, aluminium, metric, 12 V DC, lookup). *(Evidence: `npx vitest run` → 392 passed)*
@@ -428,10 +446,11 @@ No competitor text was copied.
 |---|---|---|---|
 | `src/config/site.ts` | `SITE_NAME = 'KKC Tools'` | Site branding | Resolved (KKC Tools) |
 | `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
-| `src/config/site.ts` | `OWNER_EMAIL = 'contact@kkctools.com'` | Contact link mailto | Set to contact@kkctools.com |
-| `src/config/site.ts` | `OWNER_NAME = 'KKC Tools Team'` | About page owner identity | Set to KKC Tools Team |
-| `src/app/about/page.tsx` ("Who runs KKC Tools") | `TODO(owner)` | Real owner/author name, role, relevant background (SEO audit H4, E-E-A-T) | **Open** — do not invent |
-| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `sameAs` (real profile URLs) and `founder` (real person) | **Open** — do not invent |
+| `src/config/site.ts` | `OWNER_EMAIL = 'kkchub1@gmail.com'` | Site-wide contact mailto | Resolved 2026-11-15 (owner: `contact@kkctools.com` was not a real mailbox) |
+| `src/config/site.ts` | `FOUNDER` (name, role, email, Instagram) | About page owner identity + Person schema | Resolved 2026-11-15 (Karan Kumar, owner-supplied) |
+| `src/app/about/page.tsx` ("Who runs KKC Tools") | — | Real owner name, role, contact (SEO audit H4, E-E-A-T) | Resolved 2026-11-15. Optional: owner may add real background/experience later — do not invent |
+| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles |
+| Cloudflare dashboard | `TODO(owner)` | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11 | **Open** |
 
 ---
 
@@ -475,7 +494,7 @@ No competitor text was copied.
 ## 5. Known Issues / Decisions Log
 
 - **Decision (2026-11-14):** Deploy to Cloudflare as static assets (`wrangler.jsonc` → `out/`), not OpenNext. OpenNext needs `output: 'standalone'` and a non-allowed dependency; the site is 100% static. Steps in `05-DEPLOY-AND-LAUNCH.md`.
-- **Known issue (2026-11-14):** 4 token pairs are below 4.5:1 contrast for small body text: light `--muted` on `--bg` 3.8, light `--accent-ink` on `--accent` 4.1, dark `--muted` on `--bg` 4.1 and on `--surface` 3.8. Details in `03-PAGES-AND-DESIGN.md` §3. Not yet fixed in code.
+- **Resolved (2026-11-15):** the 4 token pairs that were below 4.5:1 (light `--muted` on `--bg`, white on `--accent`, dark `--muted` on `--bg`/`--surface`) were darkened/lightened; all pairs now pass. Values in `03-PAGES-AND-DESIGN.md` §3.
 
 - **Decision (2026-11-13):** Retitled `/cubic-yard-calculator/` to “Cubic Yard Calculator – Soil, Gravel, Mulch & More” so it no longer competes with the new `/concrete-calculator/`. Semrush shows `cubic yard calculator` and `concrete volume calculator` have different top-10 results, so each page owns one intent. The cubic-yard page body still contains concrete sections; trim them later if both pages are seen competing in Search Console.
 
@@ -583,7 +602,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (45 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (47 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -596,7 +615,8 @@ Source of truth: `src/lib/routes.ts` (45 routes) and `src/app/`. All pages below
 | Calculators (27) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
-| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
+| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
+| HTML site map | `/site-map/` | WebPage, BreadcrumbList | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
 | System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
 
 Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
@@ -647,6 +667,9 @@ Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.
 - **Hosting headers**: `public/_headers` (CSP, HSTS, nosniff, immutable cache for `/_next/static/*`) — served by Cloudflare Static Assets.
 - **JSON-LD**: Validated Schema.org markup matching on-page content.
 
+## External links (2026-11-15)
+- External source links in "How We Calculate" and in guide Markdown open in a new tab with `rel="noopener noreferrer"` (`HowWeCalculate.tsx`, `renderer.link` in `src/lib/guides.ts`).
+- Commercial/manufacturer links that are not citations use `rel="nofollow noopener noreferrer"` (e.g. the Quikrete link on `/concrete-calculator/`).
 
 
 
@@ -676,37 +699,52 @@ The original "Stage Lights" purple palette (Phase 1) has been replaced.
 | `--surface` | `#FFFFFF` | `#11151F` |
 | `--ink` | `#0F172A` | `#F1F5F9` |
 | `--ink-2` | `#334155` | `#94A3B8` |
-| `--muted` | `#64748B` | `#64748B` |
-| `--accent` | `#0284C7` | `#38BDF8` |
+| `--muted` | `#556274` | `#8291A6` |
+| `--accent` | `#0369A1` (hover `#075985`) | `#38BDF8` |
 | `--accent-ink` | `#FFFFFF` | `#090C12` |
 | `--brand-orange` | `#C2410C` | `#F97316` |
+| `--brand-orange-text` | `#9A3412` | `#FB923C` |
 
 Other tokens: radii (`--radius-s` 8, `-m` 14, `-l` 18, `-card` 16, `-pill`), shadows (`-s/-m/-l/-card/-pop`), spacing `--space-1…9` (4–96 px), `--container` 1200 px, `--prose` 68ch.
 
 ---
 
-## 3. Contrast Verification (measured 2026-11-14 with the WCAG 2.x formula on the values above)
+## 3. Contrast Verification (re-measured 2026-11-15 with the WCAG 2.x formula after the AdSense-report fixes)
 
-Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders.
+Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders. All pairs below now pass for small body text.
 
 | Mode | Text | Background | Ratio | Body text |
 |---|---|---|---|---|
 | Light | `--ink` | `--bg` | 14.1:1 | PASS ✅ |
 | Light | `--ink` | `--surface` | 17.9:1 | PASS ✅ |
 | Light | `--ink-2` | `--surface` | 10.4:1 | PASS ✅ |
-| Light | `--muted` | `--surface` | 4.8:1 | PASS ✅ |
-| Light | `--muted` | `--bg` | 3.8:1 | ⚠️ large text only |
-| Light | `--accent-ink` | `--accent` | 4.1:1 | ⚠️ large/bold text only |
+| Light | `--muted` `#556274` | `--surface` | 6.2:1 | PASS ✅ |
+| Light | `--muted` `#556274` | `--bg` | 4.9:1 | PASS ✅ (was 3.8 with `#64748B`) |
+| Light | `--accent-ink` (white) | `--accent` `#0369A1` | 5.9:1 | PASS ✅ (was 4.1 with `#0284C7`) |
+| Light | `--accent` `#0369A1` | `--bg` | 4.7:1 | PASS ✅ |
+| Light | `--success` `#166534` | `--bg` | 5.6:1 | PASS ✅ |
 | Light | white | `--brand-orange` | 5.2:1 | PASS ✅ |
+| Light | `--brand-orange-text` `#9A3412` | `--bg` | 6.0:1+ | PASS ✅ (use this, not `--brand-orange`, for orange text) |
 | Dark | `--ink` | `--bg` | 17.9:1 | PASS ✅ |
 | Dark | `--ink` | `--surface` | 16.7:1 | PASS ✅ |
 | Dark | `--ink-2` | `--surface` | 7.1:1 | PASS ✅ |
-| Dark | `--muted` | `--bg` | 4.1:1 | ⚠️ large text only |
-| Dark | `--muted` | `--surface` | 3.8:1 | ⚠️ large text only |
+| Dark | `--muted` `#8291A6` | `--bg` | 6.1:1 | PASS ✅ (was 4.1) |
+| Dark | `--muted` `#8291A6` | `--surface` | 5.7:1 | PASS ✅ (was 3.8) |
 | Dark | `--accent-ink` | `--accent` | 9.1:1 | PASS ✅ |
 | Dark | `--bg` | `--brand-orange` | 7.0:1 | PASS ✅ |
+| Footer | `.copyright` `#94A3B8` | footer `#17213A` | 6.2:1 | PASS ✅ |
 
-**Open issue:** four pairs are below 4.5:1. They are fine for large or bold text but not for small body text. Either use them only for large/bold text, or darken `--muted` (light on `--bg`, and dark mode) and `--accent` (light). Logged in `00-PROJECT-STATUS.md` §5. Not yet changed in code.
+**Hardcoded colours (2026-11-15):** older tool components used fixed hex values instead of tokens. Text uses of `#64748B` were switched to `var(--muted)` (52 places). Site-wide, `#0284C7` → `#0369A1`, old `#0369A1` hover → `#075985`, and `#059669` → `#065F46` (73 files; `tokens.css` excluded). New code must use tokens, not hex values.
+
+**Links in text (WCAG 1.4.1):** links inside paragraphs and list items in articles/prose, and unclassed links in any `main p`, are underlined (`globals.css`), so they do not rely on colour alone.
+
+**Form labels:** every tool input must have a `<label htmlFor>` or an `aria-label`. On 2026-11-15, 54 inputs whose visible `<label>` had no `htmlFor` got a matching `aria-label`.
+
+**Undefined variables:** many older tool CSS files used `var(--color-text-muted, #64748b)`; `--color-text-muted` is not defined, so the low-contrast fallback showed. These now use `var(--muted)`. Light-grey `#94A3B8` text and red `#EF4444` text in tool CSS were changed to `var(--muted)` and `#B91C1C`.
+
+**Other a11y rules:** segmented buttons use `aria-pressed` (not `aria-checked` without a role, nor `role="tablist"` without tabs); headings go h1 → h2 → h3 without skips; empty table header cells get `<span className="sr-only">`; `.sr-only` lives in `globals.css`.
+
+**Result (2026-11-15):** Lighthouse 12.6.0 accessibility = 100 on all 47 built pages.
 
 
 
@@ -806,8 +844,12 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 3. Submit `https://www.kkctools.com/sitemap.xml`.
 4. Request indexing for Home, `/tools/`, and the main tool pages.
 5. Run PageSpeed Insights on live URLs; save results in `docs/evidence/`.
-6. Confirm the `_headers` (CSP, HSTS) are served by Cloudflare on the live site.
+6. Confirm the `_headers` (CSP, HSTS) are served by Cloudflare on the live site. *(Checked 2026-11-15: CSP, HSTS and the other headers are served.)*
+6a. **Turn off Cloudflare Web Analytics** (`TODO(owner)`): Dashboard → Workers & Pages → `kkctools-frontend` → Metrics / Settings → Web Analytics → disable (also check the zone under Analytics & Logs → Web Analytics). Cloudflare injects `static.cloudflareinsights.com/beacon.min.js` into every page; our CSP blocks it, which shows a console error (Lighthouse "Best Practices"), and it would break the "no third-party scripts until Phase 7" rule. An external AdSense-readiness scanner mistook this beacon for Google Analytics.
+6b. Redeploy after every merge. On 2026-11-15 the live site was still an older build (home page said "Search 24 tools"; the newest 5 tools, Disclaimer and Site Map were missing).
 7. After indexing and steady traffic, apply to Google AdSense; then set up a certified CMP for EEA/UK and add `ads.txt`.
+   - Cookie banner: not needed today, because the site sets no cookies and loads no third-party scripts (theme choice is `localStorage` only). When ads are switched on, use Google's own certified consent message (AdSense → Privacy & messaging), not a custom banner.
+   - Before applying: Disclaimer (`/disclaimer/`), HTML site map (`/site-map/`), Privacy, Terms, About and Contact pages are all live in the build and linked from the footer.
 
 
 
@@ -820,6 +862,25 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [AdSense-readiness report — verified and fixed] — 2026-11-15
+- Checked every item of `docs/Adsence Approval reports/Adsence aprooval - report.pdf` against the live site and the code. Results and the owner list are in `00-PROJECT-STATUS.md` → Phase AR.
+- **New pages:** `/disclaimer/` (estimates not advice, electrical/structural safety, prices, corrections, generated names, external links, advertising/affiliates, no affiliation, contact) and `/site-map/` (HTML site map built from the tool catalog and route list). Both are in the footer, `sitemap.xml` and `llms.txt` (47 routes).
+- **Terms:** section 2 now covers calculators and templates and links to the Disclaimer; last updated 2026-11-15.
+- **Accessibility:**
+  - Darker `--muted`, `--accent` and `--success` tokens, plus the footer copyright colour; all token pairs now ≥ 4.5:1.
+  - Older tool components used hardcoded colours. 52 text uses of `#64748B` now use `var(--muted)`. Across 73 files, `#0284C7` → `#0369A1`, `#0369A1` hover → `#075985` and `#059669` → `#065F46`.
+  - 54 tool inputs whose `<label>` had no `htmlFor` now have an `aria-label`.
+  - Underlines added to links in running text.
+  - Guide task lists no longer render unlabelled disabled checkboxes.
+  - Second pass after a full sweep: undefined `--color-text-muted` fallbacks → `var(--muted)`; grey/red text in tool CSS; new `--brand-orange-text` token for orange labels; unit `<select>`s named; `aria-checked` → `aria-pressed` on segmented buttons; Rafter `tablist` → `group`; heading order on Construction Estimate, Square Footage and Tile; empty header cell on Board & Batten.
+  - Lighthouse accessibility: 100 on all 47 built pages (was 87–98 on 14 pages).
+  - Fixed home search ARIA (`aria-controls` only while results exist; `aria-autocomplete`), and removed tool-card `aria-label`s that did not match the visible text.
+- **Links:** external source links use `rel="noopener noreferrer"` and open in a new tab (How We Calculate, guide Markdown); the Quikrete link is `nofollow`.
+- **Fonts:** Bricolage Grotesque uses `display: 'optional'` to avoid a late swap moving LCP.
+- **Owner identity:** About → "Who runs KKC Tools" now names Karan Kumar (founder & developer) with email and Instagram; JSON-LD has a `Person` node (`/#founder`, occupation: senior software engineer) linked from the Organization's `founder`.
+- **Contact email:** `contact@kkctools.com` was not a real mailbox (owner); every mailto, the Organization schema and `llms.txt` now use `kkchub1@gmail.com`.
+- `npm run verify` passed after the fixes.
 
 ### [Tool #27 — Wire Gauge Calculator] — 2026-11-15
 - New page `/wire-gauge-calculator/` (Batch 2 Tier 1 #8, safety-sensitive), built from `08_Wire_Gauge_Calculator_Competitor_Analysis.md`.
@@ -991,14 +1052,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T19:08:29.693Z
+Run Date: 2026-11-14T20:08:38.222Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
 |---|---|---|---|---|
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
-| `/about/` | About KKC Tools – How Our Calculators Wo | 413 | About KKC Tools | PASS |
+| `/about/` | About KKC Tools – How Our Calculators Wo | 475 | About KKC Tools | PASS |
 | `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2385 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 991 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1059 | Heavy Metal Band Name Generato | PASS |
@@ -1015,11 +1076,12 @@ Status: PASSED ✅
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 204 | Contact KKC Tools | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
+| `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1453 | Fill Dirt Calculator | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
-| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
+| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
 | `/` | KKC Tools – Free Construction Calculator | 1389 | Free Construction Calculators  | PASS |
@@ -1035,10 +1097,11 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 575 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
-| `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
+| `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Free Tools – Construction Calculator | 643 | All Free Tools: Construction C | PASS |
@@ -1071,6 +1134,7 @@ concrete-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-yard-calculator/index.html
+disclaimer/index.html
 drywall-calculator/index.html
 fence-stain-calculator/index.html
 fill-dirt-calculator/index.html
@@ -1091,6 +1155,7 @@ rafter-calculator/index.html
 rebar-calculator/index.html
 sand-calculator/index.html
 shingle-calculator/index.html
+site-map/index.html
 square-footage-calculator/index.html
 stone-calculator/index.html
 stud-calculator/index.html
@@ -1138,6 +1203,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+085eee7 wire gauge calculator-completed
 08bee22 Add Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7)
 3d2e579 shingle roof calculator- completed
 1278ed3 completed page shingle roof calculator
@@ -1157,7 +1223,6 @@ c08b669 reinforcement steel calculator
 9e9c201 refactor(ux): place calculators immediately below title on asphalt and construction estimate pages
 ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep guide with picket style multipliers and porosity math
 2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
-8f044dd feat(paver-base): upgrade tool #17 spec and implement 2800+ word deep guide with ICPI compaction standards
 ```
 
 
@@ -1173,18 +1238,18 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 26ms
+✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.2s
+✓ Compiled successfully in 4.3s
   Running TypeScript ...
-  Finished TypeScript in 3.7s ...
+  Finished TypeScript in 7.7s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/62) ...
-  Generating static pages using 15 workers (15/62) 
-  Generating static pages using 15 workers (30/62) 
-  Generating static pages using 15 workers (46/62) 
-✓ Generating static pages using 15 workers (62/62) in 3.2s
+  Generating static pages using 15 workers (0/64) ...
+  Generating static pages using 15 workers (16/64) 
+  Generating static pages using 15 workers (32/64) 
+  Generating static pages using 15 workers (48/64) 
+✓ Generating static pages using 15 workers (64/64) in 2.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1211,6 +1276,7 @@ Route (app)
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
 ├ ○ /cubic-yard-calculator
+├ ○ /disclaimer
 ├ ○ /drywall-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
@@ -1237,6 +1303,7 @@ Route (app)
 ├ ○ /robots.txt
 ├ ○ /sand-calculator
 ├ ○ /shingle-calculator
+├ ○ /site-map
 ├ ○ /sitemap.xml
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
@@ -1290,18 +1357,6 @@ Route (app)
 D:\1_programmins\5.kkctools\src\app\guides\page.tsx
   12:74  warning  'LD_ORG_ID' is defined but never used  @typescript-eslint/no-unused-vars
 
-D:\1_programmins\5.kkctools\src\components\tool\asphalt-calculator\AsphaltCalculator.tsx
-  292:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  300:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  311:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  319:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-
-D:\1_programmins\5.kkctools\src\components\tool\cubic-yard-calculator\CubicYardCalculator.tsx
-  280:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  288:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  299:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-  307:11  warning  The attribute aria-checked is not supported by the role button. This role is implicit on the element button  jsx-a11y/role-supports-aria-props
-
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
    9:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
   24:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
@@ -1320,7 +1375,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 19 problems (0 errors, 19 warnings)
+✖ 11 problems (0 errors, 11 warnings)
 
 
 ```
@@ -1332,7 +1387,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 48 HTML files in out/...
+Auditing 50 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1351,8 +1406,8 @@ Report written to docs/seo-audit-report.md
 
  Test Files  32 passed (32)
       Tests  392 passed (392)
-   Start at  00:37:54
-   Duration  1.73s (transform 5.77s, setup 0ms, import 7.61s, tests 582ms, environment 20ms)
+   Start at  01:38:04
+   Duration  1.87s (transform 5.47s, setup 0ms, import 7.31s, tests 681ms, environment 39ms)
 
 
 ```

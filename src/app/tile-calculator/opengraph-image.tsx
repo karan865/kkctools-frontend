@@ -32,7 +32,7 @@ export default async function Image() {
           }}
         >
           <div style={{ width: '12px', height: '40px', backgroundColor: '#38BDF8', borderRadius: '6px' }} />
-          <div style={{ width: '12px', height: '64px', backgroundColor: '#0284C7', borderRadius: '6px' }} />
+          <div style={{ width: '12px', height: '64px', backgroundColor: '#0369A1', borderRadius: '6px' }} />
           <div style={{ width: '12px', height: '48px', backgroundColor: '#38BDF8', borderRadius: '6px' }} />
           <div style={{ width: '12px', height: '28px', backgroundColor: '#FBBF24', borderRadius: '6px' }} />
           <span

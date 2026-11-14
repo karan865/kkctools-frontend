@@ -261,14 +261,14 @@ export default function CompostCalculator() {
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Total Volume in Cubic Feet</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.volumeCuFt} ft³
               </span>
             </div>
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Bulk Cubic Yards to Order</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.volumeCubicYards} Cubic Yards
               </span>
             </div>

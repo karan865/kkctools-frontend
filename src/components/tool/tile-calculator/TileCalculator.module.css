@@ -40,7 +40,7 @@
   padding: 0.5rem 0.75rem;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -48,7 +48,7 @@
 
 .projectPillActive {
   background: #ffffff;
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -67,7 +67,7 @@
   padding: 0.4rem 0.75rem;
   font-size: 0.825rem;
   font-weight: 600;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   border-radius: 6px;
   cursor: pointer;
   transition: all 0.15s ease;
@@ -75,7 +75,7 @@
 
 .modeButtonActive {
   background: #ffffff;
-  color: var(--color-primary, #0284c7);
+  color: var(--color-primary, #0369A1);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -106,7 +106,7 @@
 
 .cardSubText {
   font-size: 0.85rem;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   margin: 0;
 }
 
@@ -136,7 +136,7 @@
 .areaBadgeAdd {
   font-size: 0.75rem;
   font-weight: 700;
-  color: #0369a1;
+  color: #075985;
   background: #e0f2fe;
   padding: 0.15rem 0.5rem;
   border-radius: 4px;
@@ -154,7 +154,7 @@
 .areaDeleteBtn {
   background: none;
   border: none;
-  color: #94a3b8;
+  color: var(--muted);
   cursor: pointer;
   font-size: 0.8rem;
   padding: 0.2rem 0.5rem;
@@ -187,7 +187,7 @@
 .inputLabel {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
 }
 
 .inputField,
@@ -205,7 +205,7 @@
 .inputField:focus,
 .selectField:focus {
   outline: none;
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
   box-shadow: 0 0 0 2px rgba(2, 132, 199, 0.15);
 }
 
@@ -217,8 +217,8 @@
 
 .btnAddArea {
   background: #ffffff;
-  border: 1px dashed var(--color-primary, #0284c7);
-  color: var(--color-primary, #0284c7);
+  border: 1px dashed var(--color-primary, #0369A1);
+  color: var(--color-primary, #0369A1);
   font-weight: 600;
   font-size: 0.85rem;
   padding: 0.5rem 0.85rem;
@@ -234,7 +234,7 @@
 .btnSubArea {
   background: #ffffff;
   border: 1px dashed #ef4444;
-  color: #ef4444;
+  color: #B91C1C;
   font-weight: 600;
   font-size: 0.85rem;
   padding: 0.5rem 0.85rem;
@@ -267,18 +267,18 @@
 }
 
 .pillBtn:hover {
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
 }
 
 .pillBtnActive {
-  background: var(--color-primary, #0284c7);
+  background: var(--color-primary, #0369A1);
   color: #ffffff;
-  border-color: var(--color-primary, #0284c7);
+  border-color: var(--color-primary, #0369A1);
 }
 
 .hintBanner {
   background: #eff6ff;
-  border-left: 3px solid #0284c7;
+  border-left: 3px solid #0369A1;
   padding: 0.6rem 0.85rem;
   border-radius: 0 6px 6px 0;
   font-size: 0.825rem;
@@ -293,7 +293,7 @@
 }
 
 .heroCard {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369A1 0%, #075985 100%);
   color: #ffffff;
   border-radius: var(--radius-md, 8px);
   padding: 1.5rem;
@@ -349,7 +349,7 @@
 }
 
 .breakdownKey {
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
 }
 
 .breakdownVal {
@@ -402,7 +402,7 @@
 .benchmarkTitle {
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   text-transform: uppercase;
 }
 
@@ -430,7 +430,7 @@
 
 .btnActionCopy {
   flex: 2;
-  background: var(--color-primary, #0284c7);
+  background: var(--color-primary, #0369A1);
   color: #ffffff;
   border: none;
   font-weight: 700;
@@ -443,14 +443,14 @@
 }
 
 .btnActionCopy:hover {
-  background: #0369a1;
+  background: #075985;
 }
 
 .btnActionReset {
   flex: 1;
   background: #ffffff;
   border: 1px solid var(--color-border, #cbd5e1);
-  color: var(--color-text-muted, #64748b);
+  color: var(--muted);
   font-weight: 600;
   font-size: 0.875rem;
   padding: 0.75rem;
@@ -467,7 +467,7 @@
 
 .disclaimerText {
   font-size: 0.75rem;
-  color: #94a3b8;
+  color: var(--muted);
   line-height: 1.4;
   margin: 0;
 }

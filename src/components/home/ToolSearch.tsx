@@ -92,7 +92,7 @@ export default function ToolSearch({
           onKeyDown={handleKeyDown}
           aria-label="Search all tools and calculators"
           aria-autocomplete="list"
-          aria-controls="tool-search-results"
+          aria-controls={query.trim().length > 0 ? 'tool-search-results' : undefined}
         />
         <div className={styles.slashHint}>/</div>
       </div>
@@ -124,7 +124,7 @@ export default function ToolSearch({
             <div className={styles.emptyState}>
               <p>No calculator found for &ldquo;{query}&rdquo;.</p>
               <a
-                href={`mailto:contact@kkctools.com?subject=Tool%20Suggestion%3A%20${encodeURIComponent(query)}`}
+                href={`mailto:kkchub1@gmail.com?subject=Tool%20Suggestion%3A%20${encodeURIComponent(query)}`}
                 className={styles.suggestLink}
               >
                 Suggest this tool →

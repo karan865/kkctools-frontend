@@ -24,7 +24,7 @@ export default function Footer() {
               All {TOOLS_CATALOG.length} tools directory
             </Link>
             <a
-              href="mailto:contact@kkctools.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
+              href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
               className={styles.topBandBtnSecondary}
             >
               Suggest a tool
@@ -137,7 +137,7 @@ export default function Footer() {
               <li><Link href="/tools/" className={styles.link}>All Tools Directory</Link></li>
               <li>
                 <a
-                  href="mailto:contact@kkctools.com?subject=Tool%20Suggestion"
+                  href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion"
                   className={styles.link}
                 >
                   Suggest a Tool →
@@ -155,6 +155,8 @@ export default function Footer() {
               <li><Link href="/contact/" className={styles.link}>Contact &amp; Support</Link></li>
               <li><Link href="/privacy-policy/" className={styles.link}>Privacy Policy</Link></li>
               <li><Link href="/terms/" className={styles.link}>Terms of Service</Link></li>
+              <li><Link href="/disclaimer/" className={styles.link}>Disclaimer</Link></li>
+              <li><Link href="/site-map/" className={styles.link}>Site Map</Link></li>
             </ul>
           </div>
         </div>
@@ -168,6 +170,10 @@ export default function Footer() {
             <Link href="/privacy-policy/" className={styles.bottomLink}>Privacy</Link>
             <span className={styles.dot}>·</span>
             <Link href="/terms/" className={styles.bottomLink}>Terms</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/disclaimer/" className={styles.bottomLink}>Disclaimer</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/site-map/" className={styles.bottomLink}>Site Map</Link>
             <span className={styles.dot}>·</span>
             <Link href="/contact/" className={styles.bottomLink}>Contact</Link>
           </div>

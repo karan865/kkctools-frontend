@@ -539,7 +539,7 @@ export default function ConcreteCalculatorPage() {
               <li>
                 Bag yields (40 lb 0.30 ft³, 50 lb 0.375 ft³, 60 lb 0.45 ft³, 80 lb 0.60 ft³, 90 lb 0.675 ft³), mixing water and curing
                 guidance:{' '}
-                <a href="https://www.quikrete.com/pdfs/DATA_SHEET-Concrete%20Mix%201101.pdf" rel="nofollow noopener" target="_blank">
+                <a href="https://www.quikrete.com/pdfs/DATA_SHEET-Concrete%20Mix%201101.pdf" rel="nofollow noopener noreferrer" target="_blank">
                   QUIKRETE Concrete Mix No. 1101 data sheet
                 </a>{' '}
                 (revised October 2022). The same sheet lists a unit weight of about 140 lb/ft³ for that mix.

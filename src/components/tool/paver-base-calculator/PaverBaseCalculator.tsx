@@ -286,14 +286,14 @@ export default function PaverBaseCalculator() {
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Loose Volume to Order (at Quarry)</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.looseCubicYards} Cubic Yards
               </span>
             </div>
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Total Loose Weight (US Short Tons)</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.looseTons} Tons
               </span>
             </div>

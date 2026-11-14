@@ -125,14 +125,14 @@ export default function TonsToCubicYardsPage() {
 
       <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
-        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: '#64748B' }}>
+        <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
             <li>
-              <Link href="/" style={{ color: '#0284C7', textDecoration: 'none' }}>Home</Link>
+              <Link href="/" style={{ color: '#0369A1', textDecoration: 'none' }}>Home</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li>
-              <Link href="/tools/" style={{ color: '#0284C7', textDecoration: 'none' }}>Tools</Link>
+              <Link href="/tools/" style={{ color: '#0369A1', textDecoration: 'none' }}>Tools</Link>
             </li>
             <li style={{ margin: '0 8px', color: '#94A3B8' }} aria-hidden="true">›</li>
             <li style={{ color: '#0F172A', fontWeight: 500 }} aria-current="page">Tons to Cubic Yards</li>
@@ -161,12 +161,12 @@ export default function TonsToCubicYardsPage() {
         <article style={{ marginTop: '36px', color: '#334155', lineHeight: 1.7, fontSize: '0.975rem' }}>
           {/* Quick Answer Callout Box */}
           <div style={{ padding: '16px 20px', backgroundColor: '#F0F9FF', border: '1.5px solid #BAE6FD', borderRadius: '8px', marginBottom: '24px' }}>
-            <p style={{ margin: 0, color: '#0369A1', fontSize: '0.975rem', lineHeight: 1.6 }}>
+            <p style={{ margin: 0, color: '#075985', fontSize: '0.975rem', lineHeight: 1.6 }}>
               <strong>How many yards in a ton of gravel?</strong> About 0.71 cubic yards (1 cubic yard of gravel is about 1.4 tons, or 2,800 lb). Sand, topsoil and mulch weigh differently, so pick your material above or in the reference charts below.
             </p>
           </div>
 
-          <p style={{ fontSize: '0.85rem', color: '#64748B', marginBottom: '24px' }}>
+          <p style={{ fontSize: '0.85rem', color: 'var(--muted)', marginBottom: '24px' }}>
             Last updated: November 2026 · Densities are typical loose (bulk) values; your supplier’s figure for their material always wins.
           </p>
 
@@ -243,84 +243,84 @@ export default function TonsToCubicYardsPage() {
                 <tbody>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Crushed Stone / Road Base</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.40 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.40 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.71 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,800 lb</td>
                     <td style={{ padding: '10px 14px' }}>103.7 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>River Rock / Washed Cobble</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.35 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.35 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.74 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,700 lb</td>
                     <td style={{ padding: '10px 14px' }}>100.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Clean Crushed Limestone (#57)</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.35 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.35 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.74 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,700 lb</td>
                     <td style={{ padding: '10px 14px' }}>100.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Pea Gravel</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.42 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.42 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.70 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,840 lb</td>
                     <td style={{ padding: '10px 14px' }}>105.2 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Dry Concrete Sand</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.35 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.35 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.74 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,700 lb</td>
                     <td style={{ padding: '10px 14px' }}>100.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Wet Packed Masonry Sand</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.60 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.60 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.63 yd³</td>
                     <td style={{ padding: '10px 14px' }}>3,200 lb</td>
                     <td style={{ padding: '10px 14px' }}>118.5 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Screened Topsoil / Garden Loam</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.10 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.10 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.91 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,200 lb</td>
                     <td style={{ padding: '10px 14px' }}>81.5 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Fill Dirt (delivered, loose)</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>1.25 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>1.25 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.80 yd³</td>
                     <td style={{ padding: '10px 14px' }}>2,500 lb</td>
                     <td style={{ padding: '10px 14px' }}>92.6 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Hot Mix Asphalt</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>2.025 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>2.025 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.49 yd³</td>
                     <td style={{ padding: '10px 14px' }}>4,050 lb</td>
                     <td style={{ padding: '10px 14px' }}>150.0 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Poured Cured Concrete</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>2.02 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>2.02 tons</td>
                     <td style={{ padding: '10px 14px' }}>0.50 yd³</td>
                     <td style={{ padding: '10px 14px' }}>4,040 lb</td>
                     <td style={{ padding: '10px 14px' }}>149.6 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Dark Aged Organic Compost</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.65 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>0.65 tons</td>
                     <td style={{ padding: '10px 14px' }}>1.54 yd³</td>
                     <td style={{ padding: '10px 14px' }}>1,300 lb</td>
                     <td style={{ padding: '10px 14px' }}>48.1 lb</td>
                   </tr>
                   <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                     <td style={{ padding: '10px 14px', fontWeight: 600 }}>Hardwood Shredded Bark Mulch</td>
-                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0284C7' }}>0.40 tons</td>
+                    <td style={{ padding: '10px 14px', fontWeight: 600, color: '#0369A1' }}>0.40 tons</td>
                     <td style={{ padding: '10px 14px' }}>2.50 yd³</td>
                     <td style={{ padding: '10px 14px' }}>800 lb</td>
                     <td style={{ padding: '10px 14px' }}>29.6 lb</td>
@@ -464,7 +464,7 @@ export default function TonsToCubicYardsPage() {
                   <li>Tandem-Axle Dump Truck: Carries ~12 to 16 tons (~9 to 12 cubic yards).</li>
                   <li>Tri-Axle Dump Truck: Carries ~18 to 22 tons (~13 to 16 cubic yards).</li>
                 </ul>
-                <p style={{ marginTop: '6px', fontSize: '0.875rem', color: '#64748B' }}>
+                <p style={{ marginTop: '6px', fontSize: '0.875rem', color: 'var(--muted)' }}>
                   Check your state&apos;s legal load limits; real loads are often lower.
                 </p>
               </li>
@@ -535,7 +535,7 @@ export default function TonsToCubicYardsPage() {
                   How many square feet does 1 ton of gravel cover?
                 </h3>
                 <p style={{ margin: 0, color: '#475569' }}>
-                  1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an exact area x depth quantity use our <Link href="/stone-calculator/" style={{ color: '#0284C7' }}>stone calculator</Link>.
+                  1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an exact area x depth quantity use our <Link href="/stone-calculator/" style={{ color: '#0369A1' }}>stone calculator</Link>.
                 </p>
               </div>
             </div>

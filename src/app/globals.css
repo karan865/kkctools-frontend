@@ -122,12 +122,35 @@ select::-ms-expand {
   top: var(--space-4);
 }
 
+/* Screen-reader-only text */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 /* Prose for Longform Content */
 .prose {
   max-width: var(--prose);
   margin-left: auto;
   margin-right: auto;
   color: var(--ink-2);
+}
+
+/* Links inside running text must be recognisable without relying on colour (WCAG 1.4.1) */
+.prose p a,
+.prose li a,
+main article p a,
+main article li a,
+main p a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
 }
 
 .prose h2 {

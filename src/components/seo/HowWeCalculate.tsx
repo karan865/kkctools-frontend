@@ -55,7 +55,7 @@ export default function HowWeCalculate({ slug }: { slug: string }) {
         {method.sources.map((s) =>
           s.url ? (
             <li key={s.label}>
-              <a href={s.url} rel="noopener" target="_blank">
+              <a href={s.url} rel="noopener noreferrer" target="_blank">
                 {s.label}
               </a>
               {s.note ? ` — ${s.note}` : ''}

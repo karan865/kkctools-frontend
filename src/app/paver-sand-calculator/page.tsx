@@ -159,7 +159,7 @@ export default function PaverSandCalculatorPage() {
             </li>
           </ul>
           <p style={{ marginBottom: '24px' }}>
-            For the gravel base under your sand layer, visit our <Link href="/paver-base-calculator/" style={{ color: '#0284C7' }}>paver base calculator</Link>. For irregular curved patio layouts, measure your surface with our <Link href="/square-footage-calculator/" style={{ color: '#0284C7' }}>square footage calculator</Link>.
+            For the gravel base under your sand layer, visit our <Link href="/paver-base-calculator/" style={{ color: '#0369A1' }}>paver base calculator</Link>. For irregular curved patio layouts, measure your surface with our <Link href="/square-footage-calculator/" style={{ color: '#0369A1' }}>square footage calculator</Link>.
           </p>
 
           <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginTop: '36px', marginBottom: '16px' }}>
@@ -227,7 +227,7 @@ export default function PaverSandCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Water Activation Needed?</td>
                   <td style={{ padding: '10px 14px' }}>No water required during installation</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>YES — Activated with a gentle water mist spray</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>YES — Activated with a gentle water mist spray</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Weed &amp; Ant Protection</td>
@@ -270,42 +270,42 @@ export default function PaverSandCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Standard Brick Paver (4&quot; × 8&quot;, 2-3/8&quot; thick)</td>
                   <td style={{ padding: '10px 14px' }}>1/8&quot; (tight joint)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>75 to 90 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>75 to 90 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>4 bags</td>
                   <td style={{ padding: '10px 14px' }}>6 to 7 bags</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Standard Brick Paver (4&quot; × 8&quot;, 2-3/8&quot; thick)</td>
                   <td style={{ padding: '10px 14px' }}>1/4&quot; (tumbled / wide)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>40 to 50 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>40 to 50 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>7 to 8 bags</td>
                   <td style={{ padding: '10px 14px' }}>10 to 12 bags</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Modular 3-Piece Pattern (6×6, 6×9, 9×9)</td>
                   <td style={{ padding: '10px 14px' }}>1/8&quot; to 3/16&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>65 to 80 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>65 to 80 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>4 to 5 bags</td>
                   <td style={{ padding: '10px 14px' }}>7 to 8 bags</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Large Format Slabs (12×12, 16×16, 24×24)</td>
                   <td style={{ padding: '10px 14px' }}>1/8&quot; (modern tight)</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>110 to 135 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>110 to 135 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>3 bags</td>
                   <td style={{ padding: '10px 14px' }}>4 to 5 bags</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Natural Irregular Flagstone (1.5&quot; to 2&quot; thick)</td>
                   <td style={{ padding: '10px 14px' }}>1/4&quot; to 1/2&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>25 to 40 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>25 to 40 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>9 to 12 bags</td>
                   <td style={{ padding: '10px 14px' }}>13 to 20 bags</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '10px 14px', fontWeight: 600 }}>Heavy-Duty Vehicular Pavers (3-1/8&quot; / 80mm)</td>
                   <td style={{ padding: '10px 14px' }}>1/8&quot;</td>
-                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0284C7' }}>55 to 70 sq ft</td>
+                  <td style={{ padding: '10px 14px', fontWeight: 700, color: '#0369A1' }}>55 to 70 sq ft</td>
                   <td style={{ padding: '10px 14px' }}>5 to 6 bags</td>
                   <td style={{ padding: '10px 14px' }}>8 to 10 bags</td>
                 </tr>
@@ -340,7 +340,7 @@ export default function PaverSandCalculatorPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Backyard Dining Patio (300 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>20 ft × 15 ft · 4&quot; × 8&quot; Pavers · 1/8&quot; Joints</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>20 ft × 15 ft · 4&quot; × 8&quot; Pavers · 1/8&quot; Joints</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Bedding Sand: <strong>1.02 Cubic Yards</strong> (1.38 Tons)</li>
                 <li>Polymeric Sand: <strong>4 Bags</strong> (50 lb each)</li>
@@ -349,7 +349,7 @@ export default function PaverSandCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Front Walkway (180 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>45 ft × 4 ft · 3-Piece Cobble · 3/16&quot; Joints</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>45 ft × 4 ft · 3-Piece Cobble · 3/16&quot; Joints</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Bedding Sand: <strong>0.61 Cubic Yards</strong> (0.82 Tons)</li>
                 <li>Polymeric Sand: <strong>3 Bags</strong> (50 lb each)</li>
@@ -358,7 +358,7 @@ export default function PaverSandCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Paver Driveway (800 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>40 ft × 20 ft · 80mm Vehicular · 1/8&quot; Joints</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>40 ft × 20 ft · 80mm Vehicular · 1/8&quot; Joints</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Bedding Sand: <strong>2.72 Cubic Yards</strong> (3.67 Tons)</li>
                 <li>Polymeric Sand: <strong>15 Bags</strong> (50 lb each)</li>

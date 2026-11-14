@@ -1,5 +1,6 @@
 import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import Container from '@/components/ui/Container';
 import Section from '@/components/ui/Section';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
@@ -23,7 +24,7 @@ export default function TermsPage() {
           <Breadcrumbs items={BREADCRUMBS} />
           <h1 style={{ marginTop: 'var(--space-4)' }}>Terms of Service</h1>
           <p style={{ fontSize: '1.125rem', color: 'var(--ink-2)', maxWidth: '780px', lineHeight: 1.6 }}>
-            Last Updated: November 8, 2026. Please read these terms carefully before utilizing {SITE_NAME} and its associated creative generators.
+            Last Updated: November 15, 2026. Please read these terms carefully before using {SITE_NAME}, its calculators, templates and generators.
           </p>
         </Container>
       </Section>
@@ -36,9 +37,12 @@ export default function TermsPage() {
               By accessing and using {SITE_NAME} (the &ldquo;Website&rdquo;), you agree to be bound by these Terms of Service (&ldquo;Terms&rdquo;) and our Privacy Policy. If you do not agree with any part of these Terms, you should discontinue use of the Website immediately.
             </p>
 
-            <h2>2. Nature of Service: Free Creative Generators</h2>
+            <h2>2. Nature of Service: Free Calculators, Templates and Generators</h2>
             <p>
-              {SITE_NAME} provides free, browser-based algorithmic naming utilities, creative tools, and informational guides. Our utilities are offered free of charge for personal, artistic, educational, and commercial brainstorming purposes.
+              {SITE_NAME} provides free, browser-based construction and everyday calculators, a construction estimate template, algorithmic naming utilities and informational guides. They are offered free of charge for personal, educational and commercial planning purposes.
+            </p>
+            <p>
+              Calculator results are planning estimates based on your inputs and the formulas and defaults shown on each page. They are not professional, engineering, electrical or legal advice. Please read our <Link href="/disclaimer/">Disclaimer</Link> before relying on any result.
             </p>
             <p>
               All tools and materials are provided strictly on an <strong>&ldquo;AS IS&rdquo;</strong> and <strong>&ldquo;AS AVAILABLE&rdquo;</strong> basis, without express or implied warranties of any kind, including but not limited to warranties of merchantability, fitness for a particular purpose, or non-infringement.

@@ -11,7 +11,7 @@ interface NotesSectionProps {
 export default function NotesSection({ notes, onChange }: NotesSectionProps) {
   return (
     <div className={styles.sectionCard}>
-      <h3 className={styles.sectionTitle}>Notes, Payment Schedule &amp; Warranties</h3>
+      <h2 className={styles.sectionTitle}>Notes, Payment Schedule &amp; Warranties</h2>
       <p className={styles.sectionSubtitle}>
         Define project milestone terms, warranty coverage, deposit requirements, and scope exclusions.
       </p>

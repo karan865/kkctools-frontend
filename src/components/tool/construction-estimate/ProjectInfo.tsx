@@ -19,7 +19,7 @@ export default function ProjectInfo({ data, onChange }: ProjectInfoProps) {
 
   return (
     <div className={styles.sectionCard}>
-      <h3 className={styles.sectionTitle}>Project &amp; Client Details</h3>
+      <h2 className={styles.sectionTitle}>Project &amp; Client Details</h2>
       <div className={styles.formGrid}>
         <div className={styles.formGroup}>
           <label htmlFor="project-name" className={styles.label}>

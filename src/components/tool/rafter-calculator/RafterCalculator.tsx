@@ -126,15 +126,15 @@ Calculated at kkctools.com/rafter-calculator/`;
           {/* Roof Type */}
           <div className={styles.fieldGroup}>
             <label>Roof Type</label>
-            <div className={styles.segmentedControl} role="tablist">
-              <button
+            <div className={styles.segmentedControl} role="group">
+              <button aria-pressed={roofType === 'gable'}
                 type="button"
                 className={`${styles.segmentBtn} ${roofType === 'gable' ? styles.segmentBtnActive : ''}`}
                 onClick={() => setRoofType('gable')}
               >
                 Gable roof
               </button>
-              <button
+              <button aria-pressed={roofType === 'shed'}
                 type="button"
                 className={`${styles.segmentBtn} ${roofType === 'shed' ? styles.segmentBtnActive : ''}`}
                 onClick={() => setRoofType('shed')}
@@ -194,22 +194,22 @@ Calculated at kkctools.com/rafter-calculator/`;
           {/* Slope Input Mode */}
           <div className={styles.fieldGroup}>
             <label>Slope Input Mode</label>
-            <div className={styles.segmentedControl} role="tablist">
-              <button
+            <div className={styles.segmentedControl} role="group">
+              <button aria-pressed={pitchMode === 'pitch'}
                 type="button"
                 className={`${styles.segmentBtn} ${pitchMode === 'pitch' ? styles.segmentBtnActive : ''}`}
                 onClick={() => setPitchMode('pitch')}
               >
                 Pitch (rise/12)
               </button>
-              <button
+              <button aria-pressed={pitchMode === 'angle'}
                 type="button"
                 className={`${styles.segmentBtn} ${pitchMode === 'angle' ? styles.segmentBtnActive : ''}`}
                 onClick={() => setPitchMode('angle')}
               >
                 Angle (°)
               </button>
-              <button
+              <button aria-pressed={pitchMode === 'riseRun'}
                 type="button"
                 className={`${styles.segmentBtn} ${pitchMode === 'riseRun' ? styles.segmentBtnActive : ''}`}
                 onClick={() => setPitchMode('riseRun')}

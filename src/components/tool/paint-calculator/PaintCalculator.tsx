@@ -321,7 +321,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
                     <div className={styles.inputRow3}>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Length (ft)</label>
-                        <input
+                        <input aria-label="Length (ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -334,7 +334,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Width (ft)</label>
-                        <input
+                        <input aria-label="Width (ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -347,7 +347,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Ceiling Ht (ft)</label>
-                        <input
+                        <input aria-label="Ceiling Ht (ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -363,7 +363,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
                     <div className={styles.inputRow}>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Doors (21 sq ft)</label>
-                        <input
+                        <input aria-label="Doors (21 sq ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -375,7 +375,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
                       </div>
                       <div className={styles.fieldGroup}>
                         <label className={styles.label}>Windows (15 sq ft)</label>
-                        <input
+                        <input aria-label="Windows (15 sq ft)"
                           type="text"
                           inputMode="decimal"
                           className={styles.inputField}
@@ -522,7 +522,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
             {textureKey === 'custom' && (
               <div className={styles.fieldGroup}>
                 <label className={styles.label}>Custom Coverage Rate (sq ft / gallon)</label>
-                <input
+                <input aria-label="Custom Coverage Rate (sq ft / gallon)"
                   type="text"
                   inputMode="decimal"
                   className={styles.inputField}
@@ -599,7 +599,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
             {includePrimer && (
               <div className={styles.fieldGroup}>
                 <label className={styles.label}>Primer Coverage (sq ft / gal)</label>
-                <input
+                <input aria-label="Primer Coverage (sq ft / gal)"
                   type="text"
                   inputMode="decimal"
                   className={styles.inputField}
@@ -830,7 +830,7 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
               <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: 'var(--color-text, #0f172a)' }}>
                 Total Estimated DIY Cost
               </span>
-              <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0284c7)', fontSize: '1.15rem' }}>
+              <span className={styles.breakdownValue} style={{ color: 'var(--color-primary, #0369A1)', fontSize: '1.15rem' }}>
                 ${result.totalDIYCost.toLocaleString()}
               </span>
             </div>

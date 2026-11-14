@@ -124,8 +124,8 @@ export default function FenceStainCalculator() {
                   className={`${styles.toggleButton} !${bothSides} ? styles.toggleButtonActive : ''`}
                   style={{
                     backgroundColor: !bothSides ? '#E0F2FE' : '#F8FAFC',
-                    color: !bothSides ? '#0369A1' : '#475569',
-                    borderColor: !bothSides ? '#0284C7' : '#CBD5E1',
+                    color: !bothSides ? '#075985' : '#475569',
+                    borderColor: !bothSides ? '#0369A1' : '#CBD5E1',
                   }}
                   onClick={() => setBothSides(false)}
                 >
@@ -299,7 +299,7 @@ export default function FenceStainCalculator() {
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Effective Stained Area ({bothSides ? 'Both Sides' : 'One Side'})</span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.effectiveStainedAreaSqFt} sq ft
               </span>
             </div>
@@ -334,7 +334,7 @@ export default function FenceStainCalculator() {
               <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: '#0F172A' }}>
                 Recommended 5-Gal Pails
               </span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.pails5GalCount} Pails
               </span>
             </div>
@@ -343,7 +343,7 @@ export default function FenceStainCalculator() {
               <span className={styles.breakdownLabel} style={{ fontWeight: 700, color: '#0F172A' }}>
                 Recommended 1-Gal Cans
               </span>
-              <span className={styles.breakdownValue} style={{ color: '#0284C7', fontWeight: 800 }}>
+              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontWeight: 800 }}>
                 {results.cans1GalCount} Cans
               </span>
             </div>

@@ -1,13 +1,13 @@
 .svg {
   --dg-wire: #c2410c;
-  --dg-wire-2: #0369a1;
+  --dg-wire-2: #075985;
   --dg-copper: #d97706;
   --dg-alu: #94a3b8;
   --dg-box: #e2e8f0;
   --dg-edge: #334155;
   --dg-ok: #15803d;
   --dg-warn: #b91c1c;
-  --dg-dim: #0369a1;
+  --dg-dim: #075985;
   --dg-label-bg: #ffffff;
   --dg-text: #334155;
   display: block;

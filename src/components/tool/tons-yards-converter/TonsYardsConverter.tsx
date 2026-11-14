@@ -359,7 +359,7 @@ export default function TonsYardsConverter() {
 
             <div className={styles.breakdownRow}>
               <span className={styles.breakdownLabel}>Cubic Yards (CY)</span>
-              <span className={styles.breakdownValue} style={{ color: '#0369A1', fontSize: '1.05rem' }}>
+              <span className={styles.breakdownValue} style={{ color: '#075985', fontSize: '1.05rem' }}>
                 {results.orderCy.toFixed(2)} yd³
               </span>
             </div>

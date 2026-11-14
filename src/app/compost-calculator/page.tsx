@@ -242,42 +242,42 @@ export default function CompostCalculatorPage() {
               <tbody>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Lawn Top-Dressing (Post-Aeration)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1/4 Inch (0.25&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>1/4 Inch (0.25&quot;)</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>1,296 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>Annually (Spring / Fall)</td>
                   <td style={{ padding: '12px 14px' }}>Spread finely and rake into core holes</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Lawn Overseeding Bedding</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>3/8&quot; to 1/2&quot;</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>3/8&quot; to 1/2&quot;</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>648 to 864 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>When reseeding patches</td>
                   <td style={{ padding: '12px 14px' }}>Top seed and roll lightly for seed contact</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Annual Vegetable Bed Amendment</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>2 Inches (2.0&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>2 Inches (2.0&quot;)</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>162 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>Annually before planting</td>
                   <td style={{ padding: '12px 14px' }}>Spread and till/fork into top 6&quot; soil</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Flower Border Mulch / Shield</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>1 to 2 Inches</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>1 to 2 Inches</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>162 to 324 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>Annually in late Spring</td>
                   <td style={{ padding: '12px 14px' }}>Top-dress around crowns; clear of stems</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>New Native Soil Conversion</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>3 Inches (3.0&quot;)</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>3 Inches (3.0&quot;)</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>108 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>One-time site prep</td>
                   <td style={{ padding: '12px 14px' }}>Till 3&quot; into upper 8&quot; clay or sand</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Raised Bed Full Fill (Mel&apos;s Mix)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0284C7' }}>6 to 12 Inches</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 700, color: '#0369A1' }}>6 to 12 Inches</td>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>27 to 54 Sq Ft</td>
                   <td style={{ padding: '12px 14px' }}>Initial build or recharge</td>
                   <td style={{ padding: '12px 14px' }}>Blend 1/3 compost, 1/3 peat, 1/3 vermiculite</td>
@@ -334,12 +334,12 @@ export default function CompostCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Packaging &amp; Unit Size</td>
                   <td style={{ padding: '12px 14px' }}>Sealed plastic bag (1.0 cu ft / ~40–50 lbs)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Loose open material in dump truck bed</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Loose open material in dump truck bed</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Bags Needed per Cubic Yard</td>
                   <td style={{ padding: '12px 14px' }}><strong>27 bags</strong> (27 cu ft / 1.0 cu ft)</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>1.0 cubic yard delivered loose</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>1.0 cubic yard delivered loose</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Price per Unit</td>
@@ -354,12 +354,12 @@ export default function CompostCalculatorPage() {
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Vehicle Loading &amp; Hauling</td>
                   <td style={{ padding: '12px 14px' }}>Multiple trips required; risk of trunk spills</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Single dump truck drops pile in driveway</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Single dump truck drops pile in driveway</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0', backgroundColor: '#F8FAFC' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Plastic Waste</td>
                   <td style={{ padding: '12px 14px' }}>80 to 160 heavy non-biodegradable bags</td>
-                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0284C7' }}>Zero plastic waste</td>
+                  <td style={{ padding: '12px 14px', fontWeight: 600, color: '#0369A1' }}>Zero plastic waste</td>
                 </tr>
                 <tr style={{ borderBottom: '1px solid #E2E8F0' }}>
                   <td style={{ padding: '12px 14px', fontWeight: 600 }}>Best Used For</td>
@@ -379,7 +379,7 @@ export default function CompostCalculatorPage() {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '20px', marginBottom: '28px' }}>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Three Raised Planter Boxes (96 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>Three 8 ft × 4 ft beds · 2&quot; Soil Amendment</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>Three 8 ft × 4 ft beds · 2&quot; Soil Amendment</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Volume in Cu Ft: <strong>16.0 Cu Ft</strong></li>
                 <li>Volume in Cu Yds: <strong>0.59 Cubic Yards</strong></li>
@@ -389,7 +389,7 @@ export default function CompostCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>Lawn Top-Dressing (2,500 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>Post-Aeration Turf · 1/4&quot; Uniform Dressing</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>Post-Aeration Turf · 1/4&quot; Uniform Dressing</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Volume in Cu Ft: <strong>52.08 Cu Ft</strong></li>
                 <li>Volume in Cu Yds: <strong>1.93 Cubic Yards</strong></li>
@@ -399,7 +399,7 @@ export default function CompostCalculatorPage() {
             </div>
             <div style={{ padding: '18px', backgroundColor: '#F8FAFC', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
               <h3 style={{ fontSize: '1.05rem', fontWeight: 700, color: '#0F172A', marginBottom: '6px' }}>In-Ground Garden Bed (300 Sq Ft)</h3>
-              <p style={{ fontSize: '0.875rem', color: '#64748B', marginBottom: '10px' }}>20 ft × 15 ft bed · 3&quot; Deep Soil Amendment</p>
+              <p style={{ fontSize: '0.875rem', color: 'var(--muted)', marginBottom: '10px' }}>20 ft × 15 ft bed · 3&quot; Deep Soil Amendment</p>
               <ul style={{ paddingLeft: '18px', fontSize: '0.9rem', color: '#334155', margin: 0 }}>
                 <li>Volume in Cu Ft: <strong>75.0 Cu Ft</strong></li>
                 <li>Volume in Cu Yds: <strong>2.78 Cubic Yards</strong></li>
