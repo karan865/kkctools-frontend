@@ -1,0 +1,301 @@
+/* Each category section sets its own colour set; everything below reads from these variables. */
+.concrete  { --c: var(--cat-concrete);  --c-soft: var(--cat-concrete-soft);  --c-deep: var(--cat-concrete-deep);  --g1: var(--cat-concrete-g1);  --g2: var(--cat-concrete-g2); }
+.gravel    { --c: var(--cat-gravel);    --c-soft: var(--cat-gravel-soft);    --c-deep: var(--cat-gravel-deep);    --g1: var(--cat-gravel-g1);    --g2: var(--cat-gravel-g2); }
+.earthwork { --c: var(--cat-earthwork); --c-soft: var(--cat-earthwork-soft); --c-deep: var(--cat-earthwork-deep); --g1: var(--cat-earthwork-g1); --g2: var(--cat-earthwork-g2); }
+.framing   { --c: var(--cat-framing);   --c-soft: var(--cat-framing-soft);   --c-deep: var(--cat-framing-deep);   --g1: var(--cat-framing-g1);   --g2: var(--cat-framing-g2); }
+.finishes  { --c: var(--cat-finishes);  --c-soft: var(--cat-finishes-soft);  --c-deep: var(--cat-finishes-deep);  --g1: var(--cat-finishes-g1);  --g2: var(--cat-finishes-g2); }
+.business  { --c: var(--cat-business);  --c-soft: var(--cat-business-soft);  --c-deep: var(--cat-business-deep);  --g1: var(--cat-business-g1);  --g2: var(--cat-business-g2); }
+
+.section {
+  position: relative;
+  overflow: hidden;
+  overflow: clip; /* clip, not hidden: hidden would make the section a scroll container and break the sticky heading */
+  padding: 80px 0;
+  scroll-margin-top: 72px;
+  background:
+    linear-gradient(180deg, color-mix(in srgb, var(--c-soft) 60%, var(--bg)) 0%, var(--bg) 92%);
+  border-top: 1px solid color-mix(in srgb, var(--c) 18%, transparent);
+}
+
+/* Faint blueprint grid in the category colour, fading out from one corner */
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(color-mix(in srgb, var(--c) 9%, transparent) 1px, transparent 1px),
+    linear-gradient(90deg, color-mix(in srgb, var(--c) 9%, transparent) 1px, transparent 1px);
+  background-size: 34px 34px;
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 100% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 80% at 100% 0%, #000 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.even::before {
+  -webkit-mask-image: radial-gradient(ellipse 70% 80% at 0% 0%, #000 0%, transparent 70%);
+  mask-image: radial-gradient(ellipse 70% 80% at 0% 0%, #000 0%, transparent 70%);
+}
+
+.glow {
+  position: absolute;
+  width: 560px;
+  height: 560px;
+  top: -220px;
+  right: -160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, color-mix(in srgb, var(--c) 24%, transparent) 0%, transparent 68%);
+  pointer-events: none;
+}
+
+.even .glow {
+  right: auto;
+  left: -160px;
+}
+
+.container {
+  position: relative;
+  max-width: var(--container, 1200px);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Heading ---------- */
+.head {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.badgeRow {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.iconBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 18px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+  box-shadow: 0 12px 24px -10px color-mix(in srgb, var(--g1) 70%, transparent);
+  transform: rotate(-4deg);
+}
+
+.number {
+  font-family: var(--font-heading);
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px color-mix(in srgb, var(--c) 55%, transparent);
+}
+
+.eyebrow {
+  display: inline-block;
+  margin: 0 0 12px;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--c-soft);
+  color: var(--c-deep);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.count {
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: 0;
+}
+
+.title {
+  position: relative;
+  margin: 0 0 18px;
+  padding-bottom: 14px;
+  font-family: var(--font-heading);
+  font-size: clamp(1.6rem, 2.6vw, 2.25rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  color: var(--ink);
+}
+
+.title::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 5px;
+  border-radius: 99px;
+  background: linear-gradient(90deg, var(--g1), var(--c));
+}
+
+.blurb {
+  margin: 0 0 22px;
+  max-width: 520px;
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--ink-2);
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 18px;
+  border-radius: var(--radius-pill);
+  border: 1.5px solid color-mix(in srgb, var(--c) 60%, transparent);
+  background: var(--surface);
+  color: var(--c-deep);
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-decoration: none;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease, transform 0.2s ease;
+}
+
+.viewAll:hover {
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+  border-color: transparent;
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.arrow {
+  transition: transform 0.2s ease;
+}
+
+.viewAll:hover .arrow {
+  transform: translateX(3px);
+}
+
+/* ---------- Cards ---------- */
+.grid {
+  display: grid;
+  gap: 24px;
+}
+
+/* Split: heading column + 2×2 cards (sticky heading on wide screens) */
+.split .inner {
+  display: grid;
+  grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 44px;
+  align-items: start;
+}
+
+.split .head {
+  position: sticky;
+  top: 96px;
+}
+
+.split .grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Flipped split sections put the heading on the right for variety (columns swap too, so cards keep the wide column) */
+.split.flip .inner {
+  grid-template-columns: minmax(0, 8fr) minmax(0, 4fr);
+}
+
+.split.flip .head {
+  order: 2;
+}
+
+/* Stack: heading row on top, 4 cards across */
+.stack .head {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  grid-template-areas:
+    'badge eyebrow link'
+    'badge title   link'
+    'badge blurb   link';
+  column-gap: 24px;
+  align-items: start;
+  margin-bottom: 32px;
+}
+
+.stack .badgeRow { grid-area: badge; flex-direction: column; align-items: flex-start; margin-bottom: 0; }
+.stack .eyebrow { grid-area: eyebrow; justify-self: start; }
+.stack .title { grid-area: title; }
+.stack .blurb { grid-area: blurb; margin-bottom: 0; }
+.stack .viewAll { grid-area: link; align-self: end; }
+
+.stack .grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .split .inner {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+
+  .split .head {
+    position: static;
+  }
+
+  .split.flip .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .split.flip .head {
+    order: 0;
+  }
+
+  .stack .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  .stack .head {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .stack .badgeRow {
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+
+  .stack .viewAll {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 640px) {
+  .section {
+    padding: 48px 0;
+  }
+
+  .split .grid,
+  .stack .grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .number {
+    font-size: 2.5rem;
+  }
+
+  .glow {
+    width: 360px;
+    height: 360px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .viewAll,
+  .arrow {
+    transition: none;
+  }
+}

@@ -252,6 +252,12 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase HD — Home page redesign (owner request, 2026-11-15)
+- [x] HD-1 Colourful, varied home page: category tiles, per-category bands with alternating layouts, coloured tool cards, dark "why us" band, gradient guide covers. *(Evidence: `src/components/home/CategorySection.tsx`, `CategoryTiles.tsx`; screenshots checked at 1440 px and 500 px)*
+- [x] HD-3 Tool cards with tool-specific SVG diagrams, bigger text, 3-column grids. *(Evidence: `src/components/home/ToolArt.tsx`; screenshots of `/` and `/tools/` at 1440 px and 500 px)*
+- [x] HD-4 Hero banner illustration (`HeroScene.tsx`), gradient heading, wrapped chips. *(Evidence: screenshots at 1440 px and 500 px; Lighthouse home mobile 94/100/96/100, desktop 100/100/96/100)*
+- [x] HD-2 No regressions: Lighthouse home mobile 95/100/96/100, desktop 100/100/96/100 after the card redesign; `/tools/` a11y 100; `npm run verify` passed. *(Evidence: local Lighthouse 12.6.0, 2026-11-15)*
+
 ### Phase AR — AdSense-readiness report check (report `docs/Adsence Approval reports/Adsence aprooval - report.pdf`, 2026-11-15)
 The report came from an external scanner. Each item was checked on the live site (curl, local Lighthouse 12.6.0) and in the code. Items the scanner got wrong are recorded, not "fixed".
 - [x] AR-01 "Google Analytics detected" — **false**. The live HTML has no GA/GTM. The script it saw is Cloudflare Web Analytics (`static.cloudflareinsights.com/beacon.min.js`), injected by Cloudflare; our CSP blocks it (console error). *(Evidence: curl of live home page + Lighthouse `errors-in-console`)*

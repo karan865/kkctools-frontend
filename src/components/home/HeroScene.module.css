@@ -1,0 +1,55 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  overflow: visible;
+}
+
+.fn { fill: none; }
+
+/* Concrete */
+.conc1 { fill: var(--cat-concrete-g1); }
+.conc2 { fill: var(--cat-concrete-g2); }
+.concL { fill: color-mix(in srgb, var(--cat-concrete-g1) 22%, var(--surface)); }
+.conc2Stroke { stroke: var(--cat-concrete-g2); stroke-width: 1.2; }
+
+/* Framing / roof */
+.fr1 { fill: var(--cat-framing-g1); }
+.fr2 { fill: var(--cat-framing-g2); }
+.frL { fill: color-mix(in srgb, var(--cat-framing-g1) 16%, var(--surface)); }
+.fr2Stroke { stroke: var(--cat-framing-g2); stroke-width: 1.6; }
+
+/* Finishes */
+.fin1 { fill: var(--cat-finishes-g1); }
+.fin2 { fill: var(--cat-finishes-g2); }
+.finL { fill: color-mix(in srgb, var(--cat-finishes-g1) 14%, var(--surface)); }
+.fin2Stroke { stroke: var(--cat-finishes-g2); stroke-width: 1.2; }
+
+/* Gravel / landscape */
+.gr1 { fill: var(--cat-gravel-g1); }
+.gr2 { fill: var(--cat-gravel-g2); }
+.grM { fill: color-mix(in srgb, var(--cat-gravel-g1) 55%, var(--surface)); }
+.grL { fill: color-mix(in srgb, var(--cat-gravel-g1) 22%, var(--surface)); }
+
+/* Earthwork */
+.ew1 { fill: var(--cat-earthwork-g1); }
+.ew2 { fill: var(--cat-earthwork-g2); }
+
+.crane { stroke: #F59E0B; stroke-linecap: round; }
+.cable { stroke: var(--ink-2); stroke-width: 1.4; }
+
+.glass { fill: color-mix(in srgb, var(--cat-concrete-soft) 85%, var(--surface)); }
+
+.sun { fill: #FBBF24; }
+.sunGlow { fill: #FBBF24; opacity: 0.22; }
+.cloud { fill: var(--surface); }
+
+.shadow { fill: rgba(15, 23, 42, 0.09); }
+
+.tape { fill: #FBBF24; }
+.tick { stroke: #78350F; stroke-width: 1; }
+.tapeHub { fill: #FDE68A; }
+.tapeText { fill: #78350F; font: 800 10px var(--font-body), system-ui, sans-serif; }
+
+.mark { stroke: var(--ink-2); }
+.label { fill: var(--ink-2); font: 700 10px var(--font-body), system-ui, sans-serif; }

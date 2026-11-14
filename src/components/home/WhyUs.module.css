@@ -1,11 +1,26 @@
+/* Dark navy band: a deliberate change of mood between the colourful category sections */
 .section {
-  padding: 80px 0;
-  background-color: var(--surface-band, #FBFAF7);
-  border-top: 1px solid var(--line);
-  border-bottom: 1px solid var(--line);
+  position: relative;
+  overflow: hidden;
+  padding: 88px 0;
+  color: #E2E8F0;
+  background:
+    radial-gradient(ellipse 50% 60% at 0% 0%, rgba(3, 105, 161, 0.35), transparent 70%),
+    radial-gradient(ellipse 45% 55% at 100% 100%, rgba(194, 65, 12, 0.32), transparent 70%),
+    #17213A;
+}
+
+.section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.07) 1px, transparent 1px);
+  background-size: 22px 22px;
+  pointer-events: none;
 }
 
 .container {
+  position: relative;
   max-width: var(--container, 1200px);
   margin: 0 auto;
   padding: 0 24px;
@@ -14,71 +29,117 @@
 .header {
   text-align: center;
   max-width: 680px;
-  margin: 0 auto 48px;
+  margin: 0 auto 52px;
 }
 
 .eyebrow {
   display: inline-block;
+  padding: 5px 12px;
+  border-radius: var(--radius-pill);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  color: #FDBA74;
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-primary);
-  margin-bottom: 8px;
+  margin-bottom: 14px;
 }
 
 .title {
+  margin-top: 0;
   font-family: var(--font-heading);
-  font-size: clamp(1.6rem, 3vw, 2.2rem);
-  font-weight: 750;
-  color: var(--ink);
+  font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+  font-weight: 800;
+  color: #FFFFFF;
   letter-spacing: -0.025em;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .subtitle {
-  font-size: 1rem;
-  color: var(--ink-2);
+  font-size: 1.0625rem;
+  color: #CBD5E1;
   line-height: 1.6;
 }
 
 .grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 24px;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 20px;
 }
 
 .pointCard {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card, 16px);
-  padding: 24px;
-  box-shadow: var(--shadow-card);
+  position: relative;
+  padding: 26px 22px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: transform 0.22s ease, background-color 0.22s ease, border-color 0.22s ease;
 }
+
+.pointCard:hover {
+  transform: translateY(-4px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: color-mix(in srgb, var(--g1) 70%, transparent);
+}
+
+.p0 { --g1: var(--cat-concrete-g1); --g2: var(--cat-concrete-g2); }
+.p1 { --g1: var(--cat-gravel-g1);   --g2: var(--cat-gravel-g2); }
+.p2 { --g1: var(--cat-earthwork-g1); --g2: var(--cat-earthwork-g2); }
+.p3 { --g1: var(--cat-finishes-g1); --g2: var(--cat-finishes-g2); }
 
 .iconCircle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
-  border-radius: 12px;
-  background: var(--accent-soft);
-  color: var(--accent);
-  margin-bottom: 16px;
+  width: 50px;
+  height: 50px;
+  border-radius: 16px;
+  color: #FFFFFF;
+  background: linear-gradient(135deg, var(--g1), var(--g2));
+  box-shadow: 0 10px 22px -10px var(--g1);
+  margin-bottom: 18px;
 }
 
 .pointTitle {
+  margin-top: 0;
   font-family: var(--font-heading);
-  font-size: 1.0625rem;
+  font-size: 1.125rem;
   font-weight: 700;
-  color: var(--ink);
+  color: #FFFFFF;
   margin-bottom: 8px;
 }
 
 .pointDesc {
-  font-size: 0.875rem;
-  line-height: 1.5;
-  color: var(--ink-2);
+  font-size: 0.9rem;
+  line-height: 1.6;
+  color: #CBD5E1;
+  margin: 0;
 }
 
+@media (max-width: 1000px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 560px) {
+  .section {
+    padding: 56px 0;
+  }
+
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pointCard {
+    transition: none;
+  }
+
+  .pointCard:hover {
+    transform: none;
+  }
+}

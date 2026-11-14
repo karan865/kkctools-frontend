@@ -6,6 +6,7 @@ interface SectionHeaderProps {
   eyebrow: string;
   categoryHue?: 'concrete' | 'gravel' | 'earthwork' | 'framing' | 'finishes' | 'business';
   title: string;
+  titleId?: string;
   subtitle: string;
   viewAllLink?: string;
   viewAllText?: string;
@@ -15,6 +16,7 @@ export default function SectionHeader({
   eyebrow,
   categoryHue,
   title,
+  titleId,
   subtitle,
   viewAllLink,
   viewAllText = 'View all →',
@@ -28,14 +30,14 @@ export default function SectionHeader({
           {categoryHue && <span className={`${styles.dot} ${dotClass}`} />}
           <span className={styles.eyebrow}>{eyebrow}</span>
         </div>
-        <h2 className={styles.title}>{title}</h2>
+        <h2 id={titleId} className={styles.title}>{title}</h2>
         <p className={styles.subtitle}>{subtitle}</p>
       </div>
 
       {viewAllLink && (
         <Link href={viewAllLink} className={styles.viewAll}>
-          <span>{viewAllText}</span>
-          <span className={styles.arrow}>→</span>
+          <span>{viewAllText.replace(/\s*→\s*$/, '')}</span>
+          <span className={styles.arrow} aria-hidden="true">→</span>
         </Link>
       )}
     </div>

@@ -25,6 +25,8 @@ The original "Stage Lights" purple palette (Phase 1) has been replaced.
 | `--accent-ink` | `#FFFFFF` | `#090C12` |
 | `--brand-orange` | `#C2410C` | `#F97316` |
 | `--brand-orange-text` | `#9A3412` | `#FB923C` |
+| `--cat-*-deep` | darker category shade for text on tints (e.g. `#075985`) | light shade (e.g. `#BAE6FD`) |
+| `--cat-*-g1` / `-g2` | fixed category gradient (same in both themes; white text ≥ 5:1) | same |
 
 Other tokens: radii (`--radius-s` 8, `-m` 14, `-l` 18, `-card` 16, `-pill`), shadows (`-s/-m/-l/-card/-pop`), spacing `--space-1…9` (4–96 px), `--container` 1200 px, `--prose` 68ch.
 
@@ -66,3 +68,32 @@ Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders. All pair
 **Other a11y rules:** segmented buttons use `aria-pressed` (not `aria-checked` without a role, nor `role="tablist"` without tabs); headings go h1 → h2 → h3 without skips; empty table header cells get `<span className="sr-only">`; `.sr-only` lives in `globals.css`.
 
 **Result (2026-11-15):** Lighthouse 12.6.0 accessibility = 100 on all 47 built pages.
+
+---
+
+## 4. Home Page Layout (redesigned 2026-11-15)
+
+Goal: every section looks different while scrolling, and each trade has its own colour.
+
+| # | Section | Look |
+|---|---|---|
+| 1 | Hero (`HomeHero`) | colourful mesh background; "Calculators" in a blue→purple→rose gradient with a hand-drawn orange underline; category chips tinted per category and wrapping to two rows; right side: `HeroScene` illustrated building site (slab, stud wall with window, truss + shingle roof with pitch marker, painted wall and roller, gravel pile, crane, tree, tape measure) in a blueprint panel, with the three result cards hanging off its corners on desktop; on phones the scene shows under the buttons |
+| 2 | Trust strip | unchanged |
+| 3 | `CategoryTiles` — "Pick a trade" | 6 gradient tiles (one per category, `--cat-*-g1/g2`), tool count, jump link |
+| 4 | New & updated | warm orange tint; grid trimmed to full rows of 4 |
+| 5 | Category bands 01–03 (`CategorySection`) | own tint + blueprint grid + glow, gradient icon badge, outlined numeral, coloured eyebrow pill and underline; layout alternates **split** (heading column + 2×2 cards, sticky heading) / **stack** (heading row + 4 across); split headings flip sides |
+| 6 | Why us (`WhyUs`) | dark navy band with dot pattern; each point a different category colour |
+| 7 | Category bands 04–06 | as above |
+| 8 | Guides | cards with gradient covers and icons, tinted badges |
+| 9 | FAQ | soft accent glow |
+| 10 | Suggest banner | unchanged |
+
+- **Tool cards (`ToolCard`)**, used on Home and `/tools/` (redesigned again 2026-11-15 after owner feedback "too simple, text too small"):
+  - 172 px illustration panel with a tool-specific SVG diagram (`ToolArt.tsx`, one per tool icon, e.g. slab with dimensions, rebar grid, wire gauges, pipe OD/ID, paver layers), blueprint grid, category chip and NEW/UPDATED badge;
+  - gradient icon tile + 1.25 rem title, 0.975 rem description (2 lines), tinted tag pills;
+  - footer with "Open tool →" and "Free · No sign-up"; coloured ring + lift on hover;
+  - grids are 3 across on desktop (split sections 2 across), 2 on tablets, 1 on phones; on phones the card is a row with a 104 px diagram thumbnail.
+- Section card counts are multiples of the column count: split 4 (2×2), stack 6 (3×2), Business 3, New 9.
+- `AdPlaceholder` renders nothing while `NEXT_PUBLIC_ADS_ENABLED` is false, so visitors never see an empty "advertisement" box.
+- Section `overflow: clip` (not `hidden`) so the sticky heading works.
+- Lighthouse after the redesign (local build, 2026-11-15): mobile 96 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100 (Perf / A11y / BP / SEO); CLS 0.001; Best Practices 96 only from the local-only `__next.*.txt` 404.

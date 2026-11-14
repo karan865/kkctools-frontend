@@ -193,7 +193,7 @@ export default function Header() {
                 }
                 setSearchModalOpen(true);
               }}
-              aria-label="Search all tools and calculators"
+              aria-label="Search tools (all calculators)"
             >
               <Icon name="search" size={15} />
               <span className={styles.searchText}>Search tools</span>

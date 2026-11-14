@@ -39,7 +39,7 @@ export default function WhyUs() {
 
         <div className={styles.grid}>
           {points.map((p, idx) => (
-            <div key={idx} className={styles.pointCard}>
+            <div key={idx} className={`${styles.pointCard} ${styles[`p${idx}`]}`}>
               <div className={styles.iconCircle}>
                 <Icon name={p.icon} size={22} strokeWidth={2} />
               </div>

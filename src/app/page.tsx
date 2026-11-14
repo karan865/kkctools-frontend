@@ -4,17 +4,21 @@ import Link from 'next/link';
 import HomeHero from '@/components/home/HomeHero';
 import TrustStrip from '@/components/home/TrustStrip';
 import SectionHeader from '@/components/home/SectionHeader';
+import CategorySection from '@/components/home/CategorySection';
+import CategoryTiles, { CATEGORY_ICONS } from '@/components/home/CategoryTiles';
 import ToolCard from '@/components/home/ToolCard';
 import AdPlaceholder from '@/components/home/AdPlaceholder';
 import WhyUs from '@/components/home/WhyUs';
 import SuggestBanner from '@/components/home/SuggestBanner';
 import Faq from '@/components/ui/Faq';
+import Icon, { type IconName } from '@/components/icons/Icons';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import {
-  CATEGORIES,
   TOOLS_CATALOG,
   getToolsByCategory,
   getNewAndUpdatedTools,
+  type CatalogTool,
+  type CategoryId,
 } from '@/lib/tools-catalog';
 import styles from './page.module.css';
 import JsonLd from '@/components/seo/JsonLd';
@@ -52,14 +56,92 @@ const HOME_FAQ_ITEMS = [
   },
 ];
 
+/** Category bands in page order. Layout and flip alternate so neighbouring sections never look the same. */
+const CATEGORY_BANDS: { id: CategoryId; layout: 'split' | 'stack'; flip?: boolean; show: number; viewAllText: string }[] = [
+  { id: 'concrete', layout: 'split', show: 4, viewAllText: 'All concrete tools' },
+  { id: 'earthwork', layout: 'stack', show: 6, viewAllText: 'All paving & soil tools' },
+  { id: 'gravel', layout: 'split', flip: true, show: 4, viewAllText: 'All gravel & sand tools' },
+  { id: 'framing', layout: 'stack', show: 6, viewAllText: 'All framing & roofing tools' },
+  { id: 'finishes', layout: 'split', show: 4, viewAllText: 'All finish tools' },
+  { id: 'business', layout: 'stack', show: 2, viewAllText: 'All estimate & creative tools' },
+]
+
+const GUIDES: { href: string; badge: string; title: string; excerpt: string; icon: IconName; tone: string }[] = [
+  {
+    href: '/guides/how-to-choose-a-band-name/',
+    badge: 'Naming Guide',
+    title: 'How to Choose a Band Name That Sticks',
+    excerpt: 'Strategic naming principles, trademark safety, genre alignment, and phonetics for modern musicians.',
+    icon: 'guitar',
+    tone: 'toneFinishes',
+  },
+  {
+    href: '/guides/band-name-ideas-by-genre/',
+    badge: 'Trends',
+    title: 'Genre-Specific Naming Trends',
+    excerpt: 'From indie dream-pop to death metal: patterns, archetypes, and linguistic styling across genres.',
+    icon: 'bookOpen',
+    tone: 'toneBusiness',
+  },
+  {
+    href: '/guides/how-to-check-if-a-band-name-is-taken/',
+    badge: 'Legal & IP',
+    title: 'Trademark & Social Handle Checklist',
+    excerpt: 'Avoid disputes before printing merch or registering domains. A straightforward trademark guide.',
+    icon: 'shield',
+    tone: 'toneGravel',
+  },
+];
+
+function Card({ tool }: { tool: CatalogTool }) {
+  return (
+    <ToolCard
+      slug={tool.slug}
+      name={tool.name}
+      category={tool.category}
+      description={tool.description}
+      tags={tool.tags}
+      icon={tool.icon}
+      isNew={tool.isNew}
+      isUpdated={tool.isUpdated}
+    />
+  );
+}
+
+function Band({ band, index }: { band: (typeof CATEGORY_BANDS)[number]; index: number }) {
+  const tools = getToolsByCategory(band.id);
+  const isBusiness = band.id === 'business';
+  return (
+    <CategorySection
+      id={band.id}
+      index={index}
+      icon={CATEGORY_ICONS[band.id]}
+      toolCount={tools.length}
+      viewAllText={band.viewAllText}
+      layout={band.layout}
+      flip={band.flip}
+    >
+      {tools.slice(0, band.show).map((tool) => (
+        <Card key={tool.slug} tool={tool} />
+      ))}
+      {isBusiness && (
+        <ToolCard
+          slug=""
+          name="Suggest a Calculator"
+          category="business"
+          description="Need another calculator for your trade? Tell us what formula or tool to build next."
+          icon="plus"
+          variant="suggest"
+        />
+      )}
+    </CategorySection>
+  );
+}
+
 export default function Home() {
+  // Keep the "new" grid to full rows of three.
   const newAndUpdated = getNewAndUpdatedTools();
-  const concreteTools = getToolsByCategory('concrete');
-  const gravelTools = getToolsByCategory('gravel');
-  const earthworkTools = getToolsByCategory('earthwork');
-  const framingTools = getToolsByCategory('framing');
-  const finishesTools = getToolsByCategory('finishes');
-  const businessTools = getToolsByCategory('business');
+  const newShown = newAndUpdated.slice(0, Math.max(3, newAndUpdated.length - (newAndUpdated.length % 3)));
 
   return (
     <main id="main-content" className={styles.mainWrapper}>
@@ -76,302 +158,91 @@ export default function Home() {
           about: { '@id': LD_ORG_ID },
         }}
       />
-      {/* 1. Hero Banner with Instant LCP Headline & Unified Search */}
+      {/* 1. Hero with search and colourful category chips */}
       <HomeHero />
 
-      {/* 2. Trust Strip */}
+      {/* 2. Trust strip */}
       <TrustStrip />
 
-      {/* 3. New & Updated Tools Section (No duplicate static cards) */}
-      <section className={styles.sectionCanvas}>
+      {/* 3. Colourful jump tiles, one per trade */}
+      <CategoryTiles />
+
+      {/* 4. New & updated tools: each card wears its own category colour */}
+      <section className={styles.sectionNew} aria-labelledby="new-tools-title">
         <div className={styles.container}>
           <SectionHeader
             eyebrow="NEW &amp; UPDATED"
-            categoryHue="concrete"
+            categoryHue="framing"
             title="Recently Built &amp; Updated Tools"
+            titleId="new-tools-title"
             subtitle="Fresh calculators and major feature upgrades engineered for fast jobsite math."
             viewAllLink="/tools/"
-            viewAllText={`Explore all ${TOOLS_CATALOG.length} tools →`}
+            viewAllText={`Explore all ${TOOLS_CATALOG.length} tools`}
           />
           <div className={styles.cardGrid}>
-            {newAndUpdated.map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
+            {newShown.map((tool) => (
+              <Card key={tool.slug} tool={tool} />
             ))}
           </div>
         </div>
       </section>
 
-      {/* 4. Category Sections — Exactly 4 Cards Each */}
+      {/* 5. Category bands 01–03 */}
+      {CATEGORY_BANDS.slice(0, 3).map((band, i) => (
+        <Band key={band.id} band={band} index={i + 1} />
+      ))}
 
-      {/* Category 1: Concrete & Masonry */}
-      <section id="concrete" className={styles.sectionBand}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.concrete.name}
-            categoryHue="concrete"
-            title={CATEGORIES.concrete.headline}
-            subtitle={CATEGORIES.concrete.blurb}
-            viewAllLink="/tools/#concrete"
-            viewAllText="View concrete tools →"
-          />
-          <div className={styles.cardGrid}>
-            {concreteTools.slice(0, 4).map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Category 2: Gravel, Sand & Pavers */}
-      <section id="gravel" className={styles.sectionCanvas}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.gravel.name}
-            categoryHue="gravel"
-            title={CATEGORIES.gravel.headline}
-            subtitle={CATEGORIES.gravel.blurb}
-            viewAllLink="/tools/#gravel"
-            viewAllText="View gravel &amp; sand tools →"
-          />
-          <div className={styles.cardGrid}>
-            {gravelTools.slice(0, 4).map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Pre-reserved AdSlot to Prevent Future Cumulative Layout Shift (CLS) */}
+      {/* Reserved ad slot (renders nothing until ads are enabled) */}
       <AdPlaceholder slotName="home-between-categories" />
 
-      {/* Category 3: Earthwork & Paving */}
-      <section id="earthwork" className={styles.sectionBand}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.earthwork.name}
-            categoryHue="earthwork"
-            title={CATEGORIES.earthwork.headline}
-            subtitle={CATEGORIES.earthwork.blurb}
-            viewAllLink="/tools/#earthwork"
-            viewAllText="View paving tools →"
-          />
-          <div className={styles.cardGrid}>
-            {earthworkTools.slice(0, 4).map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Category 4: Framing, Roofing & Measuring */}
-      <section id="framing" className={styles.sectionCanvas}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.framing.name}
-            categoryHue="framing"
-            title={CATEGORIES.framing.headline}
-            subtitle={CATEGORIES.framing.blurb}
-            viewAllLink="/tools/#framing"
-            viewAllText="View framing tools →"
-          />
-          <div className={styles.cardGrid}>
-            {framingTools.slice(0, 4).map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Category 5: Floors, Paint & Stain */}
-      <section id="finishes" className={styles.sectionBand}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.finishes.name}
-            categoryHue="finishes"
-            title={CATEGORIES.finishes.headline}
-            subtitle={CATEGORIES.finishes.blurb}
-            viewAllLink="/tools/#finishes"
-            viewAllText="View finish tools →"
-          />
-          <div className={styles.cardGrid}>
-            {finishesTools.slice(0, 4).map((tool) => (
-              <ToolCard
-                key={tool.slug}
-                slug={tool.slug}
-                name={tool.name}
-                category={tool.category}
-                description={tool.description}
-                tags={tool.tags}
-                icon={tool.icon}
-                isNew={tool.isNew}
-                isUpdated={tool.isUpdated}
-              />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Category 6: Business & Creative (4 Cards Grid) */}
-      <section id="business" className={styles.sectionCanvas}>
-        <div className={styles.container}>
-          <SectionHeader
-            eyebrow={CATEGORIES.business.name}
-            categoryHue="business"
-            title={CATEGORIES.business.headline}
-            subtitle={CATEGORIES.business.blurb}
-            viewAllLink="/tools/#business"
-            viewAllText="View all directory →"
-          />
-          <div className={styles.cardGrid}>
-            {/* 1. Construction Estimate Template */}
-            <ToolCard
-              slug={businessTools[0].slug}
-              name={businessTools[0].name}
-              category={businessTools[0].category}
-              description={businessTools[0].description}
-              tags={businessTools[0].tags}
-              icon={businessTools[0].icon}
-            />
-
-            {/* 2. Band Name Generator */}
-            <ToolCard
-              slug={businessTools[1].slug}
-              name={businessTools[1].name}
-              category={businessTools[1].category}
-              description={businessTools[1].description}
-              tags={businessTools[1].tags}
-              icon={businessTools[1].icon}
-            />
-
-            {/* 3. Browse All Tools Directory Card (4th Card Fix) */}
-            <ToolCard
-              slug="/tools/"
-              name="Browse All Tools"
-              category="business"
-              description="Explore the complete directory of 22 calculators, converters and creative utilities."
-              tags={['Directory', 'All Tools']}
-              icon="gridSearch"
-            />
-
-            {/* 4. Suggest a Tool Card */}
-            <ToolCard
-              slug=""
-              name="Suggest a Calculator"
-              category="business"
-              description="Need another calculator for your trade? Tell us what formula or tool to build next."
-              icon="plus"
-              variant="suggest"
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 5. Why KKC Tools (Replaces redundant 3-step How It Works) */}
+      {/* 6. Dark "why us" band breaks up the colourful sections */}
       <WhyUs />
 
-      {/* 6. Guides & Knowledge Strip */}
-      <section className={styles.sectionCanvas}>
+      {/* 7. Category bands 04–06 */}
+      {CATEGORY_BANDS.slice(3).map((band, i) => (
+        <Band key={band.id} band={band} index={i + 4} />
+      ))}
+
+      {/* 8. Guides with coloured covers */}
+      <section className={styles.sectionGuides} aria-labelledby="guides-title">
         <div className={styles.container}>
           <SectionHeader
             eyebrow="KNOWLEDGE &amp; GUIDES"
+            categoryHue="finishes"
             title="Band Naming Guides"
+            titleId="guides-title"
             subtitle="Step-by-step guides for naming a band and checking that a name is free. Each calculator page also explains its own formula."
             viewAllLink="/guides/"
-            viewAllText="Read all guides →"
+            viewAllText="Read all guides"
           />
           <div className={styles.guidesGrid}>
-            <Link href="/guides/how-to-choose-a-band-name/" className={styles.guideCard}>
-              <div className={styles.guideCover}>
-                <span className={styles.guideBadge}>Naming Guide</span>
-              </div>
-              <h3 className={styles.guideTitle}>How to Choose a Band Name That Sticks</h3>
-              <p className={styles.guideExcerpt}>
-                Strategic naming principles, trademark safety, genre alignment, and phonetics for modern musicians.
-              </p>
-              <span className={styles.guideLink}>Read article →</span>
-            </Link>
-
-            <Link href="/guides/band-name-ideas-by-genre/" className={styles.guideCard}>
-              <div className={styles.guideCover}>
-                <span className={styles.guideBadge}>Trends</span>
-              </div>
-              <h3 className={styles.guideTitle}>Genre-Specific Naming Trends</h3>
-              <p className={styles.guideExcerpt}>
-                From indie dream-pop to death metal: patterns, archetypes, and linguistic styling across genres.
-              </p>
-              <span className={styles.guideLink}>Read article →</span>
-            </Link>
-
-            <Link href="/guides/how-to-check-if-a-band-name-is-taken/" className={styles.guideCard}>
-              <div className={styles.guideCover}>
-                <span className={styles.guideBadge}>Legal &amp; IP</span>
-              </div>
-              <h3 className={styles.guideTitle}>Trademark &amp; Social Handle Checklist</h3>
-              <p className={styles.guideExcerpt}>
-                Avoid disputes before printing merch or registering domains. A straightforward trademark guide.
-              </p>
-              <span className={styles.guideLink}>Read article →</span>
-            </Link>
+            {GUIDES.map((g) => (
+              <Link key={g.href} href={g.href} className={`${styles.guideCard} ${styles[g.tone]}`}>
+                <div className={styles.guideCover} aria-hidden="true">
+                  <Icon name={g.icon} size={34} strokeWidth={1.7} />
+                </div>
+                <div className={styles.guideBody}>
+                  <span className={styles.guideBadge}>{g.badge}</span>
+                  <h3 className={styles.guideTitle}>{g.title}</h3>
+                  <p className={styles.guideExcerpt}>{g.excerpt}</p>
+                  <span className={styles.guideLink}>
+                    Read article <span aria-hidden="true">→</span>
+                  </span>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* 7. Frequently Asked Questions with FAQ Schema */}
-      <section className={styles.sectionBand}>
+      {/* 9. FAQ with FAQ schema */}
+      <section className={styles.sectionFaq} aria-labelledby="home-faq-title">
         <div className={styles.container}>
           <div className={styles.faqHeader}>
             <span className={styles.faqEyebrow}>FAQ</span>
-            <h2 className={styles.faqTitle}>Frequently Asked Questions</h2>
+            <h2 id="home-faq-title" className={styles.faqTitle}>
+              Frequently Asked Questions
+            </h2>
             <p className={styles.faqSubtitle}>
               Everything you need to know about our privacy-first tools, accuracy, and browser computation.
             </p>
@@ -382,7 +253,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* 8. Suggest a Tool Banner */}
+      {/* 10. Suggest a tool banner */}
       <SuggestBanner />
     </main>
   );

@@ -1,6 +1,7 @@
 import React from 'react';
 import Link from 'next/link';
 import ToolSearch from './ToolSearch';
+import HeroScene from './HeroScene';
 import Icon from '@/components/icons/Icons';
 import { TOOLS_CATALOG } from '@/lib/tools-catalog';
 import styles from './HomeHero.module.css';
@@ -26,7 +27,14 @@ export default function HomeHero() {
 
             {/* Instant LCP H1 Heading */}
             <h1 className={styles.heading}>
-              Free Construction <span className={styles.headingAccent}>Calculators</span> &amp; Everyday Tools
+              Free Construction{' '}
+              <span className={styles.headingAccentWrap}>
+                <span className={styles.headingAccent}>Calculators</span>
+                <svg className={styles.underline} viewBox="0 0 300 18" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+                  <path d="M4 13 C 70 3, 150 3, 296 9" />
+                </svg>
+              </span>{' '}
+              &amp; Everyday Tools
             </h1>
 
             {/* Instant LCP Lead Paragraph */}
@@ -41,25 +49,29 @@ export default function HomeHero() {
 
             {/* Category Quick Chips */}
             <div className={styles.chipsScroll}>
-              <a href="#concrete" className={styles.chip}>
+              <a href="#concrete" className={`${styles.chip} ${styles.chipConcrete}`}>
                 <span className={`${styles.chipDot} ${styles.dotConcrete}`} />
                 <span>Concrete</span>
               </a>
-              <a href="#gravel" className={styles.chip}>
+              <a href="#gravel" className={`${styles.chip} ${styles.chipGravel}`}>
                 <span className={`${styles.chipDot} ${styles.dotGravel}`} />
                 <span>Gravel &amp; Sand</span>
               </a>
-              <a href="#earthwork" className={styles.chip}>
+              <a href="#earthwork" className={`${styles.chip} ${styles.chipEarthwork}`}>
                 <span className={`${styles.chipDot} ${styles.dotEarthwork}`} />
                 <span>Asphalt &amp; Dirt</span>
               </a>
-              <a href="#framing" className={styles.chip}>
+              <a href="#framing" className={`${styles.chip} ${styles.chipFraming}`}>
                 <span className={`${styles.chipDot} ${styles.dotFraming}`} />
                 <span>Framing &amp; Roof</span>
               </a>
-              <a href="#finishes" className={styles.chip}>
+              <a href="#finishes" className={`${styles.chip} ${styles.chipFinishes}`}>
                 <span className={`${styles.chipDot} ${styles.dotFinishes}`} />
                 <span>Tile &amp; Paint</span>
+              </a>
+              <a href="#business" className={`${styles.chip} ${styles.chipBusiness}`}>
+                <span className={`${styles.chipDot} ${styles.dotBusiness}`} />
+                <span>Estimates &amp; Names</span>
               </a>
             </div>
 
@@ -76,6 +88,9 @@ export default function HomeHero() {
 
           {/* Right Column: Floating Live Result Cards (≥ 768px) */}
           <div className={styles.rightCol} aria-hidden="true">
+            <div className={styles.scenePanel}>
+              <HeroScene />
+            </div>
             <div className={`${styles.glassCard} ${styles.cardTop}`}>
               <div className={styles.glassHeader}>
                 <span className={styles.glassIconSky}>

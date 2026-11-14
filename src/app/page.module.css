@@ -25,8 +25,8 @@
 
 .cardGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 26px;
 }
 
 @media (max-width: 1100px) {
@@ -48,7 +48,23 @@
   }
 }
 
-/* Guides Section */
+/* ---------- New & updated ---------- */
+.sectionNew {
+  position: relative;
+  padding: 72px 0;
+  background:
+    radial-gradient(ellipse 40% 60% at 100% 0%, color-mix(in srgb, var(--brand-orange) 14%, transparent), transparent 70%),
+    linear-gradient(180deg, color-mix(in srgb, var(--brand-orange-soft) 55%, var(--bg)) 0%, var(--bg) 100%);
+  border-top: 1px solid color-mix(in srgb, var(--brand-orange) 18%, transparent);
+}
+
+/* ---------- Guides ---------- */
+.sectionGuides {
+  padding: 80px 0;
+  background: var(--surface-band, #FBFAF7);
+  border-top: 1px solid var(--line);
+}
+
 .guidesGrid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -62,62 +78,105 @@
   }
 }
 
+.toneFinishes { --g1: var(--cat-finishes-g1); --g2: var(--cat-finishes-g2); --soft: var(--cat-finishes-soft); --deep: var(--cat-finishes-deep); }
+.toneBusiness { --g1: var(--cat-business-g1); --g2: var(--cat-business-g2); --soft: var(--cat-business-soft); --deep: var(--cat-business-deep); }
+.toneGravel   { --g1: var(--cat-gravel-g1);   --g2: var(--cat-gravel-g2);   --soft: var(--cat-gravel-soft);   --deep: var(--cat-gravel-deep); }
+
 .guideCard {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-card, 16px);
-  padding: 24px;
-  text-decoration: none;
-  box-shadow: var(--shadow-card);
   display: flex;
   flex-direction: column;
-  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  overflow: hidden;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  text-decoration: none;
+  box-shadow: var(--shadow-card);
+  transition: transform 0.22s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.22s ease;
 }
 
 .guideCard:hover {
-  transform: translateY(-3px);
-  box-shadow: var(--shadow-card-hover);
+  transform: translateY(-4px);
+  box-shadow: 0 18px 34px -16px color-mix(in srgb, var(--g1) 55%, transparent);
 }
 
 .guideCover {
+  position: relative;
   display: flex;
   align-items: center;
-  margin-bottom: 14px;
+  justify-content: center;
+  height: 120px;
+  color: #FFFFFF;
+  background:
+    radial-gradient(circle at 85% 20%, rgba(255, 255, 255, 0.25) 0 18%, transparent 19%),
+    radial-gradient(circle at 10% 110%, rgba(255, 255, 255, 0.16) 0 28%, transparent 29%),
+    linear-gradient(135deg, var(--g1), var(--g2));
+}
+
+.guideCover svg {
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.guideCard:hover .guideCover svg {
+  transform: scale(1.12) rotate(-6deg);
+}
+
+.guideBody {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 24px;
 }
 
 .guideBadge {
+  align-self: flex-start;
+  margin-bottom: 12px;
+  padding: 3px 10px;
+  border-radius: 99px;
+  background: var(--soft);
+  color: var(--deep);
   font-size: 0.6875rem;
   font-weight: 700;
-  text-transform: uppercase;
   letter-spacing: 0.06em;
-  background: var(--surface-2);
-  color: var(--accent);
-  border: 1px solid var(--line);
-  padding: 3px 8px;
-  border-radius: 6px;
+  text-transform: uppercase;
 }
 
 .guideTitle {
   font-family: var(--font-heading);
-  font-size: 1.125rem;
+  font-size: 1.1875rem;
   font-weight: 700;
   color: var(--ink);
   line-height: 1.35;
-  margin-bottom: 8px;
+  margin: 0 0 8px;
 }
 
 .guideExcerpt {
-  font-size: 0.875rem;
-  line-height: 1.5;
+  font-size: 0.9rem;
+  line-height: 1.55;
   color: var(--ink-2);
   margin-bottom: 16px;
   flex: 1 0 auto;
 }
 
 .guideLink {
-  font-size: 0.8125rem;
-  font-weight: 600;
-  color: var(--accent);
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--deep);
+}
+
+/* ---------- FAQ ---------- */
+.sectionFaq {
+  padding: 80px 0;
+  background:
+    radial-gradient(ellipse 50% 50% at 50% 0%, color-mix(in srgb, var(--accent) 10%, transparent), transparent 70%),
+    var(--bg);
+}
+
+@media (max-width: 640px) {
+  .sectionNew,
+  .sectionGuides,
+  .sectionFaq {
+    padding: 48px 0;
+  }
 }
 
 /* FAQ Block */
@@ -133,11 +192,15 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  color: var(--color-primary);
-  margin-bottom: 8px;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 5px 12px;
+  border-radius: 99px;
+  margin-bottom: 12px;
 }
 
 .faqTitle {
+  margin-top: 0;
   font-family: var(--font-heading);
   font-size: clamp(1.5rem, 3vw, 2rem);
   font-weight: 750;

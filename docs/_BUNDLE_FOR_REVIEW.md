@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T20:08:38.712Z
+Generated on: 2026-11-14T21:06:56.799Z
 
 
 
@@ -260,6 +260,12 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase HD — Home page redesign (owner request, 2026-11-15)
+- [x] HD-1 Colourful, varied home page: category tiles, per-category bands with alternating layouts, coloured tool cards, dark "why us" band, gradient guide covers. *(Evidence: `src/components/home/CategorySection.tsx`, `CategoryTiles.tsx`; screenshots checked at 1440 px and 500 px)*
+- [x] HD-3 Tool cards with tool-specific SVG diagrams, bigger text, 3-column grids. *(Evidence: `src/components/home/ToolArt.tsx`; screenshots of `/` and `/tools/` at 1440 px and 500 px)*
+- [x] HD-4 Hero banner illustration (`HeroScene.tsx`), gradient heading, wrapped chips. *(Evidence: screenshots at 1440 px and 500 px; Lighthouse home mobile 94/100/96/100, desktop 100/100/96/100)*
+- [x] HD-2 No regressions: Lighthouse home mobile 95/100/96/100, desktop 100/100/96/100 after the card redesign; `/tools/` a11y 100; `npm run verify` passed. *(Evidence: local Lighthouse 12.6.0, 2026-11-15)*
 
 ### Phase AR — AdSense-readiness report check (report `docs/Adsence Approval reports/Adsence aprooval - report.pdf`, 2026-11-15)
 The report came from an external scanner. Each item was checked on the live site (curl, local Lighthouse 12.6.0) and in the code. Items the scanner got wrong are recorded, not "fixed".
@@ -704,6 +710,8 @@ The original "Stage Lights" purple palette (Phase 1) has been replaced.
 | `--accent-ink` | `#FFFFFF` | `#090C12` |
 | `--brand-orange` | `#C2410C` | `#F97316` |
 | `--brand-orange-text` | `#9A3412` | `#FB923C` |
+| `--cat-*-deep` | darker category shade for text on tints (e.g. `#075985`) | light shade (e.g. `#BAE6FD`) |
+| `--cat-*-g1` / `-g2` | fixed category gradient (same in both themes; white text ≥ 5:1) | same |
 
 Other tokens: radii (`--radius-s` 8, `-m` 14, `-l` 18, `-card` 16, `-pill`), shadows (`-s/-m/-l/-card/-pop`), spacing `--space-1…9` (4–96 px), `--container` 1200 px, `--prose` 68ch.
 
@@ -745,6 +753,35 @@ Target: ≥ 4.5:1 for body text, ≥ 3.0:1 for large text / UI borders. All pair
 **Other a11y rules:** segmented buttons use `aria-pressed` (not `aria-checked` without a role, nor `role="tablist"` without tabs); headings go h1 → h2 → h3 without skips; empty table header cells get `<span className="sr-only">`; `.sr-only` lives in `globals.css`.
 
 **Result (2026-11-15):** Lighthouse 12.6.0 accessibility = 100 on all 47 built pages.
+
+---
+
+## 4. Home Page Layout (redesigned 2026-11-15)
+
+Goal: every section looks different while scrolling, and each trade has its own colour.
+
+| # | Section | Look |
+|---|---|---|
+| 1 | Hero (`HomeHero`) | colourful mesh background; "Calculators" in a blue→purple→rose gradient with a hand-drawn orange underline; category chips tinted per category and wrapping to two rows; right side: `HeroScene` illustrated building site (slab, stud wall with window, truss + shingle roof with pitch marker, painted wall and roller, gravel pile, crane, tree, tape measure) in a blueprint panel, with the three result cards hanging off its corners on desktop; on phones the scene shows under the buttons |
+| 2 | Trust strip | unchanged |
+| 3 | `CategoryTiles` — "Pick a trade" | 6 gradient tiles (one per category, `--cat-*-g1/g2`), tool count, jump link |
+| 4 | New & updated | warm orange tint; grid trimmed to full rows of 4 |
+| 5 | Category bands 01–03 (`CategorySection`) | own tint + blueprint grid + glow, gradient icon badge, outlined numeral, coloured eyebrow pill and underline; layout alternates **split** (heading column + 2×2 cards, sticky heading) / **stack** (heading row + 4 across); split headings flip sides |
+| 6 | Why us (`WhyUs`) | dark navy band with dot pattern; each point a different category colour |
+| 7 | Category bands 04–06 | as above |
+| 8 | Guides | cards with gradient covers and icons, tinted badges |
+| 9 | FAQ | soft accent glow |
+| 10 | Suggest banner | unchanged |
+
+- **Tool cards (`ToolCard`)**, used on Home and `/tools/` (redesigned again 2026-11-15 after owner feedback "too simple, text too small"):
+  - 172 px illustration panel with a tool-specific SVG diagram (`ToolArt.tsx`, one per tool icon, e.g. slab with dimensions, rebar grid, wire gauges, pipe OD/ID, paver layers), blueprint grid, category chip and NEW/UPDATED badge;
+  - gradient icon tile + 1.25 rem title, 0.975 rem description (2 lines), tinted tag pills;
+  - footer with "Open tool →" and "Free · No sign-up"; coloured ring + lift on hover;
+  - grids are 3 across on desktop (split sections 2 across), 2 on tablets, 1 on phones; on phones the card is a row with a 104 px diagram thumbnail.
+- Section card counts are multiples of the column count: split 4 (2×2), stack 6 (3×2), Business 3, New 9.
+- `AdPlaceholder` renders nothing while `NEXT_PUBLIC_ADS_ENABLED` is false, so visitors never see an empty "advertisement" box.
+- Section `overflow: clip` (not `hidden`) so the sticky heading works.
+- Lighthouse after the redesign (local build, 2026-11-15): mobile 96 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100 (Perf / A11y / BP / SEO); CLS 0.001; Best Practices 96 only from the local-only `__next.*.txt` 404.
 
 
 
@@ -862,6 +899,28 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Hero banner illustration] — 2026-11-15
+- Owner asked for a more attractive hero with images/diagrams.
+- New `HeroScene.tsx`: inline-SVG building site touching every category (concrete slab, framed wall, roof truss + shingles with 8/12 pitch marker, painted wall with roller, gravel pile, crane lifting a beam, tree, 24 ft tape measure) on a blueprint sky panel; shown on all screen sizes.
+- Heading accent in a gradient with a hand-drawn underline; colourful background glows; chips wrap instead of being cut off; result cards resized and moved to the panel corners.
+- Lighthouse home: mobile 94 / 100 / 96 / 100 (LCP 2.9 s, CLS 0.001), desktop 100 / 100 / 96 / 100; `npm run verify` passed.
+
+### [Tool cards with diagrams — bigger, modern] — 2026-11-15
+- Owner feedback: cards looked simple and text was small; wanted tool-related diagrams so a visitor sees at a glance what each tool does.
+- New `ToolArt.tsx`: 31 small inline-SVG diagrams (29 tools + "browse all" + "suggest"), coloured from the card's category, decorative (`aria-hidden`).
+- `ToolCard` redesigned: illustration panel with category chip and badge, bigger icon/title/description/tags, "Open tool →" footer, hover ring; mobile row with diagram thumbnail. Fixed description showing a cut-off third line.
+- Grids now 3 across (home and `/tools/`); home sections rebalanced so no row is half empty (split 4, stack 6, Business 3, New 9).
+- Fix: in flipped split sections (heading on the right) the columns now swap too, so the cards keep the wide column (the Gravel cards had been squeezed into the narrow one).
+- Lighthouse home: mobile 95 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100; `/tools/` a11y 100; `npm run verify` passed.
+
+### [Home page redesign — colourful, varied sections] — 2026-11-15
+- Owner feedback: the home page looked flat; every section and every tool card looked the same.
+- New `CategoryTiles` ("Pick a trade" gradient tiles) and `CategorySection` (per-category tint, blueprint grid, glow, gradient icon badge, numerals 01–06, alternating split/stack layouts with sticky heading).
+- Tool cards now carry their category colour (top stripe, tint, gradient icon, tinted tags, coloured hover); mobile badge overlap fixed.
+- Hero chips tinted per category (+ Business chip); "Why us" is a dark navy band with colourful icons; guides get gradient covers; FAQ glow.
+- Fixes found on the way: double arrows in "View all" links, stale "22 calculators" text (now from the catalog), inert ad box hidden until ads are enabled, header search `aria-label` now matches its visible text.
+- New tokens `--cat-*-deep` and `--cat-*-g1/g2`. Lighthouse: mobile Perf 96 / A11y 100, desktop 100 / 100; `npm run verify` passed.
 
 ### [AdSense-readiness report — verified and fixed] — 2026-11-15
 - Checked every item of `docs/Adsence Approval reports/Adsence aprooval - report.pdf` against the live site and the code. Results and the owner list are in `00-PROJECT-STATUS.md` → Phase AR.
@@ -1052,7 +1111,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T20:08:38.222Z
+Run Date: 2026-11-14T21:06:07.916Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1084,7 +1143,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1389 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1733 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -1104,7 +1163,7 @@ Status: PASSED ✅
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 643 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 841 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1203,6 +1262,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner identity
 085eee7 wire gauge calculator-completed
 08bee22 Add Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7)
 3d2e579 shingle roof calculator- completed
@@ -1222,7 +1282,6 @@ c08b669 reinforcement steel calculator
 5c5d5f4 make pages responsive
 9e9c201 refactor(ux): place calculators immediately below title on asphalt and construction estimate pages
 ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep guide with picket style multipliers and porosity math
-2a57020 feat(compost): upgrade tool #18 spec and implement 2800+ word deep guide with Mel's mix and bag size matrix
 ```
 
 
@@ -1238,18 +1297,18 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 30ms
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.3s
+✓ Compiled successfully in 4.1s
   Running TypeScript ...
-  Finished TypeScript in 7.7s ...
+  Finished TypeScript in 2.5s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/64) ...
   Generating static pages using 15 workers (16/64) 
   Generating static pages using 15 workers (32/64) 
   Generating static pages using 15 workers (48/64) 
-✓ Generating static pages using 15 workers (64/64) in 2.2s
+✓ Generating static pages using 15 workers (64/64) in 2.7s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1406,8 +1465,8 @@ Report written to docs/seo-audit-report.md
 
  Test Files  32 passed (32)
       Tests  392 passed (392)
-   Start at  01:38:04
-   Duration  1.87s (transform 5.47s, setup 0ms, import 7.31s, tests 681ms, environment 39ms)
+   Start at  02:35:36
+   Duration  1.81s (transform 5.07s, setup 0ms, import 6.91s, tests 652ms, environment 7ms)
 
 
 ```

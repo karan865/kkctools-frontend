@@ -4,6 +4,28 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Hero banner illustration] — 2026-11-15
+- Owner asked for a more attractive hero with images/diagrams.
+- New `HeroScene.tsx`: inline-SVG building site touching every category (concrete slab, framed wall, roof truss + shingles with 8/12 pitch marker, painted wall with roller, gravel pile, crane lifting a beam, tree, 24 ft tape measure) on a blueprint sky panel; shown on all screen sizes.
+- Heading accent in a gradient with a hand-drawn underline; colourful background glows; chips wrap instead of being cut off; result cards resized and moved to the panel corners.
+- Lighthouse home: mobile 94 / 100 / 96 / 100 (LCP 2.9 s, CLS 0.001), desktop 100 / 100 / 96 / 100; `npm run verify` passed.
+
+### [Tool cards with diagrams — bigger, modern] — 2026-11-15
+- Owner feedback: cards looked simple and text was small; wanted tool-related diagrams so a visitor sees at a glance what each tool does.
+- New `ToolArt.tsx`: 31 small inline-SVG diagrams (29 tools + "browse all" + "suggest"), coloured from the card's category, decorative (`aria-hidden`).
+- `ToolCard` redesigned: illustration panel with category chip and badge, bigger icon/title/description/tags, "Open tool →" footer, hover ring; mobile row with diagram thumbnail. Fixed description showing a cut-off third line.
+- Grids now 3 across (home and `/tools/`); home sections rebalanced so no row is half empty (split 4, stack 6, Business 3, New 9).
+- Fix: in flipped split sections (heading on the right) the columns now swap too, so the cards keep the wide column (the Gravel cards had been squeezed into the narrow one).
+- Lighthouse home: mobile 95 / 100 / 96 / 100, desktop 100 / 100 / 96 / 100; `/tools/` a11y 100; `npm run verify` passed.
+
+### [Home page redesign — colourful, varied sections] — 2026-11-15
+- Owner feedback: the home page looked flat; every section and every tool card looked the same.
+- New `CategoryTiles` ("Pick a trade" gradient tiles) and `CategorySection` (per-category tint, blueprint grid, glow, gradient icon badge, numerals 01–06, alternating split/stack layouts with sticky heading).
+- Tool cards now carry their category colour (top stripe, tint, gradient icon, tinted tags, coloured hover); mobile badge overlap fixed.
+- Hero chips tinted per category (+ Business chip); "Why us" is a dark navy band with colourful icons; guides get gradient covers; FAQ glow.
+- Fixes found on the way: double arrows in "View all" links, stale "22 calculators" text (now from the catalog), inert ad box hidden until ads are enabled, header search `aria-label` now matches its visible text.
+- New tokens `--cat-*-deep` and `--cat-*-g1/g2`. Lighthouse: mobile Perf 96 / A11y 100, desktop 100 / 100; `npm run verify` passed.
+
 ### [AdSense-readiness report — verified and fixed] — 2026-11-15
 - Checked every item of `docs/Adsence Approval reports/Adsence aprooval - report.pdf` against the live site and the code. Results and the owner list are in `00-PROJECT-STATUS.md` → Phase AR.
 - **New pages:** `/disclaimer/` (estimates not advice, electrical/structural safety, prices, corrections, generated names, external links, advertising/affiliates, no affiliation, contact) and `/site-map/` (HTML site map built from the tool catalog and route list). Both are in the footer, `sitemap.xml` and `llms.txt` (47 routes).

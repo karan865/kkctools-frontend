@@ -71,26 +71,46 @@
   --cat-concrete: #0284C7;
   --cat-concrete-soft: #E0F2FE;
   --cat-concrete-ink: #0369A1;
+  --cat-concrete-deep: #075985;
 
   --cat-gravel: #059669;
   --cat-gravel-soft: #D1FAE5;
   --cat-gravel-ink: #047857;
+  --cat-gravel-deep: #065F46;
 
   --cat-earthwork: #D97706;
   --cat-earthwork-soft: #FEF3C7;
   --cat-earthwork-ink: #B45309;
+  --cat-earthwork-deep: #92400E;
 
   --cat-framing: #EA580C;
   --cat-framing-soft: #FFEDD5;
   --cat-framing-ink: #C2410C;
+  --cat-framing-deep: #9A3412;
 
   --cat-finishes: #7C3AED;
   --cat-finishes-soft: #EDE9FE;
   --cat-finishes-ink: #6D28D9;
+  --cat-finishes-deep: #5B21B6;
 
   --cat-business: #E11D48;
   --cat-business-soft: #FFE4E6;
   --cat-business-ink: #BE123C;
+  --cat-business-deep: #9F1239;
+
+  /* Fixed category gradients (same in both themes; white text on them is >= 5:1) */
+  --cat-concrete-g1: #0369A1;
+  --cat-concrete-g2: #075985;
+  --cat-gravel-g1: #047857;
+  --cat-gravel-g2: #065F46;
+  --cat-earthwork-g1: #B45309;
+  --cat-earthwork-g2: #92400E;
+  --cat-framing-g1: #C2410C;
+  --cat-framing-g2: #9A3412;
+  --cat-finishes-g1: #6D28D9;
+  --cat-finishes-g2: #5B21B6;
+  --cat-business-g1: #BE123C;
+  --cat-business-g2: #9F1239;
 
   /* Typography Fluid Scale */
   --font-heading: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -151,24 +171,30 @@
   --cat-concrete: #38BDF8;
   --cat-concrete-soft: rgba(56, 189, 248, 0.14);
   --cat-concrete-ink: #7DD3FC;
+  --cat-concrete-deep: #BAE6FD;
 
   --cat-gravel: #34D399;
   --cat-gravel-soft: rgba(52, 211, 153, 0.14);
   --cat-gravel-ink: #6EE7B7;
+  --cat-gravel-deep: #A7F3D0;
 
   --cat-earthwork: #FBBF24;
   --cat-earthwork-soft: rgba(251, 191, 36, 0.14);
   --cat-earthwork-ink: #FCD34D;
+  --cat-earthwork-deep: #FDE68A;
 
   --cat-framing: #F97316;
   --cat-framing-soft: rgba(249, 115, 22, 0.15);
   --cat-framing-ink: #FDBA74;
+  --cat-framing-deep: #FED7AA;
 
   --cat-finishes: #A78BFA;
   --cat-finishes-soft: rgba(167, 139, 250, 0.15);
   --cat-finishes-ink: #C4B5FD;
+  --cat-finishes-deep: #DDD6FE;
 
   --cat-business: #FB7185;
   --cat-business-soft: rgba(251, 113, 133, 0.15);
   --cat-business-ink: #FDA4AF;
+  --cat-business-deep: #FECDD3;
 }
