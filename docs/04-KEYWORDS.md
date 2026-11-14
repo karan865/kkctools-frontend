@@ -13,6 +13,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Concrete Calculator — `concrete volume calculator`, US 3,600 / KD 5.
 - Drywall Calculator — `drywall calculator`, US 12,100 / KD 41.
 - Lawn Mowing Cost Calculator — `lawn mowing cost calculator`, US 1,000 / KD 3 (secondaries: `free lawn mowing cost calculator` 140/0, `lawn mowing cost calculation` 50/1, `lawn mowing cost calculator per acre` 70/20).
+- Shingle Roof Calculator — `shingle roof calculator`, US 1,300 / KD 10; real traffic in the bundle questions (`how many shingles in a bundle` 2,900/10, `how many bundles of shingles in a square` 2,400/6 + variants 1,900 and 1,300), all answered as H2s/FAQs.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 

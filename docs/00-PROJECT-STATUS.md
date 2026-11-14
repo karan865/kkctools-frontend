@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase SH — Tool #24: Shingle Roof Calculator (Batch 2 Tier 1 #5, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/05_Shingle_Roof_Calculator_Competitor_Analysis.md` (primary `shingle roof calculator`, US 1,300 / KD 10; top 8 pages have 0 referring domains).
+- [x] SH-1 Engine `src/lib/shingle-engine.ts` + 20 tests (pitch factor, gable/hip/shed/area geometry, bundles, accessories, ice & water, nails, overrides, cost). *(Evidence: `npx vitest run` → 315 passed)*
+- [x] SH-2 Calculator UI with roof sections, live plan diagrams, shingle presets, waste, accessories, edge overrides, prices, share/copy/print. *(Evidence: `src/components/tool/shingle-calculator/`)*
+- [x] SH-3 Page: title 61 chars incl. brand, meta 138, one H1, ~2,840 words, 10 FAQs, WebApplication + FAQPage + BreadcrumbList. *(Evidence: cheerio check of `out/shingle-calculator/index.html`)*
+- [x] SH-4 Wiring: routes, catalog (26), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] SH-5 `npm run verify` all steps passed. *(Evidence: 2026-11-14 run, `docs/evidence/`)*
+- [ ] SH-6 `TODO(owner)`: confirm the waste presets and default products suit your market; link the planned Metal Roof Cost (#13) and Roof Replacement Cost (#19) pages once built.
+
 ### Phase LM — Tool #23: Lawn Mowing Cost Calculator (Batch 2 Tier 1 #4, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md` (primary keyword `lawn mowing cost calculator`, US 1,000 / KD 3; 6 of the top 10 are Domain AS ≤ 20).
 - [x] LM-1 Engine `src/lib/lawn-mowing-engine.ts` + 22 tests (visit counts, time model, minimum, season/month, per acre, range, published-range guard). *(Evidence: `npx vitest run` → 295 passed)*

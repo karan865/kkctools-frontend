@@ -113,6 +113,7 @@ export default function Footer() {
             <span className={styles.colTitle}>Framing &amp; Finishes</span>
             <ul className={styles.linkList}>
               <li><Link href="/rafter-calculator/" className={styles.link}>Rafter Calculator</Link></li>
+              <li><Link href="/shingle-calculator/" className={styles.link}>Shingle Roof Calculator</Link></li>
               <li><Link href="/stud-calculator/" className={styles.link}>Stud Framing</Link></li>
               <li><Link href="/square-footage-calculator/" className={styles.link}>Square Footage</Link></li>
               <li><Link href="/linear-foot-calculator/" className={styles.link}>Linear Foot</Link></li>

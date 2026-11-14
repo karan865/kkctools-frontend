@@ -80,6 +80,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  shingleCalculator: {
+    path: '/shingle-calculator/',
+    title: 'Shingle Roof Calculator – Bundles, Squares & Area',
+    description: 'Find how many bundles of shingles you need. Enter roof size and pitch to get roofing squares, bundles, starter strip, ridge cap and waste.',
+    updated: '2026-11-14',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',

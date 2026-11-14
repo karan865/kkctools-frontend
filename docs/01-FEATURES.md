@@ -2,8 +2,8 @@
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 25 — 1 generator, 1 estimate template, 23 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 295 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 26 — 1 generator, 1 estimate template, 24 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 315 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -37,6 +37,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 23 | Compost Calculator | `/compost-calculator/` | `compost-calculator/` | `compost-engine.ts` |
 | 24 | Fence Stain Calculator | `/fence-stain-calculator/` | `fence-stain-calculator/` | `fence-stain-engine.ts` |
 | 25 | Lawn Mowing Cost Calculator (homeowner + pro views) | `/lawn-mowing-cost-calculator/` | `lawn-mowing-calculator/` | `lawn-mowing-engine.ts` |
+| 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).

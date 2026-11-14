@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-14T17:44:55.046Z
+Generated on: 2026-11-14T18:04:31.314Z
 
 
 
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase SH — Tool #24: Shingle Roof Calculator (Batch 2 Tier 1 #5, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/05_Shingle_Roof_Calculator_Competitor_Analysis.md` (primary `shingle roof calculator`, US 1,300 / KD 10; top 8 pages have 0 referring domains).
+- [x] SH-1 Engine `src/lib/shingle-engine.ts` + 20 tests (pitch factor, gable/hip/shed/area geometry, bundles, accessories, ice & water, nails, overrides, cost). *(Evidence: `npx vitest run` → 315 passed)*
+- [x] SH-2 Calculator UI with roof sections, live plan diagrams, shingle presets, waste, accessories, edge overrides, prices, share/copy/print. *(Evidence: `src/components/tool/shingle-calculator/`)*
+- [x] SH-3 Page: title 61 chars incl. brand, meta 138, one H1, ~2,840 words, 10 FAQs, WebApplication + FAQPage + BreadcrumbList. *(Evidence: cheerio check of `out/shingle-calculator/index.html`)*
+- [x] SH-4 Wiring: routes, catalog (26), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] SH-5 `npm run verify` all steps passed. *(Evidence: 2026-11-14 run, `docs/evidence/`)*
+- [ ] SH-6 `TODO(owner)`: confirm the waste presets and default products suit your market; link the planned Metal Roof Cost (#13) and Roof Replacement Cost (#19) pages once built.
+
 ### Phase LM — Tool #23: Lawn Mowing Cost Calculator (Batch 2 Tier 1 #4, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md` (primary keyword `lawn mowing cost calculator`, US 1,000 / KD 3; 6 of the top 10 are Domain AS ≤ 20).
 - [x] LM-1 Engine `src/lib/lawn-mowing-engine.ts` + 22 tests (visit counts, time model, minimum, season/month, per acre, range, published-range guard). *(Evidence: `npx vitest run` → 295 passed)*
@@ -463,8 +472,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 25 — 1 generator, 1 estimate template, 23 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 295 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 26 — 1 generator, 1 estimate template, 24 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
+- **Tests:** 315 Vitest tests passing (`npm run verify`, 2026-11-14).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -498,6 +507,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 23 | Compost Calculator | `/compost-calculator/` | `compost-calculator/` | `compost-engine.ts` |
 | 24 | Fence Stain Calculator | `/fence-stain-calculator/` | `fence-stain-calculator/` | `fence-stain-engine.ts` |
 | 25 | Lawn Mowing Cost Calculator (homeowner + pro views) | `/lawn-mowing-cost-calculator/` | `lawn-mowing-calculator/` | `lawn-mowing-engine.ts` |
+| 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -543,7 +553,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (41 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (42 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-14: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -553,7 +563,7 @@ Source of truth: `src/lib/routes.ts` (41 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (23) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (24) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live |
@@ -689,6 +699,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Concrete Calculator — `concrete volume calculator`, US 3,600 / KD 5.
 - Drywall Calculator — `drywall calculator`, US 12,100 / KD 41.
 - Lawn Mowing Cost Calculator — `lawn mowing cost calculator`, US 1,000 / KD 3 (secondaries: `free lawn mowing cost calculator` 140/0, `lawn mowing cost calculation` 50/1, `lawn mowing cost calculator per acre` 70/20).
+- Shingle Roof Calculator — `shingle roof calculator`, US 1,300 / KD 10; real traffic in the bundle questions (`how many shingles in a bundle` 2,900/10, `how many bundles of shingles in a square` 2,400/6 + variants 1,900 and 1,300), all answered as H2s/FAQs.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -776,6 +787,14 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #24 — Shingle Roof Calculator] — 2026-11-14
+- New page `/shingle-calculator/` (Batch 2 Tier 1 #5), built from `05_Shingle_Roof_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/shingle-engine.ts`): roof sections (gable / hip / shed / measured area) with overhang and pitch; slope factor √(1+(rise/12)²); automatic eaves, rakes, ridge and hip lengths (manual override); squares → bundles with waste; starter strip, hip & ridge cap, drip edge, underlayment, ice & water barrier (eaves rows + valleys) and nails; optional material cost.
+- **Defaults from manufacturer data:** GAF Timberline HDZ (3 bundles, 64 pieces/square), Owens Corning Supreme 3-tab (3 bundles, 80/square), OC Starter Strip Plus (105 ft/bundle), OC ProEdge (33 ft/bundle). Waste presets labelled as typical trade allowances.
+- Feet or metres; several sections; live roof-plan diagram per section; shopping-list table; copy, share link, print.
+- Page: 4 diagram types (7 SVGs), pitch multiplier table, bundles-per-square table, bundles-by-roof-size table, 4 engine-computed worked examples, 10 FAQs + schema, "How This Calculator Works"; ~2,840 words. Title shortened to 61 chars (incl. brand) after the SEO audit flagged 66.
+- Wiring: routes, catalog (26 tools), new `shingles` icon, footer. 20 new tests (315 total); `npm run verify` all passed.
 
 ### [Tool #23 — Lawn Mowing Cost Calculator] — 2026-11-14
 - New page `/lawn-mowing-cost-calculator/` (Batch 2 Tier 1 #4), built from `04_Lawn_Mowing_Cost_Calculator_Competitor_Analysis.md`.
@@ -915,7 +934,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-14T17:43:59.093Z
+Run Date: 2026-11-14T18:03:54.782Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -945,7 +964,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1826 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1308 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1323 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -956,13 +975,14 @@ Status: PASSED ✅
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
+| `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 518 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 571 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 585 | All Free Tools: Construction C | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -1008,6 +1028,7 @@ privacy-policy/index.html
 rafter-calculator/index.html
 rebar-calculator/index.html
 sand-calculator/index.html
+shingle-calculator/index.html
 square-footage-calculator/index.html
 stone-calculator/index.html
 stud-calculator/index.html
@@ -1054,6 +1075,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+603df95 Lawn Mowing Cost Calculator
 6a68583 project docs updated successfully
 7bbdb09 cloudfare setup
 4333b29 all competetiors data collected
@@ -1073,7 +1095,6 @@ ede308c feat(fence-stain): upgrade tool #19 spec and implement 2800+ word deep g
 359b9d8 feat(paver-sand): upgrade tool #16 spec and implement comprehensive 2800+ word guide with verified ICPI standards
 ddbd302 style(home): align generate button color to primary ocean blue
 aa1896e fix(seo): resolve audit issues, standardize structured data and disable netlify hud - Add public/llms.txt to eliminate 404 error and support AI search crawlers - Standardize WebApplication, BreadcrumbList, and FAQPage schemas via buildSchema.ts - Synchronize canonical URLs and sitemap entries with strict trailing slashes - Add semantic <main> tags on tile and laminate calculators to resolve low text ratio - Add netlify.toml with hud_enabled=false to suppress unminified Netlify HUD injection - Organize footer tools section into a responsive 2-column layout - Update docs/SEO-SITE-AUDIT-REPORT.md with verified evidence
-ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar math & unified UI
 ```
 
 
@@ -1089,18 +1110,18 @@ ff523b8 feat(tool-9): implement brick calculator with DA-1 SEO, corrected mortar
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1179ms
+✓ Running next.config.ts took 28ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.4s
+✓ Compiled successfully in 4.3s
   Running TypeScript ...
-  Finished TypeScript in 10.5s ...
+  Finished TypeScript in 2.3s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/58) ...
-  Generating static pages using 15 workers (14/58) 
-  Generating static pages using 15 workers (28/58) 
-  Generating static pages using 15 workers (43/58) 
-✓ Generating static pages using 15 workers (58/58) in 1776ms
+  Generating static pages using 15 workers (0/59) ...
+  Generating static pages using 15 workers (14/59) 
+  Generating static pages using 15 workers (29/59) 
+  Generating static pages using 15 workers (44/59) 
+✓ Generating static pages using 15 workers (59/59) in 1917ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1150,6 +1171,7 @@ Route (app)
 ├ ○ /rebar-calculator
 ├ ○ /robots.txt
 ├ ○ /sand-calculator
+├ ○ /shingle-calculator
 ├ ○ /sitemap.xml
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
@@ -1244,7 +1266,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 44 HTML files in out/...
+Auditing 45 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1261,10 +1283,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  28 passed (28)
-      Tests  295 passed (295)
-   Start at  23:13:20
-   Duration  1.56s (transform 5.26s, setup 0ms, import 6.86s, tests 594ms, environment 25ms)
+ Test Files  29 passed (29)
+      Tests  315 passed (315)
+   Start at  23:33:28
+   Duration  1.60s (transform 4.41s, setup 0ms, import 5.90s, tests 595ms, environment 19ms)
 
 
 ```

@@ -56,7 +56,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     id: 'framing',
     name: 'Framing, Roofing & Measuring',
     headline: 'Framing, Rafter & Area Calculators',
-    blurb: 'Wall studs, roof rafters, square footage, and linear-to-square foot conversions.',
+    blurb: 'Wall studs, roof rafters, shingle bundles, square footage, and linear-to-square foot conversions.',
     order: 4,
   },
   finishes: {
@@ -241,6 +241,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['rafter', 'roof pitch', 'roofing', 'birdsmouth cut', 'rafter length', 'ridge height', 'carpentry'],
     added: '2026-11-10',
     isUpdated: true,
+  },
+  {
+    slug: '/shingle-calculator/',
+    name: 'Shingle Roof Calculator',
+    category: 'framing',
+    description: 'Roofing squares, shingle bundles, starter, ridge cap, drip edge & underlayment by pitch.',
+    tags: ['Bundles', 'Squares'],
+    icon: 'shingles',
+    keywords: ['shingles', 'roof shingles', 'roofing squares', 'bundles', 'roof area', 'ridge cap', 'starter strip', 'underlayment', 'pitch'],
+    added: '2026-11-14',
+    isNew: true,
   },
   {
     slug: '/stud-calculator/',

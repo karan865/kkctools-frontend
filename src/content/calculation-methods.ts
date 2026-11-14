@@ -283,6 +283,48 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'shingle-calculator': {
+    formula: [
+      'Slope factor = √(1 + (rise ÷ 12)²); roof area = (length + 2 × overhang) × (width + 2 × overhang) × slope factor',
+      'Squares = roof area ÷ 100; bundles = squares × (1 + waste %) × bundles per square, rounded up',
+      'Gable edges: eaves = 2 × length, rakes = 4 × half-width × slope factor, ridge = length. Hip: eaves all round, ridge = long − short side, hip = √(2 × run² + (run × rise ÷ 12)²)',
+      'Starter bundles = (eaves + rakes) ÷ feet per bundle; ridge cap bundles = (ridge + hips) ÷ feet per bundle; drip edge pieces = (eaves + rakes) ÷ piece length — all rounded up',
+      'Ice & water area = eaves × rows × 3 ft + valleys × 3 ft; underlayment rolls = (roof area − ice & water area) ÷ coverage per roll',
+      'Nails = squares with waste × shingles per square × nails per shingle',
+    ],
+    defaults: [
+      { label: 'Architectural shingles', value: '3 bundles and 64 pieces per square, 5⅝ in exposure (GAF Timberline HDZ data sheet)' },
+      { label: '3-tab shingles', value: '12 × 36 in, 5 in exposure: 3 bundles and 80 shingles per square (Owens Corning Supreme)' },
+      { label: 'Starter strip / ridge cap', value: '105 ft per starter bundle (OC Starter Strip Plus); 33 ft per hip & ridge bundle (OC ProEdge, 6 in exposure)' },
+      { label: 'Underlayment', value: 'synthetic ≈ 1,000 sq ft, #15 felt ≈ 400 sq ft, #30 felt ≈ 200 sq ft per roll after laps; ice & water barrier 200 sq ft (36 in × 66.7 ft) per roll' },
+      { label: 'Waste', value: '10% simple gable, 15% hip, 20% complex roofs — typical trade allowances, not a standard; change them to suit your roof' },
+      { label: 'Nails', value: '4 per shingle (6 in high-wind areas when the wrapper calls for it)' },
+    ],
+    sources: [
+      {
+        label: 'GAF Timberline HDZ shingles specification sheet',
+        url: 'https://www.gaf.com/en-us/document-library/documents/specifications/timberline-hdz-shingles-spec-sheet-resgn467hdz.pdf',
+        note: 'exposure 5⅝ in, 3 bundles and 64 pieces per square',
+      },
+      {
+        label: 'Owens Corning Supreme shingles product page',
+        url: 'https://owenscorning.com/roofing/shingles/supreme',
+        note: '12 × 36 in at 5 in exposure: 80 shingles and 3 bundles per 100 sq ft square',
+      },
+      {
+        label: 'Owens Corning Starter Strip Plus product page',
+        url: 'https://owenscorning.com/roofing/products/starter-strip-plus',
+        note: 'about 105 lineal feet per bundle',
+      },
+      {
+        label: 'Owens Corning ProEdge Hip & Ridge data sheet',
+        url: 'https://www.owenscorning.com/en/documents/uploads/proedge-hip-and-ridge-shingle-data-sheet',
+        note: '33 ft of coverage per bundle at 6 in exposure',
+      },
+      { label: 'Underlayment roll coverage', note: 'typical net coverage printed on roll labels; check your product' },
+      NIST,
+    ],
+  },
   'lawn-mowing-cost-calculator': {
     formula: [
       'Acres per hour = mower width (ft) × speed (mph) × 5,280 × efficiency ÷ 43,560',

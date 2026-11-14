@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1179ms
+✓ Running next.config.ts took 28ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.4s
+✓ Compiled successfully in 4.3s
   Running TypeScript ...
-  Finished TypeScript in 10.5s ...
+  Finished TypeScript in 2.3s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/58) ...
-  Generating static pages using 15 workers (14/58) 
-  Generating static pages using 15 workers (28/58) 
-  Generating static pages using 15 workers (43/58) 
-✓ Generating static pages using 15 workers (58/58) in 1776ms
+  Generating static pages using 15 workers (0/59) ...
+  Generating static pages using 15 workers (14/59) 
+  Generating static pages using 15 workers (29/59) 
+  Generating static pages using 15 workers (44/59) 
+✓ Generating static pages using 15 workers (59/59) in 1917ms
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -64,6 +64,7 @@ Route (app)
 ├ ○ /rebar-calculator
 ├ ○ /robots.txt
 ├ ○ /sand-calculator
+├ ○ /shingle-calculator
 ├ ○ /sitemap.xml
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
