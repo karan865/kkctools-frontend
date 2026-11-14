@@ -63,7 +63,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     id: 'finishes',
     name: 'Floors, Paint & Stain',
     headline: 'Tile, Flooring & Coating Calculators',
-    blurb: 'Drywall sheets and mud, ceramic tiles, laminate planks, paint gallons and fence stain.',
+    blurb: 'Drywall sheets and mud, board and batten walls, tiles, laminate planks, paint gallons and fence stain.',
     order: 5,
   },
   business: {
@@ -337,6 +337,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'fence',
     keywords: ['fence stain', 'wood stain', 'privacy fence', 'picket fence', 'gallons', 'coats', 'sealer'],
     added: '2026-11-11',
+  },
+  {
+    slug: '/board-and-batten-calculator/',
+    name: 'Board and Batten Calculator',
+    category: 'finishes',
+    description: 'Equal batten spacing, layout marks, grid rails and a lumber shopping list for accent walls.',
+    tags: ['Spacing', 'Accent wall'],
+    icon: 'battenWall',
+    keywords: ['board and batten', 'batten spacing', 'accent wall', 'wainscoting', 'wall paneling', 'shiplap', 'siding', 'trim'],
+    added: '2026-11-14',
+    isNew: true,
   },
 
   // 6. Business & Creative

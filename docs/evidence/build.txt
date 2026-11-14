@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 38ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.3s
+✓ Compiled successfully in 7.1s
   Running TypeScript ...
-  Finished TypeScript in 2.3s ...
+  Finished TypeScript in 12.3s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/59) ...
-  Generating static pages using 15 workers (14/59) 
-  Generating static pages using 15 workers (29/59) 
-  Generating static pages using 15 workers (44/59) 
-✓ Generating static pages using 15 workers (59/59) in 1917ms
+  Generating static pages using 15 workers (0/60) ...
+  Generating static pages using 15 workers (15/60) 
+  Generating static pages using 15 workers (30/60) 
+  Generating static pages using 15 workers (45/60) 
+✓ Generating static pages using 15 workers (60/60) in 2.1s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -30,6 +30,7 @@ Route (app)
 │ ├ ● /band-name-generator/metal
 │ ├ ● /band-name-generator/heavy-metal
 │ └ ● [+3 more paths]
+├ ○ /board-and-batten-calculator
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
 ├ ○ /cinder-block-calculator

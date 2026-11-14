@@ -283,6 +283,38 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [NIST, TYPICAL_DENSITY],
   },
+  'board-and-batten-calculator': {
+    formula: [
+      'Battens at both edges: gap = (wall width − battens × batten width) ÷ (battens − 1)',
+      'Gaps at both edges: gap = (wall width − battens × batten width) ÷ (battens + 1); inset: use wall width − 2 × margin with the both-edges formula',
+      'From a target gap: battens = round((wall width − batten width) ÷ (batten width + target gap)) + 1, then every gap is made equal',
+      'Mark for batten k (k = 0, 1, 2…) = start + k × (batten width + gap); on center = gap + batten width',
+      'Batten length = wall height − top rail − baseboard; grid rail rows split that height into equal gaps',
+      'Boards = cut list packed into the stock length (longer pieces joined), plus waste; siding boards = (wall + gap) ÷ (board + gap), rounded up; battens = boards − 1',
+    ],
+    defaults: [
+      { label: 'Lumber widths', value: 'nominal 1×2 = 1½ in, 1×3 = 2½ in, 1×4 = 3½ in, 1×6 = 5½ in, 1×8 = 7¼ in, ¾ in thick (dry dressed sizes)' },
+      { label: 'Target gap', value: '16 in to start — spacing is a style choice; compare counts in the tool' },
+      { label: 'Stock length / waste', value: '8 ft boards, 10% waste' },
+      { label: 'Adhesive and caulk', value: 'about 30 ft of ¼ in bead and 120 ft of ⅛ in bead per 10 oz tube (bead volume ÷ tube volume)' },
+      { label: 'Paint', value: '350 sq ft per gallon, 2 coats, wall plus board edges' },
+      { label: 'Nails', value: '2 brad nails every 16 in along each piece (working assumption)' },
+    ],
+    sources: [
+      {
+        label: 'American Softwood Lumber Standard, NIST Voluntary Product Standard PS 20',
+        url: 'https://www.nist.gov/document/doc-ps-20-20-american-softwood-lumber-standard',
+        note: 'nominal vs dry dressed lumber sizes',
+      },
+      {
+        label: 'Southern Pine Inspection Bureau — Nominal vs actual lumber sizes',
+        url: 'https://blog.spib.org/nominal-vs-actual-lumber-sizes/',
+        note: 'a nominal 1×6 is ¾ in thick and 5½ in wide',
+      },
+      { label: 'Paint coverage', note: 'printed on the can; most interior paints list about 350–400 sq ft per gallon' },
+      NIST,
+    ],
+  },
   'shingle-calculator': {
     formula: [
       'Slope factor = √(1 + (rise ÷ 12)²); roof area = (length + 2 × overhang) × (width + 2 × overhang) × slope factor',

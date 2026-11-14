@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #25 — Board and Batten Calculator] — 2026-11-14
+- New page `/board-and-batten-calculator/` (Batch 2 Tier 1 #6), built from `06_Board_and_Batten_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/board-batten-engine.ts`): equal spacing for battens at both edges / gaps at both edges / inset margin; count ↔ target gap; batten marks; outlet/window clash check; top rail, baseboard (existing or new) and grid rail rows; cut list packed into stock boards; nails, adhesive, caulk and paint; inch parser for fractions and feet; 1/16 in formatting; exterior siding mode (boards, battens, furring, openings).
+- Lumber widths from the American Softwood Lumber Standard (NIST PS 20). Adhesive/caulk feet per tube from bead volume; nail spacing labelled as a working assumption.
+- UI: inches with fractions or mm, live wall drawing to scale, compare-counts table with one-click "Use", marks list, shopping list with optional prices, copy / share / print.
+- Page: spacing formula with engine-computed worked example, edge-option diagram, inch and metric spacing tables, nominal vs actual table, half-wall and grid examples, shopping list, install tips, siding section, 10 FAQs + schema; ~2,600 words, 7 SVGs. Title set to 61 chars (incl. brand).
+- Wiring: routes, catalog (27 tools), new `battenWall` icon, footer. 27 new tests (342 total); `npm run verify` all passed.
+
 ### [Tool #24 — Shingle Roof Calculator] — 2026-11-14
 - New page `/shingle-calculator/` (Batch 2 Tier 1 #5), built from `05_Shingle_Roof_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/shingle-engine.ts`): roof sections (gable / hip / shed / measured area) with overhang and pitch; slope factor √(1+(rise/12)²); automatic eaves, rakes, ridge and hip lengths (manual override); squares → bundles with waste; starter strip, hip & ridge cap, drip edge, underlayment, ice & water barrier (eaves rows + valleys) and nails; optional material cost.

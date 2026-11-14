@@ -252,6 +252,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase BB — Tool #25: Board and Batten Calculator (Batch 2 Tier 1 #6, built 2026-11-14)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/06_Board_and_Batten_Calculator_Competitor_Analysis.md` (primary `board and batten calculator`, US 4,400 / KD 22 / CPC $5.55; 6 of 10 slots weak or irrelevant).
+- [x] BB-1 Engine `src/lib/board-batten-engine.ts` + 27 tests (PS 20 widths, fraction parser/formatter, 3 edge modes, count↔gap, marks, clashes, cut list, rails/grid, supplies, siding). *(Evidence: `npx vitest run` → 342 passed)*
+- [x] BB-2 Calculator UI: accent wall + siding modes, inches/mm, live drawing, compare table, marks, obstacles, shopping list, share/copy/print. *(Evidence: `src/components/tool/board-batten-calculator/`)*
+- [x] BB-3 Page: title 61 chars incl. brand, meta 142, one H1, ~2,600 words, 10 FAQs, WebApplication + FAQPage + BreadcrumbList. *(Evidence: cheerio check of `out/board-and-batten-calculator/index.html`; hero renders 16 9/16" for the default wall)*
+- [x] BB-4 Wiring: routes, catalog (27), icon, footer, sitemap, llms.txt, /tools/. *(Evidence: grep of `out/` files)*
+- [x] BB-5 `npm run verify` all steps passed. *(Evidence: 2026-11-14 run, `docs/evidence/`)*
+- [ ] BB-6 `TODO(owner)`: export secondary keywords (`batten spacing calculator`, `board and batten spacing`, `accent wall calculator`, `wainscoting calculator`) and add any missing H2s; confirm the nail-spacing and paint-coverage defaults.
+
 ### Phase SH — Tool #24: Shingle Roof Calculator (Batch 2 Tier 1 #5, built 2026-11-14)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/05_Shingle_Roof_Calculator_Competitor_Analysis.md` (primary `shingle roof calculator`, US 1,300 / KD 10; top 8 pages have 0 referring domains).
 - [x] SH-1 Engine `src/lib/shingle-engine.ts` + 20 tests (pitch factor, gable/hip/shed/area geometry, bundles, accessories, ice & water, nails, overrides, cost). *(Evidence: `npx vitest run` → 315 passed)*

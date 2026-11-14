@@ -88,6 +88,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  boardAndBattenCalculator: {
+    path: '/board-and-batten-calculator/',
+    title: 'Board and Batten Calculator – Spacing & Materials',
+    description: 'Plan a board and batten wall. Enter wall width, height and batten size to get equal batten spacing, number of battens, boards and linear feet.',
+    updated: '2026-11-14',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',
