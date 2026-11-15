@@ -239,7 +239,8 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'scale',
     keywords: ['tons to yards', 'tons to cubic yards', 'cubic yards to tons', 'weight volume converter', 'material density'],
     added: '2026-11-11',
-  },  {
+  },
+  {
     slug: '/cubic-feet-to-square-feet/',
     name: 'Cubic Feet ↔ Square Feet',
     category: 'earthwork',
@@ -285,7 +286,8 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['shingles', 'roof shingles', 'roofing squares', 'bundles', 'roof area', 'ridge cap', 'starter strip', 'underlayment', 'pitch'],
     added: '2026-11-14',
     isNew: true,
-  },  {
+  },
+  {
     slug: '/metal-roof-cost-calculator/',
     name: 'Metal Roof Cost Calculator',
     category: 'framing',
@@ -307,7 +309,19 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['wire gauge', 'wire size', 'awg', 'mm2 cable', 'voltage drop', 'ampacity', 'electrical wire', '12v wire', 'breaker size'],
     added: '2026-11-15',
     isNew: true,
-  },  {
+  },
+  {
+    slug: '/cubic-inch-calculator/',
+    name: 'Cubic Inch Calculator',
+    category: 'framing',
+    description: 'Cubic inches of a box, cylinder, tube or sphere, and engine displacement from bore, stroke and cylinders.',
+    tags: ['in³ · cc · L', 'Engines'],
+    icon: 'piston',
+    keywords: ['cubic inches', 'cubic inch calculator', 'engine displacement', 'bore and stroke', 'cc to ci', 'litres to cubic inches', 'stroker', 'overbore', 'box volume', 'cylinder volume'],
+    added: '2026-11-15',
+    isNew: true,
+  },
+  {
     slug: '/fence-cost-calculator/',
     name: 'Fence Cost Calculator',
     category: 'framing',
@@ -403,7 +417,8 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     icon: 'fence',
     keywords: ['fence stain', 'wood stain', 'privacy fence', 'picket fence', 'gallons', 'coats', 'sealer'],
     added: '2026-11-11',
-  },  {
+  },
+  {
     slug: '/deck-stain-calculator/',
     name: 'Deck Stain Calculator',
     category: 'finishes',
@@ -413,7 +428,8 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['deck stain', 'stain calculator', 'deck sealer', 'stain coverage', 'how much stain', 'railing', 'balusters', 'deck staining cost', 'gallons'],
     added: '2026-11-15',
     isNew: true,
-  },  {
+  },
+  {
     slug: '/bathroom-remodel-cost-calculator/',
     name: 'Bathroom Remodel Cost Calculator',
     category: 'finishes',
@@ -423,7 +439,8 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['bathroom remodel cost', 'bathroom renovation', 'shower remodel', 'half bath', 'master bath', 'tub to shower', 'remodel budget', 'vanity', 'contingency'],
     added: '2026-11-15',
     isNew: true,
-  },  {
+  },
+  {
     slug: '/floor-refinishing-cost-calculator/',
     name: 'Floor Refinishing Cost Calculator',
     category: 'finishes',

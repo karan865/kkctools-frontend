@@ -463,6 +463,28 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <rect className={s.f2} x={46} y={16} width={108} height={7} rx={3} />
     </>
   ),
+  /* Engine cylinder: bore and stroke, plus a cubic-inch box */
+  piston: (
+    <>
+      <rect className={s.f2} x={22} y={10} width={74} height={10} rx={2} />
+      <rect className={s.fl} x={22} y={20} width={9} height={64} />
+      <rect className={s.fl} x={87} y={20} width={9} height={64} />
+      <rect className={s.fp} x={31} y={26} width={56} height={30} />
+      <rect className={s.f1} x={33} y={50} width={52} height={20} rx={2} />
+      <path className={k('fn', 's2', 'thick')} d="M59 70 L66 88" />
+      <circle className={k('fn', 's2', 'thick')} cx={62} cy={90} r={7} />
+      <Dim x1={31} y1={44} x2={87} y2={44} label="bore" lx={59} ly={40} anchor="middle" />
+      <polygon className={k('fl', 's2')} points="128,38 158,28 182,38 152,48" />
+      <polygon className={s.f1} points="128,38 152,48 152,78 128,68" />
+      <polygon className={s.f2} points="152,48 182,38 182,68 152,78" />
+      <text className={s.txL} x={155} y={20} textAnchor="middle">
+        in³
+      </text>
+      <text className={s.tx} x={155} y={92} textAnchor="middle">
+        ci · cc · L
+      </text>
+    </>
+  ),
   /* Wire cross-sections by gauge */
   bolt: (
     <>

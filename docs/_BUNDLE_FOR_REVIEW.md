@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-15T02:22:41.541Z
+Generated on: 2026-11-15T07:20:35.094Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-15T02:22:41.541Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #34 Hardwood Floor Refinishing Cost Calculator built and verified (Phase FR, 2026-11-15). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 511 vitest tests passing (39 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #35 Cubic Inch & Engine Displacement Calculator built and verified (Phase CI, 2026-11-15). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 528 vitest tests passing (40 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,14 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase CI — Tool #35: Cubic Inch & Engine Displacement Calculator (Batch 2 Tier 3 #16, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md` (primary `cubic inch calculator`, US 3,600 / KD 9; secondary `engine displacement calculator` 3,600 / KD 18).
+- [x] CI-1 Engine `src/lib/cubic-inch-engine.ts` + 17 tests: exact conversions (2.54³ cc per in³, 231 in³ per US gal, 4.54609 L per imp gal), box / cylinder / tube (wall + capacity) / sphere, displacement, per-cylinder and bore/stroke ratio, bore and stroke solvers, overbore/stroker what-if, CID chart. Tests prove the presets reproduce the published sizes (350, 376, 502, 391 for the “392”, 5.04 L, 1,996 cc). *(Evidence: `npx vitest run` → 528 passed, 40 files)*
+- [x] CI-2 Presets use bore and stroke exactly as published by Chevrolet (ZZ6 350, LS3, 502), Dodge Garage/Stellantis (392 HEMI), Ford Performance (Coyote Gen 4 crate, 93 × 92.7 mm) and Honda (Civic Type R, 86.0 × 85.9 mm); sources listed in `calculation-methods.ts` and linked on the page.
+- [x] CI-3 UI: Volume / Engine mode tabs; shapes, length units, quantity, all-unit results, converter, shape diagram, working; engine presets, in/mm, what-if bars, solver, cylinder cutaway diagram (bore, stroke, TDC/BDC), working; copy/share/print. *(Evidence: screenshots at 1440 px for box, tube in mm and Coyote engine share links; 500 px mobile)*
+- [x] CI-4 Page: title 64 chars incl. brand, meta 142, one H1, ~1,700 words, 10 FAQs + schema; box and cylinder/tube/sphere sections, conversion table, engine formula with V8 and metric examples, manufacturer engine table, classic sizes in litres, overbore/stroker table, bore × stroke chart, reverse solve, oversquare/undersquare.
+- [x] CI-5 Wiring: routes (55), catalog (37, new `piston` icon and card art), footer, method entry; `npm run verify` passed; a11y 100, desktop performance 100, mobile 92.
 
 ### Phase FR — Tool #34: Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md` (primary `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35).
@@ -639,6 +647,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment) | `/metal-roof-cost-calculator/` | `metal-roof-calculator/` | `metal-roof-engine.ts` |
 | 35 | Bathroom Remodel Cost Calculator (half/full/primary; cosmetic or full; budget/mid/high; editable fixed and per-area line items; tub/shower options; water heater, permit, region, contingency; quote checker) | `/bathroom-remodel-cost-calculator/` | `bathroom-remodel-calculator/` | `bathroom-remodel-engine.ts` |
 | 36 | Floor Refinishing Cost Calculator (rooms or total area, ft/m; screen & recoat / full sand / dustless; species factor; stain; repairs, board replacement, subfloor, carpet, stairs, furniture, baseboards; region and minimum charge; low–high range; DIY shopping list with gallons from coverage; refinish vs replace; quote checker) | `/floor-refinishing-cost-calculator/` | `floor-refinishing-calculator/` | `floor-refinish-engine.ts` |
+| 37 | Cubic Inch Calculator (volume mode: box, cylinder, tube wall + inside capacity, sphere in any length unit, quantity, 8 output units, volume converter; engine mode: bore × stroke × cylinders in in or mm, 6 manufacturer presets, bore/stroke ratio, overbore and stroker what-if, bore or stroke solver) | `/cubic-inch-calculator/` | `cubic-inch-calculator/` | `cubic-inch-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -684,7 +693,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (54 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (55 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -694,7 +703,7 @@ Source of truth: `src/lib/routes.ts` (54 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (34) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (35) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -893,6 +902,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Metal Roof Cost Calculator — `metal roof cost calculator`, US 1,900 / KD 24 / CPC $4.11; H2/FAQ targets `standing seam metal roof cost` 2,900/7, `roofing cost metal vs shingle` 2,900/13, `how much does a metal roof cost` 2,400/20, `metal roof cost per square foot` 1,300/13.
 - Bathroom Remodel Cost Calculator — `cost to remodel bathroom calculator`, US 2,900 / KD 7 / CPC $5.68; `cost of bathroom renovations calculator` 4,400/19 ("renovation" H2), `small bathroom remodel cost calculator` 320/2 (FAQ).
 - Floor Refinishing Cost Calculator — `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35 (H1 + H2; irregular trend); `cost to refinish hardwood floors` 3,600/23 (intro + H2).
+- Cubic Inch Calculator — `cubic inch calculator`, US 3,600 / KD 9 (title, H1, intro); `engine displacement calculator` 3,600/18 (H2 + first sentence of the engine section). Blueprint title (56 chars) shortened to 52 so it fits 65 with the brand.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -991,6 +1001,12 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #35 — Cubic Inch & Engine Displacement Calculator] — 2026-11-15
+- New page `/cubic-inch-calculator/` (Batch 2 Tier 3 #16), built from `16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/cubic-inch-engine.ts`): box, cylinder, tube (wall and inside capacity) and sphere volume; exact unit conversions; displacement = π/4 × bore² × stroke × cylinders; bore/stroke solvers; overbore and stroker what-if; CID chart; 6 presets with manufacturer-published bore and stroke.
+- UI with Volume / Engine modes, shape and cylinder-cutaway diagrams, working shown, share links. Page ~1,700 words with 10 FAQs; title 64 chars incl. brand (blueprint title shortened).
+- 17 new tests (528 total); `npm run verify` all passed.
 
 ### [Tool #34 — Hardwood Floor Refinishing Cost Calculator] — 2026-11-15
 - New page `/floor-refinishing-cost-calculator/` (Batch 2 Tier 2 #15), built from `15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md`.
@@ -1259,7 +1275,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-15T02:22:41.033Z
+Run Date: 2026-11-15T07:20:34.663Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1285,6 +1301,7 @@ Status: PASSED ✅
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
+| `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
@@ -1297,7 +1314,7 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 1943 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 1957 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
@@ -1311,14 +1328,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 727 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 747 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1047 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1079 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1350,6 +1367,7 @@ concrete-slab-cost-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
 cubic-feet-to-square-feet/index.html
+cubic-inch-calculator/index.html
 cubic-yard-calculator/index.html
 deck-stain-calculator/index.html
 disclaimer/index.html
@@ -1424,6 +1442,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
 d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 8f4d6c9 Add Metal Roof Cost Calculator (Batch 2 Tier 2 #13)
 90482c5 Add Cubic Feet to Square Feet Converter (Batch 2 Tier 2 #12)
@@ -1443,7 +1462,6 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 4333b29 all competetiors data collected
 a9885e9 SEO optimization /audit
 4e8a8db keywords files added
-dc6099e files rearranged
 ```
 
 
@@ -1459,18 +1477,18 @@ dc6099e files rearranged
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1206ms
+✓ Running next.config.ts took 1199ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.7s
+✓ Compiled successfully in 5.8s
   Running TypeScript ...
-  Finished TypeScript in 3.0s ...
+  Finished TypeScript in 3.2s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/71) ...
-  Generating static pages using 15 workers (17/71) 
-  Generating static pages using 15 workers (35/71) 
-  Generating static pages using 15 workers (53/71) 
-✓ Generating static pages using 15 workers (71/71) in 3.0s
+  Generating static pages using 15 workers (0/72) ...
+  Generating static pages using 15 workers (18/72) 
+  Generating static pages using 15 workers (36/72) 
+  Generating static pages using 15 workers (54/72) 
+✓ Generating static pages using 15 workers (72/72) in 3.3s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1499,6 +1517,7 @@ Route (app)
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
 ├ ○ /cubic-feet-to-square-feet
+├ ○ /cubic-inch-calculator
 ├ ○ /cubic-yard-calculator
 ├ ○ /deck-stain-calculator
 ├ ○ /disclaimer
@@ -1618,7 +1637,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 57 HTML files in out/...
+Auditing 58 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1635,10 +1654,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  39 passed (39)
-      Tests  511 passed (511)
-   Start at  07:52:08
-   Duration  2.27s (transform 6.83s, setup 0ms, import 9.06s, tests 811ms, environment 29ms)
+ Test Files  40 passed (40)
+      Tests  528 passed (528)
+   Start at  12:49:55
+   Duration  3.07s (transform 9.28s, setup 0ms, import 12.15s, tests 906ms, environment 12ms)
 
 
 ```

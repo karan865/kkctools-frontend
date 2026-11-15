@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #35 — Cubic Inch & Engine Displacement Calculator] — 2026-11-15
+- New page `/cubic-inch-calculator/` (Batch 2 Tier 3 #16), built from `16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/cubic-inch-engine.ts`): box, cylinder, tube (wall and inside capacity) and sphere volume; exact unit conversions; displacement = π/4 × bore² × stroke × cylinders; bore/stroke solvers; overbore and stroker what-if; CID chart; 6 presets with manufacturer-published bore and stroke.
+- UI with Volume / Engine modes, shape and cylinder-cutaway diagrams, working shown, share links. Page ~1,700 words with 10 FAQs; title 64 chars incl. brand (blueprint title shortened).
+- 17 new tests (528 total); `npm run verify` all passed.
+
 ### [Tool #34 — Hardwood Floor Refinishing Cost Calculator] — 2026-11-15
 - New page `/floor-refinishing-cost-calculator/` (Batch 2 Tier 2 #15), built from `15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/floor-refinish-engine.ts`): screen & recoat $1.50, full sand $4.25, dustless $6.50 per ft² (This Old House midpoints) × species factor for sanding; stain +$2; repairs, board replacement, subfloor, carpet, stairs ($35/step, Fixr), furniture, baseboards; region factor and minimum job charge; low/high from the published range ends; refinish vs replace ($12/ft² installed); DIY list (rentals, abrasives, finish and stain gallons at 500 ft²/gal, supplies).

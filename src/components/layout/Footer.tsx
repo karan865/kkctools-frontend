@@ -120,6 +120,7 @@ export default function Footer() {
               <li><Link href="/metal-roof-cost-calculator/" className={styles.link}>Metal Roof Cost</Link></li>
               <li><Link href="/board-and-batten-calculator/" className={styles.link}>Board and Batten</Link></li>
               <li><Link href="/wire-gauge-calculator/" className={styles.link}>Wire Gauge</Link></li>
+              <li><Link href="/cubic-inch-calculator/" className={styles.link}>Cubic Inch / Displacement</Link></li>
               <li><Link href="/fence-cost-calculator/" className={styles.link}>Fence Cost</Link></li>
               <li><Link href="/stud-calculator/" className={styles.link}>Stud Framing</Link></li>
               <li><Link href="/square-footage-calculator/" className={styles.link}>Square Footage</Link></li>

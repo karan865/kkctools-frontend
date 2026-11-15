@@ -20,6 +20,7 @@ export type IconName =
   | 'battenWall'
   | 'pipe'
   | 'bolt'
+  | 'piston'
   | 'scale'
   | 'roofTruss'
   | 'studWall'
@@ -233,6 +234,16 @@ export default function Icon({
         <svg {...common}>
           <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z" />
           <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12" />
+        </svg>
+      );
+    case 'piston':
+      return (
+        <svg {...common}>
+          <path d="M7 3h10v4H7z" />
+          <path d="M6 7h12v6H6z" />
+          <path d="M9 10h6" />
+          <path d="M12 13l-2 5" />
+          <circle cx="10" cy="19.5" r="2" />
         </svg>
       );
     case 'bolt':

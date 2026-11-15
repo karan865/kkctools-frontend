@@ -13,6 +13,7 @@ import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_URL } from '@/config/site';
 import styles from '../asphalt-calculator/page.module.css';
+import { YardCubeDiagram, SlabExampleDiagram } from '@/components/tool/cubic-yard-calculator/CubicYardDiagram';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
 export const metadata: Metadata = buildMetadata({
@@ -204,6 +205,10 @@ export default function CubicYardCalculatorPage() {
               waste. The same method works for concrete, soil, mulch and gravel.
             </p>
 
+            <div className={styles.diagramWrapper}>
+              <YardCubeDiagram />
+            </div>
+
             <h3>The cubic yard formula</h3>
             <div className={styles.formulaBox}>
               <ol style={{ paddingLeft: '1.25rem', margin: 0 }}>
@@ -229,6 +234,10 @@ export default function CubicYardCalculatorPage() {
                 </li>
                 <li>Weight: about 6,000 lb (3 tons) before waste</li>
               </ul>
+            </div>
+
+            <div className={styles.diagramWrapper}>
+              <SlabExampleDiagram />
             </div>
 
             <h3>Figuring yards of concrete by shape</h3>

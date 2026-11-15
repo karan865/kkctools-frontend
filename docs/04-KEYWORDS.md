@@ -24,6 +24,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Metal Roof Cost Calculator — `metal roof cost calculator`, US 1,900 / KD 24 / CPC $4.11; H2/FAQ targets `standing seam metal roof cost` 2,900/7, `roofing cost metal vs shingle` 2,900/13, `how much does a metal roof cost` 2,400/20, `metal roof cost per square foot` 1,300/13.
 - Bathroom Remodel Cost Calculator — `cost to remodel bathroom calculator`, US 2,900 / KD 7 / CPC $5.68; `cost of bathroom renovations calculator` 4,400/19 ("renovation" H2), `small bathroom remodel cost calculator` 320/2 (FAQ).
 - Floor Refinishing Cost Calculator — `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35 (H1 + H2; irregular trend); `cost to refinish hardwood floors` 3,600/23 (intro + H2).
+- Cubic Inch Calculator — `cubic inch calculator`, US 3,600 / KD 9 (title, H1, intro); `engine displacement calculator` 3,600/18 (H2 + first sentence of the engine section). Blueprint title (56 chars) shortened to 52 so it fits 65 with the brand.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 

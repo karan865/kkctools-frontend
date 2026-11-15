@@ -152,6 +152,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  cubicInchCalculator: {
+    path: '/cubic-inch-calculator/',
+    title: 'Cubic Inch Calculator – Volume & Engine Displacement',
+    description: 'Calculate cubic inches for boxes and cylinders, or engine displacement from bore, stroke and cylinders. Converts to cc, litres and cubic feet.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   floorRefinishingCostCalculator: {
     path: '/floor-refinishing-cost-calculator/',
     title: 'Hardwood Floor Refinishing Cost Calculator',

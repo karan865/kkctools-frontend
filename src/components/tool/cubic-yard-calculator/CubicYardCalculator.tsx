@@ -10,6 +10,7 @@ import {
   VolumeCalcInput,
   VolumeCalcResult,
 } from '@/lib/volume-engine';
+import { YardMeter } from './CubicYardDiagram';
 import styles from './CubicYardCalculator.module.css';
 
 type MaterialType = 'concrete' | 'other';
@@ -1007,6 +1008,13 @@ export default function CubicYardCalculator() {
                       Ready-mix order (rounded to ¼ yd³): <strong>{res.suggestedOrderYd3.toFixed(2)} yd³</strong>
                     </div>
                   )}
+                </div>
+
+                <div style={{ margin: 'var(--space-3) 0' }}>
+                  <YardMeter exact={res.exact.yd3} order={res.order.yd3} />
+                  <p className={styles.resultsFootnote} style={{ textAlign: 'center', margin: 0 }}>
+                    Blue = exact volume, orange = waste allowance.
+                  </p>
                 </div>
 
                 {/* Practical Guidance Callout (Concrete only) */}

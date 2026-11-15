@@ -548,6 +548,29 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'cubic-inch-calculator': {
+    formula: [
+      'Box = length × width × height (inches)',
+      'Cylinder = π/4 × diameter² × length; tube wall = π/4 × (OD² − ID²) × length, inside = π/4 × ID² × length; sphere = π/6 × diameter³',
+      'Engine displacement (ci) = π/4 × bore² × stroke × cylinders (bore and stroke in inches; millimetres ÷ 25.4)',
+      'Stroke for a target = displacement ÷ (π/4 × bore² × cylinders); bore = √(displacement ÷ (π/4 × stroke × cylinders))',
+      'Conversions: 1 in³ = 16.387064 cm³ (exact, 2.54³); 1 ft³ = 1,728 in³; 1 yd³ = 46,656 in³; 1 US gal = 231 in³; 1 imperial gal = 4.54609 L',
+    ],
+    defaults: [
+      { label: 'π', value: 'full precision (π/4 ≈ 0.7854 is shown in the working only)' },
+      { label: 'Engine presets', value: 'bore and stroke exactly as published by Chevrolet (350 ZZ6, LS3, 502), Stellantis/Dodge Garage (392 HEMI), Ford Performance (Coyote Gen 4 crate) and Honda (Civic Type R)' },
+      { label: 'Square engine', value: 'bore ÷ stroke within ±1% of 1' },
+    ],
+    sources: [
+      { label: 'NIST — SI Units: Length (inch defined as exactly 2.54 cm)', url: 'https://www.nist.gov/pml/owm/si-units-length', note: 'basis of 16.387064 cm³ per in³' },
+      { label: 'Chevrolet Performance — LS3 crate engine specifications', url: 'https://www.chevrolet.com/performance-parts/crate-engines/ls-lsx-engines/ls3-engine', note: '4.065 × 3.622 in' },
+      { label: 'Chevrolet Performance — ZZ6 350 crate engine', url: 'https://www.chevrolet.com/performance-parts/crate-engines/small-block-zz6-efi-deluxe', note: '4.00 × 3.48 in' },
+      { label: 'Chevrolet Performance — 502 big-block crate engine', url: 'https://www.chevrolet.com/performance-parts/crate-engines/big-block/zz-502-base', note: '4.470 × 4.000 in' },
+      { label: 'Dodge Garage — Gen III HEMI quick reference guide', url: 'https://www.dodgegarage.com/news/article/how-to/2020/10/gen-iii-hemi-engine-quick-reference-guide-part-iv.html', note: '392: 4.09 × 3.72 in' },
+      { label: 'Ford Performance — 5.0L Gen 4 crate engine (M-6007-M50D)', url: 'https://www.ford.com/product/50l-gen-4-mustang-crate-engine-w-flywheel-p2959841009', note: '93 × 92.7 mm' },
+      { label: 'Honda — 2021 Civic Type R specifications', url: 'https://hondanews.com/en-US/honda-automobiles/releases/2021-civic-type-r-specifications-features', note: '86.0 × 85.9 mm, 1,996 cc' },
+    ],
+  },
   'wire-gauge-calculator': {
     formula: [
       'Current from power: DC I = W ÷ V; single-phase I = W ÷ (V × power factor); three-phase I = W ÷ (√3 × V × power factor)',

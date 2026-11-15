@@ -1,0 +1,50 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* shapes */
+.front { fill: color-mix(in srgb, var(--cat-framing-g1) 22%, var(--surface)); stroke: var(--cat-framing-g2); stroke-width: 1.8; }
+.top { fill: color-mix(in srgb, var(--cat-framing-g1) 10%, var(--surface)); stroke: var(--cat-framing-g2); stroke-width: 1.8; }
+.side { fill: color-mix(in srgb, var(--cat-framing-g1) 36%, var(--surface)); stroke: var(--cat-framing-g2); stroke-width: 1.8; }
+.hole { fill: var(--surface-2); stroke: var(--cat-framing-g2); stroke-width: 1.4; }
+.edge { fill: none; stroke: var(--cat-framing-g2); stroke-width: 1.2; stroke-dasharray: 4 3; }
+.shine { fill: color-mix(in srgb, var(--surface) 70%, transparent); }
+
+/* engine cylinder — metal tones are the material itself */
+.head { fill: #64748B; }
+.wall { fill: #94A3B8; stroke: #475569; stroke-width: 1; }
+.swept { fill: color-mix(in srgb, var(--brand-orange) 16%, transparent); }
+.ghost { fill: none; stroke: #64748B; stroke-width: 1.2; stroke-dasharray: 4 3; }
+.piston { fill: #CBD5E1; stroke: #475569; stroke-width: 1.4; }
+.ring { stroke: #475569; stroke-width: 1; }
+.rod { stroke: #475569; stroke-width: 7; stroke-linecap: round; }
+.crank { fill: none; stroke: #475569; stroke-width: 3; }
+.pin { fill: #1E293B; }
+.tick { stroke: var(--ink-2); stroke-width: 1.2; }
+
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.dimAccent { stroke: var(--brand-orange); stroke-width: 2; }
+
+.label,
+.small,
+.labelAccent {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.label { fill: var(--ink); font: 700 11px var(--font-body), system-ui, sans-serif; }
+.small { fill: var(--ink-2); font: 600 10px var(--font-body), system-ui, sans-serif; }
+.labelAccent { fill: var(--brand-orange-text); font: 700 11px var(--font-body), system-ui, sans-serif; }
+
+/* compare bars */
+.compare { display: flex; flex-direction: column; gap: 10px; }
+.barRow { display: grid; grid-template-columns: minmax(96px, 30%) 1fr auto; align-items: center; gap: 10px; font-size: 0.85rem; }
+.barName { font-weight: 600; color: var(--ink); }
+.track { height: 12px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.fill { display: block; height: 100%; border-radius: 99px; }
+.a { background: #64748B; }
+.b { background: linear-gradient(90deg, var(--cat-framing-g1), var(--brand-orange)); }
+.barValue { color: var(--ink); font-variant-numeric: tabular-nums; }
