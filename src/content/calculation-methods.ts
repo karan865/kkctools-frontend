@@ -352,6 +352,30 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'bathroom-remodel-cost-calculator': {
+    formula: [
+      'Fixed items (per bathroom): toilet, vanity/cabinetry, vanity top, faucets, electrical, plumbing, tub or shower',
+      'Area items = rate × floor area, where rate = This Old House average ÷ 70 ft² (flooring, wall tile, painting, insulation & drywall)',
+      'Finish level multiplies every default price: budget × 0.575, high-end × 1.881 (midpoints of This Old House’s 50 ft² finish ranges ÷ its mid-range)',
+      'Cosmetic refresh leaves out plumbing, drywall and the tub/shower',
+      'Estimate = sum of lines × region factor + permit; range = ±13% (half-width of This Old House’s mid-range band); budget = estimate × (1 + contingency %)',
+    ],
+    defaults: [
+      { label: 'Fixtures and trades (mid-range)', value: 'toilet $467, cabinetry $2,929, countertop $332, faucets $423, electrical $456, plumbing $5,545 — This Old House 2026 averages' },
+      { label: 'Surfaces (for a 70 ft² room)', value: 'flooring $1,114, tiling $1,326, painting $1,145, insulation & drywall $2,338' },
+      { label: 'Tub and shower', value: 'tub/shower combo $1,258, complete shower remodel $8,044, freestanding tub $1,123' },
+      { label: 'Water heater upgrade', value: '$1,478' },
+      { label: 'Contingency', value: '20% — This Old House' },
+      { label: 'Check', value: 'reproduces This Old House’s size table (40–60 ft² $12,695–$14,845; 100–120 ft² $19,166–$21,295; 130 ft²+ $22,370–$24,715) and finish table at 50 ft²' },
+    ],
+    sources: [
+      {
+        label: 'This Old House — Bathroom Remodel Cost in 2026 (updated Jul 2, 2026)',
+        url: 'https://www.thisoldhouse.com/bathrooms/bathroom-remodel-cost',
+        note: 'line-item averages, cost by size and finish, 20% contingency, ~80% resale value recouped',
+      },
+    ],
+  },
   'metal-roof-cost-calculator': {
     formula: [
       'Roof area = (length + 2 × overhang) × (width + 2 × overhang) × √(1 + (rise ÷ 12)²) per section (same geometry as the Shingle Roof Calculator); squares = area ÷ 100',

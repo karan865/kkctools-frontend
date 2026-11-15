@@ -1,0 +1,39 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.room { stroke: var(--ink-2); stroke-width: 4; }
+.tileBg { fill: color-mix(in srgb, var(--cat-finishes-g1) 8%, var(--surface)); }
+.grout { fill: none; stroke: color-mix(in srgb, var(--cat-finishes-g1) 22%, transparent); stroke-width: 1; }
+.door { fill: none; stroke: var(--muted); stroke-width: 1.2; stroke-dasharray: 3 3; }
+.doorLeaf { stroke: var(--ink-2); stroke-width: 2.5; }
+.vanity { fill: var(--cat-finishes-g2); }
+.basin { fill: var(--surface); stroke: var(--cat-finishes-g1); stroke-width: 1.2; }
+.fixture { fill: var(--surface); stroke: var(--cat-finishes-g2); stroke-width: 1.6; }
+.tub { fill: var(--surface); stroke: var(--cat-finishes-g2); stroke-width: 2; }
+.shower { fill: color-mix(in srgb, var(--cat-concrete-soft) 70%, var(--surface)); stroke: var(--cat-concrete-g2); stroke-width: 1.6; }
+.drain { fill: var(--cat-concrete-g2); }
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.label {
+  fill: var(--ink);
+  font: 700 11px var(--font-body), system-ui, sans-serif;
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+}
+
+.costBar { display: flex; flex-direction: column; gap: 10px; }
+.bar { display: flex; height: 16px; border-radius: 99px; overflow: hidden; background: var(--surface-2); }
+.seg { height: 100%; }
+.seg + .seg { border-left: 2px solid var(--surface); }
+.a { background: var(--cat-finishes-g1); }
+.b { background: var(--cat-concrete-g1); }
+.c { background: var(--cat-gravel-g1); }
+.d { background: var(--cat-business-g1); }
+.legend { display: flex; flex-wrap: wrap; gap: 6px 16px; margin: 0; padding: 0; list-style: none; font-size: 0.875rem; color: var(--ink-2); }
+.legend li { display: inline-flex; align-items: center; gap: 6px; }
+.legend strong { color: var(--ink); }
+.swatch { width: 10px; height: 10px; border-radius: 3px; }
+.pct { color: var(--muted); }

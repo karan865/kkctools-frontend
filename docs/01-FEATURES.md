@@ -46,6 +46,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro) | `/fence-cost-calculator/` | `fence-cost-calculator/` | `fence-cost-engine.ts` |
 | 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
 | 34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment) | `/metal-roof-cost-calculator/` | `metal-roof-calculator/` | `metal-roof-engine.ts` |
+| 35 | Bathroom Remodel Cost Calculator (half/full/primary; cosmetic or full; budget/mid/high; editable fixed and per-area line items; tub/shower options; water heater, permit, region, contingency; quote checker) | `/bathroom-remodel-cost-calculator/` | `bathroom-remodel-calculator/` | `bathroom-remodel-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).

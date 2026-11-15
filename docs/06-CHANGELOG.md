@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #33 — Bathroom Remodel Cost Calculator] — 2026-11-15
+- New page `/bathroom-remodel-cost-calculator/` (Batch 2 Tier 2 #14), built from `14_Bathroom_Remodel_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/bathroom-remodel-engine.ts`): fixed items (toilet, vanity, top, faucets, electrical, plumbing, tub/shower) + per-ft² items (flooring, wall tile, paint, drywall) from This Old House’s Jul 2026 averages over a 70 ft² reference room; finish factors 0.575 / 1 / 1.881 from its finish table; cosmetic vs full scope; water heater, permit, region, 20% contingency; ±13% range; quote checker. Reproduces This Old House’s size and finish tables (tested).
+- UI with editable line items, spend bar and bathroom plan; page with size × finish table, tub/shower options, budget scenarios, DIY, permits and resale notes, 10 FAQs; ~1,460 words. Title 64 chars incl. brand.
+- 12 new tests (492 total); `npm run verify` all passed.
+
 ### [Tool #32 — Metal Roof Cost Calculator] — 2026-11-15
 - New page `/metal-roof-cost-calculator/` (Batch 2 Tier 2 #13), built from `13_Metal_Roof_Cost_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/metal-roof-engine.ts`): roof area and edges from the Shingle engine's section geometry; metal total with tear-off and permit; asphalt tear-off-and-replace comparison; cost per year of life; panels per slope and length (gable/shed), total panel length on hips; trim and underlayment; low–high ranges.

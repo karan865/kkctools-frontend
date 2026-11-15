@@ -26,6 +26,7 @@ export type IconName =
   | 'ruler'
   | 'squareArea'
   | 'tileGrid'
+  | 'bath'
   | 'floorPlanks'
   | 'paintRoller'
   | 'fence'
@@ -131,6 +132,14 @@ export default function Icon({
           <path d="M2 12 12 4l10 8" />
           <path d="M4 10.5V20h16v-9.5" />
           <path d="M7 8.2V20M10 6V20M14 6V20M17 8.2V20" />
+        </svg>
+      );
+    case 'bath':
+      return (
+        <svg {...common}>
+          <path d="M3 12h18v3a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5v-3z" />
+          <path d="M6 12V5a2 2 0 0 1 2-2h1a2 2 0 0 1 2 2" />
+          <path d="M7 20l-1 2M17 20l1 2" />
         </svg>
       );
     case 'cube':

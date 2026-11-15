@@ -130,6 +130,7 @@ export default function Footer() {
               <li><Link href="/paint-cost-calculator/" className={styles.link}>Paint Cost</Link></li>
               <li><Link href="/fence-stain-calculator/" className={styles.link}>Fence Stain</Link></li>
               <li><Link href="/deck-stain-calculator/" className={styles.link}>Deck Stain</Link></li>
+              <li><Link href="/bathroom-remodel-cost-calculator/" className={styles.link}>Bathroom Remodel Cost</Link></li>
             </ul>
           </div>
 

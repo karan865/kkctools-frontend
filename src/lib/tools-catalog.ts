@@ -413,7 +413,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['deck stain', 'stain calculator', 'deck sealer', 'stain coverage', 'how much stain', 'railing', 'balusters', 'deck staining cost', 'gallons'],
     added: '2026-11-15',
     isNew: true,
+  },  {
+    slug: '/bathroom-remodel-cost-calculator/',
+    name: 'Bathroom Remodel Cost Calculator',
+    category: 'finishes',
+    description: 'Half, full or primary bath — scope, finish level, editable line items, contingency and a quote checker.',
+    tags: ['Low · mid · high', 'Line items'],
+    icon: 'bath',
+    keywords: ['bathroom remodel cost', 'bathroom renovation', 'shower remodel', 'half bath', 'master bath', 'tub to shower', 'remodel budget', 'vanity', 'contingency'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
 
   {
     slug: '/board-and-batten-calculator/',

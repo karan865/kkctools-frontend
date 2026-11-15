@@ -161,6 +161,25 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Bathroom: tiled wall, tub, vanity and a price tag */
+  bath: (
+    <>
+      <rect className={s.fl} x={14} y={10} width={130} height={78} rx={3} />
+      {[0, 1, 2, 3].map((r) => [0, 1, 2, 3, 4, 5, 6, 7].map((c) => <rect key={`${r}-${c}`} className={s.fp} x={16 + c * 16} y={12 + r * 12} width={14} height={10} rx={1} />))}
+      <path className={s.f1} d="M20 62 H96 V70 Q96 84 82 84 H34 Q20 84 20 70 Z" />
+      <path className={k('fn', 's2', 'thick')} d="M28 62 V40 Q28 34 34 34 H38" />
+      <rect className={s.f2} x={104} y={54} width={36} height={30} rx={2} />
+      <ellipse className={s.fp} cx={122} cy={54} rx={12} ry={3} />
+      <path className={s.f2} d="M150 20 H186 a4 4 0 0 1 4 4 V44 a4 4 0 0 1 -4 4 H150 L138 34 Z" />
+      <circle className={s.fp} cx={148} cy={34} r={3} />
+      <text className={s.txW} x={168} y={38} textAnchor="middle">
+        $
+      </text>
+      <text className={s.tx} x={168} y={70} textAnchor="middle">
+        low · mid · high
+      </text>
+    </>
+  ),
   /* One cubic yard cube */
   cube: (
     <>

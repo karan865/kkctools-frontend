@@ -152,6 +152,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  bathroomRemodelCostCalculator: {
+    path: '/bathroom-remodel-cost-calculator/',
+    title: 'Bathroom Remodel Cost Calculator – Itemized Estimate',
+    description: 'Estimate your bathroom renovation cost by room size, scope and finish level. Adjust fixtures, tile, labour and plumbing to see a low, mid and high budget.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   drywallCalculator: {
     path: '/drywall-calculator/',
     title: 'Drywall Calculator – Sheetrock Sheets, Mud & Tape',
