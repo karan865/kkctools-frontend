@@ -1,0 +1,53 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.dim { stroke: var(--ink-2); stroke-width: 1.2; }
+.dimAccent { stroke: var(--brand-orange); stroke-width: 2; }
+
+.label,
+.small,
+.labelAccent,
+.onTop {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.label { fill: var(--ink); font: 700 12px var(--font-body), system-ui, sans-serif; }
+.small { fill: var(--ink-2); font: 600 10.5px var(--font-body), system-ui, sans-serif; }
+.labelAccent { fill: var(--brand-orange-text); font: 700 12px var(--font-body), system-ui, sans-serif; }
+.onTop { fill: var(--ink); font: 700 13px var(--font-body), system-ui, sans-serif; }
+
+.stepBox { fill: var(--surface-2); stroke: var(--line-strong); stroke-width: 1; }
+.stepDot { fill: var(--accent); }
+.stepNum { fill: #fff; font: 700 11px var(--font-body), system-ui, sans-serif; }
+.stepTitle { fill: var(--ink-2); font: 600 11px var(--font-body), system-ui, sans-serif; }
+.stepValue { fill: var(--ink); font: 700 12.5px var(--font-body), system-ui, sans-serif; }
+.arrow { fill: none; stroke: var(--accent); stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+
+.wide { display: block; }
+.stacked { display: none; }
+
+.wrap {
+  container-type: inline-size;
+  margin: var(--space-3, 12px) 0;
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--surface);
+}
+
+.caption {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: var(--muted);
+  text-align: center;
+}
+
+@container (max-width: 540px) {
+  .wide { display: none; }
+  .stacked { display: block; }
+}

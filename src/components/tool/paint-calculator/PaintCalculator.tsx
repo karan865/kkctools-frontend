@@ -16,6 +16,8 @@ import {
   DEFAULT_SUNDRIES,
   MAX_ROOMS,
 } from '@/lib/paint-constants';
+import PaintRoomDiagram from './PaintRoomDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './PaintCalculator.module.css';
 
 const STORAGE_KEY = 'kkc_paint_calc_rooms_v2';
@@ -732,6 +734,32 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
               Reset Fields
             </button>
           </div>
+          {(() => {
+            const r0 = rooms[0];
+            const direct = calculationMode === 'direct';
+            const ceil = direct ? directIncludeCeiling : r0.includeCeiling;
+            return (
+              <DiagramPanel caption="How it is worked out: perimeter × height = wall area, − doors & windows, × coats ÷ coverage per gallon.">
+                <PaintRoomDiagram
+                  lengthFt={r0.lengthFeet}
+                  widthFt={r0.widthFeet}
+                  heightFt={r0.heightFeet}
+                  doors={direct ? parseInt(directDoors, 10) || 0 : r0.doorsCount}
+                  windows={direct ? parseInt(directWindows, 10) || 0 : r0.windowsCount}
+                  ceiling={ceil}
+                  direct={direct ? { wallSqFt: parseFloat(directGrossWall) || 0, ceilingSqFt: parseFloat(directCeiling) || 0 } : undefined}
+                  steps={[
+                    { title: !direct && rooms.length > 1 ? `Wall area (${rooms.length} rooms)` : direct ? 'Wall area entered' : 'Wall area = perimeter × height', value: `${fmtNum(result.totalGrossWallSqFt, 0)} ft²` },
+                    { title: 'Paintable = − doors & windows', value: `${fmtNum(result.totalNetWallSqFt, 0)} ft²` },
+                    { title: `× ${coats} coat${coats > 1 ? 's' : ''} ÷ ${fmtNum(result.effectiveCoverage, 0)} ft² per gallon`, value: `${fmtNum(result.wallExactGallons, 2)} gal walls` },
+                    result.totalCeilingSqFt > 0
+                      ? { title: `Ceiling ${fmtNum(result.totalCeilingSqFt, 0)} ft² × ${ceilingCoats} coats`, value: `${fmtNum(result.ceilingExactGallons, 2)} gal ceiling` }
+                      : { title: 'Buy (rounded to cans)', value: result.wallContainers.displayLabel },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Results Panel */}

@@ -8,8 +8,14 @@ import { isOffensive } from './offensive';
 /**
  * Capitalizes a string to Title Case.
  */
+const SMALL_WORDS = new Set(['of', 'the', 'and', 'in', 'on', 'at', 'a', 'to', 'for']);
+
+/** Title Case that keeps short joining words lower-case after the first word ("Hammer of Glory"). */
 function toTitleCase(str: string): string {
-  return str.replace(/\b[a-z]/g, (char) => char.toUpperCase());
+  return str
+    .split(' ')
+    .map((w, i) => (i > 0 && SMALL_WORDS.has(w.toLowerCase()) ? w.toLowerCase() : w.replace(/\b[a-z]/g, (char) => char.toUpperCase())))
+    .join(' ');
 }
 
 /**
@@ -105,18 +111,18 @@ export function generateNames(opts: GenerateOptions): GenerateResult {
     const pattern = pickPattern();
     const template = pattern.template;
 
-    // Slot replacements
+    // Slot replacements — every occurrence gets its own word (templates like '{noun} of {noun}' have two)
     let name = template
-      .replace('{adj}', () => pickFromPool(pools.adjectives))
-      .replace('{adjectives}', () => pickFromPool(pools.adjectives))
-      .replace('{noun}', () => pickFromPool(pools.nouns))
-      .replace('{nouns}', () => pickFromPool(pools.nouns))
-      .replace('{plural}', () => pickFromPool(pools.plurals || pools.nouns))
-      .replace('{verbsIng}', () => pickFromPool(pools.verbsIng || pools.adjectives))
-      .replace('{colors}', () => pickFromPool(pools.colors || pools.adjectives))
-      .replace('{conceptWords}', () => pickFromPool(pools.conceptWords || pools.nouns))
-      .replace('{numberWords}', () => pickFromPool(pools.numberWords || ['ONE']))
-      .replace('{suffixes}', () => pickFromPool(pools.suffixes || ['X']));
+      .replace(/\{adj\}/g, () => pickFromPool(pools.adjectives))
+      .replace(/\{adjectives\}/g, () => pickFromPool(pools.adjectives))
+      .replace(/\{noun\}/g, () => pickFromPool(pools.nouns))
+      .replace(/\{nouns\}/g, () => pickFromPool(pools.nouns))
+      .replace(/\{plural\}/g, () => pickFromPool(pools.plurals || pools.nouns))
+      .replace(/\{verbsIng\}/g, () => pickFromPool(pools.verbsIng || pools.adjectives))
+      .replace(/\{colors\}/g, () => pickFromPool(pools.colors || pools.adjectives))
+      .replace(/\{conceptWords\}/g, () => pickFromPool(pools.conceptWords || pools.nouns))
+      .replace(/\{numberWords\}/g, () => pickFromPool(pools.numberWords || ['ONE']))
+      .replace(/\{suffixes\}/g, () => pickFromPool(pools.suffixes || ['X']));
 
     // Injected mustInclude if requested
     if (mustInclude) {

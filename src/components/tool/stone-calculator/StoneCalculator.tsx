@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import AreaDepthDiagram, { DiagramPanel, fmtNum, shapeFormula } from '../shared/AreaDepthDiagram';
 import styles from './StoneCalculator.module.css';
 import {
   STONE_PRESETS,
@@ -657,6 +658,32 @@ export function StoneCalculator() {
               </>
             )}
           </div>
+          {(() => {
+            const a0 = areas[0];
+            const shape = a0.shape === 'direct' ? 'area' : a0.shape;
+            const A = a0.shape === 'circle' ? `${a0.diameterFt ?? 0} ft` : a0.shape === 'direct' ? `${a0.areaSqFt ?? 0} ft²` : `${a0.lengthFt ?? 0} ft`;
+            const mat = presetId.includes('crusher') ? 'base' : presetId.includes('pea') ? 'gravel' : 'stone';
+            return (
+              <DiagramPanel caption="How it is worked out: area × depth = volume, ÷ 27 = cubic yards, × density = tons.">
+                <AreaDepthDiagram
+                  idPrefix="stone"
+                  shape={shape}
+                  a={A}
+                  b={`${a0.widthFt ?? 0} ft`}
+                  depth={`${a0.depthInches} in`}
+                  ratio={(a0.lengthFt || 1) / (a0.widthFt || 1)}
+                  material={mat}
+                  note={areas.length > 1 ? `Area 1 of ${areas.length}` : undefined}
+                  steps={[
+                    { title: areas.length > 1 ? `Area (${areas.length} areas)` : `Area = ${shapeFormula(shape)}`, value: `${fmtNum(result.netAreaSqFt, 1)} ft²` },
+                    { title: `Volume = area × depth, + ${wastePercent}% waste`, value: `${fmtNum(result.grossVolumeCuFt, 1)} ft³ = ${fmtNum(result.volumeCuYards, 2)} yd³` },
+                    { title: `Weight = yd³ × ${result.densityTonsPerYd3} t/yd³`, value: `${fmtNum(result.totalWeightTons, 2)} tons` },
+                    { title: 'Order (rounded up)', value: `${fmtNum(result.suggestedTons, 2)} tons` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Column: Results Panel */}

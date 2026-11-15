@@ -12,6 +12,7 @@ import BandNameGenerator from '@/components/tool/band-name-generator/BandNameGen
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
 import { SITE_NAME, SITE_URL } from '@/config/site';
+import { BAND_NAME_IDEAS } from '@/content/pages/band-name-ideas';
 import styles from './page.module.css';
 
 export const metadata: Metadata = buildMetadata({
@@ -20,29 +21,25 @@ export const metadata: Metadata = buildMetadata({
   path: ROUTES.bandNameGenerator.path,
 });
 
-const STATIC_SUGGESTED_NAMES = [
-  'Crimson Highway',
-  'Velvet Static',
-  'The Iron Vultures',
-  'Midnight Carousel',
-  'Broken Voltage',
-  'Obsidian Reapers',
-  'The Starlit Nomads',
-  'Rust & Anthem',
-  'Neon Mirage',
-  'The Savage Stallions',
-  'Quiet Lighthouses',
-  'Thunderbird Echo',
-];
+const IDEAS = BAND_NAME_IDEAS;
+const IDEA_COUNT = IDEAS.reduce((acc, g) => acc + g.names.length, 0);
 
 const MAIN_FAQ_ITEMS: FaqItem[] = [
+  {
+    q: 'What are some cool band name ideas?',
+    a: `A few from the generator, one per genre: ${IDEAS.map((g) => g.names[0]).join(', ')}. The lists on this page have ${IDEA_COUNT} more, sorted by genre, and every click of Generate gives you a fresh batch.`,
+  },
+  {
+    q: 'How do you come up with a good band name?',
+    a: 'Start from your sound and the mood you want: pick the matching genre, try two or three naming styles (The …, two words, one word, X of Y), and save every name that makes you smile. Then say the shortlist out loud, check how it looks as a logo and a social handle, and search it on Spotify and Google before you decide.',
+  },
   {
     q: 'Is the band name generator free to use?',
     a: 'Yes, this band name generator is completely free with no hidden fees, paywalls, or mandatory user accounts. You can generate as many musical group names as you need, customize styles and filters, save your favorite picks locally in your browser, and export them as a text file without ever reaching for a credit card.',
   },
   {
     q: 'Are the generated band names guaranteed to be unique?',
-    a: 'No automated generator can guarantee complete global uniqueness. Our generator creates combinations from extensive, hand-curated vocabulary pools and musical patterns while filtering out more than 260 world-famous bands. However, independent and local bands form every day across the globe. You should always conduct thorough clearance searches on Spotify, Bandcamp, Google, and trademark registries before finalizing a name.',
+    a: 'No automated generator can guarantee complete global uniqueness. Our generator creates combinations from extensive, hand-curated vocabulary pools and musical patterns while filtering out more than 300 famous band names. However, independent and local bands form every day across the globe. You should always conduct thorough clearance searches on Spotify, Bandcamp, Google, and trademark registries before finalizing a name.',
   },
   {
     q: 'How do I check if a generated band name is already taken?',
@@ -54,7 +51,7 @@ const MAIN_FAQ_ITEMS: FaqItem[] = [
   },
   {
     q: 'Does this band name generator use AI or external server APIs?',
-    a: 'No, this tool does not use artificial intelligence, large language models, or remote API endpoints. Instead, it runs an ultra-fast deterministic algorithmic engine driven by curated musical word banks, genre-specific grammatical templates, and seeded pseudorandom number generators. Everything computes instantly inside your web browser, ensuring your search queries never leave your device.',
+    a: 'No, this tool does not use artificial intelligence, large language models, or remote API endpoints. Instead, it combines hand-picked word lists with genre-specific name patterns and picks them at random inside your browser, so nothing you type leaves your device.',
   },
   {
     q: 'Where are my saved favorite band names stored?',
@@ -115,42 +112,36 @@ export default function BandNameGeneratorPage() {
           </p>
 
           {/* Core Interactive Tool */}
+          <p className={styles.updated}>
+            Last updated:{' '}
+            {new Date(ROUTES.bandNameGenerator.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} · 8 genres ·
+            5 naming styles · Runs in your browser
+          </p>
+
           <BandNameGenerator initialGenre="any" />
         </Container>
       </Section>
 
       <AdSlot slotId="bng-top" />
 
-      {/* Static Names List */}
+      {/* Band name ideas by genre (crawlable examples from the engine) */}
       <Section variant="surface">
         <Container>
-          <h2 style={{ marginTop: 0 }}>Curated Band Names You Might Like</h2>
-          <p>
-            Looking for immediate inspiration? Here are twelve band name ideas we picked from the generator’s output, across different sounds:
+          <h2 style={{ marginTop: 0 }}>Band Name Ideas by Genre</h2>
+          <p style={{ maxWidth: '760px' }}>
+            Need inspiration before you start? Here are {IDEA_COUNT} band name ideas picked from this generator’s output, ten for each genre. Use them as they are, or as a
+            starting point: pick a word you like and type it into <em>Must include word</em> above.
           </p>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(auto-fill, minmax(240px, 1fr))',
-              gap: 'var(--space-3)',
-              marginTop: 'var(--space-4)',
-            }}
-          >
-            {STATIC_SUGGESTED_NAMES.map((name) => (
-              <div
-                key={name}
-                style={{
-                  background: 'var(--bg)',
-                  padding: 'var(--space-3) var(--space-4)',
-                  borderRadius: 'var(--radius-s)',
-                  border: '1px solid var(--line)',
-                  fontFamily: 'var(--font-heading)',
-                  fontWeight: 600,
-                  fontSize: '1rem',
-                  color: 'var(--ink)',
-                }}
-              >
-                🎸 {name}
+          <div className={styles.ideasGrid}>
+            {IDEAS.map((g) => (
+              <div key={g.id} className={styles.ideaCard}>
+                <h3 className={styles.ideaTitle}>{g.href ? <Link href={g.href}>{g.label}</Link> : g.label}</h3>
+                <p className={styles.ideaBlurb}>{g.blurb}</p>
+                <ul className={styles.ideaList}>
+                  {g.names.map((n) => (
+                    <li key={n}>{n}</li>
+                  ))}
+                </ul>
               </div>
             ))}
           </div>
@@ -188,7 +179,7 @@ export default function BandNameGeneratorPage() {
 
             <h2>What Makes a Good Band Name?</h2>
             <p>
-              A legendary band name is more than just words on a poster; it is the cornerstone of your visual branding, streaming identity, and audience perception. When evaluating ideas from any band names generator, keep these core principles in mind:
+              A band name ends up on posters, streaming profiles, merch and ticket listings, so it has to work in all of them. When you judge ideas from any band names generator, check these four things:
             </p>
             <ul>
               <li>
@@ -205,9 +196,9 @@ export default function BandNameGeneratorPage() {
               </li>
             </ul>
 
-            <h2>Explore Band Name Ideas by Genre</h2>
+            <h2>Genre-Specific Band Name Generators</h2>
             <p>
-              Different musical subcultures follow distinct naming traditions. Explore our specialized genre guides and dedicated sub-generators to find sound-specific ideas:
+              Each genre has its own naming habits. These generators use only that genre&apos;s word lists and patterns:
             </p>
 
             {/* Genre Grid inside Main Column */}
@@ -248,7 +239,7 @@ export default function BandNameGeneratorPage() {
                 <Link href="/band-name-generator/heavy-metal/">Heavy Metal Band Name Generator</Link>
               </h3>
               <p style={{ fontSize: '0.9375rem', color: 'var(--ink-2)' }}>
-                Epic 80s-inspired NWOBHM and power metal titles packed with soaring dragons, iron stalliones, and chrome hammers.
+                Epic 80s-inspired NWOBHM and power metal titles packed with soaring dragons, iron stallions, and chrome hammers.
               </p>
               <p style={{ fontSize: '0.8125rem', color: 'var(--muted)' }}>
                 Sample names: <em>Steel Dragon, Hammer of Glory, Armored Knights</em>
@@ -313,7 +304,7 @@ export default function BandNameGeneratorPage() {
 
             <h2>How This Generator Works Behind the Scenes</h2>
             <p>
-              Unlike many generic web utilities that simply shuffle a random dictionary or query third-party cloud AI servers, our band name generator was architected specifically for musicians and creators with privacy and speed at its foundation:
+              There is no AI and no server behind the generator. This is what happens when you press Generate (the “How these names are built” panel next to the controls shows it for every batch):
             </p>
             <ul>
               <li>
@@ -323,7 +314,7 @@ export default function BandNameGeneratorPage() {
                 <strong>Syntactic Pattern Engine:</strong> We utilize structured grammatical templates that mirror authentic songwriting styles—from punchy garage punk verbs to ornate heavy metal genitive phrases (&quot;X of Y&quot;).
               </li>
               <li>
-                <strong>Strict Quality & Blocklist Filtering:</strong> Every generated combination is normalized and screened against an internal blocklist of over 260 world-famous artists, explicit slurs, and repetitive word anomalies before appearing on your screen.
+                <strong>Quality and blocklist filtering:</strong> every combination is checked against a list of more than 300 famous band names, a list of offensive words, and repeated words before it appears.
               </li>
               <li>
                 <strong>100% Client-Side Browser Privacy:</strong> The words you enter and the names you generate are never sent to a server or to our analytics. Your creative brainstorming stays on your own machine.
@@ -370,13 +361,19 @@ export default function BandNameGeneratorPage() {
           <div className={styles.relatedToolsCard}>
             <h3 className={styles.relatedToolsTitle}>Related tools</h3>
             <p className={styles.relatedToolsDesc}>
-              Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
+              More generators and guides for naming your band.
             </p>
             <div className={styles.relatedToolsList}>
-              <Link href="/construction-estimate-template/" className={styles.relatedToolItem}>
-                <span className={styles.relatedToolName}>📐 Construction Estimate Template</span>
-                <span className={styles.relatedToolExcerpt}>Contractor cost estimation with PDF &amp; CSV export</span>
+              <Link href="/band-name-generator/random/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>🎲 Random Band Names</span>
+                <span className={styles.relatedToolExcerpt}>Words from every genre mixed together</span>
                 <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
+
+              <Link href="/guides/how-to-check-if-a-band-name-is-taken/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>🔎 Is the name taken?</span>
+                <span className={styles.relatedToolExcerpt}>A step-by-step checklist before you decide</span>
+                <span className={styles.relatedToolLink}>Read guide →</span>
               </Link>
 
               <Link href="/band-name-generator/rock/" className={styles.relatedToolItem}>

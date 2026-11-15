@@ -193,5 +193,27 @@ describe('Band Name Generator Engine Unit Tests', () => {
     expect(res.warning).toBeDefined();
     expect(res.warning).toContain('too strict');
   });
+
+  // Test 10: every slot is filled — templates with two of the same slot ('{noun} of {noun}') used to leave the second one
+  it('never leaves an unfilled {slot} in a name', () => {
+    const genres = ['any', 'rock', 'metal', 'heavy-metal', 'punk', 'pop', 'kpop', 'boy-band', 'indie'] as const;
+    const styles = ['any', 'the', 'two-word', 'one-word', 'of-phrase'] as const;
+    for (const genre of genres)
+      for (const style of styles)
+        for (let seed = 1; seed <= 15; seed++) {
+          const res = generateNames({ genre, style, count: 20, seed });
+          for (const n of res.names) expect(n).not.toMatch(/[{}]/);
+        }
+  });
+
+  // Test 11: joining words stay lower-case in title case
+  it('keeps "of" and "the" lower-case inside a name', () => {
+    const res = generateNames({ genre: 'metal', style: 'of-phrase', count: 20, seed: 7 });
+    expect(res.names.length).toBeGreaterThan(0);
+    for (const n of res.names) {
+      expect(n).not.toMatch(/\sOf\s/);
+      expect(n).not.toMatch(/\sThe\s/);
+    }
+  });
 });
 

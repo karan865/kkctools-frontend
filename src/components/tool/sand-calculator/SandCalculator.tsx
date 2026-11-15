@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import AreaDepthDiagram, { DiagramPanel, fmtNum, shapeFormula } from '../shared/AreaDepthDiagram';
+import PaverJointDiagram from '../shared/PaverJointDiagram';
 import styles from './SandCalculator.module.css';
 import {
   UnitSystem,
@@ -703,6 +705,81 @@ Calculated at kkctools.com/sand-calculator/`;
           <div className={styles.inlineNotice}>
             💡 <strong>Pro Tip:</strong> Sand compacts during installation and spillage is natural. A 5–10% waste buffer ensures you won’t halt your project mid-way.
           </div>
+
+          {(() => {
+            const M = unitSystem === 'metric';
+            const u = M ? 'm' : 'ft';
+            const vol = (cuyd: number, m3: number) => (M ? `${fmtNum(m3, 2)} m³` : `${fmtNum(cuyd, 2)} yd³`);
+            const wt = (tons: number, tonnes: number) => (M ? `${fmtNum(tonnes, 2)} t` : `${fmtNum(tons, 2)} tons`);
+            if (mode === 'volume') {
+              const s0 = sections[0];
+              const A = s0.shape === 'circle' ? `${fmtNum((M ? s0.diameterM : s0.diameterFt) ?? 0, 2)} ${u}` : `${fmtNum((M ? s0.lengthM : s0.lengthFt) ?? 0, 2)} ${u}`;
+              const B = `${fmtNum((M ? s0.widthM : s0.widthFt) ?? 0, 2)} ${u}`;
+              const ratio = ((M ? s0.lengthM : s0.lengthFt) || 1) / ((M ? s0.widthM : s0.widthFt) || 1);
+              return (
+                <DiagramPanel caption="How it is worked out: area × depth = volume, × density = weight, ÷ bag size = bags.">
+                  <AreaDepthDiagram
+                    idPrefix="sand"
+                    shape={s0.shape}
+                    a={A}
+                    b={B}
+                    depth={M ? `${depthCm} cm` : `${depthInches} in`}
+                    ratio={ratio}
+                    material="sand"
+                    note={sections.length > 1 ? `Area 1 of ${sections.length}` : undefined}
+                    steps={[
+                      { title: sections.length > 1 ? `Volume = area × depth (${sections.length} areas)` : `Volume = ${shapeFormula(s0.shape)} × depth`, value: M ? `${fmtNum(volumeResult.rawVolumeM3, 2)} m³` : `${fmtNum(volumeResult.rawVolumeCuFt, 1)} ft³ = ${fmtNum(volumeResult.rawVolumeCuYd, 2)} yd³` },
+                      { title: `+ ${wastePercent}% waste`, value: vol(volumeResult.volumeCuYdWithWaste, volumeResult.volumeM3WithWaste) },
+                      { title: 'Weight = volume × density', value: wt(volumeResult.weightTonsWithWaste, volumeResult.weightTonnesWithWaste) },
+                      { title: `Bags = weight ÷ ${volumeResult.bagWeightOrVolLabel}`, value: `${volumeResult.totalBags} bags` },
+                    ]}
+                  />
+                </DiagramPanel>
+              );
+            }
+            if (mode === 'paver') {
+              return (
+                <DiagramPanel caption="Bedding sand is the thin layer between the gravel base and the pavers: area × bedding depth.">
+                  <AreaDepthDiagram
+                    idPrefix="sandbed"
+                    shape="area"
+                    a={M ? `${paverAreaSqM} m²` : `${paverAreaSqFt} ft²`}
+                    depth={M ? `${beddingDepthCm} cm sand` : `${beddingDepthInches} in sand`}
+                    ratio={1.6}
+                    material="sand"
+                    layers={[
+                      { label: 'Pavers', material: 'paver', weight: 1.2 },
+                      { label: 'Bedding sand', material: 'sand', weight: 0.7 },
+                      { label: 'Gravel base', material: 'base', weight: 1.6 },
+                    ]}
+                    steps={[
+                      { title: 'Volume = area × bedding depth', value: vol(paverResult.volumeCuYdWithWaste / (1 + paverWastePercent / 100), paverResult.volumeM3WithWaste / (1 + paverWastePercent / 100)) },
+                      { title: `+ ${paverWastePercent}% waste`, value: vol(paverResult.volumeCuYdWithWaste, paverResult.volumeM3WithWaste) },
+                      { title: 'Weight = volume × density', value: wt(paverResult.weightTonsWithWaste, paverResult.weightTonnesWithWaste) },
+                      { title: 'Bags', value: `${paverResult.totalBags} bags` },
+                    ]}
+                  />
+                </DiagramPanel>
+              );
+            }
+            return (
+              <DiagramPanel caption="Polymeric sand only fills the joints: the share of the surface that is joint × joint depth.">
+                <PaverJointDiagram
+                  paverL={`${paverLengthInches} ${M ? 'cm' : 'in'}`}
+                  paverW={`${paverWidthInches} ${M ? 'cm' : 'in'}`}
+                  ratio={paverLengthInches / (paverWidthInches || 1)}
+                  joint={`${jointWidthInches} ${M ? 'mm' : 'in'}`}
+                  depth={`${jointDepthInches} ${M ? 'cm' : 'in'}`}
+                  steps={[
+                    { title: 'Joint share of the surface', value: `${fmtNum(polymericResult.jointFraction * 100, 1)}%` },
+                    { title: 'Volume = area × share × depth', value: M ? `${fmtNum(polymericResult.jointVolumeCuFtRaw * 0.0283168, 3)} m³` : `${fmtNum(polymericResult.jointVolumeCuFtRaw, 2)} ft³` },
+                    { title: `+ ${polyWastePercent}% waste → weight`, value: M ? `${fmtNum(polymericResult.jointWeightKgWithWaste, 0)} kg` : `${fmtNum(polymericResult.jointWeightLbWithWaste, 0)} lb` },
+                    { title: 'Bags (50 lb)', value: `${polymericResult.totalBags} bags` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* RESULTS COLUMN */}

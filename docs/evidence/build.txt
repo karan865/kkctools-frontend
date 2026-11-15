@@ -3,10 +3,10 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1199ms
+✓ Running next.config.ts took 32ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.8s
+✓ Compiled successfully in 6.1s
   Running TypeScript ...
   Finished TypeScript in 3.2s ...
   Collecting page data using 15 workers ...
@@ -14,7 +14,7 @@
   Generating static pages using 15 workers (18/72) 
   Generating static pages using 15 workers (36/72) 
   Generating static pages using 15 workers (54/72) 
-✓ Generating static pages using 15 workers (72/72) in 3.3s
+✓ Generating static pages using 15 workers (72/72) in 2.8s
   Finalizing page optimization ...
   Collecting build traces ...
 

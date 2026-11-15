@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-15T07:20:34.663Z
+Run Date: 2026-11-15T08:58:12.752Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -8,58 +8,58 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2385 | Asphalt Calculator: How Many T | PASS |
-| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 991 | Boy Band Name Generator | PASS |
-| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1059 | Heavy Metal Band Name Generato | PASS |
-| `/band-name-generator/` | Band Name Generator – Free Random Band N | 2199 | Band Name Generator | PASS |
-| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1113 | K-pop Band Name Generator | PASS |
-| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1164 | Metal Band Name Generator | PASS |
-| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1045 | Random Band Name Generator | PASS |
-| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1090 | Rock Band Name Generator | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2462 | Asphalt Calculator: How Many T | PASS |
+| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
+| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
+| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2656 | Band Name Generator | PASS |
+| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1194 | K-pop Band Name Generator | PASS |
+| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1227 | Metal Band Name Generator | PASS |
+| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
+| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1155 | Rock Band Name Generator | PASS |
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1773 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2790 | Brick Calculator: Bricks, Mort | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3342 | Cinder Block Calculator – Conc | PASS |
-| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2485 | Compost Calculator: Cubic Yard | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3438 | Cinder Block Calculator – Conc | PASS |
+| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3323 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2548 | Cubic Yard Calculator: How Man | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2613 | Fence Cost Calculator: Chain L | PASS |
-| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
-| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1453 | Fill Dirt Calculator | PASS |
+| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2368 | Fence Stain Calculator: Gallon | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
 | `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2747 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
 | `/` | KKC Tools – Free Construction Calculator | 1957 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2773 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1558 | Linear Foot Calculator | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2001 | Metal Roof Cost Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
-| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2372 | Paver Sand Calculator: Bedding | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2453 | Paint Cost Calculator: Gallons | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3074 | Paver Base Calculator: Tons &  | PASS |
+| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
-| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
 | `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 747 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
-| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
-| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3210 | Square Footage Calculator (Sq  | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
+| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2174 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3323 | Tile Calculator: Square Feet,  | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1787 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Free Tools – Construction Calculator | 1079 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

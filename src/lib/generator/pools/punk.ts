@@ -7,7 +7,7 @@ export const punkPools: WordPools = {
     'Ripped', 'Useless', 'Snotty', 'Savage', 'Rowdy', 'Ragged', 'Twisted', 'Bleeding',
     'Blunt', 'Raw', 'Crazy', 'Noisy', 'Rusty', 'Nasty', 'Battered', 'Stupid',
     'Scabby', 'Chaotic', 'Drunk', 'Furious', 'Screaming', 'Grungy', 'Frenzied', 'Disorderly',
-    'Junkie', 'Sloppy', 'Poison', 'Tainted', 'Outlaw', 'Wrecked', 'Vandal', 'Spastic',
+    'Junkie', 'Sloppy', 'Poison', 'Tainted', 'Outlaw', 'Wrecked', 'Vandal', 'Spiteful',
     'Bizarre', 'Fugitive', 'Shabby', 'Gritty', 'Torn', 'Smelly', 'Restless', 'Busted',
     'Wild', 'Reckless', 'Scruffy', 'Muddy', 'Rancid', 'Snarky', 'Snide', 'Cynical',
     'Pissed', 'Raging', 'Lawless', 'Hostile', 'Brazen', 'Stubborn', 'Violent', 'Anarchic',

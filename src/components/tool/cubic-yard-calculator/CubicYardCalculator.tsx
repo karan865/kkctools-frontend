@@ -11,6 +11,7 @@ import {
   VolumeCalcResult,
 } from '@/lib/volume-engine';
 import { YardMeter } from './CubicYardDiagram';
+import AreaDepthDiagram, { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './CubicYardCalculator.module.css';
 
 type MaterialType = 'concrete' | 'other';
@@ -988,6 +989,43 @@ export default function CubicYardCalculator() {
               {copied ? '✓ Copied!' : '📋 Copy Results'}
             </button>
           </div>
+
+          {res && (() => {
+            const s0 = sections[0];
+            const t = s0.type;
+            const shape = t === 'column' ? 'circle' : t === 'volume' ? 'area' : 'rectangle';
+            const A = t === 'column' ? `${s0.diameter} ${s0.diameterUnit}` : t === 'volume' ? `${s0.volume} ${s0.volumeUnit === 'ft3' ? 'ft³' : s0.volumeUnit === 'yd3' ? 'yd³' : s0.volumeUnit}` : `${s0.length} ${s0.lengthUnit}`;
+            const B = t === 'wall' ? `${s0.height} ${s0.heightUnit} high` : `${s0.width} ${s0.widthUnit}`;
+            const D = t === 'column' ? `${s0.height} ${s0.heightUnit} deep` : t === 'wall' ? `${s0.depth} ${s0.depthUnit} thick` : `${s0.depth} ${s0.depthUnit}`;
+            const ratio = (parseFloat(s0.length) || 1) / (parseFloat(t === 'wall' ? s0.height : s0.width) || 1);
+            const formula = t === 'column' ? 'π/4 × D² × depth' : t === 'volume' ? 'volume entered' : t === 'wall' ? 'L × H × thickness' : 'L × W × depth';
+            const bag80 = res.bags?.find((b) => b.sizeLb === 80);
+            const multi = sections.length > 1 || (parseFloat(s0.qty) || 1) > 1;
+            return (
+              <DiagramPanel caption="How it is worked out: length × width × depth (all in feet) = cubic feet, ÷ 27 = cubic yards, plus waste.">
+                <AreaDepthDiagram
+                  idPrefix="cuyd"
+                  shape={shape}
+                  a={A}
+                  b={B}
+                  depth={D}
+                  ratio={ratio}
+                  material={material === 'concrete' ? 'concrete' : 'soil'}
+                  note={sections.length > 1 ? `section 1 of ${sections.length}` : (parseFloat(s0.qty) || 1) > 1 ? `× ${s0.qty} pieces` : undefined}
+                  steps={[
+                    { title: multi ? `Volume (all ${sections.length > 1 ? 'sections' : 'pieces'})` : `Volume = ${formula}`, value: `${fmtNum(res.exact.ft3, 1)} ft³` },
+                    { title: 'Cubic yards = ft³ ÷ 27', value: `${fmtNum(res.exact.yd3, 2)} yd³` },
+                    { title: `Order = + ${wastePct}% waste`, value: `${fmtNum(res.order.yd3, 2)} yd³` },
+                    material === 'concrete' && bag80
+                      ? { title: `80 lb bags = ft³ ÷ ${bag80.yieldFt3} ft³ per bag`, value: `${bag80.bags} bags` }
+                      : res.weightOrder
+                        ? { title: 'Weight = volume × density', value: `${fmtNum(res.weightOrder.tons, 2)} tons` }
+                        : { title: 'Same volume in m³', value: `${fmtNum(res.order.m3, 2)} m³` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Column: Live Results */}

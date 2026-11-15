@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import LaminateDiagram from './LaminateDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './LaminateCalculator.module.css';
 import {
   LAMINATE_CONSTANTS,
@@ -641,6 +643,30 @@ export function LaminateCalculator() {
               </>
             )}
           </div>
+          {(() => {
+            const a0 = areas.find((a) => a.mode === 'add') ?? areas[0];
+            const placeholder = mode === 'direct' ? true : !(a0 && a0.lengthFt > 0 && a0.widthFt > 0);
+            const multi = mode === 'dimensions' && areas.length > 1;
+            return (
+              <DiagramPanel caption={placeholder && result.netAreaSqFt <= 0 ? 'Enter your room size to see your own numbers here.' : 'How it is worked out: floor area + waste for cuts, ÷ box coverage, rounded up to whole boxes.'}>
+                <LaminateDiagram
+                  lengthFt={mode === 'dimensions' && a0 ? a0.lengthFt : 0}
+                  widthFt={mode === 'dimensions' && a0 ? a0.widthFt : 0}
+                  pattern={patternId}
+                  plankLengthIn={plankLength}
+                  plankWidthIn={plankWidth}
+                  boxLabel={`1 box = ${fmtNum(boxCoverage, 2)} ft²`}
+                  placeholder={placeholder}
+                  steps={[
+                    { title: mode === 'direct' ? 'Floor area entered' : multi ? `Floor area (${areas.length} areas, closets − islands)` : 'Floor area = L × W', value: `${fmtNum(result.netAreaSqFt, 1)} ft²` },
+                    { title: `+ ${wastePercent}% waste for cuts`, value: `${fmtNum(result.grossAreaSqFt, 1)} ft²` },
+                    { title: `Boxes = ÷ ${fmtNum(boxCoverage, 2)} ft², rounded up`, value: `${result.boxesNeeded} boxes` },
+                    { title: 'You buy (spare left over)', value: `${fmtNum(result.purchasedAreaSqFt, 1)} ft² (${fmtNum(result.surplusSqFt, 1)} spare)` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Column: Output Calculation Cards */}

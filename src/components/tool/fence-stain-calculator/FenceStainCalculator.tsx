@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import FenceStainDiagram from './FenceStainDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './FenceStainCalculator.module.css';
 import {
   calculateFenceStain,
@@ -269,6 +271,21 @@ export default function FenceStainCalculator() {
               </div>
             </div>
           </div>
+          <DiagramPanel caption="How it is worked out: fence area × sides × picket-style factor = surface to stain, ÷ coverage per coat.">
+            <FenceStainDiagram
+              style={picketStyle}
+              lengthLabel={`${lengthFeet} ft run (one section shown)`}
+              heightLabel={`${effectiveHeight} ft`}
+              bothSides={bothSides}
+              coats={coatsCount}
+              steps={[
+                { title: 'Fence area = length × height', value: `${fmtNum(results.baseFlatAreaSqFt, 0)} ft²` },
+                { title: `× ${results.sidesMultiplier} side${results.sidesMultiplier > 1 ? 's' : ''} × ${results.styleMultiplier} style factor`, value: `${fmtNum(results.effectiveStainedAreaSqFt, 0)} ft² to stain` },
+                { title: coatsCount > 1 ? 'Coat 1 + coat 2 (2nd uses less)' : 'One coat', value: `${fmtNum(results.coat1Gallons, 2)}${coatsCount > 1 ? ` + ${fmtNum(results.coat2Gallons, 2)}` : ''} gal` },
+                { title: `Order = + ${results.bufferPercent}% buffer`, value: `${fmtNum(results.totalOrderGallons, 1)} gal` },
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Output Results */}

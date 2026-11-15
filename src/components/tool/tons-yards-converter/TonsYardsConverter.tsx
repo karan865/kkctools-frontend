@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useEffect, useId } from 'react';
+import ConversionDiagram from '../shared/ConversionDiagram';
+import { DiagramPanel, fmtNum, type DiagramMaterial } from '../shared/AreaDepthDiagram';
 import styles from './TonsYardsConverter.module.css';
 import {
   convert,
@@ -323,6 +325,40 @@ export default function TonsYardsConverter() {
               </div>
             </div>
           </div>
+          {(() => {
+            const id = selectedMaterial;
+            const mat: DiagramMaterial =
+              id.includes('sand') ? 'sand' : id === 'topsoil' || id === 'fill_dirt' ? 'soil' : id === 'compost' || id === 'mulch' ? 'compost' : id.includes('asphalt') ? 'asphalt' : id === 'concrete' ? 'concrete' : id === 'pea_gravel' ? 'gravel' : id === 'river_rock' ? 'stone' : 'base';
+            const name = id === 'custom' ? 'Custom material' : MATERIAL_PRESETS.find((m) => m.id === id)?.name ?? '';
+            const metric = weightUnit === 'metric-tonne';
+            const w = (st: number, mt: number) => (metric ? `${fmtNum(mt, 2)} t` : `${fmtNum(st, 2)} tons`);
+            const toVol = direction === 'tons-to-yards';
+            const dens = `${fmtNum(results.densityTonsPerCy, 2)} t/yd³ · ${fmtNum(results.effectiveDensityLbPerCy, 0)} lb/yd³`;
+            return (
+              <DiagramPanel caption={toVol ? 'Tons ÷ density = cubic yards. Heavier materials give fewer yards per ton.' : 'Cubic yards × density = tons.'}>
+                <ConversionDiagram
+                  direction={toVol ? 'weight-to-volume' : 'volume-to-weight'}
+                  volume={`${fmtNum(results.baseCy, 2)} yd³`}
+                  weight={w(results.baseShortTons, results.baseMetricTonnes)}
+                  density={dens}
+                  material={mat}
+                  materialName={name}
+                  steps={[
+                    toVol
+                      ? { title: 'Weight in pounds = tons × 2,000', value: `${fmtNum(results.baseLbs, 0)} lb` }
+                      : { title: 'Volume', value: `${fmtNum(results.baseCy, 2)} yd³ = ${fmtNum(results.baseCf, 1)} ft³` },
+                    toVol
+                      ? { title: `Yards = lb ÷ ${fmtNum(results.effectiveDensityLbPerCy, 0)} lb/yd³`, value: `${fmtNum(results.baseCy, 2)} yd³` }
+                      : { title: `Pounds = yd³ × ${fmtNum(results.effectiveDensityLbPerCy, 0)} lb/yd³`, value: `${fmtNum(results.baseLbs, 0)} lb` },
+                    toVol
+                      ? { title: 'Same volume in cubic feet (× 27)', value: `${fmtNum(results.baseCf, 1)} ft³` }
+                      : { title: 'Tons = lb ÷ 2,000', value: w(results.baseShortTons, results.baseMetricTonnes) },
+                    { title: `Order with + ${bufferPct}% buffer`, value: toVol ? `${fmtNum(results.orderCy, 2)} yd³` : w(results.orderShortTons, results.orderMetricTonnes) },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Column: Hero & Breakdown */}

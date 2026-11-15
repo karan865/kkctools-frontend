@@ -12,6 +12,8 @@ import {
   calculateCinderBlocks,
   parseDimension,
 } from '@/lib/cinder-block-engine';
+import WallDiagram from '../shared/WallDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './CinderBlockCalculator.module.css';
 
 const STORAGE_KEY = 'kkc_cmu_calc_walls_v2';
@@ -739,6 +741,33 @@ Calculated with KKCTools Cinder Block Calculator (https://kkctools.com/cinder-bl
           <p className={styles.buttonHelperText}>
             Tip: The cinder block calculator calculates live as you type. Click &ldquo;Calculate Cinder Blocks&rdquo; to scroll results into view on mobile.
           </p>
+          {(() => {
+            const w0 = walls[0];
+            const hFt = w0.heightMode === 'courses' ? ((w0.courses ?? 0) * result.unitHeightInches) / 12 : w0.heightFeet ?? 0;
+            return (
+              <DiagramPanel caption="How it is worked out: wall area − openings = net area, × blocks per square foot, + waste.">
+                <WallDiagram
+                  idPrefix="cmu"
+                  lengthFt={w0.lengthFeet}
+                  heightFt={hFt}
+                  lengthLabel={`${w0.lengthFeet} ft`}
+                  heightLabel={w0.heightMode === 'courses' ? `${w0.courses ?? 0} courses` : `${fmtNum(hFt, 2)} ft`}
+                  openings={openings.map((o) => ({ type: o.type, widthFt: o.widthFeet, heightFt: o.heightFeet, count: o.count }))}
+                  fill="block"
+                  unitLengthIn={result.unitLengthInches}
+                  unitHeightIn={result.unitHeightInches}
+                  unitLabel={`${fmtNum(result.unitLengthInches, 3)} × ${fmtNum(result.unitHeightInches, 3)} in with mortar`}
+                  note={walls.length > 1 ? `wall 1 of ${walls.length}` : w0.quantity > 1 ? `× ${w0.quantity} walls` : undefined}
+                  steps={[
+                    { title: walls.length > 1 || w0.quantity > 1 ? 'Wall area (all walls)' : 'Wall area = length × height', value: `${fmtNum(result.grossWallAreaSqFt, 1)} ft²` },
+                    { title: 'Net area = − doors & windows', value: `${fmtNum(result.netWallAreaSqFt, 1)} ft²  (− ${fmtNum(result.openingsAreaSqFt, 1)})` },
+                    { title: `Blocks = net area × ${fmtNum(result.blocksPerSqFt, 3)} per ft²`, value: `${fmtNum(result.netBlocks, 0)} blocks` },
+                    { title: `Order = + ${effectiveWaste}% waste`, value: `${fmtNum(result.totalBlocksWithWaste, 0)} blocks` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right Results Panel */}

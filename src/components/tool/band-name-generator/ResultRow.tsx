@@ -10,6 +10,8 @@ interface ResultRowProps {
   isSaved: boolean;
   onToggleSave: (name: string) => void;
   onCopySuccess: (msg: string) => void;
+  /** e.g. "Adjective + noun" */
+  formula?: string;
 }
 
 export default function ResultRow({
@@ -18,6 +20,7 @@ export default function ResultRow({
   isSaved,
   onToggleSave,
   onCopySuccess,
+  formula,
 }: ResultRowProps) {
   const [menuOpen, setMenuOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -53,7 +56,10 @@ export default function ResultRow({
         <span className={styles.indexNumber} aria-hidden="true">
           {index + 1}
         </span>
-        <span className={styles.bandName}>{name}</span>
+        <span className={styles.nameBlock}>
+          <span className={styles.bandName}>{name}</span>
+          {formula && <span className={styles.formula}>{formula}</span>}
+        </span>
       </div>
 
       <div className={styles.actions}>

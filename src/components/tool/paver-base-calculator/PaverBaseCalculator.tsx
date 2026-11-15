@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import AreaDepthDiagram, { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './PaverBaseCalculator.module.css';
 import { calculatePaverBase } from '@/lib/paver-base-engine';
 
@@ -244,6 +245,28 @@ export default function PaverBaseCalculator() {
               </div>
             </div>
           </div>
+          <DiagramPanel caption="How it is worked out: area × compacted depth, plus extra because loose gravel shrinks when compacted.">
+            <AreaDepthDiagram
+              idPrefix="pbase"
+              shape={mode === 'dimensions' ? 'rectangle' : 'area'}
+              a={mode === 'dimensions' ? `${lengthFeet} ft` : `${directArea} ft²`}
+              b={`${widthFeet} ft`}
+              depth={`${effectiveDepth} in base`}
+              ratio={lengthFeet / (widthFeet || 1)}
+              material="base"
+              layers={[
+                { label: 'Pavers', material: 'paver', weight: 0.9 },
+                { label: 'Bedding sand', material: 'sand', weight: 0.4 },
+                { label: 'Gravel base', material: 'base', weight: 2 },
+              ]}
+              steps={[
+                { title: mode === 'dimensions' ? 'Area = L × W' : 'Area entered', value: `${fmtNum(results.areaSqFt, 1)} ft²` },
+                { title: 'Compacted volume = area × depth', value: `${fmtNum(results.compactedCuFt, 1)} ft³ = ${fmtNum(results.compactedCubicYards, 2)} yd³` },
+                { title: `Loose volume = + ${compactionPercent}% compaction`, value: `${fmtNum(results.looseCubicYards, 2)} yd³` },
+                { title: 'Weight = loose yd³ × density', value: `${fmtNum(results.looseTons, 2)} tons` },
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Results Display */}

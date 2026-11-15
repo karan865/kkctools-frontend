@@ -7,6 +7,7 @@ import { safeStorage } from '@/lib/storage';
 import Controls, { GeneratorControlState } from './Controls';
 import Results from './Results';
 import SavedPanel from './SavedPanel';
+import FormulaPanel from './FormulaPanel';
 import Toast from '@/components/ui/Toast';
 import styles from './BandNameGenerator.module.css';
 
@@ -85,6 +86,9 @@ export default function BandNameGenerator({
     starterNames || DEFAULT_STARTER_NAMES[initialGenre] || DEFAULT_STARTER_NAMES['any'];
   const [names, setNames] = useState<string[]>(initialList.slice(0, compact ? 5 : 10));
   const [warning, setWarning] = useState<string | undefined>();
+  // genre and style the current list was generated with (the starter list counts as the initial genre)
+  const [namesGenre, setNamesGenre] = useState<GenreId>(initialGenre);
+  const [namesStyle, setNamesStyle] = useState<GeneratorControlState['style']>('any');
   const [savedNames, setSavedNames] = useState<string[]>([]);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [toastVisible, setToastVisible] = useState(false);
@@ -122,6 +126,8 @@ export default function BandNameGenerator({
 
     setNames(result.names);
     setWarning(result.warning);
+    setNamesGenre(controls.genre);
+    setNamesStyle(controls.style);
 
     // Append new names to session history, trim to 50
     for (const name of result.names) {
@@ -172,6 +178,7 @@ export default function BandNameGenerator({
             onGenerate={handleGenerate}
             compact={compact}
           />
+          {!compact && <FormulaPanel names={names} genre={namesGenre} style={namesStyle} />}
         </div>
 
         {/* Right Column: Results & Saved Panel */}
@@ -182,6 +189,7 @@ export default function BandNameGenerator({
             savedNames={new Set(savedNames)}
             onToggleSave={handleToggleSave}
             onCopySuccess={showToast}
+            genre={namesGenre}
           />
 
           {!compact && (

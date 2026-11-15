@@ -2,6 +2,8 @@
 
 import React, { useState } from 'react';
 import ResultRow from './ResultRow';
+import type { GenreId } from '@/lib/generator/types';
+import { formulaOf } from './nameFormula';
 import styles from './Results.module.css';
 
 interface ResultsProps {
@@ -10,6 +12,8 @@ interface ResultsProps {
   savedNames: Set<string>;
   onToggleSave: (name: string) => void;
   onCopySuccess: (msg: string) => void;
+  /** genre the current names were generated for (used to label each name's formula) */
+  genre?: GenreId;
 }
 
 export default function Results({
@@ -18,6 +22,7 @@ export default function Results({
   savedNames,
   onToggleSave,
   onCopySuccess,
+  genre = 'any',
 }: ResultsProps) {
   const [copiedAll, setCopiedAll] = useState(false);
 
@@ -87,6 +92,7 @@ export default function Results({
               isSaved={savedNames.has(name)}
               onToggleSave={onToggleSave}
               onCopySuccess={onCopySuccess}
+              formula={formulaOf(name, genre).label}
             />
           ))}
         </ol>

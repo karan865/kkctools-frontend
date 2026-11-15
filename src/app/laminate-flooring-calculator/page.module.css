@@ -270,3 +270,10 @@
   color: #1e3a8a;
 }
 
+
+.subtitle {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 880px;
+}

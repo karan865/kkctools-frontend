@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import AreaDepthDiagram, { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './PaverSandCalculator.module.css';
 import {
   calculatePaverSand,
@@ -282,6 +283,28 @@ export default function PaverSandCalculator() {
               )}
             </div>
           </div>
+          <DiagramPanel caption="Bedding sand is a thin, even layer under the pavers; joint sand fills the gaps between them.">
+            <AreaDepthDiagram
+              idPrefix="psand"
+              shape={mode === 'dimensions' ? 'rectangle' : 'area'}
+              a={mode === 'dimensions' ? `${lengthFeet} ft` : `${directArea} ft²`}
+              b={`${widthFeet} ft`}
+              depth={`${beddingDepth} in sand`}
+              ratio={lengthFeet / (widthFeet || 1)}
+              material="sand"
+              layers={[
+                { label: 'Pavers', material: 'paver', weight: 1.1 },
+                { label: 'Bedding sand', material: 'sand', weight: 0.8 },
+                { label: 'Gravel base', material: 'base', weight: 1.6 },
+              ]}
+              steps={[
+                { title: mode === 'dimensions' ? 'Area = L × W' : 'Area entered', value: `${fmtNum(results.areaSqFt, 1)} ft²` },
+                { title: `Bedding = area × ${beddingDepth} in ÷ 12, + ${bufferPercent}%`, value: `${fmtNum(results.beddingCuFt, 1)} ft³ = ${fmtNum(results.beddingTons, 2)} tons` },
+                { title: 'Bedding sand bags (50 lb)', value: `${results.beddingBags50Lb} bags` },
+                ...(includeJointSand ? [{ title: `Joint sand (${jointWidth} in joints)`, value: `${results.jointSandBags50Lb} bags · ${fmtNum(results.jointSandLbs, 0)} lb` }] : []),
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Output Results */}

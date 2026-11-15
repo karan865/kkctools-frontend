@@ -11,6 +11,7 @@ import {
   MaterialCalcInput,
   MaterialCalcResult,
 } from '@/lib/area-depth-engine';
+import AreaDepthDiagram, { DiagramPanel, fmtNum, shapeFormula } from '../shared/AreaDepthDiagram';
 import styles from './AsphaltCalculator.module.css';
 
 type MaterialType = 'hotmix' | 'millings';
@@ -763,6 +764,33 @@ export default function AsphaltCalculator() {
               {copied ? '✓ Copied!' : '📋 Copy Results'}
             </button>
           </div>
+
+          {res && (() => {
+                  const s0 = sections[0];
+                  const dimA = s0.shape === 'circle' ? `${s0.diameter} ${s0.diameterUnit}` : s0.shape === 'triangle' ? `${s0.base} ${s0.baseUnit}` : s0.shape === 'area' ? `${s0.area} ${s0.areaUnit === 'sqft' ? 'ft²' : s0.areaUnit === 'sqyd' ? 'yd²' : 'm²'}` : `${s0.length} ${s0.lengthUnit}`;
+                  const dimB = s0.shape === 'triangle' ? `${s0.height} ${s0.heightUnit}` : `${s0.width} ${s0.widthUnit}`;
+                  const ratio = s0.shape === 'triangle' ? (parseFloat(s0.base) || 1) / (parseFloat(s0.height) || 1) : (parseFloat(s0.length) || 1) / (parseFloat(s0.width) || 1);
+                  return (
+                    <DiagramPanel caption="How it is worked out: area × thickness = volume, × density = weight.">
+                      <AreaDepthDiagram
+                        idPrefix="asph"
+                        shape={s0.shape}
+                        a={dimA}
+                        b={dimB}
+                        depth={`${thickness} ${thicknessUnit}`}
+                        ratio={ratio}
+                        material="asphalt"
+                        note={sections.length > 1 ? `Section 1 of ${sections.length}` : undefined}
+                        steps={[
+                          { title: sections.length > 1 ? `Area (${sections.length} sections)` : `Area = ${shapeFormula(s0.shape)}`, value: `${fmtNum(res.areaSqFt, 1)} ft²` },
+                          { title: 'Volume = area × thickness', value: `${fmtNum(res.exact.cubicFeet, 1)} ft³ = ${fmtNum(res.exact.cubicYards, 2)} yd³` },
+                          { title: `Weight = volume × ${densityValue} ${densityUnit}`, value: `${fmtNum(res.exact.tons, 2)} tons` },
+                          { title: `Order = + ${wastePct}% waste`, value: `${fmtNum(res.order.tons, 2)} tons` },
+                        ]}
+                      />
+                    </DiagramPanel>
+                  );
+                })()}
         </div>
 
         {/* Right Column: Live Results */}

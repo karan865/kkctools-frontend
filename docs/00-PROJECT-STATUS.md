@@ -253,6 +253,21 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
 
+### Phase BN — Band Name Generator review and improvements (2026-11-15)
+- [x] BN-1 Engine bug fixed: templates with the same slot twice (e.g. `{noun} of {noun}`) left the second slot unfilled, so users could get names like "Ashes {Noun}" (`.replace` only replaced the first match; now a global regex). New test covers every genre × style × 15 seeds. *(Evidence: `npx vitest run src/lib/generator` → 11 passed)*
+- [x] BN-2 Title case keeps joining words lower-case ("Hammer of Glory", not "Hammer Of Glory"); tested.
+- [x] BN-3 Removed the slur "Spastic" from the punk word list (replaced with "Spiteful") and added spastic/spaz/cripple/midget/gypsy to the offensive filter.
+- [x] BN-4 Tool: "How these names are built" panel next to the controls (each naming formula as word slots, an example from the current batch and how many names use it) and a formula label under every result.
+- [x] BN-5 Page: title "Band Name Generator – Free Band Name Ideas by Genre" (63 chars incl. brand), new meta (149), last-updated line, 80 crawlable band name ideas (10 per genre, hand-picked from the generator's output and tested against the blocklist and offensive filter in `src/content/pages/band-name-ideas.test.ts`), two new FAQs (10 total), less inflated wording, a typo fixed, a factual count corrected (blocklist has 307 names), and musician-relevant sidebar links instead of the construction template. ~2,040 words.
+- [x] BN-6 `npm run verify` passed; accessibility 100 on the main page and all 6 genre pages; mobile performance 93, SEO 100.
+
+### Phase DG — Live diagrams inside every calculator (2026-11-15)
+Owner request: every tool must show, inside the input area, a large diagram that explains the calculation with the user's own numbers.
+- [x] DG-1 Audit: 17 calculators had no diagram in the tool section (asphalt, fill dirt, sand, stone, compost, paver base, paver sand, tons ↔ yards, cinder block, brick US + metric, fence stain, laminate, linear foot, paint, square footage, stud, tile); cubic yard got a results meter and two page diagrams.
+- [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
+- [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
+- [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
+
 ### Phase CI — Tool #35: Cubic Inch & Engine Displacement Calculator (Batch 2 Tier 3 #16, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md` (primary `cubic inch calculator`, US 3,600 / KD 9; secondary `engine displacement calculator` 3,600 / KD 18).
 - [x] CI-1 Engine `src/lib/cubic-inch-engine.ts` + 17 tests: exact conversions (2.54³ cc per in³, 231 in³ per US gal, 4.54609 L per imp gal), box / cylinder / tube (wall + capacity) / sphere, displacement, per-cylinder and bore/stroke ratio, bore and stroke solvers, overbore/stroker what-if, CID chart. Tests prove the presets reproduce the published sizes (350, 376, 502, 391 for the “392”, 5.04 L, 1,996 cc). *(Evidence: `npx vitest run` → 528 passed, 40 files)*

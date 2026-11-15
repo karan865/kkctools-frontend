@@ -2,6 +2,7 @@
 
 import React, { useState, useId } from 'react';
 import styles from './FillDirtCalculator.module.css';
+import AreaDepthDiagram, { DiagramPanel, fmtNum, shapeFormula } from '../shared/AreaDepthDiagram';
 import {
   UnitSystem,
   ShapeType,
@@ -485,6 +486,33 @@ Calculated at kkctools.com/fill-dirt-calculator/`;
           <div className={styles.inlineNotice}>
             💡 <strong>Settling Tip:</strong> Loose subsoil settles naturally after tamping, rolling, and watering. A 10–20% buffer prevents having to order expensive short loads later.
           </div>
+
+          {(() => {
+            const a0 = areas[0];
+            const M = unitSystem === 'metric';
+            const u = M ? 'm' : 'ft';
+            const v = (ft?: number, m?: number) => `${fmtNum((M ? m : ft) ?? 0, 2)} ${u}`;
+            const shape = a0.shape === 'known' ? 'area' : a0.shape;
+            const A = a0.shape === 'circle' ? v(a0.diameterFt, a0.diameterM) : a0.shape === 'triangle' ? v(a0.baseFt, a0.baseM) : a0.shape === 'known' ? `${fmtNum((M ? a0.knownAreaSqM : a0.knownAreaSqFt) ?? 0, 1)} ${M ? 'm²' : 'ft²'}` : v(a0.lengthFt, a0.lengthM);
+            const B = a0.shape === 'triangle' ? v(a0.heightFt, a0.heightM) : v(a0.widthFt, a0.widthM);
+            const ratio = a0.shape === 'triangle' ? ((M ? a0.baseM : a0.baseFt) || 1) / ((M ? a0.heightM : a0.heightFt) || 1) : ((M ? a0.lengthM : a0.lengthFt) || 1) / ((M ? a0.widthM : a0.widthFt) || 1);
+            const depth =
+              a0.depthType === 'uniform'
+                ? M ? `${a0.depthCm ?? 0} cm` : `${a0.depthInches ?? 0} in`
+                : M ? `${a0.shallowDepthCm ?? 0}–${a0.deepDepthCm ?? 0} cm` : `${a0.shallowDepthInches ?? 0}–${a0.deepDepthInches ?? 0} in`;
+            const vol = (cuyd: number, m3: number) => (M ? `${fmtNum(m3, 2)} m³` : `${fmtNum(cuyd, 2)} yd³`);
+            const steps = [
+              { title: areas.length > 1 ? `Volume = area × depth (${areas.length} areas)` : `Volume = ${shapeFormula(shape)} × ${a0.depthType === 'uniform' ? 'depth' : 'average depth'}`, value: M ? `${fmtNum(result.totalRawVolumeM3, 2)} m³` : `${fmtNum(result.totalRawVolumeCuFt, 1)} ft³` },
+              { title: M ? 'Volume' : 'Cubic yards = ft³ ÷ 27', value: vol(result.totalRawVolumeCuYd, result.totalRawVolumeM3) },
+              { title: `Order = + ${extraPercent}% for settling`, value: vol(result.volumeWithExtraCuYd, result.volumeWithExtraM3) },
+            ];
+            if (result.weightTonsWithExtra) steps.push({ title: 'Weight = volume × density', value: M ? `${fmtNum(result.weightTonnesWithExtra ?? 0, 2)} t` : `${fmtNum(result.weightTonsWithExtra, 2)} tons` });
+            return (
+              <DiagramPanel caption="How it is worked out: area × depth = volume, plus extra for settling.">
+                <AreaDepthDiagram idPrefix="fill" shape={shape} a={A} b={B} depth={depth} ratio={ratio} material="soil" note={areas.length > 1 ? `Area 1 of ${areas.length}` : undefined} steps={steps} />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* RESULTS COLUMN */}

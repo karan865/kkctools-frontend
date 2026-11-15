@@ -8,6 +8,8 @@ import {
   calculateSquareFootage,
   parseDimension,
 } from '@/lib/square-footage-engine';
+import { RoomsAreaDiagram, ShapeAreaDiagram } from './SquareFootageDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './SquareFootageCalculator.module.css';
 
 type ActiveTab = 'single' | 'multiple' | 'shapes';
@@ -750,6 +752,45 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
               <p className={styles.buttonHelperText}>
                 Tip: The sqft calculator updates instantly as you type. Click &ldquo;Calculate Square Feet&rdquo; to jump directly to results on mobile.
               </p>
+
+              {(() => {
+                const UNIT: Record<string, string> = { feet: 'ft', inches: 'in', 'feet-inches': 'ft', yards: 'yd', meters: 'm', centimeters: 'cm' };
+                const tail = [
+                  { title: `+ ${effectiveWaste}% waste / overage`, value: `${fmtNum(result.sqftWithWaste, 1)} ft²` },
+                  { title: 'Same area in m² and yd²', value: `${fmtNum(result.sqMeters, 2)} m² · ${fmtNum(result.sqYards, 2)} yd²` },
+                ];
+                if (activeTab === 'multiple') {
+                  return (
+                    <DiagramPanel caption="How it is worked out: add the area of every room, subtract closets or islands, then add waste.">
+                      <RoomsAreaDiagram
+                        rooms={result.roomBreakdowns.map((r) => ({ name: r.name, sqft: r.sqft, subtract: r.mode === 'subtract' }))}
+                        steps={[
+                          { title: 'Added areas', value: `${fmtNum(result.roomBreakdowns.filter((r) => r.mode !== 'subtract').reduce((a, r) => a + r.sqft, 0), 1)} ft²` },
+                          { title: '− subtracted areas = total', value: `${fmtNum(result.sqft, 1)} ft²` },
+                          ...tail,
+                        ]}
+                      />
+                    </DiagramPanel>
+                  );
+                }
+                const room = activeRooms[0];
+                const f = room.shape === 'rectangle' ? 'length × width' : room.shape === 'triangle' ? '½ × base × height' : room.shape === 'circle' ? 'π × r²' : room.shape === 'semicircle' ? '½ × π × r²' : room.shape === 'trapezoid' ? '(base 1 + base 2) ÷ 2 × height' : 'area A + area B';
+                return (
+                  <DiagramPanel caption="How it is worked out: the shape's area formula, converted to square feet, plus waste.">
+                    <ShapeAreaDiagram
+                      shape={room.shape}
+                      length={room.length + (room.lengthInches ?? 0) / 12}
+                      width={room.width + (room.widthInches ?? 0) / 12}
+                      radius={room.radius ?? 0}
+                      base2={room.base2 ?? 0}
+                      length2={room.length2 ?? 0}
+                      width2={room.width2 ?? 0}
+                      unit={UNIT[room.unit] ?? 'ft'}
+                      steps={[{ title: `Area = ${f}`, value: `${fmtNum(result.sqft, 2)} ft²` }, ...tail, ...(result.perimeterLinearFt ? [{ title: 'Perimeter (for trim)', value: `${fmtNum(result.perimeterLinearFt, 1)} ft` }] : [])]}
+                    />
+                  </DiagramPanel>
+                );
+              })()}
             </div>
           </div>
 

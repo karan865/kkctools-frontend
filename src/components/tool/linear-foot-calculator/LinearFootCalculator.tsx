@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId, useRef } from 'react';
+import { PiecesDiagram, StripDiagram } from './LinearFootDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './LinearFootCalculator.module.css';
 import {
   LengthUnit,
@@ -438,6 +440,43 @@ Calculated at kkctools.com/linear-foot-calculator/`;
           <div className={styles.inlineNotice}>
             💡 <strong>Measuring Tip:</strong> Always use the actual finished width of boards (e.g. a standard 1×6 nominal board is actually 5.5 inches wide).
           </div>
+
+          {activeTab === 'linear' ? (
+            <DiagramPanel caption="How it is worked out: each piece length × how many, all added together, plus waste.">
+              <PiecesDiagram
+                rows={rows.map((r) => {
+                  const sub = linearResult.rowSubtotals.find((x) => x.id === r.id);
+                  return { feet: sub?.feetPerPiece ?? 0, qty: r.quantity, label: r.unit === 'ft-in' ? `${r.length} ft ${r.inchesPart ?? 0} in` : `${r.length} ${r.unit}` };
+                })}
+                totalLabel={`${fmtNum(linearResult.rawLinearFeet, 2)} linear ft`}
+                steps={[
+                  ...rows.slice(0, 2).map((r, i) => {
+                    const sub = linearResult.rowSubtotals.find((x) => x.id === r.id);
+                    return { title: `Row ${i + 1}: ${fmtNum(sub?.feetPerPiece ?? 0, 2)} ft × ${r.quantity}`, value: `${fmtNum(sub?.subtotalFeet ?? 0, 2)} ft` };
+                  }),
+                  { title: rows.length > 2 ? `Add all ${rows.length} rows` : 'Add the rows', value: `${fmtNum(linearResult.rawLinearFeet, 2)} ft` },
+                  { title: `+ ${wastePercent}% waste`, value: `${fmtNum(linearResult.totalLinearFeetWithWaste, 2)} ft = ${fmtNum(linearResult.totalMetersWithWaste, 2)} m` },
+                ]}
+              />
+            </DiagramPanel>
+          ) : convertResult ? (
+            <DiagramPanel caption={conversionDirection === 'sqft-to-linear' ? 'Linear feet = square feet ÷ width in feet.' : 'Square feet = linear feet × width in feet.'}>
+              <StripDiagram
+                toLinear={conversionDirection === 'sqft-to-linear'}
+                areaLabel={conversionDirection === 'sqft-to-linear' ? `${convertValue} ft²` : `${fmtNum(convertResult.convertedValueWithWaste, 1)} ft²`}
+                widthLabel={`${widthValue} ${widthUnit} wide`}
+                lengthLabel={conversionDirection === 'sqft-to-linear' ? `${fmtNum(convertResult.convertedValueWithWaste, 1)} linear ft` : `${convertValue} linear ft`}
+                steps={[
+                  { title: `Width in feet = ${widthValue} ${widthUnit}`, value: `${fmtNum(convertResult.widthInFeet, 4)} ft` },
+                  conversionDirection === 'sqft-to-linear'
+                    ? { title: `${convertValue} ft² ÷ ${fmtNum(convertResult.widthInFeet, 4)} ft`, value: `${fmtNum(convertResult.convertedValueRaw, 2)} linear ft` }
+                    : { title: `${convertValue} ft × ${fmtNum(convertResult.widthInFeet, 4)} ft`, value: `${fmtNum(convertResult.convertedValueRaw, 2)} ft²` },
+                  ...(conversionDirection === 'sqft-to-linear' ? [{ title: `+ ${convertWastePercent}% waste`, value: `${fmtNum(convertResult.convertedValueWithWaste, 2)} linear ft` }] : []),
+                  { title: '1 linear foot covers', value: `${fmtNum(convertResult.sqFtPerLinearFoot, 3)} ft²` },
+                ]}
+              />
+            </DiagramPanel>
+          ) : null}
         </div>
 
         {/* RESULTS COLUMN */}

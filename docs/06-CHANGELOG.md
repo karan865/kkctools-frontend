@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Band Name Generator improvements] — 2026-11-15
+- Fixed a generator bug that left `{Noun}` placeholders in names whose pattern used the same slot twice; joining words now stay lower-case; removed a slur from the punk word list and widened the offensive filter.
+- Added a "How these names are built" panel and a formula label on every result.
+- Page: new title/meta, last-updated line, 80 tested band name ideas by genre, two new FAQs, cleaner wording, relevant sidebar links.
+- New tests: generator slot filling and title case; band name ideas vs blocklist/offensive filter.
+
+### [Calculator diagrams] — 2026-11-15
+- Added a large, live "how it is calculated" diagram inside the input area of 17 calculators that had none, plus a result meter in the cubic yard calculator.
+- New shared components (`src/components/tool/shared/`): `AreaDepthDiagram`, `StepFrame`/`StepsList`, `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`; tool-specific diagrams for fence stain, laminate, linear foot, paint, square footage, stud and tile.
+- Responsive: drawing and steps sit side by side on wide containers and stack on narrow ones (container query at 540 px).
+- `npm run verify` passed; accessibility 100 on all affected pages.
+
 ### [Tool #35 — Cubic Inch & Engine Displacement Calculator] — 2026-11-15
 - New page `/cubic-inch-calculator/` (Batch 2 Tier 3 #16), built from `16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/cubic-inch-engine.ts`): box, cylinder, tube (wall and inside capacity) and sphere volume; exact unit conversions; displacement = π/4 × bore² × stroke × cylinders; bore/stroke solvers; overbore and stroker what-if; CID chart; 6 presets with manufacturer-published bore and stroke.

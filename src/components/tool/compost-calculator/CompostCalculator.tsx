@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import AreaDepthDiagram, { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './CompostCalculator.module.css';
 import { calculateCompost } from '@/lib/compost-engine';
 
@@ -231,6 +232,24 @@ export default function CompostCalculator() {
               />
             </div>
           </div>
+          <DiagramPanel caption="How it is worked out: bed area × compost depth = volume, ÷ bag size = bags.">
+            <AreaDepthDiagram
+              idPrefix="compost"
+              shape={mode === 'rectangular' ? 'rectangle' : 'area'}
+              a={mode === 'rectangular' ? `${lengthFeet} ft` : `${directArea} ft²`}
+              b={`${widthFeet} ft`}
+              depth={`${effectiveDepth} in`}
+              ratio={lengthFeet / (widthFeet || 1)}
+              material="compost"
+              note={mode === 'rectangular' && bedsCount > 1 ? `1 of ${bedsCount} beds` : undefined}
+              steps={[
+                { title: mode === 'rectangular' && bedsCount > 1 ? `Area = L × W × ${bedsCount} beds` : mode === 'rectangular' ? 'Area = L × W' : 'Area entered', value: `${fmtNum(results.totalAreaSqFt, 1)} ft²` },
+                { title: 'Volume = area × depth ÷ 12', value: `${fmtNum(results.volumeCuFt, 1)} ft³` },
+                { title: 'Cubic yards = ft³ ÷ 27', value: `${fmtNum(results.volumeCubicYards, 2)} yd³` },
+                { title: `Bags = ft³ ÷ ${preferredBagSize} ft³ bag`, value: `${results.selectedBagsCount} bags` },
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Output Results */}

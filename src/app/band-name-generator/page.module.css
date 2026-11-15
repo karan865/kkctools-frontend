@@ -117,3 +117,54 @@
   color: var(--accent-hover);
 }
 
+
+.updated {
+  margin: calc(-1 * var(--space-4, 16px)) 0 var(--space-5, 20px);
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+
+.ideasGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: var(--space-4, 16px);
+  margin-top: var(--space-5, 20px);
+}
+
+.ideaCard {
+  padding: 16px 18px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--bg);
+}
+
+.ideaTitle {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.ideaTitle a {
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.ideaTitle a:hover {
+  color: var(--accent);
+  text-decoration: underline;
+}
+
+.ideaBlurb {
+  margin: 4px 0 10px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.ideaList {
+  margin: 0;
+  padding-left: 1.1rem;
+  font-family: var(--font-heading);
+  font-weight: 600;
+  color: var(--ink);
+  line-height: 1.75;
+  font-size: 0.95rem;
+}

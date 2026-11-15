@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import StudWallDiagram from './StudWallDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './StudCalculator.module.css';
 import {
   calculateStuds,
@@ -426,6 +428,23 @@ export default function StudCalculator() {
               </div>
             </div>
           </div>
+          <DiagramPanel caption="How it is worked out: one stud every spacing along the wall, plus extra studs at corners, T-walls, doors and windows, plus waste.">
+            <StudWallDiagram
+              lengthFt={results.totalLengthFt}
+              heightFt={results.heightFt}
+              spacingIn={spacing}
+              doors={doors}
+              windows={windows}
+              doublePlate={plateConfig === 'double'}
+              lengthLabel={`${lengthFt} ft${lengthIn ? ` ${lengthIn} in` : ''}`}
+              steps={[
+                { title: `Field studs = length ÷ ${spacing} in + 1`, value: `${results.fieldStuds} studs` },
+                { title: `+ corners ${results.cornerStuds} · T-walls ${results.tStuds} · openings ${results.openingStuds}`, value: `${results.subtotal} studs` },
+                { title: `+ ${wastePct}% waste`, value: `${results.totalStuds} studs (${results.studLengthOutput})` },
+                { title: `Plates: ${results.plateLayers} layers × ${fmtNum(results.totalLengthFt, 1)} ft`, value: `${fmtNum(results.totalPlateLf, 0)} ft = ${results.totalPlateBoards} boards` },
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Hero & Breakdown Results */}

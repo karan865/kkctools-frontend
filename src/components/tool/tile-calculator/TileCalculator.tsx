@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import TileDiagram from './TileDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './TileCalculator.module.css';
 import {
   TILE_PRESETS,
@@ -752,6 +754,29 @@ export function TileCalculator() {
               </div>
             </div>
           </div>
+          {(() => {
+            const a0 = areas.find((a) => a.type === 'add') ?? areas[0];
+            const direct = mode === 'direct';
+            return (
+              <DiagramPanel caption="How it is worked out: area ÷ the area of one tile = tiles, + waste for cuts, ÷ tiles per box.">
+                <TileDiagram
+                  lengthFt={direct ? Math.sqrt(directArea || 100) : a0?.lengthFeet ?? 0}
+                  widthFt={direct ? Math.sqrt(directArea || 100) : a0?.widthFeet ?? 0}
+                  tileLIn={result.tileLengthInches}
+                  tileWIn={result.tileWidthInches}
+                  groutIn={result.groutJointInches}
+                  pattern={patternId}
+                  areaLabel={direct ? `${directArea} ft² entered` : undefined}
+                  steps={[
+                    { title: !direct && areas.length > 1 ? `Area (${areas.length} areas)` : direct ? 'Area entered' : 'Area = length × width', value: `${fmtNum(result.netAreaSqFt, 1)} ft²` },
+                    { title: `Tiles = area × ${fmtNum(result.tilesPerSqFt, 3)} per ft²`, value: `${fmtNum(result.baseTilesNeeded, 0)} tiles` },
+                    { title: `+ ${wastePercent}% waste for cuts`, value: `${fmtNum(result.totalTilesNeeded, 0)} tiles` },
+                    { title: 'Boxes (rounded up)', value: `${result.boxesNeeded} boxes · ${result.surplusTiles} spare` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Right: Results Panel */}

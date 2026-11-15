@@ -26,9 +26,9 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   bandNameGenerator: {
     path: '/band-name-generator/',
-    title: 'Band Name Generator – Free Random Band Names',
-    description: 'Generate original band name ideas instantly by genre and naming style. Free, fast, private, and runs directly in your browser.',
-    updated: '2026-11-14',
+    title: 'Band Name Generator – Free Band Name Ideas by Genre',
+    description: 'Generate original band name ideas by genre: rock, metal, punk, pop, K-pop and more. Pick a naming style, save favorites and check if a name is taken.',
+    updated: '2026-11-15',
     type: 'tool',
     indexable: true,
   },

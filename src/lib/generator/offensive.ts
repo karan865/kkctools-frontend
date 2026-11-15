@@ -11,6 +11,7 @@ const OFFENSIVE_TERMS: string[] = [
   'bullshit', 'asshole', 'bastard', 'dickhead', 'pussy', 'cock', 'blowjob',
   'dildo', 'masturbate', 'porn', 'porno', 'incest', 'bestiality', 'suicide',
   'genocide', 'lynch', 'lynching', 'antisemitic', 'whitepower', 'behead',
+  'spastic', 'spaz', 'cripple', 'midget', 'gypsy', 'gypsies',
 ];
 
 export function isOffensive(text: string): boolean {

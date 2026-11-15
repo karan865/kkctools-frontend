@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useState, useId } from 'react';
+import WallDiagram from '../shared/WallDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './BrickCalculator.module.css';
 import {
   BRICK_PRESETS,
@@ -632,6 +634,27 @@ Calculated at KKCTools.com`;
               Print
             </button>
           </div>
+          <DiagramPanel caption="How it is worked out: wall area − openings = net area, × bricks per square foot, + waste.">
+            <WallDiagram
+              idPrefix="brick"
+              lengthFt={walls[0].lengthFeet}
+              heightFt={walls[0].heightFeet}
+              lengthLabel={`${walls[0].lengthFeet} ft`}
+              heightLabel={`${walls[0].heightFeet} ft`}
+              openings={openings.map((o) => ({ type: o.heightFeet >= 6 ? 'door' : 'window', widthFt: o.widthFeet, heightFt: o.heightFeet, count: o.quantity }))}
+              fill="brick"
+              unitLengthIn={results.nominalLengthInches}
+              unitHeightIn={results.nominalHeightInches}
+              unitLabel={`${fmtNum(results.nominalLengthInches, 3)} × ${fmtNum(results.nominalHeightInches, 3)} in with mortar`}
+              note={walls.length > 1 ? `wall 1 of ${walls.length}` : walls[0].quantity > 1 ? `× ${walls[0].quantity} walls` : undefined}
+              steps={[
+                { title: walls.length > 1 || walls[0].quantity > 1 ? 'Wall area (all walls)' : 'Wall area = length × height', value: `${fmtNum(results.grossWallAreaSqFt, 1)} ft²` },
+                { title: 'Net area = − doors & windows', value: `${fmtNum(results.netWallAreaSqFt, 1)} ft²` },
+                { title: `Bricks = net area × ${fmtNum(results.bricksPerSqFt, 2)} per ft²${isDoubleWythe ? ' × 2 wythes' : ''}`, value: `${fmtNum(results.baseBricksNeeded, 0)} bricks` },
+                { title: `Order = + ${wastePercent}% waste`, value: `${fmtNum(results.totalBricksNeeded, 0)} bricks` },
+              ]}
+            />
+          </DiagramPanel>
         </div>
 
         {/* Right Column: Live Results */}

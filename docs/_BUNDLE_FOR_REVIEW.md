@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-15T07:20:35.094Z
+Generated on: 2026-11-15T09:02:07.040Z
 
 
 
@@ -261,6 +261,21 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase BN — Band Name Generator review and improvements (2026-11-15)
+- [x] BN-1 Engine bug fixed: templates with the same slot twice (e.g. `{noun} of {noun}`) left the second slot unfilled, so users could get names like "Ashes {Noun}" (`.replace` only replaced the first match; now a global regex). New test covers every genre × style × 15 seeds. *(Evidence: `npx vitest run src/lib/generator` → 11 passed)*
+- [x] BN-2 Title case keeps joining words lower-case ("Hammer of Glory", not "Hammer Of Glory"); tested.
+- [x] BN-3 Removed the slur "Spastic" from the punk word list (replaced with "Spiteful") and added spastic/spaz/cripple/midget/gypsy to the offensive filter.
+- [x] BN-4 Tool: "How these names are built" panel next to the controls (each naming formula as word slots, an example from the current batch and how many names use it) and a formula label under every result.
+- [x] BN-5 Page: title "Band Name Generator – Free Band Name Ideas by Genre" (63 chars incl. brand), new meta (149), last-updated line, 80 crawlable band name ideas (10 per genre, hand-picked from the generator's output and tested against the blocklist and offensive filter in `src/content/pages/band-name-ideas.test.ts`), two new FAQs (10 total), less inflated wording, a typo fixed, a factual count corrected (blocklist has 307 names), and musician-relevant sidebar links instead of the construction template. ~2,040 words.
+- [x] BN-6 `npm run verify` passed; accessibility 100 on the main page and all 6 genre pages; mobile performance 93, SEO 100.
+
+### Phase DG — Live diagrams inside every calculator (2026-11-15)
+Owner request: every tool must show, inside the input area, a large diagram that explains the calculation with the user's own numbers.
+- [x] DG-1 Audit: 17 calculators had no diagram in the tool section (asphalt, fill dirt, sand, stone, compost, paver base, paver sand, tons ↔ yards, cinder block, brick US + metric, fence stain, laminate, linear foot, paint, square footage, stud, tile); cubic yard got a results meter and two page diagrams.
+- [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
+- [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
+- [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
 
 ### Phase CI — Tool #35: Cubic Inch & Engine Displacement Calculator (Batch 2 Tier 3 #16, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md` (primary `cubic inch calculator`, US 3,600 / KD 9; secondary `engine displacement calculator` 3,600 / KD 18).
@@ -1002,6 +1017,18 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Band Name Generator improvements] — 2026-11-15
+- Fixed a generator bug that left `{Noun}` placeholders in names whose pattern used the same slot twice; joining words now stay lower-case; removed a slur from the punk word list and widened the offensive filter.
+- Added a "How these names are built" panel and a formula label on every result.
+- Page: new title/meta, last-updated line, 80 tested band name ideas by genre, two new FAQs, cleaner wording, relevant sidebar links.
+- New tests: generator slot filling and title case; band name ideas vs blocklist/offensive filter.
+
+### [Calculator diagrams] — 2026-11-15
+- Added a large, live "how it is calculated" diagram inside the input area of 17 calculators that had none, plus a result meter in the cubic yard calculator.
+- New shared components (`src/components/tool/shared/`): `AreaDepthDiagram`, `StepFrame`/`StepsList`, `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`; tool-specific diagrams for fence stain, laminate, linear foot, paint, square footage, stud and tile.
+- Responsive: drawing and steps sit side by side on wide containers and stack on narrow ones (container query at 540 px).
+- `npm run verify` passed; accessibility 100 on all affected pages.
+
 ### [Tool #35 — Cubic Inch & Engine Displacement Calculator] — 2026-11-15
 - New page `/cubic-inch-calculator/` (Batch 2 Tier 3 #16), built from `16_Cubic_Inch_Engine_Displacement_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/cubic-inch-engine.ts`): box, cylinder, tube (wall and inside capacity) and sphere volume; exact unit conversions; displacement = π/4 × bore² × stroke × cylinders; bore/stroke solvers; overbore and stroker what-if; CID chart; 6 presets with manufacturer-published bore and stroke.
@@ -1275,7 +1302,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-15T07:20:34.663Z
+Run Date: 2026-11-15T08:58:12.752Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1283,58 +1310,58 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2385 | Asphalt Calculator: How Many T | PASS |
-| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 991 | Boy Band Name Generator | PASS |
-| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1059 | Heavy Metal Band Name Generato | PASS |
-| `/band-name-generator/` | Band Name Generator – Free Random Band N | 2199 | Band Name Generator | PASS |
-| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1113 | K-pop Band Name Generator | PASS |
-| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1164 | Metal Band Name Generator | PASS |
-| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1045 | Random Band Name Generator | PASS |
-| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1090 | Rock Band Name Generator | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2462 | Asphalt Calculator: How Many T | PASS |
+| `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
+| `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
+| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2656 | Band Name Generator | PASS |
+| `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1194 | K-pop Band Name Generator | PASS |
+| `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1227 | Metal Band Name Generator | PASS |
+| `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
+| `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1155 | Rock Band Name Generator | PASS |
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1773 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2790 | Brick Calculator: Bricks, Mort | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3342 | Cinder Block Calculator – Conc | PASS |
-| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2485 | Compost Calculator: Cubic Yard | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3438 | Cinder Block Calculator – Conc | PASS |
+| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3323 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2412 | Cubic Yard Calculator: How Man | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2548 | Cubic Yard Calculator: How Man | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2613 | Fence Cost Calculator: Chain L | PASS |
-| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
-| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1453 | Fill Dirt Calculator | PASS |
+| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2368 | Fence Stain Calculator: Gallon | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
 | `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2747 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
 | `/` | KKC Tools – Free Construction Calculator | 1957 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2684 | Laminate Flooring Calculator:  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2773 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1477 | Linear Foot Calculator | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1558 | Linear Foot Calculator | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2001 | Metal Roof Cost Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2321 | Paint Cost Calculator: Gallons | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 2984 | Paver Base Calculator: Tons &  | PASS |
-| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2372 | Paver Sand Calculator: Bedding | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2453 | Paint Cost Calculator: Gallons | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3074 | Paver Base Calculator: Tons &  | PASS |
+| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
-| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
 | `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 747 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
-| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
-| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3210 | Square Footage Calculator (Sq  | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
+| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2174 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3323 | Tile Calculator: Square Feet,  | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1787 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Free Tools – Construction Calculator | 1079 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -1442,6 +1469,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+5d10abb Floor Refinishing - completed
 1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
 d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 8f4d6c9 Add Metal Roof Cost Calculator (Batch 2 Tier 2 #13)
@@ -1461,7 +1489,6 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 7bbdb09 cloudfare setup
 4333b29 all competetiors data collected
 a9885e9 SEO optimization /audit
-4e8a8db keywords files added
 ```
 
 
@@ -1477,10 +1504,10 @@ a9885e9 SEO optimization /audit
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1199ms
+✓ Running next.config.ts took 32ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.8s
+✓ Compiled successfully in 6.1s
   Running TypeScript ...
   Finished TypeScript in 3.2s ...
   Collecting page data using 15 workers ...
@@ -1488,7 +1515,7 @@ a9885e9 SEO optimization /audit
   Generating static pages using 15 workers (18/72) 
   Generating static pages using 15 workers (36/72) 
   Generating static pages using 15 workers (54/72) 
-✓ Generating static pages using 15 workers (72/72) in 3.3s
+✓ Generating static pages using 15 workers (72/72) in 2.8s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1608,18 +1635,18 @@ D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
-   9:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
-  24:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  11:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
+  26:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
    12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
    15:3   warning  'DEFAULT_PRIMER_PRICE' is defined but never used  @typescript-eslint/no-unused-vars
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
-  299:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
+  301:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
-  11:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
@@ -1654,10 +1681,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  40 passed (40)
-      Tests  528 passed (528)
-   Start at  12:49:55
-   Duration  3.07s (transform 9.28s, setup 0ms, import 12.15s, tests 906ms, environment 12ms)
+ Test Files  41 passed (41)
+      Tests  532 passed (532)
+   Start at  14:27:40
+   Duration  2.30s (transform 7.20s, setup 0ms, import 9.41s, tests 1.32s, environment 13ms)
 
 
 ```

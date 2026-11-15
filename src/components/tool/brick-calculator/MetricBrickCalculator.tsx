@@ -1,6 +1,8 @@
 'use client';
 
 import React, { useId, useState } from 'react';
+import WallDiagram from '../shared/WallDiagram';
+import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
 import styles from './BrickCalculator.module.css';
 import {
   METRIC_BRICK_PRESETS,
@@ -248,6 +250,35 @@ export function MetricBrickCalculator() {
               </div>
             </div>
           </div>
+          {(() => {
+            const joint = parseFloat(jointMm) || 0;
+            // the drawing works in "feet"; metres are passed instead, so unit sizes are given in metres × 12
+            const unitL = ((r.lengthMm + joint) / 1000) * 12;
+            const unitH = ((r.heightMm + joint) / 1000) * 12;
+            return (
+              <DiagramPanel caption="How it is worked out: wall area − openings = net area, × bricks per m², + waste.">
+                <WallDiagram
+                  idPrefix="mbrick"
+                  lengthFt={walls[0].lengthM}
+                  heightFt={walls[0].heightM}
+                  lengthLabel={`${walls[0].lengthM} m`}
+                  heightLabel={`${walls[0].heightM} m`}
+                  openings={openings.map((o) => ({ type: o.heightM >= 1.8 ? 'door' : 'window', widthFt: o.widthM, heightFt: o.heightM, count: o.quantity }))}
+                  fill="brick"
+                  unitLengthIn={unitL}
+                  unitHeightIn={unitH}
+                  unitLabel={`${r.lengthMm} × ${r.heightMm} mm + ${joint} mm joint`}
+                  note={walls.length > 1 ? `wall 1 of ${walls.length}` : walls[0].quantity > 1 ? `× ${walls[0].quantity} walls` : undefined}
+                  steps={[
+                    { title: walls.length > 1 || walls[0].quantity > 1 ? 'Wall area (all walls)' : 'Wall area = length × height', value: `${fmtNum(r.grossAreaM2, 2)} m²` },
+                    { title: 'Net area = − doors & windows', value: `${fmtNum(r.netAreaM2, 2)} m²` },
+                    { title: `Bricks = net area × ${fmtNum(r.bricksPerM2Wall, 1)} per m²`, value: `${fmtNum(r.baseBricks, 0)} bricks` },
+                    { title: `Order = + ${waste}% waste`, value: `${fmtNum(r.totalBricks, 0)} bricks` },
+                  ]}
+                />
+              </DiagramPanel>
+            );
+          })()}
         </div>
 
         {/* Results */}

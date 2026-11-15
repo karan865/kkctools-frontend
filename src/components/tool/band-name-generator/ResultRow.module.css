@@ -118,3 +118,16 @@
   color: var(--accent);
 }
 
+
+.nameBlock {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.formula {
+  font-size: 0.72rem;
+  font-weight: 600;
+  color: var(--muted);
+  letter-spacing: 0.01em;
+}
