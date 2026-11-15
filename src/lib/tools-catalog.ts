@@ -423,7 +423,18 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     keywords: ['bathroom remodel cost', 'bathroom renovation', 'shower remodel', 'half bath', 'master bath', 'tub to shower', 'remodel budget', 'vanity', 'contingency'],
     added: '2026-11-15',
     isNew: true,
+  },  {
+    slug: '/floor-refinishing-cost-calculator/',
+    name: 'Floor Refinishing Cost Calculator',
+    category: 'finishes',
+    description: 'Hardwood refinishing by room: recoat, full sand or dustless, stain, repairs, stairs, DIY list and quote check.',
+    tags: ['Per sq ft', 'DIY vs pro'],
+    icon: 'floorSander',
+    keywords: ['hardwood floor refinishing cost', 'floor resurfacing', 'screen and recoat', 'sand and refinish', 'dustless refinishing', 'stain floors', 'refinish stairs', 'refinish vs replace', 'engineered hardwood'],
+    added: '2026-11-15',
+    isNew: true,
   },
+
 
 
   {

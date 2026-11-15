@@ -175,8 +175,8 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <text className={s.txW} x={168} y={38} textAnchor="middle">
         $
       </text>
-      <text className={s.tx} x={168} y={70} textAnchor="middle">
-        low · mid · high
+      <text className={s.tx} x={168} y={68} textAnchor="middle">
+        low–high
       </text>
     </>
   ),
@@ -566,6 +566,30 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <line className={k('s2')} x1={151} y1={46} x2={151} y2={76} strokeDasharray="2 2" />
       <text className={s.tx} x={176} y={64}>
         cut
+      </text>
+    </>
+  ),
+  /* Floor half sanded: worn planks on the left, fresh finish on the right, sander in the middle */
+  floorSander: (
+    <>
+      {[0, 1, 2, 3].map((r) => {
+        const off = [0, 30, 12, 44][r];
+        return [0, 1, 2, 3].map((i) => {
+          const x0 = Math.max(14, 14 + i * 64 - off);
+          const x1 = Math.min(186, 14 + i * 64 - off + 62);
+          if (x1 - x0 < 4) return null;
+          return <rect key={`${r}-${i}`} className={x0 < 92 ? s.fl : s.f1} x={x0} y={40 + r * 13} width={x1 - x0} height={12} rx={1} />;
+        });
+      })}
+      <path className={k('fn', 's2')} d="M92 38 V94" />
+      <rect className={s.f2} x={72} y={22} width={34} height={16} rx={4} />
+      <circle className={s.fp} cx={89} cy={38} r={4} />
+      <path className={k('fn', 's2', 'thick')} d="M100 22 L118 6 M114 6 H128" />
+      <text className={s.tx} x={50} y={20} textAnchor="middle">
+        before
+      </text>
+      <text className={s.txL} x={150} y={26} textAnchor="middle">
+        $/ft²
       </text>
     </>
   ),

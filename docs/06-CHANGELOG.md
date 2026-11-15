@@ -4,6 +4,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #34 — Hardwood Floor Refinishing Cost Calculator] — 2026-11-15
+- New page `/floor-refinishing-cost-calculator/` (Batch 2 Tier 2 #15), built from `15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/floor-refinish-engine.ts`): screen & recoat $1.50, full sand $4.25, dustless $6.50 per ft² (This Old House midpoints) × species factor for sanding; stain +$2; repairs, board replacement, subfloor, carpet, stairs ($35/step, Fixr), furniture, baseboards; region factor and minimum job charge; low/high from the published range ends; refinish vs replace ($12/ft² installed); DIY list (rentals, abrasives, finish and stain gallons at 500 ft²/gal, supplies).
+- UI with rooms or total area, extras toggles, DIY card, quote checker, option bars, board cross-section and room plan diagrams. Page ~2,200 words with 10 FAQs; title 54 chars incl. brand.
+- 19 new tests (511 total); `npm run verify` all passed.
+
 ### [Tool #33 — Bathroom Remodel Cost Calculator] — 2026-11-15
 - New page `/bathroom-remodel-cost-calculator/` (Batch 2 Tier 2 #14), built from `14_Bathroom_Remodel_Cost_Calculator_Competitor_Analysis.md`.
 - **Engine** (`src/lib/bathroom-remodel-engine.ts`): fixed items (toilet, vanity, top, faucets, electrical, plumbing, tub/shower) + per-ft² items (flooring, wall tile, paint, drywall) from This Old House’s Jul 2026 averages over a 70 ft² reference room; finish factors 0.575 / 1 / 1.881 from its finish table; cosmetic vs full scope; water heater, permit, region, 20% contingency; ±13% range; quote checker. Reproduces This Old House’s size and finish tables (tested).

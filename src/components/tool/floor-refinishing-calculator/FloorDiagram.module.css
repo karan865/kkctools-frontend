@@ -1,0 +1,66 @@
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+/* board section — wood tones are the material itself, so they stay the same in both themes */
+.wood { fill: #D9A066; }
+.grainLine { fill: none; stroke: #B7793F; stroke-width: 1; }
+.ply { fill: #E8CFA4; }
+.plyLine { stroke: #C9A36B; stroke-width: 1.4; }
+.stain { fill: #7A4A22; }
+.coat { fill: #F6E7B8; stroke: #E2C77A; stroke-width: 0.6; }
+.board { fill: none; stroke: #6B4423; stroke-width: 1.6; }
+.edge { fill: none; stroke: #6B4423; stroke-width: 1.2; }
+.removedBg { fill: color-mix(in srgb, var(--brand-orange) 14%, transparent); }
+.removedLine { stroke: var(--brand-orange); stroke-width: 1.4; }
+.cut { stroke: var(--brand-orange); stroke-width: 2; stroke-dasharray: 6 4; }
+.leader { stroke: var(--muted); stroke-width: 1; }
+
+/* rooms plan */
+.plank { fill: #E2B57E; }
+.plankLine { fill: none; stroke: #B7793F; stroke-width: 0.8; }
+.room { stroke: var(--ink-2); stroke-width: 2.5; }
+.tread { fill: #D9A066; stroke: #6B4423; stroke-width: 1.2; }
+
+.label,
+.small,
+.labelAccent {
+  paint-order: stroke;
+  stroke: var(--surface);
+  stroke-width: 3px;
+  stroke-linejoin: round;
+}
+.label { fill: var(--ink); font: 700 11px var(--font-body), system-ui, sans-serif; }
+.small { fill: var(--ink-2); font: 600 10px var(--font-body), system-ui, sans-serif; }
+.labelAccent { fill: var(--brand-orange-text); font: 700 11px var(--font-body), system-ui, sans-serif; }
+
+/* option bars */
+.compare { display: flex; flex-direction: column; gap: 10px; }
+.barRow {
+  display: grid;
+  grid-template-columns: minmax(118px, 38%) 1fr auto;
+  align-items: center;
+  gap: 10px;
+  padding: 4px 6px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: var(--ink-2);
+}
+.barActive { background: var(--cat-finishes-soft); }
+.barName { font-weight: 600; color: var(--ink); display: flex; flex-direction: column; line-height: 1.25; }
+.barSub { font-weight: 500; font-size: 0.75rem; color: var(--muted); }
+.track { height: 12px; border-radius: 99px; background: var(--surface-2); overflow: hidden; }
+.fill { display: block; height: 100%; border-radius: 99px; }
+.recoat { background: var(--cat-gravel-g1); }
+.sand { background: linear-gradient(90deg, var(--cat-finishes-g1), var(--cat-finishes-g2)); }
+.dustless { background: var(--cat-concrete-g1); }
+.diy { background: var(--cat-earthwork-g1); }
+.replace { background: var(--cat-business-g1); }
+.barValue { color: var(--ink); font-variant-numeric: tabular-nums; }
+
+@media (max-width: 420px) {
+  .barRow { grid-template-columns: 1fr auto; }
+  .track { grid-column: 1 / -1; grid-row: 2; }
+}

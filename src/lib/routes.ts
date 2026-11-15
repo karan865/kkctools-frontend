@@ -152,6 +152,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  floorRefinishingCostCalculator: {
+    path: '/floor-refinishing-cost-calculator/',
+    title: 'Hardwood Floor Refinishing Cost Calculator',
+    description: 'Estimate the cost to refinish or resurface hardwood floors by area: sanding, staining, coats, repairs and labour, with prices you can edit.',
+    updated: '2026-11-15',
+    type: 'tool',
+    indexable: true,
+  },
   bathroomRemodelCostCalculator: {
     path: '/bathroom-remodel-cost-calculator/',
     title: 'Bathroom Remodel Cost Calculator – Itemized Estimate',

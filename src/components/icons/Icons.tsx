@@ -28,6 +28,7 @@ export type IconName =
   | 'tileGrid'
   | 'bath'
   | 'floorPlanks'
+  | 'floorSander'
   | 'paintRoller'
   | 'fence'
   | 'fenceCost'
@@ -333,6 +334,16 @@ export default function Icon({
           <circle cx="16.5" cy="7.5" r="1" fill="currentColor" />
           <circle cx="7.5" cy="16.5" r="1" fill="currentColor" />
           <circle cx="16.5" cy="16.5" r="1" fill="currentColor" />
+        </svg>
+      );
+    case 'floorSander':
+      return (
+        <svg {...common}>
+          <path d="M2 21h20" />
+          <path d="M2 17h9M15 17h7" />
+          <rect x="8" y="11" width="9" height="5" rx="1.5" />
+          <circle cx="12.5" cy="16" r="1.2" />
+          <path d="M14 11 19 3M18 3h3" />
         </svg>
       );
     case 'floorPlanks':

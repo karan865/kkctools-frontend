@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-15T00:17:49.258Z
+Generated on: 2026-11-15T02:22:41.541Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-15T00:17:49.258Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #33 Bathroom Remodel Cost Calculator built and verified (Phase BR, 2026-11-15). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
-- **Overall Completion:** 492 vitest tests passing (38 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #34 Hardwood Floor Refinishing Cost Calculator built and verified (Phase FR, 2026-11-15). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15. Before that: SEO audit fixes (Phase SA, 2026-11-14): code-side fixes done and verified; deploy, Netlify HUD and owner identity pending. Before that, Batch 2 (new keyword research) — Tool #22 Rebar / Reinforcement Steel Calculator built and verified (2026-11-14); Tool #21 Drywall Calculator built and verified (2026-11-14); Tool #20 Concrete Calculator built and verified (2026-11-13). Earlier: Tools #13 to #19 (Stone / Rock, Stud / Framing, Tons to Cubic Yards Converter, Paver Sand, Paver Base, Compost / Soil Volume, Fence Stain) built, tested, and verified
+- **Overall Completion:** 511 vitest tests passing (39 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-15, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -261,6 +261,15 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
   - an IndexNow key and ping (needs an owner-held key and a deploy hook);
   - HSTS preload (owner decision, hard to undo);
   - a free-text "describe your sound" field on the band generator (SXO idea).
+
+### Phase FR — Tool #34: Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15, built 2026-11-15)
+Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md` (primary `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35).
+- [x] FR-1 Engine `src/lib/floor-refinish-engine.ts` + 19 tests: method rates, species factor (sanding methods only), stain (sanding only), 7 extras with units, region factor, minimum job charge, low/high from the ends of each published range (scaled when a rate is edited), labour hours, refinish vs replace, DIY list with gallons rounded up from coverage, quote checker. Tests prove a sand (+ stain) stays inside This Old House’s $3–$8/ft² band and the default DIY list sits in its $500–$1,000 DIY range once stain and a vacuum are added. *(Evidence: `npx vitest run` → 511 passed, 39 files)*
+- [x] FR-2 Dated sources for every default, documented in `calculation-methods.ts`: This Old House (Jun 5, 2026) for methods, stain, species, repairs, carpet, furniture, DIY prices, installation cost, labour share/hours and refinish limits; Fixr (Jan 31, 2025) for stairs, board replacement and baseboards; Sherwin-Williams for 500 ft²/gal coverage.
+- [x] FR-3 UI: rooms or total area, ft/m, 7 currencies, method cards with ranges, species, stain, extras toggles with quantity + price, region, minimum charge, DIY card (finish type, coats, rental days, vacuum, editable prices), quote checker; results with line items, option bars (recoat / sand / sand + stain / dustless / DIY / replace), board cross-section diagram, room plan, DIY list; copy/share/print. Engineered-wood and recoat-can’t-stain warnings. *(Evidence: screenshots at 1440 and 500 px, metric/engineered and recoat/minimum-charge share links)*
+- [x] FR-4 Page: title 54 chars incl. brand, meta 139, one H1 with “Resurfacing”, ~2,200 words, 10 FAQs + schema; refinish/resurface/recoat table, per-sq-ft table, size table, species table, extras table with sources, worked example, finishes, DIY vs pro, refinish vs replace bars, engineered wear layer, quote fairness. Two misleading comparisons fixed after review (replace low end vs stained sand; DIY example without stain).
+- [x] FR-5 Wiring: routes (54), catalog (36, new `floorSander` icon and card art), footer, method entry; `npm run verify` passed; a11y 100, desktop performance 99, mobile 76–79 (bathroom page 78–79 under the same load).
+- [ ] FR-6 `TODO(owner)`: no sourced floor-buffer rental rate was found; the DIY buffer (screen & recoat) defaults to This Old House’s drum-sander midpoint ($65/day) and says so in the UI. Replace if a rental-shop price is available.
 
 ### Phase BR — Tool #33: Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14, built 2026-11-15)
 Research basis: `docs/keywords analysis/Batch 2/4. ALl Blogs Data/14_Bathroom_Remodel_Cost_Calculator_Competitor_Analysis.md` (primary `cost to remodel bathroom calculator`, US 2,900 / KD 7 / CPC $5.68).
@@ -515,6 +524,7 @@ No competitor text was copied.
 | `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles |
 | Cloudflare dashboard | `TODO(owner)` | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11 | **Open** |
 | Google Analytics admin | `TODO(owner)` | Set data retention and review Enhanced measurement for property `G-DVNM8TFRQE` | **Open** |
+| `src/lib/floor-refinish-engine.ts` (`DIY_DEFAULTS.bufferPerDay`) | `TODO(owner)` | Floor-buffer rental rate — no sourced figure; uses drum-sander midpoint, disclosed in UI (Phase FR-6) | **Open** |
 
 ---
 
@@ -628,6 +638,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
 | 34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment) | `/metal-roof-cost-calculator/` | `metal-roof-calculator/` | `metal-roof-engine.ts` |
 | 35 | Bathroom Remodel Cost Calculator (half/full/primary; cosmetic or full; budget/mid/high; editable fixed and per-area line items; tub/shower options; water heater, permit, region, contingency; quote checker) | `/bathroom-remodel-cost-calculator/` | `bathroom-remodel-calculator/` | `bathroom-remodel-engine.ts` |
+| 36 | Floor Refinishing Cost Calculator (rooms or total area, ft/m; screen & recoat / full sand / dustless; species factor; stain; repairs, board replacement, subfloor, carpet, stairs, furniture, baseboards; region and minimum charge; low–high range; DIY shopping list with gallons from coverage; refinish vs replace; quote checker) | `/floor-refinishing-cost-calculator/` | `floor-refinishing-calculator/` | `floor-refinish-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -673,7 +684,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (53 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (54 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group | Paths | Schema (JSON-LD graph) | Status |
 |---|---|---|---|
@@ -683,7 +694,7 @@ Source of truth: `src/lib/routes.ts` (53 routes) and `src/app/`. All pages below
 | Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
 | Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
 | Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (33) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
+| Calculators (34) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
 | Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
 | Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
 | Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
@@ -881,6 +892,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Cubic Feet ↔ Square Feet Converter — `cubic feet to square feet`, US 3,600 / Global 9,100 / KD 23; Indian wording `cft to square feet` 2,400/20 and `square feet to cft` 2,400/23 answered in a cft section and FAQ (cft, brass = 100 cft).
 - Metal Roof Cost Calculator — `metal roof cost calculator`, US 1,900 / KD 24 / CPC $4.11; H2/FAQ targets `standing seam metal roof cost` 2,900/7, `roofing cost metal vs shingle` 2,900/13, `how much does a metal roof cost` 2,400/20, `metal roof cost per square foot` 1,300/13.
 - Bathroom Remodel Cost Calculator — `cost to remodel bathroom calculator`, US 2,900 / KD 7 / CPC $5.68; `cost of bathroom renovations calculator` 4,400/19 ("renovation" H2), `small bathroom remodel cost calculator` 320/2 (FAQ).
+- Floor Refinishing Cost Calculator — `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35 (H1 + H2; irregular trend); `cost to refinish hardwood floors` 3,600/23 (intro + H2).
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -979,6 +991,12 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Tool #34 — Hardwood Floor Refinishing Cost Calculator] — 2026-11-15
+- New page `/floor-refinishing-cost-calculator/` (Batch 2 Tier 2 #15), built from `15_Hardwood_Floor_Refinishing_Cost_Calculator_Competitor_Analysis.md`.
+- **Engine** (`src/lib/floor-refinish-engine.ts`): screen & recoat $1.50, full sand $4.25, dustless $6.50 per ft² (This Old House midpoints) × species factor for sanding; stain +$2; repairs, board replacement, subfloor, carpet, stairs ($35/step, Fixr), furniture, baseboards; region factor and minimum job charge; low/high from the published range ends; refinish vs replace ($12/ft² installed); DIY list (rentals, abrasives, finish and stain gallons at 500 ft²/gal, supplies).
+- UI with rooms or total area, extras toggles, DIY card, quote checker, option bars, board cross-section and room plan diagrams. Page ~2,200 words with 10 FAQs; title 54 chars incl. brand.
+- 19 new tests (511 total); `npm run verify` all passed.
 
 ### [Tool #33 — Bathroom Remodel Cost Calculator] — 2026-11-15
 - New page `/bathroom-remodel-cost-calculator/` (Batch 2 Tier 2 #14), built from `14_Bathroom_Remodel_Cost_Calculator_Competitor_Analysis.md`.
@@ -1241,7 +1259,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-15T00:17:48.277Z
+Run Date: 2026-11-15T02:22:41.033Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1274,6 +1292,7 @@ Status: PASSED ✅
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2613 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2265 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1453 | Fill Dirt Calculator | PASS |
+| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2747 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
@@ -1292,14 +1311,14 @@ Status: PASSED ✅
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1431 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 706 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 727 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3136 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2766 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2068 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3228 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1693 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1022 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1047 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1338,6 +1357,7 @@ drywall-calculator/index.html
 fence-cost-calculator/index.html
 fence-stain-calculator/index.html
 fill-dirt-calculator/index.html
+floor-refinishing-cost-calculator/index.html
 guides/band-name-ideas-by-genre/index.html
 guides/how-to-check-if-a-band-name-is-taken/index.html
 guides/how-to-choose-a-band-name/index.html
@@ -1404,6 +1424,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 8f4d6c9 Add Metal Roof Cost Calculator (Batch 2 Tier 2 #13)
 90482c5 Add Cubic Feet to Square Feet Converter (Batch 2 Tier 2 #12)
 573cd37 Add Fence Cost Calculator (Batch 2 Tier 2 #11); darken danger token
@@ -1423,7 +1444,6 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 a9885e9 SEO optimization /audit
 4e8a8db keywords files added
 dc6099e files rearranged
-c08b669 reinforcement steel calculator
 ```
 
 
@@ -1439,18 +1459,18 @@ c08b669 reinforcement steel calculator
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 65ms
+✓ Running next.config.ts took 1206ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 9.0s
+✓ Compiled successfully in 4.7s
   Running TypeScript ...
-  Finished TypeScript in 5.0s ...
+  Finished TypeScript in 3.0s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/70) ...
-  Generating static pages using 15 workers (17/70) 
-  Generating static pages using 15 workers (34/70) 
-  Generating static pages using 15 workers (52/70) 
-✓ Generating static pages using 15 workers (70/70) in 3.6s
+  Generating static pages using 15 workers (0/71) ...
+  Generating static pages using 15 workers (17/71) 
+  Generating static pages using 15 workers (35/71) 
+  Generating static pages using 15 workers (53/71) 
+✓ Generating static pages using 15 workers (71/71) in 3.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1486,6 +1506,7 @@ Route (app)
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
+├ ○ /floor-refinishing-cost-calculator
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
@@ -1597,7 +1618,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 56 HTML files in out/...
+Auditing 57 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1614,10 +1635,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  38 passed (38)
-      Tests  492 passed (492)
-   Start at  05:46:52
-   Duration  2.81s (transform 7.87s, setup 0ms, import 10.88s, tests 1.27s, environment 29ms)
+ Test Files  39 passed (39)
+      Tests  511 passed (511)
+   Start at  07:52:08
+   Duration  2.27s (transform 6.83s, setup 0ms, import 9.06s, tests 811ms, environment 29ms)
 
 
 ```

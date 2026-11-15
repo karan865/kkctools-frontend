@@ -352,6 +352,45 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       NIST,
     ],
   },
+  'floor-refinishing-cost-calculator': {
+    formula: [
+      'Floor = area × method rate; full sand and dustless rates × species factor (species midpoint ÷ oak midpoint)',
+      'Stain (sanding methods only) = area × stain rate',
+      'Extras = repaired area × rate, steps × rate, rooms × rate, or a flat baseboard charge',
+      'Estimate = (floor + stain + extras) × region factor, never below the minimum job charge',
+      'Range = the same lines priced at the low and high ends of each published range',
+      'DIY = rentals × days + abrasives + ceil(area × coats ÷ 500 ft²/gal) gallons of finish (+ stain) + supplies',
+    ],
+    defaults: [
+      { label: 'Screen & recoat', value: '$1.50/ft² (range $1–$2) — This Old House' },
+      { label: 'Full sand & refinish', value: '$4.25/ft² ($3–$5.50) — This Old House' },
+      { label: 'Dustless', value: '$6.50/ft² ($5–$8) — This Old House' },
+      { label: 'Stain', value: '+$2/ft² ($1–$3) — This Old House' },
+      { label: 'Species factor', value: 'This Old House cost by wood type: maple ×1.625, pine ×1.375, mahogany ×1.75, bamboo ×1.125, parquet ×1.063; oak, cherry, engineered ×1' },
+      { label: 'Repairs, subfloor, carpet, furniture', value: '$9/ft² ($6–$12), $6.50/ft² ($3–$10), $3/ft² ($1–$5), $35/room ($20–$50) — This Old House' },
+      { label: 'Stairs, board replacement, baseboards', value: '$35/step ($25–$45), $23/ft² ($14–$32), about $140 per job — Fixr' },
+      { label: 'Replace with new hardwood', value: '$12/ft² installed ($6–$18) — This Old House' },
+      { label: 'DIY', value: 'drum sander $65/day, edger $40/day, sandpaper $45, finish $42.50/gal (water-based) or $35 (oil-based), stain $40/gal, supplies and safety gear — This Old House midpoints; floor buffer assumed priced like a drum sander' },
+      { label: 'Coverage', value: '500 ft² per gallon per coat for finish and stain — Sherwin-Williams (Minwax)' },
+    ],
+    sources: [
+      {
+        label: 'This Old House — How Much Does It Cost to Refinish Hardwood Floors? (updated Jun 5, 2026)',
+        url: 'https://www.thisoldhouse.com/flooring/cost-to-refinish-hardwood-floors',
+        note: 'method, stain, species, repair, carpet, furniture, DIY and installation ranges; labour share and hours; refinish frequency and limits',
+      },
+      {
+        label: 'Fixr — Cost to Refinish Hardwood Floor (updated Jan 31, 2025)',
+        url: 'https://www.fixr.com/costs/hardwood-floor-refinishing',
+        note: 'stairs per step, board replacement, baseboard removal and refit, finish prices per gallon',
+      },
+      {
+        label: 'Sherwin-Williams — Minwax Ultimate Floor Finish product data',
+        url: 'https://sweets.construction.com/manufacturer/sherwin-williams-company-nst2204/products/minwax-ultimate-floor-finish-nst746935-p',
+        note: 'approximately 500 sq ft per gallon',
+      },
+    ],
+  },
   'bathroom-remodel-cost-calculator': {
     formula: [
       'Fixed items (per bathroom): toilet, vanity/cabinetry, vanity top, faucets, electrical, plumbing, tub or shower',
