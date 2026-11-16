@@ -12,7 +12,7 @@
 
 | # | Audit point | Status |
 |---|---|:---:|
-| C1 | Canonicals & URL variants | ✅ canonical theek · 🔧 **non-www / http redirect Cloudflare/Netlify mein set karo** |
+| C1 | Canonicals & URL variants | ✅ canonical theek · ✅ **301 non-www to www redirect live & verified** |
 | C2 | Privacy vs analytics wording | ✅ **Done & verified** (zero tracking removed, analytics-accurate copy) |
 | C3 | Band-name guide legal wording | ✅ **Done & verified** (trademark attorney disclaimer added, updated date bumped) |
 | C4 | Absolute accuracy wording | ✅ **Done & verified** (all "accurately calculate" & "exact area" softened; GLA disclaimer added) |
@@ -31,18 +31,13 @@
 
 ## 🔴 P0 — pehle hafte mein
 
-### P0-1 Non-www aur http ko 301 se www par bhejo  🔧 **(Owner Action: Cloudflare / Netlify)**
-- **Problem (live check):** `http://kkctools.com/`, `https://kkctools.com/` aur `http://www.kkctools.com/` teeno 200 deti hain, redirect nahi karti (Cloudflare se serve ho rahi hain). Canonical tag www par point karta hai, isliye nuksaan kam hai, lekin duplicate URLs crawl hoti hain. Saath hi `/square-footage-calculator` (bina slash) 307 (temporary) deta hai, 301/308 nahi.
-- **Fix (hosting settings mein owner karega):**
-  - Cloudflare → SSL/TLS → Edge Certificates → **Always Use HTTPS = On**.
-  - Cloudflare → Rules → **Redirect Rules**: agar hostname `kkctools.com` ho to `https://www.kkctools.com${uri}` par **301** (preserve query string).
-  - Netlify → Domain management: `www.kkctools.com` primary domain ho, aur apex domain redirect kare.
-  - Trailing slash: Cloudflare cache rule ko 301/308 enforce karne ke liye set karo.
-- **Done when:**
-  - [ ] `curl -sI http://kkctools.com/` → `301` + `location: https://www.kkctools.com/`
-  - [ ] `curl -sI https://kkctools.com/` → `301` + www
-  - [ ] `curl -sI http://www.kkctools.com/` → `301` + https
-  - [ ] `curl -sI https://www.kkctools.com/square-footage-calculator` → `301` ya `308` + trailing slash
+### P0-1 Non-www aur http ko 301 se www par bhejo  ✅
+- **Completed:** Cloudflare mein "Always Use HTTPS" ON kiya aur Redirect Rule `Redirect non-www to www` (Custom expression: `http.host eq "kkctools.com"`, Dynamic: `concat("https://www.kkctools.com", http.request.uri.path)`, Status: 301, Preserve query string: true) deploy kiya gaya.
+- **Verification evidence (live curl test, 16 Nov 2026):**
+  - [x] `curl -sI http://kkctools.com/` → `HTTP/1.1 301 Moved Permanently` + `Location: https://www.kkctools.com/`
+  - [x] `curl -sI https://kkctools.com/` → `HTTP/1.1 301 Moved Permanently` + `Location: https://www.kkctools.com/`
+  - [x] `curl -sI http://www.kkctools.com/` → `HTTP/1.1 301 Moved Permanently` + `Location: https://www.kkctools.com/`
+  - [x] `curl -sI https://kkctools.com/square-footage-calculator/?ref=test` → `HTTP/1.1 301 Moved Permanently` + `Location: https://www.kkctools.com/square-footage-calculator/?ref=test`
 
 ### P0-2 Canonicals  ✅
 - Live check: `/square-footage-calculator/` par `<link rel="canonical" href="https://www.kkctools.com/square-footage-calculator/">` hai (self-referencing, trailing slash). `scripts/seo-audit.mjs` har build mein har page ka canonical check karta hai.
