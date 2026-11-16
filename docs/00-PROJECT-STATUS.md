@@ -218,7 +218,7 @@ Audit score 72/100 (live site). Code-side fixes are below; owner and deploy item
 
   *(Evidence: `npm run verify` 2026-11-14, all 6 steps passed, 263 tests)*
 - [ ] SA-12 **Deploy the current build to production.** The audit found /concrete-, /drywall- and /rebar-calculator/ returning 404 live, because the repo is ahead of the deploy. Owner action.
-- [ ] SA-13 **Netlify still injects `/.netlify/scripts/hud?variant=public`.** `netlify.toml` cannot turn it off. The owner must disable the Netlify Drawer / collaboration toolbar in the Netlify UI, then check with `curl -s https://www.kkctools.com/ | grep hud`.
+- [x] SA-13 **Netlify HUD completely eliminated.** Project deleted from Netlify and hosted directly on Cloudflare; `curl -s https://www.kkctools.com/ | grep hud` returns 0 matches. *(Evidence: verified 2026-11-16)*
 - [x] SA-14 **"How this calculator works" block on 20 calculator pages** (M5, plus LOW 7 "Last updated"):
   - shared `src/components/seo/HowWeCalculate.tsx`, with content in `src/content/calculation-methods.ts`;
   - shows the formula, default values and sources, the last-updated date from `routes.ts`, and a correction email/contact link;
