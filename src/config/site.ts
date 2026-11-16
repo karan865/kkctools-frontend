@@ -10,7 +10,7 @@ export const SITE_URL = (
 export const SITE_TAGLINE = 'Free Construction Calculators & Online Tools';
 
 export const SITE_DESCRIPTION =
-  'Free construction and landscaping calculators (concrete, drywall, rebar, gravel, brick, paint and more) plus naming generators. Everything runs in your browser; nothing you type is sent anywhere.';
+  'Free construction and landscaping calculators (concrete, drywall, rebar, gravel, brick, paint and more) plus naming generators. Calculations run in your browser and your inputs are never uploaded. The site uses Google Analytics for anonymous visit statistics.';
 
 // Stable schema.org node ids, shared by every page so the JSON-LD forms one connected graph.
 export const ORG_ID = `${SITE_URL}/#organization`;

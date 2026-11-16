@@ -396,7 +396,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     path: '/guides/how-to-check-if-a-band-name-is-taken/',
     title: 'How to Check If a Band Name Is Taken',
     description: 'Learn how to verify band name availability across Spotify, YouTube, Bandcamp, social media handles, and trademark registries.',
-    updated: '2026-11-14',
+    updated: '2026-11-16',
     type: 'guide',
     indexable: true,
   },

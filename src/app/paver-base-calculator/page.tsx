@@ -157,7 +157,7 @@ export default function PaverBaseCalculatorPage() {
             How Much Paver Base Do I Need? (Formula &amp; Compaction Loss)
           </h2>
           <p style={{ marginBottom: '16px' }}>
-            To accurately calculate your subbase aggregate by hand or verify material quotes from landscape supply yards, follow this comprehensive 5-step engineering formula:
+            To estimate your subbase aggregate by hand or verify material quotes from landscape supply yards, follow this comprehensive 5-step engineering formula:
           </p>
 
           <h3 style={{ fontSize: '1.1rem', fontWeight: 700, color: '#0F172A', marginTop: '20px', marginBottom: '8px' }}>

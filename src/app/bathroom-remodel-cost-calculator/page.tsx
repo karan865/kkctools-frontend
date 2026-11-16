@@ -109,7 +109,7 @@ export default function BathroomRemodelCostCalculatorPage() {
           </p>
           <p className={styles.meta}>
             Last updated: {new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} ·
-            Prices from This Old House’s 2026 averages · Runs in your browser — nothing you enter is sent anywhere.
+            Prices are typical US ranges from This Old House (2026 averages; enter your local price) · Runs in your browser — nothing you enter is sent anywhere.
           </p>
         </header>
 
@@ -287,8 +287,9 @@ export default function BathroomRemodelCostCalculatorPage() {
           <p>
             Untick the lines you will do yourself — painting and demolition are the usual DIY jobs. Leave plumbing, electrical, waterproofing and tile in
             wet areas to licensed pros: mistakes there cause leaks and failed inspections, and in many places the work must be done or signed off by a
-            licensed tradesperson. Painting alone is {$(ex.lines.find((l) => l.id === 'paint')?.amount ?? 0)} of the example estimate; the{' '}
-            <Link href="/paint-cost-calculator/">paint cost calculator</Link> prices the materials.
+            licensed tradesperson. Painting alone is {$(ex.lines.find((l) => l.id === 'paint')?.amount ?? 0)} of the example estimate; our{' '}
+            <Link href="/paint-cost-calculator/">paint cost calculator</Link> prices the paint and primer, and our{' '}
+            <Link href="/tile-calculator/">tile calculator</Link> estimates shower surround tiles, grout, and thin-set.
           </p>
 
           <h2>Permits, timeline and contingency</h2>
@@ -296,7 +297,8 @@ export default function BathroomRemodelCostCalculatorPage() {
             Moving plumbing or adding circuits usually needs a permit; a like-for-like swap of fixtures often does not — ask your building department and
             enter the fee. This Old House recommends a <strong>20% contingency</strong>, which the calculator adds by default (the example’s{' '}
             {$(ex.total)} becomes {$(ex.budget)}). Cosmetic refreshes can take days; full remodels usually take several weeks, longer if fixtures are on
-            back-order.
+            back-order. To assemble and export an itemized client bid or project breakdown, use our{' '}
+            <Link href="/construction-estimate-template/">Construction Estimate Template</Link>.
           </p>
 
           <h2>Is a bathroom remodel worth it?</h2>

@@ -138,7 +138,7 @@ export default function FloorRefinishingCostCalculatorPage() {
           </p>
           <p className={styles.meta}>
             Last updated: {new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} · Prices
-            from This Old House (June 2026) and Fixr · Runs in your browser — nothing you enter is sent anywhere.
+            are typical US ranges from This Old House (June 2026) and Fixr (enter your local price) · Runs in your browser — nothing you enter is sent anywhere.
           </p>
         </header>
 

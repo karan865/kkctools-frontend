@@ -136,7 +136,7 @@ export default function FenceCostCalculatorPage() {
           </p>
           <p className={styles.meta}>
             Last updated: {new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} ·
-            Prices from 2026 cost guides · Runs in your browser — nothing you enter is sent anywhere.
+            Prices are typical US ranges, checked November 2026 (enter your local price) · Runs in your browser — nothing you enter is sent anywhere.
           </p>
         </header>
 
@@ -282,7 +282,7 @@ export default function FenceCostCalculatorPage() {
             <div>
               <p>
                 Quikrete’s rule of thumb is a hole <strong>three times the width of the post</strong> and about a <strong>third of the height above
-                ground</strong> deep; the calculator uses at least 24 inches, and you should go below the frost line where the ground freezes.
+                  ground</strong> deep; the calculator uses at least 24 inches, and you should go below the frost line where the ground freezes.
               </p>
               <code className={styles.formula}>
                 Concrete per post = (π × r² − post area) × depth

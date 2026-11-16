@@ -6,7 +6,7 @@ export interface ConstructionEstimateFaqItem {
 export const CONSTRUCTION_ESTIMATE_COPY = {
   h1: 'Free Construction Estimate Template',
   subtitle:
-    'Generate detailed, accurate, and professional construction estimates right in your browser. Calculate material costs, labor hours, subcontractor fees, permits, and tax with zero network tracking, print directly to PDF, or export to CSV without creating an account.',
+    'Generate detailed, professional construction estimates right in your browser. Calculate material costs, labor hours, subcontractor fees, permits, and tax — your estimate stays in your browser and nothing you enter is uploaded. Print directly to PDF, or export to CSV without creating an account.',
   introText:
     'Whether you are an independent general contractor, a residential remodeling specialist, a commercial builder, or a trades professional preparing bids, having a reliable construction estimate template is crucial for winning profitable projects. A clear and comprehensive estimate establishes credibility with project owners, prevents costly scope disputes, and protects your profit margins before the first hammer swings.',
   

@@ -145,7 +145,7 @@ export default function LawnMowingCostCalculatorPage() {
           </p>
           <p className={styles.meta}>
             Last updated: {new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} ·
-            Runs in your browser — nothing you enter is sent anywhere.
+            Prices are typical US ranges, checked November 2026 (enter your local price) · Runs in your browser — nothing you enter is sent anywhere.
           </p>
         </header>
 

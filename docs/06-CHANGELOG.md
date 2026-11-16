@@ -4,6 +4,18 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [CueAudit action implementation] — 2026-11-16
+- Implemented and verified code-level recommendations from `docs/seo/CUE - new audit/CueAudit_Action_Report.md`:
+  - **P0-3 Privacy & analytics accuracy:** Removed all misleading "zero tracking" claims (`construction-estimate.ts`, `site.ts`, `band-name-generator/page.tsx`); updated copy to accurately describe browser execution + Google Analytics visit metrics.
+  - **P0-4 Legal wording on band guides:** Updated `content/guides/how-to-check-if-a-band-name-is-taken.md` and routes registry with trademark attorney guidance and clear common-law disclaimers.
+  - **P0-5 Softened absolute claims:** Replaced "accurately calculate" and "exact area" across 7 pages; added official ANSI Z765 appraisal disclaimer to Square Footage GLA section.
+  - **P0-6 Mobile 390px enhancements:** Added `inputMode="decimal"` and `inputMode="numeric"` to all numeric inputs on key tools (Linear Foot, Brick, Tile); added compact mobile media queries to `FloatingPill.module.css`.
+  - **P1-2 Topical hubs:** Implemented natural in-body contextual links across all 5 topic clusters (Measuring, Concrete & Masonry, Finishes, Roofing, Estimating).
+  - **P1-3 BLUF direct answers:** Added immediate formula & worked example answers directly under H1 heroes for Square Footage, Linear Foot, Paint, Tile, Cinder Block, and Cubic Yard.
+  - **P1-4 Pricing benchmarks:** Added explicit "Prices are typical US ranges, checked November 2026 (enter your local price)" notes on all 9 cost estimator pages.
+  - **P1-6 GSC query mapping:** Integrated high-opportunity search terms into on-page headings and body copy (Paint, Linear Foot, Tile, Square Footage).
+- Verification: 532 Vitest unit tests passing, `npm run verify` passed all 6 steps with 0 SEO errors.
+
 ### [Band Name Generator improvements] — 2026-11-15
 - Fixed a generator bug that left `{Noun}` placeholders in names whose pattern used the same slot twice; joining words now stay lower-case; removed a slur from the punk word list and widened the offensive filter.
 - Added a "How these names are built" panel and a formula label on every result.

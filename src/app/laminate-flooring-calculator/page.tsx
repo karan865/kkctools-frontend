@@ -121,7 +121,7 @@ export default function LaminateFlooringCalculatorPage() {
         {/* Comprehensive SEO Content & Reference Guide */}
         <article className={styles.content}>
           <p className={styles.dateVerified} style={{ marginTop: '16px', marginBottom: '8px' }}>
-            Last updated: November 2026. Estimates based on typical US retail standards.
+            Last updated: November 2026. Estimates are typical US retail ranges; enter your local price.
           </p>
           <div className={styles.intro} style={{ marginBottom: '28px' }}>
             <p>

@@ -39,6 +39,22 @@
   font-size: 0.75rem;
 }
 
+@media (max-width: 640px) {
+  .floatingPill {
+    bottom: 16px;
+    right: 16px;
+    padding: 8px 12px;
+    font-size: 0.8125rem;
+    gap: 6px;
+  }
+
+  .icon {
+    width: 20px;
+    height: 20px;
+    font-size: 0.7rem;
+  }
+}
+
 @media print {
   .floatingPill {
     display: none !important;

@@ -127,7 +127,7 @@ export default function CinderBlockCalculatorPage() {
           <div className={styles.badge}>Masonry &amp; Structural Estimator</div>
           <h1 className={styles.title}>Cinder Block Calculator – Concrete Block (CMU) Estimator</h1>
           <p className={styles.description}>
-            Use this comprehensive <strong>cinder block calculator</strong> to quickly estimate how many concrete masonry units, mortar bags, and core fill grout you need for your construction project. Our free <strong>concrete block calculator</strong> accounts for multi-wall layouts, door and window deductions, cutting waste, and job site delivery weight.
+            <strong>1 standard 8×8×16 CMU block covers 0.89 sq ft (1.125 blocks per sq ft of wall).</strong> A 10 × 8 ft wall (80 sq ft) needs 90 blocks plus 5–10% for cuts and waste. Use this free <strong>cinder block calculator</strong> to quickly estimate how many concrete masonry units, mortar bags, and core fill grout you need for your construction project. Our free <strong>concrete block calculator</strong> accounts for multi-wall layouts, door and window deductions, cutting waste, and job site delivery weight.
           </p>
           <p className={styles.secondaryDescription}>
             Often searched interchangeably as a <strong>cement block calculator</strong>, this tool handles all standard ASTM C90 concrete masonry units—whether your project calls for standard 8x8x16 blocks, 4-inch partition units, or heavy 10-inch and 12-inch commercial blocks.
@@ -166,7 +166,7 @@ export default function CinderBlockCalculatorPage() {
                 <strong>Choose a Waste Allowance:</strong> Professional masons recommend a 10% waste buffer for standard straight walls to cover edge cuts, corner half-blocks, and transit chipping. For retaining walls with stepped footings or frequent pilasters, select 15%.
               </li>
               <li className={styles.listItem}>
-                <strong>Configure Optional Core Fill Grouting:</strong> Expand the core fill section if your building plans require concrete grout inside hollow block cells (solid fill, 32&quot; on-center rebar, or 48&quot; on-center rebar) plus any bond beam rows.
+                <strong>Configure Optional Core Fill Grouting:</strong> Expand the core fill section if your building plans require concrete grout inside hollow block cells (solid fill, 32&quot; on-center rebar, or 48&quot; on-center rebar) plus any bond beam rows. To size and estimate your steel reinforcement, use our <Link href="/rebar-calculator/">Rebar Calculator</Link>, and for batching ready-mix fill, see our <Link href="/concrete-calculator/">Concrete Calculator</Link>.
               </li>
               <li className={styles.listItem}>
                 <strong>Review Takeoff &amp; Pallet Logistics:</strong> Check your total blocks to order, 80 lb mortar bags, concrete core volume (cubic yards), total freight weight (lbs and tons), and pallet count. Click <strong>Copy Summary</strong> or <strong>Print</strong> for your materials supplier.
@@ -181,7 +181,7 @@ export default function CinderBlockCalculatorPage() {
               While the terms &ldquo;cinder block,&rdquo; &ldquo;concrete block,&rdquo; and &ldquo;cement block&rdquo; are commonly used interchangeably by homeowners and DIY builders today, they originally described very different building materials. Historically, genuine cinder blocks were produced using industrial coal cinders, ash, and water mixed with Portland cement. This made them lightweight, relatively inexpensive, and easy to handle, but also porous, brittle, and incapable of carrying heavy structural or earth-retaining loads.
             </p>
             <p className={styles.paragraph}>
-              In modern residential and commercial construction, true cinder blocks have been entirely replaced by <strong>Concrete Masonry Units (CMUs)</strong>. Modern CMUs are manufactured using Portland cement, finely graded sand, and crushed gravel or stone aggregates, compressed under high pressure and steam-cured. CMUs adhere to strict structural standards (such as ASTM C90 in the United States), delivering compressive strengths of 1,900 to 3,000+ PSI. When people search for a cinder block calculator today, they are planning a project with modern, load-bearing CMU concrete blocks.
+              In modern residential and commercial construction, true cinder blocks have been entirely replaced by <strong>Concrete Masonry Units (CMUs)</strong>. Modern CMUs are manufactured using Portland cement, finely graded sand, and crushed gravel or stone aggregates, compressed under high pressure and steam-cured. CMUs adhere to strict structural standards (such as ASTM C90 in the United States), delivering compressive strengths of 1,900 to 3,000+ PSI. When people search for a cinder block calculator today, they are planning a project with modern, load-bearing CMU concrete blocks. If you are laying standard clay bricks instead of modular concrete units, use our <Link href="/brick-calculator/">Brick Calculator</Link>; if you are pouring the supporting footer or concrete pad first, see our <Link href="/concrete-slab-cost-calculator/">Concrete Slab Cost Calculator</Link>.
             </p>
           </section>
 

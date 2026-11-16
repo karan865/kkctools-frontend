@@ -108,7 +108,7 @@ export default function BandNameGeneratorPage() {
           <h1>Band Name Generator</h1>
           <p style={{ maxWidth: '720px', fontSize: '1.1875rem', marginBottom: 'var(--space-6)' }}>
             Looking for good band names that feel original, memorable, and ready for the stage?
-            Our free <strong>band name generator</strong> combines curated genre vocabulary and classic naming formulas to spark creative band name ideas in seconds—running entirely in your browser with zero tracking.
+            Our free <strong>band name generator</strong> combines curated genre vocabulary and classic naming formulas to spark creative band name ideas in seconds—running entirely in your browser; your generated names stay on your device.
           </p>
 
           {/* Core Interactive Tool */}

@@ -137,7 +137,7 @@ export default function SquareFootageCalculatorPage() {
           <div className={styles.badge}>Area &amp; Surface Estimator</div>
           <h1 className={styles.title}>Square Footage Calculator (Sq Ft) for Rooms, Homes &amp; Odd Shapes</h1>
           <p className={styles.description}>
-            Use this fast, client-side <strong>sqft calculator</strong> to accurately determine the exact area of any room, home renovation, or landscaping surface. Our free <strong>square footage calculator</strong> supports single rooms, full multi-room home projects with closet cutouts, and odd geometric shapes with instant waste percentage and material cost estimates. Measuring a whole house for a listing? See the <a href="#gla-rules">GLA rules</a>.
+            <strong>Square feet = length × width (in feet).</strong> A 12 × 15 ft room is 180 sq ft. Use this fast, client-side <strong>sqft calculator</strong> to work out the area of any room, floor plan, home renovation, or landscaping surface. Our free <strong>square footage calculator</strong> supports single rooms, full multi-room home projects with closet cutouts, house square footage estimations, and odd geometric shapes with instant waste percentage and material cost estimates. Measuring a whole house for a listing? See the <a href="#gla-rules">GLA rules</a>.
           </p>
         </header>
 
@@ -182,7 +182,7 @@ export default function SquareFootageCalculatorPage() {
           <section className={styles.section}>
             <h2 className={styles.sectionHeading}>What Is Square Footage and Why Does It Matter?</h2>
             <p className={styles.paragraph}>
-              Square footage (commonly abbreviated as sq ft, sq. ft., or ft²) is the standard imperial unit of two-dimensional surface area used throughout the United States, Canada, and parts of the United Kingdom. One square foot represents the exact surface area contained within a square whose four sides each measure one linear foot (12 inches or 0.3048 meters).
+              Square footage (commonly abbreviated as sq ft, sq. ft., or ft²) is the standard imperial unit of two-dimensional surface area used throughout the United States, Canada, and parts of the United Kingdom. One square foot represents the surface area contained within a square whose four sides each measure one linear foot (12 inches or 0.3048 meters). If you are working with lumber, trim runs, or board lengths instead of flat areas, use our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>.
             </p>
             <p className={styles.paragraph}>
               Accurate square footage calculations form the bedrock of residential real estate, home renovations, and construction budgeting:
@@ -192,10 +192,13 @@ export default function SquareFootageCalculatorPage() {
                 <strong>Real Estate Valuations:</strong> Residential homes are valued and appraised primarily on price per square foot. Overestimating or underestimating square footage can skew home appraisals, property taxes, and mortgage underwriting by tens of thousands of dollars.
               </li>
               <li className={styles.listItem}>
-                <strong>Flooring &amp; Tile Installation:</strong> Hardwood planks, luxury vinyl plank (LVP), ceramic tile, carpet, and laminate flooring are sold strictly by the square foot or square yard. Accurate measurements prevent under-ordering (which halts jobs and risks mismatched manufacturing dye lots) and costly over-purchasing.
+                <strong>Flooring &amp; Tile Installation:</strong> Hardwood planks, luxury vinyl plank (LVP), <Link href="/tile-calculator/">ceramic tile</Link>, carpet, and <Link href="/laminate-flooring-calculator/">laminate flooring</Link> are sold strictly by the square foot or square yard. Accurate measurements prevent under-ordering (which halts jobs and risks mismatched manufacturing dye lots) and costly over-purchasing.
               </li>
               <li className={styles.listItem}>
-                <strong>Painting &amp; Drywall:</strong> Interior wall square footage directly governs how many gallons of paint, primer, and drywall boards you must purchase.
+                <strong>Painting &amp; Drywall:</strong> Interior wall square footage directly governs how many gallons of paint, primer, and drywall boards you must purchase. See our <Link href="/paint-cost-calculator/">Paint Cost Calculator</Link> and <Link href="/drywall-calculator/">Drywall Calculator</Link> for itemized material takeoffs.
+              </li>
+              <li className={styles.listItem}>
+                <strong>Depth &amp; Concrete Volume:</strong> When pouring concrete slabs or spreading bulk aggregate across an area, pair your square footage with material thickness using our <Link href="/cubic-feet-to-square-feet/">Cubic Feet to Square Feet Converter</Link> or <Link href="/cubic-yard-calculator/">Cubic Yard Calculator</Link>.
               </li>
               <li className={styles.listItem}>
                 <strong>HVAC Sizing:</strong> Heating and air conditioning equipment tonnage and BTU capacities are engineered based directly on room square footage, ceiling heights, and exterior wall exposure.
@@ -533,6 +536,9 @@ export default function SquareFootageCalculatorPage() {
           {/* Section 9: Real Estate GLA Rules (moved above related tools and FAQ) */}
           <section className={styles.section} id="gla-rules">
             <h2 className={styles.sectionHeading}>Measuring a Whole House: Gross Living Area (GLA) Rules</h2>
+            <p className={styles.paragraph}>
+              Use the calculator above for flooring, paint and material takeoffs. For an official home size (listings, appraisals), a licensed appraiser measures Gross Living Area to ANSI Z765; this section explains those rules but the calculator is not an appraisal.
+            </p>
             <p className={styles.paragraph}>
               In United States residential real estate, house square footage is strictly defined by the American National Standards Institute (ANSI Z765) standard for Gross Living Area (GLA). Licensed appraisers and Multiple Listing Services (MLS) adhere to strict criteria when calculating official home square footage:
             </p>

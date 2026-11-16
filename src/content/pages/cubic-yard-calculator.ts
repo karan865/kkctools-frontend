@@ -12,7 +12,7 @@ export interface RelatedCalculatorLink {
 export const CUBIC_YARD_PAGE_COPY = {
   h1: 'Cubic Yard Calculator: How Many Yards Do You Need?',
   introText:
-    'Use this free cubic yard calculator to find the volume of a slab, footing, wall, column or any box-shaped space in cubic yards. For concrete, it also shows how many 40, 50, 60 and 80 lb bags you need and what the pour weighs. Add a section for each part of your project and they are totaled for you, so it works as a concrete calculator in yards and as a general yardage calculator for soil, mulch and gravel.',
+    'Cubic yards = length (ft) × width (ft) × depth (ft) ÷ 27. One cubic yard equals 27 cubic feet; a 10 × 10 ft patio at 4 inches (0.33 ft) thick is about 1.23 cubic yards. Use this free cubic yard calculator to find the volume of a slab, footing, wall, column or any box-shaped space in cubic yards. For concrete, it also shows how many 40, 50, 60 and 80 lb bags you need and what the pour weighs. Add a section for each part of your project and they are totaled for you, so it works as a concrete calculator in yards and as a general yardage calculator for soil, mulch and gravel.',
   quickAnswer: 'cubic yards = length (ft) × width (ft) × depth (ft) ÷ 27. One cubic yard is 27 cubic feet.',
   trustLine: 'Estimates only · 1 cubic yard = 27 ft³ · Last updated November 10, 2026',
   toolH2: 'Cubic Yard and Concrete Volume Calculator',

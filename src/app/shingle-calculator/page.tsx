@@ -272,7 +272,7 @@ export default function ShingleCalculatorPage() {
           <p>
             A <strong>roofing square</strong> is 100 sq ft of roof surface — a 10 × 10 ft area, or {n(M2_PER_SQUARE, 2)} m². Roofers measure,
             order and price in squares, so a “25-square roof” has 2,500 sq ft of roof surface, not 2,500 sq ft of floor. To turn the calculator’s
-            square metres into squares, divide by {n(M2_PER_SQUARE, 2)}.
+            square metres into squares, divide by {n(M2_PER_SQUARE, 2)}. Considering standing seam or corrugated metal panels instead of asphalt shingles? Compare installed costs and lifespan with our <Link href="/metal-roof-cost-calculator/">Metal Roof Cost Calculator</Link>.
           </p>
 
           <h2>Gable vs hip roofs</h2>

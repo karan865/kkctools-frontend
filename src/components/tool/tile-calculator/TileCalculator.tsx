@@ -344,6 +344,7 @@ export function TileCalculator() {
                 <input
                   id={directAreaInputId}
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   max="10000"
                   step="0.5"
@@ -389,6 +390,7 @@ export function TileCalculator() {
                         <input
                           aria-label={isWallProject ? 'Width (ft)' : 'Length (ft)'}
                           type="number"
+                    inputMode="decimal"
                           min="0"
                           max="500"
                           step="0.25"
@@ -406,6 +408,7 @@ export function TileCalculator() {
                         <input
                           aria-label={isWallProject ? 'Height (ft)' : 'Width (ft)'}
                           type="number"
+                    inputMode="decimal"
                           min="0"
                           max="500"
                           step="0.25"
@@ -478,6 +481,7 @@ export function TileCalculator() {
                   <input
                     id={customLengthId}
                     type="number"
+                    inputMode="decimal"
                     min="0.5"
                     max="72"
                     step="0.125"
@@ -493,6 +497,7 @@ export function TileCalculator() {
                   <input
                     id={customWidthId}
                     type="number"
+                    inputMode="decimal"
                     min="0.5"
                     max="72"
                     step="0.125"
@@ -508,6 +513,7 @@ export function TileCalculator() {
                   <input
                     id={customThicknessId}
                     type="number"
+                    inputMode="decimal"
                     min="0.0625"
                     max="2"
                     step="0.0625"
@@ -572,6 +578,7 @@ export function TileCalculator() {
                 <label className={styles.inputLabel}>Custom Waste Factor (0% to 25%)</label>
                 <input aria-label="Custom Waste Factor (0% to 25%)"
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   max="25"
                   value={wastePercent}
@@ -622,6 +629,7 @@ export function TileCalculator() {
               <input
                 id={boxUnitsId}
                 type="number"
+                    inputMode="decimal"
                 min="1"
                 step="0.1"
                 value={boxMode === 'tilesPerBox' ? tilesPerBox : sqFtPerBox}
@@ -687,6 +695,7 @@ export function TileCalculator() {
                 <input
                   id={unitPriceId}
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   step="0.25"
                   value={unitPrice}
@@ -702,6 +711,7 @@ export function TileCalculator() {
                 <input
                   id={mortarPriceId}
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   step="1"
                   value={mortarPrice}
@@ -719,6 +729,7 @@ export function TileCalculator() {
                 <input
                   id={groutPriceId}
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   step="1"
                   value={groutPrice}
@@ -734,6 +745,7 @@ export function TileCalculator() {
                 <input
                   id={toolsPriceId}
                   type="number"
+                    inputMode="decimal"
                   min="0"
                   step="5"
                   value={toolsAllowance}

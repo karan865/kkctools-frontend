@@ -34,9 +34,9 @@ export interface LinearFootContent {
 export const linearFootPageContent: LinearFootContent = {
   hero: {
     badge: 'Lumber & Material Estimator',
-    title: 'Linear Foot Calculator',
+    title: 'Linear Foot Calculator (Linear Feet & Lineal Foot Estimator)',
     description:
-      'Use this free linear foot calculator to add up lengths and get a total in linear feet. Enter each piece with its length and quantity, add a waste allowance if you need one, and this linear feet calculator returns the total in feet, inches, yards and meters. Need to convert area to length? Switch to the Sq Ft ↔ Linear Ft tab, enter the width, and convert square feet to linear feet or the other way around.',
+      'Linear feet = total length in feet (or square footage ÷ width in feet). A 100 sq ft room with 6-inch (0.5 ft) boards requires 200 linear feet. Use this free linear foot calculator (also called a lineal foot calculator or linear feet calculator) to add up lengths and get a total in linear feet. Enter each piece with its length and quantity, add a waste allowance if you need one, and this linear feet calculator returns the total in feet, inches, yards and meters. Need to convert area to length? Switch to the Sq Ft ↔ Linear Ft tab, enter the width, and convert square feet to linear feet or the other way around.',
   },
   sections: [
     {

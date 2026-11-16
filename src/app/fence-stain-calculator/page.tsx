@@ -127,7 +127,7 @@ export default function FenceStainCalculatorPage() {
             Fence Stain Calculator: Gallons for Any Fence
           </h1>
           <p style={{ fontSize: '1rem', color: '#475569', lineHeight: 1.6 }}>
-            Accurately calculate how many gallons of exterior wood stain you need using our free <strong>fence stain calculator</strong> (also functioning as a dedicated <strong>wood fence stain calculator</strong> and <strong>stain calculator for fence</strong>). Instantly compute single-side and double-side coverage, picket overlap multipliers for board-on-board and shadowbox styles, and contractor 5-gallon pail requirements.
+            Estimate how many gallons of exterior wood stain you need using our free <strong>fence stain calculator</strong> (also functioning as a dedicated <strong>wood fence stain calculator</strong> and <strong>stain calculator for fence</strong>). Instantly compute single-side and double-side coverage, picket overlap multipliers for board-on-board and shadowbox styles, and contractor 5-gallon pail requirements.
           </p>
         </header>
 

@@ -257,6 +257,7 @@ Calculated at kkctools.com/linear-foot-calculator/`;
                         <input
                           id={`${baseId}-qty-${row.id}`}
                           type="number"
+                          inputMode="numeric"
                           min="1"
                           max="10000"
                           step="1"
@@ -288,6 +289,7 @@ Calculated at kkctools.com/linear-foot-calculator/`;
                     <input
                       id={`${baseId}-waste`}
                       type="number"
+                      inputMode="decimal"
                       min="0"
                       max="100"
                       step="1"
@@ -332,6 +334,7 @@ Calculated at kkctools.com/linear-foot-calculator/`;
                     <input
                       id={`${baseId}-price`}
                       type="number"
+                      inputMode="decimal"
                       min="0"
                       step="0.01"
                       placeholder="e.g. 2.50"
@@ -423,6 +426,7 @@ Calculated at kkctools.com/linear-foot-calculator/`;
                   <input
                     id={`${baseId}-conv-waste`}
                     type="number"
+                    inputMode="decimal"
                     min="0"
                     max="100"
                     step="1"

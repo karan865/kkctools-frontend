@@ -3,8 +3,18 @@
 > **Keyword data:** `1. All Keywords from Semrush/` — 12 Semrush US exports (Oct 2026 snapshot), two KD bands per seed (≈ 0–15% and 15–30%)  
 > **Seeds:** #1 freelance hourly rate calculator · #2 product markup calculator · #3 late payment interest calculator · #4 commercial lease calculator + rental yield calculator · #5 business valuation calculator  
 > **Rows read:** 1,200 rows → **1,186 unique keywords** after removing duplicates across files  
-> **Updated:** 2026-11-14 · **Site:** KKCTools, DA 1, tools-only, 24 calculators live (construction + Business & Creative)  
-> **SERP data:** ⏳ none yet for Batch 3 — every tier below is **provisional** until the SERP check in Section 6
+> **Site:** KKCTools, DA 1, tools-only, 24 calculators live (construction + Business & Creative)  
+> **SERP filter (2026-11-16):** every primary keyword was checked, the final 14 against the owner’s Semrush SERP exports (positions + Domain AS) with a relevance-first check; 18 of 27 tools are kept. Method and limits in “SERP filter — how it was done” below.  
+> **Updated:** 2026-11-16
+
+## SERP filter — how it was done (2026-11-16)
+
+- **Rule (owner):** a DA 1 site only builds tools where the top 10 is weak: few strong domains, or pages that do not really match the keyword. One of our pages reached the top 10 at KD 45 with DA 10 and no backlinks because the top 10 had no truly relevant page. Keyword difficulty alone is not trusted.
+- **Relevance first (owner rule):** before AS or KD, every result is checked against the keyword. Reddit, Facebook, Quora, YouTube, app-store listings, off-topic pages and forms are treated as open slots and their AS is ignored. Articles on a calculator query, listicles and calculators for a different metric count as semi-relevant (weak). Only relevant pages are judged by AS.
+- **Data:** `percentage increase calculator`: the owner’s Semrush SERP export (positions and Domain AS). The other 26 primaries: web-search result sets, which show which domains and page types rank, but not Google’s exact order or Domain AS.
+- **Strong (removed):** most of the top 10 is calculator giants (Omni, Calculator.net, CalculatorSoup, Inch Calculator), big finance publishers (NerdWallet, Bankrate, Fool), banks or big software brands, on exactly the right topic.
+- **Weak (kept):** small SaaS lead-magnet pages, personal blogs, `*.pages.dev` mini-sites, spam, PDFs or documentation, or pages that answer a different intent.
+- **Before building any kept tool,** pull its Semrush SERP (positions + Domain AS) to confirm, the same way as for `percentage increase calculator`. Any tool whose real top 5 has 3+ domains at AS ≥ 60 on the exact topic moves to Section 2b.
 
 ## What these exports tell us (read first)
 
@@ -28,95 +38,81 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 ---
 
-## 1. Primary keywords — master table (build in this order)
+## 1. Primary keywords — master table (after the Semrush SERP check)
 
-| # | Tier | New tool | Primary keyword | US Vol | KD | CPC | Ad comp | Keywords | Cluster US vol | Easy vol (KD ≤15) | YMYL | URL |
-|---:|:---:|---|---|---:|---:|---:|---:|---:|---:|---:|:---:|---|
-| 1 | **1** | Percentage Change Calculator (Increase / Decrease / Difference) | `percentage increase calculator` | 74,000 | 2 | $0.01 | 0.33 | 27 | 153,920 | 99,120 | none | `/percentage-change-calculator/` |
-| 2 | **1** | Markup Calculator | `markup calculator` | 14,800 | 24 | $5.16 | 0.03 | 16 | 61,200 | 11,600 | none | `/markup-calculator/` |
-| 3 | **1** | Profit Margin Calculator (Gross / Operating / Net) | `gross margin calculator` | 8,100 | 8 | $1.65 | 0.02 | 19 | 62,640 | 31,540 | none | `/profit-margin-calculator/` |
-| 4 | **1** | Hourly to Salary (Wage) Calculator | `wage calculator` | 18,100 | 15 | $1.64 | 0.03 | 9 | 52,280 | 40,010 | low | `/hourly-to-salary-calculator/` |
-| 5 | **1** | Unit Price Calculator | `unit price calculator` | 1,900 | 14 | $0.00 | 0.33 | 5 | 5,680 | 5,680 | none | `/unit-price-calculator/` |
-| 6 | **1** | Cap Rate & Commercial Property Value Calculator | `cap rate calculator` | 6,600 | 24 | $0.87 | 0.12 | 27 | 26,070 | 12,790 | low | `/cap-rate-calculator/` |
-| 7 | **1** | Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) | `cash on cash return` | 3,600 | 7 | $0.38 | 0.15 | 52 | 21,590 | 15,940 | low | `/rental-property-calculator/` |
-| 8 | **1** | Commercial Mortgage & LTV Calculator | `commercial mortgage calculator` | 8,100 | 6 | $2.15 | 0.15 | 16 | 47,510 | 36,210 | medium | `/commercial-mortgage-calculator/` |
-| 9 | **2** | Discount / Percent Off Calculator | `discount computation` | 14,800 | 6 | $0.94 | 1.00 | 51 | 102,960 | 31,060 | none | `/discount-calculator/` |
-| 10 | **2** | Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) | `commercial lease calculator` | 390 | 17 | $2.46 | 0.06 | 12 | 14,810 | 8,320 | none | `/commercial-lease-calculator/` |
-| 11 | **2** | Business Valuation Calculator (SDE / EBITDA multiple) | `small business valuation` | 1,600 | 26 | $5.35 | 0.40 | 37 | 40,650 | 4,140 | low | `/business-valuation-calculator/` |
-| 12 | **2** | SBA Loan Calculator (7(a) & 504) | `sba 504 loan` | 4,400 | 5 | $7.65 | 0.51 | 9 | 15,860 | 12,160 | medium | `/sba-loan-calculator/` |
-| 13 | **2** | Equipment & Business Loan Calculator | `equipment loan calculator` | 1,900 | 6 | $1.98 | 0.35 | 13 | 20,910 | 7,910 | medium | `/equipment-loan-calculator/` |
-| 14 | **2** | Short-Term Rental (Airbnb) Profit Calculator | `airbnb profit calculator` | 880 | 19 | $2.94 | 0.52 | 38 | 11,010 | 6,890 | low | `/airbnb-calculator/` |
-| 15 | **2** | Freelance Hourly Rate Calculator | `freelance rate calculator` | 320 | 19 | $0.00 | 0.01 | 32 | 5,040 | 2,420 | none | `/freelance-rate-calculator/` |
-| 16 | **2** | Invoice Generator (Hourly & Freelance) | `hourly invoice template` | 1,600 | 26 | $4.28 | 0.95 | 16 | 3,540 | 960 | none | `/invoice-generator/` |
-| 17 | **2** | Card Processing Fee Calculator (Square / PayPal) | `square reader fees` | 2,400 | 12 | $4.40 | 0.36 | 8 | 16,470 | 6,400 | none | `/processing-fee-calculator/` |
-| 18 | **2** | Labor Cost Calculator (Construction & Business) | `labor cost` | 1,900 | 14 | $6.43 | 0.33 | 2 | 2,900 | 2,900 | none | `/labor-cost-calculator/` |
-| 19 | **2** | Net Worth Calculator | `calculate net worth` | 2,900 | 9 | $0.43 | 0.08 | 6 | 21,520 | 21,520 | low | `/net-worth-calculator/` |
-| 20 | **2** | Retirement Drawdown – “How Long Will My Money Last?” Calculator | `how long will my money last` | 12,100 | 0 | $1.20 | 0.09 | 15 | 46,090 | 24,190 | **high** | `/how-long-will-my-money-last/` |
-| 21 | **2** | Compound Interest Calculator | `compound calculator` | 18,100 | 7 | $0.37 | 0.09 | 14 | 83,600 | 56,300 | medium | `/compound-interest-calculator/` |
-| 22 | **3** | Contribution Margin & Break-Even Calculator | `contribution margin and contribution margin ratio` | 2,400 | 4 | $0.00 | 0.33 | 4 | 7,500 | 3,700 | none | `/contribution-margin-calculator/` |
-| 23 | **3** | HELOC & Home Equity Calculator | `heloc calculator` | 40,500 | 10 | $4.41 | 0.69 | 5 | 58,280 | 58,280 | **high** | `/heloc-calculator/` |
-| 24 | **3** | Credit Card Payoff & APR Calculator | `credit card apr calculator` | 3,600 | 8 | $3.00 | 0.08 | 19 | 86,640 | 11,640 | **high** | `/credit-card-payoff-calculator/` |
-| 25 | **3** | Self-Employment (1099) Tax Calculator | `1099 tax calculator` | 9,900 | 6 | $0.70 | 0.11 | 7 | 27,600 | 23,200 | **high** | `/self-employment-tax-calculator/` |
-| 26 | **3** | Present Value / NPV Calculator | `pv formula` | 2,400 | 14 | $0.00 | 0.33 | 9 | 21,020 | 4,420 | low | `/present-value-calculator/` |
-| 27 | **3** | Investment Return Calculator (S&P 500, T-Bills, Money Market) | `s and p 500 calculator` | 4,400 | 17 | $1.34 | 0.08 | 12 | 67,980 | 5,880 | **high** | `/investment-return-calculator/` |
+Checked against the owner’s Semrush SERP exports (positions + Domain AS), 2026-11-16. **18 tools kept**; 9 tools are in Section 2b with their evidence. Goal: top 10 after building a few backlinks to each page.
 
-**Totals:** 27 tools · 480 keywords · 1,085,270 combined US volume · 545,180 on KD ≤ 15. Close variants overlap, so real traffic will be much lower than these sums.
+### Relevance check (done before looking at AS or KD)
 
-**Tiers (provisional, keyword data only):** **1** = build first (easy KD, evergreen formula, no yearly data, low YMYL) · **2** = build next (one caveat each: missing head-term data, YMYL, small head, or fees that change) · **3** = later (giants certain, YMYL-heavy, or yearly maintenance).
+Each result was first sorted by **relevance to the keyword**. Irrelevant results (forums, social, video, app stores, other topics, forms) and semi-relevant ones (an article or listicle on a calculator query, a gated download, a calculator for a different metric) are **open slots**: their AS does not matter, because a relevant page can take their place. Only relevant pages were then judged by AS.
+
+| Keyword | Irrelevant → open slot | Semi-relevant → weak | Relevant, strong (AS ≥ 60) | Relevant, mid (45–59) | Relevant, weak (AS < 45) | Result |
+|---|---|---|---|---|---|---|
+| `markup calculator` | — | Shopify profit-margin calculator (margin, not markup); CFI markup article (no tool) | Xero 72 | CSG Network 47 | userjot 33 (#1), storeradar 14 (#2), Upmetrics 38, activecalculator 27, feeqd 19, roxanlabs 15 | **8 open** · only 1 strong relevant tool → ✅ Tier 1 |
+| `unit price calculator` | Google Play app listing | — | Omni 84 (×2 URLs), Inch Calculator 81 | — | unitpricecalculator.com 14, unitpriceapp 9, calctrail 10, calckit 22, sparkcalc 9, bangyourbuck 9 | **7 open** → ✅ Tier 1 |
+| `cap rate calculator` | — | — | Omni 84 | — | mynd 40, commercialrealestate.loans 37, RentSpree 41, commercialloandirect 28, Landlord Studio 38, propmetrics.co 9, Northpoint 29, reinvestorguide 7, thesisdriven 31 | **9 open** → ✅ Tier 1 |
+| `labor cost` | duplicate ezclocker URL (wasted slot) | — | Indeed 100, Gusto 60 | Homebase 52 | submittallink 11 (#3), SimplyWise 35, Miter 37, 247pro 25, ezclocker 29, estimationpro 20 | **7 open** → ✅ Tier 1 |
+| `commercial lease calculator` | cell-tower lease calculator, Calculator.net car/general lease, YouTube, NZ water-company form | Huntington lease-vs-own tool 65; nycrgroup price-per-sq-ft tool 23 | Omni 84 | — | q4realestate 21 (#1), Austin Tenant Advisors 26, Tyler Cauble 25 | **9 open** · only Omni is a strong, on-topic page → ✅ Tier 1 |
+| `airbnb profit calculator` | — | eFinancialModels spreadsheet post; Mashvisor “best calculators” listicle; Rabbu homepage | — | PriceLabs 47 | alltherooms 30, your.rentals 31, Airbtics 33, Mashvisor 42, Hostfully 38, listingok 14 | **9 open** · no strong page at all → ✅ Tier 1 |
+| `freelance rate calculator` | YouTube | HubSpot gated download page 79 | Upwork 73 | Harvest 54 | freelancehourlyrate 7 (#2), contractrates 22, freelanceratecalculator 15, virtual-headquarters 28, Appizy 22, PineBill 29 | **8 open** → ✅ Tier 1 |
+| `small business valuation` | Reddit thread, YouTube | — (informational query: guides are the right format) | M&T Bank 64, The Hartford 64, business.gov.au 69 | — | CRI 40, OK SBDC 26, Morgan & Westfield 34, Williams Keepers 23, gvalue 20 | **7 open** · no calculator in the top 10 → 🟡 Tier 2 (guide + calculator) |
+| `discount computation` | — | — | Calculator.net 90, Omni 84, percentagecalculator.net 67, CalculatorSoup 80, GIGAcalculator 66, Pearson 77, Zoho 81 | — | docelf 35 (#4), dothecalculation 11 (#6), Enerpize 36 (#10) | **3 open** · 7 strong relevant tools → 🟡 Tier 2 (target #6–10) |
+| `gross margin calculator` | — | Investopedia definition article 91 (no tool) | Omni 84, CalculatorSoup 80, Xero 72, Calculator.net 90, Canva 100, Sage 67 | Mercury 51 | retaildogma 38 (#8), margincalculator.cc 22 (#10) | **3 open** · 6 strong relevant tools → 🟡 Tier 2 (bottom of page 1) |
+| `how long will my money last` | — | — | Regions 63 | Mutual of Omaha 55, TowneBank 45 | CalcXML 39, UMCU 43, SYB 36, Pittsford FCU 30, Fidelity Bank 39, Sentry 42, USAA EF 42 | **7 open** · weak domains, YMYL → 🟡 Tier 3 |
+| `sba 504 loan` | — | Wells Fargo general SBA page 80; sba.gov general loans page 69 | sba.gov 504 page 69, Wikipedia 100, Investopedia 91 | — | Texas First Bank 35, Live Oak 43, AMPAC 26, evergreen504 calculator 29 (#7), NADCO 32 | **7 open** · a small calculator ranks #7 → 🟡 Tier 3 (YMYL) |
+| `1099 tax calculator` | — | IRS W-4 withholding estimator 92 (not a 1099 tool); Liberty Tax article 49 | ADP 81, Nationwide 68 | Jackson Hewitt 57 | Everlance 40, Keeper 40, Pilot 40, usetabby 25, sequifi 27 | **7 open** · SERP beatable, but yearly tax updates + YMYL → 🟡 Tier 3 |
+| `investment return calculator` | — | — | Calculator.net 90, investor.gov 70, NerdWallet 80, iShares 61, Ramsey 64 | Ameriprise 52, Fidelity.ca 48, MDM 45 | Red River Bank 38, CNB 40 | **2 open** · KD 62, YMYL → ❌ removed |
+| `cash on cash return calculator` | — | Wall Street Prep article 56; Investopedia article 91; LoopNet explainer 72 | — | — | proapod 18 (#1), multifamily.loans 35, hud.loans 31, industrialproperty.loan 21, Airbtics 33, ajdesigner 43, doorvest 24 | **10 open** · no strong calculator → ✅ Tier 1 (restored) |
+| `contribution margin calculator` | — | Wall Street Prep ×2 and Investopedia articles; Omni and CalculatorSoup gross-margin tools; Wayflyer blog | Omni 84 | Keka 58 | pushowl 29 (#3), accountingaitools 9 | **8 open** · small volume → ✅ Tier 1 (restored) |
+| `commercial mortgage calculator` | — | cbscuso generic amortization 23 | mortgagecalculator.org 62, Nationwide 68 | Lendio 47, Local First Bank 47 | thecommercialbank 28, CommLoan 31, commercialrealestate.loans 37, F&M Bank 38, commercialloandirect 28 | **6 open** → 🟡 Tier 2 (restored) |
+| `equipment loan calculator` | — | AgDirect calculator index; gocurrency generic loan tool | Cat 61, Citizens Bank 65, SoFi 73 | Lendio 47 | FCS America 43, GenEquip 25, Oakmont 25, AgCountry 33 | **6 open** → 🟡 Tier 2 (restored) |
+| `hourly invoice template` | — | QuickBooks freelance 86; Adobe general 100; Harvest glossary 54; InvoiceQuick general 31 | eForms 62, Vertex42 62 | Invoice Simple 48, FreshBooks 52 | Portant 38, InvoiceMaker 29 | **6 open** → 🟡 Tier 2 (restored) |
+| `wage calculator` | YouTube | — (Google shows take-home paycheck tools) | ADP 81 ×2, Calculator.net 90, SmartAsset 67, Gusto 60 | PaycheckCity 50, SurePayroll 45 | esmartpaycheck 30, Ordio 41 | **3 open** · tax tables needed → ❌ |
+| `square reader fees` | Reddit | — | Square 76 ×4, NerdWallet 80, Jotform 75 | Bluevine 47 | SwipeSum 35, ebayfeescalculator 41 | **3 open** → ❌ |
+| `net worth calculator` | diabetes.org glucose calculator | net-worth percentile tool 27 | Ramsey 64, NerdWallet 80, AARP 80, SEBI 67 | Ameriprise 52, Empower 59 | Paducah Bank 30, KEMBA 42 | **4 open** · KD 51 → ❌ |
+| `compound calculator` | Treasury prompt-payment page | — | investor.gov 70, NerdWallet 80, Bankrate 78, TheCalculatorSite 78 | Landmark CU 45, MoneyChimp 47, MDM 45 | MCNB 42, Lake City Bank 40 | **3 open** → ❌ |
+| `heloc calculator` | duplicate Flagstar URL | Truist how-to article 68 | Bank of America 85, Calculator.net 90, Bankrate 78, Chase 85, U.S. Bank 76 | Flagstar 52 | myfsbonline 38, UNFCU 44 | **4 open** · YMYL → ❌ |
+| `credit card apr calculator` | — | Chase how-to article 85 | Discover 71, NerdWallet 80, Calculator.net 90, Bankrate 78, SoFi 73, Lloyds 70, Credit Karma 68 | Ameriprise 52 | mycentral 35 | **2 open** · YMYL → ❌ |
+| `present value calculator` | — | Investopedia article 91 | Calculator.net 90, Stanford 84, SEBI 67, Omni 84, CalculatorSoup 80 | MoneyChimp 47, Fiserv 49 | fncalculator 38, Financial Mentor 39 | **3 open** · KD 50 → ❌ |
+
+**Open slots** = irrelevant + semi-relevant + weak relevant results. 7 or more open slots with at most 1–2 strong relevant pages = Tier 1.
+
+### Master table
+
+| # | Tier | SERP (Semrush) | New tool | Primary keyword | US Vol | KD | CPC | Ad comp | Keywords | Cluster US vol | Easy vol (KD ≤15) | YMYL | URL |
+|---:|:---:|:---:|---|---|---:|---:|---:|---:|---:|---:|---:|:---:|---|
+| 1 | **1** | ✅ weak | Markup Calculator | `markup calculator` | 14,800 | 24 | $5.16 | 0.03 | 16 | 61,200 | 11,600 | none | `/markup-calculator/` |
+| 2 | **1** | ✅ weak | Unit Price Calculator | `unit price calculator` | 1,900 | 14 | $0.00 | 0.33 | 5 | 5,680 | 5,680 | none | `/unit-price-calculator/` |
+| 3 | **1** | ✅ weak | Cap Rate & Commercial Property Value Calculator | `cap rate calculator` | 6,600 | 24 | $0.87 | 0.12 | 27 | 26,070 | 12,790 | low | `/cap-rate-calculator/` |
+| 4 | **1** | ✅ weak | Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) | `cash on cash return calculator` | 1,300 | 17 | $0.81 | 0.27 | 52 | 21,590 | 15,940 | low | `/rental-property-calculator/` |
+| 5 | **1** | ✅ weak | Labor Cost Calculator (Construction & Business) | `labor cost` | 1,900 | 14 | $6.43 | 0.33 | 2 | 2,900 | 2,900 | none | `/labor-cost-calculator/` |
+| 6 | **1** | ✅ very weak | Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) | `commercial lease calculator` | 390 | 17 | $2.46 | 0.06 | 12 | 14,810 | 8,320 | none | `/commercial-lease-calculator/` |
+| 7 | **1** | ✅ weak | Short-Term Rental (Airbnb) Profit Calculator | `airbnb profit calculator` | 880 | 19 | $2.94 | 0.52 | 38 | 11,010 | 6,890 | low | `/airbnb-calculator/` |
+| 8 | **1** | ✅ weak | Freelance Hourly Rate Calculator | `freelance rate calculator` | 320 | 19 | $0.00 | 0.01 | 32 | 5,040 | 2,420 | none | `/freelance-rate-calculator/` |
+| 9 | **1** | ✅ weak (small) | Contribution Margin & Break-Even Calculator | `contribution margin and contribution margin ratio` | 2,400 | 4 | $0.00 | 0.33 | 4 | 7,500 | 3,700 | none | `/contribution-margin-calculator/` |
+| 10 | **2** | 🟡 possible | Commercial Mortgage & LTV Calculator | `commercial mortgage calculator` | 8,100 | 6 | $2.15 | 0.15 | 16 | 47,510 | 36,210 | medium | `/commercial-mortgage-calculator/` |
+| 11 | **2** | 🟡 guide gap | Business Valuation Calculator (SDE / EBITDA multiple) | `small business valuation` | 1,600 | 26 | $5.35 | 0.40 | 37 | 40,650 | 4,140 | low | `/business-valuation-calculator/` |
+| 12 | **2** | 🟡 possible | Discount / Percent Off Calculator | `discount computation` | 14,800 | 6 | $0.94 | 1.00 | 51 | 102,960 | 31,060 | none | `/discount-calculator/` |
+| 13 | **2** | 🟡 hard | Profit Margin Calculator (Gross / Operating / Net) | `gross margin calculator` | 8,100 | 8 | $1.65 | 0.02 | 19 | 62,640 | 31,540 | none | `/profit-margin-calculator/` |
+| 14 | **2** | 🟡 possible | Equipment & Business Loan Calculator | `equipment loan calculator` | 1,900 | 6 | $1.98 | 0.35 | 13 | 20,910 | 7,910 | medium | `/equipment-loan-calculator/` |
+| 15 | **2** | 🟡 possible | Invoice Generator (Hourly & Freelance) | `hourly invoice template` | 1,600 | 26 | $4.28 | 0.95 | 16 | 3,540 | 960 | none | `/invoice-generator/` |
+| 16 | **3** | 🟡 YMYL | Retirement Drawdown – “How Long Will My Money Last?” Calculator | `how long will my money last` | 12,100 | 0 | $1.20 | 0.09 | 15 | 46,090 | 24,190 | **high** | `/how-long-will-my-money-last/` |
+| 17 | **3** | 🟡 YMYL | SBA Loan Calculator (7(a) & 504) | `sba 504 loan` | 4,400 | 5 | $7.65 | 0.51 | 9 | 15,860 | 12,160 | medium | `/sba-loan-calculator/` |
+| 18 | **3** | 🟡 YMYL | Self-Employment (1099) Tax Calculator | `1099 tax calculator` | 9,900 | 6 | $0.70 | 0.11 | 7 | 27,600 | 23,200 | **high** | `/self-employment-tax-calculator/` |
+
+**Totals (kept tools):** 18 tools · 371 keywords · 523,560 combined US volume · 241,610 on KD ≤ 15. Close variants overlap, so real traffic will be lower than these sums.
+
+**Tiers:** **1** = weak SERP (several AS < 40 tool pages in the top 10, often in the top 3), build first · **2** = possible with links (giants on top, weak sites lower on page 1, or a guide gap) · **3** = weak domains but YMYL.
+
+**How to read “weak”:** a site at AS 7–40 holding a top-10 spot with an exact-match tool page means Google has no better page to show. A new, better page with a handful of relevant links can take that spot.
 
 ---
 
-## 2. Tool-by-tool detail
+## 2. Tool-by-tool detail (kept tools)
 
-## Tier 1 — build first
+## Tier 1 — weak SERP, build first
 
-### 1. Percentage Change Calculator (Increase / Decrease / Difference)
-
-- **URL:** `/percentage-change-calculator/`
-- **SEO title (50 chars, 62 with “ | KKC Tools”):** Percentage Change Calculator – Increase & Decrease
-- **H1:** Percentage Increase Calculator: Change, Decrease & Difference
-- **Meta description (153 chars):** Free percentage increase calculator. Find the percent change between two numbers, the percent decrease or the percent difference, with the formula shown.
-- **Primary keyword:** `percentage increase calculator` — US 74,000 · KD 2 · CPC $0.01 · ad comp 0.33
-- **Export seed:** #2 product markup (related)
-- **Cluster:** 27 keywords · 153,920 US searches · 99,120 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** Biggest easy head term in the whole batch: **74,000 US at KD 2**. Every row is a pure formula, no data to maintain, and it is the maths behind markup, margin and discount, so it links naturally to all three.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`percentage increase calculator`** | **Primary** | 74,000 | 2 | $0.01 | 0.33 | Comm |  |  |
-| `how to find percent change` | Secondary – easy (KD ≤15) | 8,100 | 10 | $0.02 | 0.04 | Info |  | FAQ / H2 |
-| `percentage change formula` | Secondary – easy (KD ≤15) | 6,600 | 12 | $0.02 | 0.33 | Info |  | FAQ / H2 |
-| `how do you calculate percentage change` | Secondary – easy (KD ≤15) | 2,900 | 13 | $0.02 | 0.04 | Info |  | FAQ / H2 |
-| `percentage difference between two numbers` | Secondary – easy (KD ≤15) | 2,900 | 7 | $0.01 | 0.01 | Info |  |  |
-| `decreased by percent` | Secondary – easy (KD ≤15) | 1,600 | 12 | $0.00 | 0.33 | Info |  |  |
-| `how to find percent decrease calculator` | Secondary – easy (KD ≤15) | 720 | 0 | $0.00 | 0.33 | Info |  | FAQ / H2 |
-| `percent increase` | Secondary – medium (KD 16–24) | 6,600 | 22 | $0.01 | 0.01 | Info | ⚠ declining |  |
-| `percentage change formula excel` | Secondary – medium (KD 16–24) | 3,600 | 24 | $0.00 | 0.33 | Info | ⚠ declining | Excel H2: show `=(B2-A2)/A2` |
-| `how to calculate percentage difference` | Secondary – medium (KD 16–24) | 2,900 | 23 | $0.02 | 0.04 | Info |  | FAQ / H2 |
-| `what's the price difference` | Secondary – medium (KD 16–24) | 2,400 | 22 | $0.00 | 0.33 | Info |  | FAQ / H2 |
-| `how to calculate percent difference` | Support – H2/FAQ (KD 25–30) | 12,100 | 28 | $0.02 | 0.04 | Info |  | FAQ / H2 |
-| `increase in percentage formula excel` | Support – H2/FAQ (KD 25–30) | 3,600 | 29 | $0.00 | 0.33 | Info | ⚠ irregular | Excel H2 |
-| `excel percentage formula` | Support – H2/FAQ (KD 25–30) | 2,900 | 26 | $0.00 | 0.33 | Info |  | Excel H2 |
-| `rate of change calculator` | Support – H2/FAQ (KD 25–30) | 2,400 | 26 | $0.00 | 0.33 | Info | ⚠ declining | maths (slope) intent — FAQ only |
-| `percent change excel formula` | Support – H2/FAQ (KD 25–30) | 2,400 | 28 | $0.00 | 0.33 | Info | ⚠ declining | Excel H2 |
-| `how to find percentage change` | Support – H2/FAQ (KD 25–30) | 1,900 | 29 | $0.18 | 0.01 | Info | ⚠ declining | FAQ / H2 |
-| `excel formula for percent difference` | Support – H2/FAQ (KD 25–30) | 1,900 | 27 | $0.00 | 0.33 | Info | ⚠ declining | Excel H2 |
-| `percent increase formula excel` | Support – H2/FAQ (KD 25–30) | 1,900 | 26 | $0.00 | 0.33 | Info | ⚠ declining | Excel H2 |
-| `percentage change excel formula` | Support – H2/FAQ (KD 25–30) | 1,900 | 28 | $0.00 | 0.33 | Info | ⚠ declining | Excel H2 |
-| “What is X% of Y” queries (7 phrases) | Long tail – one H2 + examples | 10,600 | 8–26 | — | — | Info | | Add a “percent of” mode. e.g. `20 of 170`, `25 of 25`, `what's 10 percent of 50`, `10 is 25 percent of what`, `30 of 35.00`, `10 000 5 percent` |
-
-**Tool must include:**
-- Three modes: % increase/decrease (old → new), % difference (no direction), and reverse (original value from new value + %)
-- “What is X% of Y” and “X is what % of Y” mini-modes (covers the long-tail row)
-- A small list mode: paste several before/after prices and get the change for each (price-rise use case)
-- Show the formula with the user’s numbers and the matching Excel formula
-- Explain percent vs percentage points
-
-**Note:** KD 2 on 74,000 searches is unusual. Expect Calculator.net, Omni and CalculatorSoup in the SERP. **Pull this SERP first**: if 3 or more giants hold the top 5, move it to Tier 2.
-
-### 2. Markup Calculator
+### 1. Markup Calculator
 
 - **URL:** `/markup-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Markup Calculator – Selling Price, Markup & Margin
@@ -125,7 +121,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `markup calculator` — US 14,800 · KD 24 · CPC $5.16 · ad comp 0.03
 - **Export seed:** #2 product markup calculator
 - **Cluster:** 16 keywords · 61,200 US searches · 11,600 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 41. #1 userjot.com AS 33, #2 storeradar.com AS 14, #4 Upmetrics 38, #7 activecalculator 27, #8 feeqd 19, #10 roxanlabs 15. Strong: Xero 72, Shopify 84, CFI 70. **Verdict:** Six of ten slots are small tool sites (AS 14–38), including #1 and #2. Biggest volume we can win (14.8K). Build first.
 
 **Why this tool:** Exact-match tool keyword: **14,800 US, CPC $5.16** (high CPC = business buyers). It is the seed topic of export #2. The retail-price and selling-price terms add about 40,000 more searches as H2 and FAQ support.
 
@@ -155,85 +151,9 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - Price endings: round to .99 / .95 / whole dollar
 - List mode for a whole product list; copy / share / print
 
-**Note:** KD 24 means it needs a few links. It pairs with the Profit Margin page (#3): build both together and cross-link them so each one owns its own term.
+**Note:** KD 24 means it needs a few links. It pairs with the Profit Margin page (#13): build both together and cross-link them so each one owns its own term.
 
-### 3. Profit Margin Calculator (Gross / Operating / Net)
-
-- **URL:** `/profit-margin-calculator/`
-- **SEO title (49 chars, 61 with “ | KKC Tools”):** Profit Margin Calculator – Gross, Net & Operating
-- **H1:** Profit Margin Calculator: Gross, Operating & Net Margin
-- **Meta description (152 chars):** Free profit margin calculator. Enter revenue and costs to get gross, operating and net profit margin, or find the price you need to hit a target margin.
-- **Primary keyword:** `gross margin calculator` — US 8,100 · KD 8 · CPC $1.65 · ad comp 0.02
-- **Export seed:** #2 product markup (related)
-- **Cluster:** 19 keywords · 62,640 US searches · 31,540 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** The easiest real business-math cluster: the head `gross margin calculator` is **8,100 at KD 8**, and most of the cluster is KD ≤ 15. Low CPC, but very high intent to use a tool.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`gross margin calculator`** | **Primary** | 8,100 | 8 | $1.65 | 0.02 | Comm |  |  |
-| `gross profit margin formula` | Secondary – easy (KD ≤15) | 8,100 | 9 | $1.03 | 0.02 | Info |  | FAQ / H2 |
-| `calculate profit margin` | Secondary – easy (KD ≤15) | 4,400 | 11 | $3.00 | 0.05 | Info |  |  |
-| `net profit margin formula` | Secondary – easy (KD ≤15) | 3,600 | 11 | $1.87 | 0.03 | Info | ⚠ declining | FAQ / H2 |
-| `gp profit` | Secondary – easy (KD ≤15) | 2,400 | 8 | $0.25 | 0.01 | Info | ⚠ irregular | 🌍 UK phrasing |
-| `how to calculate net profit margin` | Secondary – easy (KD ≤15) | 1,900 | 11 | $4.53 | 0.06 | Info |  | FAQ / H2 |
-| `gross margin calculation` | Secondary – easy (KD ≤15) | 1,600 | 9 | $1.65 | 0.02 | Info | ⚠ declining |  |
-| `formula for profit margin` | Secondary – easy (KD ≤15) | 720 | 14 | $3.70 | 0.06 | Info |  | FAQ / H2 |
-| `net profit margin equation` | Secondary – easy (KD ≤15) | 720 | 12 | $1.87 | 0.03 | Info |  | FAQ / H2 |
-| `gross profit margin calculator` | Secondary – medium (KD 16–24) | 5,400 | 16 | $0.00 | 0.14 | Info | ⚠ declining |  |
-| `how to work out a gp` | Secondary – medium (KD 16–24) | 3,600 | 17 | $1.31 | 0.02 | Info | ⚠ declining | 🌍 UK phrasing (“GP”) |
-| `how do you determine gross margin` | Secondary – medium (KD 16–24) | 3,600 | 20 | $0.66 | 0.05 | Info |  | FAQ / H2 |
-| `what is a good profit margin` | Secondary – medium (KD 16–24) | 3,600 | 20 | $1.31 | 0.04 | Info |  | FAQ — cite a real dataset (e.g. NYU Stern margins by sector); never invent averages |
-| `how to calculate profit` | Secondary – medium (KD 16–24) | 2,900 | 21 | $3.20 | 0.04 | Info |  | FAQ / H2 |
-| `gross sales` | Secondary – medium (KD 16–24) | 2,900 | 19 | $0.00 | 0.00 | Trans |  |  |
-| `net sales formula` | Secondary – medium (KD 16–24) | 1,900 | 22 | $0.00 | 0.01 | Trans | ⚠ declining | FAQ / H2 |
-| `operating profit margin formula` | Support – H2/FAQ (KD 25–30) | 2,900 | 29 | $3.29 | 0.01 | Info |  | FAQ / H2 |
-| `gross sales vs net sales` | Support – H2/FAQ (KD 25–30) | 2,400 | 29 | $0.11 | 0.06 | — |  | FAQ / H2 |
-| `profit margins` | Support – H2/FAQ (KD 25–30) | 1,900 | 27 | $3.24 | 0.03 | Info |  |  |
-
-**Tool must include:**
-- Revenue + COGS → gross profit and gross margin %; add operating costs → operating margin; add interest and tax → net margin
-- Target mode: cost + target margin → required price (and the matching markup)
-- Per-unit or totals; several products with a blended margin
-- Gross vs net sales (returns, discounts, allowances) as an optional input
-
-**Note:** Several rows are flagged declining. Volumes are still large, but expect less than the sum.
-
-### 4. Hourly to Salary (Wage) Calculator
-
-- **URL:** `/hourly-to-salary-calculator/`
-- **SEO title (48 chars, 60 with “ | KKC Tools”):** Hourly to Salary Calculator – Wage to Annual Pay
-- **H1:** Wage Calculator: Hourly to Salary, Weekly, Monthly & Yearly
-- **Meta description (156 chars):** Free wage calculator. Convert an hourly wage to weekly, biweekly, monthly and yearly pay, or turn a salary back into hourly, with overtime and unpaid weeks.
-- **Primary keyword:** `wage calculator` — US 18,100 · KD 15 · CPC $1.64 · ad comp 0.03
-- **Export seed:** #1 freelance hourly rate (related)
-- **Cluster:** 9 keywords · 52,280 US searches · 40,010 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** Gross pay conversion is a formula only: no tax tables and no yearly updates. `wage calculator` is **18,100 at KD 15**, and `yearly wage calculator` is **6,600 at KD 0**.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`wage calculator`** | **Primary** | 18,100 | 15 | $1.64 | 0.03 | Info |  |  |
-| `yearly wage calculator` | Secondary – easy (KD ≤15) | 6,600 | 0 | $0.28 | 0.01 | Comm |  |  |
-| `calculate annual salary` | Secondary – easy (KD ≤15) | 6,600 | 10 | $0.28 | 0.01 | Info | ↑ rising |  |
-| `monthly gross income calculator` | Secondary – easy (KD ≤15) | 3,600 | 9 | $0.63 | 0.02 | Info |  |  |
-| `weekly paycheck calculator` | Secondary – easy (KD ≤15) | 3,600 | 3 | $2.18 | 0.04 | Info/Nav |  | ⚠ searchers may expect take-home pay — label clearly “before tax” |
-| `how to calculate annual income biweekly` | Secondary – easy (KD ≤15) | 1,300 | 0 | $0.84 | 0.01 | Info |  | FAQ / H2 |
-| `40x rent rule nyc` | Secondary – easy (KD ≤15) | 210 | 10 | $0.00 | 0.33 | Info | ↑ rising | FAQ: “salary needed for a rent of $X” (40× monthly rent) |
-| `40x rent rule` | Secondary – medium (KD 16–24) | 170 | 16 | $0.00 | 0.33 | Info | ↑ rising | FAQ, same block |
-| `hourly salary calculator` | Support – H2/FAQ (KD 25–30) | 12,100 | 28 | $0.27 | 0.01 | Info |  |  |
-
-**Tool must include:**
-- Hourly ↔ daily ↔ weekly ↔ biweekly ↔ semi-monthly ↔ monthly ↔ yearly, both directions
-- Hours per week, paid weeks per year (unpaid leave), overtime hours × 1.5
-- Compare two jobs side by side
-- State “before tax (gross)” everywhere, and link to the Freelance Rate page (#15) for self-employed people
-
-**Note:** Keep this tool **gross only**. Take-home pay needs federal + 50 state tax tables every year, and that whole cluster is on Hold (Section 3). The wording must never suggest net pay.
-
-### 5. Unit Price Calculator
+### 2. Unit Price Calculator
 
 - **URL:** `/unit-price-calculator/`
 - **SEO title (53 chars, 65 with “ | KKC Tools”):** Unit Price Calculator – Price per Ounce, Pound & Item
@@ -242,7 +162,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `unit price calculator` — US 1,900 · KD 14 · CPC $0.00 · ad comp 0.33
 - **Export seed:** #2 product markup (related)
 - **Cluster:** 5 keywords · 5,680 US searches · 5,680 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 42 (inflated by the Play Store). After Omni (84) and Inch Calculator (81): unitpricecalculator.com AS 14, unitpriceapp.com 9, calctrail 10, calckit 22, sparkcalc 9, bangyourbuck 9. **Verdict:** Six slots held by AS 9–22 sites. One of the weakest SERPs in the batch; `price per unit calculator` (1.3K, KD 0) shares the page.
 
 **Why this tool:** Small, but **every keyword is KD ≤ 14** with transactional intent. It is a one-day build with unit conversion (oz, lb, g, kg, fl oz, L, count).
 
@@ -262,7 +182,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** Quick win: build it between bigger pages.
 
-### 6. Cap Rate & Commercial Property Value Calculator
+### 3. Cap Rate & Commercial Property Value Calculator
 
 - **URL:** `/cap-rate-calculator/`
 - **SEO title (53 chars, 65 with “ | KKC Tools”):** Cap Rate Calculator – NOI & Commercial Property Value
@@ -271,7 +191,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `cap rate calculator` — US 6,600 · KD 24 · CPC $0.87 · ad comp 0.12
 - **Export seed:** #4 commercial lease / rental yield (related)
 - **Cluster:** 27 keywords · 26,070 US searches · 12,790 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 34. mynd 40, Omni 84, commercialrealestate.loans 37, RentSpree 41, commercialloandirect 28, Landlord Studio 38, propmetrics.co 9, Northpoint 29, reinvestorguide 7, thesisdriven 31. **Verdict:** Only Omni is strong; the rest are AS 7–41 real-estate tool pages. 6.6K volume.
 
 **Why this tool:** About **26,000 combined US searches**, almost all KD ≤ 28. The commercial “value estimator” searches are solved by the same formula (value = NOI ÷ cap rate), so one page covers them all instead of 10 thin pages.
 
@@ -313,16 +233,16 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** Never print “average cap rates by city” unless they are cited with a date. Use user inputs only.
 
-### 7. Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield)
+### 4. Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield)
 
 - **URL:** `/rental-property-calculator/`
 - **SEO title (47 chars, 59 with “ | KKC Tools”):** Rental Property Calculator – Cash-on-Cash & ROI
 - **H1:** Rental Property Calculator: Cash Flow, Cash-on-Cash Return & ROI
 - **Meta description (155 chars):** Free rental property calculator. Enter price, loan, rent and expenses to get monthly cash flow, cash-on-cash return, cap rate and rental yield in one view.
-- **Primary keyword:** `cash on cash return` — US 3,600 · KD 7 · CPC $0.38 · ad comp 0.15
+- **Primary keyword:** `cash on cash return calculator` — US 1,300 · KD 17 · CPC $0.81 · ad comp 0.27 (was `cash on cash return`, an informational definition query)
 - **Export seed:** #4 rental yield calculator
 - **Cluster:** 52 keywords · 21,590 US searches · 15,940 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 42. proapod 18 (#1), multifamily.loans 35, hud.loans 31, Wall Street Prep 56 (article), Investopedia 91 (article), industrialproperty.loan 21, LoopNet 72 (explainer), Airbtics glossary 33, ajdesigner 43, doorvest 24. **Verdict:** Relevance check: no strong relevant calculator at all. The three strong domains (Investopedia, LoopNet, Wall Street Prep) are articles, and seven calculators are AS 18–43. All 10 slots are open. Primary switched from the definition keyword to `cash on cash return calculator` (1.3K, KD 17).
 
 **Why this tool:** The seed `rental yield calculator` is a UK term and is not in the exports, but the US version of the same intent is huge: about **20,000 combined** across cash-on-cash, rental ROI, cash flow and pro forma, with the head `cash on cash return` at **3,600 / KD 7**.
 
@@ -386,86 +306,36 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - Income: rent, other income, vacancy %; expenses: tax, insurance, HOA, management %, repairs %, capex %
 - Outputs: monthly and annual cash flow, cash-on-cash, cap rate, gross and net yield (UK users), 1% rule, rent-to-price ratio
 - A 5–10-year pro forma table (rent and expense growth, equity build-up), printable
-- Share link + print; cross-link Cap Rate (#6) and Airbnb (#14)
+- Share link + print; cross-link Cap Rate (#3) and Airbnb (#7)
 
 **Note:** One strong page beats separate CoC, ROI and pro forma pages: Google groups these in one SERP. Re-check after the SERP pull.
 
-### 8. Commercial Mortgage & LTV Calculator
+### 5. Labor Cost Calculator (Construction & Business)
 
-- **URL:** `/commercial-mortgage-calculator/`
-- **SEO title (50 chars, 62 with “ | KKC Tools”):** Commercial Mortgage Calculator – Payment & Balloon
-- **H1:** Commercial Mortgage Calculator: Payment, Balloon, LTV & DSCR
-- **Meta description (156 chars):** Free commercial mortgage calculator. Get the monthly payment, balloon balance, amortization schedule, loan-to-value and DSCR for a commercial property loan.
-- **Primary keyword:** `commercial mortgage calculator` — US 8,100 · KD 6 · CPC $2.15 · ad comp 0.15
-- **Export seed:** #4 commercial lease (related)
-- **Cluster:** 16 keywords · 47,510 US searches · 36,210 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **URL:** `/labor-cost-calculator/`
+- **SEO title (50 chars, 62 with “ | KKC Tools”):** Labor Cost Calculator – Burdened Hourly Labor Rate
+- **H1:** Labor Cost Calculator: True Hourly Cost of a Worker or Crew
+- **Meta description (152 chars):** Free labor cost calculator. Add wages, payroll taxes, insurance and benefits to get the burdened hourly cost of a worker or crew, and the price per job.
+- **Primary keyword:** `labor cost` — US 1,900 · KD 14 · CPC $6.43 · ad comp 0.33
+- **Export seed:** #2 (related)
+- **Cluster:** 2 keywords · 2,900 US searches · 2,900 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 39. Indeed 100, Gusto 60, submittallink AS 11 (#3), SimplyWise 35, Miter 37, Homebase 52, 247pro 25, ezclocker 29 (×2), estimationpro 20. **Verdict:** Construction-flavoured labor calculators from AS 11–37 sites rank; fits our construction audience and links to the live estimate template.
 
-**Why this tool:** `commercial mortgage calculator` is **8,100 at KD 6** (CPC $2.15). The loan-to-value terms add about 23,000 more at KD 6–17, and LTV is an output of the same tool. Amortization maths is evergreen.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`commercial mortgage calculator`** | **Primary** | 8,100 | 6 | $2.15 | 0.15 | Info/Comm |  |  |
-| `ltv meaning` | Secondary – easy (KD ≤15) | 6,600 | 8 | $2.19 | 0.02 | Info |  | H2 “What LTV means” |
-| `l.t.v.` | Secondary – easy (KD ≤15) | 5,400 | 12 | $5.72 | 0.01 | Info |  | same H2 |
-| `ltv calculator` | Secondary – easy (KD ≤15) | 3,600 | 6 | $3.81 | 0.07 | Info |  |  |
-| `what is ltv` | Secondary – easy (KD ≤15) | 3,600 | 15 | $3.67 | 0.02 | Info |  | same H2 |
-| `land payment calculator` | Secondary – easy (KD ≤15) | 2,900 | 5 | $0.00 | 0.31 | Comm | ⚠ declining |  |
-| `commercial mortgage rates` | Secondary – easy (KD ≤15) | 2,400 | 4 | $3.57 | 0.38 | Info |  | ⚠ rate-lookup intent; we show no live rates (zero network) — FAQ on what drives rates |
-| `ltv loan to value` | Secondary – easy (KD ≤15) | 1,300 | 11 | $5.72 | 0.01 | Info | ↑ rising |  |
-| `commercial mortgages` | Secondary – easy (KD ≤15) | 1,000 | 8 | $7.66 | 0.32 | Info |  |  |
-| `buying commercial property` | Secondary – easy (KD ≤15) | 720 | 7 | $1.02 | 0.46 | Info |  |  |
-| `business mortgage` | Secondary – easy (KD ≤15) | 590 | 8 | $9.19 | 0.35 | Info |  |  |
-| `commercial real estate loans` | Secondary – medium (KD 16–24) | 4,400 | 20 | $9.06 | 0.34 | Info |  |  |
-| `ltv loan` | Secondary – medium (KD 16–24) | 1,900 | 17 | $4.34 | 0.10 | Info | ↑ rising |  |
-| `commercial construction loan` | Secondary – medium (KD 16–24) | 1,300 | 22 | $14.10 | 0.39 | Info |  | FAQ: interest-only draw period |
-| `commercial construction loans` | Secondary – medium (KD 16–24) | 1,300 | 22 | $13.68 | 0.43 | Info |  | same FAQ |
-| `commercial loan estimator` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $2.77 | 0.35 | Info | ⚠ declining |  |
-
-**Tool must include:**
-- Loan amount or price + LTV %, rate, amortization years, term years → payment, balloon at maturity
-- Interest-only period option; full amortization schedule (yearly / monthly), printable
-- DSCR = NOI ÷ annual debt service (links to Cap Rate #6); max loan at a target DSCR and LTV
-- Fees and points → effective cost
-
-**Note:** Finance tool (YMYL-light). Present it as an estimator, with no rate claims. Rates are always typed in by the user.
-
-## Tier 2 — build next
-
-### 9. Discount / Percent Off Calculator
-
-- **URL:** `/discount-calculator/`
-- **SEO title (46 chars, 58 with “ | KKC Tools”):** Discount Calculator – Percent Off & Sale Price
-- **H1:** Discount Calculator: Sale Price After a Percent Off
-- **Meta description (152 chars):** Free discount calculator. Enter a price and percent off to get the sale price and savings, stack two discounts, or find the percent off from two prices.
-- **Primary keyword:** `discount computation` — US 14,800 · KD 6 · CPC $0.94 · ad comp 1.00
-- **Export seed:** #2 product markup (related)
-- **Cluster:** 51 keywords · 102,960 US searches · 31,060 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** The exports are full of “30 off 50”-style searches (about 60,000 combined). People type a sum, not a tool name, so one page with a big example table can collect them.
+**Why this tool:** Small (**2,900**) but both rows are rising, and it fits the existing construction audience exactly (links to Construction Estimate Template and every material calculator).
 
 | Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
 |---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`discount computation`** | **Primary** | 14,800 | 6 | $0.94 | 1.00 | Info | ⚠ irregular | ⚠ irregular trend + odd phrasing; treat volume as unreliable |
-| `discount on calculator` | Secondary – easy (KD ≤15) | 1,900 | 10 | $0.00 | 0.33 | Info | ⚠ irregular |  |
-| `calculator percent off` | Secondary – easy (KD ≤15) | 590 | 1 | $0.00 | 0.33 | Info/Trans | ↑ rising |  |
-| `how to do percentages off` | Secondary – medium (KD 16–24) | 1,900 | 24 | $0.43 | 0.33 | Info | ⚠ declining | FAQ / H2 |
-| `off percent calculator` | Support – H2/FAQ (KD 25–30) | 6,600 | 28 | $0.00 | 0.33 | Info | ⚠ irregular |  |
-| `how do you do percentages off` | Support – H2/FAQ (KD 25–30) | 4,400 | 26 | $0.43 | 0.33 | Info |  | FAQ / H2 |
-| `how do you find percent off` | Support – H2/FAQ (KD 25–30) | 4,400 | 25 | $0.43 | 0.33 | Info |  | FAQ / H2 |
-| `how to take percentage off` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $0.43 | 0.33 | Info |  | FAQ / H2 |
-| “X% off $Y” queries (43 phrases) | Long tail – one H2 + examples | 65,970 | 7–29 | — | — | Info | | Answer with a worked-example table (10–75% off common prices). e.g. `30 off of 50$`, `20$ with 30 off`, `60 off 25.00`, `30$ 30 off`, `70$ 40 off`, `70$ with 40 off` |
+| **`labor cost`** | **Primary** | 1,900 | 14 | $6.43 | 0.33 | Info | ↑ rising | broad term — H1 + definition |
+| `how to estimate labor costs for construction` | Secondary – easy (KD ≤15) | 1,000 | 5 | $0.00 | 0.00 | Info | ↑ rising | FAQ / H2 |
 
 **Tool must include:**
-- Price + % off → sale price and savings; two stacked discounts (20% + 10% ≠ 30%)
-- Original + sale price → % off; sale price + % → original price
-- Sales tax after discount (user rate)
-- Example table generated by the engine (no thin pages per number)
+- Wage + payroll tax % + workers’ comp % + benefits → burdened hourly rate
+- Crew builder (several roles), job hours → labor cost; overhead % and profit % → bid price
+- Productive vs paid hours
 
-**Note:** **Tier 2 because the real head terms are missing**: `discount calculator` and `percent off calculator` are not in these exports (likely KD > 30). Pull them before you build. Do **not** create one page per “X off Y” query: that is thin, doorway-style content.
+**Note:** Pull `labor cost calculator` and `labor burden calculator` data. They are not in these exports.
 
-### 10. Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM)
+### 6. Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM)
 
 - **URL:** `/commercial-lease-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Commercial Lease Calculator – Rent per Sq Ft & NNN
@@ -474,7 +344,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `commercial lease calculator` — US 390 · KD 17 · CPC $2.46 · ad comp 0.06
 - **Export seed:** #4 commercial lease calculator
 - **Cluster:** 12 keywords · 14,810 US searches · 8,320 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ very weak — Avg AS 49 (YouTube / Calculator.net inflate it). #1 q4realestate AS 21, Austin Tenant Advisors 26, a cell-tower lease page 26, nycrgroup 23, Tyler Cauble 25, a NZ form page 39. Calculator.net is a car-lease page. **Verdict:** Several results do not even match the intent (cell-tower lease, car lease, a water-company form). A focused commercial lease calculator is the most relevant page. Small volume (390) but easy.
 
 **Why this tool:** This is the exact seed of export #4. The head is small (**390 / KD 17**), but the lease vocabulary around it (CAM, NNN, gross lease, TI, $/SF/yr) adds about **14,000 easy searches**, and no one explains it with a working calculator.
 
@@ -499,139 +369,9 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - Escalations (fixed % or $/SF per year), free-rent months, TI allowance → effective rent
 - Total lease cost over the term, year-by-year table, printable
 
-**Note:** It fits the site’s construction audience (contractors leasing a yard or shop) and links to Cap Rate (#6).
+**Note:** It fits the site’s construction audience (contractors leasing a yard or shop) and links to Cap Rate (#3) and Rental Property (#4).
 
-### 11. Business Valuation Calculator (SDE / EBITDA multiple)
-
-- **URL:** `/business-valuation-calculator/`
-- **SEO title (44 chars, 56 with “ | KKC Tools”):** Business Valuation Calculator – SDE & EBITDA
-- **H1:** Business Valuation Calculator: SDE, EBITDA and Multiples
-- **Meta description (145 chars):** Free small business valuation calculator. Work out seller’s discretionary earnings (SDE) or EBITDA, apply a multiple range and get a value range.
-- **Primary keyword:** `small business valuation` — US 1,600 · KD 26 · CPC $5.35 · ad comp 0.40
-- **Export seed:** #5 business valuation calculator
-- **Cluster:** 37 keywords · 40,650 US searches · 4,140 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** The seed head is not in the exports, but the **SDE cluster alone is about 21,000 searches** (`what is sde` 5,400, `sde meaning` 4,400…), and an SDE add-back builder is the tool those searchers need. HVAC business valuation is a clear niche (about 3,600).
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`small business valuation`** | **Primary** | 1,600 | 26 | $5.35 | 0.40 | Info/Comm |  |  |
-| `how much can i sell my business for` | Secondary – easy (KD ≤15) | 1,000 | 14 | $3.13 | 0.59 | Info | ⚠ declining | FAQ / H2 |
-| `value a business` | Secondary – easy (KD ≤15) | 480 | 11 | $3.26 | 0.15 | Info | ↑ rising |  |
-| `how to value a business to sell` | Secondary – easy (KD ≤15) | 390 | 2 | $2.38 | 0.63 | Info |  | FAQ / H2 |
-| `hvac business valuation calculator` | Secondary – easy (KD ≤15) | 320 | 9 | $4.65 | 0.08 | Info |  | industry preset (multiple entered by user) |
-| `business valuation cost` | Secondary – easy (KD ≤15) | 260 | 14 | $5.47 | 0.41 | Info |  | ⚠ service-price intent — FAQ only |
-| `how to calculate the value of a business for sale` | Secondary – easy (KD ≤15) | 210 | 0 | $2.20 | 0.57 | Info | ⚠ declining | FAQ / H2 |
-| `valuing a business for sale` | Secondary – easy (KD ≤15) | 210 | 8 | $3.03 | 0.40 | Info | ⚠ declining |  |
-| `valuation using multiples` | Secondary – easy (KD ≤15) | 210 | 8 | $3.15 | 0.02 | Info |  |  |
-| `saas valuation calculator` | Secondary – easy (KD ≤15) | 210 | 13 | $10.39 | 0.25 | Info |  | ARR-multiple mode or FAQ |
-| `free business valuation` | Secondary – easy (KD ≤15) | 170 | 3 | $7.98 | 0.66 | Info |  |  |
-| `ecommerce business valuation` | Secondary – easy (KD ≤15) | 170 | 13 | $11.12 | 0.33 | Info |  |  |
-| `what does cash flow sde mean` | Secondary – easy (KD ≤15) | 170 | 12 | $0.52 | 0.08 | Info |  | FAQ / H2 |
-| `sde multiple` | Secondary – easy (KD ≤15) | 170 | 13 | $1.82 | 0.06 | Info/Comm |  |  |
-| `business valuation services cost` | Secondary – easy (KD ≤15) | 170 | 9 | $7.18 | 0.83 | Info |  | ⚠ service-price intent — FAQ only |
-| `sde meaning` | Secondary – medium (KD 16–24) | 4,400 | 24 | $0.04 | 0.01 | Info |  | FAQ / H2 |
-| `meaning sde` | Secondary – medium (KD 16–24) | 1,900 | 23 | $0.56 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
-| `how to determine the value of a small business` | Secondary – medium (KD 16–24) | 720 | 22 | $2.25 | 0.35 | Info | ⚠ declining | FAQ / H2 |
-| `what is my company worth` | Secondary – medium (KD 16–24) | 720 | 20 | $3.36 | 0.09 | Info | ↑ rising | FAQ / H2 |
-| `ev/ebit` | Secondary – medium (KD 16–24) | 720 | 16 | $1.00 | 0.03 | Info | ⚠ declining | FAQ |
-| `cash flow sde` | Secondary – medium (KD 16–24) | 590 | 24 | $1.97 | 0.06 | Info |  |  |
-| `cash flow sde meaning` | Secondary – medium (KD 16–24) | 590 | 20 | $0.10 | 0.06 | Info |  | FAQ / H2 |
-| `sde vs ebitda` | Secondary – medium (KD 16–24) | 480 | 18 | $3.43 | 0.04 | Comm | ↑ rising | FAQ / H2 |
-| `ev ebit` | Secondary – medium (KD 16–24) | 480 | 20 | $1.04 | 0.04 | Info |  | FAQ |
-| `how to calculate a value of a company` | Secondary – medium (KD 16–24) | 390 | 16 | $2.03 | 0.34 | Info |  | FAQ / H2 |
-| `hvac business valuation` | Secondary – medium (KD 16–24) | 390 | 18 | $5.51 | 0.06 | Info | ↑ rising |  |
-| `what is sde` | Support – H2/FAQ (KD 25–30) | 5,400 | 25 | $0.00 | 0.00 | Info | ↑ rising | H2 “What SDE is” + SDE add-back builder |
-| `p/ebitda` | Support – H2/FAQ (KD 25–30) | 5,400 | 27 | $0.43 | 0.01 | Info |  | FAQ |
-| `how to value a heating and air conditioning business` | Support – H2/FAQ (KD 25–30) | 2,900 | 25 | $0.00 | 0.43 | — | ⚠ declining | FAQ / H2 |
-| `s d e meaning` | Support – H2/FAQ (KD 25–30) | 2,900 | 25 | $0.04 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
-| `what is the valuation of` | Support – H2/FAQ (KD 25–30) | 1,600 | 27 | $1.87 | 0.33 | Info | ⚠ irregular | ⚠ vague / irregular |
-| `s.d.e meaning` | Support – H2/FAQ (KD 25–30) | 1,300 | 28 | $0.04 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
-| `seller's discretionary earnings` | Support – H2/FAQ (KD 25–30) | 1,000 | 27 | $0.85 | 0.09 | Info | ⚠ declining |  |
-| `what is sde in business` | Support – H2/FAQ (KD 25–30) | 1,000 | 28 | $0.12 | 0.04 | Info | ↑ rising | FAQ / H2 |
-| `how to valuate a small business` | Support – H2/FAQ (KD 25–30) | 720 | 28 | $2.36 | 0.53 | Info |  | FAQ / H2 |
-| `define sde` | Support – H2/FAQ (KD 25–30) | 720 | 26 | $0.11 | 0.01 | Info | ↑ rising | FAQ / H2 |
-| `what does sde mean` | Support – H2/FAQ (KD 25–30) | 590 | 25 | $0.00 | 0.01 | Info | ⚠ declining | FAQ / H2 |
-
-**Tool must include:**
-- SDE builder: net profit + owner pay + interest + depreciation/amortization + one-off and personal add-backs
-- EBITDA builder for bigger firms; user-entered low / high multiple → value range
-- Asset approach check (equipment + inventory) and an earnings vs asset floor
-- Clear disclaimer: estimate only, not a formal valuation
-
-**Note:** **Never print industry multiples we cannot cite.** If you show a range, source it (for example the BizBuySell Insight report, with date). `TODO(owner)`: confirm the source before publishing. Business-for-sale and broker searches are dropped (listing intent).
-
-### 12. SBA Loan Calculator (7(a) & 504)
-
-- **URL:** `/sba-loan-calculator/`
-- **SEO title (48 chars, 60 with “ | KKC Tools”):** SBA Loan Calculator – 7(a) and 504 Loan Payments
-- **H1:** SBA Loan Calculator: 7(a) and 504 Payments, Fees and Down Payment
-- **Meta description (146 chars):** Free SBA loan calculator for 7(a) and 504 loans. See the monthly payment, the 504 bank / CDC / equity split, the guarantee fee and total interest.
-- **Primary keyword:** `sba 504 loan` — US 4,400 · KD 5 · CPC $7.65 · ad comp 0.51
-- **Export seed:** #4 commercial lease (related)
-- **Cluster:** 9 keywords · 15,860 US searches · 12,160 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **15,000 searches, mostly KD 3–11**, and nobody has a simple calculator that shows the 504 split (bank / CDC / borrower) next to a 7(a) payment.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`sba 504 loan`** | **Primary** | 4,400 | 5 | $7.65 | 0.51 | Info |  |  |
-| `sba 504 loans` | Secondary – easy (KD ≤15) | 2,400 | 7 | $7.65 | 0.51 | Info |  |  |
-| `7a sba loan` | Secondary – easy (KD ≤15) | 1,300 | 3 | $6.34 | 0.60 | Info |  |  |
-| `sba certified lender` | Secondary – easy (KD ≤15) | 1,300 | 7 | $12.29 | 0.10 | Info | ⚠ declining | ⚠ service/lender search — FAQ only |
-| `sba loan 7a` | Secondary – easy (KD ≤15) | 1,000 | 11 | $7.89 | 0.26 | Info |  |  |
-| `7 a loans` | Secondary – easy (KD ≤15) | 880 | 6 | $7.16 | 0.58 | Info | ⚠ declining |  |
-| `sba 504 financing` | Secondary – easy (KD ≤15) | 880 | 6 | $7.65 | 0.51 | Info |  |  |
-| `what is a sba loan` | Secondary – medium (KD 16–24) | 2,400 | 17 | $3.38 | 0.32 | Info | ↑ rising | FAQ / H2 |
-| `sba 504 rates` | Support – H2/FAQ (KD 25–30) | 1,300 | 29 | $4.70 | 0.31 | Info |  | ⚠ rates change monthly — user input only |
-
-**Tool must include:**
-- 7(a): amount, rate, term (10 / 25 yr) → payment; guarantee fee input
-- 504: project cost → bank (≈50%) / CDC (≈40%) / equity (≈10%) split, each with its own rate and term
-- Compare 7(a) vs 504 for the same project
-
-**Note:** SBA fee tables and splits must be cited from SBA.gov with a date. `TODO(owner)`: confirm the current fiscal-year fees before publishing. Informational intent is high, so the article matters as much as the tool.
-
-### 13. Equipment & Business Loan Calculator
-
-- **URL:** `/equipment-loan-calculator/`
-- **SEO title (50 chars, 62 with “ | KKC Tools”):** Equipment Loan Calculator – Business Loan Payments
-- **H1:** Equipment Loan Calculator: Payments for Equipment and Business Loans
-- **Meta description (157 chars):** Free equipment loan calculator. Get monthly payments, total interest and an amortization schedule for equipment, farm and business loans, or compare leasing.
-- **Primary keyword:** `equipment loan calculator` — US 1,900 · KD 6 · CPC $1.98 · ad comp 0.35
-- **Export seed:** #4 commercial lease (related)
-- **Cluster:** 13 keywords · 20,910 US searches · 7,910 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **17,000 searches**. The construction-equipment angle matches the site’s existing audience, and MCA factor-rate → APR is a real gap.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`equipment loan calculator`** | **Primary** | 1,900 | 6 | $1.98 | 0.35 | — |  |  |
-| `farm loan calculator` | Secondary – easy (KD ≤15) | 2,400 | 0 | $1.92 | 0.22 | Info |  |  |
-| `finance lease vs operating lease` | Secondary – easy (KD ≤15) | 1,300 | 14 | $1.46 | 0.02 | Comm |  | FAQ (accounting view) |
-| `dental loan calculator` | Secondary – easy (KD ≤15) | 1,000 | 2 | $2.66 | 0.18 | Comm | ⚠ declining |  |
-| `business loan payment calculator` | Secondary – easy (KD ≤15) | 720 | 3 | $2.70 | 0.40 | Comm | ↑ rising |  |
-| `business line of credit calculator` | Secondary – easy (KD ≤15) | 590 | 14 | $6.60 | 0.45 | Info |  |  |
-| `finance vs lease` | Secondary – medium (KD 16–24) | 2,400 | 17 | $0.45 | 0.09 | Comm | ↑ rising | lease-vs-buy mode |
-| `difference between lease and finance` | Secondary – medium (KD 16–24) | 2,400 | 23 | $0.98 | 0.03 | Comm |  | same mode / H2 |
-| `heavy equipment financing` | Secondary – medium (KD 16–24) | 1,600 | 16 | $14.36 | 0.36 | Comm |  | H2 |
-| `mca calculator` | Secondary – medium (KD 16–24) | 1,600 | 24 | $0.00 | 0.33 | Info | ⚠ declining | merchant cash advance mode: factor rate → APR |
-| `operating lease vs finance lease` | Secondary – medium (KD 16–24) | 1,300 | 23 | $3.10 | 0.03 | Comm |  | FAQ |
-| `farm equipment financing` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $7.12 | 0.04 | Info |  | H2 |
-| `construction equipment financing` | Support – H2/FAQ (KD 25–30) | 1,300 | 26 | $18.51 | 0.33 | Info |  | H2 — fits our construction audience |
-
-**Tool must include:**
-- Amount, rate, term, down payment, balloon → payment + schedule
-- Lease vs buy: lease payment + residual vs loan + resale
-- MCA mode: advance, factor rate, daily/weekly remittance → effective APR
-- Line of credit: draw, rate → interest-only and repayment payment
-
-**Note:** Merge with Commercial Mortgage (#8) only if the SERP shows the same sites ranking for both.
-
-### 14. Short-Term Rental (Airbnb) Profit Calculator
+### 7. Short-Term Rental (Airbnb) Profit Calculator
 
 - **URL:** `/airbnb-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Airbnb Calculator – Short-Term Rental Profit & ROI
@@ -640,7 +380,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `airbnb profit calculator` — US 880 · KD 19 · CPC $2.94 · ad comp 0.52
 - **Export seed:** #4 rental yield (related)
 - **Cluster:** 38 keywords · 11,010 US searches · 6,890 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 33. Every result is AS 14–47: alltherooms 30, your.rentals 31, Airbtics 33, PriceLabs 47, Mashvisor 42 (×2), eFinancialModels 27, Hostfully 38, listingok 14, Rabbu 34. **Verdict:** No strong domain at all. 880 volume.
 
 **Why this tool:** About **15,000 searches with CPC $3–9** (high commercial value), and many rows are KD 0–5.
 
@@ -693,7 +433,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** **Intent gap:** many searchers want AirDNA-style *market data* (“how much can I make in my city”). We cannot fetch data (zero network), so the page must say “you enter the rate and occupancy”. Use “Short-term rental” in the H1/URL if trademark use of “Airbnb” worries you. Brand terms (bnbcalc, AirDNA Rentalizer, Rabbu, BiggerPockets) are dropped.
 
-### 15. Freelance Hourly Rate Calculator
+### 8. Freelance Hourly Rate Calculator
 
 - **URL:** `/freelance-rate-calculator/`
 - **SEO title (48 chars, 60 with “ | KKC Tools”):** Freelance Rate Calculator – Hourly Rate You Need
@@ -702,7 +442,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `freelance rate calculator` — US 320 · KD 19 · CPC $0.00 · ad comp 0.01
 - **Export seed:** #1 freelance hourly rate calculator
 - **Cluster:** 32 keywords · 5,040 US searches · 2,420 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** ✅ weak — Avg AS 42. Upwork 73, #2 freelancehourlyrate.com AS 7, contractrates.fyi 22, freelanceratecalculator.com 15, YouTube, Harvest 54, HubSpot 79, virtual-headquarters 28, Appizy 22, PineBill 29. **Verdict:** AS 7–29 sites hold six slots, including #2. Small US volume (320; 1.2K global).
 
 **Why this tool:** This is the seed of exports #1 and #1.1. The exact tool terms are small (**about 840**), but the “what should I charge” questions (copywriting / SEO / content rates) add about 3,000 more, and the tool solves them for any profession.
 
@@ -745,11 +485,253 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - Target take-home income → add business expenses, self-employment tax %, income tax % (user input), retirement % → gross needed
 - Billable hours: weeks off, holidays, sick days, non-billable % (admin / sales)
 - Outputs: hourly, day, weekly retainer and project price (hours × rate + buffer)
-- Compare with a salaried job (links to Hourly to Salary #4) and to Invoice Generator (#16)
+- Compare with a salaried job, and link to the Invoice Generator (#15) (the Hourly to Salary tool was removed after the SERP check)
 
 **Note:** **Do not publish “average rates by profession”** unless they are cited (e.g. a named survey + year). `TODO(owner)` if you want a rate table. Most rows in exports #1 / #1.1 are job and platform searches (Upwork, Fiverr, writing jobs) and are dropped.
 
-### 16. Invoice Generator (Hourly & Freelance)
+### 9. Contribution Margin & Break-Even Calculator
+
+- **URL:** `/contribution-margin-calculator/`
+- **SEO title (51 chars, 63 with “ | KKC Tools”):** Contribution Margin Calculator – Ratio & Break-Even
+- **H1:** Contribution Margin Calculator: Ratio and Break-Even Point
+- **Meta description (152 chars):** Free contribution margin calculator. Enter price, variable cost and fixed costs to get contribution margin per unit, the ratio and the break-even point.
+- **Primary keyword:** `contribution margin and contribution margin ratio` — US 2,400 · KD 4 · CPC $0.00 · ad comp 0.33
+- **Export seed:** #2 (related)
+- **Cluster:** 4 keywords · 7,500 US searches · 3,700 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** ✅ weak (small) — Avg AS 58. Omni contribution-margin tool 84, Wall Street Prep articles (×2), pushowl tool 29 (#3), Investopedia article, Omni margin tool, CalculatorSoup margin tool, accountingaitools 9, Wayflyer blog 36, Keka tool 58. **Verdict:** Relevance check (SERP of `contribution margin calculator`): only one strong relevant tool (Omni). Six results are articles or calculators for a different metric (gross margin), and two relevant tools are AS 9–29: 8 open slots. Small head (260 US) but `calculate contribution margin` and `how to calculate contribution margin` are 1.6K each. Shares the Markup / Profit Margin engine.
+
+**Why this tool:** About **7,500 searches at KD 4–22**. Students and owners both; a natural extension of Markup (#1) and Profit Margin (#13).
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`contribution margin and contribution margin ratio`** | **Primary** | 2,400 | 4 | $0.00 | 0.33 | Info | ⚠ declining |  |
+| `define contribution margin` | Secondary – easy (KD ≤15) | 1,300 | 6 | $0.14 | 0.03 | Info | ⚠ declining | FAQ / H2 |
+| `contribution margin equation` | Secondary – medium (KD 16–24) | 1,900 | 17 | $0.25 | 0.02 | Info | ⚠ declining | FAQ / H2 |
+| `contribution margin ratio formula` | Secondary – medium (KD 16–24) | 1,900 | 22 | $0.00 | 0.33 | Info | ⚠ declining | FAQ / H2 |
+
+**Tool must include:**
+- Price, variable cost per unit, fixed costs → CM per unit, CM ratio, break-even units and sales $
+- Target profit → units needed; multi-product (sales mix)
+
+**Note:** All four rows are declining. `break even calculator` is not in the exports, so pull it: if it is large, this page becomes a Break-Even Calculator with CM as a section.
+
+## Tier 2 — possible with links
+
+### 10. Commercial Mortgage & LTV Calculator
+
+- **URL:** `/commercial-mortgage-calculator/`
+- **SEO title (50 chars, 62 with “ | KKC Tools”):** Commercial Mortgage Calculator – Payment & Balloon
+- **H1:** Commercial Mortgage Calculator: Payment, Balloon, LTV & DSCR
+- **Meta description (156 chars):** Free commercial mortgage calculator. Get the monthly payment, balloon balance, amortization schedule, loan-to-value and DSCR for a commercial property loan.
+- **Primary keyword:** `commercial mortgage calculator` — US 8,100 · KD 6 · CPC $2.15 · ad comp 0.15
+- **Export seed:** #4 commercial lease (related)
+- **Cluster:** 16 keywords · 47,510 US searches · 36,210 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 possible — Avg AS 40. mortgagecalculator.org 62, thecommercialbank 28, CommLoan 31, commercialrealestate.loans 37, F&M Bank debt-service tool 38, Lendio 47, Local First Bank 47, commercialloandirect 28, cbscuso generic amortization 23, Nationwide 68. **Verdict:** Relevance check: only 2 strong relevant tools (mortgagecalculator.org, Nationwide); 5 relevant tools are AS 23–38 and one is a generic amortization page: 6 open slots. NerdWallet is not in the real top 10. 8.1K at KD 6; users enter their own rate, so no rate data to maintain.
+
+**Why this tool:** `commercial mortgage calculator` is **8,100 at KD 6** (CPC $2.15). The loan-to-value terms add about 23,000 more at KD 6–17, and LTV is an output of the same tool. Amortization maths is evergreen.
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`commercial mortgage calculator`** | **Primary** | 8,100 | 6 | $2.15 | 0.15 | Info/Comm |  |  |
+| `ltv meaning` | Secondary – easy (KD ≤15) | 6,600 | 8 | $2.19 | 0.02 | Info |  | H2 “What LTV means” |
+| `l.t.v.` | Secondary – easy (KD ≤15) | 5,400 | 12 | $5.72 | 0.01 | Info |  | same H2 |
+| `ltv calculator` | Secondary – easy (KD ≤15) | 3,600 | 6 | $3.81 | 0.07 | Info |  |  |
+| `what is ltv` | Secondary – easy (KD ≤15) | 3,600 | 15 | $3.67 | 0.02 | Info |  | same H2 |
+| `land payment calculator` | Secondary – easy (KD ≤15) | 2,900 | 5 | $0.00 | 0.31 | Comm | ⚠ declining |  |
+| `commercial mortgage rates` | Secondary – easy (KD ≤15) | 2,400 | 4 | $3.57 | 0.38 | Info |  | ⚠ rate-lookup intent; we show no live rates (zero network) — FAQ on what drives rates |
+| `ltv loan to value` | Secondary – easy (KD ≤15) | 1,300 | 11 | $5.72 | 0.01 | Info | ↑ rising |  |
+| `commercial mortgages` | Secondary – easy (KD ≤15) | 1,000 | 8 | $7.66 | 0.32 | Info |  |  |
+| `buying commercial property` | Secondary – easy (KD ≤15) | 720 | 7 | $1.02 | 0.46 | Info |  |  |
+| `business mortgage` | Secondary – easy (KD ≤15) | 590 | 8 | $9.19 | 0.35 | Info |  |  |
+| `commercial real estate loans` | Secondary – medium (KD 16–24) | 4,400 | 20 | $9.06 | 0.34 | Info |  |  |
+| `ltv loan` | Secondary – medium (KD 16–24) | 1,900 | 17 | $4.34 | 0.10 | Info | ↑ rising |  |
+| `commercial construction loan` | Secondary – medium (KD 16–24) | 1,300 | 22 | $14.10 | 0.39 | Info |  | FAQ: interest-only draw period |
+| `commercial construction loans` | Secondary – medium (KD 16–24) | 1,300 | 22 | $13.68 | 0.43 | Info |  | same FAQ |
+| `commercial loan estimator` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $2.77 | 0.35 | Info | ⚠ declining |  |
+
+**Tool must include:**
+- Loan amount or price + LTV %, rate, amortization years, term years → payment, balloon at maturity
+- Interest-only period option; full amortization schedule (yearly / monthly), printable
+- DSCR = NOI ÷ annual debt service (links to Cap Rate #6); max loan at a target DSCR and LTV
+- Fees and points → effective cost
+
+**Note:** Finance tool (YMYL-light). Present it as an estimator, with no rate claims. Rates are always typed in by the user.
+
+### 11. Business Valuation Calculator (SDE / EBITDA multiple)
+
+- **URL:** `/business-valuation-calculator/`
+- **SEO title (44 chars, 56 with “ | KKC Tools”):** Business Valuation Calculator – SDE & EBITDA
+- **H1:** Business Valuation Calculator: SDE, EBITDA and Multiples
+- **Meta description (145 chars):** Free small business valuation calculator. Work out seller’s discretionary earnings (SDE) or EBITDA, apply a multiple range and get a value range.
+- **Primary keyword:** `small business valuation` — US 1,600 · KD 26 · CPC $5.35 · ad comp 0.40
+- **Export seed:** #5 business valuation calculator
+- **Cluster:** 37 keywords · 40,650 US searches · 4,140 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 guide gap — Avg AS 54. All articles, no calculator: Reddit, M&T Bank 64, The Hartford 64, CRI 40, OK SBDC 26, YouTube, Morgan & Westfield 34, Williams Keepers 23, business.gov.au 69, gvalue 20. **Verdict:** No calculator in the top 10 and four AS 20–34 articles rank. A strong guide + calculator page fits the gap (like our KD 45 win). Build it as a guide first, calculator second.
+
+**Why this tool:** The seed head is not in the exports, but the **SDE cluster alone is about 21,000 searches** (`what is sde` 5,400, `sde meaning` 4,400…), and an SDE add-back builder is the tool those searchers need. HVAC business valuation is a clear niche (about 3,600).
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`small business valuation`** | **Primary** | 1,600 | 26 | $5.35 | 0.40 | Info/Comm |  |  |
+| `how much can i sell my business for` | Secondary – easy (KD ≤15) | 1,000 | 14 | $3.13 | 0.59 | Info | ⚠ declining | FAQ / H2 |
+| `value a business` | Secondary – easy (KD ≤15) | 480 | 11 | $3.26 | 0.15 | Info | ↑ rising |  |
+| `how to value a business to sell` | Secondary – easy (KD ≤15) | 390 | 2 | $2.38 | 0.63 | Info |  | FAQ / H2 |
+| `hvac business valuation calculator` | Secondary – easy (KD ≤15) | 320 | 9 | $4.65 | 0.08 | Info |  | industry preset (multiple entered by user) |
+| `business valuation cost` | Secondary – easy (KD ≤15) | 260 | 14 | $5.47 | 0.41 | Info |  | ⚠ service-price intent — FAQ only |
+| `how to calculate the value of a business for sale` | Secondary – easy (KD ≤15) | 210 | 0 | $2.20 | 0.57 | Info | ⚠ declining | FAQ / H2 |
+| `valuing a business for sale` | Secondary – easy (KD ≤15) | 210 | 8 | $3.03 | 0.40 | Info | ⚠ declining |  |
+| `valuation using multiples` | Secondary – easy (KD ≤15) | 210 | 8 | $3.15 | 0.02 | Info |  |  |
+| `saas valuation calculator` | Secondary – easy (KD ≤15) | 210 | 13 | $10.39 | 0.25 | Info |  | ARR-multiple mode or FAQ |
+| `free business valuation` | Secondary – easy (KD ≤15) | 170 | 3 | $7.98 | 0.66 | Info |  |  |
+| `ecommerce business valuation` | Secondary – easy (KD ≤15) | 170 | 13 | $11.12 | 0.33 | Info |  |  |
+| `what does cash flow sde mean` | Secondary – easy (KD ≤15) | 170 | 12 | $0.52 | 0.08 | Info |  | FAQ / H2 |
+| `sde multiple` | Secondary – easy (KD ≤15) | 170 | 13 | $1.82 | 0.06 | Info/Comm |  |  |
+| `business valuation services cost` | Secondary – easy (KD ≤15) | 170 | 9 | $7.18 | 0.83 | Info |  | ⚠ service-price intent — FAQ only |
+| `sde meaning` | Secondary – medium (KD 16–24) | 4,400 | 24 | $0.04 | 0.01 | Info |  | FAQ / H2 |
+| `meaning sde` | Secondary – medium (KD 16–24) | 1,900 | 23 | $0.56 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
+| `how to determine the value of a small business` | Secondary – medium (KD 16–24) | 720 | 22 | $2.25 | 0.35 | Info | ⚠ declining | FAQ / H2 |
+| `what is my company worth` | Secondary – medium (KD 16–24) | 720 | 20 | $3.36 | 0.09 | Info | ↑ rising | FAQ / H2 |
+| `ev/ebit` | Secondary – medium (KD 16–24) | 720 | 16 | $1.00 | 0.03 | Info | ⚠ declining | FAQ |
+| `cash flow sde` | Secondary – medium (KD 16–24) | 590 | 24 | $1.97 | 0.06 | Info |  |  |
+| `cash flow sde meaning` | Secondary – medium (KD 16–24) | 590 | 20 | $0.10 | 0.06 | Info |  | FAQ / H2 |
+| `sde vs ebitda` | Secondary – medium (KD 16–24) | 480 | 18 | $3.43 | 0.04 | Comm | ↑ rising | FAQ / H2 |
+| `ev ebit` | Secondary – medium (KD 16–24) | 480 | 20 | $1.04 | 0.04 | Info |  | FAQ |
+| `how to calculate a value of a company` | Secondary – medium (KD 16–24) | 390 | 16 | $2.03 | 0.34 | Info |  | FAQ / H2 |
+| `hvac business valuation` | Secondary – medium (KD 16–24) | 390 | 18 | $5.51 | 0.06 | Info | ↑ rising |  |
+| `what is sde` | Support – H2/FAQ (KD 25–30) | 5,400 | 25 | $0.00 | 0.00 | Info | ↑ rising | H2 “What SDE is” + SDE add-back builder |
+| `p/ebitda` | Support – H2/FAQ (KD 25–30) | 5,400 | 27 | $0.43 | 0.01 | Info |  | FAQ |
+| `how to value a heating and air conditioning business` | Support – H2/FAQ (KD 25–30) | 2,900 | 25 | $0.00 | 0.43 | — | ⚠ declining | FAQ / H2 |
+| `s d e meaning` | Support – H2/FAQ (KD 25–30) | 2,900 | 25 | $0.04 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
+| `what is the valuation of` | Support – H2/FAQ (KD 25–30) | 1,600 | 27 | $1.87 | 0.33 | Info | ⚠ irregular | ⚠ vague / irregular |
+| `s.d.e meaning` | Support – H2/FAQ (KD 25–30) | 1,300 | 28 | $0.04 | 0.01 | Info | ⚠ irregular | FAQ / H2 |
+| `seller's discretionary earnings` | Support – H2/FAQ (KD 25–30) | 1,000 | 27 | $0.85 | 0.09 | Info | ⚠ declining |  |
+| `what is sde in business` | Support – H2/FAQ (KD 25–30) | 1,000 | 28 | $0.12 | 0.04 | Info | ↑ rising | FAQ / H2 |
+| `how to valuate a small business` | Support – H2/FAQ (KD 25–30) | 720 | 28 | $2.36 | 0.53 | Info |  | FAQ / H2 |
+| `define sde` | Support – H2/FAQ (KD 25–30) | 720 | 26 | $0.11 | 0.01 | Info | ↑ rising | FAQ / H2 |
+| `what does sde mean` | Support – H2/FAQ (KD 25–30) | 590 | 25 | $0.00 | 0.01 | Info | ⚠ declining | FAQ / H2 |
+
+**Tool must include:**
+- SDE builder: net profit + owner pay + interest + depreciation/amortization + one-off and personal add-backs
+- EBITDA builder for bigger firms; user-entered low / high multiple → value range
+- Asset approach check (equipment + inventory) and an earnings vs asset floor
+- Clear disclaimer: estimate only, not a formal valuation
+
+**Note:** **Never print industry multiples we cannot cite.** If you show a range, source it (for example the BizBuySell Insight report, with date). `TODO(owner)`: confirm the source before publishing. Business-for-sale and broker searches are dropped (listing intent).
+
+### 12. Discount / Percent Off Calculator
+
+- **URL:** `/discount-calculator/`
+- **SEO title (46 chars, 58 with “ | KKC Tools”):** Discount Calculator – Percent Off & Sale Price
+- **H1:** Discount Calculator: Sale Price After a Percent Off
+- **Meta description (152 chars):** Free discount calculator. Enter a price and percent off to get the sale price and savings, stack two discounts, or find the percent off from two prices.
+- **Primary keyword:** `discount computation` — US 14,800 · KD 6 · CPC $0.94 · ad comp 1.00
+- **Export seed:** #2 product markup (related)
+- **Cluster:** 51 keywords · 102,960 US searches · 31,060 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 possible — Avg AS 62. Calculator.net 90, Omni 84, percentagecalculator.net 67, docelf 35, CalculatorSoup 80, #6 dothecalculation.com AS 11, GIGAcalculator 66, Pearson 77, Zoho 81, Enerpize 36. **Verdict:** Giants hold the top 3, but AS 11–36 sites sit at #4, #6 and #10. Realistic target: positions 6–10 after a few links. 14.8K volume.
+
+**Why this tool:** The exports are full of “30 off 50”-style searches (about 60,000 combined). People type a sum, not a tool name, so one page with a big example table can collect them.
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`discount computation`** | **Primary** | 14,800 | 6 | $0.94 | 1.00 | Info | ⚠ irregular | ⚠ irregular trend + odd phrasing; treat volume as unreliable |
+| `discount on calculator` | Secondary – easy (KD ≤15) | 1,900 | 10 | $0.00 | 0.33 | Info | ⚠ irregular |  |
+| `calculator percent off` | Secondary – easy (KD ≤15) | 590 | 1 | $0.00 | 0.33 | Info/Trans | ↑ rising |  |
+| `how to do percentages off` | Secondary – medium (KD 16–24) | 1,900 | 24 | $0.43 | 0.33 | Info | ⚠ declining | FAQ / H2 |
+| `off percent calculator` | Support – H2/FAQ (KD 25–30) | 6,600 | 28 | $0.00 | 0.33 | Info | ⚠ irregular |  |
+| `how do you do percentages off` | Support – H2/FAQ (KD 25–30) | 4,400 | 26 | $0.43 | 0.33 | Info |  | FAQ / H2 |
+| `how do you find percent off` | Support – H2/FAQ (KD 25–30) | 4,400 | 25 | $0.43 | 0.33 | Info |  | FAQ / H2 |
+| `how to take percentage off` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $0.43 | 0.33 | Info |  | FAQ / H2 |
+| “X% off $Y” queries (43 phrases) | Long tail – one H2 + examples | 65,970 | 7–29 | — | — | Info | | Answer with a worked-example table (10–75% off common prices). e.g. `30 off of 50$`, `20$ with 30 off`, `60 off 25.00`, `30$ 30 off`, `70$ 40 off`, `70$ with 40 off` |
+
+**Tool must include:**
+- Price + % off → sale price and savings; two stacked discounts (20% + 10% ≠ 30%)
+- Original + sale price → % off; sale price + % → original price
+- Sales tax after discount (user rate)
+- Example table generated by the engine (no thin pages per number)
+
+**Note:** **Tier 2 because the real head terms are missing**: `discount calculator` and `percent off calculator` are not in these exports (likely KD > 30). Pull them before you build. Do **not** create one page per “X off Y” query: that is thin, doorway-style content.
+
+### 13. Profit Margin Calculator (Gross / Operating / Net)
+
+- **URL:** `/profit-margin-calculator/`
+- **SEO title (49 chars, 61 with “ | KKC Tools”):** Profit Margin Calculator – Gross, Net & Operating
+- **H1:** Profit Margin Calculator: Gross, Operating & Net Margin
+- **Meta description (152 chars):** Free profit margin calculator. Enter revenue and costs to get gross, operating and net profit margin, or find the price you need to hit a target margin.
+- **Primary keyword:** `gross margin calculator` — US 8,100 · KD 8 · CPC $1.65 · ad comp 0.02
+- **Export seed:** #2 product markup (related)
+- **Cluster:** 19 keywords · 62,640 US searches · 31,540 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 hard — Avg AS 69. Top 7: Omni 84, CalculatorSoup 80, Xero 72, Calculator.net 90, Canva 100, Mercury 51, Investopedia 91. Weak: retaildogma 38 (#8), margincalculator.cc 22 (#10). **Verdict:** Only #8 and #10 are weak, so the realistic target is the bottom of page 1. Keep only because it shares the Markup engine (cheap to add); also target `gross profit margin calculator` (5.4K, KD 16).
+
+**Why this tool:** The easiest real business-math cluster: the head `gross margin calculator` is **8,100 at KD 8**, and most of the cluster is KD ≤ 15. Low CPC, but very high intent to use a tool.
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`gross margin calculator`** | **Primary** | 8,100 | 8 | $1.65 | 0.02 | Comm |  |  |
+| `gross profit margin formula` | Secondary – easy (KD ≤15) | 8,100 | 9 | $1.03 | 0.02 | Info |  | FAQ / H2 |
+| `calculate profit margin` | Secondary – easy (KD ≤15) | 4,400 | 11 | $3.00 | 0.05 | Info |  |  |
+| `net profit margin formula` | Secondary – easy (KD ≤15) | 3,600 | 11 | $1.87 | 0.03 | Info | ⚠ declining | FAQ / H2 |
+| `gp profit` | Secondary – easy (KD ≤15) | 2,400 | 8 | $0.25 | 0.01 | Info | ⚠ irregular | 🌍 UK phrasing |
+| `how to calculate net profit margin` | Secondary – easy (KD ≤15) | 1,900 | 11 | $4.53 | 0.06 | Info |  | FAQ / H2 |
+| `gross margin calculation` | Secondary – easy (KD ≤15) | 1,600 | 9 | $1.65 | 0.02 | Info | ⚠ declining |  |
+| `formula for profit margin` | Secondary – easy (KD ≤15) | 720 | 14 | $3.70 | 0.06 | Info |  | FAQ / H2 |
+| `net profit margin equation` | Secondary – easy (KD ≤15) | 720 | 12 | $1.87 | 0.03 | Info |  | FAQ / H2 |
+| `gross profit margin calculator` | Secondary – medium (KD 16–24) | 5,400 | 16 | $0.00 | 0.14 | Info | ⚠ declining |  |
+| `how to work out a gp` | Secondary – medium (KD 16–24) | 3,600 | 17 | $1.31 | 0.02 | Info | ⚠ declining | 🌍 UK phrasing (“GP”) |
+| `how do you determine gross margin` | Secondary – medium (KD 16–24) | 3,600 | 20 | $0.66 | 0.05 | Info |  | FAQ / H2 |
+| `what is a good profit margin` | Secondary – medium (KD 16–24) | 3,600 | 20 | $1.31 | 0.04 | Info |  | FAQ — cite a real dataset (e.g. NYU Stern margins by sector); never invent averages |
+| `how to calculate profit` | Secondary – medium (KD 16–24) | 2,900 | 21 | $3.20 | 0.04 | Info |  | FAQ / H2 |
+| `gross sales` | Secondary – medium (KD 16–24) | 2,900 | 19 | $0.00 | 0.00 | Trans |  |  |
+| `net sales formula` | Secondary – medium (KD 16–24) | 1,900 | 22 | $0.00 | 0.01 | Trans | ⚠ declining | FAQ / H2 |
+| `operating profit margin formula` | Support – H2/FAQ (KD 25–30) | 2,900 | 29 | $3.29 | 0.01 | Info |  | FAQ / H2 |
+| `gross sales vs net sales` | Support – H2/FAQ (KD 25–30) | 2,400 | 29 | $0.11 | 0.06 | — |  | FAQ / H2 |
+| `profit margins` | Support – H2/FAQ (KD 25–30) | 1,900 | 27 | $3.24 | 0.03 | Info |  |  |
+
+**Tool must include:**
+- Revenue + COGS → gross profit and gross margin %; add operating costs → operating margin; add interest and tax → net margin
+- Target mode: cost + target margin → required price (and the matching markup)
+- Per-unit or totals; several products with a blended margin
+- Gross vs net sales (returns, discounts, allowances) as an optional input
+
+**Note:** Several rows are flagged declining. Volumes are still large, but expect less than the sum.
+
+### 14. Equipment & Business Loan Calculator
+
+- **URL:** `/equipment-loan-calculator/`
+- **SEO title (50 chars, 62 with “ | KKC Tools”):** Equipment Loan Calculator – Business Loan Payments
+- **H1:** Equipment Loan Calculator: Payments for Equipment and Business Loans
+- **Meta description (157 chars):** Free equipment loan calculator. Get monthly payments, total interest and an amortization schedule for equipment, farm and business loans, or compare leasing.
+- **Primary keyword:** `equipment loan calculator` — US 1,900 · KD 6 · CPC $1.98 · ad comp 0.35
+- **Export seed:** #4 commercial lease (related)
+- **Cluster:** 13 keywords · 20,910 US searches · 7,910 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 possible — Avg AS 43. FCS America 43, GenEquip 25, AgDirect calculator index 35, Cat 61, Citizens Bank 65, Lendio 47, SoFi 73, Oakmont 25, AgCountry 33, gocurrency generic loan tool. **Verdict:** Relevance check: 3 strong relevant tools (Cat, Citizens, SoFi); 4 relevant tools are AS 25–43 and 2 results are an index page and a generic loan tool: 6 open slots. Shares the loan-payment engine with Commercial Mortgage.
+
+**Why this tool:** About **17,000 searches**. The construction-equipment angle matches the site’s existing audience, and MCA factor-rate → APR is a real gap.
+
+| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
+|---|---|---:|---:|---:|---:|:---:|:---:|---|
+| **`equipment loan calculator`** | **Primary** | 1,900 | 6 | $1.98 | 0.35 | — |  |  |
+| `farm loan calculator` | Secondary – easy (KD ≤15) | 2,400 | 0 | $1.92 | 0.22 | Info |  |  |
+| `finance lease vs operating lease` | Secondary – easy (KD ≤15) | 1,300 | 14 | $1.46 | 0.02 | Comm |  | FAQ (accounting view) |
+| `dental loan calculator` | Secondary – easy (KD ≤15) | 1,000 | 2 | $2.66 | 0.18 | Comm | ⚠ declining |  |
+| `business loan payment calculator` | Secondary – easy (KD ≤15) | 720 | 3 | $2.70 | 0.40 | Comm | ↑ rising |  |
+| `business line of credit calculator` | Secondary – easy (KD ≤15) | 590 | 14 | $6.60 | 0.45 | Info |  |  |
+| `finance vs lease` | Secondary – medium (KD 16–24) | 2,400 | 17 | $0.45 | 0.09 | Comm | ↑ rising | lease-vs-buy mode |
+| `difference between lease and finance` | Secondary – medium (KD 16–24) | 2,400 | 23 | $0.98 | 0.03 | Comm |  | same mode / H2 |
+| `heavy equipment financing` | Secondary – medium (KD 16–24) | 1,600 | 16 | $14.36 | 0.36 | Comm |  | H2 |
+| `mca calculator` | Secondary – medium (KD 16–24) | 1,600 | 24 | $0.00 | 0.33 | Info | ⚠ declining | merchant cash advance mode: factor rate → APR |
+| `operating lease vs finance lease` | Secondary – medium (KD 16–24) | 1,300 | 23 | $3.10 | 0.03 | Comm |  | FAQ |
+| `farm equipment financing` | Support – H2/FAQ (KD 25–30) | 2,400 | 25 | $7.12 | 0.04 | Info |  | H2 |
+| `construction equipment financing` | Support – H2/FAQ (KD 25–30) | 1,300 | 26 | $18.51 | 0.33 | Info |  | H2 — fits our construction audience |
+
+**Tool must include:**
+- Amount, rate, term, down payment, balloon → payment + schedule
+- Lease vs buy: lease payment + residual vs loan + resale
+- MCA mode: advance, factor rate, daily/weekly remittance → effective APR
+- Line of credit: draw, rate → interest-only and repayment payment
+
+**Note:** Merge with Commercial Mortgage (#10) only if the SERP shows the same sites ranking for both.
+
+### 15. Invoice Generator (Hourly & Freelance)
 
 - **URL:** `/invoice-generator/`
 - **SEO title (52 chars, 64 with “ | KKC Tools”):** Free Invoice Generator – Hourly & Freelance Invoices
@@ -758,7 +740,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `hourly invoice template` — US 1,600 · KD 26 · CPC $4.28 · ad comp 0.95
 - **Export seed:** #1 freelance hourly rate (related)
 - **Cluster:** 16 keywords · 3,540 US searches · 960 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** 🟡 possible — Avg AS 56. Invoice Simple 48, eForms 62, Portant 38, QuickBooks freelance template 86, Vertex42 hours-and-rate 62, Adobe Express general templates 100, InvoiceMaker 29, Harvest glossary 54, FreshBooks 52, InvoiceQuick general 31. **Verdict:** Relevance check: QuickBooks (freelance, not hourly), Adobe (general templates), Harvest (glossary) and InvoiceQuick (general) only partly match: with Portant 38 and InvoiceMaker 29 that is 6 open slots, against 2 strong relevant pages (eForms, Vertex42). Searchers expect a downloadable / printable template, so the page must offer print-to-PDF and CSV like our live estimate template.
 
 **Why this tool:** The volume is modest (**about 3,700**), but ad competition is **0.9–1.0** with CPC $4–17: very high commercial value. It is a sibling of the live Construction Estimate Template (same print-to-PDF pattern).
 
@@ -789,92 +771,9 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** Zero network is a selling point (“your client data never leaves your browser”). Reuse the Construction Estimate Template code.
 
-### 17. Card Processing Fee Calculator (Square / PayPal)
+## Tier 3 — weak domains but YMYL
 
-- **URL:** `/processing-fee-calculator/`
-- **SEO title (48 chars, 60 with “ | KKC Tools”):** Processing Fee Calculator – Square & PayPal Fees
-- **H1:** Card Processing Fee Calculator: Square, PayPal and Stripe Fees
-- **Meta description (143 chars):** Free card processing fee calculator. See what Square, PayPal or Stripe take from a sale, what you receive, and what to charge to cover the fee.
-- **Primary keyword:** `square reader fees` — US 2,400 · KD 12 · CPC $4.40 · ad comp 0.36
-- **Export seed:** #4 / #5 (related)
-- **Cluster:** 8 keywords · 16,470 US searches · 6,400 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **17,000 searches at KD 9–26**. “What do I receive / what should I charge to cover fees” is a pure calculator need.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`square reader fees`** | **Primary** | 2,400 | 12 | $4.40 | 0.36 | Info |  |  |
-| `square pos pricing` | Secondary – easy (KD ≤15) | 2,400 | 9 | $9.55 | 0.88 | Nav | ⚠ declining | ⚠ hardware/plan pricing intent |
-| `square credit card processing fees` | Secondary – easy (KD ≤15) | 1,600 | 10 | $7.78 | 0.26 | Info |  |  |
-| `fees for the square` | Secondary – medium (KD 16–24) | 4,400 | 20 | $4.40 | 0.36 | Info |  | ⚠ odd phrasing (Semrush grouping) |
-| `calculadora paypal` | Secondary – medium (KD 16–24) | 3,600 | 19 | $0.00 | 0.33 | Comm |  | 🌍 Spanish — PayPal fee calculator |
-| `square cc fee` | Secondary – medium (KD 16–24) | 590 | 24 | $5.18 | 0.44 | Info |  |  |
-| `square fee calculator` | Support – H2/FAQ (KD 25–30) | 1,000 | 25 | $3.68 | 0.04 | Info | ↑ rising |  |
-| `square fee per transaction` | Support – H2/FAQ (KD 25–30) | 480 | 26 | $4.29 | 0.35 | Info |  |  |
-
-**Tool must include:**
-- Processor presets with **published rates + “checked on <date>” + source link**, all editable
-- Amount → fee, net received; reverse: net wanted → amount to charge
-- In-person / online / keyed-in / invoice rates; monthly volume summary
-
-**Note:** Fees change: plan a quarterly check (`TODO(owner)`). Brand names are used descriptively only; do not imply affiliation. The English `paypal fee calculator` term is not in the exports, so pull it.
-
-### 18. Labor Cost Calculator (Construction & Business)
-
-- **URL:** `/labor-cost-calculator/`
-- **SEO title (50 chars, 62 with “ | KKC Tools”):** Labor Cost Calculator – Burdened Hourly Labor Rate
-- **H1:** Labor Cost Calculator: True Hourly Cost of a Worker or Crew
-- **Meta description (152 chars):** Free labor cost calculator. Add wages, payroll taxes, insurance and benefits to get the burdened hourly cost of a worker or crew, and the price per job.
-- **Primary keyword:** `labor cost` — US 1,900 · KD 14 · CPC $6.43 · ad comp 0.33
-- **Export seed:** #2 (related)
-- **Cluster:** 2 keywords · 2,900 US searches · 2,900 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** Small (**2,900**) but both rows are rising, and it fits the existing construction audience exactly (links to Construction Estimate Template and every material calculator).
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`labor cost`** | **Primary** | 1,900 | 14 | $6.43 | 0.33 | Info | ↑ rising | broad term — H1 + definition |
-| `how to estimate labor costs for construction` | Secondary – easy (KD ≤15) | 1,000 | 5 | $0.00 | 0.00 | Info | ↑ rising | FAQ / H2 |
-
-**Tool must include:**
-- Wage + payroll tax % + workers’ comp % + benefits → burdened hourly rate
-- Crew builder (several roles), job hours → labor cost; overhead % and profit % → bid price
-- Productive vs paid hours
-
-**Note:** Pull `labor cost calculator` and `labor burden calculator` data. They are not in these exports.
-
-### 19. Net Worth Calculator
-
-- **URL:** `/net-worth-calculator/`
-- **SEO title (47 chars, 59 with “ | KKC Tools”):** Net Worth Calculator – Assets Minus Liabilities
-- **H1:** Net Worth Calculator: Add Up Assets and Debts
-- **Meta description (150 chars):** Free net worth calculator. List what you own and what you owe, see your net worth, debt-to-asset ratio and a printable statement, all in your browser.
-- **Primary keyword:** `calculate net worth` — US 2,900 · KD 9 · CPC $0.43 · ad comp 0.08
-- **Export seed:** #5 business valuation (related)
-- **Cluster:** 6 keywords · 21,520 US searches · 21,520 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **21,000 searches at KD 6–15** (`what is net worth` 12,100). A simple formula with no data to maintain; a personal net worth statement is also what banks ask small-business owners for.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`calculate net worth`** | **Primary** | 2,900 | 9 | $0.43 | 0.08 | Info |  |  |
-| `what is net worth` | Secondary – easy (KD ≤15) | 12,100 | 15 | $0.18 | 0.02 | Info |  | H2 (biggest row) |
-| `net worth meaning` | Secondary – easy (KD ≤15) | 5,400 | 7 | $0.18 | 0.02 | Info |  | FAQ / H2 |
-| `how do i figure out my net worth` | Secondary – easy (KD ≤15) | 480 | 7 | $0.26 | 0.26 | Info |  | FAQ / H2 |
-| `define networth` | Secondary – easy (KD ≤15) | 320 | 6 | $0.18 | 0.02 | Info | ⚠ irregular | FAQ |
-| `net worth itu apa` | Secondary – easy (KD ≤15) | 320 | 10 | $0.00 | 0.33 | Info | ⚠ declining | 🌍 Indonesian — skip in copy |
-
-**Tool must include:**
-- Assets (cash, investments, retirement, property, vehicles, business equity) − liabilities (mortgage, loans, cards)
-- Personal financial statement layout (SBA-style) to print
-- Ratios: debt-to-asset, liquid net worth
-
-**Note:** The head term is informational (“what is net worth”), so the article must answer it in the first paragraph. Celebrity “net worth” searches are dropped.
-
-### 20. Retirement Drawdown – “How Long Will My Money Last?” Calculator
+### 16. Retirement Drawdown – “How Long Will My Money Last?” Calculator
 
 - **URL:** `/how-long-will-my-money-last/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** How Long Will My Money Last? Retirement Calculator
@@ -883,7 +782,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `how long will my money last` — US 12,100 · KD 0 · CPC $1.20 · ad comp 0.09
 - **Export seed:** #4 (related)
 - **Cluster:** 15 keywords · 46,090 US searches · 24,190 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** 🟡 YMYL — Avg AS 43. No giants: CalcXML 39, Mutual of Omaha 55, credit unions and banks AS 30–63 (UMCU, SYB, Pittsford FCU, TowneBank, Fidelity Bank, Regions, Sentry, USAA EF). **Verdict:** Weak domains but every result is a bank or insurer (trust signal) and the topic is retirement (YMYL). KD 0, 12.1K + 6.6K calculator variant. Build only with cited assumptions and a reviewer.
 
 **Why this tool:** **12,100 + 6,600 searches at KD 0**, about 46,000 in all, one formula (annuity drawdown with inflation).
 
@@ -912,141 +811,39 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** **YMYL (retirement money).** Google wants expert sources here: cite the formula, show assumptions, add a clear “not financial advice” note. Expect Schwab / Vanguard / Bankrate in the SERP. Tier 2 only because of YMYL; keyword data alone says Tier 1.
 
-### 21. Compound Interest Calculator
+### 17. SBA Loan Calculator (7(a) & 504)
 
-- **URL:** `/compound-interest-calculator/`
-- **SEO title (53 chars, 65 with “ | KKC Tools”):** Compound Interest Calculator – Daily, Monthly, Yearly
-- **H1:** Compound Interest Calculator: Daily, Monthly and Yearly Compounding
-- **Meta description (156 chars):** Free compound interest calculator. Enter a deposit, monthly additions, rate and years, and compare daily, monthly or yearly compounding with a growth table.
-- **Primary keyword:** `compound calculator` — US 18,100 · KD 7 · CPC $0.37 · ad comp 0.09
-- **Export seed:** #4 (related)
-- **Cluster:** 14 keywords · 83,600 US searches · 56,300 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **URL:** `/sba-loan-calculator/`
+- **SEO title (48 chars, 60 with “ | KKC Tools”):** SBA Loan Calculator – 7(a) and 504 Loan Payments
+- **H1:** SBA Loan Calculator: 7(a) and 504 Payments, Fees and Down Payment
+- **Meta description (146 chars):** Free SBA loan calculator for 7(a) and 504 loans. See the monthly payment, the 504 bank / CDC / equity split, the guarantee fee and total interest.
+- **Primary keyword:** `sba 504 loan` — US 4,400 · KD 5 · CPC $7.65 · ad comp 0.51
+- **Export seed:** #4 commercial lease (related)
+- **Cluster:** 9 keywords · 15,860 US searches · 12,160 on KD ≤ 15
+- **SERP (Semrush, 2026-11-16):** 🟡 YMYL — Avg AS 57. sba.gov 69 (×2), Wells Fargo 80, Wikipedia 100, Investopedia 91, then Texas First Bank 35, Live Oak 43, AMPAC 26, evergreen504 calculator 29 (#7), NADCO 32. **Verdict:** Relevance check: 5 relevant pages are AS 26–43 and a small calculator (evergreen504, AS 29) already ranks #7, so a guide + calculator page can reach positions 4–10. YMYL and rates change, so build only with dated rates and a reviewer.
 
-**Why this tool:** The largest finance cluster in the batch: **about 100,000 searches**, heads at KD 0–10.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`compound calculator`** | **Primary** | 18,100 | 7 | $0.37 | 0.09 | Comm |  |  |
-| `figure compound interest calculator` | Secondary – easy (KD ≤15) | 14,800 | 0 | $0.41 | 0.04 | Info | ⚠ irregular | ⚠ irregular trend |
-| `compounding calculator` | Secondary – easy (KD ≤15) | 9,900 | 10 | $0.37 | 0.09 | Info |  |  |
-| `compound growth calculator` | Secondary – easy (KD ≤15) | 6,600 | 4 | $0.40 | 0.12 | Info |  |  |
-| `compound interest vs simple interest` | Secondary – easy (KD ≤15) | 2,400 | 14 | $0.92 | 0.01 | Comm | ⚠ declining | FAQ / H2 |
-| `compound intrest` | Secondary – easy (KD ≤15) | 1,900 | 13 | $1.18 | 0.05 | Info | ⚠ declining | misspelling |
-| `compound daily calculator` | Secondary – easy (KD ≤15) | 1,600 | 3 | $1.86 | 0.03 | Info |  |  |
-| `calculate interest compounded monthly` | Secondary – easy (KD ≤15) | 1,000 | 7 | $0.42 | 0.16 | Info |  |  |
-| `compound interest calculator for daily` | Secondary – medium (KD 16–24) | 8,100 | 23 | $1.86 | 0.03 | Info |  |  |
-| `compund` | Secondary – medium (KD 16–24) | 3,600 | 21 | $2.05 | 0.11 | Info |  | misspelling |
-| `compounded continuously` | Secondary – medium (KD 16–24) | 2,400 | 22 | $0.00 | 0.33 | Info | ⚠ declining | mode: continuous (e^rt) |
-| `compund interest calculator` | Support – H2/FAQ (KD 25–30) | 4,400 | 29 | $0.41 | 0.04 | Comm |  | misspelling — do not use in copy |
-| `simple interest vs compound interest` | Support – H2/FAQ (KD 25–30) | 4,400 | 28 | $0.92 | 0.01 | Comm |  | FAQ / H2 |
-| `future value calc` | Support – H2/FAQ (KD 25–30) | 4,400 | 29 | $0.00 | 0.33 | Info | ⚠ declining |  |
-
-**Tool must include:**
-- Principal, contributions (start / end of period), rate, years, compounding (daily / monthly / quarterly / yearly / continuous)
-- Growth table and chart; simple vs compound comparison
-- Goal mode: monthly saving needed to reach a target
-
-**Note:** The real head `compound interest calculator` is not in the exports (KD > 30). Investor.gov, NerdWallet and Calculator.net own it. Build after the business tools have earned some links.
-
-## Tier 3 — later
-
-### 22. Contribution Margin & Break-Even Calculator
-
-- **URL:** `/contribution-margin-calculator/`
-- **SEO title (51 chars, 63 with “ | KKC Tools”):** Contribution Margin Calculator – Ratio & Break-Even
-- **H1:** Contribution Margin Calculator: Ratio and Break-Even Point
-- **Meta description (152 chars):** Free contribution margin calculator. Enter price, variable cost and fixed costs to get contribution margin per unit, the ratio and the break-even point.
-- **Primary keyword:** `contribution margin and contribution margin ratio` — US 2,400 · KD 4 · CPC $0.00 · ad comp 0.33
-- **Export seed:** #2 (related)
-- **Cluster:** 4 keywords · 7,500 US searches · 3,700 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **7,500 searches at KD 4–22**. Students and owners both; a natural extension of Profit Margin (#3).
+**Why this tool:** About **15,000 searches, mostly KD 3–11**, and nobody has a simple calculator that shows the 504 split (bank / CDC / borrower) next to a 7(a) payment.
 
 | Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
 |---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`contribution margin and contribution margin ratio`** | **Primary** | 2,400 | 4 | $0.00 | 0.33 | Info | ⚠ declining |  |
-| `define contribution margin` | Secondary – easy (KD ≤15) | 1,300 | 6 | $0.14 | 0.03 | Info | ⚠ declining | FAQ / H2 |
-| `contribution margin equation` | Secondary – medium (KD 16–24) | 1,900 | 17 | $0.25 | 0.02 | Info | ⚠ declining | FAQ / H2 |
-| `contribution margin ratio formula` | Secondary – medium (KD 16–24) | 1,900 | 22 | $0.00 | 0.33 | Info | ⚠ declining | FAQ / H2 |
+| **`sba 504 loan`** | **Primary** | 4,400 | 5 | $7.65 | 0.51 | Info |  |  |
+| `sba 504 loans` | Secondary – easy (KD ≤15) | 2,400 | 7 | $7.65 | 0.51 | Info |  |  |
+| `7a sba loan` | Secondary – easy (KD ≤15) | 1,300 | 3 | $6.34 | 0.60 | Info |  |  |
+| `sba certified lender` | Secondary – easy (KD ≤15) | 1,300 | 7 | $12.29 | 0.10 | Info | ⚠ declining | ⚠ service/lender search — FAQ only |
+| `sba loan 7a` | Secondary – easy (KD ≤15) | 1,000 | 11 | $7.89 | 0.26 | Info |  |  |
+| `7 a loans` | Secondary – easy (KD ≤15) | 880 | 6 | $7.16 | 0.58 | Info | ⚠ declining |  |
+| `sba 504 financing` | Secondary – easy (KD ≤15) | 880 | 6 | $7.65 | 0.51 | Info |  |  |
+| `what is a sba loan` | Secondary – medium (KD 16–24) | 2,400 | 17 | $3.38 | 0.32 | Info | ↑ rising | FAQ / H2 |
+| `sba 504 rates` | Support – H2/FAQ (KD 25–30) | 1,300 | 29 | $4.70 | 0.31 | Info |  | ⚠ rates change monthly — user input only |
 
 **Tool must include:**
-- Price, variable cost per unit, fixed costs → CM per unit, CM ratio, break-even units and sales $
-- Target profit → units needed; multi-product (sales mix)
+- 7(a): amount, rate, term (10 / 25 yr) → payment; guarantee fee input
+- 504: project cost → bank (≈50%) / CDC (≈40%) / equity (≈10%) split, each with its own rate and term
+- Compare 7(a) vs 504 for the same project
 
-**Note:** All four rows are declining. `break even calculator` is not in the exports, so pull it: if it is large, this page becomes a Break-Even Calculator with CM as a section.
+**Note:** SBA fee tables and splits must be cited from SBA.gov with a date. `TODO(owner)`: confirm the current fiscal-year fees before publishing. Informational intent is high, so the article matters as much as the tool.
 
-### 23. HELOC & Home Equity Calculator
-
-- **URL:** `/heloc-calculator/`
-- **SEO title (44 chars, 56 with “ | KKC Tools”):** HELOC Calculator – Home Equity Line Payments
-- **H1:** HELOC Calculator: Available Equity and Monthly Payments
-- **Meta description (146 chars):** Free HELOC calculator. See how much home equity you can borrow at a given loan-to-value, and the interest-only and repayment payments on the line.
-- **Primary keyword:** `heloc calculator` — US 40,500 · KD 10 · CPC $4.41 · ad comp 0.69
-- **Export seed:** #4 (related)
-- **Cluster:** 5 keywords · 58,280 US searches · 58,280 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** **40,500 at KD 10**, a huge head. It fits the remodel angle (fund a deck, roof or bathroom), so it links to the cost calculators.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`heloc calculator`** | **Primary** | 40,500 | 10 | $4.41 | 0.69 | Info |  |  |
-| `heloc loan calculator` | Secondary – easy (KD ≤15) | 12,100 | 9 | $4.56 | 0.64 | Info |  |  |
-| `estimate home equity payment` | Secondary – easy (KD ≤15) | 2,400 | 9 | $4.56 | 0.64 | Info | ⚠ irregular | ⚠ irregular trend |
-| `how much equity do i have in my home` | Secondary – easy (KD ≤15) | 2,400 | 5 | $4.88 | 0.72 | Info | ↑ rising | FAQ / H2 |
-| `heloc amortization calculator` | Secondary – easy (KD ≤15) | 880 | 7 | $2.62 | 0.41 | Info |  |  |
-
-**Tool must include:**
-- Home value, mortgage balance, max CLTV % → available line
-- Draw period interest-only payment, repayment-period payment, schedule
-
-**Note:** Ad competition 0.69 and CPC $4.41: banks and Bankrate / NerdWallet dominate. YMYL. Build late, after the site has links.
-
-### 24. Credit Card Payoff & APR Calculator
-
-- **URL:** `/credit-card-payoff-calculator/`
-- **SEO title (44 chars, 56 with “ | KKC Tools”):** Credit Card Payoff Calculator – APR & Months
-- **H1:** Credit Card Payoff Calculator: Months to Pay Off and Interest Paid
-- **Meta description (154 chars):** Free credit card payoff calculator. Enter balance, APR and payment to see how many months it takes, total interest and the payment to be debt-free sooner.
-- **Primary keyword:** `credit card apr calculator` — US 3,600 · KD 8 · CPC $3.00 · ad comp 0.08
-- **Export seed:** #4 (related)
-- **Cluster:** 19 keywords · 86,640 US searches · 11,640 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **100,000 searches** including `what is apr` (49,500). The payoff tool rows are KD 5–27.
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`credit card apr calculator`** | **Primary** | 3,600 | 8 | $3.00 | 0.08 | Info |  |  |
-| `estimate minimum payment credit card` | Secondary – easy (KD ≤15) | 2,400 | 5 | $3.76 | 0.03 | Info |  |  |
-| `calculator apr credit card` | Secondary – easy (KD ≤15) | 1,600 | 6 | $2.62 | 0.05 | Info | ⚠ irregular |  |
-| `whats an apr` | Secondary – easy (KD ≤15) | 1,600 | 11 | $5.53 | 0.06 | Info |  | FAQ / H2 |
-| `what's apr` | Secondary – easy (KD ≤15) | 1,000 | 13 | $5.53 | 0.06 | Info |  | FAQ / H2 |
-| `credit card payment calculator payoff` | Secondary – easy (KD ≤15) | 720 | 12 | $2.98 | 0.24 | Comm |  |  |
-| `annual percentage rates` | Secondary – easy (KD ≤15) | 720 | 10 | $0.00 | 0.01 | Info | ⚠ declining |  |
-| `what is apr` | Secondary – medium (KD 16–24) | 49,500 | 22 | $4.97 | 0.07 | Info |  | H2 (49,500 — informational) |
-| `annual apr` | Secondary – medium (KD 16–24) | 6,600 | 17 | $1.82 | 0.08 | Info | ⚠ irregular | ⚠ irregular |
-| `credit card apr` | Secondary – medium (KD 16–24) | 4,400 | 20 | $4.53 | 0.28 | Info |  |  |
-| `minimum payment calculator` | Secondary – medium (KD 16–24) | 2,900 | 23 | $4.40 | 0.05 | Info |  |  |
-| `how long to pay off credit card` | Secondary – medium (KD 16–24) | 1,900 | 24 | $0.86 | 0.21 | Info |  | FAQ / H2 |
-| `how does apr work on a credit card` | Secondary – medium (KD 16–24) | 1,900 | 18 | $1.62 | 0.31 | Info |  | FAQ / H2 |
-| `pay off credit card calculator` | Secondary – medium (KD 16–24) | 1,300 | 19 | $1.92 | 0.29 | Comm |  |  |
-| `figuring apr loan` | Secondary – medium (KD 16–24) | 1,300 | 23 | $2.03 | 0.26 | Info |  |  |
-| `apy to apr calculator` | Secondary – medium (KD 16–24) | 1,000 | 24 | $5.11 | 0.02 | Comm | ⚠ declining |  |
-| `credit card payoff estimator` | Support – H2/FAQ (KD 25–30) | 1,600 | 26 | $2.98 | 0.24 | Comm | ⚠ declining |  |
-| `cc payoff calculator` | Support – H2/FAQ (KD 25–30) | 1,300 | 26 | $2.98 | 0.24 | Comm | ⚠ declining |  |
-| `pay off credit card debt calculator` | Support – H2/FAQ (KD 25–30) | 1,300 | 27 | $2.35 | 0.37 | Comm |  |  |
-
-**Tool must include:**
-- Balance, APR, payment → months and interest; payment for N months
-- Minimum-payment trap view
-- APY ↔ APR converter
-
-**Note:** Consumer debt = YMYL; NerdWallet, Bankrate and card issuers own this SERP. Tier 3.
-
-### 25. Self-Employment (1099) Tax Calculator
+### 18. Self-Employment (1099) Tax Calculator
 
 - **URL:** `/self-employment-tax-calculator/`
 - **SEO title (41 chars, 53 with “ | KKC Tools”):** 1099 Tax Calculator – Self-Employment Tax
@@ -1055,9 +852,9 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 - **Primary keyword:** `1099 tax calculator` — US 9,900 · KD 6 · CPC $0.70 · ad comp 0.11
 - **Export seed:** #3 (related)
 - **Cluster:** 7 keywords · 27,600 US searches · 23,200 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+- **SERP (Semrush, 2026-11-16):** 🟡 YMYL — Avg AS 51. IRS withholding estimator 92 (not a 1099 tool), ADP 81, Everlance 40, Keeper 40, Nationwide 68, Liberty Tax blog 49, Jackson Hewitt 57, Pilot 40, usetabby 25, sequifi 27. **Verdict:** Relevance check: the SERP itself is beatable (the IRS page is a W-4 withholding tool, Liberty Tax is an article, 5 relevant calculators are AS 25–40). It sits in Tier 3 only because tax rates change every year and it is YMYL: build only if the owner commits to yearly updates.
 
-**Why this tool:** `1099 tax calculator` is **9,900 at KD 6**; the cluster is about 30,000. It pairs with Freelance Rate (#15).
+**Why this tool:** `1099 tax calculator` is **9,900 at KD 6**; the cluster is about 30,000. It pairs with Freelance Rate (#8).
 
 | Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
 |---|---|---:|---:|---:|---:|:---:|:---:|---|
@@ -1076,72 +873,27 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 
 **Note:** **Needs a yearly update** (SS wage base, brackets) and is YMYL tax content. Build only if the owner commits to an annual review (`TODO(owner)`).
 
-### 26. Present Value / NPV Calculator
+---
 
-- **URL:** `/present-value-calculator/`
-- **SEO title (46 chars, 58 with “ | KKC Tools”):** Present Value Calculator – PV, NPV & Annuities
-- **H1:** Present Value Calculator: PV, NPV, Annuities and Effective Rate
-- **Meta description (158 chars):** Free present value calculator. Discount a future amount or a stream of payments, get NPV for a project, and convert nominal rates to an effective annual rate.
-- **Primary keyword:** `pv formula` — US 2,400 · KD 14 · CPC $0.00 · ad comp 0.33
-- **Export seed:** #2 / #3 (related)
-- **Cluster:** 9 keywords · 21,020 US searches · 4,420 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
+---
 
-**Why this tool:** About **20,000 searches**, mostly informational and student intent. A generated PV factor table is a strong content asset.
+---
 
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`pv formula`** | **Primary** | 2,400 | 14 | $0.00 | 0.33 | Info | ⚠ declining | FAQ / H2 |
-| `present value discount tables` | Secondary – easy (KD ≤15) | 1,300 | 9 | $0.00 | 0.33 | Info | ⚠ declining | same |
-| `pv of annuity` | Secondary – easy (KD ≤15) | 720 | 12 | $2.02 | 0.02 | Info | ⚠ declining |  |
-| `ear formula` | Secondary – medium (KD 16–24) | 3,600 | 20 | $0.00 | 0.33 | Info | ⚠ declining | FAQ / H2 |
-| `effective annual rate formula` | Secondary – medium (KD 16–24) | 2,900 | 20 | $0.00 | 0.33 | Info | ⚠ declining | FAQ / H2 |
-| `present value table` | Secondary – medium (KD 16–24) | 1,900 | 21 | $0.00 | 0.33 | Info | ⚠ declining | generate a PV factor table (engine) |
-| `pv table` | Secondary – medium (KD 16–24) | 1,900 | 23 | $0.00 | 0.33 | Info | ⚠ declining | same |
-| `wacc calculator` | Support – H2/FAQ (KD 25–30) | 4,400 | 29 | $2.90 | 0.01 | Info |  | ⚠ advanced — separate mode or skip |
-| `how to calculate npv` | Support – H2/FAQ (KD 25–30) | 1,900 | 29 | $1.22 | 0.01 | Info | ⚠ declining | FAQ / H2 |
+## 2b. Removed after the SERP check (strong top 10)
 
-**Tool must include:**
-- PV / FV of a lump sum, annuity (ordinary / due), NPV + IRR of cash flows
-- Nominal → EAR converter
-- Printable PV factor table
+Each of these was checked on a real Semrush SERP with the relevance-first test (Percentage Change, Investment Return and the seven Semrush rows below). Their top 10 is held by strong, on-topic pages with few open slots, so a DA 1 site has little chance even with some links. Their keywords are no longer planned; revisit only after the site has authority.
 
-**Note:** Every row is declining (AI answers take these). Low priority.
-
-### 27. Investment Return Calculator (S&P 500, T-Bills, Money Market)
-
-- **URL:** `/investment-return-calculator/`
-- **SEO title (48 chars, 60 with “ | KKC Tools”):** Investment Calculator – S&P 500 & T-Bill Returns
-- **H1:** Investment Return Calculator: S&P 500, T-Bills and Savings
-- **Meta description (154 chars):** Free investment return calculator. Project growth for stocks, T-bills or a money market account from a deposit, monthly additions and a return you choose.
-- **Primary keyword:** `s and p 500 calculator` — US 4,400 · KD 17 · CPC $1.34 · ad comp 0.08
-- **Export seed:** #4 (related)
-- **Cluster:** 12 keywords · 67,980 US searches · 5,880 on KD ≤ 15
-- **SERP:** ⏳ not pulled yet — see Section 6
-
-**Why this tool:** About **70,000 searches**, but most volume sits on `investing calculator` (KD 28).
-
-| Keyword | Role | US Vol | KD | CPC | Ad comp | Intent | Trend | Note |
-|---|---|---:|---:|---:|---:|:---:|:---:|---|
-| **`s and p 500 calculator`** | **Primary** | 4,400 | 17 | $1.34 | 0.08 | Info |  |  |
-| `calculate interest` | Secondary – easy (KD ≤15) | 2,400 | 9 | $2.06 | 0.06 | Info | ↑ rising |  |
-| `money market interest calculator` | Secondary – easy (KD ≤15) | 1,000 | 14 | $1.73 | 0.19 | Info | ↑ rising |  |
-| `investment calculator s&p 500` | Secondary – easy (KD ≤15) | 880 | 10 | $1.62 | 0.05 | Info | ↑ rising |  |
-| `investment calculator gov` | Secondary – easy (KD ≤15) | 880 | 9 | $1.99 | 0.04 | Info | ⚠ declining | ⚠ wants investor.gov |
-| `calculate money market interest` | Secondary – easy (KD ≤15) | 720 | 12 | $1.68 | 0.19 | Info | ↑ rising |  |
-| `money market account calculator` | Secondary – medium (KD 16–24) | 2,400 | 22 | $1.95 | 0.16 | Info | ↑ rising |  |
-| `voo calculator` | Secondary – medium (KD 16–24) | 1,900 | 18 | $1.89 | 0.02 | Comm |  | ⚠ fund ticker (brand) |
-| `t bill calculator` | Secondary – medium (KD 16–24) | 1,300 | 23 | $1.56 | 0.11 | Comm |  |  |
-| `treasury bill calculator` | Secondary – medium (KD 16–24) | 1,300 | 16 | $1.56 | 0.11 | Info | ↑ rising |  |
-| `investing calculator` | Support – H2/FAQ (KD 25–30) | 49,500 | 28 | $0.49 | 0.05 | Comm | ↑ rising | 49,500 / KD 28 — giants |
-| `how do i calculate interest on savings account` | Support – H2/FAQ (KD 25–30) | 1,300 | 25 | $1.76 | 0.13 | Info |  | FAQ / H2 |
-
-**Tool must include:**
-- Generic growth (user return)
-- Historical S&P 500 mode only with a cited, dated annual-returns table
-- T-bill: discount price → yield
-
-**Note:** Historical returns would need a static dataset with a source (no network). YMYL. Tier 3.
+| Tool (old #) | Primary keyword | US Vol | KD | Who holds the top 10 | Why removed |
+|---|---|---:|---:|---|---|
+| Investment Return Calculator (S&P 500, T-Bills, Money Market) (Semrush check) | `s and p 500 calculator` | 4,400 | 17 | KD 62, avg AS 58. Calculator.net 90, investor.gov 70, NerdWallet 80, iShares 61, Ameriprise 52, Fidelity, Ramsey 64, banks. | Relevance check: all 10 are relevant calculators and 5 of them are AS 61–90; only 2 weak relevant pages. KD 62 and YMYL. (`s and p 500 calculator` was not exported; revisit only with its own SERP.) |
+| Percentage Change Calculator (Increase / Decrease / Difference) (#1) | `percentage increase calculator` | 74,000 | 2 | Semrush SERP: CalculatorSoup (AS 80), Omni (84), Britannica (100), Canva (100), percentageincreasecalculator.app (31), percentagecalculator.net (67), YouTube ×2, Pearson (77), Calculator.net (90). AI Overview. | 9 of 10 results are AS 67–100 and exactly on topic; only one weak slot. KD 2 is misleading. Keep the long tail (Excel / “how to calculate”) as a later idea. |
+| Hourly to Salary (Wage) Calculator (#4) | `wage calculator` (Semrush) | 18,100 | 15 | ADP 81 (×2), Calculator.net 90, SmartAsset 67, PaycheckCity 50, SurePayroll 45, Gusto 60, esmartpaycheck 30, Ordio 41, YouTube. | Google reads this as a take-home paycheck query: 5 strong relevant tools, only 3 open slots (YouTube + 2 weak), and it needs federal and state tax tables every year. |
+| Card Processing Fee Calculator (Square / PayPal) (#17) | `square reader fees` (Semrush) | 2,400 | 12 | Square 76 (×4 URLs), NerdWallet 80, Reddit, Jotform 75, Bluevine 47, SwipeSum 35, ebayfeescalculator 41. | Square’s own pages hold four slots and the fees change often: only 3 open slots (Reddit + 2 weak). |
+| Net Worth Calculator (#19) | `net worth calculator` (Semrush) | 14,800 | 51 | Ramsey 64, NerdWallet 80, Paducah Bank 30, Ameriprise 52, KEMBA 42, AARP 80, SEBI 67, Empower 59, a percentile tool 27, an unrelated diabetes calculator. | KD 51, 4 strong relevant tools; only 4 open slots (one off-topic, one different tool, two weak). |
+| Compound Interest Calculator (#21) | `compound calculator` (Semrush) | 18,100 | 7 | investor.gov 70, NerdWallet 80, MCNB 42, Lake City Bank 40, Bankrate 78, Landmark CU 45, MoneyChimp 47, MDM 45, TheCalculatorSite 78, an off-topic Treasury page. | 4 strong relevant tools and only 3 open slots. |
+| HELOC & Home Equity Calculator (#23) | `heloc calculator` (Semrush) | 40,500 | 10 | Bank of America 85, Calculator.net 90, myfsbonline 38, Bankrate 78, Chase 85, Truist article 68, UNFCU 44, U.S. Bank 76, Flagstar 52 (×2). | 5 strong relevant tools from big banks and publishers; 4 open slots; YMYL. |
+| Credit Card Payoff & APR Calculator (#24) | `credit card apr calculator` (Semrush) | 3,600 | 8 | Discover 71, NerdWallet 80, Calculator.net 90, Bankrate 78, mycentral 35, Ameriprise 52, Chase 85, SoFi 73, Lloyds 70, Credit Karma 68. | Card issuers and big publishers hold 9 of 10 slots with interest or payoff calculators; YMYL. |
+| Present Value / NPV Calculator (#26) | `present value calculator` (Semrush) | 8,100 | 50 | Calculator.net 90, Stanford 84, MoneyChimp 47, Investopedia 91, SEBI 67, fncalculator 38, Fiserv 49, Omni 84, Financial Mentor 39, CalculatorSoup 80. | KD 50, 5 strong relevant tools, only 3 open slots. |
 
 ---
 
@@ -1152,7 +904,7 @@ Asphalt · Band Name Generator · Brick · Cinder Block · Compost · Concrete �
 | State paycheck & salary calculators | 125 | 626,140 | `texas paycheck calculator` 40,500/24, `salary calculator arkansas` 33,100/20, `florida paycheck calculator` 22,200/19, `pay stub calculator ny` 22,200/29, `illinois paycheck calculator` 18,100/20 | Biggest volume in the batch, but it needs federal + 50 state tax tables updated every year, is YMYL, and SmartAsset / ADP / PaycheckCity own every SERP. Revisit only with an owner commitment to annual tax-table updates. |
 | Federal & state income tax / brackets / IRS | 55 | 326,910 | `federal income tax` 27,100/15, `tax calculator tax calculator tax calculator` 27,100/23, `tax estimator 2025` 18,100/4, `irs fresh start program` 18,100/29, `us tax brackets` 14,800/15 | YMYL tax content with yearly changes; IRS, TurboTax, NerdWallet and H&R Block dominate. Sales-tax-by-city queries need local rate tables. |
 | Retirement plan calculators (401k / 403b / 457 / TSP / pension / IRA) | 27 | 82,480 | `tsp calculator` 8,100/22, `bankrate 401k calculator` 8,100/28, `pension calculator` 6,600/7, `share incentive plan calculator` 6,600/10, `federal retirement calculator` 4,400/20 | Plan-specific rules and contribution limits change yearly; YMYL; Vanguard, Fidelity and Bankrate brand searches mixed in. |
-| Mortgage / refinance / amortization (consumer) | 7 | 18,800 | `refi calculator` 5,400/9, `loan refinance calculator` 3,600/7, `amortization schedule excel` 2,400/23, `amortization table excel` 2,400/27, `home loan refinance rates calculator` 2,400/28 | Consumer mortgage SERPs are owned by Bankrate, NerdWallet, Zillow and lenders. The commercial version is Tool #8. |
+| Mortgage / refinance / amortization (consumer) | 7 | 18,800 | `refi calculator` 5,400/9, `loan refinance calculator` 3,600/7, `amortization schedule excel` 2,400/23, `amortization table excel` 2,400/27, `home loan refinance rates calculator` 2,400/28 | Consumer mortgage SERPs are owned by Bankrate, NerdWallet, Zillow and lenders. The commercial version (old Tool #8) was also removed after the SERP check. |
 
 ---
 
@@ -1204,7 +956,7 @@ Not business tools, but they turned up with low KD. Keep them for a future “ma
 |---|---:|---:|:---:|---|
 | `proportion calculator` | 1,220,000 | 26 | ⚠ irregular | ⚠ 1.22M with 6 zero months — Semrush data error |
 | `average computation` | 22,200 | 3 | ⚠ irregular | ⚠ irregular — unreliable |
-| `percent error calculator` | 5,400 | 11 | ⚠ irregular | science; mode on Percentage page (#1) |
+| `percent error calculator` | 5,400 | 11 | ⚠ irregular | science; Percentage Change tool removed after the SERP check (strong top 10) |
 | `proportions calculator` | 5,400 | 24 | ↑ rising | maths |
 | `iqr calculator` | 2,400 | 0 |  | stats tool, KD 0 — good low-effort page if you add a maths section |
 | `golden ratio calculator` | 2,400 | 21 |  | design/maths |
@@ -1240,15 +992,15 @@ Not business tools, but they turned up with low KD. Keep them for a future “ma
 | Definitions with no tool (market cap, residual, ROU asset, ASC 842) | 8 | 19,520 | `market cap definition` 4,400, `ltc meaning` 4,400, `what does market cap mean` 3,600, `how to calculate residual` 1,900 | Pure definitions; no calculation the visitor needs. |
 | Everything else (off-topic, misc.) | 19 | 25,550 | `nerd wallet investment calculator` 2,900, `figuring out average percentages` 2,400, `how to calculate average from percentage` 2,400, `between which two years was the greatest percentage decrease` 2,400, `how to do proportions` 1,900, `lease extension premium 61 years uk calculator example` 1,600, `list your business` 1,600, `vat calculator` 1,300 | Unrelated or no tool intent. |
 
-**Every keyword is accounted for:** New tools (Section 1–2): 480 · On hold (Section 3): 214 · Live pages + other ideas (Section 4): 27 · Dropped (Section 5): 465 · **Total: 1,186 of 1,186 unique keywords.**
+**Every keyword is accounted for:** New tools kept after SERP check (Section 1–2): 371 · Removed after SERP check (Section 2b): 109 · On hold (Section 3): 214 · Live pages + other ideas (Section 4): 27 · Dropped (Section 5): 465 · **Total: 1,186 of 1,186 unique keywords.**
 
 ---
 
 ## 6. Next steps
 
-1. **Pull SERPs (top 10, Domain AS) for the Tier 1 primaries first:** `percentage increase calculator`, `markup calculator`, `gross margin calculator`, `wage calculator`, `unit price calculator`, `cap rate calculator`, `cash on cash return`, `commercial mortgage calculator`. Then the Tier 2 primaries. Same format as the Batch 2 “New SERP Data Report”, so the tiers can be confirmed or moved.
-2. **Pull keyword data the exports could not show (KD > 30 or exact seeds):** `freelance hourly rate calculator`, `product markup calculator`, `margin calculator`, `profit margin calculator`, `late payment interest calculator`, `rental yield calculator`, `business valuation calculator`, `discount calculator`, `percent off calculator`, `break even calculator`, `paypal fee calculator`, `labor cost calculator`, `compound interest calculator`, `salary to hourly calculator`.
-3. **Build order (if the SERPs agree):** #2 Markup + #3 Profit Margin together (shared engine, cross-linked) → #5 Unit Price (one-day build) → #1 Percentage Change → #6 Cap Rate + #7 Rental Property (shared NOI engine) → #8 Commercial Mortgage → #4 Hourly to Salary.
-4. **Internal-link hubs:** Pricing (Markup ↔ Profit Margin ↔ Discount ↔ Percentage Change ↔ Unit Price ↔ Contribution Margin) · Real estate (Cap Rate ↔ Rental Property ↔ Airbnb ↔ Commercial Lease ↔ Commercial Mortgage) · Freelance (Freelance Rate ↔ Invoice Generator ↔ Hourly to Salary ↔ 1099 Tax) · Business finance (SBA ↔ Equipment Loan ↔ Business Valuation ↔ Net Worth) · Construction bridge (Labor Cost ↔ Construction Estimate Template ↔ Equipment Loan).
-5. **Trust work before any YMYL page** (#8, #12, #13, #21, #22 and Tier 3): an About page that names who checks the maths, cited formulas, dated sources and a “not financial advice” note. `TODO(owner)`: decide who is named as reviewer, if anyone.
+1. **Build order (Tier 1):** Markup (14.8K) → Unit Price → Cap Rate → Rental Property / Cash-on-Cash (shares the Cap Rate NOI engine) → Labor Cost → Commercial Lease → Airbnb Profit → Freelance Rate → Contribution Margin (shares the Markup engine). Then Tier 2: Commercial Mortgage + Equipment Loan (one loan-payment engine) → Business Valuation → Discount → Profit Margin → Invoice Generator. Tier 3 (How Long Will My Money Last, SBA 504, 1099 Tax) only with dated sources, a reviewer and an owner commitment to updates.
+2. **Links plan:** each Tier 1 page should get a few relevant links (tool directories, a guest post or resource-page mention in its niche: retail / ecommerce for Markup and Unit Price, real estate for Cap Rate, Commercial Lease and Airbnb, construction for Labor Cost, freelancing for Freelance Rate). Tier 2 pages need more links because giants hold the top 3.
+3. **Beat the weak pages on substance:** every weak competitor is a thin single-purpose tool. Win with a better calculator, a worked example, a formula section and FAQ answers taken from the “how to calculate …” questions (KD 16–47).
+4. **Pull the variants before building:** `gross profit margin calculator`, `price per unit calculator`, `sba 504 loan calculator` (only if the program page idea returns), `s and p 500 calculator`.
+5. **All 27 primaries now have a decision:** the 12 tools first removed on web-search data were re-checked on Semrush SERPs on 2026-11-16; 5 came back (Rental / Cash-on-Cash, Contribution Margin, Commercial Mortgage, Equipment Loan, Invoice Generator) and 7 stay removed (Section 2b).
 6. **Never publish invented benchmarks** (average margins, cap rates, multiples, freelance rates). Use user inputs, or a cited and dated source.

@@ -271,6 +271,7 @@ Calculated at KKCTools.com`;
                     <label className={styles.inputLabel}>Qty</label>
                     <input aria-label="Qty"
                       type="number"
+                      inputMode="numeric"
                       min="1"
                       step="1"
                       className={styles.textInput}
@@ -366,6 +367,7 @@ Calculated at KKCTools.com`;
                       <label className={styles.inputLabel}>Qty</label>
                       <input aria-label="Qty"
                         type="number"
+                        inputMode="numeric"
                         min="1"
                         step="1"
                         className={styles.textInput}
@@ -427,6 +429,7 @@ Calculated at KKCTools.com`;
                   <label className={styles.inputLabel}>Length (in)</label>
                   <input aria-label="Length (in)"
                     type="number"
+                    inputMode="decimal"
                     step="0.125"
                     className={styles.textInput}
                     value={customLength}
@@ -437,6 +440,7 @@ Calculated at KKCTools.com`;
                   <label className={styles.inputLabel}>Height (in)</label>
                   <input aria-label="Height (in)"
                     type="number"
+                    inputMode="decimal"
                     step="0.125"
                     className={styles.textInput}
                     value={customHeight}
@@ -447,6 +451,7 @@ Calculated at KKCTools.com`;
                   <label className={styles.inputLabel}>Width / Bed (in)</label>
                   <input aria-label="Width / Bed (in)"
                     type="number"
+                    inputMode="decimal"
                     step="0.125"
                     className={styles.textInput}
                     value={customWidth}
@@ -457,6 +462,7 @@ Calculated at KKCTools.com`;
                   <label className={styles.inputLabel}>Weight (lb)</label>
                   <input aria-label="Weight (lb)"
                     type="number"
+                    inputMode="decimal"
                     step="0.1"
                     className={styles.textInput}
                     value={customWeight}
@@ -574,6 +580,7 @@ Calculated at KKCTools.com`;
                 <input
                   id={palletsInputId}
                   type="number"
+                  inputMode="numeric"
                   min="100"
                   step="25"
                   className={styles.textInput}
@@ -592,6 +599,7 @@ Calculated at KKCTools.com`;
                 <input
                   id={priceBrickId}
                   type="number"
+                  inputMode="decimal"
                   min="0"
                   step="0.01"
                   className={styles.textInput}
@@ -609,6 +617,7 @@ Calculated at KKCTools.com`;
               <input
                 id={priceMortarId}
                 type="number"
+                inputMode="decimal"
                 min="0"
                 step="0.01"
                 className={styles.textInput}

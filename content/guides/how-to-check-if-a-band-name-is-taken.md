@@ -3,10 +3,10 @@ title: "How to Check If a Band Name Is Already Taken"
 description: "A practical, step-by-step verification checklist to search streaming platforms, social handles, domains, and official trademark registries."
 slug: "how-to-check-if-a-band-name-is-taken"
 date: "2026-11-08"
-updated: "2026-11-14"
+updated: "2026-11-16"
 ---
 
-**To check if a band name is taken, search the exact name in quotes on Google, search Spotify, Apple Music and Bandcamp, check the social handles and the domain you want, and search the official trademark registers for music (Class 41 for live performance, Class 9 for recordings).** If all of these come back clear, the name is very likely free to use. Each step is explained below.
+**To check if a band name is taken, search the exact name in quotes on Google, search Spotify, Apple Music and Bandcamp, check the social handles and the domain you want, and search the official trademark registers for music (Class 41 for live performance, Class 9 for recordings).** If all of these come back clear, you have not found a known conflict — but these searches cannot guarantee the name is legally available (unregistered “common-law” rights and other countries’ registers can still apply). Before you spend money on merch, releases or tours, ask a trademark attorney. Each step is explained below.
 
 You have spent weeks brainstorming with your bandmates, generated hundreds of combinations using our [Band Name Generator](/band-name-generator/), and finally found a title that electrifies everyone in the rehearsal room. It feels fresh, fits your genre like a glove, and looks incredible on mock-up tour posters.
 
@@ -109,7 +109,7 @@ Finding a clash is normal. Most bands go through several names before one surviv
 
 * **An inactive band with the same name.** If the only match is a project with no releases or posts for many years and no trademark, many bands still change the name to avoid confused search results. If you keep it, make your name clearly different in search, for example by always adding your city or genre to your profile.
 * **An active band or a registered trademark for music.** Pick another name. Adding "The" in front, changing one letter, or using a different spelling does not avoid confusion in trademark law (see Step 6), and the cost of a forced rebrand later is far higher.
-* **A match in an unrelated field** (a café or a software company, for example). This is often fine, because trademarks usually cover specific goods and services. It can still hurt your search visibility, so weigh how much you care about ranking for the name.
+* **A match in an unrelated field** (a café or a software company, for example). This is often fine, because trademarks usually cover specific goods and services — but check with an attorney if you are unsure. It can still hurt your search visibility, so weigh how much you care about ranking for the name.
 
 When you are unsure, especially before signing with a label, pressing records or spending on a big campaign, ask a trademark attorney in your country. Registering your own trademark in Class 41 and Class 9 is the strongest protection once you have chosen.
 

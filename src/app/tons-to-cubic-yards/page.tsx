@@ -111,7 +111,7 @@ const jsonLd = [
         name: 'How many square feet does 1 ton of gravel cover?',
         acceptedAnswer: {
           '@type': 'Answer',
-          text: '1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an exact area x depth quantity use our stone calculator.',
+          text: '1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an area x depth quantity use our stone calculator.',
         },
       },
     ],
@@ -535,7 +535,7 @@ export default function TonsToCubicYardsPage() {
                   How many square feet does 1 ton of gravel cover?
                 </h3>
                 <p style={{ margin: 0, color: '#475569' }}>
-                  1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an exact area x depth quantity use our <Link href="/stone-calculator/" style={{ color: '#0369A1' }}>stone calculator</Link>.
+                  1 ton of gravel covers about 231-240 sq ft at 1 inch, 116-120 sq ft at 2 inches, 77-80 sq ft at 3 inches, 58-60 sq ft at 4 inches and 39-40 sq ft at 6 inches (theoretical, from 1.40 to 1.35 tons/yd3). Add about 10% for compaction and waste. For an area x depth quantity use our <Link href="/stone-calculator/" style={{ color: '#0369A1' }}>stone calculator</Link>.
                 </p>
               </div>
             </div>

@@ -108,7 +108,7 @@ export default function TileCalculatorPage() {
             Tile Calculator: Square Feet, Tiles, Boxes &amp; Grout
           </h1>
           <p className={styles.subtitle} style={{ marginBottom: '16px' }}>
-            Accurately calculate tiles, boxes, thin-set mortar, and grout needed for floors, shower walls, and backsplashes using our free <strong>tile calculator</strong>.
+            <strong>Number of tiles = (area in sq ft ÷ tile size in sq ft) × (1 + waste %).</strong> For 100 sq ft with 12″ × 12″ tiles and 10% waste, you need 110 tiles. Estimate tiles, boxes, thin-set mortar, and grout needed for floors, shower walls, and backsplashes using our free <strong>tile calculator</strong>.
           </p>
         </header>
 
@@ -121,7 +121,7 @@ export default function TileCalculatorPage() {
         {/* Comprehensive SEO Content & Reference Guide */}
         <article className={styles.content}>
           <p className={styles.dateVerified} style={{ marginTop: '16px', marginBottom: '8px' }}>
-            Last updated: November 2026. Prices are typical US ranges.
+            Last updated: November 2026. Prices are typical US ranges; enter your local price.
           </p>
           <div className={styles.intro} style={{ marginBottom: '28px' }}>
             <p>
@@ -399,7 +399,7 @@ export default function TileCalculatorPage() {
 
           {/* Pattern Waste Factors */}
           <section>
-            <h2>Tile Layout Patterns &amp; How They Affect Waste</h2>
+            <h2>Tile Layout Patterns, Waste &amp; Tile Overage Guidelines</h2>
             <p>
               Your layout pattern directly dictates the cutoff waste factor you must add to the base tile count:
             </p>

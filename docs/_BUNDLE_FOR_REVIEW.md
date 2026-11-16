@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-15T09:02:07.040Z
+Generated on: 2026-11-16T17:55:17.184Z
 
 
 
@@ -1017,6 +1017,18 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [CueAudit action implementation] — 2026-11-16
+- Implemented and verified code-level recommendations from `docs/seo/CUE - new audit/CueAudit_Action_Report.md`:
+  - **P0-3 Privacy & analytics accuracy:** Removed all misleading "zero tracking" claims (`construction-estimate.ts`, `site.ts`, `band-name-generator/page.tsx`); updated copy to accurately describe browser execution + Google Analytics visit metrics.
+  - **P0-4 Legal wording on band guides:** Updated `content/guides/how-to-check-if-a-band-name-is-taken.md` and routes registry with trademark attorney guidance and clear common-law disclaimers.
+  - **P0-5 Softened absolute claims:** Replaced "accurately calculate" and "exact area" across 7 pages; added official ANSI Z765 appraisal disclaimer to Square Footage GLA section.
+  - **P0-6 Mobile 390px enhancements:** Added `inputMode="decimal"` and `inputMode="numeric"` to all numeric inputs on key tools (Linear Foot, Brick, Tile); added compact mobile media queries to `FloatingPill.module.css`.
+  - **P1-2 Topical hubs:** Implemented natural in-body contextual links across all 5 topic clusters (Measuring, Concrete & Masonry, Finishes, Roofing, Estimating).
+  - **P1-3 BLUF direct answers:** Added immediate formula & worked example answers directly under H1 heroes for Square Footage, Linear Foot, Paint, Tile, Cinder Block, and Cubic Yard.
+  - **P1-4 Pricing benchmarks:** Added explicit "Prices are typical US ranges, checked November 2026 (enter your local price)" notes on all 9 cost estimator pages.
+  - **P1-6 GSC query mapping:** Integrated high-opportunity search terms into on-page headings and body copy (Paint, Linear Foot, Tile, Square Footage).
+- Verification: 532 Vitest unit tests passing, `npm run verify` passed all 6 steps with 0 SEO errors.
+
 ### [Band Name Generator improvements] — 2026-11-15
 - Fixed a generator bug that left `{Noun}` placeholders in names whose pattern used the same slot twice; joining words now stay lower-case; removed a slur from the punk word list and widened the offensive filter.
 - Added a "How these names are built" panel and a formula label on every result.
@@ -1302,7 +1314,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-15T08:58:12.752Z
+Run Date: 2026-11-16T17:55:16.729Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1313,55 +1325,55 @@ Status: PASSED ✅
 | `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2462 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
-| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2656 | Band Name Generator | PASS |
+| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2660 | Band Name Generator | PASS |
 | `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1194 | K-pop Band Name Generator | PASS |
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1227 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1155 | Rock Band Name Generator | PASS |
-| `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1773 | Bathroom Remodel Cost Calculat | PASS |
+| `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1810 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3438 | Cinder Block Calculator – Conc | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3525 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
-| `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3323 | Concrete Slab Cost Calculator | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2967 | Free Construction Estimate Tem | PASS |
+| `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3331 | Concrete Slab Cost Calculator | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 2974 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2548 | Cubic Yard Calculator: How Man | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2585 | Cubic Yard Calculator: How Man | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2785 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
-| `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2613 | Fence Cost Calculator: Chain L | PASS |
-| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2368 | Fence Stain Calculator: Gallon | PASS |
+| `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2620 | Fence Cost Calculator: Chain L | PASS |
+| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2367 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
-| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2747 | Hardwood Floor Refinishing & R | PASS |
+| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2755 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
-| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1832 | How to Check If a Band Name Is | PASS |
+| `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
 | `/` | KKC Tools – Free Construction Calculator | 1957 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2773 | Laminate Flooring Calculator:  | PASS |
-| `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2733 | Lawn Mowing Cost Calculator | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1558 | Linear Foot Calculator | PASS |
-| `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2001 | Metal Roof Cost Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2453 | Paint Cost Calculator: Gallons | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3074 | Paver Base Calculator: Tons &  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2776 | Laminate Flooring Calculator:  | PASS |
+| `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1602 | Linear Foot Calculator (Linear | PASS |
+| `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2028 | Metal Roof Cost Calculator | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2522 | Paint Cost Calculator: Gallons | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3073 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2372 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
-| `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2841 | Shingle Roof Calculator: Bundl | PASS |
+| `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2863 | Shingle Roof Calculator: Bundl | PASS |
 | `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 747 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3210 | Square Footage Calculator (Sq  | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3335 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2174 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3323 | Tile Calculator: Square Feet,  | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1787 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3361 | Tile Calculator: Square Feet,  | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Free Tools – Construction Calculator | 1079 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -1469,6 +1481,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+f623230 modified UI
 5d10abb Floor Refinishing - completed
 1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
 d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
@@ -1488,7 +1501,6 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 6a68583 project docs updated successfully
 7bbdb09 cloudfare setup
 4333b29 all competetiors data collected
-a9885e9 SEO optimization /audit
 ```
 
 
@@ -1504,18 +1516,18 @@ a9885e9 SEO optimization /audit
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 32ms
+✓ Running next.config.ts took 1213ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.1s
+✓ Compiled successfully in 5.8s
   Running TypeScript ...
-  Finished TypeScript in 3.2s ...
+  Finished TypeScript in 2.9s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/72) ...
   Generating static pages using 15 workers (18/72) 
   Generating static pages using 15 workers (36/72) 
   Generating static pages using 15 workers (54/72) 
-✓ Generating static pages using 15 workers (72/72) in 2.8s
+✓ Generating static pages using 15 workers (72/72) in 3.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1678,13 +1690,55 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
- RUN  v4.1.12 D:/1_programmins/5.kkctools
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 512[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 407[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
- Test Files  41 passed (41)
-      Tests  532 passed (532)
-   Start at  14:27:40
-   Duration  2.30s (transform 7.20s, setup 0ms, import 9.41s, tests 1.32s, environment 13ms)
+[2m Test Files [22m [1m[32m41 passed[39m[22m[90m (41)[39m
+[2m      Tests [22m [1m[32m532 passed[39m[22m[90m (532)[39m
+[2m   Start at [22m 23:24:42
+[2m   Duration [22m 2.10s[2m (transform 6.76s, setup 0ms, import 9.02s, tests 1.16s, environment 13ms)[22m
 
 
 ```

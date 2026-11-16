@@ -107,7 +107,7 @@ export default function MetalRoofCostCalculatorPage() {
           </p>
           <p className={styles.meta}>
             Last updated: {new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })} ·
-            Prices from 2026 cost guides · Runs in your browser — nothing you enter is sent anywhere.
+            Prices are typical US ranges, checked November 2026 (enter your local price) · Runs in your browser — nothing you enter is sent anywhere.
           </p>
         </header>
 
@@ -285,8 +285,9 @@ export default function MetalRoofCostCalculatorPage() {
                 factor of {n(f6, 3)}: the example’s 42 × 30 ft footprint becomes {n(ex.roofArea)} sq ft. Divide by 100 for squares.
               </p>
               <p>
-                For hips, valleys and dormers, add each part as its own section, or use the{' '}
-                <Link href="/shingle-calculator/">shingle roof calculator</Link> to measure it plane by plane. Never walk a steep roof to measure — use
+                For hips, valleys and dormers, add each part as its own section, or use our{' '}
+                <Link href="/shingle-calculator/">shingle roof calculator</Link> to measure it plane by plane. If you are framing or checking timber lengths, see our{' '}
+                <Link href="/rafter-calculator/">rafter calculator</Link> for rafter spans, bird&apos;s mouth cuts and overhangs. Never walk a steep roof to measure — use
                 the footprint from the ground.
               </p>
             </div>
