@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-17T16:17:51.161Z
+Run Date: 2026-11-17T16:53:11.394Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -19,6 +19,7 @@ Status: PASSED ✅
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1810 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
+| `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4117 | Carpet Cost Calculator | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3525 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
@@ -34,13 +35,13 @@ Status: PASSED ✅
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2620 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2367 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
-| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2755 | Hardwood Floor Refinishing & R | PASS |
+| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2764 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2089 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2776 | Laminate Flooring Calculator:  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 2101 | Free Construction Calculators  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1602 | Linear Foot Calculator (Linear | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2043 | Metal Roof Cost Calculator | PASS |
@@ -54,13 +55,13 @@ Status: PASSED ✅
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4101 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 766 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3352 | Square Footage Calculator (Sq  | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 782 | Site Map | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2174 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3361 | Tile Calculator: Square Feet,  | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1115 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1142 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

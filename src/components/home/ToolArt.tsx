@@ -635,6 +635,19 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       })}
     </>
   ),
+  /* Carpet roll unrolled across room with seam */
+  carpetRoll: (
+    <>
+      <polygon className={k('fl', 's2')} points="24,54 114,34 174,52 84,72" />
+      <polygon className={s.f1} points="24,54 84,72 84,84 24,66" />
+      <polygon className={s.f2} points="84,72 174,52 174,64 84,84" />
+      <line className={k('s2', 'thick')} x1={54} y1={63} x2={144} y2={43} strokeDasharray="3 3" />
+      <ellipse className={s.fm} cx={174} cy={58} rx={6} ry={12} />
+      <path className={s.f1} d="M140 38 Q174 46 174 58 L174 70 Q140 58 140 46 Z" />
+      <Dim x1={84} y1={92} x2={174} y2={72} label="12 ft roll" lx={132} ly={90} />
+      <text className={s.tx} x={105} y={50} textAnchor="middle">seam</text>
+    </>
+  ),
   /* Wall half painted, roller and can */
   paintRoller: (
     <>

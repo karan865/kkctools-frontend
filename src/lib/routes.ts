@@ -168,6 +168,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  carpetCostCalculator: {
+    path: '/carpet-cost-calculator/',
+    title: 'Carpet Cost Calculator – Price per Square Foot & Yard',
+    description: 'Estimate carpet cost by room: carpet, pad, installation, stairs and old-carpet removal. Price per sq ft or sq yd, with roll waste worked out for you.',
+    updated: '2026-11-17',
+    type: 'tool',
+    indexable: true,
+  },
   floorRefinishingCostCalculator: {
     path: '/floor-refinishing-cost-calculator/',
     title: 'Hardwood Floor Refinishing Cost Calculator',

@@ -26,6 +26,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Floor Refinishing Cost Calculator — `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35 (H1 + H2; irregular trend); `cost to refinish hardwood floors` 3,600/23 (intro + H2).
 - Cubic Inch Calculator — `cubic inch calculator`, US 3,600 / KD 9 (title, H1, intro); `engine displacement calculator` 3,600/18 (H2 + first sentence of the engine section). Blueprint title (56 chars) shortened to 52 so it fits 65 with the brand.
 - Roof Replacement Cost Calculator — `roof replacement cost calculator`, US 2,900 / KD 4 / CPC $7.42 (title, H1, BLUF); secondaries `how much is a new roof` 4,400 / KD 9, `roofing cost per square` 1,900 / KD 7, `roofing labor cost per square` 1,600 / KD 5, `cost to tear off and replace roof` 480 / KD 14. Target page `/roof-replacement-cost-calculator/`.
+- Carpet Cost Calculator — `carpet cost per square foot`, US 4,400 / KD 27 / CPC $1.63 (title, H1, BLUF); secondaries `carpet replacement cost` 4,400 / KD 18 / CPC $8.09 (H2, FAQ), `cost per sq ft for carpet` 3,600 / KD 27, `carpet flooring installation cost` 1,600 / KD 21, `carpet removal prices` 1,300 / KD 24, `berber carpet cost` 1,000 / KD 23, `carpet tile installation cost` 590 / KD 11, `cost to replace carpet on stairs` 590 / KD 12. Target page `/carpet-cost-calculator/`.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 

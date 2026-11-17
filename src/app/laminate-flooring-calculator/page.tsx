@@ -569,7 +569,7 @@ export default function LaminateFlooringCalculatorPage() {
           {/* Section 14: Closing Note */}
           <div className={styles.closingNote}>
             <p>
-              Ready to begin your project? Return to the interactive <a href="#laminate-calc-app">laminate flooring calculator</a> above to calculate your carton quantities and shopping list. For surrounding trim, baseboards, and quarter-round molding, use our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>. For tiling wet zones like bathrooms and laundry rooms, visit our <Link href="/tile-calculator/">Tile Calculator</Link>, or plan entire project budgets with our <Link href="/construction-estimate-template/">Construction Estimate Template</Link>.
+              Ready to begin your project? Return to the interactive <a href="#laminate-calc-app">laminate flooring calculator</a> above to calculate your carton quantities and shopping list. For surrounding trim, baseboards, and quarter-round molding, use our <Link href="/linear-foot-calculator/">Linear Foot Calculator</Link>. If you are comparing hard-surface laminate against soft bedroom carpeting, use our <Link href="/carpet-cost-calculator/">Carpet Cost Calculator</Link>. For tiling wet zones like bathrooms and laundry rooms, visit our <Link href="/tile-calculator/">Tile Calculator</Link>, or plan entire project budgets with our <Link href="/construction-estimate-template/">Construction Estimate Template</Link>.
             </p>
           </div>
         </article>

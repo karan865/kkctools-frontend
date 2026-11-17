@@ -498,6 +498,52 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'carpet-cost-calculator': {
+    formula: [
+      'Room roll layout: across = width (or length), drops = ceil(across ÷ rollWidth), cutLength = along + 0.5 ft trim allowance; bought area = drops × rollWidth × cutLength; waste % = ((bought - net) ÷ net) × 100',
+      'Stair runner area = (steps × stairWidth × (tread + riser + nosingWrap) ÷ 144) + landingArea; gross stair carpet = stair area × 1.10 (10% fitting waste)',
+      'Total carpet purchased = Σ room bought sq ft + gross stair carpet + pattern match %',
+      'Pad area = net room area × 1.05 (5% fitting allowance); 1 sq yd = 9 sq ft; 1 m² = 10.764 sq ft',
+      'Estimated total = (materials + labour + prep & removal + extras) × regionMultiplier + salesTax',
+    ],
+    defaults: [
+      { label: 'Mid-grade carpet material', value: '$4.00/sq ft ($2.50–$5.50/sq ft, or $36.00/sq yd; HomeAdvisor & Fixr 2026)' },
+      { label: 'High-density rebond cushion (8 lb, 7/16")', value: '$1.00/sq ft ($0.75–$1.35/sq ft; meets Shaw/Mohawk warranty specifications)' },
+      { label: 'Standard installation labour', value: '$1.50/sq ft ($0.75–$2.50/sq ft; BLS SOC 47-2041 Carpet Installer wage benchmarks)' },
+      { label: 'Stairs installation', value: 'Waterfall $8.00/step ($5–$12); Box / Cap & Band $15.00/step ($10–$25)' },
+      { label: 'Old carpet & pad tear-out', value: '$0.40/sq ft ($0.25–$0.60/sq ft)' },
+      { label: 'Debris haul-away & landfill disposal', value: '$0.25/sq ft ($0.15–$0.40/sq ft)' },
+      { label: 'Perimeter tack strips', value: '$0.90/linear ft ($0.50–$1.50/lin ft)' },
+      { label: 'Doorway transition threshold strips', value: '$25.00 each ($15–$35 each)' },
+    ],
+    sources: [
+      {
+        label: 'HomeAdvisor / Angi — How Much Does Carpet Installation Cost? (updated Jun 2026)',
+        url: 'https://www.homeadvisor.com/cost/flooring/install-carpeting/',
+        note: 'material grades, padding costs, labor rates per square foot, and removal averages',
+      },
+      {
+        label: 'Fixr — Carpet Installation Cost (2026 Guide)',
+        url: 'https://www.fixr.com/costs/carpet-installation',
+        note: 'material costs by fibre type (nylon, polyester, wool) and stair installation breakdown',
+      },
+      {
+        label: 'HomeGuide — How Much Does It Cost To Carpet A Room? (2026)',
+        url: 'https://homeguide.com/costs/carpet-cost',
+        note: 'square foot and square yard cost benchmarks, roll widths, and room size charts',
+      },
+      {
+        label: 'US Bureau of Labor Statistics — Occupational Employment and Wages: Carpet Installers (SOC 47-2041)',
+        url: 'https://www.bls.gov/oes/current/oes472041.htm',
+        note: 'trade wage benchmarks for residential floor covering installers',
+      },
+      {
+        label: 'Carpet and Rug Institute (CRI) — Residential Carpet Installation Standard (CRI 105)',
+        url: 'https://carpet-rug.org/',
+        note: 'standards for power stretching, seam sealing with hot-melt tape, and cushion density guidelines',
+      },
+    ],
+  },
   'cubic-feet-to-square-feet': {
     formula: [
       'Square feet = cubic feet ÷ depth (ft); depth (ft) = inches ÷ 12, cm ÷ 30.48, mm ÷ 304.8, m ÷ 0.3048',

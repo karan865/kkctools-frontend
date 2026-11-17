@@ -192,7 +192,7 @@ export default function SquareFootageCalculatorPage() {
                 <strong>Real Estate Valuations:</strong> Residential homes are valued and appraised primarily on price per square foot. Overestimating or underestimating square footage can skew home appraisals, property taxes, and mortgage underwriting by tens of thousands of dollars.
               </li>
               <li className={styles.listItem}>
-                <strong>Flooring &amp; Tile Installation:</strong> Hardwood planks, luxury vinyl plank (LVP), <Link href="/tile-calculator/">ceramic tile</Link>, carpet, and <Link href="/laminate-flooring-calculator/">laminate flooring</Link> are sold strictly by the square foot or square yard. Accurate measurements prevent under-ordering (which halts jobs and risks mismatched manufacturing dye lots) and costly over-purchasing.
+                <strong>Flooring &amp; Tile Installation:</strong> Hardwood planks, luxury vinyl plank (LVP), <Link href="/tile-calculator/">ceramic tile</Link>, <Link href="/carpet-cost-calculator/">broadloom carpet</Link>, and <Link href="/laminate-flooring-calculator/">laminate flooring</Link> are sold strictly by the square foot or square yard. Accurate measurements prevent under-ordering (which halts jobs and risks mismatched manufacturing dye lots) and costly over-purchasing.
               </li>
               <li className={styles.listItem}>
                 <strong>Painting &amp; Drywall:</strong> Interior wall square footage directly governs how many gallons of paint, primer, and drywall boards you must purchase. See our <Link href="/paint-cost-calculator/">Paint Cost Calculator</Link> and <Link href="/drywall-calculator/">Drywall Calculator</Link> for itemized material takeoffs.

@@ -38,6 +38,7 @@ const minWordCounts = {
   '/band-name-generator/': 1000,
   '/construction-estimate-template/': 1500,
   '/concrete-calculator/': 1500,
+  '/carpet-cost-calculator/': 1500,
   '/roof-replacement-cost-calculator/': 1500,
   '/drywall-calculator/': 1500,
   '/rebar-calculator/': 1500,

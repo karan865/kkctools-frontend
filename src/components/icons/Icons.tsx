@@ -30,6 +30,7 @@ export type IconName =
   | 'bath'
   | 'floorPlanks'
   | 'floorSander'
+  | 'carpetRoll'
   | 'paintRoller'
   | 'fence'
   | 'fenceCost'
@@ -355,6 +356,17 @@ export default function Icon({
           <rect x="8" y="11" width="9" height="5" rx="1.5" />
           <circle cx="12.5" cy="16" r="1.2" />
           <path d="M14 11 19 3M18 3h3" />
+        </svg>
+      );
+    case 'carpetRoll':
+      return (
+        <svg {...common}>
+          <ellipse cx="6" cy="12" rx="3.5" ry="6" />
+          <path d="M6 6h12a4 4 0 0 1 4 4v4a4 4 0 0 1-4 4H6" />
+          <line x1="6" y1="18" x2="22" y2="18" />
+          <path d="M9.5 9h9" strokeDasharray="2 2" />
+          <path d="M9.5 12h9" strokeDasharray="2 2" />
+          <path d="M9.5 15h9" strokeDasharray="2 2" />
         </svg>
       );
     case 'floorPlanks':

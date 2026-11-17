@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-17T16:17:51.592Z
+Generated on: 2026-11-17T16:53:11.858Z
 
 
 
@@ -15,7 +15,7 @@ Generated on: 2026-11-17T16:17:51.592Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15.
+- **Current Phase:** Tool #37 Carpet Cost Calculator built and verified (Phase CC, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15.
 - **Overall Completion:** 549 vitest tests passing (42 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-17, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
@@ -672,6 +672,7 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 | 36 | Floor Refinishing Cost Calculator (rooms or total area, ft/m; screen & recoat / full sand / dustless; species factor; stain; repairs, board replacement, subfloor, carpet, stairs, furniture, baseboards; region and minimum charge; low–high range; DIY shopping list with gallons from coverage; refinish vs replace; quote checker) | `/floor-refinishing-cost-calculator/` | `floor-refinishing-calculator/` | `floor-refinish-engine.ts` |
 | 37 | Cubic Inch Calculator (volume mode: box, cylinder, tube wall + inside capacity, sphere in any length unit, quantity, 8 output units, volume converter; engine mode: bore × stroke × cylinders in in or mm, 6 manufacturer presets, bore/stroke ratio, overbore and stroker what-if, bore or stroke solver) | `/cubic-inch-calculator/` | `cubic-inch-calculator/` | `cubic-inch-engine.ts` |
 | 38 | Roof Replacement Cost Calculator (footprint or multi-plane roof sections, pitch multiplier √(1+(r/12)²); 10 materials from 3-tab to slate/tile; stories & steep-slope safety multipliers; tear-off scaling by layer; dumpster disposal; decking repair sheet allowance; accessories: synthetic vs felt underlayment, ice & water shield, drip edge, ridge vent, pipe boots, gutters; 3-way repair vs overlay vs replace with IRC R908.3.1.1 2-layer code rule; contractor quote verifier) | `/roof-replacement-cost-calculator/` | `roof-replacement-cost-calculator/` | `roof-replacement-engine.ts` |
+| 39 | Carpet Cost Calculator (multi-room takeoff, 12'/13.5'/15' roll layout optimization, seam minimization, stairs runner geometry with waterfall vs box cap & band, 3 grades, 5 fibres, 5 styles, carpet tiles, cushion padding specifications, tear-out, disposal, tack strips, transitions, contractor quote verifier, flooring comparisons) | `/carpet-cost-calculator/` | `carpet-cost-calculator/` | `carpet-engine.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -928,6 +929,7 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Floor Refinishing Cost Calculator — `hardwood floor resurfacing cost`, US 6,600 / KD 24 / CPC $4.35 (H1 + H2; irregular trend); `cost to refinish hardwood floors` 3,600/23 (intro + H2).
 - Cubic Inch Calculator — `cubic inch calculator`, US 3,600 / KD 9 (title, H1, intro); `engine displacement calculator` 3,600/18 (H2 + first sentence of the engine section). Blueprint title (56 chars) shortened to 52 so it fits 65 with the brand.
 - Roof Replacement Cost Calculator — `roof replacement cost calculator`, US 2,900 / KD 4 / CPC $7.42 (title, H1, BLUF); secondaries `how much is a new roof` 4,400 / KD 9, `roofing cost per square` 1,900 / KD 7, `roofing labor cost per square` 1,600 / KD 5, `cost to tear off and replace roof` 480 / KD 14. Target page `/roof-replacement-cost-calculator/`.
+- Carpet Cost Calculator — `carpet cost per square foot`, US 4,400 / KD 27 / CPC $1.63 (title, H1, BLUF); secondaries `carpet replacement cost` 4,400 / KD 18 / CPC $8.09 (H2, FAQ), `cost per sq ft for carpet` 3,600 / KD 27, `carpet flooring installation cost` 1,600 / KD 21, `carpet removal prices` 1,300 / KD 24, `berber carpet cost` 1,000 / KD 23, `carpet tile installation cost` 590 / KD 11, `cost to replace carpet on stairs` 590 / KD 12. Target page `/carpet-cost-calculator/`.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -1024,6 +1026,26 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 # 06 — Changelog
 
 All notable changes to this project will be documented in this file, sorted newest first.
+
+---
+
+### [Tool #37 — Carpet Cost Calculator] — 2026-11-17
+- New flagship page `/carpet-cost-calculator/` (Batch 2 Tier 3 #17), built end-to-end exactly from `17_Carpet_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/carpet-engine.ts`): Pure mathematical takeoff for multi-room roll layout (12 ft, 13.5 ft, 15 ft) testing both orientations and minimizing purchased carpet square footage; seam calculation and off-cut waste %; stairs runner geometry (13 standard steps, tread depth, riser height, nosing wrap, landing, waterfall vs box/cap & band); 3 material grades (builder, mid, premium), 5 fibres (nylon, polyester, triexta, olefin, wool), 5 styles (plush, berber, frieze, pattern, carpet tiles); padding specifications (6 lb, 8 lb, 10 lb) per CRI standards; itemized labour and extras (removal, disposal, furniture, tack strips, transitions, subfloor leveling, doors); room benchmarks (10x10 to whole house); contractor quote verifier; flooring comparisons (carpet vs LVP vs laminate vs hardwood refinish).
+- **Tests** (`src/lib/carpet-engine.test.ts`): 16 Vitest unit tests covering 12x12 1-drop 0-seams baseline, 14x16 orientation optimization, boundary tests (12.0 vs 12.01 ft), stairs hand calculations, replace vs new mode toggles, carpet tiles mode, edge cases, quote checker, and price sanity checks.
+- **UI** (`src/components/tool/carpet-cost-calculator/`): Interactive room rows with add/remove, stairs module, quality tier presets, editable prices with $/sq ft ↔ $/sq yd toggle, padding selectors, extras accordion, regional slider, and currency picker; hero estimate card with low/fair/high range and installed unit rates; interactive SVG `CarpetDiagram` showing room boundary, roll drops, heat-tape seams, off-cut waste, and stair runner profile; itemized table; quote checker; flooring comparison; copy, print, and share actions.
+- **Page** (`src/app/carpet-cost-calculator/`): 2,500+ words of thorough original copy, title 52 chars, meta 151 chars, H1 22 chars, 12 FAQs matching SPEC §6 with live figures, room size benchmark matrix, roll width constraint guide, stairs style table, fibre & style matrices, HowWeCalculate component.
+- **Wiring & Inbound Links**: Registered in `routes.ts`, `tools-catalog.ts` (#39, category `finishes`, icon `carpetRoll`), `tools-catalog.test.ts` updated to 39, footer link added under "Framing & Finishes", calculation-methods entry added, inbound contextual links added from `laminate-flooring-calculator`, `floor-refinishing-cost-calculator`, `square-footage-calculator`, and `tile-calculator`.
+
+---
+
+### [New Tools Priority & Directory Sorting] — 2026-11-17
+- Implemented global newest-first sorting and quick-discovery across KKCTools:
+  - **Single Source of Truth (`src/lib/tools-catalog.ts`):** `TOOLS_CATALOG` is now sorted by `added` date descending (latest first, e.g., 2026-11-17 -> 2026-11-08), with `isNew` priority and alphabetical tie-breaker.
+  - **Tools Directory (`/tools/`):** Added a dynamic sort selector with "Newest First" as the default, alongside "Name (A-Z)" and "By Category". Added a dedicated "✨ New Tools (17)" quick filter pill next to trade category pills.
+  - **Home Page (`/`):** "Recently Built & Updated Tools" showcase and category bands surface the freshest tools at the front of each collection.
+  - **Header & Mobile Navigation:** Header mega-menu category columns show the 5 newest tools per trade; mega-menu highlight dynamically links to the newest tool (`TOOLS_CATALOG[0]`); Mobile menu shows dynamic tool count (`All 38 Tools Directory`) and newest tools in accordions.
+  - **Tests:** Added `src/lib/tools-catalog.test.ts` monotonic date test asserting newest tool is at index 0 (`/roof-replacement-cost-calculator/`) and oldest tools are at the end. All 549 unit tests pass.
 
 ---
 
@@ -1333,7 +1355,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-17T16:17:51.161Z
+Run Date: 2026-11-17T16:53:11.394Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1352,6 +1374,7 @@ Status: PASSED ✅
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1810 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
+| `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4117 | Carpet Cost Calculator | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3525 | Cinder Block Calculator – Conc | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2684 | Concrete Calculator: Volume in | PASS |
@@ -1367,13 +1390,13 @@ Status: PASSED ✅
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2620 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2367 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
-| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2755 | Hardwood Floor Refinishing & R | PASS |
+| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2764 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2089 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2776 | Laminate Flooring Calculator:  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 2101 | Free Construction Calculators  | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1602 | Linear Foot Calculator (Linear | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2043 | Metal Roof Cost Calculator | PASS |
@@ -1387,14 +1410,14 @@ Status: PASSED ✅
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4101 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 766 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3352 | Square Footage Calculator (Sq  | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 782 | Site Map | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2174 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3361 | Tile Calculator: Square Feet,  | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1115 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1142 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1419,6 +1442,7 @@ band-name-generator/rock/index.html
 bathroom-remodel-cost-calculator/index.html
 board-and-batten-calculator/index.html
 brick-calculator/index.html
+carpet-cost-calculator/index.html
 cinder-block-calculator/index.html
 compost-calculator/index.html
 concrete-calculator/index.html
@@ -1502,6 +1526,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+6717356 tool 19 completed
 15a6cff docs(status): mark Netlify HUD eliminated after full Cloudflare migration
 cc34105 docs(audit): record live Cloudflare 301 redirect verification
 3b3958a feat(seo): implement cue audit fixes, BLUF answers, internal hubs, and mobile enhancements
@@ -1521,7 +1546,6 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 08bee22 Add Pipe & Tube Volume Calculator (Batch 2 Tier 1 #7)
 3d2e579 shingle roof calculator- completed
 1278ed3 completed page shingle roof calculator
-603df95 Lawn Mowing Cost Calculator
 ```
 
 
@@ -1537,18 +1561,18 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1298ms
+✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.5s
+✓ Compiled successfully in 6.0s
   Running TypeScript ...
-  Finished TypeScript in 3.6s ...
+  Finished TypeScript in 2.9s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/73) ...
-  Generating static pages using 15 workers (18/73) 
-  Generating static pages using 15 workers (36/73) 
-  Generating static pages using 15 workers (54/73) 
-✓ Generating static pages using 15 workers (73/73) in 2.5s
+  Generating static pages using 15 workers (0/74) ...
+  Generating static pages using 15 workers (18/74) 
+  Generating static pages using 15 workers (36/74) 
+  Generating static pages using 15 workers (55/74) 
+✓ Generating static pages using 15 workers (74/74) in 2.7s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1568,6 +1592,7 @@ Route (app)
 ├ ○ /board-and-batten-calculator
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
+├ ○ /carpet-cost-calculator
 ├ ○ /cinder-block-calculator
 ├ ○ /cinder-block-calculator/opengraph-image
 ├ ○ /compost-calculator
@@ -1698,7 +1723,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 59 HTML files in out/...
+Auditing 60 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1714,54 +1739,55 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 43[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 44[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 40[2mms[22m[39m
  [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 48[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 22[2mms[22m[39m
  [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 21[2mms[22m[39m
  [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 20[2mms[22m[39m
  [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
  [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 784[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 639[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 732[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 603[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m42 passed[39m[22m[90m (42)[39m
-[2m      Tests [22m [1m[32m550 passed[39m[22m[90m (550)[39m
-[2m   Start at [22m 21:47:16
-[2m   Duration [22m 3.16s[2m (transform 11.63s, setup 0ms, import 15.05s, tests 1.66s, environment 54ms)[22m
+[2m Test Files [22m [1m[32m43 passed[39m[22m[90m (43)[39m
+[2m      Tests [22m [1m[32m566 passed[39m[22m[90m (566)[39m
+[2m   Start at [22m 22:22:40
+[2m   Duration [22m 2.41s[2m (transform 8.34s, setup 0ms, import 10.97s, tests 1.50s, environment 12ms)[22m
 
 
 ```

@@ -378,6 +378,28 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
 
   // 5. Floors, Paint & Stain
   {
+    slug: '/carpet-cost-calculator/',
+    name: 'Carpet Cost Calculator',
+    category: 'finishes',
+    description: 'Carpet, padding, installation, stairs & removal by room size with roll layout overage.',
+    tags: ['$/sq ft · $/sq yd', 'Roll layout'],
+    icon: 'carpetRoll',
+    keywords: [
+      'carpet cost per square foot',
+      'carpet replacement cost',
+      'cost to carpet a room',
+      'carpet installation cost',
+      'carpet padding cost',
+      'carpet stairs cost',
+      'carpet removal cost',
+      'carpet square yards',
+      'carpet tiles cost',
+    ],
+    added: '2026-11-17',
+    isNew: true,
+    featured: true,
+  },
+  {
     slug: '/drywall-calculator/',
     name: 'Drywall Calculator',
     category: 'finishes',

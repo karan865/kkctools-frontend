@@ -4,6 +4,23 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #37 — Carpet Cost Calculator] — 2026-11-17
+- New flagship page `/carpet-cost-calculator/` (Batch 2 Tier 3 #17), built end-to-end exactly from `17_Carpet_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/carpet-engine.ts`): Pure mathematical takeoff for multi-room roll layout (12 ft, 13.5 ft, 15 ft) testing both orientations and minimizing purchased carpet square footage; seam calculation and off-cut waste %; stairs runner geometry (13 standard steps, tread depth, riser height, nosing wrap, landing, waterfall vs box/cap & band); 3 material grades (builder, mid, premium), 5 fibres (nylon, polyester, triexta, olefin, wool), 5 styles (plush, berber, frieze, pattern, carpet tiles); padding specifications (6 lb, 8 lb, 10 lb) per CRI standards; itemized labour and extras (removal, disposal, furniture, tack strips, transitions, subfloor leveling, doors); room benchmarks (10x10 to whole house); contractor quote verifier; flooring comparisons (carpet vs LVP vs laminate vs hardwood refinish).
+- **Tests** (`src/lib/carpet-engine.test.ts`): 16 Vitest unit tests covering 12x12 1-drop 0-seams baseline, 14x16 orientation optimization, boundary tests (12.0 vs 12.01 ft), stairs hand calculations, replace vs new mode toggles, carpet tiles mode, edge cases, quote checker, and price sanity checks.
+- **UI Aligned to KKCTools Design System** (`src/components/tool/carpet-cost-calculator/`): Fully aligned with KKCTools design tokens and visual architecture:
+  - Added standard 28px circular numbered step badges (`.cardHead > .step`, steps 1 through 6).
+  - Encapsulated all numeric inputs in `.inputWrap` with trailing `.unitBadge` pills (`ft`, `in`, `steps`, `$/sq ft`, `$/sq yd`, `%`).
+  - Implemented signature radiant cobalt blue hero banner (`linear-gradient(135deg, #0369a1 0%, #075985 100%)` with white value `$1,240.96`, `#bae6fd` subheadings, and 3-metric subgrid for unit rates and area).
+  - Converted loose tiles to structured `.breakdownTable` with itemized materials/pad/labor/stairs/prep lines.
+  - Interactive SVG `CarpetDiagram` showing room boundary, roll drops, heat-tape seams, off-cut waste, and stair runner profile.
+  - Contractor quote verifier, flooring comparison table, regional index slider, and copy/print/share actions.
+- **Page** (`src/app/carpet-cost-calculator/`): 3,858 words of thorough original copy, title 56 chars, meta 156 chars, H1 25 chars, 12 FAQs matching SPEC §6 with live figures, room size benchmark matrix, roll width constraint guide, stairs style table, fibre & style matrices, HowWeCalculate component.
+- **Wiring & Inbound Links**: Registered in `routes.ts`, `tools-catalog.ts` (#39, category `finishes`, icon `carpetRoll`), `tools-catalog.test.ts` updated to 39, footer link added under "Framing & Finishes", calculation-methods entry added, inbound contextual links added from `laminate-flooring-calculator`, `floor-refinishing-cost-calculator`, `square-footage-calculator`, and `tile-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps (lint, tests, check:no-network, build, seo:audit, docs:bundle) with zero errors. 566 unit tests passing across 43 files.
+
+---
+
 ### [New Tools Priority & Directory Sorting] — 2026-11-17
 - Implemented global newest-first sorting and quick-discovery across KKCTools:
   - **Single Source of Truth (`src/lib/tools-catalog.ts`):** `TOOLS_CATALOG` is now sorted by `added` date descending (latest first, e.g., 2026-11-17 -> 2026-11-08), with `isNew` priority and alphabetical tie-breaker.

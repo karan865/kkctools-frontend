@@ -1,0 +1,183 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.titleGroup {
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin: 0;
+}
+
+.controls {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+.tabBtn {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.tabBtnActive {
+  background: var(--accent-soft, #e0f2fe);
+  color: var(--accent);
+  border-color: var(--accent);
+  font-weight: 700;
+}
+
+.roomSelect {
+  padding: 6px 10px;
+  border-radius: 8px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.svgWrap {
+  width: 100%;
+  border-radius: 10px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  padding: 12px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  max-width: 580px;
+  height: auto;
+}
+
+/* SVG Elements */
+.roomOutline {
+  fill: #F1E9DE;
+  stroke: var(--ink);
+  stroke-width: 2.5;
+}
+
+.carpetStrip {
+  fill: #D8C2A7;
+  stroke: #A88B6E;
+  stroke-width: 1.5;
+}
+
+.seamLine {
+  stroke: #C2410C;
+  stroke-width: 2.5;
+  stroke-dasharray: 6 4;
+}
+
+.wasteHatch {
+  fill: url(#wastePattern);
+  stroke: #B91C1C;
+  stroke-width: 1.5;
+  opacity: 0.85;
+}
+
+.dimLine {
+  stroke: var(--muted);
+  stroke-width: 1.2;
+}
+
+.dimArrow {
+  fill: var(--muted);
+}
+
+.label {
+  fill: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.labelHighlight {
+  fill: var(--accent);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  text-anchor: middle;
+}
+
+.labelMuted {
+  fill: var(--muted);
+  font-family: var(--font-body), system-ui, sans-serif;
+  font-size: 9.5px;
+  font-weight: 600;
+  text-anchor: middle;
+}
+
+.legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  padding-top: 8px;
+  border-top: 1px dashed var(--line);
+  font-size: 0.8rem;
+  color: var(--ink-2);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legendColor {
+  width: 14px;
+  height: 14px;
+  border-radius: 3px;
+}
+
+.legendCarpet {
+  background: #D8C2A7;
+  border: 1px solid #A88B6E;
+}
+
+.legendSeam {
+  background: #C2410C;
+  border: 1px dashed #C2410C;
+}
+
+.legendWaste {
+  background: #FEB2B2;
+  border: 1px solid #B91C1C;
+}

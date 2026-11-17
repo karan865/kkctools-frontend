@@ -473,7 +473,8 @@ export default function FloorRefinishingCostCalculatorPage() {
             {$(ex500.replace.total)} at the midpoint ({$(ex500.replace.low)}–{$(ex500.replace.high)}) against {$(ex500.sand.total)} to sand and stain, or{' '}
             {$(ex500.recoat.total)} to recoat. Refinish while the boards are flat and solid. Replace when they
             are cupped or buckled from water, soft or rotten, have been sanded so often that the tongues or nail heads show, or when you want a different
-            floor altogether — the <Link href="/laminate-flooring-calculator/">laminate flooring calculator</Link> prices one alternative.
+            floor altogether — the <Link href="/laminate-flooring-calculator/">laminate flooring calculator</Link> and{' '}
+            <Link href="/carpet-cost-calculator/">carpet cost calculator</Link> price two popular alternatives.
           </p>
 
           <h2>Engineered hardwood: how many times can you sand it?</h2>
@@ -530,6 +531,11 @@ export default function FloorRefinishingCostCalculatorPage() {
             <li>
               <Link href="/laminate-flooring-calculator/">
                 Laminate Flooring Calculator<span>If you replace instead</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/carpet-cost-calculator/">
+                Carpet Cost Calculator<span>Soft flooring alternative</span>
               </Link>
             </li>
             <li>
