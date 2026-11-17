@@ -1028,6 +1028,38 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'profit-margin-calculator': {
+    formula: [
+      'Gross Margin % = ((Revenue − COGS) ÷ Revenue) × 100',
+      'Operating Margin (EBIT) % = ((Gross Profit − OPEX) ÷ Revenue) × 100',
+      'EBITDA Margin % = ((Operating Profit + D&A) ÷ Revenue) × 100',
+      'Net Profit Margin % = (Net Income ÷ Total Revenue) × 100',
+      'Price for Target Margin = Cost ÷ (1 − (Target Margin % ÷ 100))',
+      'Blended Margin % = (Total Portfolio Profit ÷ Total Portfolio Revenue) × 100 (never arithmetic average)',
+    ],
+    defaults: [
+      { label: 'Standard Retail Benchmark', value: '$100.00 revenue with $60.00 COGS = $40.00 gross profit (40.00% gross margin, 66.67% markup)' },
+      { label: 'Full P&L Cascade Benchmark', value: '$100,000 revenue → $60,000 COGS (40% gross) → $20,000 OPEX (20% operating) → $13,500 net income (13.50% net margin)' },
+      { label: 'Target Margin Price Example', value: '$60.00 cost with 40.00% target margin requires $100.00 selling price' },
+    ],
+    sources: [
+      {
+        label: 'NYU Stern School of Business — Margins by Sector (US) Dataset (Prof. Aswath Damodaran)',
+        url: 'https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html',
+        note: 'Authoritative annual corporate finance dataset benchmarking gross, operating, and net profit margins across US industries',
+      },
+      {
+        label: 'Financial Accounting Standards Board (FASB) — Conceptual Framework for Financial Reporting',
+        url: 'https://www.fasb.org/',
+        note: 'Standard definitions for revenue recognition, cost of goods sold, operating expenses, and net income',
+      },
+      {
+        label: 'HM Revenue & Customs (HMRC) — Business Profits, Turnover & Allowances',
+        url: 'https://www.gov.uk/',
+        note: 'Official guidance on computing UK commercial gross profit (GP) and net taxable profit',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

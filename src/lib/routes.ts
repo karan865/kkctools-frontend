@@ -184,6 +184,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  profitMarginCalculator: {
+    path: '/profit-margin-calculator/',
+    title: 'Profit Margin Calculator – Gross, Net & Operating',
+    description: 'Free profit margin calculator. Enter revenue and costs to get gross, operating and net profit margin, or find the price you need to hit a target margin.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

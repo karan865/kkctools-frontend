@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-17T21:54:24.709Z
+Generated on: 2026-11-17T22:07:05.751Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-17T21:54:24.709Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
-- **Overall Completion:** 628 vitest tests passing (46 files, 100% green), 77 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
+- **Overall Completion:** 637 vitest tests passing (47 files, 100% green), 78 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -276,6 +276,14 @@ Owner request: every tool must show, inside the input area, a large diagram that
 - [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
 - [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
 - [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
+
+### Phase PM — Tool #43: Profit Margin Calculator (Batch 3 Tier 1 #3, built 2026-11-18)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/3.Profit_Margin_Calculator_Competitor_Analysis/03_Profit_Margin_Calculator_BUILD_SPEC.md` & `03_Profit_Margin_Calculator_Competitor_Analysis.md` (primary `gross margin calculator`, US 8,100 / KD 8 / CPC $1.65; secondary `gross profit margin formula` 8,100 / KD 9, `calculate profit margin` 4,400 / KD 11, `net profit margin formula` 3,600 / KD 11, `how to calculate net profit margin` 1,900 / KD 11, `gross margin calculation` 1,600 / KD 9, `gp profit` 2,400 / KD 8, `how to work out a gp` 3,600 / KD 17, `what is a good profit margin` 3,600 / KD 20).
+- [x] PM-1 Engine `src/lib/margin-engine.ts` + 9 tests: gross margin (revenue, COGS, units sold), multi-tier P&L cascade (gross sales, returns, COGS, OPEX, D&A, interest, taxes → Gross Margin, Operating Margin EBIT, EBITDA, Net Profit Margin), target margin pricing (`priceForTargetMargin` with platform fee %), and multi-product mix weighted blended margin (`calculateProductMix`). Unit tests prove mathematically that blended margin is weighted by revenue and strictly not the simple average of individual product margins. *(Evidence: `npx vitest run src/lib/margin-engine.test.ts` → 9 passed; full suite → 637 passed, 47 files)*
+- [x] PM-2 Sourced academic benchmarks and official financial citations documented in `calculation-methods.ts` and cited in page copy: NYU Stern School of Business (Prof. Aswath Damodaran, Margins by Sector US dataset), Financial Accounting Standards Board (FASB), and HM Revenue & Customs (gov.uk GP% guidance). No fabricated industry averages.
+- [x] PM-3 UI `src/components/tool/profit-margin-calculator/`: Strict KKCTools design system (`.cardHead` with circular numbered step badges, `.inputWrap` + `.unitBadge`, radiant sky-blue hero result card, 4 key metrics strip [Gross Margin %, Operating Margin %, Markup on Cost, Gross Profit], interactive SVG `MarginDiagram` with P&L Waterfall view vs 3 Margin Tiers Retention view, 4 tabs [Gross Profit Margin, Full P&L Cascade, Price for Target Margin, Product Mix & Blended Margin], currency switcher [$ / £ / € / ₹], copy summary, shareable URL query params, and print sheet). *(Evidence: `npm run verify` passed, static build clean)*
+- [x] PM-4 Page `src/app/profit-margin-calculator/`: Title 49 chars (`absoluteTitle: true`), meta 155 chars, H1 57 chars, ~2,200 original words, primary keyword `gross margin calculator` in intro, H2, and tool heading, 11 H2 content sections matching BUILD SPEC §5, 11 FAQs matching SPEC §6 with live calculated numbers from engine, WebApplication + FAQPage JSON-LD schema, HowWeCalculate component. *(Evidence: `seo:audit` PASSED with 0 errors, 78 static routes)*
+- [x] PM-5 System Wiring: routes (`/profit-margin-calculator/`), tools catalog (#43, category `business`, icon `margin`, tags `['Gross Margin', 'P&L Waterfall']`), `tools-catalog.test.ts` updated to 43, footer link added under "More Utilities", calculation-methods entry added, inbound contextual links added from `markup-calculator` and `percentage-change-calculator`. *(Evidence: `npm run verify` passed all 6 steps)*
 
 ### Phase MC — Tool #42: Markup Calculator (Batch 3 Tier 1 #2, built 2026-11-18)
 Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/2.Markup_Calculator_Competitor_Analysis/02_Markup_Calculator_BUILD_SPEC.md` (primary `markup calculator`, US 14,800 / KD 24 / CPC $5.16; secondary `figuring markup` 2,400 / KD 12, `what is retail price` 2,400 / KD 7, `how much should i sell it for` 1,300 / KD 12, `average pricing` 1,900 / KD 15, `retail price` 14,800 / KD 26, `selling price` 6,600 / KD 25, `markup vs margin` 2,400 / KD 25, `retail math` 1,900 / KD 16).
@@ -1061,6 +1069,27 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #43 — Profit Margin Calculator] — 2026-11-18
+- New tool `/profit-margin-calculator/` (Batch 3 Build Order 3), built end-to-end from `03_Profit_Margin_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/margin-engine.ts`):
+  * Pure functions: `calculateGrossMargin(input)` (handles revenue, COGS, gross profit, gross margin %, markup %, multiplier, units sold, and negative margin detection), `calculatePnL(input)` (gross sales, returns/discounts, net revenue, COGS, gross profit, OPEX [rent, salaries, marketing], operating profit EBIT, D&A, EBITDA, interest, taxes, net profit, and 7-step P&L waterfall structure), `priceForTargetMargin(cost, targetMargin, feePercent)` (calculates required ticket price with gross-up fee protection), and `calculateProductMix(items)` (computes multi-product revenue share, individual margins, and weighted blended portfolio margin).
+- **Tests** (`src/lib/margin-engine.test.ts`):
+  * 9 Vitest unit tests covering retail gross margin ($100/$60 = 40%), per-unit volume breakdown, zero revenue null handling, negative margin detection on clearance loss, full 7-step P&L cascade with OPEX/EBITDA/tax, target margin pricing with platform fees, and mathematical proof that blended margin is weighted by revenue and strictly not the simple arithmetic average of margins.
+- **UI** (`src/components/tool/profit-margin-calculator/`):
+  * 4 modes: Gross Profit Margin, Full P&L (Gross, Operating, Net), Price for Target Margin, and Product Mix & Blended Margin.
+  * Dedicated interactive SVG diagram (`MarginDiagram.tsx`) with toggle between "P&L Waterfall" (revenue → COGS → gross → OPEX → net profit) and "Margin Tiers" (comparative gross, operating, and net margin retention bars).
+  * Presets for Standard Retail (40%), Software/SaaS (60%), Grocery/Volume (15%), currency switcher ($ / £ / € / ₹), copy summary, share URL with query params, print sheet, and warning callout on blended margin vs simple averages.
+- **Page** (`src/app/profit-margin-calculator/`):
+  * Title 49 chars (`Profit Margin Calculator – Gross, Net & Operating` with `absoluteTitle`), meta 155 chars, H1 57 chars, ~2,200 original words.
+  * Direct BLUF intro with live dynamic engine values.
+  * Primary keyword `gross margin calculator` placed in intro, H2, and tool heading.
+  * 11 H2 content sections matching SPEC §5 and 11 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Academic dataset benchmark citations: NYU Stern School of Business (Damodaran US margins by sector), FASB, and HMRC.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#43, category `business`, icon `margin`), `tools-catalog.test.ts` updated to 43, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `markup-calculator` and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 637 vitest tests passing across 47 files. 78 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #42 — Markup Calculator] — 2026-11-18
 - New tool `/markup-calculator/` (Batch 3 Build Order 2), built end-to-end from `02_Markup_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/pricing-engine.ts`):
@@ -1480,7 +1509,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-17T21:54:24.190Z
+Run Date: 2026-11-17T22:07:05.286Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1521,31 +1550,32 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2188 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 2190 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1615 | Linear Foot Calculator (Linear | PASS |
-| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2588 | Markup Calculator: Selling Pri | PASS |
+| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2593 | Markup Calculator: Selling Pri | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2043 | Metal Roof Cost Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2522 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3073 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
-| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3452 | Percentage Change Calculator:  | PASS |
+| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3468 | Percentage Change Calculator:  | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
+| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2186 | Profit Margin Calculator: Gros | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2382 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4131 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 834 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 850 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2183 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1215 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1240 | All Free Tools: Construction C | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1604,6 +1634,7 @@ paver-sand-calculator/index.html
 percentage-change-calculator/index.html
 pipe-volume-calculator/index.html
 privacy-policy/index.html
+profit-margin-calculator/index.html
 rafter-calculator/index.html
 rebar-calculator/index.html
 roof-replacement-cost-calculator/index.html
@@ -1657,6 +1688,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+47208bf feat(tool): build Markup Calculator (#42) with interactive visual diagram and 5 modes
 d7b7d42 feat(tool): build Percentage Change Calculator (#41) with interactive visual diagram and 8 modes
 c70c17f all Batch 2 completed
 775f6f3 Deck Cost Calculator & Estimator - completed
@@ -1676,7 +1708,6 @@ d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 6844232 Add Concrete Slab Cost Calculator (Batch 2 Tier 1 #9)
 7159a8c google analytics setup
 43cf389 cards and colors redesigns
-fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner identity
 ```
 
 
@@ -1692,18 +1723,18 @@ fffc9c6 AdSense-readiness fixes: Disclaimer, HTML site map, accessibility, owner
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 28ms
+✓ Running next.config.ts took 40ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 4.9s
+✓ Compiled successfully in 4.8s
   Running TypeScript ...
-  Finished TypeScript in 2.5s ...
+  Finished TypeScript in 2.4s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/77) ...
-  Generating static pages using 15 workers (19/77) 
-  Generating static pages using 15 workers (38/77) 
-  Generating static pages using 15 workers (57/77) 
-✓ Generating static pages using 15 workers (77/77) in 2.7s
+  Generating static pages using 15 workers (0/78) ...
+  Generating static pages using 15 workers (19/78) 
+  Generating static pages using 15 workers (38/78) 
+  Generating static pages using 15 workers (58/78) 
+✓ Generating static pages using 15 workers (78/78) in 2.6s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1764,6 +1795,7 @@ Route (app)
 ├ ○ /percentage-change-calculator
 ├ ○ /pipe-volume-calculator
 ├ ○ /privacy-policy
+├ ○ /profit-margin-calculator
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
 ├ ○ /robots.txt
@@ -1857,7 +1889,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 63 HTML files in out/...
+Auditing 64 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1873,58 +1905,59 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 43[2mms[22m[39m
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 38[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 48[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 40[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 43[2mms[22m[39m
  [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 36[2mms[22m[39m
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 24[2mms[22m[39m
  [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
  [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 637[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 525[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
  [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 8[2mms[22m[39m
  [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 516[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 392[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m46 passed[39m[22m[90m (46)[39m
-[2m      Tests [22m [1m[32m628 passed[39m[22m[90m (628)[39m
-[2m   Start at [22m 03:23:53
-[2m   Duration [22m 2.78s[2m (transform 9.61s, setup 0ms, import 12.50s, tests 1.44s, environment 24ms)[22m
+[2m Test Files [22m [1m[32m47 passed[39m[22m[90m (47)[39m
+[2m      Tests [22m [1m[32m637 passed[39m[22m[90m (637)[39m
+[2m   Start at [22m 03:36:35
+[2m   Duration [22m 2.71s[2m (transform 9.78s, setup 0ms, import 12.93s, tests 1.58s, environment 21ms)[22m
 
 
 ```

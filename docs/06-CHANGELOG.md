@@ -4,6 +4,27 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #43 — Profit Margin Calculator] — 2026-11-18
+- New tool `/profit-margin-calculator/` (Batch 3 Build Order 3), built end-to-end from `03_Profit_Margin_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/margin-engine.ts`):
+  * Pure functions: `calculateGrossMargin(input)` (handles revenue, COGS, gross profit, gross margin %, markup %, multiplier, units sold, and negative margin detection), `calculatePnL(input)` (gross sales, returns/discounts, net revenue, COGS, gross profit, OPEX [rent, salaries, marketing], operating profit EBIT, D&A, EBITDA, interest, taxes, net profit, and 7-step P&L waterfall structure), `priceForTargetMargin(cost, targetMargin, feePercent)` (calculates required ticket price with gross-up fee protection), and `calculateProductMix(items)` (computes multi-product revenue share, individual margins, and weighted blended portfolio margin).
+- **Tests** (`src/lib/margin-engine.test.ts`):
+  * 9 Vitest unit tests covering retail gross margin ($100/$60 = 40%), per-unit volume breakdown, zero revenue null handling, negative margin detection on clearance loss, full 7-step P&L cascade with OPEX/EBITDA/tax, target margin pricing with platform fees, and mathematical proof that blended margin is weighted by revenue and strictly not the simple arithmetic average of margins.
+- **UI** (`src/components/tool/profit-margin-calculator/`):
+  * 4 modes: Gross Profit Margin, Full P&L (Gross, Operating, Net), Price for Target Margin, and Product Mix & Blended Margin.
+  * Dedicated interactive SVG diagram (`MarginDiagram.tsx`) with toggle between "P&L Waterfall" (revenue → COGS → gross → OPEX → net profit) and "Margin Tiers" (comparative gross, operating, and net margin retention bars).
+  * Presets for Standard Retail (40%), Software/SaaS (60%), Grocery/Volume (15%), currency switcher ($ / £ / € / ₹), copy summary, share URL with query params, print sheet, and warning callout on blended margin vs simple averages.
+- **Page** (`src/app/profit-margin-calculator/`):
+  * Title 49 chars (`Profit Margin Calculator – Gross, Net & Operating` with `absoluteTitle`), meta 155 chars, H1 57 chars, ~2,200 original words.
+  * Direct BLUF intro with live dynamic engine values.
+  * Primary keyword `gross margin calculator` placed in intro, H2, and tool heading.
+  * 11 H2 content sections matching SPEC §5 and 11 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Academic dataset benchmark citations: NYU Stern School of Business (Damodaran US margins by sector), FASB, and HMRC.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#43, category `business`, icon `margin`), `tools-catalog.test.ts` updated to 43, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `markup-calculator` and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 637 vitest tests passing across 47 files. 78 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #42 — Markup Calculator] — 2026-11-18
 - New tool `/markup-calculator/` (Batch 3 Build Order 2), built end-to-end from `02_Markup_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/pricing-engine.ts`):

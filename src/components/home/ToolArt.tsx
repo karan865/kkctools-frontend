@@ -759,6 +759,20 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={26} y1={112} x2={105} y2={112} label="$40 → $60" lx={65} ly={118} />
     </>
   ),
+  /* Profit Margin Calculator: revenue bar split into COGS and gross profit margin % */
+  margin: (
+    <>
+      <rect className={s.f2} x={28} y={32} width={76} height={48} rx={6} />
+      <rect className={k('fl', 's2')} x={108} y={48} width={56} height={32} rx={6} />
+      <text className={s.tx} x={66} y={58} textAnchor="middle" fontSize={11} fontWeight={700}>
+        COGS 60%
+      </text>
+      <text className={s.tx} x={136} y={66} textAnchor="middle" fontSize={11} fontWeight={800}>
+        40% GP
+      </text>
+      <Dim x1={28} y1={92} x2={164} y2={92} label="$100 Revenue" lx={96} ly={98} />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

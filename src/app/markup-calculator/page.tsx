@@ -490,6 +490,9 @@ export default function MarkupCalculatorPage() {
               Complement your pricing strategy with our other verified calculators:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.profitMarginCalculator.path} className={styles.pillLink}>
+                Profit Margin Calculator (Gross &amp; Net)
+              </Link>
               <Link href={ROUTES.percentageChangeCalculator.path} className={styles.pillLink}>
                 Percentage Change Calculator
               </Link>
