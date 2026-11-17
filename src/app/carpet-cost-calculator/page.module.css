@@ -175,6 +175,7 @@
   line-height: 1.65;
   color: var(--ink-2);
   margin: 0;
+  background: #ffffff;
 }
 
 .relatedGrid {

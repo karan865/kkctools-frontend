@@ -199,6 +199,7 @@ details[open] .faqQuestion::after {
   font-size: 0.94rem;
   line-height: 1.65;
   color: var(--ink-2);
+  background: #ffffff;
 }
 
 .relatedSection {

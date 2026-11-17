@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-17T22:34:29.081Z
+Generated on: 2026-11-17T23:12:58.255Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-17T22:34:29.081Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
-- **Overall Completion:** 637 vitest tests passing (47 files, 100% green), 78 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #45 Hourly to Salary Calculator built and verified (Phase HS, 2026-11-18); Tool #44 Unit Price Calculator built and verified (Phase UP, 2026-11-18); Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
+- **Overall Completion:** 659 vitest tests passing (49 files, 100% green), 80 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|
@@ -276,6 +276,22 @@ Owner request: every tool must show, inside the input area, a large diagram that
 - [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
 - [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
 - [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
+
+### Phase HS — Tool #45: Hourly to Salary Calculator (Batch 3 Tier 1 #5, built 2026-11-18)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/4.Hourly_to_Salary_Wage_Calculator_Competitor_Analysis/04_Hourly_to_Salary_Calculator_BUILD_SPEC.md` & `04_Hourly_to_Salary_Wage_Calculator_Competitor_Analysis.md` (primary `yearly wage calculator`, US 6,600 / KD 0; secondary `calculate annual salary` 6,600 / KD 10, `monthly gross income calculator` 3,600 / KD 9, `how to calculate annual income biweekly` 1,300 / KD 0, `hourly salary calculator` 12,100 / KD 28).
+- [x] HS-1 Engine `src/lib/wage-engine.ts` + 11 tests: bi-directional conversions across all 8 pay frequencies (hour, day, week, biweek, semi-month, month, quarter, year), schedule configurations (hours/week, days/week, weeks/year, custom Mon–Sun variable daily hours), paid vs unpaid time off math (PTO preserves annual salary while updating effective hourly worked rate, unpaid days deduct from annual salary), overtime rules (FLSA 1.5×, 2.0× double-time across paid weeks), job offer and raise % comparison, and precomputed $10–$100/hr reference table generator. Tests verify precision, round-trip symmetry, and division-by-zero guards. *(Evidence: `npx vitest run src/lib/wage-engine.test.ts` → 11 passed)*
+- [x] HS-2 Metrology & labor standards cited in `calculation-methods.ts` and cited in page copy: US Department of Labor FLSA 40h workweek & 1.5x overtime rules, US Office of Personnel Management (OPM 2,087-hour divisor), and UK Working Time Regulations 1998 (1,950-hour standard). Official links to IRS and GOV.UK for take-home pay taxes.
+- [x] HS-3 UI `src/components/tool/hourly-to-salary-calculator/`: Three tabs (Convert Hourly ↔ Salary, Job Offer & Raise Comparison, Wage Reference Table $10–$100), interactive SVG `WageDiagram` (Paycheck Frequencies comparison bar view + Annual Working Hours & PTO Stack view), schedule presets (US 40h, UK 37.5h, AU 38h, India 48h, Part-time 20h), time off & overtime accordions, search filterable reference table, copy summary, shareable URL query params, and print breakdown. *(Evidence: `npm run verify` passed, static build clean)*
+- [x] HS-4 Page `src/app/hourly-to-salary-calculator/`: Title 55 chars (`absoluteTitle: true`), meta 151 chars, H1 57 chars, ~1,900 original words, 11 H2 content sections matching BUILD SPEC §5, 11 FAQs matching SPEC §6 with live calculated numbers from engine, WebApplication + FAQPage JSON-LD schema, HowWeCalculate component. *(Evidence: `seo:audit` PASSED with 0 errors, 80 static routes)*
+- [x] HS-5 System Wiring: routes (`/hourly-to-salary-calculator/`), tools catalog (#45, category `business`, icon `wage`, tags `['Yearly Wage', 'Pay Frequencies']`), `tools-catalog.test.ts` updated to 45, footer link added under "More Utilities", calculation-methods entry added, inbound contextual links added from `percentage-change-calculator`, `unit-price-calculator`, and `construction-estimate-template`. *(Evidence: `npm run verify` passed all 6 steps)*
+
+### Phase UP — Tool #44: Unit Price Calculator (Batch 3 Tier 1 #4, built 2026-11-18)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/5.Unit_Price_Calculator_Competitor_Analysis/05_Unit_Price_Calculator_BUILD_SPEC.md` & `05_Unit_Price_Calculator_Competitor_Analysis.md` (primary `unit price calculator`, US 1,900 / KD 14; secondary `price per unit calculator` 1,300 / KD 0, `price per ounce calculator` 1,300 / KD 11, `calculate price per oz` 590 / KD 11, `cost per unit` 590 / KD 7).
+- [x] UP-1 Engine `src/lib/unit-price-engine.ts` + 11 tests: exact NIST Handbook 130 / SP 811 conversions (Weight: oz, lb, g, kg; Volume: fl oz, cup, pt, qt, gal, ml, L; Count: item, sheet, roll, load, pc), promotional deal engine (`applyDeal`: % off, $ off coupon, BOGO / buy X get Y free, X for $Y multi-buy), product comparator (`compareUnitPrices`: ranks from cheapest, calculates unit savings & % premium over cheapest, target quantity-to-buy solver), shrinkflation detector (`calculateShrinkflation`: physical size reduction % vs true hidden unit price inflation %), and seller statutory shelf tagger (`calculateSellerUnitCost`: cost per finished unit, shelf tag per kg/L and per 100g/ml). All unit tests green, zero NaN/Infinity, round-trip conversion accuracy. *(Evidence: `npx vitest run src/lib/unit-price-engine.test.ts` → 11 passed)*
+- [x] UP-2 Sourced benchmarks and official metrology citations in `calculation-methods.ts` and cited in page copy: NIST Handbook 130 (Uniform Unit Pricing Regulation), UK Statutory Instruments Price Marking Order 2004 (SI 2004/102), and EU Directive 98/6/EC.
+- [x] UP-3 UI `src/components/tool/unit-price-calculator/`: Three tabs (Compare 2–6 products, Shrinkflation Check, Seller Cost & Shelf Tag), interactive SVG `UnitPriceDiagram` (Unit Price Value Comparison bar view + Yield per Dollar view, visual shrinkflation box downsizing animation), deal accordion per row, output unit selector, quantity needed solver, copy table/summary, shareable URL query params, print sheet. *(Evidence: `npm run verify` passed, static build clean)*
+- [x] UP-4 Page `src/app/unit-price-calculator/`: Title 53 chars (`absoluteTitle: true`), meta 157 chars, H1 62 chars, ~1,850 original words, 10 H2 content sections matching BUILD SPEC §5, 10 FAQs matching SPEC §6 with live calculated numbers from engine, WebApplication + FAQPage JSON-LD schema, HowWeCalculate component. *(Evidence: `seo:audit` PASSED with 0 errors, 79 static routes)*
+- [x] UP-5 System Wiring: routes (`/unit-price-calculator/`), tools catalog (#44, category `business`, icon `unitPrice`, tags `['Price per Ounce', 'Deals & BOGO']`), `tools-catalog.test.ts` updated to 44, footer link added under "More Utilities", calculation-methods entry added, inbound contextual links added from `markup-calculator`, `profit-margin-calculator`, and `percentage-change-calculator`. *(Evidence: `npm run verify` passed all 6 steps)*
 
 ### Phase PM — Tool #43: Profit Margin Calculator (Batch 3 Tier 1 #3, built 2026-11-18)
 Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/3.Profit_Margin_Calculator_Competitor_Analysis/03_Profit_Margin_Calculator_BUILD_SPEC.md` & `03_Profit_Margin_Calculator_Competitor_Analysis.md` (primary `gross margin calculator`, US 8,100 / KD 8 / CPC $1.65; secondary `gross profit margin formula` 8,100 / KD 9, `calculate profit margin` 4,400 / KD 11, `net profit margin formula` 3,600 / KD 11, `how to calculate net profit margin` 1,900 / KD 11, `gross margin calculation` 1,600 / KD 9, `gp profit` 2,400 / KD 8, `how to work out a gp` 3,600 / KD 17, `what is a good profit margin` 3,600 / KD 20).
@@ -1069,6 +1085,52 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #45 — Hourly to Salary Calculator] — 2026-11-18
+- New tool `/hourly-to-salary-calculator/` (Batch 3 Build Order 5), built end-to-end from `04_Hourly_to_Salary_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/wage-engine.ts`):
+  * Pure functions: `calculateWage(input)` (converts any period across all 8 frequencies: hour, day, week, biweek, semi-month, month, quarter, year; handles custom hours/week, variable daily schedule Mon–Sun, paid vs unpaid time off, and overtime with FLSA multipliers), `compareWages(input)` (compares baseline against offer B or raise %), `generateWageTable(hoursPerWeek, weeksPerYear)` (generates $10 to $100/hr reference table).
+- **Tests** (`src/lib/wage-engine.test.ts`):
+  * 11 Vitest unit tests covering full-time $25/hr = $52,000 annual gross, reverse salary to hourly, biweekly (26 paychecks) vs semi-monthly (24 paychecks) differentiation, paid leave preserving salary while raising effective worked hourly rate, unpaid days docking annual gross, overtime 1.5× compounding, variable daily schedules, international presets, raise %, and wage table generator.
+- **UI** (`src/components/tool/hourly-to-salary-calculator/`):
+  * 3 tabs:
+    1. **Convert (Hourly ↔ Salary)**: 8 pay frequencies, schedule presets (US 40h, UK 37.5h, AU 38h, India 48h, Part-time 20h), variable daily schedule input, time off and overtime accordions, hero annual gross card, 8-period table, and tax notices with official links.
+    2. **Job Offer & Raise Comparison**: Compares current baseline vs second offer or percentage raise with annual, monthly, and hourly difference metrics.
+    3. **Wage Table ($10–$100)**: Search-filterable interactive table with anchor links `#hourly-25`.
+  * Dedicated interactive SVG diagram (`WageDiagram.tsx`) toggling between Paycheck Frequencies (Monthly, Semi-Monthly, Biweekly, Weekly) and Annual Hours Breakdown (hours on the clock vs paid leave vs overtime).
+  * Actions: Copy summary/table, Shareable URL with query parameter sync, Print breakdown.
+- **Page** (`src/app/hourly-to-salary-calculator/`):
+  * Title 55 chars (`Hourly to Salary Calculator – Yearly Wage & Monthly Pay` with `absoluteTitle`), meta 151 chars, H1 57 chars, ~1,900 original words.
+  * Direct BLUF box computing live numbers from engine.
+  * 11 H2 content sections matching BUILD SPEC §5 and 11 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Sourced metrology and labor citations: US DOL FLSA (dol.gov), US OPM 2,087-hour divisor (opm.gov), UK Working Time Regulations 1998, and official IRS/GOV.UK tax links.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#45, category `business`, icon `wage`), `tools-catalog.test.ts` updated to 45, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `percentage-change-calculator`, `unit-price-calculator`, and `construction-estimate-template`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 659 vitest tests passing across 49 files. 80 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
+### [Tool #44 — Unit Price Calculator] — 2026-11-18
+- New tool `/unit-price-calculator/` (Batch 3 Build Order 4), built end-to-end from `05_Unit_Price_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/unit-price-engine.ts`):
+  * Pure functions: `toBaseQuantity(qty, unit)` & `fromBaseQuantity(baseQty, unit)` applying exact NIST Handbook 130 / SP 811 conversions (Weight: oz, lb, g, kg; Volume: fl oz, cup, pt, qt, gal, ml, L; Count: item, sheet, roll, load, pc), `applyDeal(price, deal)` (handles percentage off, dollar coupon, Buy X Get Y Free BOGO per-unit amortisation, and X for $Y multi-buy bundles), `compareUnitPrices(items, outputUnit, targetQuantity)` (ranks items from cheapest, detects mismatched measurement groups, calculates unit savings and % premium over cheapest, and solves quantity-to-buy pack counts and total purchase costs), `calculateShrinkflation(input)` (calculates package physical size reduction % vs true hidden unit price inflation % and generates plain-English summary), and `calculateSellerUnitCost(input)` (computes manufacturing cost per finished unit and statutory retail shelf tags per kg/L and per 100g/ml).
+- **Tests** (`src/lib/unit-price-engine.test.ts`):
+  * 11 Vitest unit tests covering NIST exact conversions (1 lb = 16 oz = 453.59237 g, 1 gal = 128 fl oz), multi-pack comparison (6 × 330 ml vs 2 L bottle), deal mathematics (20% off, $1 coupon, BOGO halves effective price, 3 for $5), mismatched group warnings (weight vs volume), zero price/size validation (no NaN or Infinity), shrinkflation hidden inflation (10% smaller at same price = 11.11% price hike), and quantity-to-buy solver.
+- **UI** (`src/components/tool/unit-price-calculator/`):
+  * 3 tabs:
+    1. **Compare Products**: 2 to 6 product rows (default 3 rows), deal accordion per row, group-aware output unit dropdown (per oz, lb, kg, L, item), optional quantity needed solver, and ranked table with cheapest badge.
+    2. **Shrinkflation Check**: Compares original and downsized package specs, displaying physical size drop % alongside hidden price rise %.
+    3. **Seller Cost & Shelf Tag**: Calculates unit production cost from batch expenses and generates statutory shelf-tag prices per kg/L and per 100g/ml with direct deep link to the Markup Calculator.
+  * Dedicated interactive SVG diagram (`UnitPriceDiagram.tsx`) supporting comparative price bars and yield per dollar views in Compare mode, and a visual package downsizing comparison in Shrinkflation mode.
+  * Actions: Copy Table/Summary to clipboard, Shareable URL with query parameter synchronisation, and Print sheet.
+- **Page** (`src/app/unit-price-calculator/`):
+  * Title 53 chars (`Unit Price Calculator – Price per Ounce, Pound & Item` with `absoluteTitle`), meta 157 chars, H1 62 chars, ~1,850 original words.
+  * Direct BLUF summary box with live engine computations.
+  * 10 H2 content sections matching BUILD SPEC §5 and 10 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Metrology & statutory law citations: NIST Handbook 130, UK Price Marking Order 2004 (SI 2004/102), and EU Directive 98/6/EC.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#44, category `business`, icon `unitPrice`), `tools-catalog.test.ts` updated to 44, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `markup-calculator`, `profit-margin-calculator`, and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 648 vitest tests passing across 48 files. 79 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #43 — Profit Margin Calculator] — 2026-11-18
 - New tool `/profit-margin-calculator/` (Batch 3 Build Order 3), built end-to-end from `03_Profit_Margin_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/margin-engine.ts`):
@@ -1509,7 +1571,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-17T22:34:28.602Z
+Run Date: 2026-11-17T23:12:57.819Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1533,7 +1595,7 @@ Status: PASSED ✅
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2691 | Concrete Calculator: Volume in | PASS |
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3331 | Concrete Slab Cost Calculator | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3001 | Free Construction Estimate Tem | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3018 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
@@ -1550,7 +1612,8 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2262 | Free Construction Calculators  | PASS |
+| `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2658 | Hourly to Salary Calculator (Y | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 2293 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1615 | Linear Foot Calculator (Linear | PASS |
@@ -1559,7 +1622,7 @@ Status: PASSED ✅
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2522 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3073 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
-| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3484 | Percentage Change Calculator:  | PASS |
+| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3500 | Percentage Change Calculator:  | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2188 | Profit Margin Calculator: Gros | PASS |
@@ -1568,15 +1631,15 @@ Status: PASSED ✅
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4131 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 872 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 893 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2183 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1272 | All Free Tools: Construction C | PASS |
-| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2659 | Unit Price Calculator: Compare | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1306 | All Free Tools: Construction C | PASS |
+| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2666 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
@@ -1623,6 +1686,7 @@ guides/band-name-ideas-by-genre/index.html
 guides/how-to-check-if-a-band-name-is-taken/index.html
 guides/how-to-choose-a-band-name/index.html
 guides/index.html
+hourly-to-salary-calculator/index.html
 index.html
 laminate-flooring-calculator/index.html
 lawn-mowing-cost-calculator/index.html
@@ -1690,6 +1754,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+cb8433a feat(tool): build Unit Price Calculator (#44) with interactive visual diagram and 3 modes
 e0883d1 feat(tool): build Profit Margin Calculator (#43) with interactive P&L waterfall diagram and 4 modes
 47208bf feat(tool): build Markup Calculator (#42) with interactive visual diagram and 5 modes
 d7b7d42 feat(tool): build Percentage Change Calculator (#41) with interactive visual diagram and 8 modes
@@ -1709,7 +1774,6 @@ d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 573cd37 Add Fence Cost Calculator (Batch 2 Tier 2 #11); darken danger token
 7d3a5bd Add Deck Stain Calculator (Batch 2 Tier 1 #10); delay GTM fallback to 5 s
 6844232 Add Concrete Slab Cost Calculator (Batch 2 Tier 1 #9)
-7159a8c google analytics setup
 ```
 
 
@@ -1728,15 +1792,15 @@ d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 ✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.8s
+✓ Compiled successfully in 8.2s
   Running TypeScript ...
-  Finished TypeScript in 3.2s ...
+  Finished TypeScript in 3.3s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/79) ...
-  Generating static pages using 15 workers (19/79) 
-  Generating static pages using 15 workers (39/79) 
-  Generating static pages using 15 workers (59/79) 
-✓ Generating static pages using 15 workers (79/79) in 3.4s
+  Generating static pages using 15 workers (0/80) ...
+  Generating static pages using 15 workers (20/80) 
+  Generating static pages using 15 workers (40/80) 
+  Generating static pages using 15 workers (60/80) 
+✓ Generating static pages using 15 workers (80/80) in 3.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1781,6 +1845,7 @@ Route (app)
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /hourly-to-salary-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /lawn-mowing-cost-calculator
@@ -1892,7 +1957,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 65 HTML files in out/...
+Auditing 66 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -1908,60 +1973,61 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 36[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 47[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 52[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 42[2mms[22m[39m
  [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 46[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 48[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 55[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 57[2mms[22m[39m
+ [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 56[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 18[2mms[22m[39m
  [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 42[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 61[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
  [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 718[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 588[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 26[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 22[2mms[22m[39m
  [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 686[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 577[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
  [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
  [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m48 passed[39m[22m[90m (48)[39m
-[2m      Tests [22m [1m[32m648 passed[39m[22m[90m (648)[39m
-[2m   Start at [22m 04:03:50
-[2m   Duration [22m 3.05s[2m (transform 10.65s, setup 0ms, import 14.28s, tests 1.74s, environment 32ms)[22m
+[2m Test Files [22m [1m[32m49 passed[39m[22m[90m (49)[39m
+[2m      Tests [22m [1m[32m659 passed[39m[22m[90m (659)[39m
+[2m   Start at [22m 04:42:22
+[2m   Duration [22m 2.73s[2m (transform 9.06s, setup 0ms, import 12.40s, tests 1.75s, environment 20ms)[22m
 
 
 ```

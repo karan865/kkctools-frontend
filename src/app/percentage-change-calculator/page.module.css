@@ -152,14 +152,15 @@
 .faqItem {
   margin-bottom: 18px;
   border: 1px solid var(--line);
-  border-radius: 10px;
-  background: var(--surface);
+  border-radius: 12px;
+  background: #ffffff;
   overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .faqQuestion {
   font-weight: 700;
-  font-size: 1.02rem;
+  font-size: 1.05rem;
   color: var(--ink);
   padding: 16px 20px;
   background: var(--surface-2, #f8fafc);
@@ -173,6 +174,7 @@
   line-height: 1.65;
   color: var(--ink-2);
   margin: 0;
+  background: #ffffff;
 }
 
 .faqAnswer p {

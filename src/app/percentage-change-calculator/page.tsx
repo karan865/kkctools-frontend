@@ -557,6 +557,12 @@ export default function PercentageChangePage() {
             Explore our companion calculators for material takeoffs, contractor billing, and commercial pricing:
           </p>
           <div className={styles.relatedGrid}>
+            <Link href="/hourly-to-salary-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Hourly to Salary Calculator</span>
+              <span className={styles.relatedDesc}>
+                Convert hourly wages to annual salary, calculate pay raise percentages, and evaluate job offers.
+              </span>
+            </Link>
             <Link href="/unit-price-calculator/" className={styles.relatedCard}>
               <span className={styles.relatedTitle}>Unit Price Calculator</span>
               <span className={styles.relatedDesc}>

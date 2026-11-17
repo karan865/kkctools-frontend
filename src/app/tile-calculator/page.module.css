@@ -208,19 +208,30 @@
 }
 
 .faqItem {
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .faqQuestion {
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--color-text, #0f172a);
-  margin-bottom: 0.5rem;
+  padding: 16px 20px;
+  background: var(--surface-2, #f8fafc);
+  margin: 0;
+  border-bottom: 1px solid var(--line, #e2e8f0);
 }
 
 .faqAnswer {
   color: var(--color-text, #334155);
   line-height: 1.65;
+  padding: 16px 20px;
+  margin: 0;
+  background: #ffffff;
 }
 
 .relatedSection {

@@ -43,6 +43,7 @@ export type IconName =
   | 'tag'
   | 'margin'
   | 'unitPrice'
+  | 'wage'
   | 'gridSearch'
   | 'plus'
   | 'search'
@@ -480,6 +481,14 @@ export default function Icon({
           <rect x="13" y="2" width="9" height="18" rx="2" />
           <line x1="6" y1="11" x2="6" y2="15" />
           <line x1="17.5" y1="7" x2="17.5" y2="13" />
+        </svg>
+      );
+    case 'wage':
+      return (
+        <svg {...common}>
+          <rect x="2" y="4" width="20" height="16" rx="3" />
+          <line x1="2" y1="10" x2="22" y2="10" />
+          <circle cx="12" cy="15" r="2" />
         </svg>
       );
     case 'gridSearch':

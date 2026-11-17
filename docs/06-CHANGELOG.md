@@ -4,6 +4,46 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Design & UI — FAQ Answer Pure White Background Fix] — 2026-11-18
+- **User Feedback Addressed**: Fixed FAQ question & answer card styling across the site where answer sections lacked an explicit white background and rendered directly on the warm beige canvas (`--bg: #EBE4D6`).
+- **Files Updated**:
+  * `src/components/ui/Faq.module.css`: Set `.details` background to `#ffffff`, `<summary>` to subtle header `var(--surface-2, #f8fafc)` with bottom border on open, and `.answer` to explicit `background: #ffffff;`.
+  * `src/app/hourly-to-salary-calculator/page.module.css`: Converted FAQ list into crisp card layout with `.faqItem` (`background: #ffffff`, border, radius 12px, shadow), `.faqQuestion` header bar (`background: var(--surface-2, #f8fafc)`), and `.faqAnswer` (`background: #ffffff`, padding 16px 20px).
+  * `src/app/unit-price-calculator/page.module.css`: Converted FAQ list into crisp card layout with `.faqItem` (`background: #ffffff`), `.faqQuestion` header bar (`#f8fafc`), and `.faqAnswer` (`background: #ffffff`).
+  * `src/app/markup-calculator/page.module.css`: Added card styling to `.faqItem` (`background: #ffffff`), `.faqQ` header bar (`#f8fafc`), and `.faqA` (`background: #ffffff`).
+  * `src/app/profit-margin-calculator/page.module.css`: Added card styling to `.faqItem` (`background: #ffffff`), `.faqQ` header bar (`#f8fafc`), and `.faqA` (`background: #ffffff`).
+  * `src/app/percentage-change-calculator/page.module.css`: Added explicit `background: #ffffff;` to `.faqAnswer` and updated `.faqItem` shadow and radius.
+  * `src/app/roof-replacement-cost-calculator/page.module.css`: Converted FAQ list to modern card layout with header bar and `.faqAnswer` (`background: #ffffff`).
+  * `src/app/tile-calculator/page.module.css`: Converted FAQ list to modern card layout with header bar and `.faqAnswer` (`background: #ffffff`).
+  * `src/app/laminate-flooring-calculator/page.module.css`: Converted FAQ list to modern card layout with header bar and `.faqAnswer` (`background: #ffffff`).
+  * `src/app/concrete-calculator/page.module.css`, `src/app/carpet-cost-calculator/page.module.css`, `src/app/deck-cost-calculator/page.module.css`, `src/app/stone-calculator/page.module.css`: Explicit `background: #ffffff;` added to `.faqItem` and `.faqAnswer` / `.faqA`.
+- **Verification**: `npm run verify` passed all 6 steps. All vitest tests passing (659 tests), 0 lint errors, no-network clean, SEO audit clean.
+
+---
+
+### [Tool #45 — Hourly to Salary Calculator] — 2026-11-18
+- New tool `/hourly-to-salary-calculator/` (Batch 3 Build Order 5), built end-to-end from `04_Hourly_to_Salary_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/wage-engine.ts`):
+  * Pure functions: `calculateWage(input)` (converts any period across all 8 frequencies: hour, day, week, biweek, semi-month, month, quarter, year; handles custom hours/week, variable daily schedule Mon–Sun, paid vs unpaid time off, and overtime with FLSA multipliers), `compareWages(input)` (compares baseline against offer B or raise %), `generateWageTable(hoursPerWeek, weeksPerYear)` (generates $10 to $100/hr reference table).
+- **Tests** (`src/lib/wage-engine.test.ts`):
+  * 11 Vitest unit tests covering full-time $25/hr = $52,000 annual gross, reverse salary to hourly, biweekly (26 paychecks) vs semi-monthly (24 paychecks) differentiation, paid leave preserving salary while raising effective worked hourly rate, unpaid days docking annual gross, overtime 1.5× compounding, variable daily schedules, international presets, raise %, and wage table generator.
+- **UI** (`src/components/tool/hourly-to-salary-calculator/`):
+  * 3 tabs:
+    1. **Convert (Hourly ↔ Salary)**: 8 pay frequencies, schedule presets (US 40h, UK 37.5h, AU 38h, India 48h, Part-time 20h), variable daily schedule input, time off and overtime accordions, hero annual gross card, 8-period table, and tax notices with official links.
+    2. **Job Offer & Raise Comparison**: Compares current baseline vs second offer or percentage raise with annual, monthly, and hourly difference metrics.
+    3. **Wage Table ($10–$100)**: Search-filterable interactive table with anchor links `#hourly-25`.
+  * Dedicated interactive SVG diagram (`WageDiagram.tsx`) toggling between Paycheck Frequencies (Monthly, Semi-Monthly, Biweekly, Weekly) and Annual Hours Breakdown (hours on the clock vs paid leave vs overtime).
+  * Actions: Copy summary/table, Shareable URL with query parameter sync, Print breakdown.
+- **Page** (`src/app/hourly-to-salary-calculator/`):
+  * Title 55 chars (`Hourly to Salary Calculator – Yearly Wage & Monthly Pay` with `absoluteTitle`), meta 151 chars, H1 57 chars, ~1,900 original words.
+  * Direct BLUF box computing live numbers from engine.
+  * 11 H2 content sections matching BUILD SPEC §5 and 11 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Sourced metrology and labor citations: US DOL FLSA (dol.gov), US OPM 2,087-hour divisor (opm.gov), UK Working Time Regulations 1998, and official IRS/GOV.UK tax links.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#45, category `business`, icon `wage`), `tools-catalog.test.ts` updated to 45, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `percentage-change-calculator`, `unit-price-calculator`, and `construction-estimate-template`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 659 vitest tests passing across 49 files. 80 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #44 — Unit Price Calculator] — 2026-11-18
 - New tool `/unit-price-calculator/` (Batch 3 Build Order 4), built end-to-end from `05_Unit_Price_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/unit-price-engine.ts`):

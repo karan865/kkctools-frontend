@@ -152,21 +152,31 @@
 }
 
 .faqItem {
-  margin-bottom: 24px;
+  margin-bottom: 14px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #ffffff;
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
 }
 
 .faqQ {
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   font-weight: 700;
   color: var(--ink);
-  margin: 0 0 8px;
+  padding: 16px 20px;
+  background: var(--surface-2, #f8fafc);
+  margin: 0;
+  border-bottom: 1px solid var(--line);
 }
 
 .faqA {
   font-size: 0.96rem;
   line-height: 1.65;
   color: var(--ink-2);
+  padding: 16px 20px;
   margin: 0;
+  background: #ffffff;
 }
 
 .internalLinks {

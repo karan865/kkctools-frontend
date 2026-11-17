@@ -1,0 +1,482 @@
+/* Hourly to Salary Calculator — KKCTools Design System */
+
+.wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  color: var(--ink);
+  width: 100%;
+}
+
+/* Tabs Bar */
+.tabsContainer {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 4px;
+}
+
+.tabsBar {
+  display: flex;
+  gap: 8px;
+  min-width: max-content;
+  background: var(--surface-muted, #f1f5f9);
+  padding: 6px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+}
+
+.tabBtn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 8px 16px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink-muted, #64748b);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+}
+
+.tabBtn:hover {
+  color: var(--ink);
+  background: rgba(0, 0, 0, 0.04);
+}
+
+.tabActive {
+  background: var(--surface, #ffffff);
+  color: #0284c7;
+  font-weight: 700;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+/* Two-Column Grid */
+.grid {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+@media (min-width: 980px) {
+  .grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+    gap: 32px;
+    align-items: start;
+  }
+
+  .results {
+    position: sticky;
+    top: 84px;
+  }
+}
+
+.inputs,
+.results {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+}
+
+/* Card Container */
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow-card, var(--shadow-s));
+}
+
+.cardHead {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--line);
+}
+
+.cardHeadTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.step {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: #0284c7;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.cardTitle {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0;
+}
+
+.cardSubtitle {
+  font-size: 0.82rem;
+  color: var(--ink-muted, #64748b);
+  margin: 2px 0 0;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 14px;
+}
+
+.label {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.inputWrap {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inputWrap:focus-within {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.unitBadge {
+  background: var(--surface-muted, #f1f5f9);
+  color: var(--ink-muted, #64748b);
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 0 10px;
+  height: 38px;
+  display: flex;
+  align-items: center;
+  border-right: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.unitBadgeRight {
+  border-right: none;
+  border-left: 1px solid var(--line);
+}
+
+.input {
+  width: 100%;
+  border: none;
+  background: transparent;
+  padding: 8px 10px;
+  font-size: 0.88rem;
+  color: var(--ink);
+  outline: none;
+  font-weight: 500;
+}
+
+.select {
+  width: 100%;
+  height: 38px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  padding: 0 10px;
+  font-size: 0.85rem;
+  color: var(--ink);
+  font-weight: 500;
+  outline: none;
+  cursor: pointer;
+}
+
+.select:focus {
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+/* Quick Preset Chips */
+.chipGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.chip {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface-2, #f8fafc);
+  color: var(--ink-muted, #64748b);
+  padding: 4px 10px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.chip:hover {
+  background: #f1f5f9;
+  color: var(--ink);
+  border-color: #cbd5e1;
+}
+
+.chipActive {
+  background: #eff6ff;
+  color: #0284c7;
+  border-color: #0284c7;
+  font-weight: 700;
+}
+
+/* Accordion Section */
+.accordion {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+
+.accordionHeader {
+  appearance: none;
+  width: 100%;
+  border: none;
+  background: var(--surface-2, #f8fafc);
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--ink);
+  transition: background 0.15s;
+}
+
+.accordionHeader:hover {
+  background: #f1f5f9;
+}
+
+.accordionBody {
+  padding: 14px;
+  background: var(--surface);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Hero Result Card */
+.heroCard {
+  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  border-radius: 14px;
+  padding: 22px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  box-shadow: 0 4px 14px rgba(2, 132, 199, 0.25);
+}
+
+.heroLabel {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  opacity: 0.9;
+  font-weight: 700;
+}
+
+.heroValue {
+  font-size: 2.2rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.heroSub {
+  font-size: 0.82rem;
+  opacity: 0.95;
+  line-height: 1.4;
+}
+
+/* Summary Banner */
+.summaryBanner {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.summaryIcon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #10b981;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.9rem;
+  font-weight: 800;
+  flex-shrink: 0;
+}
+
+.summaryText {
+  font-size: 0.92rem;
+  color: #065f46;
+  font-weight: 600;
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Results Table */
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+  text-align: left;
+}
+
+.table th {
+  background: var(--surface-muted, #f8fafc);
+  padding: 10px 12px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.table td {
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.activePeriodRow {
+  background: #eff6ff !important;
+}
+
+.activePeriodRow td {
+  color: #0284c7;
+  font-weight: 700;
+}
+
+/* Action Bar */
+.actionsBar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+}
+
+.actionBtn {
+  appearance: none;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.actionBtn:hover {
+  background: var(--surface-muted, #f1f5f9);
+  border-color: #cbd5e1;
+}
+
+.actionBtnSuccess {
+  border-color: #10b981;
+  color: #059669;
+  background: #ecfdf5;
+}
+
+/* Metrics Grid */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+@media (min-width: 500px) {
+  .metricsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.metricBox {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.metricLabel {
+  font-size: 0.78rem;
+  color: var(--ink-muted, #64748b);
+  font-weight: 600;
+}
+
+.metricVal {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.metricValGood {
+  color: #10b981;
+}
+
+/* Tax notice callout */
+.noticeBox {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+  padding: 12px 14px;
+  font-size: 0.78rem;
+  color: #64748b;
+  line-height: 1.45;
+}
+
+.noticeLink {
+  color: #0284c7;
+  text-decoration: underline;
+  font-weight: 600;
+}

@@ -143,6 +143,7 @@ export default function Footer() {
           <div className={styles.column}>
             <span className={styles.colTitle}>More Utilities</span>
             <ul className={styles.linkList}>
+              <li><Link href="/hourly-to-salary-calculator/" className={styles.link}>Hourly to Salary Calculator</Link></li>
               <li><Link href="/unit-price-calculator/" className={styles.link}>Unit Price Calculator</Link></li>
               <li><Link href="/profit-margin-calculator/" className={styles.link}>Profit Margin Calculator</Link></li>
               <li><Link href="/markup-calculator/" className={styles.link}>Markup Calculator</Link></li>

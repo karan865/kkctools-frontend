@@ -792,6 +792,22 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={88} y1={88} x2={144} y2={88} label="58¢/oz" lx={116} ly={95} />
     </>
   ),
+  /* Hourly to Salary Calculator: Hourly rate card transitioning to annual salary check */
+  wage: (
+    <>
+      <circle className={s.f2} cx={52} cy={48} r={24} />
+      <line className={s.s2} x1={52} y1={48} x2={52} y2={34} strokeWidth={2.5} />
+      <line className={s.s2} x1={52} y1={48} x2={64} y2={48} strokeWidth={2.5} />
+      <rect className={k('fl', 's2')} x={96} y={26} width={82} height={46} rx={6} />
+      <text className={s.tx} x={137} y={46} textAnchor="middle" fontSize={10} fontWeight={700}>
+        $25 / hr
+      </text>
+      <text className={s.tx} x={137} y={62} textAnchor="middle" fontSize={11} fontWeight={800}>
+        $52k / yr
+      </text>
+      <Dim x1={96} y1={84} x2={178} y2={84} label="2,080 h / yr" lx={137} ly={92} />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

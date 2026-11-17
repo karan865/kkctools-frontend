@@ -200,6 +200,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  hourlyToSalaryCalculator: {
+    path: '/hourly-to-salary-calculator/',
+    title: 'Hourly to Salary Calculator – Yearly Wage & Monthly Pay',
+    description: 'Free yearly wage calculator. Convert hourly pay to annual, monthly, biweekly and weekly salary (or back), with overtime and unpaid time off, before tax.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

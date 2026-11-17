@@ -6,15 +6,15 @@
 ✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 5.8s
+✓ Compiled successfully in 8.2s
   Running TypeScript ...
-  Finished TypeScript in 3.2s ...
+  Finished TypeScript in 3.3s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/79) ...
-  Generating static pages using 15 workers (19/79) 
-  Generating static pages using 15 workers (39/79) 
-  Generating static pages using 15 workers (59/79) 
-✓ Generating static pages using 15 workers (79/79) in 3.4s
+  Generating static pages using 15 workers (0/80) ...
+  Generating static pages using 15 workers (20/80) 
+  Generating static pages using 15 workers (40/80) 
+  Generating static pages using 15 workers (60/80) 
+✓ Generating static pages using 15 workers (80/80) in 3.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -59,6 +59,7 @@ Route (app)
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /hourly-to-salary-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /lawn-mowing-cost-calculator

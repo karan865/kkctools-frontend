@@ -264,6 +264,7 @@
   color: var(--ink-2);
   line-height: 1.65;
   font-size: 0.95rem;
+  background: #ffffff;
 }
 
 /* related tools */

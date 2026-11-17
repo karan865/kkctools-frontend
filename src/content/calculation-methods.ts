@@ -1093,6 +1093,38 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'hourly-to-salary-calculator': {
+    formula: [
+      'Annual Regular Gross = Hourly Rate × Paid Hours per Year',
+      'Paid Hours per Year = (Hours/Week × Weeks/Year) − (Unpaid Days × Hours/Day)',
+      'Annual Overtime Gross = OT Hours/Week × Hourly Rate × Overtime Multiplier × Weeks/Year',
+      'Total Annual Gross = Annual Regular Gross + Annual Overtime Gross',
+      'Derived Periods: Monthly = Annual ÷ 12; Biweekly = Annual ÷ 26; Semi-Monthly = Annual ÷ 24; Weekly = Annual ÷ Weeks/Year',
+      'Effective Hourly Worked = Total Annual Gross ÷ Actual Worked Hours (excluding paid leave)',
+    ],
+    defaults: [
+      { label: 'Standard US Work Year', value: '$25.00/hr × 40 hrs/wk × 52 wks = $52,000.00 annual gross (2,080 working hours, $4,333.33/mo, $2,000.00 biweekly)' },
+      { label: 'Overtime Workweek Benchmark', value: '$20.00/hr with 5 OT hrs/wk at 1.5× = $41,600 regular + $7,800 OT = $49,400.00 total annual gross' },
+      { label: 'Biweekly vs Semi-Monthly', value: '$52,000 annual salary yields $2,000.00 biweekly (26 paychecks) vs $2,166.67 semi-monthly (24 paychecks)' },
+    ],
+    sources: [
+      {
+        label: 'US Department of Labor (DOL) — Fair Labor Standards Act (FLSA) Overtime Pay Requirements',
+        url: 'https://www.dol.gov/agencies/whd/overtime',
+        note: 'Official US federal regulation mandating 1.5x overtime pay for hours worked over 40 per workweek',
+      },
+      {
+        label: 'US Office of Personnel Management (OPM) — Computing Hourly Rates of Pay (2,087-Hour Factor)',
+        url: 'https://www.opm.gov/policy-data-oversight/pay-leave/pay-administration/fact-sheets/computing-hourly-rates-of-pay-using-the-2087-hour-divisor/',
+        note: 'Statutory basis for converting annual federal employee salaries to hourly pay',
+      },
+      {
+        label: 'UK Government Legislation — The Working Time Regulations 1998 (SI 1998/1833)',
+        url: 'https://www.legislation.gov.uk/uksi/1998/1833/contents/made',
+        note: 'Statutory framework for maximum working hours, rest breaks, and annual paid holiday entitlement in the UK',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',
