@@ -1060,6 +1060,39 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'unit-price-calculator': {
+    formula: [
+      'Unit Price = Effective Price ÷ Total Standard Quantity',
+      'Total Standard Quantity = Pack Count × Size per Item × Conversion Factor',
+      'NIST Exact Equivalents: 1 lb = 16 oz = 453.59237 g; 1 US gal = 128 fl oz = 3785.411784 ml',
+      'Relative Price Difference % = ((Unit Price − Lowest Unit Price) ÷ Lowest Unit Price) × 100',
+      'Shrinkflation Hidden Price Hike % = ((New Unit Price ÷ Old Unit Price) − 1) × 100',
+      'Seller Cost per Unit = Batch Total Production Cost ÷ Units Produced',
+      'Shelf-Tag Standard Unit Price = Cost per Unit ÷ (Package Size in Grams ÷ 1000) [for per kg]',
+    ],
+    defaults: [
+      { label: 'Coffee Bag Benchmark', value: '12 oz bag at $8.99 ($0.7492/oz) vs 32 oz bag at $18.49 ($0.5778/oz) vs 2-pack 16 oz at $17.99 ($0.5622/oz — 24.96% cheaper than 12 oz bag)' },
+      { label: 'Shrinkflation Benchmark', value: '16 oz pack downsized to 14.2 oz at unchanged $4.99 price = 11.25% size drop, causing a 12.68% hidden price hike per oz' },
+      { label: 'Seller Shelf-Tag Benchmark', value: '$240.00 batch cost producing 80 units of 250 g net each = $3.00/unit cost ($12.00/kg shelf tag, $1.20/100g)' },
+    ],
+    sources: [
+      {
+        label: 'National Institute of Standards and Technology (NIST) Handbook 130 — Uniform Unit Pricing Regulation',
+        url: 'https://www.nist.gov/pml/weights-and-measures/publications/nist-handbooks/handbook-130',
+        note: 'US standard for uniform retail price display per standard unit (ounce, pound, gallon, liter)',
+      },
+      {
+        label: 'The Price Marking Order 2004 (UK Statutory Instruments 2004 No. 102)',
+        url: 'https://www.legislation.gov.uk/uksi/2004/102/contents/made',
+        note: 'UK law governing mandatory unit pricing per kilogram, litre, and 100g/ml for retail traders',
+      },
+      {
+        label: 'Directive 98/6/EC of the European Parliament and of the Council on Consumer Protection in Price Indication',
+        url: 'https://eur-lex.europa.eu/legal-content/EN/TXT/?uri=CELEX:31998L0006',
+        note: 'European Union legal framework for unit price indication on goods sold to consumers',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

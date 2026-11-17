@@ -192,6 +192,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  unitPriceCalculator: {
+    path: '/unit-price-calculator/',
+    title: 'Unit Price Calculator – Price per Ounce, Pound & Item',
+    description: 'Free unit price calculator. Compare two or more products by price per ounce, pound, litre or item and see which one is the better deal and by how much.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

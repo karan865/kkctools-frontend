@@ -4,6 +4,29 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #44 — Unit Price Calculator] — 2026-11-18
+- New tool `/unit-price-calculator/` (Batch 3 Build Order 4), built end-to-end from `05_Unit_Price_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/unit-price-engine.ts`):
+  * Pure functions: `toBaseQuantity(qty, unit)` & `fromBaseQuantity(baseQty, unit)` applying exact NIST Handbook 130 / SP 811 conversions (Weight: oz, lb, g, kg; Volume: fl oz, cup, pt, qt, gal, ml, L; Count: item, sheet, roll, load, pc), `applyDeal(price, deal)` (handles percentage off, dollar coupon, Buy X Get Y Free BOGO per-unit amortisation, and X for $Y multi-buy bundles), `compareUnitPrices(items, outputUnit, targetQuantity)` (ranks items from cheapest, detects mismatched measurement groups, calculates unit savings and % premium over cheapest, and solves quantity-to-buy pack counts and total purchase costs), `calculateShrinkflation(input)` (calculates package physical size reduction % vs true hidden unit price inflation % and generates plain-English summary), and `calculateSellerUnitCost(input)` (computes manufacturing cost per finished unit and statutory retail shelf tags per kg/L and per 100g/ml).
+- **Tests** (`src/lib/unit-price-engine.test.ts`):
+  * 11 Vitest unit tests covering NIST exact conversions (1 lb = 16 oz = 453.59237 g, 1 gal = 128 fl oz), multi-pack comparison (6 × 330 ml vs 2 L bottle), deal mathematics (20% off, $1 coupon, BOGO halves effective price, 3 for $5), mismatched group warnings (weight vs volume), zero price/size validation (no NaN or Infinity), shrinkflation hidden inflation (10% smaller at same price = 11.11% price hike), and quantity-to-buy solver.
+- **UI** (`src/components/tool/unit-price-calculator/`):
+  * 3 tabs:
+    1. **Compare Products**: 2 to 6 product rows (default 3 rows), deal accordion per row, group-aware output unit dropdown (per oz, lb, kg, L, item), optional quantity needed solver, and ranked table with cheapest badge.
+    2. **Shrinkflation Check**: Compares original and downsized package specs, displaying physical size drop % alongside hidden price rise %.
+    3. **Seller Cost & Shelf Tag**: Calculates unit production cost from batch expenses and generates statutory shelf-tag prices per kg/L and per 100g/ml with direct deep link to the Markup Calculator.
+  * Dedicated interactive SVG diagram (`UnitPriceDiagram.tsx`) supporting comparative price bars and yield per dollar views in Compare mode, and a visual package downsizing comparison in Shrinkflation mode.
+  * Actions: Copy Table/Summary to clipboard, Shareable URL with query parameter synchronisation, and Print sheet.
+- **Page** (`src/app/unit-price-calculator/`):
+  * Title 53 chars (`Unit Price Calculator – Price per Ounce, Pound & Item` with `absoluteTitle`), meta 157 chars, H1 62 chars, ~1,850 original words.
+  * Direct BLUF summary box with live engine computations.
+  * 10 H2 content sections matching BUILD SPEC §5 and 10 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Metrology & statutory law citations: NIST Handbook 130, UK Price Marking Order 2004 (SI 2004/102), and EU Directive 98/6/EC.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#44, category `business`, icon `unitPrice`), `tools-catalog.test.ts` updated to 44, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `markup-calculator`, `profit-margin-calculator`, and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 648 vitest tests passing across 48 files. 79 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #43 — Profit Margin Calculator] — 2026-11-18
 - New tool `/profit-margin-calculator/` (Batch 3 Build Order 3), built end-to-end from `03_Profit_Margin_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/margin-engine.ts`):

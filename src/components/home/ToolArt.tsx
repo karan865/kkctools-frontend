@@ -773,6 +773,25 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={28} y1={92} x2={164} y2={92} label="$100 Revenue" lx={96} ly={98} />
     </>
   ),
+  /* Unit Price Calculator: Two competing packs with price per oz badges */
+  unitPrice: (
+    <>
+      <rect className={s.f2} x={32} y={38} width={42} height={42} rx={6} />
+      <rect className={k('fl', 's2')} x={88} y={24} width={56} height={56} rx={6} />
+      <text className={s.tx} x={53} y={62} textAnchor="middle" fontSize={11} fontWeight={700}>
+        12 oz
+      </text>
+      <text className={s.tx} x={116} y={54} textAnchor="middle" fontSize={11} fontWeight={700}>
+        32 oz
+      </text>
+      <rect className={s.f1} x={156} y={36} width={38} height={20} rx={4} />
+      <text className={s.txW} x={175} y={50} textAnchor="middle" fontSize={9} fontWeight={800}>
+        BEST
+      </text>
+      <Dim x1={32} y1={88} x2={74} y2={88} label="75¢/oz" lx={53} ly={95} />
+      <Dim x1={88} y1={88} x2={144} y2={88} label="58¢/oz" lx={116} ly={95} />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

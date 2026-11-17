@@ -557,6 +557,12 @@ export default function PercentageChangePage() {
             Explore our companion calculators for material takeoffs, contractor billing, and commercial pricing:
           </p>
           <div className={styles.relatedGrid}>
+            <Link href="/unit-price-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Unit Price Calculator</span>
+              <span className={styles.relatedDesc}>
+                Compare price per ounce, pound, or litre across competing products and calculate shrinkflation percentage hikes.
+              </span>
+            </Link>
             <Link href="/profit-margin-calculator/" className={styles.relatedCard}>
               <span className={styles.relatedTitle}>Profit Margin Calculator</span>
               <span className={styles.relatedDesc}>
