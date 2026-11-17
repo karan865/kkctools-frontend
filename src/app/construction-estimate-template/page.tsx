@@ -463,6 +463,11 @@ export default function ConstructionEstimatePage() {
                 Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
               </p>
               <div className={styles.relatedToolsList}>
+                <Link href="/markup-calculator/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>🏷️ Markup Calculator</span>
+                  <span className={styles.relatedToolExcerpt}>Calculate contractor markup %, gross margin, and billing rates on labor &amp; materials</span>
+                  <span className={styles.relatedToolLink}>Open tool →</span>
+                </Link>
                 <Link href="/percentage-change-calculator/" className={styles.relatedToolItem}>
                   <span className={styles.relatedToolName}>📊 Percentage Change Calculator</span>
                   <span className={styles.relatedToolExcerpt}>Calculate price increases, contingency %, markup, and Excel formulas</span>

@@ -176,6 +176,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  markupCalculator: {
+    path: '/markup-calculator/',
+    title: 'Markup Calculator – Selling Price, Markup & Margin',
+    description: 'Free markup calculator. Enter cost and markup to get the selling price, or cost and price to get markup %, with gross margin and profit shown side by side.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

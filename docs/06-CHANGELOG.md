@@ -4,6 +4,30 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #42 — Markup Calculator] — 2026-11-18
+- New tool `/markup-calculator/` (Batch 3 Build Order 2), built end-to-end from `02_Markup_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/pricing-engine.ts`):
+  * Pure functions: `priceFromMarkup(cost, markupPercent)`, `markupFromPrice(cost, price)`, `costFromPrice(price, markupPercent)`, `priceFromMargin(cost, marginPercent)`, `marginFromPrice(cost, price)`, `marginFromMarkup(m)`, `markupFromMargin(g)`, `multiplier(cost, price)`, `calculateLandedCost(input)` (handles shipping, packaging, and gross-up platform/card fee % on selling price), `addTax(price, rate)` & `stripTax(priceInc, rate)`, `roundPriceEnding(price, ending, cost)` (rounds to .99, .95, .49, whole dollar, nearest 5 with constraint never dropping below cost and recomputes actual margin/markup), `calculatePriceChain(initialCost, tiers)` (3-tier Maker → Wholesaler → Retailer sequential markup compounding), `calculateProductList(rows, defaultMarkup)`, and `parsePastedSpreadsheet(text)` (TSV/CSV parser).
+- **Tests** (`src/lib/pricing-engine.test.ts`):
+  * 20 Vitest unit tests covering 4-way linked solve (cost 40, markup 50% → price 60, profit 20, margin 33.33%), keystone 100% markup = 50% margin = 2.0× multiplier, fee-adjusted pricing formula, margin fee boundary check, tax add/strip round-trips, price endings with cost floor protection, 3-tier price chain compounding (8× total keystone chain), spreadsheet parsing, and reference table generator.
+- **UI** (`src/components/tool/markup-calculator/`):
+  * 5 modes: Cost & Markup %, Cost & Target Margin %, Cost & Selling Price, Target Price to Max Cost (reverse), and Multi-Item Spreadsheet mode.
+  * Dedicated interactive SVG diagram (`MarkupDiagram.tsx`) with toggle between "Price Stack & Margin Flow" (stacked cost + profit bar with markup/margin badges) and "3-Tier Distribution Chain" (Factory → Wholesaler → Retailer compounding flow).
+  * 4 modular accordions:
+    1. Landed Cost & Marketplace Fees (shipping + packaging + % fee on selling price).
+    2. Psychological Price Endings (.99, .95, .49, whole dollar, nearest $5) with live recalculated margin.
+    3. Sales Tax / VAT / GST with presets for UK VAT (20%), AU GST (10%), NZ GST (15%), US state average (7%), and ex-tax vs inc-tax toggle.
+    4. 3-Tier Distribution Chain with custom markups and tabular margin breakdown.
+  * Presets for Keystone (100%), Retail Standard (50%), Wholesale (30%), Boutique (200%), currency switcher ($ / £ / € / ₹), copy summary, share URL with query params, print sheet, and batch CSV export.
+- **Page** (`src/app/markup-calculator/`):
+  * Title 50 chars (`Markup Calculator – Selling Price, Markup & Margin` with `absoluteTitle`), meta 155 chars, H1 49 chars, ~2,250 original words.
+  * Direct BLUF intro computing live numbers from engine.
+  * 11 H2 content sections matching SPEC §5 and 11 FAQs matching SPEC §6 with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#42, category `business`, icon `tag`), `tools-catalog.test.ts` updated to 42, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `construction-estimate-template` and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 628 vitest tests passing across 46 files. 77 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Tool #41 — Percentage Change Calculator] — 2026-11-18
 - New tool `/percentage-change-calculator/` (Batch 3 Build Order 5), built end-to-end from `01_Percentage_Change_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/percent-engine.ts`):

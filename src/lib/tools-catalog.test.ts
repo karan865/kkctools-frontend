@@ -3,8 +3,8 @@ import { TOOLS_CATALOG, CATEGORIES, CategoryId } from './tools-catalog';
 import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
-  it('contains exactly 41 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(41);
+  it('contains exactly 42 tools currently', () => {
+    expect(TOOLS_CATALOG.length).toBe(42);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {
@@ -32,7 +32,7 @@ describe('TOOLS_CATALOG single source of truth', () => {
   it('ensures newer tools appear first and older tools appear last', () => {
     // Top tool is a newest addition from 2026-11-18
     expect(TOOLS_CATALOG[0].added).toBe('2026-11-18');
-    expect(TOOLS_CATALOG[0].slug).toBe('/percentage-change-calculator/');
+    expect(TOOLS_CATALOG[0].slug).toBe('/markup-calculator/');
 
     // Date monotonicity: earlier items must have equal or newer added dates than later items
     for (let i = 0; i < TOOLS_CATALOG.length - 1; i++) {

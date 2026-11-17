@@ -143,6 +143,7 @@ export default function Footer() {
           <div className={styles.column}>
             <span className={styles.colTitle}>More Utilities</span>
             <ul className={styles.linkList}>
+              <li><Link href="/markup-calculator/" className={styles.link}>Markup Calculator</Link></li>
               <li><Link href="/percentage-change-calculator/" className={styles.link}>Percentage Change</Link></li>
               <li><Link href="/construction-estimate-template/" className={styles.link}>Estimate Template (PDF)</Link></li>
               <li><Link href="/band-name-generator/" className={styles.link}>Band Name Generator</Link></li>

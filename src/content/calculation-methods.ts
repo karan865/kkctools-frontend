@@ -991,6 +991,43 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'markup-calculator': {
+    formula: [
+      'Selling Price = Cost × (1 + (Markup % ÷ 100))',
+      'Markup % = ((Selling Price − Cost) ÷ Cost) × 100',
+      'Gross Margin % = ((Selling Price − Cost) ÷ Selling Price) × 100',
+      'Multiplier = Selling Price ÷ Cost (Keystone = 2.0× multiplier = 100% markup = 50% margin)',
+      'Fee-Adjusted Price = (Landed Cost × (1 + Markup % ÷ 100)) ÷ (1 − Platform Fee % ÷ 100)',
+      'Tax-Inclusive Price = Price (ex-tax) × (1 + Tax Rate % ÷ 100)',
+    ],
+    defaults: [
+      { label: 'Default Benchmark Scenario', value: '$40.00 cost with 50.00% markup = $60.00 selling price ($20.00 profit, 33.33% margin)' },
+      { label: 'Keystone Pricing Benchmark', value: '$100.00 cost with 100.00% markup = $200.00 selling price (2.0× multiplier, 50.00% margin)' },
+      { label: 'Supply Chain Multiplier', value: 'Factory $10.00 → Wholesaler $20.00 (100% markup) → Retailer $40.00 (100% markup) = 4.0× consumer multiplier' },
+    ],
+    sources: [
+      {
+        label: 'HM Revenue & Customs (HMRC) — VAT Rates & Guidance',
+        url: 'https://www.gov.uk/vat-rates',
+        note: 'Official UK guidance establishing that VAT (20%) is appended to the net ex-tax taxable supply',
+      },
+      {
+        label: 'Australian Taxation Office (ATO) — Goods and Services Tax (GST)',
+        url: 'https://www.ato.gov.au/business/gst/',
+        note: 'Official guidance on applying 10% GST to taxable sales',
+      },
+      {
+        label: 'New Zealand Inland Revenue (Te Tari Taake) — GST for Businesses',
+        url: 'https://www.ird.govt.nz/gst',
+        note: 'Official New Zealand reference for standard 15% GST on taxable retail sales',
+      },
+      {
+        label: 'National Institute of Standards and Technology (NIST) — Commercial Metric & Pricing Standards',
+        url: 'https://www.nist.gov/',
+        note: 'Standards on rounding, commercial measurements, and price unit labeling',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

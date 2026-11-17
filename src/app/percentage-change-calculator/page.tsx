@@ -557,6 +557,12 @@ export default function PercentageChangePage() {
             Explore our companion calculators for material takeoffs, contractor billing, and commercial pricing:
           </p>
           <div className={styles.relatedGrid}>
+            <Link href="/markup-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Markup Calculator</span>
+              <span className={styles.relatedDesc}>
+                Determine exact selling prices from cost and markup %, compare gross margin side-by-side, and calculate price multipliers.
+              </span>
+            </Link>
             <Link href="/construction-estimate-template/" className={styles.relatedCard}>
               <span className={styles.relatedTitle}>Construction Estimate Template</span>
               <span className={styles.relatedDesc}>

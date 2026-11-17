@@ -744,6 +744,21 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={88} y1={86} x2={158} y2={86} label="100 (+25%)" lx={123} ly={94} />
     </>
   ),
+  /* Markup Calculator: price tag with markup percentage badge and profit arrow */
+  tag: (
+    <>
+      <path
+        className={k('fl', 's2')}
+        d="M 120 20 L 70 20 C 66 20 62 22 59 25 L 26 58 C 21 63 21 71 26 76 L 54 104 C 59 109 67 109 72 104 L 105 71 C 108 68 110 64 110 60 L 110 30 C 110 24 116 20 120 20 Z"
+      />
+      <circle className={s.f1} cx={94} cy={36} r={5} />
+      <rect className={s.f2} x={126} y={38} width={68} height={28} rx={6} />
+      <text className={s.tx} x={160} y={56} textAnchor="middle" fontSize={11} fontWeight={700}>
+        +50% M/U
+      </text>
+      <Dim x1={26} y1={112} x2={105} y2={112} label="$40 → $60" lx={65} ly={118} />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

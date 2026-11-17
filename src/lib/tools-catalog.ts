@@ -512,6 +512,28 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
 
   // 6. Business & Creative
   {
+    slug: '/markup-calculator/',
+    name: 'Markup Calculator',
+    category: 'business',
+    description: 'Calculate selling price from cost and markup %, with gross margin, landed fees, and price endings.',
+    tags: ['Pricing', 'Retail Math'],
+    icon: 'tag',
+    keywords: [
+      'markup calculator',
+      'figuring markup',
+      'selling price',
+      'retail price',
+      'markup vs margin',
+      'how much should i sell it for',
+      'retail math',
+      'average pricing',
+      'keystone pricing',
+    ],
+    added: '2026-11-18',
+    isNew: true,
+    featured: true,
+  },
+  {
     slug: '/percentage-change-calculator/',
     name: 'Percentage Change Calculator',
     category: 'business',
