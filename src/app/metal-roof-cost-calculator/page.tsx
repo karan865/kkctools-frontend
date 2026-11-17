@@ -286,7 +286,8 @@ export default function MetalRoofCostCalculatorPage() {
               </p>
               <p>
                 For hips, valleys and dormers, add each part as its own section, or use our{' '}
-                <Link href="/shingle-calculator/">shingle roof calculator</Link> to measure it plane by plane. If you are framing or checking timber lengths, see our{' '}
+                <Link href="/shingle-calculator/">shingle roof calculator</Link> or{' '}
+                <Link href="/roof-replacement-cost-calculator/">roof replacement cost calculator</Link> to estimate squares, tear-off and complete budgets. If you are framing or checking timber lengths, see our{' '}
                 <Link href="/rafter-calculator/">rafter calculator</Link> for rafter spans, bird&apos;s mouth cuts and overhangs. Never walk a steep roof to measure — use
                 the footprint from the ground.
               </p>
@@ -328,6 +329,11 @@ export default function MetalRoofCostCalculatorPage() {
 
           <h2>Related calculators</h2>
           <ul className={styles.related}>
+            <li>
+              <Link href="/roof-replacement-cost-calculator/">
+                Roof Replacement Cost Calculator<span>Asphalt vs metal tear-off &amp; replacement costs</span>
+              </Link>
+            </li>
             <li>
               <Link href="/shingle-calculator/">
                 Shingle Roof Calculator<span>Bundles, starter and ridge cap</span>

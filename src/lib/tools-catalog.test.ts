@@ -4,7 +4,7 @@ import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
   it('contains exactly 29 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(37);
+    expect(TOOLS_CATALOG.length).toBe(38);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {
@@ -27,6 +27,21 @@ describe('TOOLS_CATALOG single source of truth', () => {
       expect(tool.name.length).toBeGreaterThan(3);
       expect(tool.keywords.length).toBeGreaterThanOrEqual(3);
     });
+  });
+
+  it('ensures newer tools appear first and older tools appear last', () => {
+    // Top tool is the newest addition
+    expect(TOOLS_CATALOG[0].slug).toBe('/roof-replacement-cost-calculator/');
+    expect(TOOLS_CATALOG[0].added).toBe('2026-11-17');
+
+    // Date monotonicity: earlier items must have equal or newer added dates than later items
+    for (let i = 0; i < TOOLS_CATALOG.length - 1; i++) {
+      expect(TOOLS_CATALOG[i].added >= TOOLS_CATALOG[i + 1].added).toBe(true);
+    }
+
+    // Oldest tools from Phase 0/1 are at the end
+    const lastTool = TOOLS_CATALOG[TOOLS_CATALOG.length - 1];
+    expect(lastTool.added).toBe('2026-11-08');
   });
 });
 

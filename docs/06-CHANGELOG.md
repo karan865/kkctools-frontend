@@ -4,6 +4,25 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [New Tools Priority & Directory Sorting] — 2026-11-17
+- Implemented global newest-first sorting and quick-discovery across KKCTools:
+  - **Single Source of Truth (`src/lib/tools-catalog.ts`):** `TOOLS_CATALOG` is now sorted by `added` date descending (latest first, e.g., 2026-11-17 -> 2026-11-08), with `isNew` priority and alphabetical tie-breaker.
+  - **Tools Directory (`/tools/`):** Added a dynamic sort selector with "Newest First" as the default, alongside "Name (A-Z)" and "By Category". Added a dedicated "✨ New Tools (17)" quick filter pill next to trade category pills.
+  - **Home Page (`/`):** "Recently Built & Updated Tools" showcase and category bands surface the freshest tools at the front of each collection.
+  - **Header & Mobile Navigation:** Header mega-menu category columns show the 5 newest tools per trade; mega-menu highlight dynamically links to the newest tool (`TOOLS_CATALOG[0]`); Mobile menu shows dynamic tool count (`All 38 Tools Directory`) and newest tools in accordions.
+  - **Tests:** Added `src/lib/tools-catalog.test.ts` monotonic date test asserting newest tool is at index 0 (`/roof-replacement-cost-calculator/`) and oldest tools are at the end. All 549 unit tests pass.
+
+---
+
+### [Tool #36 — Roof Replacement Cost Calculator] — 2026-11-17
+- New flagship page `/roof-replacement-cost-calculator/` (Batch 2 Tier 3 #19), built end-to-end exactly from `19_Roof_Replacement_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/roof-replacement-engine.ts`): Reuses verified pitch geometry from `shingle-engine` (`pitchFactor`), multi-plane sections or direct ground footprint entry, 10 material classes (3-tab, architectural, luxury/designer, standing seam, corrugated metal, clay tile, concrete tile, natural slate, cedar shake, flat membrane), labor multipliers (stories 1/1.5/2/3, steep-slope ≥ 8/12 pitch +20%, complexity simple/hip/complex), tear-off scaling by layer ($125/sq/layer), dumpster fees ($450), decking repair sheets, accessories (synthetic vs felt underlayment, ice & water shield, drip edge, ridge vent, pipe boots/chimney flashing, gutters), 3-way comparison (spot repair vs overlay vs full replacement with IRC Section R908.3.1.1 2-layer code prohibition), and contractor quote verifier.
+- **Tests** (`src/lib/roof-replacement-engine.test.ts`): 17 Vitest unit tests covering pitch geometry, 2,000 sq ft hand calculation verification, linear tear-off scaling, 2-layer overlay code block, decking sheet calculations, stories/steep multipliers on labour only, shared pricing checks with metal-roof engine, quote checker, and snapshot table integrity.
+- **UI** (`src/components/tool/roof-replacement-cost-calculator/`): Quick and Detailed modes, pitch preset buttons (3/12 through 12/12) + custom input, material selector with descriptions, tear-off layer buttons (0, 1, 2) with warning banner, stories, complexity, decking % input, accessories checkboxes, region index, custom price overrides accordion; hero result with total, range, cost/sq, cost/sq ft, labor/sq; interactive SVG pitch diagram and cross-section diagram; itemized line-items table; 3-way comparison cards with visual bar chart; contractor quote verifier; share URL, print, copy summary.
+- **Page** (`src/app/roof-replacement-cost-calculator/`): 4,101 words, title 53 chars, meta 156 chars, H1 32 chars, 12 FAQs matching SPEC §6 with live calculated figures from engine, benchmark size table (1,000–3,000 sq ft), 10-material comparison matrix, pitch multiplier table, components guide, flat/commercial section, insurance/permits advice, contractor quote comparison tips, HowWeCalculate component.
+- **Wiring & Inbound Links**: Registered in `routes.ts`, `tools-catalog.ts` (#38, category `framing`, icon `roofTruss`), `tools-catalog.test.ts` updated to 38, footer link added under "Framing & Finishes", calculation-methods entry added, inbound contextual links added from `shingle-calculator`, `metal-roof-cost-calculator`, `rafter-calculator`, and `square-footage-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps (lint, tests, check:no-network, build, seo:audit, docs:bundle) with zero errors. 549 unit tests passing across 42 files.
+
 ### [CueAudit action implementation] — 2026-11-16
 - Implemented and verified code-level recommendations from `docs/seo/CUE - new audit/CueAudit_Action_Report.md`:
   - **P0-3 Privacy & analytics accuracy:** Removed all misleading "zero tracking" claims (`construction-estimate.ts`, `site.ts`, `band-name-generator/page.tsx`); updated copy to accurately describe browser execution + Google Analytics visit metrics.

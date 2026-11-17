@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" width="100%" height="100%" fill="none">
+  <defs>
+    <linearGradient id="blue3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38BDF8" />
+      <stop offset="100%" stop-color="#1D4ED8" />
+    </linearGradient>
+    <linearGradient id="orange3d" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FDBA74" />
+      <stop offset="50%" stop-color="#FB923C" />
+      <stop offset="100%" stop-color="#EA580C" />
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="6" stdDeviation="8" flood-color="#000000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background Base (Dark Charcoal Hexagon / Shield) -->
+  <rect width="200" height="200" rx="44" fill="#0B0F17" />
+  
+  <g transform="translate(40, 32)" filter="url(#shadow)">
+    <!-- Hexagonal Geometric Outline / Form of 'K' -->
+    <!-- Left Blue Pillar -->
+    <path d="M12 28 C12 24 16 22 19 24 L32 31 C35 33 37 36 37 40 V96 C37 100 35 103 32 105 L19 112 C16 114 12 112 12 108 Z" fill="url(#blue3d)" />
+    
+    <!-- Top-Right Orange Isometric Arm -->
+    <path d="M47 38 L84 17 C87 15 91 16 93 19 L102 34 C104 37 103 41 100 43 L63 64 Z" fill="url(#orange3d)" />
+
+    <!-- Bottom-Right Orange Isometric Leg -->
+    <path d="M63 72 L100 93 C103 95 104 99 102 102 L93 117 C91 120 87 121 84 119 L47 98 Z" fill="url(#orange3d)" />
+
+    <!-- Center Interlocking Blue Core / Arrow -->
+    <polygon points="49,68 76,53 76,83" fill="url(#blue3d)" />
+  </g>
+</svg>

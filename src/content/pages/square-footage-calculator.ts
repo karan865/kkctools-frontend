@@ -68,6 +68,12 @@ export const SQUARE_FOOTAGE_FAQS: FaqItem[] = [
 
 export const RELATED_CONSTRUCTION_TOOLS: RelatedCalculatorLink[] = [
   {
+    label: 'Roof Replacement Cost Calculator',
+    href: '/roof-replacement-cost-calculator/',
+    description: 'Calculate true sloped roof surface area, roofing squares, and full replacement costs from ground footprint.',
+    live: true,
+  },
+  {
     label: 'Linear Foot Calculator',
     href: '/linear-foot-calculator/',
     description: 'Convert square feet to linear feet for baseboards, trim, lumber, and fencing.',

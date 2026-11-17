@@ -453,6 +453,11 @@ export default function ShingleCalculatorPage() {
           <h2>Related calculators</h2>
           <ul className={styles.related}>
             <li>
+              <Link href="/roof-replacement-cost-calculator/">
+                Roof Replacement Cost Calculator<span>Labor, tear-off &amp; total replacement pricing</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/rafter-calculator/">
                 Rafter Calculator<span>Rafter length, pitch and cut angles</span>
               </Link>

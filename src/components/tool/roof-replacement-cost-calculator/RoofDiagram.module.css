@@ -1,0 +1,95 @@
+.svg {
+  --rd-roof: #cbd5e1;
+  --rd-roof-2: #94a3b8;
+  --rd-edge: #334155;
+  --rd-dim: #075985;
+  --rd-label-bg: #ffffff;
+  --rd-deck: #d4a373;
+  --rd-under: #64748b;
+  --rd-ice: #1e3a8a;
+  --rd-shingle: #475569;
+  --rd-ridge: #c2410c;
+  --rd-eave: #0369a1;
+  --rd-text: #1e293b;
+  --rd-accent: #0284c7;
+  display: block;
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  margin: 0 auto;
+}
+
+:global(:root[data-theme='dark']) .svg {
+  --rd-roof: #2c3647;
+  --rd-roof-2: #3b4658;
+  --rd-edge: #94a3b8;
+  --rd-dim: #7dd3fc;
+  --rd-label-bg: #11151f;
+  --rd-deck: #785a3a;
+  --rd-under: #94a3b8;
+  --rd-ice: #93c5fd;
+  --rd-shingle: #64748b;
+  --rd-ridge: #fb923c;
+  --rd-eave: #38bdf8;
+  --rd-text: #e2e8f0;
+  --rd-accent: #38bdf8;
+}
+
+.compareBars {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin: 12px 0;
+}
+
+.barRow {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.barMeta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.barTrack {
+  height: 20px;
+  background: var(--surface-2);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+}
+
+.barFill {
+  height: 100%;
+  border-radius: 5px;
+  transition: width 0.3s ease;
+}
+
+.fillRepair {
+  background: #10b981;
+}
+
+.fillOverlay {
+  background: #f59e0b;
+}
+
+.fillReplace {
+  background: var(--accent);
+}
+
+.fillDisabled {
+  background: #94a3b8;
+  opacity: 0.5;
+  background-image: repeating-linear-gradient(
+    -45deg,
+    transparent,
+    transparent 6px,
+    rgba(0, 0, 0, 0.15) 6px,
+    rgba(0, 0, 0, 0.15) 12px
+  );
+}

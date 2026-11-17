@@ -160,9 +160,13 @@ export default function Header() {
                     >
                       View all {TOOLS_CATALOG.length} tools directory →
                     </Link>
-                    <span className={styles.megaNewPill}>
-                      New: Concrete Calculator
-                    </span>
+                    <Link
+                      href={TOOLS_CATALOG[0]?.slug || '/tools/'}
+                      className={styles.megaNewPill}
+                      onClick={() => setToolsDropdownOpen(false)}
+                    >
+                      New: {TOOLS_CATALOG[0]?.name || 'All Tools'}
+                    </Link>
                   </div>
                 </div>
               )}

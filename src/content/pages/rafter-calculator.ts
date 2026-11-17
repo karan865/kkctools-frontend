@@ -256,6 +256,7 @@ export const rafterPageContent: RafterContent = {
     },
   ],
   relatedCalculators: [
+    { label: 'Roof Replacement Cost Calculator', href: '/roof-replacement-cost-calculator/', live: true, desc: 'Estimate total tear-off, shingles and installation pricing.' },
     { label: 'Linear Foot Calculator', href: '/linear-foot-calculator/', live: true, desc: 'Total up board lengths and lumber needs.' },
     { label: 'Construction Estimate Template', href: '/construction-estimate-template/', live: true, desc: 'Build contractor invoices and material estimates.' },
     { label: 'Cubic Yard Calculator', href: '/cubic-yard-calculator/', live: true, desc: 'Volume for concrete footings, slabs, and site fill.' },

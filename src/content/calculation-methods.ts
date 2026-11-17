@@ -454,6 +454,50 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'roof-replacement-cost-calculator': {
+    formula: [
+      'Roof area = footprint × pitch multiplier √(1 + (rise ÷ 12)²) + overhang allowance; Squares = roof area ÷ 100',
+      'Total cost = (materials + labor + tear-off + dumpster + decking + accessories + permit) × (1 + contingency %)',
+      'Tear-off cost = squares × layers × unit rate ($125/sq/layer); 2 layers double labor and legally restrict overlay under IRC R908.3.1.1',
+      'Labor cost = squares × base labor per square × story multiplier × complexity multiplier × steep-slope multiplier (≥ 8/12 pitch)',
+      'Decking replacement sheets = ceil((squares × 100 × decking replace %) ÷ 32 ft² per 4×8 sheet)',
+    ],
+    defaults: [
+      { label: 'Architectural shingles, installed', value: '$495/sq ($400–$600/square, HomeGuide & Fixr 2026)' },
+      { label: 'Base roofing labor', value: '$215/sq ($150–$300/square based on BLS SOC 47-2181 roofer wage data)' },
+      { label: 'Tear-off per layer', value: '$125/sq per layer ($100–$160/square, HomeGuide 2026)' },
+      { label: 'Dumpster rental & haul-away', value: '$450 per 20-yard container' },
+      { label: 'Decking replacement (4×8 OSB/plywood)', value: '$85 per sheet installed ($65–$110)' },
+      { label: 'Synthetic underlayment & accessories', value: 'Synthetic $90/roll (1,000 ft²), Ice & water $110/roll (200 ft²)' },
+    ],
+    sources: [
+      {
+        label: 'HomeGuide — Average Cost to Tear Off and Replace a Roof (2026)',
+        url: 'https://homeguide.com/costs/average-cost-to-tear-off-and-replace-roof',
+        note: 'national average costs per square and tear-off rates',
+      },
+      {
+        label: 'Fixr — How Much Does an Asphalt Shingle Roof Cost? (2026)',
+        url: 'https://www.fixr.com/costs/asphalt-roof-shingles-installation',
+        note: 'material costs and architectural shingle pricing',
+      },
+      {
+        label: 'This Old House — How Much Does a New Roof Cost? (2026)',
+        url: 'https://www.thisoldhouse.com/roofing/how-much-does-a-new-roof-cost',
+        note: 'installed costs across 10 roofing materials and lifespan ranges',
+      },
+      {
+        label: 'US Bureau of Labor Statistics — Occupational Employment and Wages: Roofers (SOC 47-2181)',
+        url: 'https://www.bls.gov/oes/current/oes472181.htm',
+        note: 'trade roofer wage benchmarks and labor multipliers',
+      },
+      {
+        label: 'International Residential Code (IRC) Section R908.3.1.1 — Replacement / Reroofing Limitations',
+        url: 'https://codes.iccsafe.org/',
+        note: 'prohibits reroofing/overlaying over two or more existing layers of roof covering',
+      },
+    ],
+  },
   'cubic-feet-to-square-feet': {
     formula: [
       'Square feet = cubic feet ÷ depth (ft); depth (ft) = inches ÷ 12, cm ÷ 30.48, mm ÷ 304.8, m ÷ 0.3048',

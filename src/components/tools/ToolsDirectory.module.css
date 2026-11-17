@@ -11,6 +11,14 @@
   margin-bottom: 20px;
 }
 
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
 .filterBar {
   display: flex;
   align-items: center;
@@ -18,11 +26,13 @@
   overflow-x: auto;
   padding-bottom: 6px;
   -webkit-overflow-scrolling: touch;
+  flex: 1 1 auto;
 }
 
 .filterPill {
   display: inline-flex;
   align-items: center;
+  gap: 6px;
   padding: 8px 16px;
   border-radius: var(--radius-pill);
   background: var(--surface);
@@ -47,6 +57,51 @@
   color: #FFFFFF !important;
 }
 
+.newPill {
+  border-color: color-mix(in srgb, var(--accent) 40%, transparent);
+}
+
+.newPill:hover {
+  border-color: var(--accent);
+}
+
+.sortWrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
+}
+
+.sortLabel {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--muted);
+}
+
+.sortSelect {
+  padding: 6px 12px;
+  border-radius: 8px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  color: var(--ink);
+  font-family: inherit;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: border-color 0.15s ease;
+}
+
+.sortSelect:focus {
+  outline: none;
+  border-color: var(--accent);
+}
+
+.countNote {
+  margin: 14px 0 20px;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
 .toolsGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -66,4 +121,3 @@
     gap: 10px;
   }
 }
-

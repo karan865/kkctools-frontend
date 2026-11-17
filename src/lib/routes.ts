@@ -152,6 +152,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  roofReplacementCostCalculator: {
+    path: '/roof-replacement-cost-calculator/',
+    title: 'Roof Replacement Cost Calculator – Per Square & Sq Ft',
+    description: 'Calculate roof replacement costs by house size, pitch & material. Accurate pricing per roofing square, labor rates, tear-off & contractor quote verification.',
+    updated: '2026-11-17',
+    type: 'tool',
+    indexable: true,
+  },
   cubicInchCalculator: {
     path: '/cubic-inch-calculator/',
     title: 'Cubic Inch Calculator – Volume & Engine Displacement',

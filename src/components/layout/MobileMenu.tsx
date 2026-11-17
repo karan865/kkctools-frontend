@@ -6,6 +6,7 @@ import Link from 'next/link';
 import Icon from '@/components/icons/Icons';
 import {
   CATEGORIES,
+  TOOLS_CATALOG,
   getToolsByCategory,
   CategoryId,
 } from '@/lib/tools-catalog';
@@ -134,7 +135,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
           <div className={styles.section}>
             <span className={styles.sectionTitle}>Resources &amp; Company</span>
             <Link href="/tools/" className={styles.resourceLink} onClick={onClose}>
-              All 22 Tools Directory →
+              All {TOOLS_CATALOG.length} Tools Directory →
             </Link>
             <Link href="/guides/" className={styles.resourceLink} onClick={onClose}>
               Guides &amp; Articles

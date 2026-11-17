@@ -75,7 +75,7 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
   },
 };
 
-export const TOOLS_CATALOG: CatalogTool[] = [
+const RAW_TOOLS_CATALOG: CatalogTool[] = [
   // 1. Concrete & Masonry
   {
     slug: '/concrete-calculator/',
@@ -298,6 +298,17 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     added: '2026-11-15',
     isNew: true,
   },
+  {
+    slug: '/roof-replacement-cost-calculator/',
+    name: 'Roof Replacement Cost Calculator',
+    category: 'framing',
+    description: 'Estimate new roof costs by square, material, pitch and tear-off layers with contractor quote check.',
+    tags: ['Per Square', 'Tear-Off'],
+    icon: 'roofTruss',
+    keywords: ['roof replacement cost', 'roofing cost per square', 'new roof cost', 'tear off roof', 'roofing labor cost', 'shingle replacement', 'roof pitch', 'roof estimate'],
+    added: '2026-11-17',
+    isNew: true,
+  },
 
   {
     slug: '/wire-gauge-calculator/',
@@ -490,6 +501,20 @@ export const TOOLS_CATALOG: CatalogTool[] = [
     featured: true,
   },
 ];
+
+/**
+ * Single source of truth array of all tools.
+ * Sorted so that newer tools appear at the start, and older tools appear at the end.
+ * Primary: Date added descending (newest date first).
+ * Secondary: isNew / isUpdated priority.
+ */
+export const TOOLS_CATALOG: CatalogTool[] = [...RAW_TOOLS_CATALOG].sort((a, b) => {
+  const dateDiff = b.added.localeCompare(a.added);
+  if (dateDiff !== 0) return dateDiff;
+  if (a.isNew && !b.isNew) return -1;
+  if (!a.isNew && b.isNew) return 1;
+  return a.name.localeCompare(b.name);
+});
 
 export function getToolsByCategory(categoryId: CategoryId): CatalogTool[] {
   return TOOLS_CATALOG.filter((tool) => tool.category === categoryId);
