@@ -463,11 +463,11 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       'Decking replacement sheets = ceil((squares × 100 × decking replace %) ÷ 32 ft² per 4×8 sheet)',
     ],
     defaults: [
-      { label: 'Architectural shingles, installed', value: '$495/sq ($400–$600/square, HomeGuide & Fixr 2026)' },
-      { label: 'Base roofing labor', value: '$215/sq ($150–$300/square based on BLS SOC 47-2181 roofer wage data)' },
-      { label: 'Tear-off per layer', value: '$125/sq per layer ($100–$160/square, HomeGuide 2026)' },
-      { label: 'Dumpster rental & haul-away', value: '$450 per 20-yard container' },
-      { label: 'Decking replacement (4×8 OSB/plywood)', value: '$85 per sheet installed ($65–$110)' },
+      { label: 'Architectural shingles, installed', value: '$500/sq installed = $195 material + $305 labour ($400–$600/square; Fixr 2026 lists $4–$8/sq ft)' },
+      { label: 'Architectural labour (inside the installed price)', value: '$305/sq ($250–$360/square), before stories, complexity and steep-pitch multipliers' },
+      { label: 'Tear-off per layer', value: '$200/sq per layer ($100–$300/square; same rate as the Metal Roof Cost Calculator)' },
+      { label: 'Dumpster rental & haul-away', value: '$475 per 20-yard container (about 35 squares of one-layer tear-off each)' },
+      { label: 'Decking replacement (4×8 OSB/plywood)', value: '$80 per 4×8 sheet installed (editable)' },
       { label: 'Synthetic underlayment & accessories', value: 'Synthetic $90/roll (1,000 ft²), Ice & water $110/roll (200 ft²)' },
     ],
     sources: [
@@ -555,8 +555,8 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       'Grand total = (decking + framing lumber + concrete + hardware + railing + stairs + site prep + demo + permit + labor) × regionMultiplier + contingency %',
     ],
     defaults: [
-      { label: 'Pressure-treated pine decking', value: '$7.00/sq ft ($4.50–$10.00/sq ft materials; HomeGuide 2026 & This Old House 2026)' },
-      { label: 'Western red cedar decking', value: '$12.00/sq ft ($7.50–$16.00/sq ft materials; Fixr 2026)' },
+      { label: 'Pressure-treated pine decking', value: '$5.50/sq ft ($3.00–$8.00/sq ft materials; Fixr 2026)' },
+      { label: 'Western red cedar decking', value: '$6.50/sq ft ($4.00–$9.00/sq ft materials; Fixr 2026)' },
       { label: 'Basic composite decking', value: '$13.00/sq ft ($8.50–$17.50/sq ft; Trex Cost Guide & HomeAdvisor 2026)' },
       { label: 'Capped 4-sided composite', value: '$20.00/sq ft ($14.00–$26.00/sq ft; TimberTech Cost Overview 2026)' },
       { label: 'Cellular PVC decking (AZEK-style)', value: '$24.00/sq ft ($16.00–$32.00/sq ft; TimberTech 2026)' },
@@ -564,8 +564,8 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       { label: 'Elevation labor multiplier', value: 'Ground level 1.0×, Low 1.1×, Mid (4–8 ft) 1.25×, Elevated (8+ ft) 1.45×' },
       { label: 'Pressure-treated framing joists (2×8×12)', value: '$22.00 per piece; beams (double 2×10) $42.00; 6×6 posts $45.00' },
       { label: 'Concrete footing bags', value: '$6.75 per 80 lb bag (0.60 ft³ yield; QUIKRETE No. 1101 data sheet)' },
-      { label: 'Pressure-treated wood railing', value: '$32.00/linear ft installed ($20–$45/LF)' },
-      { label: 'Composite railing system', value: '$68.00/linear ft installed ($45–$95/LF)' },
+      { label: 'Pressure-treated wood railing', value: '$40.00/linear ft installed ($30–$50/LF; Fixr 2026)' },
+      { label: 'Composite railing system', value: '$120.00/linear ft installed ($80–$165/LF; Fixr 2026)' },
       { label: 'Demolition & haul-away', value: 'Full tear-out $6.00/sq ft ($4–$10); board removal only $2.75/sq ft' },
     ],
     sources: [

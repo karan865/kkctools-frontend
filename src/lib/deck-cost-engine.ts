@@ -122,10 +122,10 @@ export const DECK_MATERIALS: Record<DeckMaterialId, DeckMaterialInfo> = {
     lifespanYears: 15,
     annualMaintenancePerSqFt: 1.25, // Staining/sealing every 2-3 years (~$2.50-$3.50/sq ft)
     recommendedGapIn: 0.125, // 1/8" gap when wet; shrinks to ~1/4"
-    materialCostPerSqFt: { low: 4.5, typical: 7.0, high: 10.0 },
+    materialCostPerSqFt: { low: 3.0, typical: 5.5, high: 8.0 },
     laborCostPerSqFt: { low: 10.0, typical: 15.0, high: 20.0 },
-    source: 'HomeGuide (2026) / This Old House (2026)',
-    sourceDate: '2026-06',
+    source: 'Fixr (2026): materials $3–$8/sq ft; labour $10–$35/sq ft by material',
+    sourceDate: '2026-11',
   },
   cedar: {
     id: 'cedar',
@@ -134,10 +134,10 @@ export const DECK_MATERIALS: Record<DeckMaterialId, DeckMaterialInfo> = {
     lifespanYears: 20,
     annualMaintenancePerSqFt: 1.5,
     recommendedGapIn: 0.1875, // 3/16" gap
-    materialCostPerSqFt: { low: 7.5, typical: 12.0, high: 16.0 },
+    materialCostPerSqFt: { low: 4.0, typical: 6.5, high: 9.0 },
     laborCostPerSqFt: { low: 12.0, typical: 17.0, high: 24.0 },
-    source: 'Fixr (2026) / HomeGuide (2026)',
-    sourceDate: '2026-01',
+    source: 'Fixr (2026): cedar materials $4–$9/sq ft',
+    sourceDate: '2026-11',
   },
   redwood: {
     id: 'redwood',
@@ -232,16 +232,16 @@ export const RAILING_TYPES: Record<RailingType, RailingTypeInfo> = {
   wood: {
     id: 'wood',
     label: 'Pressure-Treated Wood Balusters',
-    installedCostPerLf: { low: 20, typical: 32, high: 45 },
-    materialCostPerLf: { low: 12, typical: 18, high: 26 },
-    source: 'HomeGuide (2026)',
+    installedCostPerLf: { low: 30, typical: 40, high: 50 },
+    materialCostPerLf: { low: 10, typical: 12.5, high: 15 },
+    source: 'Fixr (2026): wood railing $10–$15/lf material, $30–$50/lf installed',
   },
   composite: {
     id: 'composite',
     label: 'Composite Railing & Post Sleeves',
-    installedCostPerLf: { low: 45, typical: 68, high: 95 },
-    materialCostPerLf: { low: 28, typical: 42, high: 60 },
-    source: 'TimberTech / Trex (2026)',
+    installedCostPerLf: { low: 80, typical: 120, high: 165 },
+    materialCostPerLf: { low: 50, typical: 75, high: 100 },
+    source: 'Fixr (2026): composite railing $50–$100/lf material, $80–$165/lf installed',
   },
   aluminum: {
     id: 'aluminum',

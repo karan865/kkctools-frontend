@@ -44,7 +44,7 @@ const FAQS = [
   },
   {
     q: 'How much does a pressure-treated wood deck cost?',
-    a: 'Pressure-treated Southern yellow pine or fir is the most economical decking material in North America. Installed costs average $15 to $35 per square foot ($4.50 to $10.00/sq ft for decking boards, $8.00 to $12.00/sq ft for joist and beam framing lumber, and $10.00 to $20.00/sq ft for professional installation labor).',
+    a: 'Pressure-treated Southern yellow pine or fir is the most economical decking material in North America. Installed costs average $15 to $35 per square foot ($3.00 to $8.00/sq ft for decking boards, $8.00 to $12.00/sq ft for joist and beam framing lumber, and $10.00 to $20.00/sq ft for professional installation labor).',
   },
   {
     q: 'How much does it cost to replace an existing deck?',
@@ -72,7 +72,7 @@ const FAQS = [
   },
   {
     q: 'How much do stairs and railing add to total deck cost?',
-    a: 'Railing systems range from $20 to $45 per linear foot for pressure-treated wood, $45 to $95/LF for composite, $55 to $115/LF for powder-coated aluminum, and $75 to $160/LF for stainless steel cable. For an average 16×20 deck with 40 linear feet of exposed perimeter, railings add $1,200 to $4,500. A standard flight of 4 to 6 deck stairs adds $600 to $1,800 for stringers, treads, and handrails.',
+    a: 'Railing systems range from $30 to $50 per linear foot for pressure-treated wood, $80 to $165/LF for composite, $55 to $115/LF for powder-coated aluminum, and $75 to $160/LF for stainless steel cable. For an average 16×20 deck with 40 linear feet of exposed perimeter, railings add $1,200 to $4,500. A standard flight of 4 to 6 deck stairs adds $600 to $1,800 for stringers, treads, and handrails.',
   },
 ];
 

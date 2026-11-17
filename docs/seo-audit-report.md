@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-17T17:26:43.759Z
+Run Date: 2026-11-17T17:49:19.123Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -29,7 +29,7 @@ Status: PASSED ✅
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2585 | Cubic Yard Calculator: How Man | PASS |
-| `/deck-cost-calculator/` | Deck Cost Calculator & Estimator – Wood  | 3755 | Deck Cost Calculator & Estimat | PASS |
+| `/deck-cost-calculator/` | Deck Cost Calculator & Estimator – Wood  | 3754 | Deck Cost Calculator & Estimat | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2801 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
@@ -53,7 +53,7 @@ Status: PASSED ✅
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2382 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
-| `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4101 | Roof Replacement Cost Calculat | PASS |
+| `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4131 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
 | `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 802 | Site Map | PASS |

@@ -16,6 +16,9 @@ import {
 } from '@/lib/tools-catalog';
 import styles from './Header.module.css';
 
+// Most recently added tool (ISO dates sort as strings).
+const NEWEST_TOOL = [...TOOLS_CATALOG].sort((a, b) => b.added.localeCompare(a.added))[0];
+
 export default function Header() {
   const pathname = usePathname();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -161,11 +164,11 @@ export default function Header() {
                       View all {TOOLS_CATALOG.length} tools directory →
                     </Link>
                     <Link
-                      href={TOOLS_CATALOG[0]?.slug || '/tools/'}
+                      href={NEWEST_TOOL?.slug || '/tools/'}
                       className={styles.megaNewPill}
                       onClick={() => setToolsDropdownOpen(false)}
                     >
-                      New: {TOOLS_CATALOG[0]?.name || 'All Tools'}
+                      New: {NEWEST_TOOL?.name || 'All Tools'}
                     </Link>
                   </div>
                 </div>

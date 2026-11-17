@@ -248,8 +248,8 @@ export default function RoofReplacementCostCalculatorPage() {
             bundles up ladders, laying underlayment, chalking courses, and hand-nailing or gun-nailing shingles.
           </li>
           <li>
-            <strong>Tear-Off, Disposal &amp; Permits (10% to 15% of total):</strong> Approximately $100 to $160 per
-            square. Covers stripping down to sheathing, roll-off dumpster haul-away, disposal tonnage fees, and municipal
+            <strong>Tear-Off, Disposal &amp; Permits (10% to 15% of total):</strong> Approximately $100 to $300 per
+            square per layer. Covers stripping down to sheathing, roll-off dumpster haul-away, disposal tonnage fees, and municipal
             building inspection permits.
           </li>
         </ul>
@@ -330,7 +330,7 @@ export default function RoofReplacementCostCalculatorPage() {
           <div className={styles.cardItem}>
             <h3 className={styles.cardTitle}>4. Multiple Tear-Off Layers</h3>
             <p className={styles.cardText}>
-              Stripping one layer costs ~$125/square. If a prior owner installed an overlay, removing two layers doubles
+              Stripping one layer costs about $200/square in this calculator ($100–$300). If a prior owner installed an overlay, removing two layers doubles
               the manual labor and dumpster weight fees, adding $1,000 to $2,000 to your disposal bill.
             </p>
           </div>

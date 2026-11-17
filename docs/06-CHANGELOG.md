@@ -4,6 +4,13 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Review — Batch 2 tools #17–#19 price and content fixes] — 2026-11-17
+- Deck engine: pressure-treated and cedar decking material ranges and wood/composite railing rates now match the Fixr deck cost guide (checked 2026-11-17). The old values didn't match the source they cited.
+- Roof and Deck "How we calculate" values now equal the engine defaults (architectural $500/sq = $195 material + $305 labour, tear-off $200/sq per layer, dumpster $475, decking $80/sheet).
+- Roof page tear-off text ($125 → $200/sq, $100–$300) and Deck FAQ railing/PT figures now match the engine.
+- Header "New:" pill now shows the most recently added tool instead of the first catalog entry.
+- `npm run verify`: all 6 steps pass.
+
 ### [Tool #38 — Deck Cost Calculator] — 2026-11-17
 - New flagship page `/deck-cost-calculator/` (Batch 2 Tier 3 #18), built end-to-end exactly from `18_Deck_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/deck-cost-engine.ts`):
