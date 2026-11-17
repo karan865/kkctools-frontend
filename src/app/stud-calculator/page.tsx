@@ -501,6 +501,12 @@ export default function StudCalculatorPage() {
             </p>
             <ul style={{ paddingLeft: '20px', color: '#075985', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
               <li>
+                <Link href="/deck-cost-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
+                  Deck Cost Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Lumber framing joists, posts, beams &amp; decking boards</span>
+              </li>
+              <li>
                 <Link href="/rafter-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Rafter Calculator
                 </Link>

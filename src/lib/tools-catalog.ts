@@ -299,6 +299,17 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     isNew: true,
   },
   {
+    slug: '/deck-cost-calculator/',
+    name: 'Deck Cost Calculator',
+    category: 'framing',
+    description: 'Full bill of materials & cost for wood or composite decks: joists, beams, footings, boards & railing.',
+    tags: ['BOM Takeoff', 'Wood vs Composite'],
+    icon: 'deck',
+    keywords: ['deck cost calculator', 'deck estimator', 'cost to build a deck', 'composite decking cost', 'trex cost calculator', 'deck replacement cost', 'deck framing', 'deck materials'],
+    added: '2026-11-17',
+    isNew: true,
+  },
+  {
     slug: '/roof-replacement-cost-calculator/',
     name: 'Roof Replacement Cost Calculator',
     category: 'framing',

@@ -544,6 +544,63 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'deck-cost-calculator': {
+    formula: [
+      'Total deck area = Σ (length × width) in sq ft; exposed perimeter = total perimeter − house ledger attachment length',
+      'Decking board rows = ceil(deck width ÷ ((board width + gap) ÷ 12)); boards per row = ceil(deck length ÷ stock board length); total boards = rows × boardsPerRow × (1 + pattern waste %)',
+      'Substructure framing joists = ceil(deck length in inches ÷ joist spacing in inches) + 1 + 2 rim joists',
+      'Beam rows = attached ? 1 : 2; posts per beam = ceil(beam length ÷ post spacing) + 1; footings = total posts',
+      'Concrete footing volume = footings × π × (dia/2)² × depth; cubic yards = total ft³ ÷ 27; 80 lb QUIKRETE bags = total ft³ ÷ 0.60 ft³',
+      'Railing linear feet = max(0, exposed perimeter − stair openings); stair risers = ceil(elevation height in inches ÷ 7.5 in)',
+      'Grand total = (decking + framing lumber + concrete + hardware + railing + stairs + site prep + demo + permit + labor) × regionMultiplier + contingency %',
+    ],
+    defaults: [
+      { label: 'Pressure-treated pine decking', value: '$7.00/sq ft ($4.50–$10.00/sq ft materials; HomeGuide 2026 & This Old House 2026)' },
+      { label: 'Western red cedar decking', value: '$12.00/sq ft ($7.50–$16.00/sq ft materials; Fixr 2026)' },
+      { label: 'Basic composite decking', value: '$13.00/sq ft ($8.50–$17.50/sq ft; Trex Cost Guide & HomeAdvisor 2026)' },
+      { label: 'Capped 4-sided composite', value: '$20.00/sq ft ($14.00–$26.00/sq ft; TimberTech Cost Overview 2026)' },
+      { label: 'Cellular PVC decking (AZEK-style)', value: '$24.00/sq ft ($16.00–$32.00/sq ft; TimberTech 2026)' },
+      { label: 'Professional carpenter labor', value: '$15.00/sq ft base ($10.00–$20.00/sq ft; US BLS OEWS SOC 47-2031 carpenter wage benchmarks)' },
+      { label: 'Elevation labor multiplier', value: 'Ground level 1.0×, Low 1.1×, Mid (4–8 ft) 1.25×, Elevated (8+ ft) 1.45×' },
+      { label: 'Pressure-treated framing joists (2×8×12)', value: '$22.00 per piece; beams (double 2×10) $42.00; 6×6 posts $45.00' },
+      { label: 'Concrete footing bags', value: '$6.75 per 80 lb bag (0.60 ft³ yield; QUIKRETE No. 1101 data sheet)' },
+      { label: 'Pressure-treated wood railing', value: '$32.00/linear ft installed ($20–$45/LF)' },
+      { label: 'Composite railing system', value: '$68.00/linear ft installed ($45–$95/LF)' },
+      { label: 'Demolition & haul-away', value: 'Full tear-out $6.00/sq ft ($4–$10); board removal only $2.75/sq ft' },
+    ],
+    sources: [
+      {
+        label: 'HomeGuide — How Much Does It Cost To Build A Deck? (2026 Guide)',
+        url: 'https://homeguide.com/costs/deck-cost',
+        note: 'national average costs per square foot for pressure-treated wood, composite, and PVC decks',
+      },
+      {
+        label: 'Fixr — Cost to Build a Deck (2026 Cost Report)',
+        url: 'https://www.fixr.com/costs/build-deck',
+        note: 'material costs by wood and composite species, railing costs per linear foot, and stair estimates',
+      },
+      {
+        label: 'This Old House — How Much Does It Cost to Build a Deck? (updated 2026)',
+        url: 'https://www.thisoldhouse.com/decks/cost-to-build-a-deck',
+        note: 'framing substructure shares, labor hour averages, and maintenance comparisons',
+      },
+      {
+        label: 'US Bureau of Labor Statistics — Occupational Employment and Wages: Carpenters (SOC 47-2031)',
+        url: 'https://www.bls.gov/oes/current/oes472031.htm',
+        note: 'trade wage benchmarks for residential framing and finish carpenters',
+      },
+      {
+        label: 'International Residential Code (IRC) — Sections R312 (Guards) & R507 (Exterior Decks)',
+        url: 'https://codes.iccsafe.org/',
+        note: 'code mandates for 36" guardrails on decks >30" above grade, 4" sphere baluster spacing, and footing frost depths',
+      },
+      {
+        label: 'QUIKRETE Technical Data Sheet — Concrete Mix (No. 1101)',
+        url: 'https://www.quikrete.com/',
+        note: '0.60 ft³ yield per 80 lb bag for round pier hole and footing volumes',
+      },
+    ],
+  },
   'cubic-feet-to-square-feet': {
     formula: [
       'Square feet = cubic feet ÷ depth (ft); depth (ft) = inches ÷ 12, cm ÷ 30.48, mm ÷ 304.8, m ÷ 0.3048',

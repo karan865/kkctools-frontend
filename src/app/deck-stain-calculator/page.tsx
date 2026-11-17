@@ -408,6 +408,10 @@ export default function DeckStainCalculatorPage() {
             <li>
               Fence too? Use the <Link href="/fence-stain-calculator/">fence stain calculator</Link> for the panels.
             </li>
+            <li>
+              Building a new deck or replacing damaged framing? Estimate materials and labor with our{' '}
+              <Link href="/deck-cost-calculator/">Deck Cost Calculator</Link>.
+            </li>
           </ul>
 
           <h2>Frequently asked questions</h2>

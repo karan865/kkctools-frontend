@@ -502,6 +502,11 @@ export default function ConcreteCalculatorPage() {
           <h2>Related calculators</h2>
           <ul className={styles.related}>
             <li>
+              <Link href="/deck-cost-calculator/">
+                Deck Cost Calculator<span>Lumber, pier footings and composite decking</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/cubic-yard-calculator/">
                 Cubic Yard Calculator<span>Soil, mulch, gravel and other bulk materials</span>
               </Link>

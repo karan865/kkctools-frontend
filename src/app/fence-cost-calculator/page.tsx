@@ -347,6 +347,11 @@ export default function FenceCostCalculatorPage() {
           <h2>Related calculators</h2>
           <ul className={styles.related}>
             <li>
+              <Link href="/deck-cost-calculator/">
+                Deck Cost Calculator<span>Lumber, footings and boards for new decks</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/fence-stain-calculator/">
                 Fence Stain Calculator<span>Gallons to stain the new fence</span>
               </Link>

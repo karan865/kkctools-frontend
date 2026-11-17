@@ -195,6 +195,12 @@ export default function LinearFootCalculatorPage() {
             <h2>{content.sections[6].heading}</h2>
             <ul className={styles.linkList}>
               <li>
+                <Link href="/deck-cost-calculator/">
+                  <strong>Deck Cost Calculator:</strong>
+                </Link>{' '}
+                Lumber joists, beams, railing and decking boards with bill of materials.
+              </li>
+              <li>
                 <Link href="/cubic-yard-calculator/">
                   <strong>Cubic Yard Calculator:</strong>
                 </Link>{' '}

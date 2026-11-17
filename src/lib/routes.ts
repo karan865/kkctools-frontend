@@ -168,6 +168,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  deckCostCalculator: {
+    path: '/deck-cost-calculator/',
+    title: 'Deck Cost Calculator & Estimator – Wood vs Composite',
+    description: 'Free deck estimator: enter size and material (pressure-treated, cedar, composite or PVC) for a full materials list, labour and total deck cost.',
+    updated: '2026-11-17',
+    type: 'tool',
+    indexable: true,
+  },
   carpetCostCalculator: {
     path: '/carpet-cost-calculator/',
     title: 'Carpet Cost Calculator – Price per Square Foot & Yard',

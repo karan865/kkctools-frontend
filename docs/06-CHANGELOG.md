@@ -4,6 +4,34 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #38 — Deck Cost Calculator] — 2026-11-17
+- New flagship page `/deck-cost-calculator/` (Batch 2 Tier 3 #18), built end-to-end exactly from `18_Deck_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/deck-cost-engine.ts`):
+  * 4 project modes: New deck, Resurface (re-decking sound existing framing), Full replacement (demo + new), and Repairs.
+  * Structural framing takeoff: joist count by spacing (12", 16", 24" o.c.) & rim joists, doubled/tripled beam rows, 4x4/6x6 posts, and pier footings.
+  * Concrete footing calculations: cylinder volume formula with frost-depth scaling, cubic yards, and 80 lb QUIKRETE #1101 bag yield via `concrete-engine.ts`.
+  * Decking board takeoff: 5.5" / 3.5" boards, stock lengths (12', 16', 20'), pattern waste (straight 10%, diagonal 15%, herringbone 20%), and picture-frame border perimeter.
+  * Fastener takeoff: face screws (2/crossing) vs hidden clips (1/crossing) with box counts.
+  * Railing (exposed perimeter minus house ledger and stair opening) and stairs (risers, treads, 2x12 stringers at 16" o.c.).
+  * 7 materials: Pressure-Treated Pine, Western Red Cedar, California Redwood, Basic Composite, 4-Sided Capped Composite, Cellular PVC, and Tropical Ipe Hardwood.
+  * Height band labor multipliers (ground 1.0×, low 1.1×, mid 1.25×, elevated 1.45×), regional multiplier, contingency %, contractor quote verifier, 25-yr lifetime cost comparison, and printable Bill of Materials (BOM).
+- **Tests** (`src/lib/deck-cost-engine.test.ts`): 15 Vitest unit tests covering 12x12 16" o.c. joists hand calculation, row count pitch, diagonal waste, picture frame border, footing concrete volume & QUIKRETE bags, railing perimeter exclusions, resurface vs replace mode logic, height multipliers on labor only, DIY savings, zero dimensions, benchmark tables, lifetime comparison, quote verifier, and BOM categories.
+- **UI** (`src/components/tool/deck-cost-calculator/`):
+  * Aligned strictly with KKCTools design tokens and visual architecture:
+    - 28px circular numbered step badges (`1` to `6`) in card headers.
+    - All numeric inputs wrapped in `.inputWrap` with trailing `.unitBadge` pills (`ft`, `in`, `steps`, `$/sq ft`, `$/LF`, `in`).
+    - Signature radiant cobalt blue hero banner (`linear-gradient(135deg, #0369a1 0%, #075985 100%)`) with total price, range, and 3-column subgrid metrics.
+    - Interactive SVG `DeckDiagram` with toggleable views: "Decking & Railing" vs "Joists & Footings".
+    - Structured `.breakdownTable` with itemized line items.
+    - Printable Bill of Materials (BOM) table.
+    - Contractor quote verifier card and 25-yr wood vs composite comparison table.
+    - Copy summary, Print BOM, and 5-currency switcher.
+- **Page** (`src/app/deck-cost-calculator/`): 4,200+ words of thorough original copy, title 52 chars, meta 154 chars, H1 33 chars, 12 FAQs matching SPEC §6 with live calculated figures, benchmark size table (10x10 to 20x20), 7-material cost matrix, BLS carpenter labor economics, substructure budget breakdown, wood vs composite vs PVC guide, 4-point structural safety inspection checklist for resurfacing, board spacing & gap recommendations table, IRC code compliance guide, HowWeCalculate component.
+- **Wiring & Inbound Links**: Registered in `routes.ts`, `tools-catalog.ts` (#40, category `framing`, icon `deck`), `tools-catalog.test.ts` updated to 40, footer link added under "Framing & Finishes", calculation-methods entry added, inbound contextual links added from `deck-stain-calculator`, `fence-cost-calculator`, `concrete-calculator`, `linear-foot-calculator`, and `stud-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps (lint, tests, check:no-network, build, seo:audit, docs:bundle) with zero errors. 581 unit tests passing across 44 files.
+
+---
+
 ### [Tool #37 — Carpet Cost Calculator] — 2026-11-17
 - New flagship page `/carpet-cost-calculator/` (Batch 2 Tier 3 #17), built end-to-end exactly from `17_Carpet_Cost_Calculator_BUILD_SPEC.md` and competitor analysis.
 - **Engine** (`src/lib/carpet-engine.ts`): Pure mathematical takeoff for multi-room roll layout (12 ft, 13.5 ft, 15 ft) testing both orientations and minimizing purchased carpet square footage; seam calculation and off-cut waste %; stairs runner geometry (13 standard steps, tread depth, riser height, nosing wrap, landing, waterfall vs box/cap & band); 3 material grades (builder, mid, premium), 5 fibres (nylon, polyester, triexta, olefin, wool), 5 styles (plush, berber, frieze, pattern, carpet tiles); padding specifications (6 lb, 8 lb, 10 lb) per CRI standards; itemized labour and extras (removal, disposal, furniture, tack strips, transitions, subfloor leveling, doors); room benchmarks (10x10 to whole house); contractor quote verifier; flooring comparisons (carpet vs LVP vs laminate vs hardwood refinish).

@@ -135,6 +135,7 @@ export default function Footer() {
               <li><Link href="/bathroom-remodel-cost-calculator/" className={styles.link}>Bathroom Remodel Cost</Link></li>
               <li><Link href="/floor-refinishing-cost-calculator/" className={styles.link}>Floor Refinishing Cost</Link></li>
               <li><Link href="/carpet-cost-calculator/" className={styles.link}>Carpet Cost Calculator</Link></li>
+              <li><Link href="/deck-cost-calculator/" className={styles.link}>Deck Cost Calculator</Link></li>
             </ul>
           </div>
 

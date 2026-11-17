@@ -1,0 +1,244 @@
+.main {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 20px 16px 48px;
+  color: var(--ink-2);
+}
+
+.header {
+  margin: 8px 0 24px;
+}
+
+.h1 {
+  font-size: clamp(1.6rem, 4vw, 2.25rem);
+  font-weight: 800;
+  color: var(--ink);
+  line-height: 1.2;
+  margin: 0 0 12px;
+}
+
+.lead {
+  font-size: 1.05rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+  max-width: 860px;
+  margin: 0;
+}
+
+.meta {
+  margin-top: 12px;
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+
+.blufBox {
+  background: var(--surface-2);
+  border-left: 4px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+  padding: 16px 20px;
+  margin: 20px 0 28px;
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--ink);
+}
+
+.blufBox strong {
+  color: var(--ink);
+  font-weight: 700;
+}
+
+.toolSection {
+  margin: 24px 0 40px;
+}
+
+.article {
+  margin-top: 40px;
+  font-size: 0.98rem;
+  line-height: 1.74;
+  max-width: 900px;
+}
+
+.article h2 {
+  font-size: clamp(1.3rem, 2.6vw, 1.65rem);
+  font-weight: 800;
+  color: var(--ink);
+  margin: 40px 0 14px;
+  line-height: 1.3;
+}
+
+.article h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin: 24px 0 8px;
+}
+
+.article p {
+  margin: 0 0 16px;
+}
+
+.article ul,
+.article ol {
+  margin: 0 0 18px 24px;
+  padding: 0;
+}
+
+.article li {
+  margin-bottom: 6px;
+}
+
+.tableWrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: 20px 0 28px;
+  border-radius: var(--radius-sm, 6px);
+  border: 1px solid var(--border);
+}
+
+.proseTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  background: var(--surface);
+}
+
+.proseTable th {
+  background: var(--surface-2);
+  color: var(--ink);
+  font-weight: 700;
+  text-align: left;
+  padding: 10px 14px;
+  border-bottom: 2px solid var(--border);
+}
+
+.proseTable td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border-subtle);
+  color: var(--ink-2);
+}
+
+.proseTable tr:last-child td {
+  border-bottom: none;
+}
+
+.proseTable tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.015);
+}
+
+.callout {
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 8px);
+  padding: 18px 20px;
+  margin: 24px 0;
+}
+
+.callout h4 {
+  margin: 0 0 8px;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.callout p {
+  margin: 0;
+  font-size: 0.92rem;
+  line-height: 1.6;
+}
+
+.faqSection {
+  margin-top: 48px;
+  border-top: 1px solid var(--border);
+  padding-top: 36px;
+}
+
+.faqList {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.faqItem {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 8px);
+  overflow: hidden;
+}
+
+.faqQuestion {
+  font-weight: 700;
+  font-size: 1rem;
+  color: var(--ink);
+  padding: 14px 18px;
+  cursor: pointer;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faqQuestion::-webkit-details-marker {
+  display: none;
+}
+
+.faqQuestion::after {
+  content: '▼';
+  font-size: 0.75rem;
+  color: var(--muted);
+  transition: transform 0.2s;
+}
+
+details[open] .faqQuestion::after {
+  transform: rotate(180deg);
+}
+
+.faqAnswer {
+  padding: 0 18px 16px;
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--ink-2);
+}
+
+.relatedSection {
+  margin-top: 48px;
+  padding-top: 28px;
+  border-top: 1px solid var(--border);
+}
+
+.relatedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+  margin-top: 16px;
+}
+
+.relatedCard {
+  display: block;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md, 8px);
+  padding: 14px 16px;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s ease, border-color 0.15s ease;
+}
+
+.relatedCard:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.relatedCard h4 {
+  margin: 0 0 6px;
+  font-size: 0.95rem;
+  color: var(--ink);
+}
+
+.relatedCard p {
+  margin: 0;
+  font-size: 0.82rem;
+  color: var(--muted);
+  line-height: 1.45;
+}
