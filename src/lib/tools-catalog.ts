@@ -512,6 +512,18 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
 
   // 6. Business & Creative
   {
+    slug: '/percentage-change-calculator/',
+    name: 'Percentage Change Calculator',
+    category: 'business',
+    description: 'Calculate percent increase, decrease, symmetric difference, points, and copy Excel formulas.',
+    tags: ['% Math', 'Excel'],
+    icon: 'percent',
+    keywords: ['percentage change', 'percent increase', 'percent decrease', 'percentage difference', 'percentage points', 'reverse percentage', 'excel formula', 'business math'],
+    added: '2026-11-18',
+    isNew: true,
+    featured: true,
+  },
+  {
     slug: '/construction-estimate-template/',
     name: 'Construction Estimate Template',
     category: 'business',

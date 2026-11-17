@@ -1,0 +1,151 @@
+# Markup Calculator — Build Spec
+
+> **URL:** `/markup-calculator/` · Batch 3 · Tier 1 · **Build order 2**
+> **Read first:** `../00_BATCH3_BUILD_RULES.md`
+> **Inputs used:** `02_Markup_Calculator_Competitor_Analysis.md` (8 pages, 2026-11-14), `KKCTools_Batch3_Final_Tool_Keywords.md` §2 #1 (Semrush SERP 2026-11-16)
+> **Pair page:** Profit Margin Calculator (build order 3). Both use `src/lib/pricing-engine.ts`.
+> **Written:** 2026-11-18
+
+---
+
+## 1. Keywords
+
+| Role | Keyword | US vol | KD | CPC |
+|---|---|---:|---:|---:|
+| **Primary** | markup calculator | 14,800 | 24 | **$5.16** |
+| Secondary – easy | figuring markup | 2,400 | 12 | $5.16 |
+| Secondary – easy | what is retail price · definition retail price | 2,400 · 1,300 | 7 · 10 | |
+| Secondary – easy | how much should i sell it for | 1,300 | 12 | |
+| Secondary – easy | average pricing · prices to sell | 1,900 · 1,300 | 15 · 9 | |
+| Secondary | retail math | 1,900 | 16 | $3.33 |
+| Support H2/FAQ | retail price · selling price · sell price · sales price | 14,800 · 6,600 · 2,900 · 2,400 | 25–27 | up to $6.93 |
+| Support H2/FAQ | markup vs margin | 2,400 | 25 | |
+| Support H2/FAQ | mark up | 1,900 | 29 | $6.17 |
+| Support H2/FAQ | how to price your product | 1,900 | 26 | |
+
+**Don't use:** `omni markup calculator` (competitor brand).
+
+**SERP (2026-11-16):** #1 userjot (AS 33), #2 storeradar (AS 14), Upmetrics 38, activecalculator 27, feeqd 19, roxanlabs 15. Strong ones: Xero 72, Shopify 84, CFI 70. That leaves 8 open slots. It is the biggest winnable volume in Batch 3.
+
+## 2. What competitors miss (our edge)
+
+All 8 pages read have these gaps:
+- 0 have a **price chain** (maker → wholesale → retail);
+- 0 have **price endings** (.99);
+- 0 handle **VAT / GST / sales tax inside the price**;
+- 0 handle **card or marketplace fees**;
+- 0 have a **multi-product list**.
+
+Only 3 of 8 have a markup↔margin converter. Inch Calculator prints the formula without brackets. Enerpize mixes margin and markup in one table.
+
+## 3. Calculator spec
+
+### 3.1 Main panel ("solve any two")
+
+Four linked fields: **Cost**, **Markup %**, **Selling price**, **Profit**.
+- The user fills any two and the others solve.
+- Show which two are inputs (lock icon), the same idea as Omni but clearer.
+- Defaults on load: cost 40, markup 50%, giving price 60.
+
+**Always-visible result strip:** markup %, **gross margin %**, multiplier (×), profit.
+
+Plain-English sentence, e.g. "Selling at $60 gives $20 profit: a 50% markup and a 33.3% margin."
+
+**Target margin mode** (toggle): cost + target margin % gives the price and the matching markup.
+
+### 3.2 Advanced (accordions, collapsed by default)
+
+1. **Landed cost builder:** product cost + shipping + packaging + duties/import + other lines (add rows) + payment/marketplace fee % (fee is charged on the selling price). The engine solves the price so that after fees the target markup or margin still holds:
+
+```ts
+price = (landedCost * (1 + m)) / (1 - feePct)                    // markup target
+price = landedCost / (1 - g - feePct)                            // margin target; null if g+fee >= 1
+```
+
+2. **Tax:** none / add tax to price / price already includes tax.
+   - Presets: UK VAT 20%, AU GST 10%, NZ GST 15%, IN GST custom, US sales tax custom, EU custom.
+   - Cite gov.uk, ato.gov.au and ird.govt.nz in HowWeCalculate. If you can't verify a rate, use a custom field only.
+   - Show the price both ex-tax and inc-tax. **Markup is always calculated on the ex-tax price.** Explain this.
+3. **Price ending:** none / .99 / .95 / .49 / round to whole / round up to the nearest 5. Show the *actual* markup and margin after rounding.
+4. **Price chain** (up to 3 tiers: maker → wholesaler → retailer). Each tier has its own markup % or multiplier. A table shows each party's buy price, sell price, profit, markup and margin, plus the consumer price. Note "keystone = 2× (100% markup)" as a preset.
+5. **Product list mode:** a table with name + cost per row (paste from a spreadsheet supported: tab- or comma-separated) and one markup % for all rows (or per row). Outputs price, profit and margin per row. Copy as CSV.
+
+### 3.3 Engine (`pricing-engine.ts`, shared with Profit Margin)
+
+```ts
+priceFromMarkup(c, m)   = c * (1 + m)
+markupFromPrice(c, p)   = (p - c) / c            // null if c == 0
+costFromPrice(p, m)     = p / (1 + m)
+priceFromMargin(c, g)   = c / (1 - g)            // null if g >= 1
+marginFromMarkup(m)     = m / (1 + m)
+markupFromMargin(g)     = g / (1 - g)            // null if g >= 1
+multiplier(c, p)        = p / c
+roundPriceEnding(p, ending)   // e.g. .99 → floor(p) + 0.99, but never below p - 1 and never below cost
+addTax(p, r) = p * (1 + r) ; stripTax(pInc, r) = pInc / (1 + r)
+chain(tiers[])          // sequential markups
+```
+
+**Markup ↔ margin table:** markups 10, 20, 25, 30, 33.33, 40, 50, 60, 75, 100, 150, 200, 300% with the margin and multiplier for each, generated by the engine.
+
+### 3.4 Tests
+
+- Every function, plus the two-of-four solve in every combination.
+- 50% markup = 33.33% margin; 100% markup = 50% margin = 2× multiplier.
+- Fee-adjusted price keeps the target after the fee is deducted.
+- Margin target with g + fee ≥ 1 returns `null` with a message.
+- Tax add/strip round-trips; markup is computed on ex-tax.
+- Price ending never drops below cost. The actual markup after rounding is correct.
+- Chain: keystone at 2 tiers gives 4× the maker cost.
+- List paste parses tabs, commas and currency symbols.
+- Every table row and FAQ number comes from the engine (snapshot).
+
+## 4. Page SEO
+
+| Item | Value |
+|---|---|
+| Title | `Markup Calculator – Selling Price, Markup & Margin` (50; with suffix 62, so use `absoluteTitle`) |
+| Meta | `Free markup calculator. Enter cost and markup to get the selling price, or cost and price to get markup %, with gross margin and profit shown side by side.` |
+| H1 | `Markup Calculator: Selling Price from Cost and Markup %` |
+| BLUF | "Selling price = cost × (1 + markup %). For example, a $40 item with a 50% markup sells for $60, giving a 33.3% margin." Compute the example from the engine. |
+| Links out | Profit Margin, Unit Price (cost per unit), Percentage Change, Discount (when built), Freelance Rate (when built) |
+| Links in | Profit Margin (strong), Unit Price seller tab, Construction Estimate Template (contractor markup context), Tools hub |
+
+## 5. Content (~1,800–2,200 words, original)
+
+| # | H2 | Content | Words |
+|---:|---|---|---:|
+| 1 | How to use the markup calculator | Solve-any-two, target margin, advanced options | 150 |
+| 2 | Markup formula (how to figure markup) | Formula with brackets, 3 engine examples (retail item, handmade product, contractor job) | 250 |
+| 3 | Markup vs margin | The 50% ≠ 50% confusion + engine table | 300 |
+| 4 | Multipliers and keystone pricing | 2×, 2.5×, 3× → markup and margin | 150 |
+| 5 | How to price your product: what goes into cost | Landed cost, fees, overheads (no unsourced industry markups) | 250 |
+| 6 | Wholesale vs retail price (retail math) | Price chain engine example | 200 |
+| 7 | What is retail price / selling price? | Definitions (targets `what is retail price` KD 7) | 120 |
+| 8 | Markup and VAT, GST or sales tax | Ex-tax vs inc-tax, with official links | 200 |
+| 9 | Price endings like $9.99 | What rounding does to your margin (engine example). No claims about psychology without a source. | 120 |
+| 10 | Common markup mistakes | Applying markup to the inc-tax price, confusing margin with markup, forgetting fees | 150 |
+| 11 | FAQ | §6 | 400 |
+
+**Industry markup averages:** do **not** include any unless there is a named, dated dataset you actually opened. Better to explain the factors than to invent ranges.
+
+## 6. FAQ (11)
+
+1. How do you calculate markup percentage? (`figuring markup`)
+2. What is the difference between markup and margin? (`markup vs margin`)
+3. How do I convert margin to markup (and back)?
+4. What does a 100% markup mean?
+5. What is keystone pricing?
+6. How much should I sell my product for? (`how much should i sell it for`)
+7. What is retail price? (`what is retail price`)
+8. Is markup calculated before or after VAT or sales tax?
+9. How do card or marketplace fees change my price?
+10. How do wholesale and retail markups stack? (`retail math`)
+11. Can a service business use markup?
+
+## 7. Done when
+
+- [ ] `npm run verify` passes; `pricing-engine` tests cover §3.4.
+- [ ] Solve-any-two, target margin, landed cost, tax, endings, chain and list all work and share via URL.
+- [ ] Tax rates only from linked government pages (or a custom field).
+- [ ] Mobile 390 px checked.
+- [ ] Routes, catalog (`business`), hub, internal links, docs updated.

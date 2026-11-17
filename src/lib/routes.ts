@@ -168,6 +168,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  percentageChangeCalculator: {
+    path: '/percentage-change-calculator/',
+    title: 'Percentage Change Calculator – Increase & Decrease',
+    description: 'Free percentage change calculator. Find percent increase, decrease or difference between two numbers, reverse a percentage, and copy the Excel formula.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

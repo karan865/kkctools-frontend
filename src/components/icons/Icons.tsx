@@ -39,6 +39,7 @@ export type IconName =
   | 'rebar'
   | 'clipboard'
   | 'guitar'
+  | 'percent'
   | 'gridSearch'
   | 'plus'
   | 'search'
@@ -444,6 +445,14 @@ export default function Icon({
           <path d="m11 15.5 3-3a4 4 0 0 0-5.5-5.5l-3 3a4 4 0 0 0 5.5 5.5z" />
           <circle cx="12" cy="12" r="1" fill="currentColor" />
           <path d="M17 3l4 4" />
+        </svg>
+      );
+    case 'percent':
+      return (
+        <svg {...common}>
+          <line x1="19" y1="5" x2="5" y2="19" />
+          <circle cx="6.5" cy="6.5" r="2.5" />
+          <circle cx="17.5" cy="17.5" r="2.5" />
         </svg>
       );
     case 'gridSearch':

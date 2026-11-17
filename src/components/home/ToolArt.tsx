@@ -732,6 +732,18 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Percentage Change Calculator: base vs final comparison bars and % symbol */
+  percent: (
+    <>
+      <rect className={s.f2} x={28} y={54} width={50} height={24} rx={6} />
+      <rect className={k('fl', 's2')} x={88} y={32} width={70} height={46} rx={6} />
+      <circle className={s.f1} cx={170} cy={34} r={8} />
+      <circle className={s.f1} cx={194} cy={66} r={8} />
+      <line className={s.dim} x1={196} y1={28} x2={168} y2={72} strokeWidth={2.5} />
+      <Dim x1={28} y1={86} x2={78} y2={86} label="80" lx={53} ly={94} />
+      <Dim x1={88} y1={86} x2={158} y2={86} label="100 (+25%)" lx={123} ly={94} />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

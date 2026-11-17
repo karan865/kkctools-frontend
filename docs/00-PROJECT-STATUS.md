@@ -2,12 +2,12 @@
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-17
+- **Last Updated:** 2026-11-18
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC). Before that: home page redesign (Phase HD) and AdSense-readiness report check (Phase AR, 2026-11-15): code-side fixes done and verified; Cloudflare Web Analytics, redeploy and owner identity pending. Tool #27 Wire Gauge Calculator built 2026-11-15.
-- **Overall Completion:** 581 vitest tests passing (44 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-17, evidence in `docs/evidence/`).
+- **Current Phase:** Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
+- **Overall Completion:** 608 vitest tests passing (45 files, 100% green), every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
 |---|---|---|---|

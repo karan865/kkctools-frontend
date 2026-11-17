@@ -964,6 +964,33 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [{ label: 'Coverage printed on stain can labels', note: 'rough and weathered wood absorbs more; use your product’s range' }],
   },
+  'percentage-change-calculator': {
+    formula: [
+      'Percentage change = ((new value − old value) ÷ |old value|) × 100 (undefined if old value = 0)',
+      'Percentage difference (symmetric) = (|a − b| ÷ ((|a| + |b|) ÷ 2)) × 100',
+      'Increase/decrease by %: result = original × (1 ± percentage ÷ 100)',
+      'Reverse percentage (find original): original = final ÷ (1 ± percentage ÷ 100)',
+      'Percentage points (pp) = rate B − rate A; relative change = ((rate B − rate A) ÷ |rate A|) × 100',
+      'Excel formula for cell % change: =(B2-A2)/ABS(A2) formatted with Percentage style',
+    ],
+    defaults: [
+      { label: 'Baseline Old / New example', value: '80 → 100 (+25.00% increase); 100 → 80 (−20.00% decrease)' },
+      { label: 'Symmetric Difference example', value: 'Between 80 and 100 = 22.22% difference' },
+      { label: 'Percentage Points example', value: 'From 4% to 5% = +1.00 pp change, but +25.00% relative surge' },
+    ],
+    sources: [
+      {
+        label: 'National Institute of Standards and Technology (NIST) Reference on Relative Difference',
+        url: 'https://www.nist.gov/',
+        note: 'Standard mathematical definitions for relative error, percent change, and symmetric percent difference',
+      },
+      {
+        label: 'Microsoft Excel Formula Documentation — Format numbers as percentages',
+        url: 'https://support.microsoft.com/en-us/office/format-numbers-as-percentages-6240f280-fd42-4f5b-90c5-4654562a0123',
+        note: 'Explains that Excel percentage format automatically multiplies cell values by 100',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

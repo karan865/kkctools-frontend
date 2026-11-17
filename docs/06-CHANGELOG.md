@@ -4,6 +4,33 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #41 — Percentage Change Calculator] — 2026-11-18
+- New tool `/percentage-change-calculator/` (Batch 3 Build Order 5), built end-to-end from `01_Percentage_Change_Calculator_BUILD_SPEC.md` and competitor analysis.
+- **Engine** (`src/lib/percent-engine.ts`):
+  * Pure functions: `pctChange(oldVal, newVal)` (signed, handling zero-division with null and -0 normalization), `pctDifference(a, b)` (symmetric with average denominator), `applyPct(x, p)` (increase/decrease by %), `reversePct(newVal, p)` (finding original before percentage), `pctOf(p, y)`, `whatPct(x, y)`, `ppDifference(a, b)` (percentage points difference alongside relative percentage change), `listChanges(pairs)` (batch row changes, arithmetic average of percentages, and true aggregate portfolio change), `excelFormula(mode, cells)` (dynamic copyable spreadsheet formulas with custom cell references).
+- **Tests** (`src/lib/percent-engine.test.ts`):
+  * 27 Vitest unit tests covering 80→100 (+25%), 100→80 (−20% asymmetry), 0-start division by zero null handling, negative start handling with `|old|` denominator, symmetric difference order invariance (22.22%), reverse percentages, percentage points (4%→5% = +1 pp vs +25% relative change), list aggregation proving average of % changes ≠ total aggregate % change, Excel formula string generation with custom cells, and formatting utilities.
+- **UI** (`src/components/tool/percentage-change-calculator/`):
+  * 8 distinct modes accessed via responsive horizontal tab bar (`#change`, `#difference`, `#increase-decrease`, `#find-original`, `#pct-of`, `#what-pct`, `#percentage-points`, `#list`) with URL hash persistence.
+  * Aligned strictly with KKCTools design system:
+    - 28px circular numbered step badges in card headers.
+    - All numeric inputs wrapped in `.inputWrap` with trailing `.unitBadge` pills (`Base`, `New`, `Amount`, `%`, `Part`, `Whole`).
+    - Signature radiant cobalt blue hero banner (`linear-gradient(135deg, #0369a1 0%, #075985 100%)`) with direction badges (Increase/Decrease), absolute deltas, and 3-metric subgrids.
+    - Plain-English snippet sentence for Google featured snippets under every result.
+    - Step-by-step math breakdown with user's actual numbers.
+    - CSS-only proportional visual comparison bar (`VisualPercentBar.tsx`).
+    - Interactive Excel & Google Sheets formula generator with editable cell inputs and one-click copy button.
+    - List mode with dynamic add/remove rows and aggregate vs average explanation.
+    - Share URL (encoded state), Print, and Quick Preset chips.
+- **Page** (`src/app/percentage-change-calculator/`):
+  * 2,100+ words of original copy, title 50 chars (`Percentage Change Calculator – Increase & Decrease` with `absoluteTitle`), meta 154 chars, H1 62 chars.
+  * Direct BLUF intro (50–60 words) computing figures dynamically via the engine.
+  * 10 structured sections covering manual calculation, formula anatomy, mathematical asymmetry, symmetric difference, multiplier shortcuts, reverse percentages, spreadsheet formulas & formatting pitfalls, percent vs percentage points, boundary edge cases (0, negatives, >100%), and 12 FAQ items matching SPEC §6.
+  * Registered in `routes.ts`, `tools-catalog.ts` (#41, category `business`, icon `percent`), `tools-catalog.test.ts` updated to 41, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx`. Inbound contextual links from `construction-estimate-template`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 608 vitest tests passing across 45 files. 76 static pages generated in export.
+
+---
+
 ### [Review — Batch 2 tools #17–#19 price and content fixes] — 2026-11-17
 - Deck engine: pressure-treated and cedar decking material ranges and wood/composite railing rates now match the Fixr deck cost guide (checked 2026-11-17). The old values didn't match the source they cited.
 - Roof and Deck "How we calculate" values now equal the engine defaults (architectural $500/sq = $195 material + $305 labour, tear-off $200/sq per layer, dumpster $475, decking $80/sheet).

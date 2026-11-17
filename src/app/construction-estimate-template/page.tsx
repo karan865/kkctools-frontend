@@ -463,6 +463,10 @@ export default function ConstructionEstimatePage() {
                 Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
               </p>
               <div className={styles.relatedToolsList}>
+                <Link href="/percentage-change-calculator/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>📊 Percentage Change Calculator</span>
+                  <span className={styles.relatedToolExcerpt}>Calculate price increases, contingency %, markup, and Excel formulas</span>
+                </Link>
                 <Link href="/band-name-generator/" className={styles.relatedToolItem}>
                   <span className={styles.relatedToolName}>🎸 Band Name Generator</span>
                   <span className={styles.relatedToolExcerpt}>Generate catchy music &amp; brand group names</span>
