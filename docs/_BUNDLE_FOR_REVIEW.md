@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-18T01:32:24.682Z
+Generated on: 2026-11-18T16:35:54.301Z
 
 
 
@@ -15,7 +15,7 @@ Generated on: 2026-11-18T01:32:24.682Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Tool #46 Discount / Percent Off Calculator built and verified (Phase DC46, 2026-11-18); FAQ Answer Pure White Background Styling Fix completed across all tools (2026-11-18); Tool #45 Hourly to Salary Calculator built and verified (Phase HS, 2026-11-18); Tool #44 Unit Price Calculator built and verified (Phase UP, 2026-11-18); Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
+- **Current Phase:** Outer Card Clash Fix & Full Tool Shell Consistency across all 44 tools (2026-11-18); Tool Shell Rollout Complete (Batch 4: 13 Hard-Coded White Tools Converted & Wrapped, 2026-11-18; Batch 3: 20 Token-Based Calculators Wrapped, 2026-11-18; Batch 2: 5 Other Tabbed Tools Wrapped with TabSlider, 2026-11-18; Batch 1: 5 Business Tools Wrapped with TabSlider, 2026-11-18; Batch 0: Shared Primitives & Percentage Change Calculator Reference Migration, 2026-11-18); Tool #46 Discount / Percent Off Calculator built and verified (Phase DC46, 2026-11-18); FAQ Answer Pure White Background Styling Fix completed across all tools (2026-11-18); Tool #45 Hourly to Salary Calculator built and verified (Phase HS, 2026-11-18); Tool #44 Unit Price Calculator built and verified (Phase UP, 2026-11-18); Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
 - **Overall Completion:** 676 vitest tests passing (50 files, 100% green), 81 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
 
 | Phase | Completed | Total | Status |
@@ -1098,6 +1098,88 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool Shell Rollout — Outer Card Background Fix Across All Calculators] — 2026-11-18
+- Eliminated all duplicate outer card backgrounds, borders, shadows, and outer paddings from root containers across 13 calculators that were covering up the `ToolShell` hero gradient band:
+  * Converted `.calculatorContainer`, `.toolCard`, and `.calculatorCard` to transparent layout wrappers so individual input/result cards float directly on the hero gradient band, matching the visual design of `/percentage-change-calculator/`.
+  * Migrated mode switchers in `paint-cost-calculator`, `laminate-flooring-calculator`, and `tile-calculator` to shared `TabSlider` segmented controls positioned at the top of the band.
+  * Preserved full accessible contrast by ensuring all dark text, inputs, and toggles reside inside cards with tinted `var(--surface)` backgrounds and tokenized borders.
+  * Tools updated: `paint-cost-calculator`, `tile-calculator`, `stone-calculator`, `cinder-block-calculator`, `laminate-flooring-calculator`, `brick-calculator`, `square-footage-calculator`, `asphalt-calculator`, `cubic-yard-calculator`, `fill-dirt-calculator`, `linear-foot-calculator`, `rafter-calculator`, `sand-calculator`.
+- Verified 100% green with `npm run verify` (676 unit tests, lint, no-network, build, SEO audit).
+
+---
+
+### [Tool Shell Rollout — Batch 4: Hard-Coded White Tools Rollout (13 Tools)] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and scoped typography to all 13 calculators with hardcoded backgrounds (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * Replaced all hardcoded `#ffffff`, `#fff`, and `white` backgrounds with CSS design tokens (`var(--surface)`, `var(--input-bg)`) and `#f8fafc`/`#f1f5f9` with `var(--surface-2)`.
+  * Tools: `brick-calculator`, `cinder-block-calculator`, `compost-calculator`, `concrete-calculator`, `fence-stain-calculator`, `laminate-flooring-calculator`, `paint-cost-calculator`, `paver-base-calculator`, `paver-sand-calculator`, `stone-calculator`, `stud-calculator`, `tile-calculator`, `tons-to-cubic-yards`.
+  * Wrapped each calculator in `<ToolShell features={[...4 verified features...]}>` and applied `${toolDisplayFont.variable} ${typo.scope}` to `<main>`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 3: Token-Based Calculators Rollout (20 Tools)] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and scoped typography to all 20 token-based calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `asphalt-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `bathroom-remodel-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `board-and-batten-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-inch-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-feet-to-square-feet`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-yard-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `deck-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `deck-stain-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `drywall-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `fence-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `fill-dirt-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.container} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `floor-refinishing-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `lawn-mowing-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `metal-roof-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `pipe-volume-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `rafter-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.container} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `rebar-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `shingle-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `concrete-slab-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `wire-gauge-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 2: Other Tabbed Tools Rollout] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and `TabSlider` segmented control to all 5 Other Tabbed calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `/carpet-cost-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Room takeoff & stairs`, `Cushion pad & waste`, `Tear-out & installation`, `Material grade tiers`); migrated project scope mode bar to `TabSlider` at top of tool; removed obsolete `.modeToggle`, `.modeBtn`, `.modeBtnActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/roof-replacement-cost-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Roof squares & pitch`, `Tear-off & decking`, `8 roofing materials`, `Detailed cost takeoff`); migrated quick/detailed mode bar to `TabSlider` at top of tool; removed obsolete `.modeToggle`, `.modeBtn`, `.modeBtnActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/linear-foot-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Multi-piece takeoff`, `Sq Ft ↔ Linear Ft sync`, `Waste factor included`, `Material & cost estimate`); migrated multi-piece and sqft converter modes to `TabSlider`; removed obsolete `.modeHeader`, `.modeTabs`, `.modeTab`, `.modeTabActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/sand-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Volume, tons & bags`, `Paver bedding & joints`, `Rectangular & circular`, `Imperial & metric units`); migrated volume, paver bedding, and polymeric joints modes to `TabSlider`; removed obsolete `.modeTabs`, `.modeTab`, `.modeTabActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/square-footage-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Multi-room house takeoff`, `Circles & custom shapes`, `Waste & deduction zones`, `Materials & price est.`); migrated single/multiple/shapes modes to `TabSlider`; removed obsolete `.tabList`, `.tabButton`, `.tabActive`; fixed all 7 hardcoded `#ffffff` backgrounds (`.roomTitleInput:focus`, `.selectField`, `.addButton`, `.chip`, `.utilityButton`, `.swapButton`, `.converterResultBox`) to design system CSS tokens (`var(--surface)`, `var(--surface-2)`, `var(--input-bg)`); applied `${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 1: Business Tools Rollout] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and `TabSlider` segmented control to all 5 Business calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `/markup-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Markup & margin sync`, `Landed cost & fees`, `Multi-item spreadsheet`, `Wholesale tier chain`); migrated 4 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/profit-margin-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Gross, operating & net`, `COGS & P&L waterfall`, `Target margin pricing`, `Multi-product blend`); migrated 4 mode tabs to `TabSlider` preserving `?tab=` URL sync; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/unit-price-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Side-by-side comparison`, `Fluid & weight units`, `Shrinkflation detection`, `Batch & shelf pricing`); migrated 3 mode tabs to `TabSlider`; fixed hardcoded `#ffffff` on `.dealBox` to `var(--surface-2, #f8fafc)` and `var(--line, #cbd5e1)`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/hourly-to-salary-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Hourly & annual sync`, `Overtime & bonus pay`, `PTO & unbilled hours`, `8 pay frequencies`); migrated 3 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/discount-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Single & stacked % off`, `BOGO & bundle deals`, `Coupons & sales tax`, `Reverse original price`); migrated 4 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+- Removed obsolete `.tabsContainer`, `.tabsBar`, `.tabBtn`, `.tabActive` classes from all 5 tool CSS modules.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 0: Shared Template & Percentage Change Migration] — 2026-11-18
+- Built the shared Tool Shell architecture (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `src/lib/fonts.ts`: Shared `toolDisplayFont` variable font loading Lexend via `next/font/google` for build-time self-hosting (no runtime request to Google).
+  * `src/styles/tool-typography.module.css`: Shared `.scope` class applying `--tool-display` to headings (`h1` 800, `h2` 700 + navy, `h3` 600 + navy), `th`, and `summary` with dark mode support.
+  * `src/components/tool/shared/ToolShell.tsx` + `ToolShell.module.css`: Server component providing the canonical hero gradient band (`linear-gradient(115deg, #3b82f6 0%, #7c3aed 52%, #ec4899 100%)`), surface token tinting (`--surface: #f8f6ff`), feature pills row at the bottom of the band, and trust line.
+  * `src/components/tool/shared/TabSlider.tsx` + `TabSlider.module.css`: Client component providing glass segmented control with arrow slide buttons (`scrollBy`), keyboard arrow navigation, active tab centering, and clipping protection (`margin-inline: auto` + `justify-content: flex-start`).
+- Migrated `/percentage-change-calculator/` to use `ToolShell` and `TabSlider`:
+  * Wrapped calculator in `<ToolShell features={['8 calculators in one', 'Step-by-step working', 'Excel & Sheets formula', 'Phone, tablet & PC']}>`.
+  * Removed duplicated band, glass tabs, feature pills, trust line, and tint CSS from `PercentageChangeCalculator.module.css`.
+  * Main element switched to `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
 ### [Review — Batch 3 tools #41–#46 sourcing fixes] — 2026-11-18
 - **Profit Margin:** the "good profit margin" table and FAQ had invented ranges labelled as Damodaran data (e.g. grocery net 1.5–3%, apparel net 6–10%). Replaced with the real NYU Stern "Margins by Sector (US)" figures, January 2026 update, checked 2026-11-18 (grocery 26.31% gross / 1.32% net, apparel 56.88% / 3.85%, software 71.72% / 25.49%, total market 37.76% / 9.74%, plus food wholesalers, building materials, engineering/construction, machinery). Linked the dataset; removed the unsourced "10% healthy, 20% excellent" claim.
 - **Markup:** removed the unsourced card-fee ("2.9% + $0.30") and marketplace-fee ("8–15% on Amazon, eBay, Etsy") figures; renamed "Psychological Charm Pricing" to a margin-only price-endings section (no psychology claims without a source).
@@ -1635,7 +1717,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-18T01:32:24.171Z
+Run Date: 2026-11-18T16:35:53.825Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1643,7 +1725,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
-| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2462 | Asphalt Calculator: How Many T | PASS |
+| `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2487 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
 | `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2660 | Band Name Generator | PASS |
@@ -1651,61 +1733,61 @@ Status: PASSED ✅
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1227 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1155 | Rock Band Name Generator | PASS |
-| `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1810 | Bathroom Remodel Cost Calculat | PASS |
-| `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2618 | Board and Batten Calculator: B | PASS |
-| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2882 | Brick Calculator: Bricks, Mort | PASS |
-| `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4117 | Carpet Cost Calculator | PASS |
-| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3525 | Cinder Block Calculator – Conc | PASS |
-| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2583 | Compost Calculator: Cubic Yard | PASS |
-| `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2691 | Concrete Calculator: Volume in | PASS |
-| `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3331 | Concrete Slab Cost Calculator | PASS |
+| `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1834 | Bathroom Remodel Cost Calculat | PASS |
+| `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2642 | Board and Batten Calculator: B | PASS |
+| `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2905 | Brick Calculator: Bricks, Mort | PASS |
+| `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
+| `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
+| `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
+| `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2714 | Concrete Calculator: Volume in | PASS |
+| `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3355 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3018 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
-| `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1607 | Cubic Feet to Square Feet Conv | PASS |
-| `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1903 | Cubic Inch Calculator (Volume  | PASS |
-| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2585 | Cubic Yard Calculator: How Man | PASS |
-| `/deck-cost-calculator/` | Deck Cost Calculator & Estimator – Wood  | 3754 | Deck Cost Calculator & Estimat | PASS |
-| `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2801 | Deck Stain Calculator | PASS |
+| `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1635 | Cubic Feet to Square Feet Conv | PASS |
+| `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1926 | Cubic Inch Calculator (Volume  | PASS |
+| `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2609 | Cubic Yard Calculator: How Man | PASS |
+| `/deck-cost-calculator/` | Deck Cost Calculator & Estimator – Wood  | 3778 | Deck Cost Calculator & Estimat | PASS |
+| `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2826 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
-| `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2403 | Discount Calculator: Percent O | PASS |
-| `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
-| `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2628 | Fence Cost Calculator: Chain L | PASS |
-| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2367 | Fence Stain Calculator: Gallon | PASS |
-| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1520 | Fill Dirt Calculator | PASS |
-| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2764 | Hardwood Floor Refinishing & R | PASS |
+| `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2427 | Discount Calculator: Percent O | PASS |
+| `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2823 | Drywall Calculator: Sheets, Jo | PASS |
+| `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2653 | Fence Cost Calculator: Chain L | PASS |
+| `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2395 | Fence Stain Calculator: Gallon | PASS |
+| `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1541 | Fill Dirt Calculator | PASS |
+| `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2788 | Hardwood Floor Refinishing & R | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2671 | Hourly to Salary Calculator (Y | PASS |
+| `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2694 | Hourly to Salary Calculator (Y | PASS |
 | `/` | KKC Tools – Free Construction Calculator | 2290 | Free Construction Calculators  | PASS |
-| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
-| `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
-| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1615 | Linear Foot Calculator (Linear | PASS |
-| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2587 | Markup Calculator: Selling Pri | PASS |
-| `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2043 | Metal Roof Cost Calculator | PASS |
-| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2522 | Paint Cost Calculator: Gallons | PASS |
-| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3073 | Paver Base Calculator: Tons &  | PASS |
-| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2472 | Paver Sand Calculator: Bedding | PASS |
-| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3477 | Percentage Change Calculator:  | PASS |
-| `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
+| `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2813 | Laminate Flooring Calculator:  | PASS |
+| `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2771 | Lawn Mowing Cost Calculator | PASS |
+| `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1638 | Linear Foot Calculator (Linear | PASS |
+| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2608 | Markup Calculator: Selling Pri | PASS |
+| `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
+| `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
+| `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
+| `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
+| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3499 | Percentage Change Calculator:  | PASS |
+| `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2526 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
-| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2103 | Profit Margin Calculator: Gros | PASS |
-| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2382 | Rafter Calculator – Find Rafte | PASS |
-| `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
-| `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4131 | Roof Replacement Cost Calculat | PASS |
-| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
-| `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
+| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2124 | Profit Margin Calculator: Gros | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2404 | Rafter Calculator – Find Rafte | PASS |
+| `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
+| `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4152 | Roof Replacement Cost Calculat | PASS |
+| `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1536 | Sand Calculator | PASS |
+| `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
 | `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 908 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
-| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
-| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2183 | Stud Calculator: Wall Framing  | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3376 | Square Footage Calculator (Sq  | PASS |
+| `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2871 | Stone Calculator: How Many Ton | PASS |
+| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2207 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
-| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
-| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
+| `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
+| `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1810 | Tons to Cubic Yards Converter | PASS |
 | `/tools/` | All Free Tools – Construction Calculator | 1329 | All Free Tools: Construction C | PASS |
-| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2686 | Unit Price Calculator: Compare | PASS |
-| `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
+| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
+| `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -1820,6 +1902,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+4e513d1 docs(audit): update docs, refine source citations, and polish Batch 3 content copy
 ed14ce6 feat(tool): build Discount & Percent Off Calculator (#46) with canonical 2-column UI
 f32ee21 feat(tool): build Hourly to Salary Calculator (#45) and fix FAQ answer white card styling
 cb8433a feat(tool): build Unit Price Calculator (#44) with interactive visual diagram and 3 modes
@@ -1839,7 +1922,6 @@ f623230 modified UI
 d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 8f4d6c9 Add Metal Roof Cost Calculator (Batch 2 Tier 2 #13)
 90482c5 Add Cubic Feet to Square Feet Converter (Batch 2 Tier 2 #12)
-573cd37 Add Fence Cost Calculator (Batch 2 Tier 2 #11); darken danger token
 ```
 
 
@@ -1855,18 +1937,18 @@ d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 27ms
+✓ Running next.config.ts took 28ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.8s
+✓ Compiled successfully in 6.1s
   Running TypeScript ...
-  Finished TypeScript in 3.3s ...
+  Finished TypeScript in 2.5s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/81) ...
   Generating static pages using 15 workers (20/81) 
   Generating static pages using 15 workers (40/81) 
   Generating static pages using 15 workers (60/81) 
-✓ Generating static pages using 15 workers (81/81) in 3.7s
+✓ Generating static pages using 15 workers (81/81) in 2.7s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1995,15 +2077,15 @@ D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
-  11:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
-  26:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
+  32:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
    12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
    15:3   warning  'DEFAULT_PRIMER_PRICE' is defined but never used  @typescript-eslint/no-unused-vars
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
-  301:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
+  296:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
@@ -2038,13 +2120,64 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
- RUN  v4.1.12 D:/1_programmins/5.kkctools
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
+ [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 32[2mms[22m[39m
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 41[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 48[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 42[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 48[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 54[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 705[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 576[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
 
- Test Files  50 passed (50)
-      Tests  676 passed (676)
-   Start at  07:01:46
-   Duration  2.85s (transform 7.98s, setup 0ms, import 11.21s, tests 1.25s, environment 12ms)
+[2m Test Files [22m [1m[32m50 passed[39m[22m[90m (50)[39m
+[2m      Tests [22m [1m[32m676 passed[39m[22m[90m (676)[39m
+[2m   Start at [22m 22:05:21
+[2m   Duration [22m 2.91s[2m (transform 9.03s, setup 0ms, import 12.06s, tests 1.80s, environment 17ms)[22m
 
 
 ```

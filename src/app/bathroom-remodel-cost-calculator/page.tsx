@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import BathroomRemodelCalculator from '@/components/tool/bathroom-remodel-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { BathroomPlan, SpendBar } from '@/components/tool/bathroom-remodel-calculator/BathroomDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -96,7 +99,7 @@ export default function BathroomRemodelCostCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Bathroom Remodel Cost Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -114,7 +117,16 @@ export default function BathroomRemodelCostCalculatorPage() {
         </header>
 
         <section aria-label="Bathroom remodel cost calculator tool">
-          <BathroomRemodelCalculator />
+          <ToolShell
+            features={[
+              'Half & master baths',
+              'Vanity, tub & shower',
+              'Plumbing & tile takeoff',
+              'Permit & labor estimates',
+            ]}
+          >
+            <BathroomRemodelCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

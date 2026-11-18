@@ -3,6 +3,7 @@
 import React, { useState, useId } from 'react';
 import TileDiagram from './TileDiagram';
 import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './TileCalculator.module.css';
 import {
   TILE_PRESETS,
@@ -20,6 +21,12 @@ import {
 } from '@/lib/tile-engine';
 
 export type ProjectType = 'floor' | 'shower' | 'backsplash';
+
+const TILE_PROJECT_TABS: { id: ProjectType; label: string }[] = [
+  { id: 'floor', label: 'Floor Tile' },
+  { id: 'shower', label: 'Shower Walls' },
+  { id: 'backsplash', label: 'Backsplash' },
+];
 
 export function TileCalculator() {
   const directAreaInputId = useId();
@@ -279,33 +286,16 @@ export function TileCalculator() {
 
   return (
     <div className={styles.calculatorContainer} id="tile-calc-app">
+      <TabSlider
+        tabs={TILE_PROJECT_TABS}
+        activeId={projectType}
+        onChange={(id) => handleProjectTypeChange(id as ProjectType)}
+        ariaLabel="Project Type"
+      />
+
       <div className={styles.layoutGrid}>
         {/* Left: Inputs Panel */}
         <div className={styles.inputsPanel}>
-          {/* Project Type Pills */}
-          <div className={styles.projectPillsRow}>
-            <button
-              type="button"
-              className={`${styles.projectPill} ${projectType === 'floor' ? styles.projectPillActive : ''}`}
-              onClick={() => handleProjectTypeChange('floor')}
-            >
-              Floor
-            </button>
-            <button
-              type="button"
-              className={`${styles.projectPill} ${projectType === 'shower' ? styles.projectPillActive : ''}`}
-              onClick={() => handleProjectTypeChange('shower')}
-            >
-              Shower Walls
-            </button>
-            <button
-              type="button"
-              className={`${styles.projectPill} ${projectType === 'backsplash' ? styles.projectPillActive : ''}`}
-              onClick={() => handleProjectTypeChange('backsplash')}
-            >
-              Backsplash
-            </button>
-          </div>
 
           {/* Mode Switcher */}
           <div className={styles.modeSwitcherRow}>

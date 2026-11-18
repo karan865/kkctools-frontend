@@ -18,9 +18,15 @@ import {
 } from '@/lib/paint-constants';
 import PaintRoomDiagram from './PaintRoomDiagram';
 import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './PaintCalculator.module.css';
 
 const STORAGE_KEY = 'kkc_paint_calc_rooms_v2';
+
+const PAINT_TABS: { id: 'dimensions' | 'direct'; label: string }[] = [
+  { id: 'dimensions', label: 'Room Dimensions (L × W × H)' },
+  { id: 'direct', label: 'Direct Wall Area (Sq Ft)' },
+];
 
 export default function PaintCalculator() {
   const [calculationMode, setCalculationMode] = useState<'dimensions' | 'direct'>('dimensions');
@@ -243,27 +249,16 @@ Calculated with KKCTools Paint Cost Calculator (https://kkctools.com/paint-cost-
 
   return (
     <div className={styles.calculatorContainer}>
+      <TabSlider
+        tabs={PAINT_TABS}
+        activeId={calculationMode}
+        onChange={(id) => setCalculationMode(id as 'dimensions' | 'direct')}
+        ariaLabel="Paint Calculation Mode"
+      />
+
       <div className={styles.layoutGrid}>
         {/* Left Inputs Panel */}
         <div className={styles.inputsPanel}>
-          {/* Mode Switcher */}
-          <div className={styles.modeSwitcherRow}>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${calculationMode === 'dimensions' ? styles.modeButtonActive : ''}`}
-              onClick={() => setCalculationMode('dimensions')}
-            >
-              Room Dimensions (L × W × H)
-            </button>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${calculationMode === 'direct' ? styles.modeButtonActive : ''}`}
-              onClick={() => setCalculationMode('direct')}
-            >
-              Direct Wall Area (Sq Ft)
-            </button>
-          </div>
-
           {/* Section 1: Dimensions or Direct Area */}
           {calculationMode === 'dimensions' ? (
             <div className={styles.sectionCard}>

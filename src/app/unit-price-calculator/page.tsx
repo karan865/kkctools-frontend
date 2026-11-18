@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import { UnitPriceCalculator } from '@/components/tool/unit-price-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -129,7 +132,7 @@ export default function UnitPriceCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbItems} />
 
       <header className={styles.header}>
@@ -158,7 +161,16 @@ export default function UnitPriceCalculatorPage() {
 
       {/* Interactive Calculator Component */}
       <section className={styles.toolSection}>
-        <UnitPriceCalculator />
+        <ToolShell
+          features={[
+            'Side-by-side comparison',
+            'Fluid & weight units',
+            'Shrinkflation detection',
+            'Batch & shelf pricing',
+          ]}
+        >
+          <UnitPriceCalculator />
+        </ToolShell>
       </section>
 
       {/* Editorial Content */}

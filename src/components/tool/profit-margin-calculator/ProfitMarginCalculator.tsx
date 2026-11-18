@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useId, useMemo } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './ProfitMarginCalculator.module.css';
 import MarginDiagram from './MarginDiagram';
 import {
@@ -13,6 +14,13 @@ import {
 import { formatCurrency, formatPercent } from '@/lib/pricing-engine';
 
 type MarginTab = 'gross' | 'pnl' | 'target' | 'mix';
+
+const MARGIN_TABS: { id: MarginTab; label: string }[] = [
+  { id: 'gross', label: 'Gross Profit Margin' },
+  { id: 'pnl', label: 'Full P&L (Gross, Operating, Net)' },
+  { id: 'target', label: 'Price for Target Margin' },
+  { id: 'mix', label: 'Product Mix & Blended Margin' },
+];
 
 export default function ProfitMarginCalculator() {
   const baseId = useId();
@@ -242,46 +250,12 @@ export default function ProfitMarginCalculator() {
   return (
     <div className={styles.wrap}>
       {/* Tab Navigation */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsBar} role="tablist" aria-label="Profit Margin Calculator Modes">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={tab === 'gross'}
-            className={`${styles.tabBtn} ${tab === 'gross' ? styles.tabActive : ''}`}
-            onClick={() => setTab('gross')}
-          >
-            Gross Profit Margin
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={tab === 'pnl'}
-            className={`${styles.tabBtn} ${tab === 'pnl' ? styles.tabActive : ''}`}
-            onClick={() => setTab('pnl')}
-          >
-            Full P&amp;L (Gross, Operating, Net)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={tab === 'target'}
-            className={`${styles.tabBtn} ${tab === 'target' ? styles.tabActive : ''}`}
-            onClick={() => setTab('target')}
-          >
-            Price for Target Margin
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={tab === 'mix'}
-            className={`${styles.tabBtn} ${tab === 'mix' ? styles.tabActive : ''}`}
-            onClick={() => setTab('mix')}
-          >
-            Product Mix &amp; Blended Margin
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={MARGIN_TABS}
+        activeId={tab}
+        onChange={(id) => setTab(id as MarginTab)}
+        ariaLabel="Profit Margin Calculator Modes"
+      />
 
       <div className={styles.grid}>
         {/* Left Column: Input Forms */}

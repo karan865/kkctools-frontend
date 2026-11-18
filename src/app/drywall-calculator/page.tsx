@@ -5,6 +5,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import DrywallCalculator from '@/components/tool/drywall-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import {
   JointFinishDiagram,
   SheetLayoutDiagram,
@@ -211,7 +214,7 @@ export default function DrywallCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Drywall Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -229,7 +232,16 @@ export default function DrywallCalculatorPage() {
         </header>
 
         <section aria-label="Drywall calculator tool">
-          <DrywallCalculator />
+          <ToolShell
+            features={[
+              '4×8 and 4×12 sheet count',
+              'Joint compound & screws',
+              'Door & window cutouts',
+              'Ceiling & wall takeoff',
+            ]}
+          >
+            <DrywallCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

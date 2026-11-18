@@ -33,7 +33,7 @@
 
 .card,
 .panel {
-  background: #ffffff;
+  background: var(--surface, #ffffff);
   border: 1px solid #e2e8f0;
   border-radius: 12px;
   padding: 18px;
@@ -94,7 +94,7 @@
 .pill,
 .actionBtn {
   border: 1px solid #cbd5e1;
-  background: #f8fafc;
+  background: var(--surface-2, #f8fafc);
   color: #334155;
   border-radius: 8px;
   padding: 9px 10px;
@@ -138,7 +138,7 @@
 .diagram {
   margin: 0 0 12px;
   padding: 8px;
-  background: #f8fafc;
+  background: var(--surface-2, #f8fafc);
   border: 1px dashed #cbd5e1;
   border-radius: 10px;
 }
@@ -197,7 +197,7 @@
   padding: 9px 34px 9px 10px;
   font-size: 0.95rem;
   color: #0f172a;
-  background: #ffffff;
+  background: var(--input-bg, #ffffff);
   border: 1.5px solid #cbd5e1;
   border-radius: 8px;
 }
@@ -355,7 +355,7 @@ details[open] > .summary {
   padding: 10px 6px;
   border: 1px solid #e2e8f0;
   border-radius: 10px;
-  background: #f8fafc;
+  background: var(--surface-2, #f8fafc);
 }
 
 .bagMain {

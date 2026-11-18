@@ -288,7 +288,12 @@ export default function AsphaltCalculator() {
   return (
     <div className={styles.toolCard}>
       {/* Top Toggle Controls */}
-      <div className={styles.toggleRow}>
+      
+
+      <div className={styles.toolLayout} style={{ marginTop: 'var(--space-5)' }}>
+        {/* Left Column: Inputs */}
+        <div className={styles.inputsCol}>
+          <div className={styles.toggleRow}>
         <div className={styles.segmentedControl} role="radiogroup" aria-label="Material Type">
           <button
             type="button"
@@ -327,10 +332,6 @@ export default function AsphaltCalculator() {
           </button>
         </div>
       </div>
-
-      <div className={styles.toolLayout} style={{ marginTop: 'var(--space-5)' }}>
-        {/* Left Column: Inputs */}
-        <div className={styles.inputsCol}>
           {/* Section(s) Manager */}
           <div>
             <div className={styles.sectionsHeader}>

@@ -1,0 +1,146 @@
+/* ==========================================================================
+   ToolShell — Shared Gradient Hero Band & Tinted Surface Container
+   ========================================================================== */
+
+.band {
+  --band-from: #3b82f6;
+  --band-mid: #7c3aed;
+  --band-to: #ec4899;
+  --band-ink: #ffffff;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 0;
+  max-width: 100%;
+  padding: 28px 24px 24px;
+  border-radius: 24px;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(255, 255, 255, 0.14) 0%, transparent 55%),
+    linear-gradient(115deg, var(--band-from) 0%, var(--band-mid) 52%, var(--band-to) 100%);
+  box-shadow: 0 18px 48px -18px rgba(124, 58, 237, 0.55);
+  isolation: isolate;
+  color: var(--band-ink);
+}
+
+:global(:root[data-theme='dark']) .band {
+  --band-from: #1d4ed8;
+  --band-mid: #5b21b6;
+  --band-to: #be185d;
+  background:
+    radial-gradient(120% 80% at 0% 0%, rgba(255, 255, 255, 0.08) 0%, transparent 55%),
+    linear-gradient(115deg, var(--band-from) 0%, var(--band-mid) 52%, var(--band-to) 100%);
+  box-shadow: 0 18px 48px -18px rgba(0, 0, 0, 0.7);
+}
+
+/* Light Theme Surface Token Overrides inside the band */
+:global(:root:not([data-theme='dark'])) .band {
+  --surface: #f8f6ff;
+  --surface-2: #f2eefd;
+  --surface-muted: #f2eefd;
+  --surface-hover: #ece6fc;
+  --line: #e4ddf7;
+  --input-bg: #fdfcff;
+  --radius-card: 18px;
+  --shadow-card: 0 12px 32px -12px rgba(30, 27, 75, 0.35);
+}
+
+/* Dark Theme Surface Token Overrides inside the band */
+:global(:root[data-theme='dark']) .band {
+  --radius-card: 18px;
+  --shadow-card: 0 12px 32px -12px rgba(0, 0, 0, 0.6);
+}
+
+/* Card border styling inside band */
+:global(:root:not([data-theme='dark'])) .band :is([class*='card'], [class*='Card']) {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+:global(:root[data-theme='dark']) .band :is([class*='card'], [class*='Card']) {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Typography inheritance inside the band */
+.band :is(h2, h3, h4, [role='tab'], th, button) {
+  font-family: var(--font-tool-display, var(--font-heading));
+}
+
+/* Feature pills at the bottom of the band */
+.featureRow {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  margin: 4px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.featurePill {
+  padding: 5px 12px;
+  border-radius: 999px;
+  font-size: 0.76rem;
+  font-weight: 600;
+  color: var(--band-ink);
+  background: rgba(30, 27, 75, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  white-space: nowrap;
+  font-family: var(--font-tool-display, var(--font-heading));
+}
+
+/* Trust line at the bottom */
+.trustPill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  align-self: center;
+  margin: 0;
+  padding: 7px 16px;
+  border-radius: 999px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--band-ink);
+  background: rgba(30, 27, 75, 0.32);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  font-family: var(--font-tool-display, var(--font-heading));
+}
+
+.trustDot {
+  flex: 0 0 auto;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 0 3px rgba(74, 222, 128, 0.25);
+}
+
+/* Responsive / Phone */
+@media (max-width: 640px) {
+  .band {
+    padding: 18px 12px 16px;
+    border-radius: 18px;
+  }
+
+  .featurePill {
+    font-size: 0.72rem;
+  }
+
+  .trustPill {
+    border-radius: 14px;
+  }
+}
+
+/* Print */
+@media print {
+  .band {
+    background: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  .featureRow,
+  .trustPill {
+    display: none !important;
+  }
+}

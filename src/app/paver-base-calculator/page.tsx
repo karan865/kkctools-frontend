@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import PaverBaseCalculator from '@/components/tool/paver-base-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import JsonLd from '@/components/seo/JsonLd';
@@ -118,7 +121,7 @@ export default function PaverBaseCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`} style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Paver Base Calculator', path: '/paver-base-calculator/' }]} />
 
         {/* Header */}
@@ -133,7 +136,16 @@ export default function PaverBaseCalculatorPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Paver Base Calculator Tool">
-          <PaverBaseCalculator />
+          <ToolShell
+            features={[
+              'Crushed gravel & stone',
+              'Walkway & patio subbase',
+              'Compaction allowance %',
+              'Cubic yards & bulk tons',
+            ]}
+          >
+            <PaverBaseCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Placeholder Middle */}

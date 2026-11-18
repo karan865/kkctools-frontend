@@ -100,7 +100,12 @@ Calculated at kkctools.com/rafter-calculator/`;
 
   return (
     <div className={styles.calculatorContainer} aria-label="Rafter Calculator Form">
-      <div className={styles.topBar}>
+      
+
+      <div className={styles.grid}>
+        {/* INPUTS COLUMN */}
+        <div className={styles.formCol}>
+          <div className={styles.topBar}>
         <span className={styles.topTitle}>Rafter Length Calculator</span>
         <div className={styles.unitToggle}>
           <button
@@ -119,10 +124,6 @@ Calculated at kkctools.com/rafter-calculator/`;
           </button>
         </div>
       </div>
-
-      <div className={styles.grid}>
-        {/* INPUTS COLUMN */}
-        <div className={styles.formCol}>
           {/* Roof Type */}
           <div className={styles.fieldGroup}>
             <label>Roof Type</label>

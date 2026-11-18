@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import Link from 'next/link';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './UnitPriceCalculator.module.css';
 import UnitPriceDiagram from './UnitPriceDiagram';
 import {
@@ -15,6 +16,12 @@ import {
 } from '@/lib/unit-price-engine';
 
 export type ActiveTab = 'compare' | 'shrinkflation' | 'seller';
+
+const UNIT_PRICE_TABS: { id: ActiveTab; label: string }[] = [
+  { id: 'compare', label: '🛒 Compare Products (2–6 items)' },
+  { id: 'shrinkflation', label: '📉 Shrinkflation Check' },
+  { id: 'seller', label: '🏷️ Seller: Cost & Shelf Tag' },
+];
 
 interface UnitRowState {
   id: string;
@@ -372,37 +379,12 @@ export default function UnitPriceCalculator() {
   return (
     <div className={styles.wrap}>
       {/* Navigation Tabs */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsBar} role="tablist">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'compare'}
-            className={`${styles.tabBtn} ${activeTab === 'compare' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('compare')}
-          >
-            🛒 Compare Products (2–6 items)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'shrinkflation'}
-            className={`${styles.tabBtn} ${activeTab === 'shrinkflation' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('shrinkflation')}
-          >
-            📉 Shrinkflation Check
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'seller'}
-            className={`${styles.tabBtn} ${activeTab === 'seller' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('seller')}
-          >
-            🏷️ Seller: Cost & Shelf Tag
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={UNIT_PRICE_TABS}
+        activeId={activeTab}
+        onChange={(id) => setActiveTab(id as ActiveTab)}
+        ariaLabel="Unit Price Calculator Modes"
+      />
 
       {/* Main Grid: Inputs Left, Results Right */}
       <div className={styles.grid}>

@@ -5,6 +5,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import RebarCalculator from '@/components/tool/rebar-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { BarSizesDiagram, CoverDiagram, ItemDiagram, LapDiagram } from '@/components/tool/rebar-calculator/RebarDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -154,7 +157,7 @@ export default function RebarCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Rebar Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -172,7 +175,16 @@ export default function RebarCalculatorPage() {
         </header>
 
         <section aria-label="Rebar calculator tool">
-          <RebarCalculator />
+          <ToolShell
+            features={[
+              'Grid spacing & clearance',
+              '#3 to #8 rebar sizes',
+              'Lap splice & tie wire',
+              'Footing & slab takeoff',
+            ]}
+          >
+            <RebarCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

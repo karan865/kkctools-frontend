@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useEffect, useId, useMemo, useState } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './RoofReplacementCalculator.module.css';
 import {
   RoofPitchDiagram,
@@ -19,6 +20,11 @@ import {
 } from '@/lib/roof-replacement-engine';
 
 const PITCH_PRESETS = [3, 4, 6, 8, 10, 12];
+
+const ROOF_TABS: { id: 'quick' | 'detailed'; label: string }[] = [
+  { id: 'quick', label: 'Quick Estimate' },
+  { id: 'detailed', label: 'Detailed Breakdown' },
+];
 
 const REGIONAL_OPTIONS = [
   { label: 'National Average (1.0×)', value: 1.0 },
@@ -216,31 +222,17 @@ Tear-Off: ${existingLayers} layer(s) | Pitch: ${pitchRise}/12`;
 
   return (
     <div className={styles.wrap}>
+      {/* Mode Switcher */}
+      <TabSlider
+        tabs={ROOF_TABS}
+        activeId={mode}
+        onChange={(id) => setMode(id as 'quick' | 'detailed')}
+        ariaLabel="Calculation Mode"
+      />
+
       <div className={styles.grid}>
         {/* INPUTS COLUMN */}
         <div className={styles.inputs}>
-          {/* Mode Switcher */}
-          <div className={styles.modeToggle} role="tablist" aria-label="Calculation Mode">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'quick'}
-              className={`${styles.modeBtn} ${mode === 'quick' ? styles.modeBtnActive : ''}`}
-              onClick={() => setMode('quick')}
-            >
-              Quick Estimate
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'detailed'}
-              className={`${styles.modeBtn} ${mode === 'detailed' ? styles.modeBtnActive : ''}`}
-              onClick={() => setMode('detailed')}
-            >
-              Detailed Breakdown
-            </button>
-          </div>
-
           {/* STEP 1: Roof Size & Pitch */}
           <div className={styles.card}>
             <div className={styles.cardHead}>
@@ -376,8 +368,8 @@ Tear-Off: ${existingLayers} layer(s) | Pitch: ${pitchRise}/12`;
                   {existingLayers === 2
                     ? '2 existing layers require double tear-off labor. IRC R908.3.1.1 prohibits adding an overlay.'
                     : existingLayers === 1
-                    ? '1 existing layer to be stripped down to deck.'
-                    : 'No existing roof to remove (new build or already stripped).'}
+                      ? '1 existing layer to be stripped down to deck.'
+                      : 'No existing roof to remove (new build or already stripped).'}
                 </p>
               </div>
             </div>
@@ -433,8 +425,8 @@ Tear-Off: ${existingLayers} layer(s) | Pitch: ${pitchRise}/12`;
                     {complexity === 'simple'
                       ? 'Simple gable or shed roof (no valleys, 2 planes)'
                       : complexity === 'hip'
-                      ? 'Standard hip roof with 1-2 valleys'
-                      : 'Multiple valleys, dormers, steep facets, turrets'}
+                        ? 'Standard hip roof with 1-2 valleys'
+                        : 'Multiple valleys, dormers, steep facets, turrets'}
                   </p>
                 </div>
               </div>
@@ -857,34 +849,33 @@ Tear-Off: ${existingLayers} layer(s) | Pitch: ${pitchRise}/12`;
 
               {quoteAnalysis && quoteAnalysis.status !== 'n/a' && (
                 <div
-                  className={`${styles.quoteFeedback} ${
-                    quoteAnalysis.status === 'within'
+                  className={`${styles.quoteFeedback} ${quoteAnalysis.status === 'within'
                       ? styles.quoteFair
                       : quoteAnalysis.status === 'above'
-                      ? styles.quoteHigh
-                      : styles.quoteLow
-                  }`}
+                        ? styles.quoteHigh
+                        : styles.quoteLow
+                    }`}
                   role="status"
                 >
                   <strong>
                     {quoteAnalysis.status === 'within'
                       ? '✓ Fair Market Quote'
                       : quoteAnalysis.status === 'above'
-                      ? '▲ Above Average Quote'
-                      : '▼ Below Average Quote'}
+                        ? '▲ Above Average Quote'
+                        : '▼ Below Average Quote'}
                   </strong>
                   <p style={{ margin: '6px 0 0' }}>
                     {quoteAnalysis.status === 'within'
                       ? `Quote of ${fmtCurrency(Number(contractorQuote))} is within the expected range (${fmtCurrency(
-                          result.low
-                        )} – ${fmtCurrency(result.high)}).`
+                        result.low
+                      )} – ${fmtCurrency(result.high)}).`
                       : quoteAnalysis.status === 'above'
-                      ? `Quote of ${fmtCurrency(Number(contractorQuote))} is ${fmtCurrency(
+                        ? `Quote of ${fmtCurrency(Number(contractorQuote))} is ${fmtCurrency(
                           Math.abs(quoteAnalysis.diffAmount)
                         )} (${Math.abs(quoteAnalysis.diffPercent)}%) above the typical estimate of ${fmtCurrency(
                           result.total
                         )}. Ask for an itemized breakdown of decking, flashing, and labor.`
-                      : `Quote of ${fmtCurrency(Number(contractorQuote))} is ${fmtCurrency(
+                        : `Quote of ${fmtCurrency(Number(contractorQuote))} is ${fmtCurrency(
                           Math.abs(quoteAnalysis.diffAmount)
                         )} (${Math.abs(quoteAnalysis.diffPercent)}%) below the typical estimate of ${fmtCurrency(
                           result.total

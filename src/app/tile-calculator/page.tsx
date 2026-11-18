@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { TileCalculator } from '@/components/tool/tile-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
@@ -83,7 +86,7 @@ export default function TileCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumbs */}
         <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
@@ -113,7 +116,16 @@ export default function TileCalculatorPage() {
         </header>
 
         {/* Interactive Tile Calculator Tool */}
-        <TileCalculator />
+        <ToolShell
+            features={[
+              'Tile size & box count',
+              'Grout joint width & bags',
+              'Mortar thinset coverage',
+              'Diagonal & grid layouts',
+            ]}
+          >
+            <TileCalculator />
+          </ToolShell>
 
         {/* Top AdSlot */}
         <AdSlot slotId="tile-calc-top" />

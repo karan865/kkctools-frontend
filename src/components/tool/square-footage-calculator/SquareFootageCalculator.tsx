@@ -10,9 +10,16 @@ import {
 } from '@/lib/square-footage-engine';
 import { RoomsAreaDiagram, ShapeAreaDiagram } from './SquareFootageDiagram';
 import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './SquareFootageCalculator.module.css';
 
 type ActiveTab = 'single' | 'multiple' | 'shapes';
+
+const SQFT_TABS: { id: ActiveTab; label: string }[] = [
+  { id: 'single', label: 'Single Room' },
+  { id: 'multiple', label: 'Multiple Rooms' },
+  { id: 'shapes', label: 'Shapes' },
+];
 
 type ConverterUnit = 'sqft' | 'sqin' | 'sqyd' | 'sqm' | 'acre';
 
@@ -248,41 +255,12 @@ Calculated with KKCTools Square Footage Calculator (https://kkctools.com/square-
     <div className={styles.calculatorWrapper}>
       <div className={styles.calculatorContainer}>
         {/* Tabs */}
-        <div className={styles.tabList} role="tablist" aria-label="Calculation Mode">
-          <button
-            type="button"
-            role="tab"
-            id="sqft-tab-single"
-            aria-controls="sqft-panel"
-            aria-selected={activeTab === 'single'}
-            className={`${styles.tabButton} ${activeTab === 'single' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('single')}
-          >
-            Single Room
-          </button>
-          <button
-            type="button"
-            role="tab"
-            id="sqft-tab-multiple"
-            aria-controls="sqft-panel"
-            aria-selected={activeTab === 'multiple'}
-            className={`${styles.tabButton} ${activeTab === 'multiple' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('multiple')}
-          >
-            Multiple Rooms
-          </button>
-          <button
-            type="button"
-            role="tab"
-            id="sqft-tab-shapes"
-            aria-controls="sqft-panel"
-            aria-selected={activeTab === 'shapes'}
-            className={`${styles.tabButton} ${activeTab === 'shapes' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('shapes')}
-          >
-            Shapes
-          </button>
-        </div>
+        <TabSlider
+          tabs={SQFT_TABS}
+          activeId={activeTab}
+          onChange={(id) => setActiveTab(id as ActiveTab)}
+          ariaLabel="Calculation Mode"
+        />
 
         <div className={styles.layoutGrid}>
           {/* Left Inputs Panel */}

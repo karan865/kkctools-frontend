@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import FillDirtCalculator from '@/components/tool/fill-dirt-calculator/FillDirtCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { fillDirtPageContent } from '@/content/pages/fill-dirt-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
@@ -45,7 +48,7 @@ export default function FillDirtCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -64,7 +67,16 @@ export default function FillDirtCalculatorPage() {
 
         {/* Interactive Tool Above-the-fold */}
         <section aria-label="Fill Dirt Calculator Tool" className={styles.toolSection}>
-          <FillDirtCalculator />
+          <ToolShell
+            features={[
+              'Volume & tonnage needed',
+              'Compaction settling %',
+              'Tandem truckloads count',
+              'Rectangular & circular',
+            ]}
+          >
+            <FillDirtCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot A */}

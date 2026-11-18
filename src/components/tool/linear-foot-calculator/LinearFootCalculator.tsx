@@ -3,7 +3,13 @@
 import React, { useState, useId, useRef } from 'react';
 import { PiecesDiagram, StripDiagram } from './LinearFootDiagram';
 import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './LinearFootCalculator.module.css';
+
+const LINEAR_TABS: { id: 'linear' | 'convert'; label: string }[] = [
+  { id: 'linear', label: '1. Linear Feet (Add Pieces)' },
+  { id: 'convert', label: '2. Sq Ft ↔ Linear Ft' },
+];
 import {
   LengthUnit,
   WidthUnit,
@@ -139,28 +145,12 @@ Calculated at kkctools.com/linear-foot-calculator/`;
   return (
     <div className={styles.calculatorContainer} aria-label="Linear Foot Calculator">
       {/* Mode navigation tabs */}
-      <div className={styles.modeHeader}>
-        <div className={styles.modeTabs} role="tablist" aria-label="Calculator Modes">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'linear'}
-            className={`${styles.modeTab} ${activeTab === 'linear' ? styles.modeTabActive : ''}`}
-            onClick={() => setActiveTab('linear')}
-          >
-            1. Linear Feet (Add Pieces)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'convert'}
-            className={`${styles.modeTab} ${activeTab === 'convert' ? styles.modeTabActive : ''}`}
-            onClick={() => setActiveTab('convert')}
-          >
-            2. Sq Ft ↔ Linear Ft
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={LINEAR_TABS}
+        activeId={activeTab}
+        onChange={(id) => setActiveTab(id as 'linear' | 'convert')}
+        ariaLabel="Calculator Modes"
+      />
 
       <div className={styles.grid}>
         {/* INPUTS COLUMN */}

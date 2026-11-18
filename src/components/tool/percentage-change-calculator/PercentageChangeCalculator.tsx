@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import s from './PercentageChangeCalculator.module.css';
 import PercentDiagram from './PercentDiagram';
 import {
@@ -344,21 +345,12 @@ export default function PercentageChangeCalculator() {
   return (
     <div className={s.wrap} id="calculator-section">
       {/* 8-Tab Switcher */}
-      <div className={s.tabsContainer}>
-        <div className={s.tabsBar} role="tablist" aria-label="Percentage Calculator Modes">
-          {TABS.map((tab) => (
-            <button
-              key={tab.id}
-              role="tab"
-              aria-selected={activeTab === tab.id}
-              className={`${s.tabBtn} ${activeTab === tab.id ? s.tabActive : ''}`}
-              onClick={() => handleTabChange(tab.id)}
-            >
-              {tab.label}
-            </button>
-          ))}
-        </div>
-      </div>
+      <TabSlider
+        tabs={TABS}
+        activeId={activeTab}
+        onChange={handleTabChange}
+        ariaLabel="Percentage Calculator Modes"
+      />
 
       <div className={s.grid}>
         {/* LEFT COLUMN: Interactive Inputs per Active Tab */}

@@ -1,0 +1,37 @@
+/* Shared display typography for tool pages (Lexend headings, Inter body) — 2026-11-18 */
+.scope {
+  --tool-display: var(--font-tool-display, var(--font-heading));
+  --tool-heading-ink: #1e3a8a;
+}
+
+:global(:root[data-theme='dark']) .scope {
+  --tool-heading-ink: #c7d2fe;
+}
+
+.scope :is(h1, h2, h3, h4) {
+  font-family: var(--tool-display);
+  letter-spacing: -0.015em;
+}
+
+.scope h1,
+.scope [class*='h1'] {
+  font-weight: 800;
+  line-height: 1.18;
+}
+
+.scope h2,
+.scope [class*='h2'] {
+  font-weight: 700;
+  color: var(--tool-heading-ink);
+}
+
+.scope h3,
+.scope [class*='h3'] {
+  font-weight: 600;
+  color: var(--tool-heading-ink);
+}
+
+.scope :is(th, summary) {
+  font-family: var(--tool-display);
+  font-weight: 600;
+}

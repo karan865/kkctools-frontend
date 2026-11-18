@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import BoardBattenCalculator from '@/components/tool/board-batten-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { EdgeModesDiagram, NominalDiagram, SidingDiagram, WallLayoutDiagram } from '@/components/tool/board-batten-calculator/BattenDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -132,7 +135,7 @@ export default function BoardAndBattenCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Board and Batten Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -150,7 +153,16 @@ export default function BoardAndBattenCalculatorPage() {
         </header>
 
         <section aria-label="Board and batten calculator tool">
-          <BoardBattenCalculator />
+          <ToolShell
+            features={[
+              'Accent wall & siding',
+              'Even batten spacing gap',
+              'Wall mark layout points',
+              'Boards, caulk & paint',
+            ]}
+          >
+            <BoardBattenCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

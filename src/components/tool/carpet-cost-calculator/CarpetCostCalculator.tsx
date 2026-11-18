@@ -16,7 +16,13 @@ import {
   StairsInput,
 } from '@/lib/carpet-engine';
 import CarpetDiagram from './CarpetDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './CarpetCostCalculator.module.css';
+
+const CARPET_TABS: { id: 'replace' | 'new'; label: string }[] = [
+  { id: 'replace', label: 'Replace Carpet (Tear-Out & Install)' },
+  { id: 'new', label: 'New Carpet (Bare Subfloor)' },
+];
 
 const CURRENCIES = [
   { code: 'USD', symbol: '$', label: 'USD ($)' },
@@ -277,31 +283,17 @@ export default function CarpetCostCalculator() {
 
   return (
     <div className={styles.wrap}>
+      {/* Mode Switcher */}
+      <TabSlider
+        tabs={CARPET_TABS}
+        activeId={mode}
+        onChange={(id) => handleModeChange(id as 'replace' | 'new')}
+        ariaLabel="Project Scope"
+      />
+
       <div className={styles.grid}>
         {/* LEFT COLUMN: Inputs & Options */}
         <div className={styles.inputs}>
-          {/* Mode Switcher */}
-          <div className={styles.modeToggle} role="tablist" aria-label="Project Scope">
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'replace'}
-              className={`${styles.modeBtn} ${mode === 'replace' ? styles.modeBtnActive : ''}`}
-              onClick={() => handleModeChange('replace')}
-            >
-              Replace Carpet (Tear-Out &amp; Install)
-            </button>
-            <button
-              type="button"
-              role="tab"
-              aria-selected={mode === 'new'}
-              className={`${styles.modeBtn} ${mode === 'new' ? styles.modeBtnActive : ''}`}
-              onClick={() => handleModeChange('new')}
-            >
-              New Carpet (Bare Subfloor)
-            </button>
-          </div>
-
           {/* STEP 1: Room Dimensions & Takeoff */}
           <div className={styles.card}>
             <div className={styles.cardHead}>

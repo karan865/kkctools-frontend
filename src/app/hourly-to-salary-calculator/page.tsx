@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import { HourlyToSalaryCalculator } from '@/components/tool/hourly-to-salary-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -122,7 +125,7 @@ export default function HourlyToSalaryCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbItems} />
 
         <header className={styles.header}>
@@ -151,7 +154,16 @@ export default function HourlyToSalaryCalculatorPage() {
 
         {/* Interactive Calculator Component */}
         <section className={styles.toolSection}>
-          <HourlyToSalaryCalculator />
+          <ToolShell
+            features={[
+              'Hourly & annual sync',
+              'Overtime & bonus pay',
+              'PTO & unbilled hours',
+              '8 pay frequencies',
+            ]}
+          >
+            <HourlyToSalaryCalculator />
+          </ToolShell>
         </section>
 
         {/* Editorial Content */}

@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import PipeVolumeCalculator from '@/components/tool/pipe-volume-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CapacityDiagram, CrossSectionDiagram, SizesDiagram } from '@/components/tool/pipe-volume-calculator/PipeDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -118,7 +121,7 @@ export default function PipeVolumeCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Pipe & Tube Volume Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -136,7 +139,16 @@ export default function PipeVolumeCalculatorPage() {
         </header>
 
         <section aria-label="Pipe and tube volume calculator tool">
-          <PipeVolumeCalculator />
+          <ToolShell
+            features={[
+              'Inside diameter & length',
+              'Gallons, liters & cu ft',
+              'Fluid weight in pounds',
+              'Schedule 40 & 80 sizes',
+            ]}
+          >
+            <PipeVolumeCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import RafterCalculator from '@/components/tool/rafter-calculator/RafterCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { rafterPageContent, PITCH_CHART_DATA } from '@/content/pages/rafter-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
@@ -45,7 +48,7 @@ export default function RafterCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -67,7 +70,16 @@ export default function RafterCalculatorPage() {
 
         {/* Above-the-fold Interactive Tool */}
         <section aria-label="Rafter Calculator Tool" className={styles.toolSection}>
-          <RafterCalculator />
+          <ToolShell
+            features={[
+              'Common rafter length',
+              'Birdsmouth heel cut',
+              'Overhang & ridge drop',
+              'Roof pitch angle sync',
+            ]}
+          >
+            <RafterCalculator />
+          </ToolShell>
         </section>
 
         {/* Quick Answer Snippet Box */}

@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import CarpetCostCalculator from '@/components/tool/carpet-cost-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -94,7 +97,7 @@ export default function CarpetCostCalculatorPage() {
   const faqSchema = buildFaqSchema(faqs);
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
@@ -118,7 +121,16 @@ export default function CarpetCostCalculatorPage() {
 
       {/* Interactive Tool Section */}
       <section className={styles.toolSection} id="calculator">
-        <CarpetCostCalculator />
+        <ToolShell
+          features={[
+            'Room takeoff & stairs',
+            'Cushion pad & waste',
+            'Tear-out & installation',
+            'Material grade tiers',
+          ]}
+        >
+          <CarpetCostCalculator />
+        </ToolShell>
       </section>
 
       <AdSlot slotId="carpet-cost-top" />

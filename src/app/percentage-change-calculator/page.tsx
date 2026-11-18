@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import PercentageChangeCalculator from '@/components/tool/percentage-change-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -139,7 +142,7 @@ const breadcrumbList = [
 
 export default function PercentageChangePage() {
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
@@ -172,7 +175,16 @@ export default function PercentageChangePage() {
 
       {/* Interactive Tool Component */}
       <section className={styles.toolSection} aria-label="Interactive Percentage Calculator">
-        <PercentageChangeCalculator />
+        <ToolShell
+          features={[
+            '8 calculators in one',
+            'Step-by-step working',
+            'Excel & Sheets formula',
+            'Phone, tablet & PC',
+          ]}
+        >
+          <PercentageChangeCalculator />
+        </ToolShell>
       </section>
 
       <AdSlot slotId="after-calculator" />

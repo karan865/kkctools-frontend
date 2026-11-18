@@ -3,6 +3,7 @@
 import React, { useState, useId } from 'react';
 import LaminateDiagram from './LaminateDiagram';
 import { DiagramPanel, fmtNum } from '../shared/AreaDepthDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './LaminateCalculator.module.css';
 import {
   LAMINATE_CONSTANTS,
@@ -16,6 +17,11 @@ import {
   LaminateAreaItem,
   PricingBasis,
 } from '@/lib/laminate-engine';
+
+const LAMINATE_TABS: { id: 'dimensions' | 'direct'; label: string }[] = [
+  { id: 'dimensions', label: 'Room by Dimensions' },
+  { id: 'direct', label: 'Direct Square Footage' },
+];
 
 export function LaminateCalculator() {
   const directAreaId = useId();
@@ -236,27 +242,16 @@ export function LaminateCalculator() {
 
   return (
     <div className={styles.calculatorContainer} id="laminate-calc-app">
+      <TabSlider
+        tabs={LAMINATE_TABS}
+        activeId={mode}
+        onChange={(id) => setMode(id as 'dimensions' | 'direct')}
+        ariaLabel="Calculation Mode"
+      />
+
       <div className={styles.layoutGrid}>
         {/* Left Column: Interactive Inputs */}
         <div className={styles.inputsPanel}>
-          {/* Mode Switcher */}
-          <div className={styles.modeSwitcherRow}>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${mode === 'dimensions' ? styles.modeButtonActive : ''}`}
-              onClick={() => setMode('dimensions')}
-            >
-              Room by Dimensions
-            </button>
-            <button
-              type="button"
-              className={`${styles.modeButton} ${mode === 'direct' ? styles.modeButtonActive : ''}`}
-              onClick={() => setMode('direct')}
-            >
-              Direct Square Footage
-            </button>
-          </div>
-
           {/* Card 1: Rooms & Areas */}
           <div className={styles.sectionCard}>
             <div className={styles.cardHeader}>

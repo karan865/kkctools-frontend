@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { BrickCalculator } from '@/components/tool/brick-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
@@ -81,7 +84,7 @@ export default function BrickCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`} style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
@@ -112,7 +115,16 @@ export default function BrickCalculatorPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Interactive Brick Calculator">
-          <BrickCalculator />
+          <ToolShell
+            features={[
+              'Standard modular & jumbo',
+              'Mortar volume & bags',
+              'Opening cutouts included',
+              'Single & double wythe',
+            ]}
+          >
+            <BrickCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot 1: Below results */}

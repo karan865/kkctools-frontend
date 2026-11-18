@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import MarkupCalculator from '@/components/tool/markup-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -139,7 +142,7 @@ export default function MarkupCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbItems} />
 
         <header className={styles.header}>
@@ -170,7 +173,16 @@ export default function MarkupCalculatorPage() {
 
         {/* Interactive Tool Component */}
         <section className={styles.toolSection} aria-label="Interactive Markup Calculator">
-          <MarkupCalculator />
+          <ToolShell
+            features={[
+              'Markup & margin sync',
+              'Landed cost & fees',
+              'Multi-item spreadsheet',
+              'Wholesale tier chain',
+            ]}
+          >
+            <MarkupCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Placement In-Content */}

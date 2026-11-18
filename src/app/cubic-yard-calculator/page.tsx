@@ -8,6 +8,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import CubicYardCalculator from '@/components/tool/cubic-yard-calculator/CubicYardCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CUBIC_YARD_PAGE_COPY } from '@/content/pages/cubic-yard-calculator';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
@@ -95,7 +98,7 @@ export default function CubicYardCalculatorPage() {
   const liveRelatedCalculators = copy.relatedCalculators.filter((c) => c.live);
 
   return (
-    <main id="main-content">
+    <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`}>
       <JsonLd data={webAppSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
@@ -151,7 +154,16 @@ export default function CubicYardCalculatorPage() {
             {copy.toolH2}
           </h2>
 
-          <CubicYardCalculator />
+          <ToolShell
+            features={[
+              'Topsoil, gravel & mulch',
+              'Volume & weight in tons',
+              'Multi-area takeoff sync',
+              'Truckloads & bag counts',
+            ]}
+          >
+            <CubicYardCalculator />
+          </ToolShell>
 
           <p style={{ fontSize: '0.875rem', color: 'var(--muted)', margin: 'var(--space-2) 0 var(--space-4)' }}>
             {copy.toolFootnote}

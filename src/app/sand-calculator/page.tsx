@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import SandCalculator from '@/components/tool/sand-calculator/SandCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { sandCalculatorPageContent } from '@/content/pages/sand-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
@@ -45,7 +48,7 @@ export default function SandCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -64,7 +67,16 @@ export default function SandCalculatorPage() {
 
         {/* Above-the-fold Interactive Tool */}
         <section aria-label="Sand Calculator Tool" className={styles.toolSection}>
-          <SandCalculator />
+          <ToolShell
+            features={[
+              'Volume, tons & bags',
+              'Paver bedding & joints',
+              'Rectangular & circular',
+              'Imperial & metric units',
+            ]}
+          >
+            <SandCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot A — Reserved height right below result card */}

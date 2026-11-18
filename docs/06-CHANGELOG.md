@@ -4,6 +4,88 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool Shell Rollout — Outer Card Background Fix Across All Calculators] — 2026-11-18
+- Eliminated all duplicate outer card backgrounds, borders, shadows, and outer paddings from root containers across 13 calculators that were covering up the `ToolShell` hero gradient band:
+  * Converted `.calculatorContainer`, `.toolCard`, and `.calculatorCard` to transparent layout wrappers so individual input/result cards float directly on the hero gradient band, matching the visual design of `/percentage-change-calculator/`.
+  * Migrated mode switchers in `paint-cost-calculator`, `laminate-flooring-calculator`, and `tile-calculator` to shared `TabSlider` segmented controls positioned at the top of the band.
+  * Preserved full accessible contrast by ensuring all dark text, inputs, and toggles reside inside cards with tinted `var(--surface)` backgrounds and tokenized borders.
+  * Tools updated: `paint-cost-calculator`, `tile-calculator`, `stone-calculator`, `cinder-block-calculator`, `laminate-flooring-calculator`, `brick-calculator`, `square-footage-calculator`, `asphalt-calculator`, `cubic-yard-calculator`, `fill-dirt-calculator`, `linear-foot-calculator`, `rafter-calculator`, `sand-calculator`.
+- Verified 100% green with `npm run verify` (676 unit tests, lint, no-network, build, SEO audit).
+
+---
+
+### [Tool Shell Rollout — Batch 4: Hard-Coded White Tools Rollout (13 Tools)] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and scoped typography to all 13 calculators with hardcoded backgrounds (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * Replaced all hardcoded `#ffffff`, `#fff`, and `white` backgrounds with CSS design tokens (`var(--surface)`, `var(--input-bg)`) and `#f8fafc`/`#f1f5f9` with `var(--surface-2)`.
+  * Tools: `brick-calculator`, `cinder-block-calculator`, `compost-calculator`, `concrete-calculator`, `fence-stain-calculator`, `laminate-flooring-calculator`, `paint-cost-calculator`, `paver-base-calculator`, `paver-sand-calculator`, `stone-calculator`, `stud-calculator`, `tile-calculator`, `tons-to-cubic-yards`.
+  * Wrapped each calculator in `<ToolShell features={[...4 verified features...]}>` and applied `${toolDisplayFont.variable} ${typo.scope}` to `<main>`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 3: Token-Based Calculators Rollout (20 Tools)] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and scoped typography to all 20 token-based calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `asphalt-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `bathroom-remodel-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `board-and-batten-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-inch-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-feet-to-square-feet`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `cubic-yard-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `deck-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `deck-stain-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `drywall-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `fence-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `fill-dirt-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.container} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `floor-refinishing-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `lawn-mowing-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `metal-roof-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `pipe-volume-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `rafter-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.container} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `rebar-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `shingle-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `concrete-slab-cost-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+  * `wire-gauge-calculator`: Wrapped in `ToolShell` with 4 feature pills; applied `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 2: Other Tabbed Tools Rollout] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and `TabSlider` segmented control to all 5 Other Tabbed calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `/carpet-cost-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Room takeoff & stairs`, `Cushion pad & waste`, `Tear-out & installation`, `Material grade tiers`); migrated project scope mode bar to `TabSlider` at top of tool; removed obsolete `.modeToggle`, `.modeBtn`, `.modeBtnActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/roof-replacement-cost-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Roof squares & pitch`, `Tear-off & decking`, `8 roofing materials`, `Detailed cost takeoff`); migrated quick/detailed mode bar to `TabSlider` at top of tool; removed obsolete `.modeToggle`, `.modeBtn`, `.modeBtnActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/linear-foot-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Multi-piece takeoff`, `Sq Ft ↔ Linear Ft sync`, `Waste factor included`, `Material & cost estimate`); migrated multi-piece and sqft converter modes to `TabSlider`; removed obsolete `.modeHeader`, `.modeTabs`, `.modeTab`, `.modeTabActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/sand-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Volume, tons & bags`, `Paver bedding & joints`, `Rectangular & circular`, `Imperial & metric units`); migrated volume, paver bedding, and polymeric joints modes to `TabSlider`; removed obsolete `.modeTabs`, `.modeTab`, `.modeTabActive`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/square-footage-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Multi-room house takeoff`, `Circles & custom shapes`, `Waste & deduction zones`, `Materials & price est.`); migrated single/multiple/shapes modes to `TabSlider`; removed obsolete `.tabList`, `.tabButton`, `.tabActive`; fixed all 7 hardcoded `#ffffff` backgrounds (`.roomTitleInput:focus`, `.selectField`, `.addButton`, `.chip`, `.utilityButton`, `.swapButton`, `.converterResultBox`) to design system CSS tokens (`var(--surface)`, `var(--surface-2)`, `var(--input-bg)`); applied `${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 1: Business Tools Rollout] — 2026-11-18
+- Rolled out the shared `ToolShell` hero gradient band and `TabSlider` segmented control to all 5 Business calculators (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `/markup-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Markup & margin sync`, `Landed cost & fees`, `Multi-item spreadsheet`, `Wholesale tier chain`); migrated 4 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/profit-margin-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Gross, operating & net`, `COGS & P&L waterfall`, `Target margin pricing`, `Multi-product blend`); migrated 4 mode tabs to `TabSlider` preserving `?tab=` URL sync; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/unit-price-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Side-by-side comparison`, `Fluid & weight units`, `Shrinkflation detection`, `Batch & shelf pricing`); migrated 3 mode tabs to `TabSlider`; fixed hardcoded `#ffffff` on `.dealBox` to `var(--surface-2, #f8fafc)` and `var(--line, #cbd5e1)`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/hourly-to-salary-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Hourly & annual sync`, `Overtime & bonus pay`, `PTO & unbilled hours`, `8 pay frequencies`); migrated 3 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+  * `/discount-calculator/`: Wrapped in `ToolShell` with 4 verified feature pills (`Single & stacked % off`, `BOGO & bundle deals`, `Coupons & sales tax`, `Reverse original price`); migrated 4 mode tabs to `TabSlider`; applied `${toolDisplayFont.variable} ${typo.scope}`.
+- Removed obsolete `.tabsContainer`, `.tabsBar`, `.tabBtn`, `.tabActive` classes from all 5 tool CSS modules.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
+### [Tool Shell Rollout — Batch 0: Shared Template & Percentage Change Migration] — 2026-11-18
+- Built the shared Tool Shell architecture (`docs/prompts/TOOL_SHELL_ROLLOUT_PROMPT.md`):
+  * `src/lib/fonts.ts`: Shared `toolDisplayFont` variable font loading Lexend via `next/font/google` for build-time self-hosting (no runtime request to Google).
+  * `src/styles/tool-typography.module.css`: Shared `.scope` class applying `--tool-display` to headings (`h1` 800, `h2` 700 + navy, `h3` 600 + navy), `th`, and `summary` with dark mode support.
+  * `src/components/tool/shared/ToolShell.tsx` + `ToolShell.module.css`: Server component providing the canonical hero gradient band (`linear-gradient(115deg, #3b82f6 0%, #7c3aed 52%, #ec4899 100%)`), surface token tinting (`--surface: #f8f6ff`), feature pills row at the bottom of the band, and trust line.
+  * `src/components/tool/shared/TabSlider.tsx` + `TabSlider.module.css`: Client component providing glass segmented control with arrow slide buttons (`scrollBy`), keyboard arrow navigation, active tab centering, and clipping protection (`margin-inline: auto` + `justify-content: flex-start`).
+- Migrated `/percentage-change-calculator/` to use `ToolShell` and `TabSlider`:
+  * Wrapped calculator in `<ToolShell features={['8 calculators in one', 'Step-by-step working', 'Excel & Sheets formula', 'Phone, tablet & PC']}>`.
+  * Removed duplicated band, glass tabs, feature pills, trust line, and tint CSS from `PercentageChangeCalculator.module.css`.
+  * Main element switched to `${styles.main} ${toolDisplayFont.variable} ${typo.scope}`.
+- Evidence logged in `docs/evidence/tool-shell-rollout.md`.
+
+---
+
 ### [Review — Batch 3 tools #41–#46 sourcing fixes] — 2026-11-18
 - **Profit Margin:** the "good profit margin" table and FAQ had invented ranges labelled as Damodaran data (e.g. grocery net 1.5–3%, apparel net 6–10%). Replaced with the real NYU Stern "Margins by Sector (US)" figures, January 2026 update, checked 2026-11-18 (grocery 26.31% gross / 1.32% net, apparel 56.88% / 3.85%, software 71.72% / 25.49%, total market 37.76% / 9.74%, plus food wholesalers, building materials, engineering/construction, machinery). Linked the dataset; removed the unsourced "10% healthy, 20% excellent" claim.
 - **Markup:** removed the unsourced card-fee ("2.9% + $0.30") and marketplace-fee ("8–15% on Amazon, eBay, Etsy") figures; renamed "Psychological Charm Pricing" to a margin-only price-endings section (no psychology claims without a source).

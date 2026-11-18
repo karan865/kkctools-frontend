@@ -1,19 +1,16 @@
 /* Rafter Calculator Component Styles */
 
 .calculatorContainer {
-  background: var(--surface);
-  border: 1px solid var(--line);
-  border-radius: var(--radius-l);
-  padding: var(--space-5);
-  box-shadow: var(--shadow-m);
-  margin: var(--space-4) 0 var(--space-6) 0;
+  background: none;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  box-shadow: none;
+  margin: 0;
+  width: 100%;
 }
 
-@media (min-width: 640px) {
-  .calculatorContainer {
-    padding: var(--space-6);
-  }
-}
+
 
 .topBar {
   display: flex;
@@ -79,6 +76,11 @@
 }
 
 .formCol {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 16px);
+  padding: var(--space-5);
+  box-shadow: var(--shadow-card, var(--shadow-s));
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
@@ -208,14 +210,14 @@
 
 /* Results Column */
 .resultCol {
-  background: var(--surface-2);
+  background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-m);
+  border-radius: var(--radius-card, 16px);
   padding: var(--space-5);
+  box-shadow: var(--shadow-card, var(--shadow-s));
   display: flex;
   flex-direction: column;
   gap: var(--space-4);
-  box-shadow: var(--shadow-s);
 }
 
 .primaryResultCard {

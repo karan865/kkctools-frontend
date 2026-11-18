@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import FloorRefinishingCalculator from '@/components/tool/floor-refinishing-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { BoardSection, OptionBars, RoomsPlan } from '@/components/tool/floor-refinishing-calculator/FloorDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -126,7 +129,7 @@ export default function FloorRefinishingCostCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Floor Refinishing Cost Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -143,7 +146,16 @@ export default function FloorRefinishingCostCalculatorPage() {
         </header>
 
         <section aria-label="Hardwood floor refinishing cost calculator tool">
-          <FloorRefinishingCalculator />
+          <ToolShell
+            features={[
+              'Sand, stain & topcoat',
+              'Buff & recoat screening',
+              'Stairs & baseboards',
+              'DIY vs pro cost takeoff',
+            ]}
+          >
+            <FloorRefinishingCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

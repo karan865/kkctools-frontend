@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import CubicInchCalculator from '@/components/tool/cubic-inch-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CylinderDiagram, ShapeDiagram } from '@/components/tool/cubic-inch-calculator/CubicInchDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -127,7 +130,7 @@ export default function CubicInchCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Cubic Inch Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -144,7 +147,16 @@ export default function CubicInchCalculatorPage() {
         </header>
 
         <section aria-label="Cubic inch and engine displacement calculator tool">
-          <CubicInchCalculator />
+          <ToolShell
+            features={[
+              'Engine displacement CID',
+              'Box, cylinder & sphere',
+              'Liters, cc & cubic feet',
+              'Fractional inch support',
+            ]}
+          >
+            <CubicInchCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

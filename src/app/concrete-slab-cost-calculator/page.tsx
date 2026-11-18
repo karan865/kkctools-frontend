@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import SlabCostCalculator from '@/components/tool/slab-cost-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CostBar, SlabSectionDiagram, TruckDiagram } from '@/components/tool/slab-cost-calculator/SlabCostDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -144,7 +147,7 @@ export default function ConcreteSlabCostCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Concrete Slab Cost Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -162,7 +165,16 @@ export default function ConcreteSlabCostCalculatorPage() {
         </header>
 
         <section aria-label="Concrete slab cost calculator tool">
-          <SlabCostCalculator />
+          <ToolShell
+            features={[
+              'Cubic yards & ready-mix',
+              'Vapor barrier & gravel',
+              'Rebar & wire mesh grid',
+              'Subbase excavation cost',
+            ]}
+          >
+            <SlabCostCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

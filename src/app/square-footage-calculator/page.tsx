@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import SquareFootageCalculator from '@/components/tool/square-footage-calculator/SquareFootageCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
@@ -110,7 +113,7 @@ export default function SquareFootageCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
           <ol className={styles.breadcrumbList}>
@@ -143,7 +146,16 @@ export default function SquareFootageCalculatorPage() {
 
         {/* Interactive Calculator Component */}
         <section aria-label="Square Footage Calculator Tool">
-          <SquareFootageCalculator />
+          <ToolShell
+            features={[
+              'Multi-room house takeoff',
+              'Circles & custom shapes',
+              'Waste & deduction zones',
+              'Materials & price est.',
+            ]}
+          >
+            <SquareFootageCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot 1: Below Calculator Results */}

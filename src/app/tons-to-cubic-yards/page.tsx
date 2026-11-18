@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import TonsYardsConverter from '@/components/tool/tons-yards-converter';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import JsonLd from '@/components/seo/JsonLd';
@@ -123,7 +126,7 @@ export default function TonsToCubicYardsPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`} style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
@@ -151,7 +154,16 @@ export default function TonsToCubicYardsPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Tons to Cubic Yards Converter Tool">
-          <TonsYardsConverter />
+          <ToolShell
+            features={[
+              'Tons to Cu Yds & reverse',
+              'Gravel, sand & topsoil',
+              'Bulk density presets',
+              'Custom material density',
+            ]}
+          >
+            <TonsYardsConverter />
+          </ToolShell>
         </section>
 
         {/* Ad Placeholder */}

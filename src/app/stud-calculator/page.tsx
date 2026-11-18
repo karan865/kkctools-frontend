@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import StudCalculator from '@/components/tool/stud-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import JsonLd from '@/components/seo/JsonLd';
@@ -123,7 +126,7 @@ export default function StudCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`} style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" style={{ marginBottom: '16px', fontSize: '13px', color: 'var(--muted)' }}>
           <ol style={{ display: 'flex', listStyle: 'none', padding: 0, margin: 0, alignItems: 'center' }}>
@@ -157,7 +160,16 @@ export default function StudCalculatorPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Interactive Stud Framing Calculator">
-          <StudCalculator />
+          <ToolShell
+            features={[
+              '16" and 24" on-center',
+              'Top & bottom plates',
+              'Corners & wall tees',
+              'Door & window headers',
+            ]}
+          >
+            <StudCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Placeholder */}

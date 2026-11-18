@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import LawnMowingCalculator from '@/components/tool/lawn-mowing-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { GrowthDiagram, MeasureDiagram, MowerPathDiagram } from '@/components/tool/lawn-mowing-calculator/LawnDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -132,7 +135,7 @@ export default function LawnMowingCostCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Lawn Mowing Cost Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -150,7 +153,16 @@ export default function LawnMowingCostCalculatorPage() {
         </header>
 
         <section aria-label="Lawn mowing cost calculator tool">
-          <LawnMowingCalculator />
+          <ToolShell
+            features={[
+              'Acre & sq ft lot sizes',
+              'Per-visit & monthly pay',
+              'Edging, trimming & blow',
+              'Seasonal mowing schedule',
+            ]}
+          >
+            <LawnMowingCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

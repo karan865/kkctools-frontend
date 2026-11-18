@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './HourlyToSalaryCalculator.module.css';
 import WageDiagram from './WageDiagram';
 import {
@@ -13,6 +14,12 @@ import {
 } from '@/lib/wage-engine';
 
 export type ActiveTab = 'convert' | 'compare' | 'table';
+
+const WAGE_TABS: { id: ActiveTab; label: string }[] = [
+  { id: 'convert', label: '🔄 Convert (Hourly ↔ Salary)' },
+  { id: 'compare', label: '⚖️ Job Offer & Raise %' },
+  { id: 'table', label: '📋 Wage Table ($10–$100)' },
+];
 
 export default function HourlyToSalaryCalculator() {
   const [activeTab, setActiveTab] = useState<ActiveTab>('convert');
@@ -273,37 +280,12 @@ export default function HourlyToSalaryCalculator() {
   return (
     <div className={styles.wrap}>
       {/* Navigation Tabs */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsBar} role="tablist">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'convert'}
-            className={`${styles.tabBtn} ${activeTab === 'convert' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('convert')}
-          >
-            🔄 Convert (Hourly ↔ Salary)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'compare'}
-            className={`${styles.tabBtn} ${activeTab === 'compare' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('compare')}
-          >
-            ⚖️ Job Offer &amp; Raise %
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'table'}
-            className={`${styles.tabBtn} ${activeTab === 'table' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('table')}
-          >
-            📋 Wage Table ($10–$100)
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={WAGE_TABS}
+        activeId={activeTab}
+        onChange={(id) => setActiveTab(id as ActiveTab)}
+        ariaLabel="Hourly to Salary Calculator Modes"
+      />
 
       {/* Main Grid */}
       <div className={styles.grid}>

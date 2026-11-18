@@ -3,7 +3,14 @@
 import React, { useState, useId } from 'react';
 import AreaDepthDiagram, { DiagramPanel, fmtNum, shapeFormula } from '../shared/AreaDepthDiagram';
 import PaverJointDiagram from '../shared/PaverJointDiagram';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './SandCalculator.module.css';
+
+const SAND_TABS: { id: 'volume' | 'paver' | 'polymeric'; label: string }[] = [
+  { id: 'volume', label: '1. Sand Volume' },
+  { id: 'paver', label: '2. Paver Sand (Bedding)' },
+  { id: 'polymeric', label: '3. Polymeric Sand (Joints)' },
+];
 import {
   UnitSystem,
   SandCondition,
@@ -174,38 +181,22 @@ Calculated at kkctools.com/sand-calculator/`;
 
   return (
     <div className={styles.calculatorContainer} aria-label="Sand Calculator Form">
-      {/* Header controls: Modes & Unit toggle */}
-      <div className={styles.modeHeader}>
-        <div className={styles.modeTabs} role="tablist" aria-label="Calculator Modes">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'volume'}
-            className={`${styles.modeTab} ${mode === 'volume' ? styles.modeTabActive : ''}`}
-            onClick={() => setMode('volume')}
-          >
-            1. Sand Volume
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'paver'}
-            className={`${styles.modeTab} ${mode === 'paver' ? styles.modeTabActive : ''}`}
-            onClick={() => setMode('paver')}
-          >
-            2. Paver Sand (Bedding)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'polymeric'}
-            className={`${styles.modeTab} ${mode === 'polymeric' ? styles.modeTabActive : ''}`}
-            onClick={() => setMode('polymeric')}
-          >
-            3. Polymeric Sand (Joints)
-          </button>
-        </div>
+      {/* Mode navigation tabs */}
+      <TabSlider
+        tabs={SAND_TABS}
+        activeId={mode}
+        onChange={(id) => setMode(id as 'volume' | 'paver' | 'polymeric')}
+        ariaLabel="Calculator Modes"
+      />
 
+      {/* Header controls: Unit toggle */}
+      
+
+      <div className={styles.grid}>
+        {/* INPUTS COLUMN */}
+        <div className={styles.formCol}>
+          <div className={styles.modeHeader}>
+        <div />
         <div className={styles.unitToggle}>
           <button
             type="button"
@@ -223,10 +214,6 @@ Calculated at kkctools.com/sand-calculator/`;
           </button>
         </div>
       </div>
-
-      <div className={styles.grid}>
-        {/* INPUTS COLUMN */}
-        <div className={styles.formCol}>
           {/* MODE 1: SAND VOLUME */}
           {mode === 'volume' && (
             <>

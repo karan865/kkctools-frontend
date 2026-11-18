@@ -8,6 +8,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import AsphaltCalculator from '@/components/tool/asphalt-calculator/AsphaltCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { ASPHALT_PAGE_COPY } from '@/content/pages/asphalt-calculator';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { ROUTES } from '@/lib/routes';
@@ -94,7 +97,7 @@ export default function AsphaltCalculatorPage() {
   const liveRelatedCalculators = copy.relatedCalculators.filter((c) => c.live);
 
   return (
-    <main id="main-content">
+    <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`}>
       <JsonLd data={webAppSchema} />
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
@@ -137,7 +140,16 @@ export default function AsphaltCalculatorPage() {
             </p>
           </header>
 
-          <AsphaltCalculator />
+          <ToolShell
+            features={[
+              'Driveway, road & parking',
+              'Tons & cubic yards sync',
+              'Base rock & compaction',
+              'Total asphalt cost est.',
+            ]}
+          >
+            <AsphaltCalculator />
+          </ToolShell>
 
           {/* AD SLOT A — directly below tool card */}
           <AdSlot slotId="ad-slot-a-asphalt" />

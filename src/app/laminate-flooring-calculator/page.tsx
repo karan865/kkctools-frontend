@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { LaminateCalculator } from '@/components/tool/laminate-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
@@ -83,7 +86,7 @@ export default function LaminateFlooringCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumbs} aria-label="Breadcrumb">
           <ol className={styles.breadcrumbList}>
@@ -113,7 +116,16 @@ export default function LaminateFlooringCalculatorPage() {
         </header>
 
         {/* Interactive Tool Above the Fold */}
-        <LaminateCalculator />
+        <ToolShell
+            features={[
+              'Plank dimensions & boxes',
+              'Underlayment roll count',
+              'Thresholds & baseboards',
+              'Stagger & waste buffer',
+            ]}
+          >
+            <LaminateCalculator />
+          </ToolShell>
 
         {/* Top AdSlot */}
         <AdSlot slotId="laminate-calc-top" />

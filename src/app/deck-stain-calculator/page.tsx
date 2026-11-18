@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import DeckStainCalculator from '@/components/tool/deck-stain-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { DeckDiagram, RailingDiagram } from '@/components/tool/deck-stain-calculator/DeckStainDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -130,7 +133,7 @@ export default function DeckStainCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Deck Stain Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -148,7 +151,16 @@ export default function DeckStainCalculatorPage() {
         </header>
 
         <section aria-label="Deck stain calculator tool">
-          <DeckStainCalculator />
+          <ToolShell
+            features={[
+              'Deck boards & railings',
+              'Stairs & baluster count',
+              'Solid, semi & clear coat',
+              'Gallons & prep estimate',
+            ]}
+          >
+            <DeckStainCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

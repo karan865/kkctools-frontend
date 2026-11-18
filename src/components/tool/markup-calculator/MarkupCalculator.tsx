@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect, useId, useMemo } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './MarkupCalculator.module.css';
 import MarkupDiagram from './MarkupDiagram';
 import {
@@ -25,6 +26,14 @@ import {
 } from '@/lib/pricing-engine';
 
 type CalculatorMode = 'markup' | 'margin' | 'price' | 'reverse' | 'batch';
+
+const MARKUP_TABS: { id: CalculatorMode; label: string }[] = [
+  { id: 'markup', label: 'Cost & Markup %' },
+  { id: 'margin', label: 'Cost & Target Margin %' },
+  { id: 'price', label: 'Cost & Selling Price' },
+  { id: 'reverse', label: 'Target Price to Max Cost' },
+  { id: 'batch', label: 'Multi-Item Spreadsheet' },
+];
 
 export default function MarkupCalculator() {
   const baseId = useId();
@@ -304,61 +313,22 @@ export default function MarkupCalculator() {
     await navigator.clipboard.writeText(csv);
   };
 
+  const handleModeChange = (newMode: CalculatorMode) => {
+    setMode(newMode);
+    if (newMode === 'batch' && batchResults.length === 0) {
+      runBatchCalculation();
+    }
+  };
+
   return (
     <div className={styles.wrap}>
       {/* Tab Navigation */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsBar} role="tablist" aria-label="Markup Calculator Modes">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'markup'}
-            className={`${styles.tabBtn} ${mode === 'markup' ? styles.tabActive : ''}`}
-            onClick={() => setMode('markup')}
-          >
-            Cost &amp; Markup %
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'margin'}
-            className={`${styles.tabBtn} ${mode === 'margin' ? styles.tabActive : ''}`}
-            onClick={() => setMode('margin')}
-          >
-            Cost &amp; Target Margin %
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'price'}
-            className={`${styles.tabBtn} ${mode === 'price' ? styles.tabActive : ''}`}
-            onClick={() => setMode('price')}
-          >
-            Cost &amp; Selling Price
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'reverse'}
-            className={`${styles.tabBtn} ${mode === 'reverse' ? styles.tabActive : ''}`}
-            onClick={() => setMode('reverse')}
-          >
-            Target Price to Max Cost
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={mode === 'batch'}
-            className={`${styles.tabBtn} ${mode === 'batch' ? styles.tabActive : ''}`}
-            onClick={() => {
-              setMode('batch');
-              if (batchResults.length === 0) runBatchCalculation();
-            }}
-          >
-            Multi-Item Spreadsheet
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={MARKUP_TABS}
+        activeId={mode}
+        onChange={handleModeChange}
+        ariaLabel="Markup Calculator Modes"
+      />
 
       {mode !== 'batch' ? (
         <div className={styles.grid}>

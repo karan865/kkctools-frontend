@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import LinearFootCalculator from '@/components/tool/linear-foot-calculator/LinearFootCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { linearFootPageContent } from '@/content/pages/linear-foot-calculator';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
@@ -45,7 +48,7 @@ export default function LinearFootCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav className={styles.breadcrumb} aria-label="Breadcrumb">
           <Link href="/">Home</Link>
@@ -64,7 +67,16 @@ export default function LinearFootCalculatorPage() {
 
         {/* Above-the-fold Interactive Tool */}
         <section aria-label="Linear Foot Calculator Tool" className={styles.toolSection}>
-          <LinearFootCalculator />
+          <ToolShell
+            features={[
+              'Multi-piece takeoff',
+              'Sq Ft ↔ Linear Ft sync',
+              'Waste factor included',
+              'Material & cost estimate',
+            ]}
+          >
+            <LinearFootCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot A */}

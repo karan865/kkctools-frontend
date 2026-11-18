@@ -3,53 +3,9 @@
 .wrap {
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 20px;
   color: var(--ink);
   width: 100%;
-}
-
-/* Tabs Bar */
-.tabsContainer {
-  width: 100%;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  padding-bottom: 4px;
-}
-
-.tabsBar {
-  display: flex;
-  gap: 8px;
-  min-width: max-content;
-  background: var(--surface-muted, #f1f5f9);
-  padding: 6px;
-  border-radius: 12px;
-  border: 1px solid var(--line);
-}
-
-.tabBtn {
-  appearance: none;
-  border: none;
-  background: transparent;
-  padding: 8px 16px;
-  font-size: 0.88rem;
-  font-weight: 600;
-  color: var(--ink-muted, #64748b);
-  border-radius: 8px;
-  cursor: pointer;
-  transition: all 0.15s ease-in-out;
-  white-space: nowrap;
-}
-
-.tabBtn:hover {
-  color: var(--ink);
-  background: rgba(0, 0, 0, 0.04);
-}
-
-.tabActive {
-  background: var(--surface, #ffffff);
-  color: #0284c7;
-  font-weight: 700;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
 }
 
 /* Main Two-Column Grid */
@@ -684,4 +640,60 @@
     flex: 1 1 auto;
     justify-content: center;
   }
+}
+
+/* ==========================================================================
+   Tool-specific accents inside ToolShell — 2026-11-18
+   ========================================================================== */
+.wrap .card {
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: 18px;
+  box-shadow: 0 12px 32px -12px rgba(30, 27, 75, 0.35);
+}
+
+:global(:root[data-theme='dark']) .wrap .card {
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+.wrap .step {
+  background: linear-gradient(135deg, #3b82f6, #7c3aed);
+}
+
+.wrap .inputWrap {
+  border-radius: 12px;
+}
+
+.wrap .inputWrap:focus-within {
+  border-color: #7c3aed;
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.18);
+}
+
+.wrap .presetChip:hover,
+.wrap .swapBtn:hover {
+  color: #5b21b6;
+  border-color: currentColor;
+}
+
+/* Result card: deep indigo so it stands apart from the bright band */
+.wrap .hero {
+  background: linear-gradient(135deg, #1e1b4b 0%, #4c1d95 100%);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 18px;
+  box-shadow: 0 14px 34px -12px rgba(30, 27, 75, 0.6);
+}
+
+.wrap .heroLabel,
+.wrap .heroMetricLbl {
+  color: #ddd6fe;
+}
+
+/* Toolbar sits on the band */
+.wrap .toolBtn {
+  border-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+}
+
+.wrap .toolBtn:hover {
+  color: #5b21b6;
+  border-color: currentColor;
 }

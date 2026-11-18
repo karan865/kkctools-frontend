@@ -13,6 +13,9 @@ import {
   generateCommonPricesMatrix,
 } from '@/lib/discount-engine';
 import { DiscountCalculator } from '@/components/tool/discount-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import styles from './page.module.css';
 
 export const dynamic = 'force-static';
@@ -106,7 +109,7 @@ export default function DiscountCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbItems} />
 
         <header className={styles.header}>
@@ -121,7 +124,16 @@ export default function DiscountCalculatorPage() {
         </header>
 
         {/* Primary Interactive Tool Component */}
-        <DiscountCalculator />
+        <ToolShell
+          features={[
+            'Single & stacked % off',
+            'BOGO & bundle deals',
+            'Coupons & sales tax',
+            'Reverse original price',
+          ]}
+        >
+          <DiscountCalculator />
+        </ToolShell>
 
         {/* Rich SEO Content Guide */}
         <article className={styles.content}>

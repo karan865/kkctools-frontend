@@ -5,6 +5,9 @@ import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import ConcreteCalculator from '@/components/tool/concrete-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import ShapeDiagram, { InsideFormsDiagram } from '@/components/tool/concrete-calculator/ShapeDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -167,7 +170,7 @@ export default function ConcreteCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Concrete Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -182,7 +185,16 @@ export default function ConcreteCalculatorPage() {
         </header>
 
         <section aria-label="Concrete calculator tool">
-          <ConcreteCalculator />
+          <ToolShell
+            features={[
+              'Slabs, footings & tubes',
+              'Cubic yards & ready-mix',
+              '60-lb and 80-lb bags',
+              'Waste buffer allowance',
+            ]}
+          >
+            <ConcreteCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

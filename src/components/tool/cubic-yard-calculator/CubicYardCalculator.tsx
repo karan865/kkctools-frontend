@@ -277,7 +277,12 @@ export default function CubicYardCalculator() {
   return (
     <div className={styles.toolCard}>
       {/* Top Toggle Controls */}
-      <div className={styles.toggleRow}>
+      
+
+      <div className={styles.toolLayout} style={{ marginTop: 'var(--space-5)' }}>
+        {/* Left Column: Inputs */}
+        <div className={styles.inputsCol}>
+          <div className={styles.toggleRow}>
         <div className={styles.segmentedControl} role="radiogroup" aria-label="Material Type">
           <button
             type="button"
@@ -316,10 +321,6 @@ export default function CubicYardCalculator() {
           </button>
         </div>
       </div>
-
-      <div className={styles.toolLayout} style={{ marginTop: 'var(--space-5)' }}>
-        {/* Left Column: Inputs */}
-        <div className={styles.inputsCol}>
           <div>
             <div className={styles.sectionsHeader}>
               <span className={styles.sectionTitle}>

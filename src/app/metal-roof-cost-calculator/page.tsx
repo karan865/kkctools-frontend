@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import MetalRoofCalculator from '@/components/tool/metal-roof-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CompareBars, PanelDiagram } from '@/components/tool/metal-roof-calculator/MetalRoofDiagram';
 import { PitchDiagram } from '@/components/tool/shingle-calculator/ShingleDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
@@ -95,7 +98,7 @@ export default function MetalRoofCostCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Metal Roof Cost Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -112,7 +115,16 @@ export default function MetalRoofCostCalculatorPage() {
         </header>
 
         <section aria-label="Metal roof cost calculator tool">
-          <MetalRoofCalculator />
+          <ToolShell
+            features={[
+              'Standing seam & screw-on',
+              'Steel, aluminum & copper',
+              'Pitch & waste factor',
+              'Underlayment & tear-off',
+            ]}
+          >
+            <MetalRoofCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

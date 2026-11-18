@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import ShingleCalculator from '@/components/tool/shingle-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { LayersDiagram, PitchDiagram, RoofPlanDiagram, SquareDiagram } from '@/components/tool/shingle-calculator/ShingleDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -118,7 +121,7 @@ export default function ShingleCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Shingle Roof Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -136,7 +139,16 @@ export default function ShingleCalculatorPage() {
         </header>
 
         <section aria-label="Shingle roof calculator tool">
-          <ShingleCalculator />
+          <ToolShell
+            features={[
+              'Bundles & roof squares',
+              '3-tab & architectural',
+              'Ridge caps & starter',
+              'Nail counts & waste %',
+            ]}
+          >
+            <ShingleCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

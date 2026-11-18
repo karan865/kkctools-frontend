@@ -10,15 +10,15 @@ D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
-  11:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
-  26:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
+  32:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
    12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
    15:3   warning  'DEFAULT_PRIMER_PRICE' is defined but never used  @typescript-eslint/no-unused-vars
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
-  301:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
+  296:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars

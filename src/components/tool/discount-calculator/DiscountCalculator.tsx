@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useId, useEffect, useMemo, useCallback } from 'react';
+import TabSlider from '@/components/tool/shared/TabSlider';
 import styles from './DiscountCalculator.module.css';
 import {
   calculateDiscount,
@@ -13,6 +14,13 @@ import {
 import DiscountDiagram from './DiscountDiagram';
 
 export type DiscountTab = 'forward' | 'reverse' | 'deals' | 'table';
+
+const DISCOUNT_TABS: { id: DiscountTab; label: string }[] = [
+  { id: 'forward', label: '🏷️ Percent Off & Sale Price' },
+  { id: 'reverse', label: '🔄 Reverse (Find Original or %)' },
+  { id: 'deals', label: '🎁 BOGO & Retail Deals' },
+  { id: 'table', label: '📋 Reference Table ($10–$200)' },
+];
 
 export default function DiscountCalculator() {
   const [activeTab, setActiveTab] = useState<DiscountTab>('forward');
@@ -295,46 +303,12 @@ export default function DiscountCalculator() {
   return (
     <div className={styles.wrap}>
       {/* Navigation Tabs Bar */}
-      <div className={styles.tabsContainer}>
-        <div className={styles.tabsBar} role="tablist">
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'forward'}
-            className={`${styles.tabBtn} ${activeTab === 'forward' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('forward')}
-          >
-            🏷️ Percent Off &amp; Sale Price
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'reverse'}
-            className={`${styles.tabBtn} ${activeTab === 'reverse' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('reverse')}
-          >
-            🔄 Reverse (Find Original or %)
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'deals'}
-            className={`${styles.tabBtn} ${activeTab === 'deals' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('deals')}
-          >
-            🎁 BOGO &amp; Retail Deals
-          </button>
-          <button
-            type="button"
-            role="tab"
-            aria-selected={activeTab === 'table'}
-            className={`${styles.tabBtn} ${activeTab === 'table' ? styles.tabActive : ''}`}
-            onClick={() => setActiveTab('table')}
-          >
-            📋 Reference Table ($10–$200)
-          </button>
-        </div>
-      </div>
+      <TabSlider
+        tabs={DISCOUNT_TABS}
+        activeId={activeTab}
+        onChange={(id) => setActiveTab(id as DiscountTab)}
+        ariaLabel="Discount Calculator Modes"
+      />
 
       {/* ==================================================== */}
       {/* TAB 1: FORWARD DISCOUNT (PERCENT OFF & CHECKOUT)      */}

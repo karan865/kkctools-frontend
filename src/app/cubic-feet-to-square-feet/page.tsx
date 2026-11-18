@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import CubicSquareConverter from '@/components/tool/cubic-square-converter';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { SpreadDiagram } from '@/components/tool/cubic-square-converter/CubicSquareDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -105,7 +108,7 @@ export default function CubicFeetToSquareFeetPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Cubic Feet to Square Feet', path: route.path }]} />
 
         <header className={styles.header}>
@@ -122,7 +125,16 @@ export default function CubicFeetToSquareFeetPage() {
         </header>
 
         <section aria-label="Cubic feet to square feet converter">
-          <CubicSquareConverter />
+          <ToolShell
+            features={[
+              'Volume to area by depth',
+              'Cu Ft to Sq Ft & reverse',
+              'Soil, mulch & concrete',
+              'Imperial & metric units',
+            ]}
+          >
+            <CubicSquareConverter />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

@@ -1,0 +1,149 @@
+/* ==========================================================================
+   TabSlider — Glass Segmented Control with Overflow Slider Arrows
+   ========================================================================== */
+
+.tabsShell {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  width: 100%;
+}
+
+.tabsContainer {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  display: flex;
+  justify-content: flex-start;
+  scroll-behavior: smooth;
+  padding: 2px 0 4px;
+  scrollbar-width: none;
+}
+
+.tabsContainer::-webkit-scrollbar {
+  display: none;
+}
+
+.tabsBar {
+  margin-inline: auto;
+  display: flex;
+  gap: 4px;
+  padding: 5px;
+  min-width: max-content;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.16);
+  border: 1px solid rgba(255, 255, 255, 0.32);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.tabBtn {
+  appearance: none;
+  border: none;
+  background: transparent;
+  padding: 8px 14px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.88);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  white-space: nowrap;
+  font-family: var(--font-tool-display, var(--font-heading));
+}
+
+.tabBtn:hover {
+  color: #ffffff;
+  background: rgba(255, 255, 255, 0.14);
+}
+
+.tabBtn:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+.tabActive,
+.tabActive:hover {
+  background: #f8f6ff;
+  color: #5b21b6;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(30, 27, 75, 0.25);
+}
+
+:global(:root[data-theme='dark']) .tabActive,
+:global(:root[data-theme='dark']) .tabActive:hover {
+  background: #ffffff;
+  color: #5b21b6;
+}
+
+/* Round slide buttons */
+.tabArrow {
+  flex: 0 0 auto;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.92);
+  color: #5b21b6;
+  cursor: pointer;
+  box-shadow: 0 6px 16px -6px rgba(30, 27, 75, 0.45);
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.tabArrow[hidden] {
+  display: none;
+}
+
+.tabArrow:hover {
+  background: #ffffff;
+  transform: scale(1.06);
+}
+
+.tabArrow:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 2px;
+}
+
+:global(:root[data-theme='dark']) .tabArrow {
+  background: rgba(17, 21, 31, 0.85);
+  color: #ddd6fe;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+@media (max-width: 640px) {
+  .tabArrow {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tabsShell {
+    gap: 6px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tabBtn {
+    transition: none;
+  }
+
+  .tabsContainer {
+    scroll-behavior: auto;
+  }
+
+  .tabArrow {
+    transition: none;
+  }
+}
+
+@media print {
+  .tabsShell {
+    display: none !important;
+  }
+}

@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import { StoneCalculator } from '@/components/tool/stone-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { SITE_NAME, SITE_URL } from '@/config/site';
@@ -82,7 +85,7 @@ export default function StoneCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" className={styles.mainContainer}>
+      <main id="main-content" className={`${styles.mainContainer} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className={styles.breadcrumbNav}>
           <ol className={styles.breadcrumbList}>
@@ -110,7 +113,16 @@ export default function StoneCalculatorPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Interactive Stone and Rock Calculator">
-          <StoneCalculator />
+          <ToolShell
+            features={[
+              'Gravel, riprap & river',
+              'Volume to tonnage weight',
+              'Bulk material densities',
+              'Delivery truckloads',
+            ]}
+          >
+            <StoneCalculator />
+          </ToolShell>
         </section>
 
         {/* Top Ad Slot */}

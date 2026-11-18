@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import PaintCalculator from '@/components/tool/paint-calculator/PaintCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
@@ -103,7 +106,7 @@ export default function PaintCostCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
           <ol className={styles.breadcrumbList}>
@@ -136,7 +139,16 @@ export default function PaintCostCalculatorPage() {
 
         {/* Interactive Calculator Component */}
         <section aria-label="Paint Cost Calculator Tool">
-          <PaintCalculator />
+          <ToolShell
+            features={[
+              'Wall & ceiling net area',
+              'Door & window deductions',
+              'Primer & multi-coat sync',
+              'Gallon & quart estimator',
+            ]}
+          >
+            <PaintCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot 1: Below Calculator */}

@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import ProfitMarginCalculator from '@/components/tool/profit-margin-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
@@ -112,7 +115,7 @@ export default function ProfitMarginCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbItems} />
 
         <header className={styles.header}>
@@ -140,7 +143,16 @@ export default function ProfitMarginCalculatorPage() {
 
         {/* Interactive Tool Component */}
         <section className={styles.toolSection} aria-label="Interactive Profit Margin Calculator">
-          <ProfitMarginCalculator />
+          <ToolShell
+            features={[
+              'Gross, operating & net',
+              'COGS & P&L waterfall',
+              'Target margin pricing',
+              'Multi-product blend',
+            ]}
+          >
+            <ProfitMarginCalculator />
+          </ToolShell>
         </section>
 
         {/* In-Content Ad Slot */}

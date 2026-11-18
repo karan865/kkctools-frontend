@@ -1,6 +1,9 @@
 import { Metadata } from 'next';
 import Link from 'next/link';
 import CinderBlockCalculator from '@/components/tool/cinder-block-calculator/CinderBlockCalculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import Faq from '@/components/ui/Faq';
 import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
@@ -100,7 +103,7 @@ export default function CinderBlockCalculatorPage() {
       <JsonLd data={breadcrumbSchema} />
       <JsonLd data={faqSchema} />
 
-      <main id="main-content" className={styles.container}>
+      <main id="main-content" className={`${styles.container} ${toolDisplayFont.variable} ${typo.scope}`}>
         {/* Breadcrumb Navigation */}
         <nav aria-label="Breadcrumb" className={styles.breadcrumbs}>
           <ol className={styles.breadcrumbList}>
@@ -136,7 +139,16 @@ export default function CinderBlockCalculatorPage() {
 
         {/* Interactive Calculator Component */}
         <section aria-label="Cinder Block Calculator Tool">
-          <CinderBlockCalculator />
+          <ToolShell
+            features={[
+              'Standard 8×8×16 CMU',
+              'Core grout fill & rebar',
+              'Mortar bag estimator',
+              'Rebar & surface bonding',
+            ]}
+          >
+            <CinderBlockCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Slot 1: Below Calculator Results */}

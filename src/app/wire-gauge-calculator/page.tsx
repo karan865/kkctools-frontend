@@ -6,6 +6,9 @@ import JsonLd from '@/components/seo/JsonLd';
 import AdSlot from '@/components/ads/AdSlot';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import WireGaugeCalculator from '@/components/tool/wire-gauge-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import { CircuitDiagram, GaugeScaleDiagram, TwoChecksDiagram } from '@/components/tool/wire-gauge-calculator/WireDiagram';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
@@ -150,7 +153,7 @@ export default function WireGaugeCalculatorPage() {
   return (
     <>
       <JsonLd data={[webAppSchema, faqSchema]} />
-      <main id="main-content" className={styles.main}>
+      <main id="main-content" className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Wire Gauge Calculator', path: route.path }]} />
 
         <header className={styles.header}>
@@ -168,7 +171,16 @@ export default function WireGaugeCalculatorPage() {
         </header>
 
         <section aria-label="Wire gauge calculator tool">
-          <WireGaugeCalculator />
+          <ToolShell
+            features={[
+              'Voltage drop percentage',
+              '12V, 24V, 120V & 240V',
+              'Copper & aluminum wire',
+              'AWG size recommendation',
+            ]}
+          >
+            <WireGaugeCalculator />
+          </ToolShell>
         </section>
 
         <div className={styles.adBlock}>

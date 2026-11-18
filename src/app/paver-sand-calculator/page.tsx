@@ -2,6 +2,9 @@ import type { Metadata } from 'next';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import Link from 'next/link';
 import PaverSandCalculator from '@/components/tool/paver-sand-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import AdSlot from '@/components/ads/AdSlot';
 import { SITE_NAME, SITE_URL } from '@/config/site';
 import JsonLd from '@/components/seo/JsonLd';
@@ -118,7 +121,7 @@ export default function PaverSandCalculatorPage() {
     <>
       <JsonLd data={jsonLd} />
 
-      <main id="main-content" style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
+      <main id="main-content" className={`${toolDisplayFont.variable} ${typo.scope}`} style={{ maxWidth: '1000px', margin: '0 auto', padding: '24px 16px' }}>
         <Breadcrumbs items={[{ name: 'Tools', path: '/tools/' }, { name: 'Paver Sand Calculator', path: '/paver-sand-calculator/' }]} />
 
         {/* Header */}
@@ -133,7 +136,16 @@ export default function PaverSandCalculatorPage() {
 
         {/* Interactive Tool */}
         <section aria-label="Paver Sand Calculator Tool">
-          <PaverSandCalculator />
+          <ToolShell
+            features={[
+              '1-inch bedding layer',
+              'Polymeric joint sweep',
+              'Tons, bags & cubic yards',
+              'Moisture density factor',
+            ]}
+          >
+            <PaverSandCalculator />
+          </ToolShell>
         </section>
 
         {/* Ad Placeholder Top */}

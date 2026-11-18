@@ -126,7 +126,12 @@ Calculated at kkctools.com/fill-dirt-calculator/`;
 
   return (
     <div className={styles.calculatorContainer} aria-label="Fill Dirt Calculator Form">
-      <div className={styles.topBar}>
+      
+
+      <div className={styles.grid}>
+        {/* INPUTS COLUMN */}
+        <div className={styles.formCol}>
+          <div className={styles.topBar}>
         <span className={styles.topTitle}>Fill Dirt &amp; Soil Estimator</span>
         <div className={styles.unitToggle}>
           <button
@@ -145,10 +150,6 @@ Calculated at kkctools.com/fill-dirt-calculator/`;
           </button>
         </div>
       </div>
-
-      <div className={styles.grid}>
-        {/* INPUTS COLUMN */}
-        <div className={styles.formCol}>
           {areas.map((row, idx) => (
             <div key={row.id} className={styles.sectionBox}>
               <div className={styles.sectionHeader}>

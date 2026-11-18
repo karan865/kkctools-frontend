@@ -3,6 +3,9 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import styles from './page.module.css';
 import DeckCostCalculator from '@/components/tool/deck-cost-calculator';
+import ToolShell from '@/components/tool/shared/ToolShell';
+import { toolDisplayFont } from '@/lib/fonts';
+import typo from '@/styles/tool-typography.module.css';
 import Breadcrumbs from '@/components/layout/Breadcrumbs';
 import AdSlot from '@/components/ads/AdSlot';
 import JsonLd from '@/components/seo/JsonLd';
@@ -97,7 +100,7 @@ export default function DeckCostCalculatorPage() {
       <JsonLd data={webAppSchema} />
       <JsonLd data={faqSchema} />
 
-      <main className={styles.main}>
+      <main className={`${styles.main} ${toolDisplayFont.variable} ${typo.scope}`}>
         <Breadcrumbs items={breadcrumbList} />
 
         <header className={styles.header}>
@@ -128,7 +131,16 @@ export default function DeckCostCalculatorPage() {
         <AdSlot slotId="before-calculator" />
 
         <div className={styles.toolSection}>
-          <DeckCostCalculator />
+          <ToolShell
+            features={[
+              'Pressure treated & cedar',
+              'Composite & Trex boards',
+              'Framing, posts & stairs',
+              'Permit & railing takeoff',
+            ]}
+          >
+            <DeckCostCalculator />
+          </ToolShell>
         </div>
 
         <AdSlot slotId="after-calculator" />
