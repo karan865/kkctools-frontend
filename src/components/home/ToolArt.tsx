@@ -808,6 +808,24 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={96} y1={84} x2={178} y2={84} label="2,080 h / yr" lx={137} ly={92} />
     </>
   ),
+  /* Discount Calculator: Discount tag with percentage slash and sale badge */
+  discount: (
+    <>
+      <path
+        className={k('fl', 's2')}
+        d="M 110 24 L 64 24 C 60 24 57 26 54 29 L 26 57 C 22 61 22 69 26 73 L 53 100 C 57 104 65 104 69 100 L 97 72 C 100 69 102 66 102 62 L 102 32 C 102 27 106 24 110 24 Z"
+      />
+      <circle className={s.f1} cx={86} cy={38} r={4.5} />
+      <rect className={s.f2} x={116} y={32} width={72} height={30} rx={6} />
+      <text className={s.tx} x={152} y={52} textAnchor="middle" fontSize={12} fontWeight={800}>
+        −20% OFF
+      </text>
+      <rect className={k('fn', 's2')} x={124} y={70} width={56} height={20} rx={4} strokeDasharray="3 2" />
+      <text className={s.tx} x={152} y={84} textAnchor="middle" fontSize={10} fontWeight={700}>
+        Save $20
+      </text>
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

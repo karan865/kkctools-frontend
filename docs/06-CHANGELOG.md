@@ -4,6 +4,32 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Tool #46 — Discount / Percent Off Calculator] — 2026-11-18
+- New tool `/discount-calculator/` (Batch 3 Build Order 6 / Tier 2 #9), built end-to-end from `09_Discount_Percent_Off_Calculator_Competitor_Analysis.md` and competitor analysis. Completes the Retail & Pricing cluster alongside Markup, Unit Price, and Profit Margin.
+- **Engine** (`src/lib/discount-engine.ts`):
+  * Pure functions: `calculateDiscount(input)` (forward % off, fixed dollar coupon with percent-first vs coupon-first order toggle, stacked promotional second discount %, and sales tax with net sale vs pre-discount timing), `reverseDiscount(input)` (finds original sticker price from sale tag and % off, finds discount % from 2 prices, or finds target price for desired dollar savings), `calculateDeal(input)` (translates retail promotions: Buy 1 Get 1 Free BOGO = 50%, Buy 1 Get 1 at X% off, Buy X Get Y Free 3-for-2, Spend $X Save $Y, and multi-buy bundles into true effective unit discounts), `generateDiscountTable(price)` (dynamic 12-row reference table for entered price), and `generateCommonPricesMatrix()` (pre-computed matrix solving 43 search queries like "30 off 50").
+- **Tests** (`src/lib/discount-engine.test.ts`):
+  * 17 Vitest unit tests covering simple 20% off $100 = $80 ($20 savings), stacked compounding (20% + 10% = 28% off, not 30%), coupon order ($100 with 20% then $15 coupon = $65 vs coupon first = $68), sales tax calculations, reverse mode ($80 at 20% off = $100 original), retail promo equivalents (BOGO free = 50%, BOGO 50% = 25%, 3-for-2 = 33.33%), zero/negative inputs, and table generators.
+- **UI** (`src/components/tool/discount-calculator/`):
+  * Adopted canonical KKCTools 2-column desktop grid layout (`.wrap` -> `.tabsBar` pill bar -> `.grid` with left `.inputs` and right sticky `.results`).
+  * 4 tabs:
+    1. **🏷️ Percent Off & Sale Price**: Card 1 with Step 1 blue badge, multi-currency selector (`$`, `£`, `€`, `₹`, `A$`, `C$`), quick presets (10%, 15%, 20%, 25%, 30%, 40%, 50%, 75%), collapsible accordions for fixed dollar coupon with order toggle, stacked secondary discount with mathematical compounding, and sales tax / VAT. Right sticky column featuring gradient hero card (`#0284c7` to `#0369a1`), green summary banner (`#ecfdf5`), `<DiscountDiagram />` waterfall flow, step 2 metrics grid (Original MSRP, Dollar Savings, Effective Discount %, Final Price with Tax), and actions bar (Copy, Share URL, Print).
+    2. **🔄 Reverse (Find Original or %)**: 3 sub-modes solving backwards from sale prices and desired savings with explicit math formulas, sticky hero card, summary banner, metrics breakdown, and action buttons.
+    3. **🎁 BOGO & Retail Deals**: Interactive calculator translating promotional deals into effective discount % and per-unit costs, retail economics comparison, and sticky results card.
+    4. **📋 Reference Table ($10–$200)**: Full-width card with quick search filter, dynamic discount table for user's price, and common retail price matrix solving 43 long-tail queries.
+  * Dedicated interactive SVG diagram (`DiscountDiagram.tsx`) toggling between Price Split Bar (You Pay vs You Save vs Tax) and Waterfall Deduction Flow.
+  * Actions: Copy Summary, Shareable URL with query parameter sync, Print receipt.
+- **Page** (`src/app/discount-calculator/`):
+  * Title 46 chars (`Discount Calculator – Percent Off & Sale Price` with `absoluteTitle`), meta 152 chars, H1 67 chars, ~1,850 original words.
+  * Direct BLUF box computing live numbers from engine.
+  * 11 H2 content sections matching SPEC §8 and 11 FAQs with WebApplication + FAQPage JSON-LD schema, HowWeCalculate component.
+  * Sourced metrology and consumer protection citations: US FTC Guides Against Deceptive Pricing (16 CFR Part 233) and UK Price Marking Order 2004 (SI 2004/102).
+  * FAQ answers formatted with pure white background cards (`#ffffff`).
+  * Registered in `routes.ts`, `tools-catalog.ts` (#46, category `business`, icon `discount`), `tools-catalog.test.ts` updated to 46, `calculation-methods.ts`, `Footer.tsx`, and `ToolArt.tsx` (`discount` art). Inbound contextual links from `markup-calculator`, `profit-margin-calculator`, `unit-price-calculator`, and `percentage-change-calculator`.
+- **Verification**: `npm run verify` passed all 6 steps with zero errors. 676 vitest tests passing across 50 files. 81 static pages generated in export. Knowledge graph updated via `graphify update .`.
+
+---
+
 ### [Design & UI — FAQ Answer Pure White Background Fix] — 2026-11-18
 - **User Feedback Addressed**: Fixed FAQ question & answer card styling across the site where answer sections lacked an explicit white background and rendered directly on the warm beige canvas (`--bg: #EBE4D6`).
 - **Files Updated**:

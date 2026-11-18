@@ -208,6 +208,14 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  discountCalculator: {
+    path: '/discount-calculator/',
+    title: 'Discount Calculator – Percent Off & Sale Price',
+    description: 'Free discount calculator. Enter a price and percent off to get the sale price and savings, stack two discounts, or find the percent off from two prices.',
+    updated: '2026-11-18',
+    type: 'tool',
+    indexable: true,
+  },
   deckCostCalculator: {
     path: '/deck-cost-calculator/',
     title: 'Deck Cost Calculator & Estimator – Wood vs Composite',

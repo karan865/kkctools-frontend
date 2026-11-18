@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-17T23:12:57.819Z
+Run Date: 2026-11-18T01:22:00.391Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -32,6 +32,7 @@ Status: PASSED ✅
 | `/deck-cost-calculator/` | Deck Cost Calculator & Estimator – Wood  | 3754 | Deck Cost Calculator & Estimat | PASS |
 | `/deck-stain-calculator/` | Deck Stain Calculator – Gallons, Coverag | 2801 | Deck Stain Calculator | PASS |
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
+| `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2403 | Discount Calculator: Percent O | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2798 | Drywall Calculator: Sheets, Jo | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2628 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2367 | Fence Stain Calculator: Gallon | PASS |
@@ -42,11 +43,11 @@ Status: PASSED ✅
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2658 | Hourly to Salary Calculator (Y | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2293 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 2290 | Free Construction Calculators  | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2791 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2746 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1615 | Linear Foot Calculator (Linear | PASS |
-| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2601 | Markup Calculator: Selling Pri | PASS |
+| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2607 | Markup Calculator: Selling Pri | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2043 | Metal Roof Cost Calculator | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2522 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3073 | Paver Base Calculator: Tons &  | PASS |
@@ -54,20 +55,20 @@ Status: PASSED ✅
 | `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3500 | Percentage Change Calculator:  | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2500 | Pipe & Tube Volume Calculator | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
-| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2188 | Profit Margin Calculator: Gros | PASS |
+| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2189 | Profit Margin Calculator: Gros | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2382 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2298 | Reinforcement Steel Calculator | PASS |
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4131 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1513 | Sand Calculator | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2871 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 893 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 908 | Site Map | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3353 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2850 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2183 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3371 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1786 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1306 | All Free Tools: Construction C | PASS |
-| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2666 | Unit Price Calculator: Compare | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 1329 | All Free Tools: Construction C | PASS |
+| `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2672 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2557 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

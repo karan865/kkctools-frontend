@@ -433,6 +433,9 @@ export default function ProfitMarginCalculatorPage() {
               Explore our other free commercial tools:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.discountCalculator.path} className={styles.pillLink}>
+                Discount Calculator
+              </Link>
               <Link href={ROUTES.unitPriceCalculator.path} className={styles.pillLink}>
                 Unit Price Calculator
               </Link>

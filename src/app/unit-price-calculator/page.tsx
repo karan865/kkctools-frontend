@@ -548,6 +548,9 @@ export default function UnitPriceCalculatorPage() {
             estimating:
           </p>
           <div className={styles.internalLinks}>
+            <Link href={ROUTES.discountCalculator.path} className={styles.pillLink}>
+              Discount Calculator (Percent Off &amp; Sale Price)
+            </Link>
             <Link href={ROUTES.hourlyToSalaryCalculator.path} className={styles.pillLink}>
               Hourly to Salary Calculator (Yearly Wage &amp; Overtime)
             </Link>

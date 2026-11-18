@@ -1125,6 +1125,33 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'discount-calculator': {
+    formula: [
+      'Sale Price = Original Price × (1 − Discount% ÷ 100)',
+      'Dollar Savings = Original Price − Sale Price = Original Price × (Discount% ÷ 100)',
+      'Stacked Discounts: Effective% = [1 − (1 − d₁) × (1 − d₂)] × 100',
+      'Reverse Mode: Original Price = Sale Price ÷ (1 − Discount% ÷ 100)',
+      'Discount Rate from Two Prices: Discount% = ((Original − Sale) ÷ Original) × 100',
+      'BOGO Free Effective Rate = 50.00%; Buy X Get Y Free Effective Rate = (Y ÷ (X + Y)) × 100%',
+    ],
+    defaults: [
+      { label: 'Standard Retail Markdown', value: '$100.00 at 20% off = $80.00 final sale price ($20.00 saved)' },
+      { label: 'Stacked Clearance Promo', value: '20% off followed by an extra 10% coupon = $72.00 sale price (effective 28.00% discount, not 30%)' },
+      { label: 'BOGO Buy One Get One Free', value: 'Two $40.00 items for $40.00 total = $20.00/unit (exact 50.00% discount)' },
+    ],
+    sources: [
+      {
+        label: 'Federal Trade Commission (FTC) — Guides Against Deceptive Pricing (16 CFR Part 233)',
+        url: 'https://www.ftc.gov/enforcement/rules/rulemaking-regulatory-reform-proceedings/guides-against-deceptive-pricing',
+        note: 'US federal statutory guidelines for former price comparisons, promotional discounting, and bargain retail offers',
+      },
+      {
+        label: 'UK Price Marking Order 2004 (SI 2004/102) & Chartered Trading Standards Institute (CTSI)',
+        url: 'https://www.legislation.gov.uk/uksi/2004/102/contents/made',
+        note: 'Statutory requirements governing promotional price reductions, comparison prices, and genuine discount transparency',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',
