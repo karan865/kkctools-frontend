@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: 'What is a good profit margin?',
-    a: `What qualifies as a "good" profit margin depends entirely on your industry and capital structure. According to public dataset benchmarks compiled by NYU Stern School of Business (Damodaran, US Margins by Sector), grocery stores and food wholesalers operate on narrow 1.5% to 3.0% net margins due to rapid inventory turnover, while commercial software and SaaS enterprises frequently achieve 70%+ gross margins and 20%+ net margins. Across general US businesses, a 10% net profit margin is considered healthy, while 20% is excellent.`,
+    a: `What qualifies as a "good" profit margin depends entirely on your industry and capital structure. In the NYU Stern (Damodaran) Margins by Sector dataset for US companies (January 2026), grocery and food retail shows a 26.31% gross margin and a 1.32% net margin, software shows 71.72% gross and 25.49% net, and the total market averages 37.76% gross and 9.74% net. Compare yourself with your own industry, not with the overall average.`,
   },
   {
     q: "What's the difference between gross sales and net sales?",
@@ -348,54 +348,63 @@ export default function ProfitMarginCalculatorPage() {
           <section className={styles.section}>
             <h2 className={styles.h2}>What is a Good Profit Margin? Sourced Industry Benchmarks</h2>
             <p className={styles.p}>
-              Profit margins vary drastically across economic sectors based on capital intensity, asset turnover, and competitive barriers. According to corporate financial datasets published by the <strong>NYU Stern School of Business (Aswath Damodaran, Margins by Sector)</strong>:
+              Profit margins vary drastically across economic sectors based on capital intensity, asset turnover, and competitive barriers. The figures below are aggregate margins for US-listed companies from the <a href="https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html" target="_blank" rel="noopener noreferrer">NYU Stern (Aswath Damodaran) &ldquo;Margins by Sector (US)&rdquo; dataset, January 2026 update</a>. They describe large public companies, so a small business can sit well above or below them:
             </p>
             <div className={styles.tableWrap}>
               <table className={styles.table}>
                 <thead>
                   <tr>
                     <th>Industry Sector</th>
-                    <th>Typical Gross Margin</th>
-                    <th>Typical Net Margin</th>
-                    <th>Economic Operating Model</th>
+                    <th>Gross Margin</th>
+                    <th>Net Margin</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr>
-                    <td><strong>Grocery &amp; Food Retail</strong></td>
-                    <td>20% – 25%</td>
-                    <td>1.5% – 3.0%</td>
-                    <td>High volume, rapid inventory turns, slim net margins</td>
+                    <td><strong>Retail (Grocery and Food)</strong></td>
+                    <td>26.31%</td>
+                    <td>1.32%</td>
                   </tr>
                   <tr>
-                    <td><strong>Building Materials &amp; Construction</strong></td>
-                    <td>25% – 35%</td>
-                    <td>5.0% – 8.0%</td>
-                    <td>Project-based contracts, equipment depreciation, bonding costs</td>
+                    <td><strong>Food Wholesalers</strong></td>
+                    <td>15.44%</td>
+                    <td>1.17%</td>
                   </tr>
                   <tr>
-                    <td><strong>Apparel &amp; Specialty Retail</strong></td>
-                    <td>45% – 55%</td>
-                    <td>6.0% – 10.0%</td>
-                    <td>Seasonal inventory risk, fashion trends, clearance markdowns</td>
+                    <td><strong>Building Materials</strong></td>
+                    <td>30.94%</td>
+                    <td>7.42%</td>
                   </tr>
                   <tr>
-                    <td><strong>General Commercial Manufacturing</strong></td>
-                    <td>30% – 40%</td>
-                    <td>7.0% – 11.0%</td>
-                    <td>Plant tooling, raw material commodities, factory labor</td>
+                    <td><strong>Engineering/Construction</strong></td>
+                    <td>15.46%</td>
+                    <td>5.94%</td>
                   </tr>
                   <tr>
-                    <td><strong>Software &amp; Digital Services</strong></td>
-                    <td>65% – 80%</td>
-                    <td>15.0% – 25.0%</td>
-                    <td>Zero marginal unit cost, high initial engineering R&amp;D</td>
+                    <td><strong>Apparel</strong></td>
+                    <td>56.88%</td>
+                    <td>3.85%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Machinery</strong></td>
+                    <td>37.47%</td>
+                    <td>10.58%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Software (System &amp; Application)</strong></td>
+                    <td>71.72%</td>
+                    <td>25.49%</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Total Market (all US firms)</strong></td>
+                    <td>37.76%</td>
+                    <td>9.74%</td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <p className={styles.p}>
-              Evaluating your business against companies with identical cost structures provides actionable insights. A 4% net margin in grocery is exceptional, whereas a 4% net margin in enterprise software indicates severe operational distress.
+              Evaluating your business against companies with identical cost structures provides actionable insights. For example, a 3% net margin would be above the grocery figure in this dataset but far below the software figure.
             </p>
           </section>
 

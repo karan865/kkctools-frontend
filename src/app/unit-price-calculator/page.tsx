@@ -356,12 +356,12 @@ export default function UnitPriceCalculatorPage() {
         <section className={styles.section}>
           <h2 className={styles.h2}>When the Bigger Pack Isn&rsquo;t Cheaper (The Bulk Trap)</h2>
           <p className={styles.p}>
-            Consumer psychologists have demonstrated that shoppers naturally assume larger containers
-            deliver superior unit value. Supermarkets and manufacturers know this well, occasionally
-            pricing large bulk packages at higher unit costs than standard sizes.
+            Many shoppers assume the larger pack is always the better deal, but that is not guaranteed.
+            Sometimes a bulk or &ldquo;family size&rdquo; pack costs more per ounce than the standard size,
+            so it is worth checking the unit price every time.
           </p>
           <p className={styles.p}>
-            Consider this verified grocery price comparison for salsa:
+            Here is an illustrative example (example prices, not a real store) for salsa:
           </p>
           <div className={styles.tableWrap}>
             <table className={styles.table}>

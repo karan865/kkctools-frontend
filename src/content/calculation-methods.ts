@@ -980,11 +980,6 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     ],
     sources: [
       {
-        label: 'National Institute of Standards and Technology (NIST) Reference on Relative Difference',
-        url: 'https://www.nist.gov/',
-        note: 'Standard mathematical definitions for relative error, percent change, and symmetric percent difference',
-      },
-      {
         label: 'Microsoft Excel Formula Documentation — Format numbers as percentages',
         url: 'https://support.microsoft.com/en-us/office/format-numbers-as-percentages-6240f280-fd42-4f5b-90c5-4654562a0123',
         note: 'Explains that Excel percentage format automatically multiplies cell values by 100',
@@ -1021,11 +1016,6 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
         url: 'https://www.ird.govt.nz/gst',
         note: 'Official New Zealand reference for standard 15% GST on taxable retail sales',
       },
-      {
-        label: 'National Institute of Standards and Technology (NIST) — Commercial Metric & Pricing Standards',
-        url: 'https://www.nist.gov/',
-        note: 'Standards on rounding, commercial measurements, and price unit labeling',
-      },
     ],
   },
   'profit-margin-calculator': {
@@ -1046,17 +1036,7 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       {
         label: 'NYU Stern School of Business — Margins by Sector (US) Dataset (Prof. Aswath Damodaran)',
         url: 'https://pages.stern.nyu.edu/~adamodar/New_Home_Page/datafile/margin.html',
-        note: 'Authoritative annual corporate finance dataset benchmarking gross, operating, and net profit margins across US industries',
-      },
-      {
-        label: 'Financial Accounting Standards Board (FASB) — Conceptual Framework for Financial Reporting',
-        url: 'https://www.fasb.org/',
-        note: 'Standard definitions for revenue recognition, cost of goods sold, operating expenses, and net income',
-      },
-      {
-        label: 'HM Revenue & Customs (HMRC) — Business Profits, Turnover & Allowances',
-        url: 'https://www.gov.uk/',
-        note: 'Official guidance on computing UK commercial gross profit (GP) and net taxable profit',
+        note: 'January 2026 update (checked 2026-11-18): aggregate gross, operating and net margins for US-listed companies by industry; used for the "good profit margin" table',
       },
     ],
   },

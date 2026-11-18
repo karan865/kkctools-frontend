@@ -147,7 +147,7 @@ export default function MarkupCalculatorPage() {
           <p className={styles.lead}>
             Calculate the exact selling price for your products, services, or wholesale inventory.
             Instantly determine markup percentage, gross margin, dollar profit, and price multipliers,
-            with full support for landed freight costs, marketplace fees, sales tax, and psychological price endings.
+            with full support for landed freight costs, marketplace fees, sales tax, and price endings.
           </p>
           <div className={styles.meta}>
             Published by KKC Tools · Updated {route.updated} · Mathematical Verification Guaranteed
@@ -343,7 +343,7 @@ export default function MarkupCalculatorPage() {
               <li><strong>Inbound Freight &amp; Shipping:</strong> Port-to-warehouse or factory-to-door carrier delivery fees.</li>
               <li><strong>Customs, Tariffs &amp; Duties:</strong> Non-refundable border duties on imported inventory.</li>
               <li><strong>Packaging &amp; Prep:</strong> Hangtags, branded poly mailers, protective bubble wrap, and barcode labels.</li>
-              <li><strong>Platform &amp; Payment Processing Fees:</strong> Credit card processing fees (typically 2.9% + $0.30) or marketplace selling fees (e.g., 8% to 15% on Amazon, eBay, or Etsy).</li>
+              <li><strong>Platform &amp; Payment Processing Fees:</strong> Card processing fees and marketplace selling fees, usually charged as a percentage of the selling price (check your own provider&rsquo;s current fee schedule).</li>
             </ol>
             <p className={styles.p}>
               When selling through platforms that charge a percentage of the customer ticket price, use the fee-adjusted pricing formula:
@@ -444,9 +444,9 @@ export default function MarkupCalculatorPage() {
 
           {/* Section 9 */}
           <section className={styles.section}>
-            <h2 className={styles.h2}>Price Endings and Psychological Charm Pricing (.99)</h2>
+            <h2 className={styles.h2}>Price Endings like $9.99 and What They Do to Your Margin</h2>
             <p className={styles.p}>
-              Retailers frequently adjust mathematical selling prices to popular psychological endings, such as ending tickets in <code>.99</code>, <code>.95</code>, or whole round numbers.
+              Many sellers adjust a calculated price to a familiar ending, such as <code>.99</code>, <code>.95</code>, or whole round numbers.
             </p>
             <p className={styles.p}>
               Whenever you adjust a calculated price from $59.20 to $59.99, your realized profit increases from $19.20 to $19.99, bumping your effective markup from 48.0% to 49.98%. Conversely, rounding down from $60.10 to $59.95 slightly trims margin. Our calculator automatically recomputes the true resulting markup and gross margin percentages whenever a price ending is selected.

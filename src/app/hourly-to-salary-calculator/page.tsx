@@ -304,7 +304,7 @@ export default function HourlyToSalaryCalculatorPage() {
                     <td><strong>United Kingdom</strong></td>
                     <td>37.5 hours / week</td>
                     <td>1,950 hours</td>
-                    <td>UK Working Time Regulations 1998</td>
+                    <td>Common full-time contract (no legal standard week; the Working Time Regulations 1998 cap the average at 48 h)</td>
                   </tr>
                   <tr>
                     <td><strong>Australia</strong></td>

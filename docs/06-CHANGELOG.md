@@ -4,6 +4,14 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Review — Batch 3 tools #41–#46 sourcing fixes] — 2026-11-18
+- **Profit Margin:** the "good profit margin" table and FAQ had invented ranges labelled as Damodaran data (e.g. grocery net 1.5–3%, apparel net 6–10%). Replaced with the real NYU Stern "Margins by Sector (US)" figures, January 2026 update, checked 2026-11-18 (grocery 26.31% gross / 1.32% net, apparel 56.88% / 3.85%, software 71.72% / 25.49%, total market 37.76% / 9.74%, plus food wholesalers, building materials, engineering/construction, machinery). Linked the dataset; removed the unsourced "10% healthy, 20% excellent" claim.
+- **Markup:** removed the unsourced card-fee ("2.9% + $0.30") and marketplace-fee ("8–15% on Amazon, eBay, Etsy") figures; renamed "Psychological Charm Pricing" to a margin-only price-endings section (no psychology claims without a source).
+- **Unit Price:** removed the unsourced "consumer psychologists have demonstrated" claim; the salsa comparison is now labelled an illustrative example, not "verified".
+- **Hourly to Salary:** UK 37.5 h row no longer cites the Working Time Regulations 1998 as its basis (WTR sets a 48 h average cap, not a standard week).
+- **HowWeCalculate sources:** removed homepage-only sources that proved nothing (nist.gov for Percentage Change and Markup, fasb.org and gov.uk for Profit Margin); added the dataset date to the Damodaran source.
+- **Docs:** added tools #40–#46 to `01-FEATURES.md` and the Batch 3 keyword targets to `04-KEYWORDS.md`.
+
 ### [Tool #46 — Discount / Percent Off Calculator] — 2026-11-18
 - New tool `/discount-calculator/` (Batch 3 Build Order 6 / Tier 2 #9), built end-to-end from `09_Discount_Percent_Off_Calculator_Competitor_Analysis.md` and competitor analysis. Completes the Retail & Pricing cluster alongside Markup, Unit Price, and Profit Margin.
 - **Engine** (`src/lib/discount-engine.ts`):
