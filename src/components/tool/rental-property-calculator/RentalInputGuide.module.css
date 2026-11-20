@@ -1,0 +1,277 @@
+.wrapper {
+  margin-bottom: var(--space-4, 1rem);
+}
+
+.details {
+  border: 1px solid var(--line, #cbd5e1);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--surface, #ffffff);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+}
+
+.summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.65rem 1rem;
+  background: var(--surface-2, #f8fafc);
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink, #0f172a);
+  cursor: pointer;
+  user-select: none;
+  border-bottom: 1px solid var(--line, #e2e8f0);
+}
+
+.summaryTitle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.summaryIcon {
+  font-size: 0.95rem;
+}
+
+.diagramTag {
+  font-size: 0.72rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--line, #cbd5e1);
+  padding: 2px 8px;
+  border-radius: 9999px;
+  color: var(--muted, #64748b);
+}
+
+.diagramContainer {
+  padding: 1rem 1rem 0.75rem;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.box {
+  fill: var(--surface, #ffffff);
+  stroke: var(--line, #cbd5e1);
+  stroke-width: 1.5;
+  transition: all 0.2s ease;
+}
+
+.boxPurple {
+  fill: #faf5ff;
+  stroke: #c084fc;
+  stroke-width: 1.5;
+}
+
+.boxCashFlow {
+  fill: #ecfdf5;
+  stroke: #34d399;
+  stroke-width: 1.5;
+}
+
+.label {
+  font-size: 10.5px;
+  font-weight: 600;
+  fill: var(--muted, #64748b);
+}
+
+.value {
+  font-size: 13px;
+  font-weight: 800;
+  fill: var(--ink, #0f172a);
+}
+
+.valueGreen {
+  font-size: 13px;
+  font-weight: 800;
+  fill: #059669;
+}
+
+.valueAmber {
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: #d97706;
+}
+
+.valueRed {
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: #dc2626;
+}
+
+.valuePurple {
+  font-size: 12.5px;
+  font-weight: 700;
+  fill: #7c3aed;
+}
+
+.noiLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  fill: #7c3aed;
+}
+
+.noiValue {
+  font-size: 14px;
+  font-weight: 800;
+  fill: #6b21a8;
+}
+
+.cfLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  fill: #059669;
+}
+
+.cfValue {
+  font-size: 14px;
+  font-weight: 800;
+  fill: #065f46;
+}
+
+.operator {
+  font-size: 16px;
+  font-weight: 800;
+  text-anchor: middle;
+  fill: var(--muted, #94a3b8);
+}
+
+.badgeBlue,
+.badgeEmerald,
+.badgeAmber,
+.badgeRed,
+.badgePurple {
+  stroke-width: 0;
+}
+
+.badgeBlue {
+  fill: #3b82f6;
+}
+
+.badgeEmerald {
+  fill: #10b981;
+}
+
+.badgeAmber {
+  fill: #f59e0b;
+}
+
+.badgeRed {
+  fill: #ef4444;
+}
+
+.badgePurple {
+  fill: #8b5cf6;
+}
+
+.badgeText {
+  font-size: 9.5px;
+  font-weight: 800;
+  text-anchor: middle;
+  fill: #ffffff;
+}
+
+.pillBox {
+  fill: var(--surface-2, #f8fafc);
+  stroke: var(--line, #cbd5e1);
+  stroke-width: 1.5;
+}
+
+.pillLabel {
+  font-size: 10px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  fill: var(--muted, #64748b);
+}
+
+.pillValue {
+  font-size: 14px;
+  font-weight: 800;
+  fill: var(--ink, #0f172a);
+}
+
+.active .box {
+  stroke: var(--accent, #2563eb);
+  stroke-width: 2.2;
+  filter: drop-shadow(0 2px 8px rgba(37, 99, 235, 0.25));
+}
+
+.dimmed {
+  opacity: 0.35;
+  transition: opacity 0.2s ease;
+}
+
+.timelineText {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--ink, #0f172a);
+}
+
+.noticeBox {
+  margin-top: 0.65rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--surface-2, #f8fafc);
+  border: 1px dashed var(--line, #cbd5e1);
+  border-radius: var(--radius-md, 8px);
+  font-size: 0.78rem;
+  line-height: 1.45;
+  color: var(--ink-2, #334155);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.noticeIcon {
+  font-size: 0.9rem;
+  flex-shrink: 0;
+}
+
+/* Dark Mode Support */
+:global(:root[data-theme='dark']) .box {
+  fill: var(--surface, #11151f);
+  stroke: var(--line, #1e2636);
+}
+
+:global(:root[data-theme='dark']) .pillBox {
+  fill: var(--surface-2, #19202d);
+  stroke: var(--line, #1e2636);
+}
+
+:global(:root[data-theme='dark']) .boxPurple {
+  fill: rgba(139, 92, 246, 0.12);
+  stroke: rgba(139, 92, 246, 0.4);
+}
+
+:global(:root[data-theme='dark']) .boxCashFlow {
+  fill: rgba(16, 185, 129, 0.12);
+  stroke: rgba(16, 185, 129, 0.4);
+}
+
+:global(:root[data-theme='dark']) .value {
+  fill: #f8fafc;
+}
+
+:global(:root[data-theme='dark']) .noiValue {
+  fill: #c084fc;
+}
+
+:global(:root[data-theme='dark']) .cfValue {
+  fill: #34d399;
+}
+
+:global(:root[data-theme='dark']) .noticeBox {
+  background: var(--surface-2, #19202d);
+  border-color: var(--line, #1e2636);
+  color: #cbd5e1;
+}

@@ -193,8 +193,8 @@ The page computes these from the engine, not as text.
 
 ## 7. Done when
 
-- [ ] `us-tax-data.ts` created with only verified figures (rules §7); unverified = `null` + `TODO(owner)`.
-- [ ] `labor-cost-engine.ts` + tests; `pricing-engine` reused for markup/margin; `npm run verify` passes.
-- [ ] Input guide diagram per tab, above the inputs; ToolShell + TabSlider used.
-- [ ] Every tax rate on the page has an irs.gov / ssa.gov / dol.gov link + year.
-- [ ] Construction Estimate Template links to this page; registrations + docs updated; `graphify update .`.
+- [x] `us-tax-data.ts` created with only verified figures (rules §7); unverified = `null` + `TODO(owner)`.
+- [x] `labor-cost-engine.ts` + tests; `pricing-engine` reused for markup/margin; `npm run verify` passes.
+- [x] Input guide diagram per tab, above the inputs; ToolShell + TabSlider used.
+- [x] Every tax rate on the page has an irs.gov / ssa.gov / dol.gov link + year.
+- [x] Construction Estimate Template links to this page; registrations + docs updated; `graphify update .`.

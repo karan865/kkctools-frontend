@@ -173,7 +173,7 @@ simple: P*(1 + r*t) + Σ deposits*(1 + r*remaining)   (state the convention)
 
 ## 7. Done when
 
-- [ ] `tvm-engine.ts` reused; `compound-interest-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram per tab above the inputs; chart in results; ToolShell + TabSlider used.
-- [ ] No brand keywords targeted; no "guaranteed return" language.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `tvm-engine.ts` reused; `compound-interest-engine.ts` + tests (16 tests passed); `npm run verify` passes (833 tests, 94 routes, 80 HTML pages with 0 SEO errors).
+- [x] Input guide diagram per tab above the inputs; chart in results; ToolShell + TabSlider used.
+- [x] No brand keywords targeted; no "guaranteed return" language.
+- [x] Registrations + docs updated; `graphify update .`.

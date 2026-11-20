@@ -569,6 +569,36 @@ export default function PercentageChangePage() {
             Explore our companion calculators for material takeoffs, contractor billing, and commercial pricing:
           </p>
           <div className={styles.relatedGrid}>
+            <Link href="/credit-card-payoff-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Credit Card Payoff Calculator</span>
+              <span className={styles.relatedDesc}>
+                Model credit card APR, payoff timelines, minimum payment traps, and avalanche vs snowball debt reduction.
+              </span>
+            </Link>
+            <Link href="/compound-interest-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Compound Interest Calculator</span>
+              <span className={styles.relatedDesc}>
+                Model multi-year exponential compound growth with daily, monthly, and continuous compounding intervals.
+              </span>
+            </Link>
+            <Link href="/present-value-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Present Value Calculator</span>
+              <span className={styles.relatedDesc}>
+                Discount future lump sums and annuities to present dollars, calculate capital project NPV, and print PV tables.
+              </span>
+            </Link>
+            <Link href="/rental-property-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Rental Property Calculator</span>
+              <span className={styles.relatedDesc}>
+                Calculate monthly rental cash flow, cash-on-cash return, cap rate, and 10-year pro forma equity.
+              </span>
+            </Link>
+            <Link href="/cap-rate-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Cap Rate Calculator</span>
+              <span className={styles.relatedDesc}>
+                Calculate un-leveraged commercial capitalization rate, fair property value from NOI, and investment yield spreads.
+              </span>
+            </Link>
             <Link href="/hourly-to-salary-calculator/" className={styles.relatedCard}>
               <span className={styles.relatedTitle}>Hourly to Salary Calculator</span>
               <span className={styles.relatedDesc}>

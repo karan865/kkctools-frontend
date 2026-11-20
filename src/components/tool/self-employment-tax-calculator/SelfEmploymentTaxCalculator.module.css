@@ -1,0 +1,292 @@
+.calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.summaryBanner {
+  background-color: #f0fdf4;
+  border: 1px solid #86efac;
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.25rem 1.5rem;
+  color: #14532d;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+:global([data-theme='dark']) .summaryBanner {
+  background-color: #064e3b;
+  border-color: #059669;
+  color: #f0fdf4;
+}
+
+.bannerHeadline {
+  font-size: 1.35rem;
+  font-weight: 800;
+  margin: 0 0 0.5rem 0;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.bannerAmount {
+  font-size: 1.75rem;
+  color: #15803d;
+}
+
+:global([data-theme='dark']) .bannerAmount {
+  color: #86efac;
+}
+
+.bannerBluf {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.copyButton {
+  background: transparent;
+  border: 1px solid currentColor;
+  border-radius: var(--radius-sm, 6px);
+  color: inherit;
+  font-size: 0.8rem;
+  font-weight: 600;
+  padding: 0.35rem 0.75rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  transition: opacity 0.2s ease;
+}
+
+.copyButton:hover {
+  opacity: 0.8;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.75rem;
+}
+
+@media (min-width: 900px) {
+  .grid {
+    grid-template-columns: 1.1fr 0.9fr;
+  }
+}
+
+.formCard,
+.resultsCard {
+  background: var(--surface-1, #ffffff);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-1, #0f172a);
+  margin: 0 0 0.25rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.formLabel {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-2, #334155);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputPrefix,
+.inputSuffix {
+  position: absolute;
+  font-size: 0.9rem;
+  color: var(--text-3, #64748b);
+  pointer-events: none;
+}
+
+.inputPrefix {
+  left: 0.75rem;
+}
+
+.inputSuffix {
+  right: 0.75rem;
+}
+
+.input {
+  width: 100%;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: var(--radius-md, 8px);
+  background: var(--surface-0, #ffffff);
+  color: var(--text-1, #0f172a);
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-1, #0284c7);
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.15);
+}
+
+.inputWithPrefix {
+  padding-left: 1.75rem;
+}
+
+.inputWithSuffix {
+  padding-right: 2rem;
+}
+
+.subHelp {
+  font-size: 0.75rem;
+  color: var(--text-3, #64748b);
+  margin: 0;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+}
+
+.metricCard {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  color: var(--text-3, #64748b);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.metricValue {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--text-1, #0f172a);
+}
+
+.metricValueGreen {
+  color: #16a34a;
+}
+
+.metricSub {
+  font-size: 0.75rem;
+  color: var(--text-3, #64748b);
+}
+
+.breakdownTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.breakdownTable th,
+.breakdownTable td {
+  padding: 0.5rem 0.65rem;
+  border-bottom: 1px solid var(--border-color, #e2e8f0);
+  text-align: left;
+}
+
+.breakdownTable th {
+  color: var(--text-3, #64748b);
+  font-weight: 700;
+  font-size: 0.75rem;
+}
+
+.breakdownTable td:last-child,
+.breakdownTable th:last-child {
+  text-align: right;
+}
+
+.sourcesBox {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-md, 8px);
+  padding: 1rem;
+  font-size: 0.8rem;
+  color: var(--text-2, #475569);
+  line-height: 1.5;
+}
+
+.sourcesTitle {
+  font-weight: 700;
+  color: var(--text-1, #0f172a);
+  margin-bottom: 0.35rem;
+}
+
+.sourceLink {
+  color: var(--accent-1, #0284c7);
+  text-decoration: underline;
+}
+
+.voucherGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.voucherCard {
+  border: 1px solid var(--border-color, #cbd5e1);
+  border-radius: var(--radius-md, 8px);
+  padding: 0.75rem;
+  background: var(--surface-2, #f8fafc);
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.voucherQ {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--accent-1, #0284c7);
+}
+
+.voucherAmount {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-1, #0f172a);
+}
+
+.voucherDue {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #16a34a;
+}

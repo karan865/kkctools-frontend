@@ -189,8 +189,8 @@ Computed by the engine on the page.
 
 ## 7. Done when
 
-- [ ] `commercial-lease-engine.ts` + tests (§3.6); `npm run verify` passes.
-- [ ] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
-- [ ] Schedule prints cleanly and copies as CSV; m² mode works.
-- [ ] No market rent figures; disclaimer present.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `commercial-lease-engine.ts` + tests (§3.6); `npm run verify` passes.
+- [x] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
+- [x] Schedule prints cleanly and copies as CSV; m² mode works.
+- [x] No market rent figures; disclaimer present.
+- [x] Registrations + docs updated; `graphify update .`.

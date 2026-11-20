@@ -169,7 +169,7 @@ The page computes these from the engine.
 
 ## 7. Done when
 
-- [ ] `card-payoff-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram per tab above the inputs; ToolShell + TabSlider used.
-- [ ] No affiliate links or card ads in the tool area; any APR average cited with a date (or omitted).
-- [ ] Sources & assumptions + Last reviewed; registrations + docs updated; `graphify update .`.
+- [x] `card-payoff-engine.ts` + tests; `npm run verify` passes. *(Evidence: src/lib/card-payoff-engine.ts, 8 unit tests in card-payoff-engine.test.ts passing; full npm run verify passed 851 tests across 67 suites, 96 routes, 82 HTML files)*
+- [x] Input guide diagram per tab above the inputs; ToolShell + TabSlider used. *(Evidence: CardPayoffInputGuide.tsx with visual card/balance amortization/avalanche diagrams; ToolShell with 4 pills; TabSlider with 5 tabs)*
+- [x] No affiliate links or card ads in the tool area; any APR average cited with a date (or omitted). *(Evidence: Zero credit card affiliate links, zero ads in calculator; Federal Reserve G.19 reference cited)*
+- [x] Sources & assumptions + Last reviewed; registrations + docs updated; `graphify update .`. *(Evidence: YMYL box with CFPB & Fed G.19 citations, Last reviewed Nov 2026; registered in routes.ts, tools-catalog.ts #61, Footer.tsx, calculation-methods.ts)*

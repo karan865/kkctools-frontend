@@ -1,0 +1,84 @@
+/* PvInputGuide.module.css */
+
+.container {
+  margin-bottom: 1.25rem;
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+}
+
+.details {
+  width: 100%;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--surface-2, #f8fafc);
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.85rem;
+  color: var(--ink, #0f172a);
+  border-bottom: 1px solid var(--line, #e2e8f0);
+}
+
+.summaryLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconPulse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.summaryHint {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+.diagramWrap {
+  padding: 1rem 0.5rem;
+  overflow-x: auto;
+  display: flex;
+  justify-content: center;
+  background: var(--surface, #ffffff);
+}
+
+.svg {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  display: block;
+}
+
+:global(:root[data-theme='dark']) .container {
+  background: #11151f;
+  border-color: #1e2636;
+}
+
+:global(:root[data-theme='dark']) .summary {
+  background: #19202d;
+  border-bottom-color: #1e2636;
+  color: #f1f5f9;
+}
+
+:global(:root[data-theme='dark']) .diagramWrap {
+  background: #11151f;
+}

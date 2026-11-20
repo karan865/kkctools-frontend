@@ -1,0 +1,456 @@
+.calculatorContainer {
+  width: 100%;
+}
+
+.summaryBanner {
+  background: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  color: #065f46;
+  padding: 0.875rem 1.25rem;
+  border-radius: var(--radius-md, 8px);
+  margin-bottom: 1.25rem;
+  font-size: 0.9375rem;
+  line-height: 1.5;
+  font-weight: 600;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+:global(.dark) .summaryBanner {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: rgba(16, 185, 129, 0.3);
+  color: #6ee7b7;
+}
+
+.layoutGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  align-items: start;
+}
+
+@media (max-width: 992px) {
+  .layoutGrid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.inputCard {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.resultsCard {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sectionTitle {
+  font-size: 1.0625rem;
+  font-weight: 700;
+  color: var(--text, #0f172a);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sectionBadge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.2rem 0.6rem;
+  border-radius: 9999px;
+  background: var(--bg-subtle, #f1f5f9);
+  color: var(--text-muted, #64748b);
+}
+
+.fieldGroup {
+  margin-bottom: 1.125rem;
+}
+
+.fieldLabel {
+  display: block;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text, #1e293b);
+  margin-bottom: 0.375rem;
+}
+
+.fieldHint {
+  display: block;
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+  margin-top: 0.25rem;
+  line-height: 1.4;
+}
+
+.inputRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+}
+
+.inputGroup {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.prefix,
+.suffix {
+  position: absolute;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+  pointer-events: none;
+}
+
+.prefix {
+  left: 0.75rem;
+}
+
+.suffix {
+  right: 0.75rem;
+}
+
+.textInput {
+  width: 100%;
+  height: 2.5rem;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.9375rem;
+  color: var(--text, #0f172a);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #cbd5e1);
+  border-radius: var(--radius-md, 6px);
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.textInput:focus {
+  outline: none;
+  border-color: var(--primary, #2563eb);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+.hasPrefix {
+  padding-left: 1.75rem;
+}
+
+.hasSuffix {
+  padding-right: 2rem;
+}
+
+.toggleButtonGroup {
+  display: flex;
+  background: var(--bg-subtle, #f1f5f9);
+  padding: 0.25rem;
+  border-radius: var(--radius-md, 6px);
+  gap: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+.toggleBtn {
+  flex: 1;
+  padding: 0.4rem 0.75rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border: none;
+  background: transparent;
+  color: var(--text-muted, #64748b);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.toggleBtnActive {
+  background: #ffffff;
+  color: var(--primary, #2563eb);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+:global(.dark) .toggleBtnActive {
+  background: #1e293b;
+  color: #60a5fa;
+}
+
+/* Hero metric card */
+.heroCard {
+  background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  color: #ffffff;
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.15);
+}
+
+.heroLabel {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #94a3b8;
+  margin-bottom: 0.25rem;
+}
+
+.heroValue {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #38bdf8;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+}
+
+.heroSub {
+  font-size: 0.875rem;
+  color: #cbd5e1;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.burdenBadge {
+  background: #10b981;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.15rem 0.5rem;
+  border-radius: 9999px;
+}
+
+.metricsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 0.75rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.metricItem {
+  display: flex;
+  flex-direction: column;
+}
+
+.metricItemLabel {
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: #94a3b8;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.metricItemValue {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-top: 0.2rem;
+}
+
+/* Secondary result card */
+.card {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.tableContainer {
+  overflow-x: auto;
+  margin-top: 0.5rem;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  text-align: left;
+}
+
+.table th {
+  padding: 0.625rem 0.75rem;
+  background: var(--bg-subtle, #f8fafc);
+  font-weight: 700;
+  color: var(--text-muted, #475569);
+  border-bottom: 2px solid var(--border, #e2e8f0);
+}
+
+.table td {
+  padding: 0.5rem 0.75rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+  color: var(--text, #1e293b);
+}
+
+.table tr:last-child td {
+  font-weight: 700;
+  border-bottom: none;
+  background: var(--bg-subtle, #f8fafc);
+}
+
+.numCell {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Crew table */
+.crewTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  margin-bottom: 0.75rem;
+}
+
+.crewTable th {
+  padding: 0.5rem;
+  background: var(--bg-subtle, #f8fafc);
+  font-weight: 600;
+  color: var(--text-muted, #64748b);
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.crewTable td {
+  padding: 0.375rem 0.5rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.removeBtn {
+  background: none;
+  border: none;
+  color: #ef4444;
+  cursor: pointer;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.removeBtn:hover {
+  background: #fef2f2;
+}
+
+.addBtn {
+  background: var(--bg-subtle, #f1f5f9);
+  border: 1px dashed var(--border, #cbd5e1);
+  color: var(--primary, #2563eb);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.addBtn:hover {
+  background: #e0f2fe;
+}
+
+/* Actions bar */
+.actionsBar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  border-radius: var(--radius-md, 6px);
+  cursor: pointer;
+  border: 1px solid var(--border, #cbd5e1);
+  background: var(--surface, #ffffff);
+  color: var(--text, #1e293b);
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: var(--bg-subtle, #f1f5f9);
+  border-color: #94a3b8;
+}
+
+.copiedToast {
+  color: #059669;
+  font-size: 0.75rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
+
+/* Collapsible tax details */
+.taxToggle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background: var(--bg-subtle, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  padding: 0.625rem 0.875rem;
+  border-radius: 6px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--text, #1e293b);
+  cursor: pointer;
+  margin-bottom: 0.75rem;
+}
+
+.taxToggle:hover {
+  background: #f1f5f9;
+}
+
+/* Subcontractor comparison */
+.subCompareBox {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.compareCard {
+  padding: 0.75rem;
+  border-radius: 8px;
+  background: var(--bg-subtle, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+}
+
+.compareCardWinner {
+  background: #ecfdf5;
+  border-color: #a7f3d0;
+}
+
+.compareTitle {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--text-muted, #64748b);
+  text-transform: uppercase;
+}
+
+.compareVal {
+  font-size: 1.125rem;
+  font-weight: 800;
+  color: var(--text, #0f172a);
+  margin-top: 0.25rem;
+}
+
+/* Print styling */
+@media print {
+  .actionsBar,
+  .toggleButtonGroup,
+  .toggleBtn,
+  .taxToggle,
+  .addBtn,
+  .removeBtn {
+    display: none !important;
+  }
+  .inputCard,
+  .card,
+  .heroCard {
+    box-shadow: none !important;
+    border: 1px solid #cbd5e1 !important;
+  }
+}

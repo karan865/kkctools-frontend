@@ -3,8 +3,8 @@ import { TOOLS_CATALOG, CATEGORIES, CategoryId } from './tools-catalog';
 import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
-  it('contains exactly 46 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(46);
+  it('contains exactly 67 tools currently', () => {
+    expect(TOOLS_CATALOG.length).toBe(67);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {
@@ -30,9 +30,9 @@ describe('TOOLS_CATALOG single source of truth', () => {
   });
 
   it('ensures newer tools appear first and older tools appear last', () => {
-    // Top tool is a newest addition from 2026-11-18
-    expect(TOOLS_CATALOG[0].added).toBe('2026-11-18');
-    expect(TOOLS_CATALOG[0].slug).toBe('/discount-calculator/');
+    // Top tool is newest addition from 2026-11-20
+    expect(TOOLS_CATALOG[0].added).toBe('2026-11-20');
+    expect(TOOLS_CATALOG[0].slug).toBe('/self-employment-tax-calculator/');
 
     // Date monotonicity: earlier items must have equal or newer added dates than later items
     for (let i = 0; i < TOOLS_CATALOG.length - 1; i++) {

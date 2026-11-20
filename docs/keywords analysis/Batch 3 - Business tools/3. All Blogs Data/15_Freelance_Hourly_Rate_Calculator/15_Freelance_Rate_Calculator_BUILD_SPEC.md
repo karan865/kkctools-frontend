@@ -180,7 +180,7 @@ salaryEquivalent: a salaried job paying takeHome gross-up — show via wage-engi
 
 ## 7. Done when
 
-- [ ] `freelance-rate-engine.ts` + tests; `wage-engine` + `us-tax-data` reused; `npm run verify` passes.
-- [ ] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
-- [ ] No unsourced rate tables; tax figures cited with year.
-- [ ] Registrations + docs updated; Hourly to Salary links here; `graphify update .`.
+- [x] `freelance-rate-engine.ts` + tests; `wage-engine` + `us-tax-data` reused; `npm run verify` passes.
+- [x] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
+- [x] No unsourced rate tables; tax figures cited with year.
+- [x] Registrations + docs updated; Hourly to Salary links here; `graphify update .`.

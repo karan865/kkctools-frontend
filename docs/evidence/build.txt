@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 96ms
+✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.9s
+✓ Compiled successfully in 10.6s
   Running TypeScript ...
-  Finished TypeScript in 3.0s ...
+  Finished TypeScript in 6.8s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/81) ...
-  Generating static pages using 15 workers (20/81) 
-  Generating static pages using 15 workers (40/81) 
-  Generating static pages using 15 workers (60/81) 
-✓ Generating static pages using 15 workers (81/81) in 3.6s
+  Generating static pages using 15 workers (0/102) ...
+  Generating static pages using 15 workers (25/102) 
+  Generating static pages using 15 workers (50/102) 
+  Generating static pages using 15 workers (76/102) 
+✓ Generating static pages using 15 workers (102/102) in 4.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -22,6 +22,7 @@ Route (app)
 ┌ ○ /
 ├ ○ /_not-found
 ├ ○ /about
+├ ○ /airbnb-calculator
 ├ ○ /apple-touch-icon.png
 ├ ○ /asphalt-calculator
 ├ ○ /band-name-generator
@@ -34,15 +35,22 @@ Route (app)
 ├ ○ /board-and-batten-calculator
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
+├ ○ /business-valuation-calculator
+├ ○ /cap-rate-calculator
 ├ ○ /carpet-cost-calculator
 ├ ○ /cinder-block-calculator
 ├ ○ /cinder-block-calculator/opengraph-image
+├ ○ /commercial-lease-calculator
+├ ○ /commercial-mortgage-calculator
 ├ ○ /compost-calculator
+├ ○ /compound-interest-calculator
 ├ ○ /concrete-calculator
 ├ ○ /concrete-slab-cost-calculator
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
+├ ○ /contribution-margin-calculator
+├ ○ /credit-card-payoff-calculator
 ├ ○ /cubic-feet-to-square-feet
 ├ ○ /cubic-inch-calculator
 ├ ○ /cubic-yard-calculator
@@ -51,16 +59,23 @@ Route (app)
 ├ ○ /disclaimer
 ├ ○ /discount-calculator
 ├ ○ /drywall-calculator
+├ ○ /equipment-loan-calculator
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
 ├ ○ /floor-refinishing-cost-calculator
+├ ○ /freelance-rate-calculator
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /heloc-calculator
 ├ ○ /hourly-to-salary-calculator
+├ ○ /how-long-will-my-money-last
+├ ○ /investment-return-calculator
+├ ○ /invoice-generator
+├ ○ /labor-cost-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /lawn-mowing-cost-calculator
@@ -69,6 +84,7 @@ Route (app)
 ├ ○ /logo.png
 ├ ○ /markup-calculator
 ├ ○ /metal-roof-cost-calculator
+├ ○ /net-worth-calculator
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
@@ -76,13 +92,18 @@ Route (app)
 ├ ○ /paver-sand-calculator
 ├ ○ /percentage-change-calculator
 ├ ○ /pipe-volume-calculator
+├ ○ /present-value-calculator
 ├ ○ /privacy-policy
+├ ○ /processing-fee-calculator
 ├ ○ /profit-margin-calculator
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
+├ ○ /rental-property-calculator
 ├ ○ /robots.txt
 ├ ○ /roof-replacement-cost-calculator
 ├ ○ /sand-calculator
+├ ○ /sba-loan-calculator
+├ ○ /self-employment-tax-calculator
 ├ ○ /shingle-calculator
 ├ ○ /site-map
 ├ ○ /sitemap.xml

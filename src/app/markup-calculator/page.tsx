@@ -502,6 +502,15 @@ export default function MarkupCalculatorPage() {
               Complement your pricing strategy with our other verified calculators:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.processingFeeCalculator.path} className={styles.pillLink}>
+                Card Processing Fee Calculator (Square, Stripe &amp; Net Proceeds)
+              </Link>
+              <Link href={ROUTES.contributionMarginCalculator.path} className={styles.pillLink}>
+                Contribution Margin Calculator (Break-Even &amp; CM Ratio)
+              </Link>
+              <Link href={ROUTES.laborCostCalculator.path} className={styles.pillLink}>
+                Labor Cost Calculator (Burdened Rate &amp; Quotes)
+              </Link>
               <Link href={ROUTES.discountCalculator.path} className={styles.pillLink}>
                 Discount Calculator (Percent Off &amp; Sale Price)
               </Link>

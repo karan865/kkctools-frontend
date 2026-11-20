@@ -167,7 +167,7 @@ excelFormulas(tab, inputs) -> strings  e.g. '=PV(6%,10,0,-10000)' , '=NPV(8%,B2:
 
 ## 7. Done when
 
-- [ ] `tvm-engine.ts` + tests (reused later); `npm run verify` passes.
-- [ ] Input guide diagram per tab above the inputs; NPV profile in results; ToolShell + TabSlider used.
-- [ ] PV table prints cleanly and copies as CSV; Excel formulas verified in a real spreadsheet (note it in the PR/docs).
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `tvm-engine.ts` + tests (reused later); `npm run verify` passes.
+- [x] Input guide diagram per tab above the inputs; NPV profile in results; ToolShell + TabSlider used.
+- [x] PV table prints cleanly and copies as CSV; Excel formulas verified in a real spreadsheet (note it in the PR/docs).
+- [x] Registrations + docs updated; `graphify update .`.

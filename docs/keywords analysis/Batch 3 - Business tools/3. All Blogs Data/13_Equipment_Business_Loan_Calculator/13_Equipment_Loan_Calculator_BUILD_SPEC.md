@@ -196,7 +196,7 @@ dscr = annualCashFlow / annualDebtService
 
 ## 7. Done when
 
-- [ ] `loan-engine` reused (`aprWithFees`, `factorRateToApr` covered by tests); `equipment-loan-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram per tab, above the inputs; ToolShell + TabSlider used.
-- [ ] No live rates; IRS links dated; Last reviewed date shown.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `loan-engine` reused (`aprWithFees`, `factorRateToApr` covered by tests); `equipment-loan-engine.ts` + tests; `npm run verify` passes. *(Evidence: 7 tests in equipment-loan-engine.test.ts passing, npm run verify passes with 0 errors)*
+- [x] Input guide diagram per tab, above the inputs; ToolShell + TabSlider used. *(Evidence: EquipmentInputGuide.tsx with excavator and financing flow; EquipmentLoanCalculator.tsx with ToolShell 4 pills and TabSlider 4 modes)*
+- [x] No live rates; IRS links dated; Last reviewed date shown. *(Evidence: ELFA/IRS.gov/FCS citations in HowWeCalculate, Section 179 IRS.gov link, November 2026 review date)*
+- [x] Registrations + docs updated; `graphify update .`. *(Evidence: registered in routes, tools-catalog, Icons, ToolArt, Footer, calculation-methods, docs updated)*

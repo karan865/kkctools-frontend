@@ -162,8 +162,8 @@ toCSV(invoice), toText(invoice)
 
 ## 7. Done when
 
-- [ ] `invoice-engine.ts` + tests (§3.6); `npm run verify` passes; `check:no-network` passes.
-- [ ] Input guide (mini invoice) above the form; live preview; print shows only the invoice.
-- [ ] No client data in URLs; local save is opt-in and clearable.
-- [ ] Original layouts; tax wording cites only what the linked official pages say.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `invoice-engine.ts` + tests (§3.6); `npm run verify` passes; `check:no-network` passes.
+- [x] Input guide (mini invoice) above the form; live preview; print shows only the invoice.
+- [x] No client data in URLs; local save is opt-in and clearable.
+- [x] Original layouts; tax wording cites only what the linked official pages say.
+- [x] Registrations + docs updated; `graphify update .`.

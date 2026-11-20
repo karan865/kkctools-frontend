@@ -732,98 +732,883 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
-  /* Percentage Change Calculator: base vs final comparison bars and % symbol */
+  /* Percentage Change Calculator: Before vs after bar comparison with curved delta arrow */
   percent: (
     <>
-      <rect className={s.f2} x={28} y={54} width={50} height={24} rx={6} />
-      <rect className={k('fl', 's2')} x={88} y={32} width={70} height={46} rx={6} />
-      <circle className={s.f1} cx={170} cy={34} r={8} />
-      <circle className={s.f1} cx={194} cy={66} r={8} />
-      <line className={s.dim} x1={196} y1={28} x2={168} y2={72} strokeWidth={2.5} />
-      <Dim x1={28} y1={86} x2={78} y2={86} label="80" lx={53} ly={94} />
-      <Dim x1={88} y1={86} x2={158} y2={86} label="100 (+25%)" lx={123} ly={94} />
+      <rect className={s.f2} x={28} y={46} width={42} height={36} rx={4} />
+      <rect className={s.f1} x={82} y={26} width={42} height={56} rx={4} />
+      <text className={s.txW} x={49} y={68} textAnchor="middle" fontSize={10} fontWeight={800}>
+        80
+      </text>
+      <text className={s.txW} x={103} y={58} textAnchor="middle" fontSize={10} fontWeight={800}>
+        100
+      </text>
+      <path className={k('fn', 's2', 'thick')} d="M50 40 Q75 14, 102 20" />
+      <polygon className={s.f2} points="104,14 107,24 98,22" />
+      <rect className={k('fp', 's2')} x={136} y={26} width={54} height={48} rx={6} />
+      <text className={s.txL} x={163} y={44} textAnchor="middle" fontSize={12} fontWeight={800} fill="#16a34a">
+        +25.0%
+      </text>
+      <text className={s.tx} x={163} y={58} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Increase
+      </text>
+      <text className={s.tx} x={163} y={68} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        Δ = +20
+      </text>
+      <Dim x1={28} y1={88} x2={124} y2={88} label="(New − Old) ÷ Old × 100" lx={76} ly={95} />
     </>
   ),
-  /* Markup Calculator: price tag with markup percentage badge and profit arrow */
+  /* Markup Calculator: Retail price tag with string hole, price transition & markup arrow */
   tag: (
     <>
       <path
         className={k('fl', 's2')}
-        d="M 120 20 L 70 20 C 66 20 62 22 59 25 L 26 58 C 21 63 21 71 26 76 L 54 104 C 59 109 67 109 72 104 L 105 71 C 108 68 110 64 110 60 L 110 30 C 110 24 116 20 120 20 Z"
+        d="M 108 22 L 64 22 C 60 22 56 24 53 27 L 24 56 C 20 60 20 68 24 72 L 50 98 C 54 102 62 102 66 98 L 95 69 C 98 66 100 62 100 58 L 100 30 C 100 25 104 22 108 22 Z"
       />
-      <circle className={s.f1} cx={94} cy={36} r={5} />
-      <rect className={s.f2} x={126} y={38} width={68} height={28} rx={6} />
-      <text className={s.tx} x={160} y={56} textAnchor="middle" fontSize={11} fontWeight={700}>
+      <circle className={s.fp} cx={86} cy={34} r={4.5} />
+      <circle className={s.f1} cx={86} cy={34} r={2.5} />
+      <path className={k('fn', 's2')} d="M86 32 C78 18 90 12 98 16" strokeDasharray="2 1.5" />
+      <text className={s.tx} x={60} y={58} textAnchor="middle" fontSize={9} fontWeight={700}>
+        Cost $40
+      </text>
+      <text className={s.tx} x={60} y={72} textAnchor="middle" fontSize={10} fontWeight={800}>
+        → $60
+      </text>
+      <rect className={k('fp', 's2')} x={114} y={28} width={76} height={50} rx={6} />
+      <text className={s.txL} x={152} y={48} textAnchor="middle" fontSize={12} fontWeight={800}>
         +50% M/U
       </text>
-      <Dim x1={26} y1={112} x2={105} y2={112} label="$40 → $60" lx={65} ly={118} />
+      <text className={s.tx} x={152} y={62} textAnchor="middle" fontSize={8.5} fontWeight={600}>
+        $20 Profit
+      </text>
+      <text className={s.tx} x={152} y={72} textAnchor="middle" fontSize={8} fontWeight={600}>
+        33.3% Margin
+      </text>
+      <Dim x1={24} y1={102} x2={100} y2={102} label="(Price − Cost) ÷ Cost" lx={62} ly={108} />
     </>
   ),
-  /* Profit Margin Calculator: revenue bar split into COGS and gross profit margin % */
+  /* Profit Margin Calculator: Revenue waterfall split into COGS and Gross Margin */
   margin: (
     <>
-      <rect className={s.f2} x={28} y={32} width={76} height={48} rx={6} />
-      <rect className={k('fl', 's2')} x={108} y={48} width={56} height={32} rx={6} />
-      <text className={s.tx} x={66} y={58} textAnchor="middle" fontSize={11} fontWeight={700}>
-        COGS 60%
+      <rect className={s.f2} x={24} y={26} width={88} height={30} rx={4} />
+      <rect className={s.f1} x={112} y={26} width={64} height={30} rx={4} />
+      <text className={s.txW} x={68} y={44} textAnchor="middle" fontSize={9.5} fontWeight={700}>
+        COGS $60 (60%)
       </text>
-      <text className={s.tx} x={136} y={66} textAnchor="middle" fontSize={11} fontWeight={800}>
-        40% GP
+      <text className={s.txW} x={144} y={44} textAnchor="middle" fontSize={9.5} fontWeight={800}>
+        GP $40 (40%)
       </text>
-      <Dim x1={28} y1={92} x2={164} y2={92} label="$100 Revenue" lx={96} ly={98} />
+      <rect className={k('fp', 's2')} x={56} y={64} width={88} height={22} rx={11} />
+      <text className={s.txL} x={100} y={79} textAnchor="middle" fontSize={10} fontWeight={800}>
+        40.0% Gross Margin
+      </text>
+      <Dim x1={24} y1={92} x2={176} y2={92} label="$100 Revenue = Cost of Goods + Profit" lx={100} ly={98} />
     </>
   ),
-  /* Unit Price Calculator: Two competing packs with price per oz badges */
+  /* Unit Price Calculator: Two retail bottles with price-per-ounce comparison and best-value rosette */
   unitPrice: (
     <>
-      <rect className={s.f2} x={32} y={38} width={42} height={42} rx={6} />
-      <rect className={k('fl', 's2')} x={88} y={24} width={56} height={56} rx={6} />
-      <text className={s.tx} x={53} y={62} textAnchor="middle" fontSize={11} fontWeight={700}>
+      <rect className={s.f2} x={26} y={42} width={26} height={38} rx={4} />
+      <rect className={s.fm} x={33} y={34} width={12} height={8} rx={2} />
+      <text className={s.txW} x={39} y={62} textAnchor="middle" fontSize={8} fontWeight={700}>
         12 oz
       </text>
-      <text className={s.tx} x={116} y={54} textAnchor="middle" fontSize={11} fontWeight={700}>
+      <rect className={k('fp', 's2')} x={20} y={82} width={38} height={14} rx={2} />
+      <text className={s.tx} x={39} y={92} textAnchor="middle" fontSize={8} fontWeight={700}>
+        75¢ / oz
+      </text>
+      <rect className={s.f1} x={74} y={28} width={44} height={52} rx={6} />
+      <rect className={s.fm} x={88} y={20} width={16} height={8} rx={2} />
+      <path className={k('fn', 's1', 'thick')} d="M74 36 Q64 44 74 54" />
+      <text className={s.txW} x={96} y={56} textAnchor="middle" fontSize={9.5} fontWeight={800}>
         32 oz
       </text>
-      <rect className={s.f1} x={156} y={36} width={38} height={20} rx={4} />
-      <text className={s.txW} x={175} y={50} textAnchor="middle" fontSize={9} fontWeight={800}>
-        BEST
+      <rect className={k('fp', 's2')} x={72} y={82} width={48} height={14} rx={2} />
+      <text className={s.txL} x={96} y={92} textAnchor="middle" fontSize={8.5} fontWeight={800}>
+        58¢ / oz
       </text>
-      <Dim x1={32} y1={88} x2={74} y2={88} label="75¢/oz" lx={53} ly={95} />
-      <Dim x1={88} y1={88} x2={144} y2={88} label="58¢/oz" lx={116} ly={95} />
+      <rect className={k('fp', 's2')} x={132} y={32} width={58} height={46} rx={8} />
+      <circle className={s.f1} cx={161} cy={44} r={8} />
+      <polygon className={s.fp} points="161,38 163,42 168,43 164,46 165,50 161,48 157,50 158,46 154,43 159,42" />
+      <text className={s.txL} x={161} y={64} textAnchor="middle" fontSize={8} fontWeight={800}>
+        BEST VALUE
+      </text>
+      <text className={s.tx} x={161} y={73} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Save 23%
+      </text>
     </>
   ),
-  /* Hourly to Salary Calculator: Hourly rate card transitioning to annual salary check */
+  /* Hourly to Salary: Clock face connected by transfer arrow to salary paycheck */
   wage: (
     <>
-      <circle className={s.f2} cx={52} cy={48} r={24} />
-      <line className={s.s2} x1={52} y1={48} x2={52} y2={34} strokeWidth={2.5} />
-      <line className={s.s2} x1={52} y1={48} x2={64} y2={48} strokeWidth={2.5} />
-      <rect className={k('fl', 's2')} x={96} y={26} width={82} height={46} rx={6} />
-      <text className={s.tx} x={137} y={46} textAnchor="middle" fontSize={10} fontWeight={700}>
-        $25 / hr
+      <circle className={s.f2} cx={46} cy={48} r={24} />
+      <circle className={s.fp} cx={46} cy={48} r={20} />
+      <line className={k('s2', 'thick')} x1={46} y1={48} x2={46} y2={34} />
+      <line className={k('s2', 'thick')} x1={46} y1={48} x2={56} y2={48} />
+      <circle className={s.f1} cx={46} cy={48} r={2.5} />
+      <text className={s.tx} x={46} y={80} textAnchor="middle" fontSize={8.5} fontWeight={700}>
+        $25.00 / hr
       </text>
-      <text className={s.tx} x={137} y={62} textAnchor="middle" fontSize={11} fontWeight={800}>
-        $52k / yr
+      <path className={k('fn', 's1', 'thick')} d="M74 42 C86 32, 98 32, 108 40" />
+      <polygon className={s.f1} points="110,34 114,44 104,43" />
+      <rect className={s.f1} x={122} y={32} width={64} height={42} rx={4} />
+      <polygon className={s.fm} points="122,32 154,52 186,32" />
+      <rect className={s.fp} x={132} y={24} width={44} height={14} rx={2} />
+      <text className={s.txL} x={154} y={34} textAnchor="middle" fontSize={8.5} fontWeight={800}>
+        $52,000 / yr
       </text>
-      <Dim x1={96} y1={84} x2={178} y2={84} label="2,080 h / yr" lx={137} ly={92} />
+      <Dim x1={22} y1={90} x2={186} y2={90} label="2,080 Work Hours per Year (40 hrs × 52 wks)" lx={104} ly={96} />
     </>
   ),
-  /* Discount Calculator: Discount tag with percentage slash and sale badge */
+  /* Discount Calculator: Hanging retail sale tag with strike-through & savings badge */
   discount: (
     <>
       <path
         className={k('fl', 's2')}
-        d="M 110 24 L 64 24 C 60 24 57 26 54 29 L 26 57 C 22 61 22 69 26 73 L 53 100 C 57 104 65 104 69 100 L 97 72 C 100 69 102 66 102 62 L 102 32 C 102 27 106 24 110 24 Z"
+        d="M 96 24 L 54 24 C 50 24 47 26 44 29 L 22 57 C 18 61 18 69 22 73 L 44 95 C 48 99 56 99 60 95 L 82 73 C 85 70 87 66 87 62 L 87 32 C 87 27 91 24 96 24 Z"
       />
-      <circle className={s.f1} cx={86} cy={38} r={4.5} />
-      <rect className={s.f2} x={116} y={32} width={72} height={30} rx={6} />
-      <text className={s.tx} x={152} y={52} textAnchor="middle" fontSize={12} fontWeight={800}>
+      <circle className={s.fp} cx={74} cy={36} r={4.5} />
+      <circle className={s.f1} cx={74} cy={36} r={2.5} />
+      <text className={s.tx} x={50} y={58} textAnchor="middle" fontSize={8.5} textDecoration="line-through">
+        $100.00
+      </text>
+      <text className={s.txL} x={50} y={74} textAnchor="middle" fontSize={11} fontWeight={800}>
+        $80.00
+      </text>
+      <rect className={s.f1} x={108} y={26} width={76} height={30} rx={6} />
+      <text className={s.txW} x={146} y={46} textAnchor="middle" fontSize={13} fontWeight={800}>
         −20% OFF
       </text>
-      <rect className={k('fn', 's2')} x={124} y={70} width={56} height={20} rx={4} strokeDasharray="3 2" />
-      <text className={s.tx} x={152} y={84} textAnchor="middle" fontSize={10} fontWeight={700}>
-        Save $20
+      <rect className={k('fp', 's2')} x={114} y={64} width={64} height={22} rx={4} />
+      <text className={s.tx} x={146} y={78} textAnchor="middle" fontSize={8.5} fontWeight={700}>
+        You Save $20.00
       </text>
+    </>
+  ),
+  /* Cap Rate Calculator: Commercial office building with illuminated windows, property sign & NOI yield badge */
+  capRate: (
+    <>
+      <rect className={s.f2} x={24} y={16} width={58} height={68} rx={2} />
+      <rect className={s.fm} x={36} y={10} width={34} height={6} rx={1} />
+      {[0, 1, 2, 3].map((r) =>
+        [0, 1, 2].map((c) => (
+          <rect key={`${r}-${c}`} className={s.fp} x={30 + c * 16} y={20 + r * 11} width={10} height={7} rx={1} />
+        ))
+      )}
+      <rect className={s.fl} x={44} y={66} width={18} height={18} rx={1} />
+      <line className={s.sp} x1={53} y1={66} x2={53} y2={84} />
+      <line className={s.s2} x1={92} y1={56} x2={92} y2={84} strokeWidth={2} />
+      <rect className={s.f1} x={84} y={44} width={28} height={16} rx={2} />
+      <text className={s.txW} x={98} y={55} textAnchor="middle" fontSize={6.5} fontWeight={700}>
+        $2.4M
+      </text>
+      <rect className={k('fp', 's2')} x={118} y={20} width={74} height={62} rx={6} />
+      <text className={s.tx} x={155} y={36} textAnchor="middle" fontSize={8.5} fontWeight={700}>
+        NOI $127,560
+      </text>
+      <line className={s.dim} x1={126} y1={42} x2={184} y2={42} />
+      <text className={s.txL} x={155} y={58} textAnchor="middle" fontSize={14} fontWeight={800} fill="#16a34a">
+        5.32%
+      </text>
+      <text className={s.tx} x={155} y={72} textAnchor="middle" fontSize={8} fontWeight={600}>
+        Cap Rate Yield
+      </text>
+      <Dim x1={24} y1={90} x2={192} y2={90} label="NOI ÷ Purchase Price = Capitalization Rate" lx={108} ly={96} />
+    </>
+  ),
+  /* Rental Property: 2-story residential home with pitched roof, porch, "FOR RENT" lawn sign & cash flow tag */
+  rentalProperty: (
+    <>
+      <polygon className={s.f1} points="18,42 56,16 94,42" />
+      <rect className={s.f2} x={74} y={18} width={8} height={14} />
+      <rect className={s.f2} x={24} y={42} width={64} height={42} rx={1} />
+      <rect className={s.fp} x={32} y={48} width={12} height={12} rx={1} />
+      <line className={s.s2} x1={38} y1={48} x2={38} y2={60} strokeWidth={0.8} />
+      <line className={s.s2} x1={32} y1={54} x2={44} y2={54} strokeWidth={0.8} />
+      <rect className={s.fp} x={68} y={48} width={12} height={12} rx={1} />
+      <line className={s.s2} x1={74} y1={48} x2={74} y2={60} strokeWidth={0.8} />
+      <line className={s.s2} x1={68} y1={54} x2={80} y2={54} strokeWidth={0.8} />
+      <rect className={s.fp} x={50} y={64} width={12} height={20} rx={1} />
+      <circle className={s.f2} cx={59} cy={74} r={1} />
+      <line className={k('s2', 'thick')} x1={102} y1={52} x2={102} y2={84} />
+      <rect className={s.f1} x={94} y={46} width={28} height={14} rx={2} />
+      <text className={s.txW} x={108} y={56} textAnchor="middle" fontSize={6} fontWeight={800}>
+        FOR RENT
+      </text>
+      <rect className={k('fp', 's2')} x={126} y={22} width={66} height={62} rx={6} />
+      <text className={s.tx} x={159} y={38} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Net Cash Flow
+      </text>
+      <text className={s.txL} x={159} y={54} textAnchor="middle" fontSize={12} fontWeight={800} fill="#16a34a">
+        +$243/mo
+      </text>
+      <line className={s.dim} x1={134} y1={60} x2={184} y2={60} />
+      <text className={s.tx} x={159} y={72} textAnchor="middle" fontSize={8} fontWeight={700}>
+        8.4% CoC Return
+      </text>
+      <Dim x1={18} y1={90} x2={192} y2={90} label="Rent − Mortgage − Expenses = Cash Flow" lx={105} ly={96} />
+    </>
+  ),
+  /* Labor Cost: Safety hardhat, employee timecard badge & burdened wage breakdown */
+  laborCost: (
+    <>
+      <path className={s.f1} d="M22 52 Q22 28 52 28 Q82 28 82 52 Z" />
+      <path className={s.f2} d="M16 52 C16 49 88 49 88 52 C88 56 16 56 16 52 Z" />
+      <path className={s.fp} d="M48 28 Q52 25 56 28 L56 50 L48 50 Z" opacity={0.6} />
+      <rect className={k('fp', 's2')} x={88} y={24} width={42} height={60} rx={4} />
+      <rect className={s.f2} x={103} y={20} width={12} height={4} rx={1} />
+      <circle className={s.fm} cx={109} cy={38} r={7} />
+      <path className={s.fm} d="M99 54 Q109 46 119 54" />
+      <line className={s.dim} x1={94} y1={62} x2={124} y2={62} />
+      <line className={s.dim} x1={94} y1={68} x2={124} y2={68} />
+      <line className={s.dim} x1={94} y1={74} x2={116} y2={74} />
+      <rect className={k('fp', 's2')} x={136} y={22} width={58} height={62} rx={6} />
+      <text className={s.tx} x={165} y={36} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Base $30.00/hr
+      </text>
+      <text className={s.tx} x={165} y={48} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        +22.6% Taxes/Ins
+      </text>
+      <line className={s.dim} x1={142} y1={54} x2={188} y2={54} />
+      <text className={s.txL} x={165} y={68} textAnchor="middle" fontSize={11.5} fontWeight={800} fill="#0284c7">
+        $39.86/hr
+      </text>
+      <text className={s.tx} x={165} y={78} textAnchor="middle" fontSize={7} fontWeight={600}>
+        True Burdened Cost
+      </text>
+      <Dim x1={20} y1={90} x2={194} y2={90} label="Wages + FICA + Workers' Comp + Benefits" lx={107} ly={96} />
+    </>
+  ),
+  /* Commercial Lease: Commercial storefront with striped awning, plate-glass windows & NNN badge */
+  commercialLease: (
+    <>
+      <rect className={s.f2} x={22} y={20} width={88} height={64} rx={2} />
+      <polygon className={s.f1} points="18,36 114,36 118,48 14,48" />
+      {[0, 1, 2, 3, 4].map((i) => (
+        <polygon key={i} className={s.fp} points={`${24 + i * 18},36 ${32 + i * 18},36 ${30 + i * 18},48 ${22 + i * 18},48`} opacity={0.65} />
+      ))}
+      <rect className={s.fp} x={28} y={52} width={24} height={28} rx={1} />
+      <rect className={s.fl} x={56} y={50} width={20} height={34} rx={1} />
+      <line className={s.s2} x1={66} y1={50} x2={66} y2={84} strokeWidth={1} />
+      <rect className={s.fp} x={80} y={52} width={24} height={28} rx={1} />
+      <rect className={s.f1} x={36} y={24} width={60} height={9} rx={2} />
+      <text className={s.txW} x={66} y={31} textAnchor="middle" fontSize={6.5} fontWeight={800}>
+        SPACE FOR LEASE
+      </text>
+      <rect className={k('fp', 's2')} x={118} y={20} width={74} height={64} rx={6} />
+      <text className={s.tx} x={155} y={34} textAnchor="middle" fontSize={8} fontWeight={700}>
+        2,300 RSF
+      </text>
+      <text className={s.tx} x={155} y={45} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        $24/SF + $6 NNN
+      </text>
+      <line className={s.dim} x1={126} y1={50} x2={184} y2={50} />
+      <text className={s.txL} x={155} y={64} textAnchor="middle" fontSize={11.5} fontWeight={800}>
+        $6,133/mo
+      </text>
+      <text className={s.tx} x={155} y={76} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Total Monthly Rent
+      </text>
+      <Dim x1={18} y1={90} x2={192} y2={90} label="Base Rent + NNN Operating Expenses" lx={105} ly={96} />
+    </>
+  ),
+  /* Airbnb Profit: A-frame vacation cabin nestled among pines with booking calendar card */
+  airbnbHost: (
+    <>
+      <polygon className={s.f2} points="18,36 10,50 26,50" />
+      <polygon className={s.f2} points="18,46 8,62 28,62" />
+      <polygon className={s.f2} points="18,58 6,76 30,76" />
+      <line className={k('s2', 'thick')} x1={18} y1={76} x2={18} y2={84} />
+      <polygon className={s.f1} points="60,18 28,84 92,84" />
+      <polygon className={s.fp} points="60,26 36,80 84,80" opacity={0.85} />
+      <line className={s.s2} x1={60} y1={26} x2={60} y2={80} strokeWidth={1.2} />
+      <line className={s.s2} x1={44} y1={60} x2={76} y2={60} strokeWidth={1} />
+      <rect className={s.f2} x={54} y={64} width={12} height={16} rx={1} />
+      <line className={k('s1', 'thick')} x1={22} y1={84} x2={98} y2={84} />
+      <rect className={k('fp', 's2')} x={102} y={20} width={90} height={64} rx={6} />
+      <rect className={s.f1} x={102} y={20} width={90} height={16} rx={6} />
+      <text className={s.txW} x={147} y={32} textAnchor="middle" fontSize={8} fontWeight={800}>
+        CALENDAR BOOKINGS
+      </text>
+      <text className={s.tx} x={147} y={48} textAnchor="middle" fontSize={8} fontWeight={700}>
+        65% Occ · $180/nt
+      </text>
+      <line className={s.dim} x1={110} y1={54} x2={184} y2={54} />
+      <text className={s.txL} x={147} y={68} textAnchor="middle" fontSize={11} fontWeight={800} fill="#16a34a">
+        +$967/mo Net
+      </text>
+      <text className={s.tx} x={147} y={78} textAnchor="middle" fontSize={7} fontWeight={600}>
+        15.5% Cash-on-Cash
+      </text>
+      <Dim x1={18} y1={90} x2={192} y2={90} label="ADR · Occupancy · Cleaning &amp; Platform Fees" lx={105} ly={96} />
+    </>
+  ),
+  /* Freelance Rate: Workspace desk with open laptop, coffee mug & stopwatch billable rate dial */
+  freelanceRate: (
+    <>
+      <line className={k('s2', 'thick')} x1={14} y1={84} x2={190} y2={84} />
+      <polygon className={s.f2} points="24,78 76,78 82,82 18,82" />
+      <polygon className={s.f1} points="26,46 74,46 76,78 24,78" />
+      <rect className={s.fp} x={30} y={50} width={40} height={24} rx={1} opacity={0.9} />
+      <line className={s.s2} x1={34} y1={56} x2={56} y2={56} strokeWidth={1} />
+      <line className={s.s2} x1={34} y1={60} x2={64} y2={60} strokeWidth={1} />
+      <line className={s.s2} x1={34} y1={64} x2={48} y2={64} strokeWidth={1} />
+      <rect className={s.fm} x={88} y={64} width={12} height={16} rx={2} />
+      <path className={k('fn', 's2')} d="M100 68 Q106 72 100 76" />
+      <circle className={s.f2} cx={146} cy={44} r={22} />
+      <circle className={s.fp} cx={146} cy={44} r={18} />
+      <rect className={s.f1} x={143} y={18} width={6} height={4} rx={1} />
+      <line className={k('s1', 'thick')} x1={146} y1={44} x2={146} y2={32} />
+      <line className={k('s1', 'thick')} x1={146} y1={44} x2={156} y2={44} />
+      <circle className={s.f2} cx={146} cy={44} r={2.5} />
+      <rect className={k('fp', 's2')} x={118} y={70} width={68} height={18} rx={4} />
+      <text className={s.txL} x={152} y={82} textAnchor="middle" fontSize={9.5} fontWeight={800} fill="#0284c7">
+        $99.33 / hr
+      </text>
+      <Dim x1={20} y1={90} x2={188} y2={90} label="Goal: $70k Net · 1,260 Billable Hours" lx={104} ly={96} />
+    </>
+  ),
+  /* Contribution Margin: Coordinate break-even chart with fixed cost line, total cost, revenue & break-even point */
+  contributionMargin: (
+    <>
+      <line className={k('s2', 'thick')} x1={28} y1={18} x2={28} y2={82} />
+      <line className={k('s2', 'thick')} x1={28} y1={82} x2={186} y2={82} />
+      <line className={s.dim} x1={28} y1={60} x2={184} y2={60} strokeDasharray="3 2" />
+      <text className={s.tx} x={64} y={56} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Fixed Costs
+      </text>
+      <line className={s.s2} x1={28} y1={60} x2={180} y2={30} strokeWidth={2} />
+      <line className={s.s1} x1={28} y1={82} x2={180} y2={20} strokeWidth={2.4} />
+      <circle className={s.fp} cx={104} cy={45} r={5} />
+      <circle className={s.f1} cx={104} cy={45} r={3} />
+      <rect className={k('fp', 's2')} x={118} y={16} width={68} height={46} rx={5} />
+      <text className={s.tx} x={152} y={28} textAnchor="middle" fontSize={7.5} fontWeight={700}>
+        Break-Even Point
+      </text>
+      <text className={s.txL} x={152} y={42} textAnchor="middle" fontSize={10} fontWeight={800}>
+        1,000 Units
+      </text>
+      <text className={s.tx} x={152} y={54} textAnchor="middle" fontSize={8} fontWeight={700} fill="#16a34a">
+        40.0% CM Ratio
+      </text>
+      <Dim x1={28} y1={90} x2={186} y2={90} label="Price − Variable Cost = Contribution Margin" lx={107} ly={96} />
+    </>
+  ),
+  /* Commercial Mortgage: Classical bank building with columns, LTV dial meter & 10-year balloon callout */
+  commercialMortgage: (
+    <>
+      <polygon className={s.f1} points="16,36 54,16 92,36" />
+      <rect className={s.f2} x={14} y={36} width={80} height={6} rx={1} />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} className={s.fp} x={22 + i * 18} y={42} width={8} height={36} rx={1} />
+      ))}
+      <rect className={s.f2} x={12} y={78} width={84} height={6} rx={1} />
+      <rect className={k('fp', 's2')} x={108} y={18} width={80} height={66} rx={6} />
+      <text className={s.tx} x={148} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>
+        10-Yr Term · 75% LTV
+      </text>
+      <line className={s.dim} x1={116} y1={38} x2={180} y2={38} />
+      <text className={s.tx} x={148} y={48} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        Balloon Balance
+      </text>
+      <text className={s.txL} x={148} y={62} textAnchor="middle" fontSize={13} fontWeight={800} fill="#0284c7">
+        $1.18M
+      </text>
+      <text className={s.tx} x={148} y={74} textAnchor="middle" fontSize={7} fontWeight={600}>
+        $10,602/mo · 1.26× DSCR
+      </text>
+      <Dim x1={12} y1={90} x2={190} y2={90} label="10-Year Balloon on 25-Year Amortization" lx={101} ly={96} />
+    </>
+  ),
+  /* Equipment Loan: Hydraulic construction excavator with boom, cab, crawler tracks & financing badge */
+  equipmentLoan: (
+    <>
+      <rect className={s.f2} x={18} y={68} width={62} height={14} rx={7} />
+      {[0, 1, 2, 3, 4].map((i) => (
+        <circle key={i} className={s.fp} cx={25 + i * 12} cy={75} r={3.5} />
+      ))}
+      <rect className={s.f1} x={24} y={42} width={42} height={26} rx={4} />
+      <rect className={s.fp} x={44} y={46} width={18} height={14} rx={2} opacity={0.9} />
+      <rect className={s.fm} x={20} y={48} width={8} height={18} rx={2} />
+      <line className={k('s1', 'thick')} x1={60} y1={52} x2={86} y2={28} strokeWidth={5} />
+      <line className={k('s2', 'thick')} x1={86} y1={28} x2={108} y2={50} strokeWidth={4} />
+      <polygon className={s.f2} points="108,50 118,60 112,68 102,62" />
+      <rect className={k('fp', 's2')} x={124} y={20} width={66} height={64} rx={6} />
+      <text className={s.tx} x={157} y={34} textAnchor="middle" fontSize={8} fontWeight={700}>
+        $75.3k Machine
+      </text>
+      <text className={s.tx} x={157} y={45} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        60 Mo @ 8.5%
+      </text>
+      <line className={s.dim} x1={132} y1={50} x2={182} y2={50} />
+      <text className={s.txL} x={157} y={64} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0284c7">
+        $1,545/mo
+      </text>
+      <text className={s.tx} x={157} y={76} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Loan vs. Lease
+      </text>
+      <Dim x1={18} y1={90} x2={190} y2={90} label="Equipment Loan · Finance vs Lease vs Cash" lx={104} ly={96} />
+    </>
+  ),
+  /* Business Valuation: Enterprise valuation multiple speedometer gauge with valuation range */
+  businessValuation: (
+    <>
+      <path className={k('fn', 's2')} d="M26 66 A36 36 0 0 1 98 66" strokeWidth={10} strokeLinecap="round" />
+      <path className={k('fn', 's1')} d="M26 66 A36 36 0 0 1 74 33" strokeWidth={10} strokeLinecap="round" />
+      <line className={k('s1', 'thick')} x1={62} y1={66} x2={78} y2={40} strokeWidth={2.5} />
+      <circle className={s.f2} cx={62} cy={66} r={5} />
+      <circle className={s.fp} cx={62} cy={66} r={2} />
+      <text className={s.tx} x={28} y={78} textAnchor="middle" fontSize={7} fontWeight={700}>
+        2.0×
+      </text>
+      <text className={s.tx} x={62} y={24} textAnchor="middle" fontSize={7} fontWeight={700}>
+        3.0×
+      </text>
+      <text className={s.tx} x={96} y={78} textAnchor="middle" fontSize={7} fontWeight={700}>
+        4.0×
+      </text>
+      <rect className={k('fp', 's2')} x={112} y={18} width={78} height={66} rx={6} />
+      <text className={s.tx} x={151} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>
+        $241k SDE
+      </text>
+      <text className={s.tx} x={151} y={43} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        2.0× – 3.0× Multiples
+      </text>
+      <line className={s.dim} x1={120} y1={48} x2={182} y2={48} />
+      <text className={s.txL} x={151} y={62} textAnchor="middle" fontSize={10} fontWeight={800} fill="#0d9488">
+        $482k – $723k
+      </text>
+      <text className={s.tx} x={151} y={74} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        Enterprise Value
+      </text>
+      <Dim x1={20} y1={90} x2={190} y2={90} label="SDE &amp; EBITDA Multiples · Valuation Method" lx={105} ly={96} />
+    </>
+  ),
+  /* Present Value: Time-value timeline discounting future cash bundles back into a present value vault */
+  presentValue: (
+    <>
+      <rect className={s.f2} x={18} y={34} width={42} height={48} rx={4} />
+      <circle className={s.fp} cx={39} cy={58} r={14} />
+      <circle className={s.f1} cx={39} cy={58} r={8} />
+      <line className={s.sp} x1={39} y1={46} x2={39} y2={70} strokeWidth={1.5} />
+      <line className={s.sp} x1={27} y1={58} x2={51} y2={58} strokeWidth={1.5} />
+      <text className={s.txW} x={39} y={30} textAnchor="middle" fontSize={7.5} fontWeight={800}>
+        T₀ NOW
+      </text>
+      <rect className={s.f1} x={148} y={42} width={34} height={38} rx={3} />
+      <rect className={s.fm} x={152} y={36} width={26} height={6} rx={1} />
+      <text className={s.txW} x={165} y={62} textAnchor="middle" fontSize={7.5} fontWeight={800}>
+        $10k FV
+      </text>
+      <text className={s.txW} x={165} y={72} textAnchor="middle" fontSize={6.5}>
+        in 10 Yrs
+      </text>
+      <path className={k('fn', 's1', 'thick')} d="M148 48 C116 22, 80 22, 54 36" strokeDasharray="3 2" />
+      <polygon className={s.f1} points="52,32 50,42 60,39" />
+      <rect className={k('fp', 's2')} x={72} y={38} width={66} height={42} rx={6} />
+      <text className={s.tx} x={105} y={50} textAnchor="middle" fontSize={7.5} fontWeight={600}>
+        @ 6% Discount
+      </text>
+      <text className={s.txL} x={105} y={64} textAnchor="middle" fontSize={10.5} fontWeight={800} fill="#0284c7">
+        PV: $5,584
+      </text>
+      <text className={s.tx} x={105} y={74} textAnchor="middle" fontSize={6.5} fontWeight={600}>
+        PV = FV ÷ (1+r)ⁿ
+      </text>
+      <Dim x1={18} y1={90} x2={186} y2={90} label="Discounted Cash Flow (DCF) &amp; NPV Model" lx={102} ly={96} />
+    </>
+  ),
+  /* Compound Interest: Exponential growth staircase with principal, contributions and compounding layer */
+  compoundInterest: (
+    <>
+      <line className={k('s2', 'thick')} x1={26} y1={18} x2={26} y2={84} />
+      <line className={k('s2', 'thick')} x1={26} y1={84} x2={186} y2={84} />
+      <rect className={s.f2} x={36} y={66} width={18} height={18} rx={2} />
+      <rect className={s.f2} x={64} y={56} width={18} height={28} rx={2} />
+      <rect className={s.fm} x={64} y={50} width={18} height={6} rx={1} />
+      <rect className={s.f2} x={94} y={48} width={18} height={36} rx={2} />
+      <rect className={s.fm} x={94} y={38} width={18} height={10} rx={1} />
+      <rect className={s.f1} x={94} y={32} width={18} height={6} rx={1} />
+      <rect className={s.f2} x={126} y={44} width={18} height={40} rx={2} />
+      <rect className={s.fm} x={126} y={28} width={18} height={16} rx={1} />
+      <rect className={s.f1} x={126} y={16} width={18} height={12} rx={1} />
+      <path className={k('fn', 's1', 'thick')} d="M30 76 Q78 72, 110 46 T174 14" />
+      <circle className={s.f1} cx={174} cy={14} r={3.5} />
+      <rect className={k('fp', 's2')} x={148} y={30} width={44} height={46} rx={4} />
+      <text className={s.tx} x={170} y={42} textAnchor="middle" fontSize={6.5} fontWeight={700}>
+        10 Yrs @ 5%
+      </text>
+      <text className={s.txL} x={170} y={56} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#0284c7">
+        $47,526
+      </text>
+      <text className={s.tx} x={170} y={68} textAnchor="middle" fontSize={6.5} fontWeight={600}>
+        Total FV
+      </text>
+      <Dim x1={26} y1={90} x2={186} y2={90} label="Principal + Monthly Contributions + Compound Interest" lx={106} ly={96} />
+    </>
+  ),
+  /* Card Processing Fee: Countertop POS payment terminal with inserted chip card & receipt tape */
+  processingFee: (
+    <>
+      <rect className={s.f2} x={26} y={24} width={62} height={60} rx={6} />
+      <rect className={s.f1} x={36} y={10} width={42} height={20} rx={3} />
+      <rect className={s.gold} x={44} y={14} width={8} height={6} rx={1} />
+      <rect className={s.fp} x={32} y={32} width={50} height={20} rx={3} />
+      <text className={s.txL} x={57} y={45} textAnchor="middle" fontSize={9} fontWeight={800}>
+        $100.00
+      </text>
+      {[0, 1, 2].map((r) =>
+        [0, 1, 2].map((c) => (
+          <circle key={`${r}-${c}`} className={s.fm} cx={42 + c * 15} cy={59 + r * 6} r={2} />
+        ))
+      )}
+      <path
+        className={k('fp', 's2')}
+        d="M 104 18 L 180 18 L 180 78 L 174 74 L 168 78 L 162 74 L 156 78 L 150 74 L 144 78 L 138 74 L 132 78 L 126 74 L 120 78 L 114 74 L 108 78 L 104 74 Z"
+      />
+      <text className={s.tx} x={142} y={32} textAnchor="middle" fontSize={7.5} fontWeight={700}>
+        SALE: $100.00
+      </text>
+      <text className={s.tx} x={142} y={44} textAnchor="middle" fontSize={7} fontWeight={600} fill="#dc2626">
+        Fee (2.9%+$0.30): -$3.20
+      </text>
+      <line className={s.dim} x1={112} y1={50} x2={172} y2={50} />
+      <text className={s.txL} x={142} y={64} textAnchor="middle" fontSize={10} fontWeight={800} fill="#16a34a">
+        Net: $96.80
+      </text>
+      <Dim x1={26} y1={90} x2={186} y2={90} label="Interchange-Plus vs Flat Rate &amp; Gross-Up" lx={106} ly={96} />
+    </>
+  ),
+  /* Credit Card Payoff: Credit card with EMV chip being cut by scissors & avalanche payoff progress bar */
+  creditCardPayoff: (
+    <>
+      <rect className={s.f2} x={18} y={26} width={88} height={54} rx={6} />
+      <rect className={s.gold} x={28} y={36} width={14} height={11} rx={2} />
+      <line className={s.sp} x1={18} y1={54} x2={106} y2={54} strokeWidth={2} />
+      <text className={s.txW} x={28} y={68} fontSize={6.5} fontWeight={700}>
+        •••• 8492
+      </text>
+      <text className={s.txW} x={88} y={36} textAnchor="end" fontSize={6.5} fontWeight={700}>
+        22% APR
+      </text>
+      <line className={k('s1', 'thick')} x1={54} y1={12} x2={66} y2={34} strokeWidth={2.5} />
+      <line className={k('s1', 'thick')} x1={76} y1={12} x2={60} y2={34} strokeWidth={2.5} />
+      <circle className={s.fp} cx={50} cy={12} r={4.5} />
+      <circle className={s.fp} cx={80} cy={12} r={4.5} />
+      <rect className={k('fp', 's2')} x={118} y={22} width={72} height={60} rx={6} />
+      <text className={s.tx} x={154} y={36} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Avalanche Payoff
+      </text>
+      <rect className={s.fl} x={126} y={42} width={56} height={8} rx={4} />
+      <rect className={s.f1} x={126} y={42} width={46} height={8} rx={4} />
+      <text className={s.txL} x={154} y={62} textAnchor="middle" fontSize={10} fontWeight={800} fill="#16a34a">
+        34 Mos to $0
+      </text>
+      <text className={s.tx} x={154} y={74} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Save $1,420 Interest
+      </text>
+      <Dim x1={18} y1={90} x2={190} y2={90} label="Fixed Payment vs Minimum · Avalanche Method" lx={104} ly={96} />
+    </>
+  ),
+  /* Net Worth: Balance scale with assets weighing heavier than liabilities, plus net worth callout */
+  netWorth: (
+    <>
+      <rect className={s.f2} x={97} y={22} width={6} height={58} rx={2} />
+      <rect className={s.f2} x={84} y={76} width={32} height={6} rx={2} />
+      <circle className={s.f1} cx={100} cy={22} r={4} />
+      <line className={k('s2', 'thick')} x1={36} y1={38} x2={164} y2={26} strokeWidth={3} />
+      <line className={s.dim} x1={36} y1={38} x2={24} y2={58} />
+      <line className={s.dim} x1={36} y1={38} x2={62} y2={58} />
+      <polygon className={s.f2} points="20,58 66,58 58,64 28,64" />
+      <rect className={s.f1} x={28} y={44} width={30} height={14} rx={2} />
+      <text className={s.txW} x={43} y={54} textAnchor="middle" fontSize={7} fontWeight={800}>
+        Assets
+      </text>
+      <line className={s.dim} x1={164} y1={26} x2={148} y2={46} />
+      <line className={s.dim} x1={164} y1={26} x2={184} y2={46} />
+      <polygon className={s.f2} points="144,46 188,46 180,52 152,52" />
+      <rect className={s.fm} x={154} y={36} width={24} height={10} rx={2} />
+      <text className={s.txW} x={166} y={44} textAnchor="middle" fontSize={6.5} fontWeight={700}>
+        Debt
+      </text>
+      <rect className={k('fp', 's2')} x={64} y={6} width={72} height={16} rx={4} />
+      <text className={s.txL} x={100} y={18} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#16a34a">
+        Net Worth: +$535k
+      </text>
+      <Dim x1={20} y1={90} x2={188} y2={90} label="Total Assets − Total Liabilities = Net Worth" lx={104} ly={96} />
+    </>
+  ),
+  /* HELOC: Architectural house elevation with 3-part equity bracket & revolving credit arrow */
+  heloc: (
+    <>
+      <polygon className={s.f1} points="54,18 18,44 24,44 24,80 84,80 84,44 90,44" />
+      <rect className={s.fp} x={46} y={56} width={16} height={24} rx={1} />
+      <rect className={s.fp} x={30} y={48} width={10} height={10} rx={1} />
+      <rect className={s.fp} x={68} y={48} width={10} height={10} rx={1} />
+      <rect className={k('fp', 's2')} x={102} y={18} width={88} height={64} rx={6} />
+      <text className={s.tx} x={146} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>
+        $500k Home Value
+      </text>
+      <rect className={s.f2} x={108} y={38} width={42} height={12} rx={2} />
+      <rect className={s.f1} x={152} y={38} width={24} height={12} rx={2} />
+      <rect className={s.fl} x={178} y={38} width={8} height={12} rx={2} />
+      <text className={s.txW} x={129} y={47} textAnchor="middle" fontSize={6} fontWeight={700}>
+        1st Mtg
+      </text>
+      <text className={s.txW} x={164} y={47} textAnchor="middle" fontSize={6} fontWeight={800}>
+        HELOC
+      </text>
+      <line className={s.dim} x1={110} y1={54} x2={182} y2={54} />
+      <text className={s.txL} x={146} y={66} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0284c7">
+        $125k Line
+      </text>
+      <text className={s.tx} x={146} y={76} textAnchor="middle" fontSize={7} fontWeight={600}>
+        85% CLTV Available
+      </text>
+      <Dim x1={18} y1={90} x2={190} y2={90} label="Draw Period (Interest-Only) → Amortized Repayment" lx={104} ly={96} />
+    </>
+  ),
+  /* Investment Return: S&P 500 trading chart with candlesticks, trendline breakout & ROI badge */
+  investmentReturn: (
+    <>
+      <line className={k('s2', 'thick')} x1={26} y1={18} x2={26} y2={84} />
+      <line className={k('s2', 'thick')} x1={26} y1={84} x2={186} y2={84} />
+      {[
+        [42, 60, 72, 56, 76],
+        [64, 48, 62, 44, 66],
+        [88, 38, 52, 34, 56],
+        [112, 44, 50, 40, 54],
+        [136, 26, 40, 22, 44],
+      ].map(([x, openY, closeY, highY, lowY], i) => (
+        <g key={i}>
+          <line className={s.dim} x1={x} y1={highY} x2={x} y2={lowY} strokeWidth={1.2} />
+          <rect
+            className={openY > closeY ? s.f1 : s.f2}
+            x={x - 4}
+            y={Math.min(openY, closeY)}
+            width={8}
+            height={Math.abs(openY - closeY)}
+            rx={1}
+          />
+        </g>
+      ))}
+      <path className={k('fn', 's1', 'thick')} d="M30 76 Q86 68, 120 44 T178 18" strokeWidth={2.4} />
+      <polygon className={s.f1} points="174,14 182,18 175,22" />
+      <rect className={k('fp', 's2')} x={126} y={24} width={62} height={46} rx={5} />
+      <text className={s.tx} x={157} y={36} textAnchor="middle" fontSize={7} fontWeight={700}>
+        S&amp;P 500 (~10%)
+      </text>
+      <text className={s.txL} x={157} y={50} textAnchor="middle" fontSize={10} fontWeight={800} fill="#16a34a">
+        $196,720
+      </text>
+      <text className={s.tx} x={157} y={62} textAnchor="middle" fontSize={7} fontWeight={700}>
+        +196% Return
+      </text>
+      <Dim x1={26} y1={90} x2={186} y2={90} label="Compound Growth · Inflation-Adjusted · T-Bills vs Stocks" lx={106} ly={96} />
+    </>
+  ),
+  /* Retirement Drawdown: Nest egg reservoir silo tank with fluid level gauge, inflow & 4% valve spigot */
+  drawdown: (
+    <>
+      <rect className={s.f2} x={28} y={20} width={58} height={62} rx={8} />
+      <rect className={s.f1} x={32} y={38} width={50} height={40} rx={4} />
+      <line className={s.sp} x1={32} y1={46} x2={40} y2={46} strokeWidth={1.5} />
+      <line className={s.sp} x1={32} y1={56} x2={44} y2={56} strokeWidth={1.5} />
+      <line className={s.sp} x1={32} y1={66} x2={40} y2={66} strokeWidth={1.5} />
+      <rect className={s.fm} x={14} y={26} width={14} height={6} rx={1} />
+      <polygon className={s.f1} points="24,24 28,29 24,34" />
+      <rect className={s.fm} x={86} y={64} width={12} height={6} rx={1} />
+      <circle className={s.f1} cx={92} cy={60} r={3} />
+      <circle className={s.f1} cx={102} cy={74} r={2} />
+      <circle className={s.f1} cx={100} cy={82} r={1.5} />
+      <rect className={k('fp', 's2')} x={112} y={20} width={76} height={62} rx={6} />
+      <text className={s.tx} x={150} y={34} textAnchor="middle" fontSize={8} fontWeight={700}>
+        $500k Portfolio
+      </text>
+      <text className={s.tx} x={150} y={45} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Withdraw $2,500/mo
+      </text>
+      <line className={s.dim} x1={120} y1={50} x2={180} y2={50} />
+      <text className={s.txL} x={150} y={64} textAnchor="middle" fontSize={11.5} fontWeight={800} fill="#0284c7">
+        Lasts 28.5 Yrs
+      </text>
+      <text className={s.tx} x={150} y={76} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Bengen 4% Safe Rule
+      </text>
+      <Dim x1={14} y1={90} x2={188} y2={90} label="Safe Withdrawal Rate &amp; Portfolio Longevity" lx={101} ly={96} />
+    </>
+  ),
+  /* SBA Loan: Federal government Capitol / SBA dome building facade & 3-part 504 financing split */
+  sbaLoan: (
+    <>
+      <polygon className={s.f1} points="16,36 52,18 88,36" />
+      <rect className={s.f2} x={14} y={36} width={76} height={5} rx={1} />
+      {[0, 1, 2, 3].map((i) => (
+        <rect key={i} className={s.fp} x={20 + i * 18} y={41} width={8} height={35} rx={1} />
+      ))}
+      <rect className={s.f2} x={12} y={76} width={80} height={6} rx={1} />
+      <circle className={s.fp} cx={52} cy={28} r={3.5} />
+      <rect className={k('fp', 's2')} x={98} y={18} width={92} height={64} rx={6} />
+      <text className={s.tx} x={144} y={30} textAnchor="middle" fontSize={7.5} fontWeight={800}>
+        SBA 504 SPLIT ($2.0M)
+      </text>
+      <rect className={s.f2} x={104} y={34} width={80} height={11} rx={2} />
+      <text className={s.txW} x={144} y={42} textAnchor="middle" fontSize={6.5} fontWeight={700}>
+        Bank 50%: $1,000,000
+      </text>
+      <rect className={s.f1} x={104} y={47} width={80} height={11} rx={2} />
+      <text className={s.txW} x={144} y={55} textAnchor="middle" fontSize={6.5} fontWeight={700}>
+        CDC 40%: $800,000
+      </text>
+      <rect className={s.gold} x={104} y={60} width={80} height={11} rx={2} />
+      <text className={s.txW} x={144} y={68} textAnchor="middle" fontSize={6.5} fontWeight={800}>
+        Down 10%: $200,000
+      </text>
+      <Dim x1={12} y1={90} x2={190} y2={90} label="SBA 7(a) Working Capital &amp; 504 Fixed Assets" lx={101} ly={96} />
+    </>
+  ),
+  /* 1099 Self-Employment Tax: Form 1040-ES voucher booklet, tax pencil & FICA breakdown */
+  seTax: (
+    <>
+      <rect className={k('fp', 's2')} x={20} y={18} width={76} height={66} rx={3} />
+      <rect className={s.f1} x={20} y={18} width={76} height={12} rx={3} />
+      <text className={s.txW} x={58} y={27} textAnchor="middle" fontSize={7} fontWeight={800}>
+        FORM 1040-ES
+      </text>
+      {[
+        ['Q1', 24],
+        ['Q2', 38],
+        ['Q3', 52],
+        ['Q4', 66],
+      ].map(([q, y]) => (
+        <g key={q as string}>
+          <rect className={s.f2} x={24} y={y as number + 10} width={14} height={10} rx={1} />
+          <text className={s.txW} x={31} y={y as number + 18} textAnchor="middle" fontSize={6} fontWeight={800}>
+            {q as string}
+          </text>
+          <line className={s.dim} x1={42} y1={y as number + 15} x2={88} y2={y as number + 15} />
+        </g>
+      ))}
+      <rect className={k('fp', 's2')} x={106} y={18} width={82} height={66} rx={6} />
+      <text className={s.tx} x={147} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>
+        15.3% SE Tax (FICA)
+      </text>
+      <text className={s.tx} x={147} y={43} textAnchor="middle" fontSize={7} fontWeight={600}>
+        12.4% SS + 2.9% Med
+      </text>
+      <line className={s.dim} x1={114} y1={48} x2={180} y2={48} />
+      <text className={s.txL} x={147} y={62} textAnchor="middle" fontSize={11} fontWeight={800} fill="#16a34a">
+        $3,240 / Qtr
+      </text>
+      <text className={s.tx} x={147} y={74} textAnchor="middle" fontSize={7} fontWeight={600}>
+        × 92.35% Schedule SE
+      </text>
+      <Dim x1={20} y1={90} x2={188} y2={90} label="Schedule SE Line 4a · Form 1040-ES Estimated Tax" lx={104} ly={96} />
+    </>
+  ),
+  /* Invoice Generator: Itemized invoice sheet with folded corner, table rows & angled PAID stamp */
+  invoice: (
+    <>
+      <polygon className={k('fp', 's2')} points="26,16 94,16 106,28 106,84 26,84" />
+      <polygon className={s.f2} points="94,16 106,28 94,28" />
+      <rect className={s.f1} x={32} y={22} width={26} height={6} rx={1} />
+      <text className={s.tx} x={86} y={27} textAnchor="end" fontSize={7} fontWeight={800}>
+        INVOICE
+      </text>
+      <line className={s.dim} x1={32} y1={34} x2={100} y2={34} />
+      {[0, 1, 2].map((i) => (
+        <g key={i}>
+          <line className={s.dim} x1={32} y1={44 + i * 8} x2={100} y2={44 + i * 8} />
+          <rect className={s.fm} x={34} y={38 + i * 8} width={38} height={3} rx={1} />
+          <rect className={s.fm} x={84} y={38 + i * 8} width={14} height={3} rx={1} />
+        </g>
+      ))}
+      <rect
+        className={k('fn', 's1')}
+        x={50}
+        y={54}
+        width={42}
+        height={18}
+        rx={3}
+        transform="rotate(-12 71 63)"
+        strokeWidth={2}
+      />
+      <text
+        className={s.txL}
+        x={71}
+        y={67}
+        textAnchor="middle"
+        fontSize={10}
+        fontWeight={800}
+        transform="rotate(-12 71 63)"
+        fill="#16a34a"
+      >
+        PAID
+      </text>
+      <rect className={k('fp', 's2')} x={118} y={22} width={70} height={60} rx={6} />
+      <text className={s.tx} x={153} y={36} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Invoice #1042
+      </text>
+      <text className={s.tx} x={153} y={47} textAnchor="middle" fontSize={7} fontWeight={600}>
+        7.5h @ $75.00/hr
+      </text>
+      <line className={s.dim} x1={126} y1={52} x2={180} y2={52} />
+      <text className={s.txL} x={153} y={66} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0284c7">
+        $562.50
+      </text>
+      <text className={s.tx} x={153} y={76} textAnchor="middle" fontSize={7} fontWeight={600}>
+        Printable PDF
+      </text>
+      <Dim x1={26} y1={90} x2={188} y2={90} label="Hourly &amp; Fixed-Fee · Tax · Printable PDF" lx={107} ly={96} />
+    </>
+  ),
+  /* Deck Stain: Deck boards with wet stain coating, applicator pad & stain can */
+  deckStain: (
+    <>
+      <polygon className={s.fm} points="14,64 126,64 150,32 38,32" />
+      {[0, 1, 2, 3].map((i) => (
+        <line key={i} className={k('s2')} x1={20 + i * 8} y1={64 - i * 8} x2={132 + i * 8} y2={64 - i * 8} />
+      ))}
+      <polygon className={s.f1} points="70,64 126,64 150,32 94,32" opacity={0.88} />
+      <line className={k('s1', 'thick')} x1={70} y1={64} x2={94} y2={32} />
+      <rect className={s.f2} x={152} y={38} width={34} height={40} rx={3} />
+      <ellipse className={s.fp} cx={169} cy={38} rx={17} ry={4.5} />
+      <path className={k('fn', 's1')} d="M152 44 Q169 22 186 44" strokeWidth={1.5} />
+      <rect className={s.fl} x={156} y={50} width={26} height={18} rx={2} />
+      <text className={s.tx} x={169} y={62} textAnchor="middle" fontSize={8} fontWeight={700}>
+        STAIN
+      </text>
+      <Dim x1={14} y1={76} x2={126} y2={76} label="Coverage: 350 sq ft / gal" lx={70} ly={86} />
+    </>
+  ),
+  /* Roof Replacement: Tear-off and replacement cross-section with deck, felt, shingles & hammer */
+  roofCost: (
+    <>
+      <polygon className={s.fm} points="16,66 96,22 176,66" />
+      <polygon className={s.f2} points="16,66 96,22 96,66" opacity={0.6} />
+      {[0, 1, 2, 3].map((r) => (
+        <line
+          key={r}
+          className={s.sp}
+          x1={96 + r * 6}
+          y1={66 - r * 11}
+          x2={176 - r * 6}
+          y2={66 - r * 11}
+          strokeWidth={2.4}
+        />
+      ))}
+      <rect className={s.f1} x={36} y={42} width={32} height={14} rx={2} />
+      <line className={s.sp} x1={52} y1={42} x2={52} y2={56} strokeWidth={2} />
+      <path className={k('fn', 's1', 'thick')} d="M128 24 L142 38" />
+      <path className={s.f1} d="M140 22 L146 28 L142 32 L136 26 Z" />
+      <rect className={k('fp', 's2')} x={118} y={54} width={68} height={26} rx={4} />
+      <text className={s.tx} x={152} y={66} textAnchor="middle" fontSize={8.5} fontWeight={700}>
+        28 Sq · Tear-Off
+      </text>
+      <text className={s.txL} x={152} y={76} textAnchor="middle" fontSize={9.5} fontWeight={800}>
+        $11,400
+      </text>
+      <Dim x1={16} y1={86} x2={176} y2={86} label="Decking + Underlayment + Shingles" lx={96} ly={94} />
     </>
   ),
   /* All tools: grid of category colours with a magnifier */

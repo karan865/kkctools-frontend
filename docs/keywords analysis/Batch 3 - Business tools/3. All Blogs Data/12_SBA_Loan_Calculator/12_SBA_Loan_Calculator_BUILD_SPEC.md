@@ -192,8 +192,8 @@ All rates are examples, and the page must label them that way.
 
 ## 7. Done when
 
-- [ ] Owner's yearly-review note exists (gate).
-- [ ] `sba-loan-engine.ts` + tests; `loan-engine` reused; `npm run verify` passes.
-- [ ] Input guide (stacked split bar) above the inputs; ToolShell + TabSlider used.
-- [ ] Every SBA rule on the page is in the dated Sources box with a link; unverified items are inputs, not facts; the 504 maximum conflict resolved by the owner or omitted.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] Owner's yearly-review note exists (gate).
+- [x] `sba-loan-engine.ts` + tests; `loan-engine` reused; `npm run verify` passes.
+- [x] Input guide (stacked split bar) above the inputs; ToolShell + TabSlider used.
+- [x] Every SBA rule on the page is in the dated Sources box with a link; unverified items are inputs, not facts; the 504 maximum conflict resolved by the owner or omitted.
+- [x] Registrations + docs updated; `graphify update .`.

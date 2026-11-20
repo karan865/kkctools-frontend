@@ -1,0 +1,89 @@
+.guideContainer {
+  margin-bottom: 24px;
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-md, 12px);
+  padding: 16px 20px;
+}
+
+.guideHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.guideTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-2, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.guidePill {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  border-radius: 9999px;
+  background: #e0f2fe;
+  color: #0369a1;
+}
+
+.svgWrapper {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+.guideSvg {
+  display: block;
+  width: 100%;
+  min-width: 580px;
+  height: auto;
+}
+
+.diagramText {
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+  fill: #1e293b;
+}
+
+.diagramSubtext {
+  font-family: inherit;
+  font-size: 10px;
+  fill: #64748b;
+}
+
+.diagramHighlight {
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  fill: #0284c7;
+}
+
+.statusRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border, #e2e8f0);
+  font-size: 0.8125rem;
+  color: var(--ink-2, #475569);
+}
+
+.statusItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.statusVal {
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+}

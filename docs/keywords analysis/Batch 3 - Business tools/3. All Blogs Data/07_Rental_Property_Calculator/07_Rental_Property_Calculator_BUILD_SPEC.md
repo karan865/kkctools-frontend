@@ -186,8 +186,8 @@ The page must still compute these at build time from the engine. Never hard-code
 
 ## 7. Done when
 
-- [ ] `loan-engine.ts`, `real-estate-engine.ts` (from Cap Rate) reused; `rental-property-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
-- [ ] No unsourced "good return" numbers anywhere.
-- [ ] Pro forma prints cleanly (A4/Letter) and copies as CSV.
-- [ ] Mobile 390 px checked; registrations + docs updated; `graphify update .`.
+- [x] `loan-engine.ts`, `real-estate-engine.ts` (from Cap Rate) reused; `rental-property-engine.ts` + tests; `npm run verify` passes.
+- [x] Input guide diagram above the inputs (per tab); ToolShell + TabSlider used.
+- [x] No unsourced "good return" numbers anywhere.
+- [x] Pro forma prints cleanly (A4/Letter) and copies as CSV.
+- [x] Mobile 390 px checked; registrations + docs updated; `graphify update .`.

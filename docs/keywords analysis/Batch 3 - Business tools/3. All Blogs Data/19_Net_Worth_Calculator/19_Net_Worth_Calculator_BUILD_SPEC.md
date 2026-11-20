@@ -174,7 +174,7 @@ household: sums per column + joint
 
 ## 7. Done when
 
-- [ ] `net-worth-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide (balance scale) above the inputs; ToolShell + TabSlider used.
-- [ ] Benchmarks shown only from verified SCF tables (year + link + date) or omitted.
-- [ ] Local snapshots opt-in and clearable; share-link amounts opt-in; registrations + docs updated; `graphify update .`.
+- [x] `net-worth-engine.ts` + tests; `npm run verify` passes. *(Evidence: src/lib/net-worth-engine.ts, 7 unit tests in net-worth-engine.test.ts passing; tested against spec §3.4 $256,000 net worth, $31,000 liquid net worth, 53.45% debt-to-asset)*
+- [x] Input guide (balance scale) above the inputs; ToolShell + TabSlider used. *(Evidence: NetWorthInputGuide.tsx with tilting beam and own vs owe pans; ToolShell with 4 pills; TabSlider with 3 tabs)*
+- [x] Benchmarks shown only from verified SCF tables (year + link + date) or omitted. *(Evidence: Disclosed median vs mean distortion citing Federal Reserve Survey of Consumer Finances; no unverified benchmarks fabricated)*
+- [x] Local snapshots opt-in and clearable; share-link amounts opt-in; registrations + docs updated; `graphify update .`. *(Evidence: safeStorage localStorage snapshots with clear button; zero cloud upload; registered in routes.ts, tools-catalog.ts #62, Footer.tsx, calculation-methods.ts)*

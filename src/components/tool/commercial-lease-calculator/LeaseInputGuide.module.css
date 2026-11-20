@@ -1,0 +1,107 @@
+.guideContainer {
+  margin-bottom: var(--space-4, 1rem);
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1rem 1.25rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
+}
+
+.guideHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.75rem;
+}
+
+.guideTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--text-muted, #64748b);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.guideTitleBadge {
+  font-size: 0.75rem;
+  padding: 0.125rem 0.5rem;
+  border-radius: 9999px;
+  background: #ecfdf5;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.toggleBtn {
+  background: none;
+  border: none;
+  color: var(--primary, #2563eb);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.toggleBtn:hover {
+  text-decoration: underline;
+}
+
+.svgWrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  min-width: 600px;
+  display: block;
+}
+
+.flowBox {
+  transition: all 0.2s ease-in-out;
+}
+
+.flowBox:hover {
+  filter: brightness(0.97);
+}
+
+.dimmed {
+  opacity: 0.35;
+}
+
+.highlighted {
+  filter: drop-shadow(0 0 6px rgba(37, 99, 235, 0.45));
+}
+
+.guideLegend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.75rem;
+  padding-top: 0.75rem;
+  border-top: 1px dashed var(--border, #e2e8f0);
+  font-size: 0.75rem;
+  color: var(--text-muted, #64748b);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.375rem;
+}
+
+.legendDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+@media (max-width: 640px) {
+  .guideContainer {
+    padding: 0.75rem 1rem;
+  }
+}

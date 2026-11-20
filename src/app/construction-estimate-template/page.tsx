@@ -463,9 +463,19 @@ export default function ConstructionEstimatePage() {
                 Continue with calculators and practical tools that match this topic. Each link opens a free tool with its own explanation, FAQs, and planning notes.
               </p>
               <div className={styles.relatedToolsList}>
+                <Link href="/labor-cost-calculator/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>👷 Labor Cost Calculator</span>
+                  <span className={styles.relatedToolExcerpt}>Calculate fully burdened crew rates, payroll taxes, insurance, and profitable job quotes</span>
+                  <span className={styles.relatedToolLink}>Open tool →</span>
+                </Link>
                 <Link href="/hourly-to-salary-calculator/" className={styles.relatedToolItem}>
                   <span className={styles.relatedToolName}>💵 Hourly to Salary Calculator</span>
                   <span className={styles.relatedToolExcerpt}>Convert contractor hourly wages to yearly salary and calculate labor billing rates</span>
+                  <span className={styles.relatedToolLink}>Open tool →</span>
+                </Link>
+                <Link href="/invoice-generator/" className={styles.relatedToolItem}>
+                  <span className={styles.relatedToolName}>📄 Invoice Generator</span>
+                  <span className={styles.relatedToolExcerpt}>Convert project hours, milestones, and expenses into printable PDF invoices</span>
                   <span className={styles.relatedToolLink}>Open tool →</span>
                 </Link>
                 <Link href="/markup-calculator/" className={styles.relatedToolItem}>

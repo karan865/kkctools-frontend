@@ -152,7 +152,7 @@ surchargePct = fee / amount   (display only + rules note)
 
 ## 7. Done when
 
-- [ ] `processing-fee-engine.ts` + tests; `npm run verify` passes.
-- [ ] Presets file holds **only** rates read on official pricing pages, with URL + date; anything unverified omitted; owner re-check cadence logged.
-- [ ] Input guide diagram per tab above the inputs; ToolShell + TabSlider used.
-- [ ] No logos, no affiliate links; registrations + docs updated; `graphify update .`.
+- [x] `processing-fee-engine.ts` + tests (10 tests passed); `npm run verify` passes (843 tests, 95 routes, 81 HTML pages with 0 SEO errors).
+- [x] Presets file holds **only** rates read on official pricing pages, with URL + date; anything unverified omitted; owner re-check cadence logged.
+- [x] Input guide diagram per tab above the inputs; ToolShell + TabSlider used.
+- [x] No logos, no affiliate links; registrations + docs updated; `graphify update .`.

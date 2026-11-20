@@ -1,0 +1,491 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.tabWrapper {
+  margin-bottom: 1.5rem;
+}
+
+.summaryBanner {
+  background-color: #ecfdf5;
+  border: 1px solid #a7f3d0;
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+  color: #065f46;
+  font-size: 1rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.summaryHighlight {
+  font-weight: 700;
+  color: #047857;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.05fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.formCard,
+.resultsCard {
+  background: var(--surface-1, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.cardHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.cardTitle {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+  margin: 0;
+}
+
+.cardSubtitle {
+  font-size: 0.8125rem;
+  color: var(--muted, #64748b);
+  margin-top: 0.25rem;
+}
+
+.fieldGroup {
+  margin-bottom: 1.25rem;
+}
+
+.fieldLabel {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink-1, #0f172a);
+  margin-bottom: 0.375rem;
+}
+
+.fieldHint {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  font-weight: 400;
+}
+
+.inputWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.inputPrefix {
+  position: absolute;
+  left: 0.75rem;
+  color: var(--muted, #64748b);
+  font-weight: 500;
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.inputSuffix {
+  position: absolute;
+  right: 0.75rem;
+  color: var(--muted, #64748b);
+  font-weight: 500;
+  font-size: 0.875rem;
+  pointer-events: none;
+}
+
+.input {
+  width: 100%;
+  height: 42px;
+  padding: 0 0.75rem;
+  border: 1px solid var(--border, #cbd5e1);
+  border-radius: 6px;
+  background: var(--surface-1, #ffffff);
+  color: var(--ink-1, #0f172a);
+  font-size: 0.9375rem;
+  font-family: inherit;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.inputWithPrefix {
+  padding-left: 1.75rem;
+}
+
+.inputWithSuffix {
+  padding-right: 2.25rem;
+}
+
+.input:focus {
+  outline: none;
+  border-color: #0d9488;
+  box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
+}
+
+.helperText {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  margin-top: 0.35rem;
+  line-height: 1.4;
+}
+
+.twoColInputs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  color: var(--ink-1, #0f172a);
+  cursor: pointer;
+  margin-top: 0.5rem;
+}
+
+/* Primary Metric Cards */
+.metricsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+.metricCard {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem;
+}
+
+.metricCardPrimary {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+
+.metricLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--muted, #64748b);
+  margin-bottom: 0.25rem;
+}
+
+.metricValue {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--ink-1, #0f172a);
+  line-height: 1.2;
+}
+
+.metricValuePrimary {
+  color: #065f46;
+}
+
+.metricSubtext {
+  font-size: 0.8125rem;
+  color: var(--muted, #64748b);
+  margin-top: 0.25rem;
+}
+
+/* CVP Chart */
+.chartContainer {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem;
+  background: #ffffff;
+}
+
+.chartTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+  margin-bottom: 0.75rem;
+}
+
+.cvpSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Income Statement Table */
+.tableWrap {
+  margin-bottom: 1.5rem;
+  overflow-x: auto;
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+}
+
+.statementTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+  text-align: right;
+}
+
+.statementTable th,
+.statementTable td {
+  padding: 0.625rem 0.875rem;
+  border-bottom: 1px solid var(--border, #e2e8f0);
+}
+
+.statementTable th {
+  background: var(--surface-2, #f8fafc);
+  font-weight: 600;
+  color: var(--ink-1, #0f172a);
+  font-size: 0.8125rem;
+}
+
+.statementTable th:first-child,
+.statementTable td:first-child {
+  text-align: left;
+}
+
+.statementTable tr:last-child td {
+  border-bottom: none;
+}
+
+.tableRowHighlight {
+  background: #f0fdf4;
+  font-weight: 700;
+}
+
+.tableRowLoss {
+  background: #fef2f2;
+  font-weight: 700;
+}
+
+/* Leverage & Sensitivity Card */
+.leverageCard {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 8px;
+  padding: 1rem 1.25rem;
+  margin-bottom: 1.5rem;
+}
+
+.leverageTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+  margin-bottom: 0.35rem;
+}
+
+.leverageText {
+  font-size: 0.875rem;
+  color: var(--ink-1, #0f172a);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Step by Step Working */
+.stepsSection {
+  margin-top: 1.5rem;
+  border-top: 1px solid var(--border, #e2e8f0);
+  padding-top: 1.25rem;
+}
+
+.stepsToggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: transparent;
+  border: none;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  color: #0d9488;
+  cursor: pointer;
+  padding: 0.5rem 0;
+}
+
+.stepsList {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 1rem;
+}
+
+.stepItem {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: 6px;
+  padding: 0.75rem 1rem;
+  font-size: 0.8125rem;
+}
+
+.stepHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.25rem;
+}
+
+.stepTitle {
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+}
+
+.stepFormula {
+  font-family: monospace;
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  margin-bottom: 0.25rem;
+}
+
+.stepCalc {
+  color: #0d9488;
+  font-weight: 600;
+}
+
+/* Actions */
+.actionsBar {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.actionBtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border, #cbd5e1);
+  background: var(--surface-1, #ffffff);
+  color: var(--ink-1, #0f172a);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: var(--surface-2, #f8fafc);
+  border-color: #94a3b8;
+}
+
+/* Sales Mix Tab Styles */
+.mixTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8125rem;
+  margin-bottom: 1rem;
+}
+
+.mixTable th,
+.mixTable td {
+  padding: 0.5rem 0.625rem;
+  border: 1px solid var(--border, #e2e8f0);
+  text-align: right;
+}
+
+.mixTable th {
+  background: var(--surface-2, #f8fafc);
+  font-weight: 600;
+}
+
+.mixTable th:first-child,
+.mixTable td:first-child {
+  text-align: left;
+}
+
+.mixInput {
+  width: 100%;
+  height: 32px;
+  padding: 0 0.5rem;
+  border: 1px solid var(--border, #cbd5e1);
+  border-radius: 4px;
+  font-size: 0.8125rem;
+  text-align: right;
+}
+
+.mixInputText {
+  text-align: left;
+}
+
+.addBtn,
+.removeBtn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.75rem;
+  border-radius: 4px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.removeBtn {
+  color: #dc2626;
+  border-color: #fca5a5;
+}
+
+.removeBtn:hover {
+  background: #fef2f2;
+}
+
+.addBtn {
+  color: #0d9488;
+  border-color: #99f6e4;
+  margin-top: 0.5rem;
+}
+
+.addBtn:hover {
+  background: #f0fdfa;
+}
+
+/* What-If Sliders */
+.sliderGroup {
+  margin-bottom: 1.25rem;
+}
+
+.sliderHeader {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+}
+
+.sliderValue {
+  font-weight: 700;
+  color: #0d9488;
+}
+
+.sliderInput {
+  width: 100%;
+  accent-color: #0d9488;
+  cursor: pointer;
+}
+
+.sliderRangeLabels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.6875rem;
+  color: var(--muted, #94a3b8);
+  margin-top: 0.15rem;
+}

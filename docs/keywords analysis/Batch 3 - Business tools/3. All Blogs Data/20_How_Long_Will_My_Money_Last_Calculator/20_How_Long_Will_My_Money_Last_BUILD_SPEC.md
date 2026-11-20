@@ -193,8 +193,8 @@ If a source page can't be opened, cite only what can be verified, or remove the 
 
 ## 7. Done when
 
-- [ ] Owner's yearly-review note exists in `docs/00-PROJECT-STATUS.md` (gate).
-- [ ] `drawdown-engine.ts` + tests (§3.6); `npm run verify` passes.
-- [ ] Input guide (tank) above the inputs; chart in results; ToolShell + TabSlider used.
-- [ ] Sources & assumptions box, Last reviewed date, no guarantee words ("safe", "will last" as a promise).
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] Owner's yearly-review note exists in `docs/00-PROJECT-STATUS.md` (gate).
+- [x] `drawdown-engine.ts` + tests (§3.6); `npm run verify` passes.
+- [x] Input guide (tank) above the inputs; chart in results; ToolShell + TabSlider used.
+- [x] Sources & assumptions box, Last reviewed date, no guarantee words ("safe", "will last" as a promise).
+- [x] Registrations + docs updated; `graphify update .`.

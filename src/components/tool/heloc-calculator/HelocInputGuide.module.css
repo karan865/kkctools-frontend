@@ -1,0 +1,136 @@
+/* HelocInputGuide.module.css */
+
+.container {
+  width: 100%;
+  margin-bottom: var(--space-4, 1rem);
+}
+
+.details {
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  background: var(--surface, #ffffff);
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.details[open] {
+  border-color: #cbd5e1;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: var(--surface-2, #f8fafc);
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.85rem;
+  color: var(--ink, #0f172a);
+}
+
+.summary:hover {
+  background: #f1f5f9;
+}
+
+.summaryLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconPulse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: #2563eb;
+  color: #ffffff;
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.summaryHint {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+}
+
+.diagramWrap {
+  padding: 1rem;
+  background: var(--surface, #ffffff);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: auto;
+}
+
+.svg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+}
+
+.captionRow {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 680px;
+  margin-top: 0.75rem;
+  font-size: 0.78rem;
+  color: var(--muted, #64748b);
+  border-top: 1px dashed var(--line, #e2e8f0);
+  padding-top: 0.5rem;
+}
+
+.captionCol {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.dotBlue {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #2563eb;
+}
+
+.dotRed {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #ef4444;
+}
+
+.dotGreen {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #10b981;
+}
+
+[data-theme='dark'] .details {
+  background: #1e293b;
+  border-color: #334155;
+}
+
+[data-theme='dark'] .summary {
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+[data-theme='dark'] .summary:hover {
+  background: #1e293b;
+}
+
+[data-theme='dark'] .diagramWrap {
+  background: #1e293b;
+}
+
+[data-theme='dark'] .captionRow {
+  border-top-color: #334155;
+  color: #94a3b8;
+}

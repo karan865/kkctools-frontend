@@ -1,0 +1,135 @@
+.guideContainer {
+  background: var(--surface, #ffffff);
+  border: 1px solid var(--border, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 16px;
+  margin-bottom: 24px;
+}
+
+.headerRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 12px;
+}
+
+.guideTitle {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--ink-1, #0f172a);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.badge {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: #f0fdf4;
+  color: #166534;
+  border-radius: 9999px;
+  border: 1px solid #bbf7d0;
+}
+
+.badgeTimesheet {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 2px 8px;
+  background: #eff6ff;
+  color: #1e40af;
+  border-radius: 9999px;
+  border: 1px solid #bfdbfe;
+}
+
+.svgWrap {
+  width: 100%;
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.zonePaper {
+  fill: #ffffff;
+  stroke: #cbd5e1;
+  stroke-width: 1.5;
+}
+
+.zoneBox {
+  fill: #f8fafc;
+  stroke: #e2e8f0;
+  stroke-width: 1;
+  rx: 3px;
+}
+
+.zoneBoxActive {
+  fill: #f0fdf4;
+  stroke: #22c55e;
+  stroke-width: 1.5;
+  rx: 3px;
+}
+
+.zoneNum {
+  fill: #0284c7;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.zoneLabel {
+  fill: #475569;
+  font-size: 7.5px;
+  font-weight: 600;
+  font-family: inherit;
+}
+
+.zoneValue {
+  fill: #0f172a;
+  font-size: 8px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.zoneAccent {
+  fill: #16a34a;
+  font-size: 8.5px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.legendList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 8px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px dashed var(--border, #e2e8f0);
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  color: var(--ink-2, #475569);
+}
+
+.legendNum {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--surface-muted, #f1f5f9);
+  color: var(--ink-1, #0f172a);
+  font-size: 0.7rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border, #cbd5e1);
+  flex-shrink: 0;
+}

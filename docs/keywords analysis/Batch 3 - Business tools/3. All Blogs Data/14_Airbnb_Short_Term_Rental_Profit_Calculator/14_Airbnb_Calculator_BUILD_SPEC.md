@@ -196,7 +196,7 @@ Computed on the page from the engine.
 
 ## 7. Done when
 
-- [ ] `str-engine.ts` + tests; `loan-engine` + `real-estate-engine` reused; `npm run verify` passes.
-- [ ] Input guide diagram per tab, above the inputs; waterfall in results; ToolShell + TabSlider used.
-- [ ] No market averages; descriptive brand use only; "you enter the rate" note visible near the tool.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] `str-engine.ts` + tests; `loan-engine` + `real-estate-engine` reused; `npm run verify` passes.
+- [x] Input guide diagram per tab, above the inputs; waterfall in results; ToolShell + TabSlider used.
+- [x] No market averages; descriptive brand use only; "you enter the rate" note visible near the tool.
+- [x] Registrations + docs updated; `graphify update .`.

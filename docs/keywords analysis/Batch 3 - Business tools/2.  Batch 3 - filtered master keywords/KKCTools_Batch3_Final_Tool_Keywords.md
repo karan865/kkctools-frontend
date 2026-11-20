@@ -83,22 +83,22 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 |---:|:---:|:---:|---|---|---:|---:|---:|---:|---:|---:|---:|:---:|---|:---:|
 | 1 | **1** | ✅ weak | Markup Calculator | `markup calculator` | 14,800 | 24 | $5.16 | 0.03 | 16 | 61,200 | 11,600 | none | `/markup-calculator/` | [x] **Complete** |
 | 2 | **1** | ✅ weak | Unit Price Calculator | `unit price calculator` | 1,900 | 14 | $0.00 | 0.33 | 5 | 5,680 | 5,680 | none | `/unit-price-calculator/` | [x] **Complete** |
-| 3 | **1** | ✅ weak | Cap Rate & Commercial Property Value Calculator | `cap rate calculator` | 6,600 | 24 | $0.87 | 0.12 | 27 | 26,070 | 12,790 | low | `/cap-rate-calculator/` | [ ] Pending |
-| 4 | **1** | ✅ weak | Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) | `cash on cash return calculator` | 1,300 | 17 | $0.81 | 0.27 | 52 | 21,590 | 15,940 | low | `/rental-property-calculator/` | [ ] Pending |
-| 5 | **1** | ✅ weak | Labor Cost Calculator (Construction & Business) | `labor cost` | 1,900 | 14 | $6.43 | 0.33 | 2 | 2,900 | 2,900 | none | `/labor-cost-calculator/` | [ ] Pending |
-| 6 | **1** | ✅ very weak | Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) | `commercial lease calculator` | 390 | 17 | $2.46 | 0.06 | 12 | 14,810 | 8,320 | none | `/commercial-lease-calculator/` | [ ] Pending |
-| 7 | **1** | ✅ weak | Short-Term Rental (Airbnb) Profit Calculator | `airbnb profit calculator` | 880 | 19 | $2.94 | 0.52 | 38 | 11,010 | 6,890 | low | `/airbnb-calculator/` | [ ] Pending |
-| 8 | **1** | ✅ weak | Freelance Hourly Rate Calculator | `freelance rate calculator` | 320 | 19 | $0.00 | 0.01 | 32 | 5,040 | 2,420 | none | `/freelance-rate-calculator/` | [ ] Pending |
-| 9 | **1** | ✅ weak (small) | Contribution Margin & Break-Even Calculator | `contribution margin and contribution margin ratio` | 2,400 | 4 | $0.00 | 0.33 | 4 | 7,500 | 3,700 | none | `/contribution-margin-calculator/` | [ ] Pending |
-| 10 | **2** | 🟡 possible | Commercial Mortgage & LTV Calculator | `commercial mortgage calculator` | 8,100 | 6 | $2.15 | 0.15 | 16 | 47,510 | 36,210 | medium | `/commercial-mortgage-calculator/` | [ ] Pending |
-| 11 | **2** | 🟡 guide gap | Business Valuation Calculator (SDE / EBITDA multiple) | `small business valuation` | 1,600 | 26 | $5.35 | 0.40 | 37 | 40,650 | 4,140 | low | `/business-valuation-calculator/` | [ ] Pending |
+| 3 | **1** | ✅ weak | Cap Rate & Commercial Property Value Calculator | `cap rate calculator` | 6,600 | 24 | $0.87 | 0.12 | 27 | 26,070 | 12,790 | low | `/cap-rate-calculator/` | [x] **Complete** |
+| 4 | **1** | ✅ weak | Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) | `cash on cash return calculator` | 1,300 | 17 | $0.81 | 0.27 | 52 | 21,590 | 15,940 | low | `/rental-property-calculator/` | [x] **Complete** |
+| 5 | **1** | ✅ weak | Labor Cost Calculator (Construction & Business) | `labor cost` | 1,900 | 14 | $6.43 | 0.33 | 2 | 2,900 | 2,900 | none | `/labor-cost-calculator/` | [x] **Complete** |
+| 6 | **1** | ✅ very weak | Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) | `commercial lease calculator` | 390 | 17 | $2.46 | 0.06 | 12 | 14,810 | 8,320 | none | `/commercial-lease-calculator/` | [x] **Complete** |
+| 7 | **1** | ✅ weak | Short-Term Rental (Airbnb) Profit Calculator | `airbnb profit calculator` | 880 | 19 | $2.94 | 0.52 | 38 | 11,010 | 6,890 | low | `/airbnb-calculator/` | [x] **Complete** |
+| 8 | **1** | ✅ weak | Freelance Hourly Rate Calculator | `freelance rate calculator` | 320 | 19 | $0.00 | 0.01 | 32 | 5,040 | 2,420 | none | `/freelance-rate-calculator/` | [x] **Complete** |
+| 9 | **1** | ✅ weak (small) | Contribution Margin & Break-Even Calculator | `contribution margin and contribution margin ratio` | 2,400 | 4 | $0.00 | 0.33 | 4 | 7,500 | 3,700 | none | `/contribution-margin-calculator/` | [x] **Complete** |
+| 10 | **2** | 🟡 possible | Commercial Mortgage & LTV Calculator | `commercial mortgage calculator` | 8,100 | 6 | $2.15 | 0.15 | 16 | 47,510 | 36,210 | medium | `/commercial-mortgage-calculator/` | [x] **Complete** |
+| 11 | **2** | 🟡 guide gap | Business Valuation Calculator (SDE / EBITDA multiple) | `small business valuation` | 1,600 | 26 | $5.35 | 0.40 | 37 | 40,650 | 4,140 | low | `/business-valuation-calculator/` | [x] **Complete** |
 | 12 | **2** | 🟡 possible | Discount / Percent Off Calculator | `discount computation` | 14,800 | 6 | $0.94 | 1.00 | 51 | 102,960 | 31,060 | none | `/discount-calculator/` | [x] **Complete** |
 | 13 | **2** | 🟡 hard | Profit Margin Calculator (Gross / Operating / Net) | `gross margin calculator` | 8,100 | 8 | $1.65 | 0.02 | 19 | 62,640 | 31,540 | none | `/profit-margin-calculator/` | [x] **Complete** |
-| 14 | **2** | 🟡 possible | Equipment & Business Loan Calculator | `equipment loan calculator` | 1,900 | 6 | $1.98 | 0.35 | 13 | 20,910 | 7,910 | medium | `/equipment-loan-calculator/` | [ ] Pending |
-| 15 | **2** | 🟡 possible | Invoice Generator (Hourly & Freelance) | `hourly invoice template` | 1,600 | 26 | $4.28 | 0.95 | 16 | 3,540 | 960 | none | `/invoice-generator/` | [ ] Pending |
-| 16 | **3** | 🟡 YMYL | Retirement Drawdown – “How Long Will My Money Last?” Calculator | `how long will my money last` | 12,100 | 0 | $1.20 | 0.09 | 15 | 46,090 | 24,190 | **high** | `/how-long-will-my-money-last/` | [ ] Pending |
-| 17 | **3** | 🟡 YMYL | SBA Loan Calculator (7(a) & 504) | `sba 504 loan` | 4,400 | 5 | $7.65 | 0.51 | 9 | 15,860 | 12,160 | medium | `/sba-loan-calculator/` | [ ] Pending |
-| 18 | **3** | 🟡 YMYL | Self-Employment (1099) Tax Calculator | `1099 tax calculator` | 9,900 | 6 | $0.70 | 0.11 | 7 | 27,600 | 23,200 | **high** | `/self-employment-tax-calculator/` | [ ] Pending |
+| 14 | **2** | 🟡 possible | Equipment & Business Loan Calculator | `equipment loan calculator` | 1,900 | 6 | $1.98 | 0.35 | 13 | 20,910 | 7,910 | medium | `/equipment-loan-calculator/` | [x] **Complete** |
+| 15 | **2** | 🟡 possible | Invoice Generator (Hourly & Freelance) | `hourly invoice template` | 1,600 | 26 | $4.28 | 0.95 | 16 | 3,540 | 960 | none | `/invoice-generator/` | [x] **Complete** (Built 2026-11-20, Tool #57) |
+| 16 | **3** | 🟡 YMYL | Retirement Drawdown – “How Long Will My Money Last?” Calculator | `how long will my money last` | 12,100 | 0 | $1.20 | 0.09 | 15 | 46,090 | 24,190 | **high** | `/how-long-will-my-money-last/` | [x] **Complete** (Built 2026-11-20, Tool #65) |
+| 17 | **3** | 🟡 YMYL | SBA Loan Calculator (7(a) & 504) | `sba 504 loan` | 4,400 | 5 | $7.65 | 0.51 | 9 | 15,860 | 12,160 | medium | `/sba-loan-calculator/` | [x] **Complete** (Built 2026-11-20, Tool #66) |
+| 18 | **3** | 🟡 YMYL | Self-Employment (1099) Tax Calculator | `1099 tax calculator` | 9,900 | 6 | $0.70 | 0.11 | 7 | 27,600 | 23,200 | **high** | `/self-employment-tax-calculator/` | [x] **Complete** (Built 2026-11-20, Tool #67) |
 
 > **Additional Built Foundation Tools (Batch 3 Priority Suite):**
 > - `[x]` **Percentage Change Calculator** — `/percentage-change-calculator/` (Complete & Live)
@@ -186,7 +186,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Quick win: build it between bigger pages.
 
-### [ ] 3. Cap Rate & Commercial Property Value Calculator — Pending
+### [x] 3. Cap Rate & Commercial Property Value Calculator — Complete
 
 - **URL:** `/cap-rate-calculator/`
 - **SEO title (53 chars, 65 with “ | KKC Tools”):** Cap Rate Calculator – NOI & Commercial Property Value
@@ -237,7 +237,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Never print “average cap rates by city” unless they are cited with a date. Use user inputs only.
 
-### [ ] 4. Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) — Pending
+### [x] 4. Rental Property Calculator (Cash Flow, Cash-on-Cash, ROI, Yield) — Complete
 
 - **URL:** `/rental-property-calculator/`
 - **SEO title (47 chars, 59 with “ | KKC Tools”):** Rental Property Calculator – Cash-on-Cash & ROI
@@ -314,7 +314,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** One strong page beats separate CoC, ROI and pro forma pages: Google groups these in one SERP. Re-check after the SERP pull.
 
-### [ ] 5. Labor Cost Calculator (Construction & Business) — Pending
+### [x] 5. Labor Cost Calculator (Construction & Business) — Complete
 
 - **URL:** `/labor-cost-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Labor Cost Calculator – Burdened Hourly Labor Rate
@@ -437,7 +437,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** **Intent gap:** many searchers want AirDNA-style *market data* (“how much can I make in my city”). We cannot fetch data (zero network), so the page must say “you enter the rate and occupancy”. Use “Short-term rental” in the H1/URL if trademark use of “Airbnb” worries you. Brand terms (bnbcalc, AirDNA Rentalizer, Rabbu, BiggerPockets) are dropped.
 
-### [ ] 8. Freelance Hourly Rate Calculator — Pending
+### [x] 8. Freelance Hourly Rate Calculator — Complete
 
 - **URL:** `/freelance-rate-calculator/`
 - **SEO title (48 chars, 60 with “ | KKC Tools”):** Freelance Rate Calculator – Hourly Rate You Need
@@ -493,7 +493,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** **Do not publish “average rates by profession”** unless they are cited (e.g. a named survey + year). `TODO(owner)` if you want a rate table. Most rows in exports #1 / #1.1 are job and platform searches (Upwork, Fiverr, writing jobs) and are dropped.
 
-### [ ] 9. Contribution Margin & Break-Even Calculator — Pending
+### [x] 9. Contribution Margin & Break-Even Calculator — Complete
 
 - **URL:** `/contribution-margin-calculator/`
 - **SEO title (51 chars, 63 with “ | KKC Tools”):** Contribution Margin Calculator – Ratio & Break-Even
@@ -521,7 +521,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 ## Tier 2 — possible with links
 
-### [ ] 10. Commercial Mortgage & LTV Calculator — Pending
+### [x] 10. Commercial Mortgage & LTV Calculator — Complete
 
 - **URL:** `/commercial-mortgage-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Commercial Mortgage Calculator – Payment & Balloon
@@ -561,7 +561,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Finance tool (YMYL-light). Present it as an estimator, with no rate claims. Rates are always typed in by the user.
 
-### [ ] 11. Business Valuation Calculator (SDE / EBITDA multiple) — Pending
+### [x] 11. Business Valuation Calculator (SDE / EBITDA multiple) — Complete (Built 2026-11-20, Tool #56)
 
 - **URL:** `/business-valuation-calculator/`
 - **SEO title (44 chars, 56 with “ | KKC Tools”):** Business Valuation Calculator – SDE & EBITDA
@@ -698,7 +698,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Several rows are flagged declining. Volumes are still large, but expect less than the sum.
 
-### [ ] 14. Equipment & Business Loan Calculator — Pending
+### [x] 14. Equipment & Business Loan Calculator — Complete
 
 - **URL:** `/equipment-loan-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Equipment Loan Calculator – Business Loan Payments
@@ -735,7 +735,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Merge with Commercial Mortgage (#10) only if the SERP shows the same sites ranking for both.
 
-### [ ] 15. Invoice Generator (Hourly & Freelance) — Pending
+### [x] 15. Invoice Generator (Hourly & Freelance) — Complete (Built 2026-11-20, Tool #57)
 
 - **URL:** `/invoice-generator/`
 - **SEO title (52 chars, 64 with “ | KKC Tools”):** Free Invoice Generator – Hourly & Freelance Invoices
@@ -1003,8 +1003,8 @@ Not business tools, but they turned up with low KD. Keep them for a future “ma
 ## 6. Next steps
 
 1. [x] **Core Business-Maths Tools Built:** Markup (#1), Unit Price (#2), Discount (#12), Profit Margin (#13) + Percentage Change & Hourly to Salary are 100% built, tested, and live.
-2. [ ] **Build Remaining Tier 1 in order:** Cap Rate (#3) → Rental Property / Cash-on-Cash (#4) (shares the Cap Rate NOI engine) → Labor Cost (#5) → Commercial Lease (#6) → Airbnb Profit (#7) → Freelance Rate (#8) → Contribution Margin (#9).
-3. [ ] **Build Remaining Tier 2 tools:** Commercial Mortgage (#10) + Equipment Loan (#14) (one loan-payment engine) → Business Valuation (#11) → Invoice Generator (#15).
+2. [x] **Build Remaining Tier 1 in order:** Cap Rate (#3) → Rental Property / Cash-on-Cash (#4) (shares the Cap Rate NOI engine) → Labor Cost (#5) → Commercial Lease (#6) → Airbnb Profit (#7) → Freelance Rate (#8) → Contribution Margin (#9) — 100% built and live.
+3. [x] **Build Remaining Tier 2 tools:** Commercial Mortgage (#10) + Equipment Loan (#14) (one loan-payment engine) → Business Valuation (#11) → Invoice Generator (#15) — 100% built and live.
 4. [ ] **Tier 3 (YMYL):** How Long Will My Money Last (#16), SBA 504 (#17), 1099 Tax (#18) only with dated sources, a reviewer and an owner commitment to updates.
 5. **Links plan:** each Tier 1 page should get a few relevant links (tool directories, a guest post or resource-page mention in its niche: retail / ecommerce for Markup and Unit Price, real estate for Cap Rate, Commercial Lease and Airbnb, construction for Labor Cost, freelancing for Freelance Rate). Tier 2 pages need more links because giants hold the top 3.
 6. **Beat the weak pages on substance:** every weak competitor is a thin single-purpose tool. Win with a better calculator, a worked example, a formula section and FAQ answers taken from the “how to calculate …” questions (KD 16–47).

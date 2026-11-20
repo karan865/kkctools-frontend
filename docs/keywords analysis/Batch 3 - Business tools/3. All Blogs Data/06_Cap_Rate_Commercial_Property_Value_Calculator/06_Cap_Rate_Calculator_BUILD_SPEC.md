@@ -167,9 +167,9 @@ A negative NOI is allowed. The UI says "Expenses exceed income: the cap rate is 
 
 ## 7. Done when
 
-- [ ] `real-estate-engine.ts` + `cap-rate-engine.ts` with tests (§3.5); `npm run verify` passes from PowerShell.
-- [ ] Input guide diagram above the inputs, with numbers matching the field labels and focus highlight (rules §9).
-- [ ] ToolShell + TabSlider + font/typography classes used.
-- [ ] No average cap rates anywhere without a dated citation.
-- [ ] Mobile 390 px: grid and NOI table scroll inside their boxes.
-- [ ] Routes, catalog (`business`), calculation-methods, ToolArt, Icons, Footer, docs 00/01/02/04/06 updated; `graphify update .` run.
+- [x] `real-estate-engine.ts` + `cap-rate-engine.ts` with tests (§3.5); `npm run verify` passes from PowerShell. (Evidence: 16 tests in real-estate-engine.test.ts, 9 tests in cap-rate-engine.test.ts)
+- [x] Input guide diagram above the inputs, with numbers matching the field labels and focus highlight (rules §9). (Evidence: CapRateInputGuide.tsx with SVG flow and live values)
+- [x] ToolShell + TabSlider + font/typography classes used. (Evidence: ToolShell with 4 pills, TabSlider segmented control)
+- [x] No average cap rates anywhere without a dated citation. (Evidence: User input driven with dated sources)
+- [x] Mobile 390 px: grid and NOI table scroll inside their boxes. (Evidence: tableScroll wrappers with overflow-x auto)
+- [x] Routes, catalog (`business`), calculation-methods, ToolArt, Icons, Footer, docs 00/01/02/04/06 updated; `graphify update .` run.

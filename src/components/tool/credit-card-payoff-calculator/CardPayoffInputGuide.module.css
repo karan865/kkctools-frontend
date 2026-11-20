@@ -1,0 +1,90 @@
+/* CardPayoffInputGuide.module.css */
+
+.container {
+  margin-bottom: var(--space-4, 1rem);
+  width: 100%;
+}
+
+.details {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--line, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 0.75rem 1rem;
+  transition: all 0.2s ease;
+}
+
+.details[open] {
+  padding-bottom: 1rem;
+}
+
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink, #0f172a);
+  user-select: none;
+}
+
+.summary::-webkit-details-marker {
+  display: none;
+}
+
+.summaryLabel {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.iconPulse {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: #eff6ff;
+  color: #2563eb;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.summaryHint {
+  font-size: 0.75rem;
+  color: var(--muted, #64748b);
+  font-weight: 500;
+}
+
+.diagramWrap {
+  margin-top: 0.875rem;
+  padding-top: 0.75rem;
+  border-top: 1px solid var(--line, #e2e8f0);
+  overflow-x: auto;
+}
+
+.svg {
+  width: 100%;
+  max-width: 680px;
+  height: auto;
+  min-width: 540px;
+  display: block;
+  margin: 0 auto;
+}
+
+/* Dark mode overrides */
+[data-theme='dark'] .details {
+  background: var(--surface-2, #1e293b);
+  border-color: var(--line, #334155);
+}
+
+[data-theme='dark'] .diagramWrap {
+  border-top-color: var(--line, #334155);
+}
+
+[data-theme='dark'] .iconPulse {
+  background: #1e3a8a;
+  color: #93c5fd;
+}

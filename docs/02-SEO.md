@@ -2,22 +2,22 @@
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (55 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (85 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-20: 0 SEO audit errors across 88 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
-| Group | Paths | Schema (JSON-LD graph) | Status |
-|---|---|---|---|
-| Home | `/` | WebSite, Organization, WebPage | Live |
-| Tools index | `/tools/` | CollectionPage, BreadcrumbList | Live |
-| Band Name Generator | `/band-name-generator/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
-| Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (35) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
-| Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
-| Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
-| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
-| HTML site map | `/site-map/` | WebPage, BreadcrumbList | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
-| System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
+| Group               | Paths                                                                                                                      | Schema (JSON-LD graph)                                 | Status                                                                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Home                | `/`                                                                                                                        | WebSite, Organization, WebPage                         | Live                                                                                                                                                    |
+| Tools index         | `/tools/`                                                                                                                  | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
+| Band Name Generator | `/band-name-generator/`                                                                                                    | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Genre pages (6)     | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/`                                                      | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Genre pages (2)     | `/band-name-generator/{punk,pop}/`                                                                                         | —                                                      | BLOCKED (owner keyword data)                                                                                                                            |
+| Estimate template   | `/construction-estimate-template/`                                                                                         | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Calculators (66)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
+| Guides index        | `/guides/`                                                                                                                 | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
+| Guides (3)          | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList                                | Live (1,686–1,888 words each)                                                                                                                           |
+| Trust               | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/`                                                      | AboutPage / ContactPage / WebPage, BreadcrumbList      | Live (Disclaimer added 2026-11-15 for the AdSense report)                                                                                               |
+| HTML site map       | `/site-map/`                                                                                                               | WebPage, BreadcrumbList                                | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
+| System              | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex)         | —                                                      | Live                                                                                                                                                    |
 
 Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
 

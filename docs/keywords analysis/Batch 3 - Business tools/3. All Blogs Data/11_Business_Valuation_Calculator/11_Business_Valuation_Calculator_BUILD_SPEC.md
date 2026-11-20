@@ -184,7 +184,7 @@ Negative earnings → the UI says "an earnings multiple doesn't apply; see the a
 
 ## 7. Done when
 
-- [ ] `business-valuation-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram (bridge) above the inputs; ToolShell + TabSlider used.
-- [ ] **Zero industry multiples** printed unless a dated, linked source exists (`TODO(owner)` otherwise).
-- [ ] Guide sections fully written (this page ranks on depth); registrations + docs updated; `graphify update .`.
+- [x] `business-valuation-engine.ts` + tests; `npm run verify` passes.
+- [x] Input guide diagram (bridge) above the inputs; ToolShell + TabSlider used.
+- [x] **Zero industry multiples** printed unless a dated, linked source exists (`TODO(owner)` otherwise).
+- [x] Guide sections fully written (this page ranks on depth); registrations + docs updated; `graphify update .`.

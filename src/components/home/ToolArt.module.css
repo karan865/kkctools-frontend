@@ -16,6 +16,7 @@
 .s1,
 .s2,
 .sp,
+.pl,
 .bar,
 .ring,
 .grain {
@@ -26,6 +27,7 @@
 .s1 { stroke: var(--g1, var(--accent)); stroke-width: 1.6; }
 .s2 { stroke: var(--g2, var(--accent-hover)); stroke-width: 1.4; }
 .sp { stroke: var(--surface); }
+.pl { stroke: var(--g2, var(--accent-hover)); fill: none; stroke-width: 1.8; }
 .thick { stroke-width: 3; }
 
 .bar {
@@ -45,6 +47,11 @@
 }
 
 .copper { fill: #D97706; }
+.gold { fill: #F59E0B; stroke: #D97706; }
+.green { fill: #10B981; }
+.red { fill: #EF4444; }
+.blue { fill: #3B82F6; }
+.teal { fill: #0D9488; }
 .leg { stroke: var(--g2, var(--accent-hover)); stroke-width: 4; stroke-linecap: round; }
 
 .dim {

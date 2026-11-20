@@ -186,9 +186,9 @@ safeHarbor = min(0.90 * thisYearTax, 1.00 * lastYearTax)  // verified wording; t
 
 ## 7. Done when
 
-- [ ] Owner's yearly-update commitment exists (gate).
-- [ ] `us-tax-data.ts` has 2026 figures **only** from official pages with URLs and dates; `seFactor` and any v2 data verified before use.
-- [ ] `se-tax-engine.ts` + tests (§3.6); `npm run verify` passes.
-- [ ] Input guide (funnel) above the inputs; ToolShell + TabSlider used.
-- [ ] Tax year & sources box + Last reviewed date; no unverified tax numbers on the page.
-- [ ] Registrations + docs updated (add "update us-tax-data every January" to `00-PROJECT-STATUS.md`); `graphify update .`.
+- [x] Owner's yearly-update commitment exists (gate).
+- [x] `us-tax-data.ts` has 2026 figures **only** from official pages with URLs and dates; `seFactor` and any v2 data verified before use.
+- [x] `se-tax-engine.ts` + tests (§3.6); `npm run verify` passes.
+- [x] Input guide (funnel) above the inputs; ToolShell + TabSlider used.
+- [x] Tax year & sources box + Last reviewed date; no unverified tax numbers on the page.
+- [x] Registrations + docs updated (add "update us-tax-data every January" to `00-PROJECT-STATUS.md`); `graphify update .`.

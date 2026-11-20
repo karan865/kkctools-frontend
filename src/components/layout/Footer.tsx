@@ -143,6 +143,27 @@ export default function Footer() {
           <div className={styles.column}>
             <span className={styles.colTitle}>More Utilities</span>
             <ul className={styles.linkList}>
+              <li><Link href="/self-employment-tax-calculator/" className={styles.link}>Self-Employment Tax Calculator</Link></li>
+              <li><Link href="/sba-loan-calculator/" className={styles.link}>SBA Loan Calculator</Link></li>
+              <li><Link href="/how-long-will-my-money-last/" className={styles.link}>How Long Will My Money Last?</Link></li>
+              <li><Link href="/investment-return-calculator/" className={styles.link}>Investment Return Calculator</Link></li>
+              <li><Link href="/heloc-calculator/" className={styles.link}>HELOC Calculator</Link></li>
+              <li><Link href="/net-worth-calculator/" className={styles.link}>Net Worth Calculator</Link></li>
+              <li><Link href="/credit-card-payoff-calculator/" className={styles.link}>Credit Card Payoff Calculator</Link></li>
+              <li><Link href="/processing-fee-calculator/" className={styles.link}>Processing Fee Calculator</Link></li>
+              <li><Link href="/compound-interest-calculator/" className={styles.link}>Compound Interest Calculator</Link></li>
+              <li><Link href="/present-value-calculator/" className={styles.link}>Present Value Calculator</Link></li>
+              <li><Link href="/invoice-generator/" className={styles.link}>Invoice Generator</Link></li>
+              <li><Link href="/business-valuation-calculator/" className={styles.link}>Business Valuation Calculator</Link></li>
+              <li><Link href="/equipment-loan-calculator/" className={styles.link}>Equipment Loan Calculator</Link></li>
+              <li><Link href="/commercial-mortgage-calculator/" className={styles.link}>Commercial Mortgage Calculator</Link></li>
+              <li><Link href="/contribution-margin-calculator/" className={styles.link}>Contribution Margin Calculator</Link></li>
+              <li><Link href="/freelance-rate-calculator/" className={styles.link}>Freelance Rate Calculator</Link></li>
+              <li><Link href="/airbnb-calculator/" className={styles.link}>Airbnb Profit Calculator</Link></li>
+              <li><Link href="/commercial-lease-calculator/" className={styles.link}>Commercial Lease Calculator</Link></li>
+              <li><Link href="/labor-cost-calculator/" className={styles.link}>Labor Cost Calculator</Link></li>
+              <li><Link href="/rental-property-calculator/" className={styles.link}>Rental Property Calculator</Link></li>
+              <li><Link href="/cap-rate-calculator/" className={styles.link}>Cap Rate Calculator</Link></li>
               <li><Link href="/discount-calculator/" className={styles.link}>Discount Calculator</Link></li>
               <li><Link href="/hourly-to-salary-calculator/" className={styles.link}>Hourly to Salary Calculator</Link></li>
               <li><Link href="/unit-price-calculator/" className={styles.link}>Unit Price Calculator</Link></li>

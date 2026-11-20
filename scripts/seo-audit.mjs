@@ -95,7 +95,7 @@ for (const file of htmlFiles) {
   if (!$('meta[name="viewport"]').length) pageErrors.push('Missing viewport meta');
 
   // 3. Title
-  const title = $('title').text().trim();
+  const title = ($('head > title').first().text() || $('title').first().text()).trim();
   if (!title) {
     pageErrors.push('Missing <title>');
   } else {

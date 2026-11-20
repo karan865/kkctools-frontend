@@ -177,7 +177,7 @@ refi: newLoan = balloon (+ costs) → new payment
 
 ## 7. Done when
 
-- [ ] `loan-engine.ts` (created now if Rental Property didn't) + `commercial-mortgage-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram (timeline + gauges) above the inputs; balance chart in results; ToolShell + TabSlider used.
-- [ ] No live or "current" rates anywhere; Sources & assumptions box + Last reviewed date.
-- [ ] Schedule prints and copies; registrations + docs updated; `graphify update .`.
+- [x] `loan-engine.ts` (created now if Rental Property didn't) + `commercial-mortgage-engine.ts` + tests; `npm run verify` passes. *(Evidence: 4 tests passing in commercial-mortgage-engine.test.ts, npm run verify passes with 0 errors)*
+- [x] Input guide diagram (timeline + gauges) above the inputs; balance chart in results; ToolShell + TabSlider used. *(Evidence: CommercialMortgageInputGuide.tsx with timeline + Underwriting Triad gauges; CommercialMortgageCalculator.tsx with SVG paydown chart, ToolShell with 4 feature pills, TabSlider)*
+- [x] No live or "current" rates anywhere; Sources & assumptions box + Last reviewed date. *(Evidence: YMYL assumptions card with November 2026 review date, MBA/CCIM/OCC citations in HowWeCalculate)*
+- [x] Schedule prints and copies; registrations + docs updated; `graphify update .`. *(Evidence: printable schedule table with monthly/annual views, clipboard copy, registered in routes, catalog, Footer, ToolArt, calculation methods)*

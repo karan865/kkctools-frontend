@@ -186,7 +186,7 @@ The builder must pick **one** monthly-rate convention: the effective rate (1 + r
 
 ## 7. Done when
 
-- [ ] `investment-return-engine.ts` + tests; `tvm-engine` reused; `npm run verify` passes.
-- [ ] Historical tab rendered **only** with an owner-approved, licensed static dataset (asOf + sources); otherwise absent.
-- [ ] Input guide diagram per tab above the inputs; ToolShell + TabSlider used.
-- [ ] Disclaimer next to results; no unsourced return figures; registrations + docs updated; `graphify update .`.
+- [x] `investment-return-engine.ts` + tests; `tvm-engine` reused; `npm run verify` passes.
+- [x] Historical tab rendered **only** with an owner-approved, licensed static dataset (asOf + sources); otherwise absent.
+- [x] Input guide diagram per tab above the inputs; ToolShell + TabSlider used.
+- [x] Disclaimer next to results; no unsourced return figures; registrations + docs updated; `graphify update .`.

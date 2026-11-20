@@ -168,4 +168,4 @@ compare: HEL payment = payment(amount, helRate, helTerm) ; refi = new loan (bala
 - [ ] `loan-engine` reused; `heloc-engine.ts` + tests; `npm run verify` passes.
 - [ ] Input guide (house bar + two-phase timeline) above the inputs; ToolShell + TabSlider used.
 - [ ] No live rates, no lender ads; Sources & assumptions + Last reviewed.
-- [ ] Registrations + docs updated; `graphify update .`.
+- [x] Registrations + docs updated; `graphify update .`.

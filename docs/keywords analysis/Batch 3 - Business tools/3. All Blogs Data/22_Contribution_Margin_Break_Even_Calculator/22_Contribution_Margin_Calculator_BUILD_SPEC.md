@@ -169,7 +169,7 @@ statement: sales − variable costs = CM − fixed = operating income
 
 ## 7. Done when
 
-- [ ] `contribution-margin-engine.ts` + tests; `npm run verify` passes.
-- [ ] Input guide diagram above the inputs; CVP chart in results; ToolShell + TabSlider used.
-- [ ] `TODO(owner)` note in docs about pulling `break even calculator` data.
-- [ ] Registrations + docs updated; Profit Margin links here; `graphify update .`.
+- [x] `contribution-margin-engine.ts` + tests; `npm run verify` passes.
+- [x] Input guide diagram above the inputs; CVP chart in results; ToolShell + TabSlider used.
+- [x] `TODO(owner)` note in docs about pulling `break even calculator` data.
+- [x] Registrations + docs updated; Profit Margin links here; `graphify update .`.

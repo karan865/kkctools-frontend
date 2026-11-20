@@ -1,0 +1,100 @@
+.guideContainer {
+  background: var(--surface-2, #f8fafc);
+  border: 1px solid var(--border-color, #e2e8f0);
+  border-radius: var(--radius-lg, 12px);
+  padding: 1.25rem;
+  margin-bottom: 1.5rem;
+  transition: border-color 0.2s ease;
+}
+
+.detailsHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  user-select: none;
+}
+
+.detailsHeader summary {
+  list-style: none;
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--text-1, #0f172a);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.detailsHeader summary::-webkit-details-marker {
+  display: none;
+}
+
+.toggleIcon {
+  font-size: 0.75rem;
+  color: var(--text-3, #64748b);
+  transition: transform 0.2s ease;
+}
+
+details[open] .toggleIcon {
+  transform: rotate(180deg);
+}
+
+.diagramWrapper {
+  margin-top: 1rem;
+  width: 100%;
+  overflow-x: auto;
+}
+
+.svgDiagram {
+  width: 100%;
+  max-width: 740px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.highlighted {
+  stroke: var(--accent-1, #0284c7) !important;
+  stroke-width: 3px !important;
+  filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.35));
+}
+
+.highlightedText {
+  fill: var(--accent-1, #0284c7) !important;
+  font-weight: 800 !important;
+}
+
+.legendList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 0.85rem;
+  padding-top: 0.85rem;
+  border-top: 1px dashed var(--border-color, #e2e8f0);
+  font-size: 0.8rem;
+  color: var(--text-2, #475569);
+}
+
+.legendItem {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.legendBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--surface-3, #e2e8f0);
+  color: var(--text-1, #0f172a);
+}
+
+.legendBadgeActive {
+  background: var(--accent-1, #0284c7);
+  color: #ffffff;
+}

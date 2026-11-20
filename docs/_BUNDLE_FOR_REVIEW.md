@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-20T11:39:34.903Z
+Generated on: 2026-11-20T22:12:30.429Z
 
 
 
@@ -11,24 +11,28 @@ Generated on: 2026-11-20T11:39:34.903Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-18
+- **Last Updated:** 2026-11-21
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Outer Card Clash Fix & Full Tool Shell Consistency across all 44 tools (2026-11-18); Tool Shell Rollout Complete (Batch 4: 13 Hard-Coded White Tools Converted & Wrapped, 2026-11-18; Batch 3: 20 Token-Based Calculators Wrapped, 2026-11-18; Batch 2: 5 Other Tabbed Tools Wrapped with TabSlider, 2026-11-18; Batch 1: 5 Business Tools Wrapped with TabSlider, 2026-11-18; Batch 0: Shared Primitives & Percentage Change Calculator Reference Migration, 2026-11-18); Tool #46 Discount / Percent Off Calculator built and verified (Phase DC46, 2026-11-18); FAQ Answer Pure White Background Styling Fix completed across all tools (2026-11-18); Tool #45 Hourly to Salary Calculator built and verified (Phase HS, 2026-11-18); Tool #44 Unit Price Calculator built and verified (Phase UP, 2026-11-18); Tool #43 Profit Margin Calculator built and verified (Phase PM, 2026-11-18); Tool #42 Markup Calculator built and verified (Phase MC, 2026-11-18); Tool #41 Percentage Change Calculator built and verified (Phase PC, 2026-11-18); Before that: Tool #38 Deck Cost Calculator built and verified (Phase DC, 2026-11-17); Tool #37 Carpet Cost Calculator built and verified (Phase CR, 2026-11-17); Tool #36 Roof Replacement Cost Calculator built and verified (Phase RR, 2026-11-17); Newest-First Tool Priority & Directory Sorting implemented across catalog, directory, homepage, and navigation (2026-11-17). Before that: Tool #35 Cubic Inch & Engine Displacement Calculator (Phase CI). Before that: Tool #34 Hardwood Floor Refinishing Cost Calculator (Phase FR). Before that: Tool #33 Bathroom Remodel Cost Calculator (Phase BR). Before that: Tool #32 Metal Roof Cost Calculator (Phase MR). Before that: Tool #31 Cubic Feet ↔ Square Feet Converter (Phase CF). Before that: Tool #30 Fence Cost Calculator (Phase FC). Before that: Tool #29 Deck Stain Calculator (Phase DS). Before that: Tool #28 Concrete Slab Cost Calculator (Phase SC).
-- **Overall Completion:** 676 vitest tests passing (50 files, 100% green), 81 static routes generated, every HTML page passes the SEO audit with zero errors, no-network check passing (`npm run verify` 2026-11-18, evidence in `docs/evidence/`).
+- **Current Phase:** Batch 3 Tier 3 (High YMYL) Suite Fully Built and Verified: Tool #67 (Self-Employment Tax Calculator, Phase SE67), Tool #66 (SBA Loan Calculator, Phase SBA66), and Tool #65 (Retirement Drawdown Calculator, Phase DL65); Batch 3 Part 3 Tool #7 (Tool #64 Investment Return / S&P 500 Calculator) built and verified (Phase IR64); Batch 3 Part 3 Tool #6 (Tool #63 HELOC & Home Equity Calculator) built and verified (Phase HC63); Batch 3 Part 3 Tool #5 (Tool #62 Net Worth Calculator) built and verified (Phase NW62); Batch 3 Part 3 Tool #4 (Tool #61 Credit Card Payoff & APR Calculator) built and verified (Phase CC61); Batch 3 Part 3 Tool #3 (Tool #60 Card Processing Fee Calculator) built and verified (Phase PF60); Batch 3 Part 3 Tool #2 (Tool #59 Compound Interest Calculator) built and verified (Phase CI59); Batch 3 Part 3 Tool #1 (Tool #58 Present Value & NPV Calculator) built and verified (Phase PV58); Batch 3 Part 2 Tools #47 through #57 built and verified; Tool Card Artwork & Unique Icon Redesign Completed (67/67 tools with bespoke unique illustrations and 1-to-1 dedicated icons, 0 duplicates).
+- **Overall Completion:** 904 vitest tests passing (73 files, 100% green), 85 static routes in routes.ts, 67 tools in tools-catalog.ts (67 unique icons), every HTML page passes the SEO audit with zero errors (88 HTML pages), no-network check passing (`npm run verify` 2026-11-21).
+- **Tier 3 (YMYL) Standing Maintenance Commitment:**
+  * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
+  * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
+  * Tool #67 (Self-Employment Tax): Annual update of `src/content/us-tax-data.ts` every January for new tax years (IRS Schedule SE Line 4a statutory factor, Social Security wage base, standard mileage rates, Form 1040-ES due dates).
 
-| Phase | Completed | Total | Status |
-|---|---|---|---|
-| **Phase 0 — Setup and rules** | 8 | 8 | Done |
-| **Phase 1 — Design system and layout shell** | 11 | 11 | Done |
-| **Phase 2 — Generator engine (no UI)** | 7 | 7 | Done |
-| **Phase 3 — Tool UI and main tool page** | 9 | 9 | Done (Checkpoint 1) |
-| **Phase 4 — Home, tools index and genre pages** | 10 | 12 | Done (2 blocked) |
-| **Phase 5 — Trust pages and guides** | 9 | 9 | Done |
-| **Phase 6 — SEO infrastructure and audit** | 12 | 12 | Done (Checkpoint 2) |
-| **Phase 7 — Deployment and launch** | 0 | 11 | Pending Owner Input |
-| **Phase 8 — Optional improvements** | 0 | 7 | Post-launch |
+| Phase                                           | Completed | Total | Status              |
+| ----------------------------------------------- | --------- | ----- | ------------------- |
+| **Phase 0 — Setup and rules**                   | 8         | 8     | Done                |
+| **Phase 1 — Design system and layout shell**    | 11        | 11    | Done                |
+| **Phase 2 — Generator engine (no UI)**          | 7         | 7     | Done                |
+| **Phase 3 — Tool UI and main tool page**        | 9         | 9     | Done (Checkpoint 1) |
+| **Phase 4 — Home, tools index and genre pages** | 10        | 12    | Done (2 blocked)    |
+| **Phase 5 — Trust pages and guides**            | 9         | 9     | Done                |
+| **Phase 6 — SEO infrastructure and audit**      | 12        | 12    | Done (Checkpoint 2) |
+| **Phase 7 — Deployment and launch**             | 0         | 11    | Pending Owner Input |
+| **Phase 8 — Optional improvements**             | 0         | 7     | Post-launch         |
 
 ---
 
@@ -276,6 +280,146 @@ Owner request: every tool must show, inside the input area, a large diagram that
 - [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
 - [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
 - [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
+
+### Phase SE67 — Tool #67: Self-Employment (1099) Tax Calculator (Batch 3 Part 2 #14, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/25_Self_Employment_1099_Tax_Calculator/25_Self_Employment_Tax_Calculator_BUILD_SPEC.md` & `25_Self_Employment_1099_Tax_Calculator_Competitor_Analysis.md` (primary `1099 tax calculator`, US 9,900 / KD 6; secondary `1099 tax estimator` 2,400 / KD 0, `self employed taxes calculator` 1,300 / KD 5, `estimate taxes` 5,400 / KD 1, `estimated tax dates` 2,900 / KD 2).
+- [x] SE-1 Engine `src/lib/se-tax-engine.ts` (12 unit tests passing): implements pure IRS statutory rules from `src/content/us-tax-data.ts`. Computes net self-employment earnings, statutory 92.35% net multiplier (IRC § 1402(a)(12) and Schedule SE Line 4a), $400 minimum net exemption threshold (IRC § 1402(b)(2)), Social Security 12.4% tax capped at $184,500 wage base with W-2 wage priority offset, Medicare 2.9% uncapped tax, Additional Medicare 0.9% surtax by filing status, 50% above-the-line deduction on Schedule 1 Line 15 (IRC § 164(f)), quarterly Form 1040-ES payment schedule across official IRS deadlines (Apr 15, Jun 15, Sep 15, Jan 15), safe harbor benchmark (90% current year vs 100% prior year), and what-if deduction analysis. Benchmark verified: $70,000 gross − $10,000 exp = $60,000 net -> $55,410 taxable base -> $8,477.73 SE tax ($6,870.84 SS + $1,606.89 Med) and $4,238.87 deduction. *(Evidence: `npx vitest run src/lib/se-tax-engine.test.ts` → 12 passed)*
+- [x] SE-2 Input Guide Diagram `src/components/tool/self-employment-tax-calculator/SeTaxInputGuide.tsx`: SVG funnel diagram from gross 1099 receipts down to ordinary deductions, standard mileage, 92.35% net multiplier, 15.3% SE tax breakdown, half deduction, and 4 quarterly calendar vouchers. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] SE-3 UI & ToolShell `src/components/tool/self-employment-tax-calculator/SelfEmploymentTaxCalculator.tsx`: TabSlider segmented control for 3 modes (`estimate`, `quarterly`, `what-if`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, itemized tax breakdown table, quarterly voucher cards, and dated IRS & SSA verified sources box. Wrapped in `ToolShell` with 4 verified pills: `2026 IRS figures, cited`, `W-2 + 1099 together`, `Quarterly due dates`, `Mileage at IRS rate`.
+- [x] SE-4 Main Tool Page `src/app/self-employment-tax-calculator/page.tsx`: 2,100+ words of original copy, primary keyword in first sentence ("1099 tax calculator"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing IRS and SSA, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`1099 Tax Calculator – Self-Employment Tax`).
+- [x] SE-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`seTaxCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#67, category `business`, icon `seTax`), `src/lib/tools-catalog.test.ts` (updated to 67), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `invoice-generator`, `freelance-rate-calculator`, and `hourly-to-salary-calculator`.
+- [x] SE-6 Strict Verification: 0 network calls (`npm run check:no-network`), 904/904 vitest tests passing across 73 test files, 88 static HTML pages built, 88 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase SBA66 — Tool #66: SBA Loan Calculator (7(a) & 504) (Batch 3 Part 2 #13, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/12_SBA_Loan_Calculator/12_SBA_Loan_Calculator_BUILD_SPEC.md` & `12_SBA_Loan_Calculator_Competitor_Analysis.md` (primary `sba 504 loan`, US 4,400 / KD 5; secondary `sba 504 loans` 2,400 / KD 6, `7a sba loan` 1,300 / KD 3, `what is a sba loan` 2,400 / KD 17, `sba certified lender` 1,300 / KD 7).
+- [x] SBA-1 Engine `src/lib/sba-loan-engine.ts` (9 unit tests passing): pure functions modeling SBA 504 two-loan capital stack (bank 1st lien, CDC debenture 2nd lien pegged to 10-yr Treasury, borrower equity, ~3% CDC fees financed into note, blended interest rate, balloon payoff), SBA 7(a) single commercial loans with guarantee fees, 504 vs 7(a) head-to-head comparison, and business acquisition M&A debt stack (buyer cash equity, seller note, and 7(a) senior debt with DSCR underwriting). All spec benchmarks verified: $2M project with 50/40/10 split ($1M bank @ 7% 25 yr = $7,067.79/mo; $800k CDC @ 6.5% 25 yr = $5,401.66/mo; 504 total = $1,800,000, 6.778% blended rate, $12,469.45/mo) vs $1.8M 7(a) loan @ 9% 25 yr ($15,105.53/mo) -> $2,636.08/mo monthly cash flow savings. *(Evidence: `npx vitest run src/lib/sba-loan-engine.test.ts` → 9 passed)*
+- [x] SBA-2 Input Guide Diagram `src/components/tool/sba-loan-calculator/SbaInputGuide.tsx`: SVG stacked capital structure diagram showing total project cost bar, bank 1st lien, CDC 2nd lien debenture, borrower equity injection, and merged combined monthly debt service arrow. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] SBA-3 UI & ToolShell `src/components/tool/sba-loan-calculator/SbaLoanCalculator.tsx`: TabSlider segmented control for 4 modes (`504`, `7a`, `compare`, `acquisition`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, loan split breakdown table, comparison savings matrix, and full combined amortization table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `True 504 two-loan split`, `504 vs 7(a) compare`, `DSCR affordability`, `Printable schedules`.
+- [x] SBA-4 Main Tool Page `src/app/sba-loan-calculator/page.tsx`: 2,200+ words of original copy, primary keyword in first sentence ("sba 504 loan"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing SBA.gov and 13 CFR Part 120, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`SBA Loan Calculator – 7(a) and 504 Loan Payments`).
+- [x] SBA-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`sbaLoanCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#66, category `business`, icon `sbaLoan`), `src/lib/tools-catalog.test.ts` (updated to 66), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `commercial-mortgage-calculator`, `equipment-loan-calculator`, and `business-valuation-calculator`.
+- [x] SBA-6 Strict Verification: 0 network calls (`npm run check:no-network`), 904/904 vitest tests passing across 73 test files, 88 static HTML pages built, 88 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase DL65 — Tool #65: Retirement Drawdown Calculator (Batch 3 Part 2 #12, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/20_How_Long_Will_My_Money_Last_Calculator/20_How_Long_Will_My_Money_Last_BUILD_SPEC.md` & `20_How_Long_Will_My_Money_Last_Calculator_Competitor_Analysis.md` (primary `how long will my money last`, US 12,100 / KD 0; secondary `how long will my money last calculator` 2,400 / KD 0, `how long will my savings last` 3,600 / KD 0, `4 percent rule calculator` 1,600 / KD 0).
+- [x] DL-1 Engine `src/lib/drawdown-engine.ts` (9 unit tests passing): pure functions modeling portfolio retirement drawdowns: closed-form log exhaustion formula, annual dynamic simulation with compound returns and inflation adjustments, other income (Social Security/pension), maximum sustainable annual spending solver (growing annuity formula), Bengen 4% Rule baseline, and stress testing scenarios (-2% return, bad-start sequence of returns). All spec benchmarks verified: $500k @ 5% with flat $40k/yr = 20.1 years; $500k with $40k/yr rising 3% inflation @ 5% return lasts ~15.2 years (exhausted at age 80); $500k to age 95 @ 5% return with 3% inflation allows $22,810.94 in Year 1 (4.56% withdrawal rate). *(Evidence: `npx vitest run src/lib/drawdown-engine.test.ts` → 9 passed)*
+- [x] DL-2 Input Guide Diagram `src/components/tool/how-long-will-my-money-last/DrawdownInputGuide.tsx`: SVG savings tank diagram with inflow pipes (returns, pensions), inflation leak, tap outflow, and age timeline ruler. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] DL-3 UI & ToolShell `src/components/tool/how-long-will-my-money-last/DrawdownCalculator.tsx`: TabSlider segmented control for 3 modes (`years`, `spend`, `four-percent`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, stress test scenario comparison cards, and year-by-year balance table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Years left or spending`, `Inflation & return`, `Pensions & Social Security`, `4% rule benchmark`.
+- [x] DL-4 Main Tool Page `src/app/how-long-will-my-money-last/page.tsx`: 2,200+ words of original copy, primary keyword in first sentence ("how long will my money last"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing Bengen (1994) and Trinity Study (1998), `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`How Long Will My Money Last? Retirement Drawdown Calculator`).
+- [x] DL-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`drawdownCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#65, category `business`, icon `drawdown`), `src/lib/tools-catalog.test.ts` (updated to 65), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `investment-return-calculator` and `compound-interest-calculator`.
+- [x] DL-6 Strict Verification: 0 network calls (`npm run check:no-network`), 904/904 vitest tests passing across 73 test files, 88 static HTML pages built, 88 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase IR64 — Tool #64: Investment Return / S&P 500 Calculator (Batch 3 Part 3 #7, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/27_Investment_Return_Calculator_SP500/27_Investment_Return_Calculator_BUILD_SPEC.md` & `27_Investment_Return_Calculator_SP500_Competitor_Analysis.md` (primary `investment calculator s&p 500`, US 880 / KD 10; secondary `money market interest calculator` 1,000 / KD 14, `calculate money market interest` 720 / KD 12, `t bill calculator` 1,300 / KD 23, `s and p 500 calculator` 4,400 / KD 17, `roth ira return calculator` 1,900 / KD 3).
+- [x] IR-1 Engine `src/lib/investment-return-engine.ts` (9 unit tests passing): pure functions for monthly compounding growth projection, annual contribution step-up, expense ratio fee drag, inflation discounting, money market monthly APY interest accrual, Treasury bill discount rate (360-day) and coupon-equivalent investment yield (365-day), and equities vs cash side-by-side comparison. Reuses `tvm-engine` TVM math. All spec benchmarks verified: $10,000 + $300/mo for 20 yrs at assumed 7% nominal = $196,665.39 from $82,000 contributed; $25,000 at 4.5% APY for 12 mos = $1,125.00 interest; T-bill $10k par at $9,750 for 182d = 4.945% discount rate and 5.142% investment yield. *(Evidence: `npx vitest run src/lib/investment-return-engine.test.ts` → 9 passed)*
+- [x] IR-2 Input Guide Diagram `src/components/tool/investment-return-calculator/InvestInputGuide.tsx`: SVG diagrams positioned above inputs with tab-specific visual flows: exponential growth curve with starting amount dot, periodic deposit steps, assumed slope %, fee drag zone, and dashed inflation curve; savings jar with APY compounding; U.S. Treasury bill security graphic showing auction discount to maturity par value; and stocks vs cash comparative divergence lines. Live sync, focus highlight, mobile collapsible `<details>`, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] IR-3 UI & ToolShell `src/components/tool/investment-return-calculator/InvestmentReturnCalculator.tsx`: TabSlider segmented control for 4 modes (`projection`, `money-market`, `tbill`, `compare`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, prominent disclaimer box next to results ("Past performance and assumed rates are illustrative..."), quick return chips (6%, 7%, 8%, 10%), T-bill maturity chips (28d, 91d, 182d, 364d), metrics grid (Final Value, Contributed, Compound Gains, Real Value, Fee Drag, CAGR), stacked principal vs growth bar, and annual schedule table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Stocks vs cash compare`, `Fees & inflation`, `Money market & T-bills`, `Yearly table & chart`.
+- [x] IR-4 Main Tool Page `src/app/investment-return-calculator/page.tsx`: 2,000+ words of original copy, primary keyword in first sentence ("investment calculator s&p 500"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing TreasuryDirect and Federal Reserve FRED, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Investment Calculator – S&P 500, T-Bills & Money Market`).
+- [x] IR-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`investmentReturnCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#64, category `business`, icon `investmentReturn`), `src/lib/tools-catalog.test.ts` (updated to 64), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `compound-interest-calculator` and `net-worth-calculator`.
+- [x] IR-6 Strict Verification: 0 network calls (`npm run check:no-network`), 874/874 vitest tests passing across 70 test files, 85 static pages built, 85 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase HC63 — Tool #63: HELOC & Home Equity Calculator (Batch 3 Part 3 #6, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/23_HELOC_Home_Equity_Calculator/23_HELOC_Calculator_BUILD_SPEC.md` & `23_HELOC_Home_Equity_Calculator_Competitor_Analysis.md` (primary `heloc loan calculator`, US 12,100 / KD 9; secondary `estimate home equity payment` 2,400 / KD 9, `heloc amortization calculator` 880 / KD 7; head `heloc calculator` 40,500 / KD 10 long-term).
+- [x] HC-1 Engine `src/lib/heloc-engine.ts` (7 unit tests passing): reuses `loan-engine.payment`. Implements `calculateBorrowingLimit` (85% CLTV cap -> $90k max line on $400k home with $250k mortgage), `calculateHelocPayments` ($50k at 8% -> $333.33/mo interest-only draw payment, $418.22/mo 20-yr repayment payment, +25.5% / +$84.89/mo payment shock, 1/360 method, extra principal, balloon option, rate caps), `generateRateScenarios` (+0%, +1%, +2%, +3%), and `compareHomeEquityOptions` (HELOC vs 15-yr Home Equity Loan vs 30-yr Cash-Out Refinance). *(Evidence: `npx vitest run src/lib/heloc-engine.test.ts` → 7 passed)*
+- [x] HC-2 Input Guide Diagram `src/components/tool/heloc-calculator/HelocInputGuide.tsx`: SVG house equity stack bar with 85% CLTV cap and two-phase lifecycle timeline showing draw to repayment payment shock. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] HC-3 UI & ToolShell `src/components/tool/heloc-calculator/HelocCalculator.tsx`: TabSlider segmented control for 3 modes (`payment`, `borrow`, `compare`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, hero payment shock card with red badge, metrics grid, rate-rise sensitivity table, and full 360-month amortization table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Borrowing limit (CLTV)`, `Payment shock shown`, `Rate-rise scenarios`, `HELOC vs home equity loan`.
+- [x] HC-4 Main Tool Page `src/app/heloc-calculator/page.tsx`: 2,100+ words of original copy, primary keyword ("heloc loan calculator"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing CFPB and IRS Pub 936, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`HELOC Loan Calculator – Payment, Limit & Payment Shock`).
+- [x] HC-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`helocCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#63, category `business`, icon `heloc`), `src/lib/tools-catalog.test.ts` (updated to 63), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `net-worth-calculator`.
+- [x] HC-6 Strict Verification: 0 network calls (`npm run check:no-network`), 874/874 vitest tests passing across 70 test files, 85 static pages built, 85 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase NW62 — Tool #62: Net Worth Calculator (Batch 3 Part 3 #5, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/19_Net_Worth_Calculator/19_Net_Worth_Calculator_BUILD_SPEC.md` & `19_Net_Worth_Calculator_Competitor_Analysis.md` (primary `calculate net worth`, US 4,400 / KD 17; secondary `net worth meaning` 14,800 / KD 8, `what is net worth` 2,400 / KD 9, `how do i figure out my net worth` 1,600 / KD 12; head `net worth calculator` 246,000 / KD 75 long-term).
+- [x] NW-1 Engine `src/lib/net-worth-engine.ts` (7 unit tests passing): pure functions for total assets, total liabilities, net worth, liquid net worth ($31,000 spec benchmark), investable net worth ($151,000), 53.45% debt-to-asset ratio, home equity, monthly spend runway, household dual-earner mode, and local private snapshots comparison. Spec benchmarks verified. *(Evidence: `npx vitest run src/lib/net-worth-engine.test.ts` → 7 passed)*
+- [x] NW-2 Input Guide Diagram `src/components/tool/net-worth-calculator/NetWorthInputGuide.tsx`: SVG balance scale with dynamic tilt angle based on assets vs liabilities. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] NW-3 UI & ToolShell `src/components/tool/net-worth-calculator/NetWorthCalculator.tsx`: TabSlider segmented control for 3 modes (`personal`, `household`, `tracker`) with `?tab=` URL sync, multi-currency selector (USD/EUR/GBP/CAD/AUD), high-contrast light mint `.summaryBanner` box, stacked asset allocation bar, local private snapshots via safeStorage in localStorage, and CSV statement export. Wrapped in `ToolShell` with 4 verified pills: `Liquid net worth`, `Household & partner mode`, `Asset-mix breakdown`, `Track over time`.
+- [x] NW-4 Main Tool Page `src/app/net-worth-calculator/page.tsx`: 1,800+ words of original copy, primary keyword ("calculate net worth"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing Federal Reserve Survey of Consumer Finances (SCF), `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Net Worth Calculator – Calculate Your Net Worth`).
+- [x] NW-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`netWorthCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#62, category `business`, icon `netWorth`), `src/lib/tools-catalog.test.ts` (updated to 62), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `credit-card-payoff-calculator`.
+- [x] NW-6 Strict Verification: 0 network calls (`npm run check:no-network`), 874/874 vitest tests passing across 70 test files, 85 static pages built, 85 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase CC61 — Tool #61: Credit Card Payoff & APR Calculator (Batch 3 Part 3 #4, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/16_Credit_Card_Payoff_APR_Calculator/16_Credit_Card_Payoff_Calculator_BUILD_SPEC.md` & `16_Credit_Card_Payoff_APR_Calculator_Competitor_Analysis.md` (primary `credit card apr calculator`, US 2,400 / KD 11; secondary `estimate minimum payment credit card` 1,300 / KD 12, `credit card payoff calculator` 14,800 / KD 53; head `credit card payoff calculator` long-term).
+- [x] CC-1 Engine `src/lib/card-payoff-engine.ts` (8 unit tests passing): pure functions modeling credit card amortization and debt reduction math. Implements `simulateCardPayoff` (with <$1.00 remainder roll-over), `calculatePaymentForMonths` ($259.39 for 24 months), `simulateMinimumPayment` (230 months, ~$8,100 interest on $5k @ 22%), `simulateMultiCardPayoff` (avalanche vs snowball priority ordering and debt budget rollover), `calculateBalanceTransfer` (evaluates promo interest vs transfer fee savings), and `convertApr` (APR -> daily rate, monthly rate, compounded APY). Spec worked examples verified ($5,000 at 22% paying $200/mo = 34 months & $1,750 interest; 24 months = $259.39/mo; minimum payments = 230 months & $8,100 interest). *(Evidence: `npx vitest run src/lib/card-payoff-engine.test.ts` → 8 passed)*
+- [x] CC-2 Input Guide Diagram `src/components/tool/credit-card-payoff-calculator/CardPayoffInputGuide.tsx`: credit card outline graphic with live draining balance bar, principal vs interest split, debt-free flag, minimum payment trap visualization showing shrinking monthly payments, avalanche vs snowball priority arrows, and 0% balance transfer bridge. 0 SVG `<title>` tags to protect SEO title audit.
+- [x] CC-3 UI & ToolShell `src/components/tool/credit-card-payoff-calculator/CreditCardPayoffCalculator.tsx`: TabSlider segmented control for 5 modes (`payoff`, `minimum`, `multi-card`, `transfer`, `converter`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic copyable BLUF sentence, hero payoff card with projected debt-free month/year, metrics strip (Total Interest, Total Paid, Monthly Payment, Initial Interest), sensitivity table ($150–$400 payment range), interactive SVG amortization chart, full monthly schedule table with CSV download, side-by-side minimum payment trap comparison, editable multi-card tracker with avalanche vs snowball interest difference, balance transfer savings calculator, and daily periodic rate converter. Wrapped in `ToolShell` with 4 verified pills: `Minimum-payment simulator`, `Avalanche vs snowball`, `Balance transfer check`, `No card ads`.
+- [x] CC-4 Main Tool Page `src/app/credit-card-payoff-calculator/page.tsx`: 2,000+ words of original copy, primary keywords ("credit card apr calculator", "estimate minimum payment credit card"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing CFPB and Federal Reserve Statistical Release G.19, zero credit card ads, zero affiliate links, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Credit Card APR Calculator – Payoff Time & Interest`).
+- [x] CC-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`creditCardPayoffCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#61, category `business`, icon `creditCardPayoff`), `src/lib/tools-catalog.test.ts` (updated to 61), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `compound-interest-calculator` and `percentage-change-calculator`.
+- [x] CC-6 Strict Verification: 0 network calls (`npm run check:no-network`), 874/874 vitest tests passing across 70 test files, 85 static pages built, 85 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase PF60 — Tool #60: Card Processing Fee Calculator (Batch 3 Part 3 #3, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/17_Card_Processing_Fee_Calculator/17_Card_Processing_Fee_Calculator_BUILD_SPEC.md` & `17_Card_Processing_Fee_Calculator_Competitor_Analysis.md` (primary `square credit card processing fees`, US 1,600 / KD 10; secondary `square reader fees` 2,400 / KD 12, `square fee calculator` 1,000 / KD 26, `credit card processing fee calculator`, `square pos pricing` 2,400 / KD 9; head `credit card processing fee calculator` long-term).
+- [x] PF-1 Engine `src/lib/processing-fee-engine.ts` (10 unit tests passing): pure functions for transaction fee calculation (`calculateSaleFee`: fee, net proceeds, effective rate %, percentage/fixed/international cut splits), gross-up charge-to-receive solver (`calculateGrossUp`: solves required customer charge to net target amount after fees; null on fee >= 100%), monthly overhead modeling (`calculateMonthlyFees`: monthly volume, variable fees, annual fees, net take-home), subscription plan break-even analyzer (`calculatePlanBreakEven`: computes required ticket count and monthly volume for software fee payoff, e.g. Square Free vs Square Plus), surcharge calculator (`calculateSurcharge` with 3.0% legal card-network cap), and preset comparator (`comparePresets`). Spec worked example verified ($100 sale at 2.9% + $0.30 -> $3.20 fee, $96.80 net, 3.20% effective; gross-up to net $100 -> charge $103.30). *(Evidence: `npx vitest run src/lib/processing-fee-engine.test.ts` → 10 passed)*
+- [x] PF-2 Official Presets Registry `src/content/processing-fee-presets.ts`: strict freshness rule enforced; holds verified standard rates directly read from official public pricing pages with source URLs and verified dates (Square In-Person 2.6% + $0.15, Square Online 3.3% + $0.30, Square Keyed 3.5% + $0.15, Square Plus 2.5% + $0.15 with $49/mo; Stripe Online 2.9% + $0.30, Stripe Terminal 2.7% + $0.05; PayPal Zettle 2.29% + $0.09, PayPal Standard Cards 2.99% + $0.49, PayPal Checkout 3.49% + $0.49, PayPal Keyed 3.49% + $0.09). `TODO(owner)`: re-check presets every 3 months.
+- [x] PF-3 Input Guide Diagram `src/components/tool/processing-fee-calculator/FeeInputGuide.tsx`: SVG payment flow diagram positioned above inputs with tab-specific visual flows: 3-box transaction payment flow (Customer pays [1] -> Processor cut [2] -> Merchant receives net [3]), reverse gross-up flow, 4-way processor comparison bars, and monthly volume receipt stack. Live values, active focus highlight, mobile collapsible `<details>`, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] PF-4 UI & ToolShell `src/components/tool/processing-fee-calculator/ProcessingFeeCalculator.tsx`: TabSlider segmented control for 4 modes (`fee`, `gross-up`, `compare`, `monthly`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, verified preset selector with auto-fill and custom rate override, international card toggle (+1.5%) and FX conversion toggle (+1.0%), hero Net/Fee card, metrics grid, gross-up solver with live surcharge cap check, side-by-side comparison table ranking lowest monthly cost with verified links, and paid plan break-even analyzer. Wrapped in `ToolShell` with 4 verified pills: `Fee, net & charge-to-receive`, `Compare providers`, `Monthly cost & plans`, `Any processor, any currency`.
+- [x] PF-5 Main Tool Page `src/app/processing-fee-calculator/page.tsx`: 1,900+ words of original copy, primary keyword in first sentence ("square credit card processing fees"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing Square, Stripe, PayPal official pricing and Visa Core Rules, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Card Processing Fee Calculator – Square, PayPal & More`).
+- [x] PF-6 Discovery & Routing: Registered in `src/lib/routes.ts` (`processingFeeCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#60, category `business`, icon `processingFee`), `src/lib/tools-catalog.test.ts` (updated to 60), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `invoice-generator` and `markup-calculator`.
+- [x] PF-7 Strict Verification: 0 network calls (`npm run check:no-network`), 843/843 vitest tests passing across 66 test files, 95 static pages built, 81 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase CI59 — Tool #59: Compound Interest Calculator (Batch 3 Part 3 #2, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/21_Compound_Interest_Calculator/21_Compound_Interest_Calculator_BUILD_SPEC.md` & `21_Compound_Interest_Calculator_Competitor_Analysis.md` (primary `compound growth calculator`, US 6,600 / KD 4; secondary `compound daily calculator` 1,600 / KD 3, `calculate interest compounded monthly` 1,000 / KD 7, `compound interest vs simple interest` 2,400 / KD 14, `compounded continuously` 2,400 / KD 22, `apy to apr calculator` 1,000 / KD 24; head `compound interest calculator` long-term).
+- [x] CI-1 Engine `src/lib/compound-interest-engine.ts` (16 unit tests passing): reuses `tvm-engine.ts` (`effectiveRate`, `nominalFromApy`). Implements `calculateCompoundGrowth` with mixed-frequency compounding math ($i = (1 + r/n)^{n/m} - 1$), timing toggle (start/end), annual step-up deposit increases, tax on interest drag %, inflation purchasing power deflation, `compareFrequencies` across 7 standard intervals (annual to continuous), `compareSimpleVsCompound` (linear vs exponential math with exact advantage), `solveDepositForGoal`, `solveRateForGoal`, and `solveTimeForGoal`. All spec benchmarks verified: $10,000 @ 5% monthly + $200/mo for 10 yrs = $47,526.55 ($34,000 deposits, $13,526.55 interest); $10k for 10y @ 5% no deposits: Annual $16,288.95 / Monthly $16,470.09 / Daily $16,486.65; APY of 5% monthly = 5.116%; Doubling time = 13.89 yrs. *(Evidence: `npx vitest run src/lib/compound-interest-engine.test.ts` → 16 passed)*
+- [x] CI-2 Input Guide Diagram `src/components/tool/compound-interest-calculator/CompoundInputGuide.tsx`: SVG snowball rolling down gentle slope metaphor across 4 modes (`growth`, `goal`, `simple-vs-compound`, `apr-vs-apy`), live values, active input focus highlight, mobile collapsible `<details>`, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] CI-3 UI & ToolShell `src/components/tool/compound-interest-calculator/CompoundInterestCalculator.tsx`: TabSlider segmented control for 4 modes (`growth`, `goal`, `simple-vs-compound`, `apr-vs-apy`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, hero Future Value card, key metrics strip (Total Deposits, Total Interest, APY, Doubling Time, Real Purchasing Power), SVG stacked growth chart, yearly schedule table with CSV download, 3-variable goal solver (deposit, rate, time), simple vs compound side-by-side comparison, and APR ↔ APY bidirectional converter with compounding yield matrix. Wrapped in `ToolShell` with 4 verified pills: `Solve for deposit, rate or time`, `Daily to continuous`, `Inflation-adjusted value`, `Yearly table & chart`.
+- [x] CI-4 Main Tool Page `src/app/compound-interest-calculator/page.tsx`: 2,200+ words of original copy, primary keyword in first sentence ("compound growth calculator"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing SEC Investor.gov, CFPB Truth in Savings Act (Reg DD), and CFA Institute TVM Curriculum, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Compound Interest Calculator – Daily, Monthly & Growth`).
+- [x] CI-5 Discovery & Routing: Registered in `src/lib/routes.ts` (`compoundInterestCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#59, category `business`, icon `compoundInterest`), `src/lib/tools-catalog.test.ts` (updated to 59), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `present-value-calculator` and `percentage-change-calculator`.
+- [x] CI-6 Strict Verification: 0 network calls (`npm run check:no-network`), 833/833 vitest tests passing across 65 test files, 94 static pages built, 80 HTML files audited with 0 SEO errors (`npm run verify` passed).
+
+### Phase PV58 — Tool #58: Present Value & NPV Calculator (Batch 3 Part 3 #1, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/26_Present_Value_NPV_Calculator/26_Present_Value_Calculator_BUILD_SPEC.md` & `26_Present_Value_NPV_Calculator_Competitor_Analysis.md` (primary `pv formula`, US 2,400 / KD 14; secondary `present value discount tables` 1,300 / KD 9, `present value table` 1,900 / KD 21, `pv table` 1,900 / KD 23, `pv of annuity` 720 / KD 12, `how to calculate npv` 1,900 / KD 29; head `present value calculator` 8,100 / KD 50).
+- [x] PV-0 Step P3-A Shared Engine `src/lib/tvm-engine.ts` (21 unit tests passing): robust time-value-of-money and capital budgeting engine. Exports `pv`, `fv`, `pvAnnuity`, `fvAnnuity`, `pvGrowingAnnuity`, `pvPerpetuity`, `effectiveRate(r, m)`, `nominalFromApy`, `perPeriodRate`, `npvProject`, `profitabilityIndex`, `discountedPayback`, `npvProfile`, `xnpv`, `pvTable`, `annuityTable`, and `generateExcelFormulas`. Reuses `npv` and `irr` from `real-estate-engine.ts`. All spec worked examples verified ($10k in 10y at 6% = $5,583.95; $1k/yr for 10y at 6% = $7,360.09; -$10k + 5×$3k at 8% = $1,978.13 NPV, 15.24% IRR, 1.20 PI, 4.03y discounted payback). *(Evidence: `npx vitest run src/lib/tvm-engine.test.ts` → 21 passed)*
+- [x] PV-1 Input Guide Diagram `src/components/tool/present-value-calculator/PvInputGuide.tsx`: SVG timeline diagram positioned above inputs with tab-specific visual flows: lump-sum discounting arc from Year N back to Today with compounding tick marks, periodic annuity stream with due vs ordinary indicator, uneven multi-year cash flows, capital budgeting outlay vs inflow bars with live NPV/IRR, and 4-decimal PV factor table preview. Zero SVG `<title>` tags to protect SEO title audit.
+- [x] PV-2 UI & ToolShell `src/components/tool/present-value-calculator/PresentValueCalculator.tsx`: TabSlider segmented control for 5 modes (`lump-sum`, `annuity`, `cash-flows`, `npv`, `pv-table`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, compounding frequency selector (annual to continuous), perpetuity and growing annuity toggles, dynamic cash flow row builder (add/remove years), capital budgeting card with interactive SVG NPV profile curve, Excel & Google Sheets formula generator box with one-click copy, and interactive 4-decimal PV/annuity table generator with CSV copy and print stylesheet. Wrapped in `ToolShell` with 4 verified pills: `PV, annuity & NPV/IRR`, `Printable PV table`, `Excel formulas`, `Step-by-step working`.
+- [x] PV-3 Main Tool Page `src/app/present-value-calculator/page.tsx`: 2,000+ words of authoritative copy, primary keyword in first sentence ("pv formula"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing FASB Concepts Statement No. 7, CFA Institute TVM Curriculum, and Brealey/Myers/Allen Corporate Finance, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Present Value Calculator – PV Formula, NPV & PV Table`).
+- [x] PV-4 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#58, category `business`, icon `presentValue`), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `business-valuation-calculator` and `cap-rate-calculator`.
+- [x] PV-5 Strict Verification: 0 network calls (`npm run check:no-network`), 817/817 vitest tests passing across 64 test files, 93 static pages built, 79 HTML files audited with 0 SEO errors.
+
+### Phase AB51 — Tool #51: Airbnb Profit Calculator (Batch 3 Part 2 #5, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/14_Airbnb_Short_Term_Rental_Profit_Calculator/14_Airbnb_Calculator_BUILD_SPEC.md` & `14_Airbnb_Short_Term_Rental_Profit_Calculator_Competitor_Analysis.md` (primary `airbnb profit calculator`, US 880 / KD 19 / CPC $2.94; secondary `free airbnb calculator` 480 / KD 0, `vacation rental investment calculator` 320 / KD 5, `airbnb arbitrage calculator` 260 / KD 4).
+- [x] AB-1 Engine `src/lib/str-engine.ts` (9 unit tests passing): full-stack STR profitability modeling for gross revenue from nightly rate (ADR), occupancy %, nights available, weekend uplift, cleaning fees collected, platform host fees (3%–15%), variable turnover costs (cleaner fee, supplies, management %, maintenance reserve %), fixed bills (utilities, Wi-Fi, STR insurance, permits), Net Operating Income (NOI), mortgage debt service or master lease arbitrage rent, cash flow, RevPAR, break-even occupancy % and ADR, cash-on-cash return, furniture payback period, 3-scenario projections, and STR vs LTR comparison. Spec worked example verified (365 nights, 65% occ = 237.25 booked nights, 79.08 stays, $180 ADR + $90 cleaning fee = $49,822.50 gross rev; $1,494.68 platform fee, $9,608.63 variable costs, $5,520 fixed costs -> NOI $33,199.20; after $1,800/mo mortgage -> $11,599.20/yr cash flow ($966.60/mo), 15.47% cash-on-cash on $75k invested, 45.53% break-even occupancy, 15.5 months furniture payback). *(Evidence: `npx vitest run src/lib/str-engine.test.ts` → 9 passed)*
+- [x] AB-2 Input Guide Diagram `src/components/tool/airbnb-calculator/AirbnbInputGuide.tsx`: SVG diagram positioned above inputs with tab-specific visual flows: 30-day visual calendar strip with booked vs vacant day shading, stay duration groupings, turnover cleaning broom badges, live ADR/cleaning fee tags, and net cash flow money waterfall. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] AB-3 UI & ToolShell `src/components/tool/airbnb-calculator/AirbnbCalculator.tsx`: TabSlider segmented control for 4 modes (`buy`, `arbitrage`, `midterm`, `str-vs-ltr`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, honest input standard notice, itemized annual & monthly P&L waterfall table, 3-tier sensitivity & scenario matrix (Conservative, Expected, Optimistic), side-by-side STR vs Long-Term Rental comparison card, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Full expense model`, `Break-even occupancy`, `Arbitrage & mid-term modes`, `STR vs long-term`.
+- [x] AB-4 Main Tool Page `src/app/airbnb-calculator/page.tsx`: 2,300+ words of original copy, BLUF quick answer box with engine-computed metrics, 12 comprehensive FAQs matching schema, `HowWeCalculate` component with AirDNA, AHLA, and NAR citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Descriptive brand use only, no competitor brand targeting.
+- [x] AB-5 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#51, category `business`, icon `airbnbHost`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `rental-property-calculator` and `cap-rate-calculator`.
+- [x] AB-6 Strict Verification: 0 network calls (`npm run check:no-network`), 750/750 vitest tests passing across 57 test files.
+
+### Phase CL50 — Tool #50: Commercial Lease Calculator (Batch 3 Part 2 #4, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/10_Commercial_Lease_Calculator/10_Commercial_Lease_Calculator_BUILD_SPEC.md` & `10_Commercial_Lease_Calculator_Competitor_Analysis.md` (primary `commercial lease calculator`, US 390 / KD 17 / CPC $2.46; secondary `triple net lease calculator` 480 / KD 12, `cam expenses` 260 / KD 8, `rent increase calculator` 1,600 / KD 15).
+- [x] CL-1 Engine `src/lib/commercial-lease-engine.ts` (10 unit tests passing): pure functions for usable area with load factor % -> rentable area (RSF), rate basis ($/SF/yr or $/SF/mo), lease types (Gross, Modified Gross with toggles, NNN, Absolute NNN), pass-throughs (tax, insurance, CAM, utilities), escalations (annual % or $/SF step, base-only vs all-costs), concessions (free rent months, TI allowance), 5-year multi-year schedule with net effective rent, building CAM pro-rata share, retail percentage rent overage with natural breakpoint, and side-by-side 2-offer comparison. Spec worked example verified (2,000 USF, 15% load = 2,300 RSF, $24 NNN + $8 pass-throughs, 5 yrs, 3% escalation base-only, 2 mos free rent, $10/SF TI ($23,000) -> Year 1 base $55,200 ($4,600/mo), Year 1 NNN $18,400 ($1,533.33/mo), Year 1 monthly total $6,133.33/mo, 5-yr base $293,064.30, 5-yr NNN $92,000.00, free rent -$9,200.00, total lease cost $375,864.30, avg monthly $6,264.40, net effective rent $22.68/SF/yr). *(Evidence: `npx vitest run src/lib/commercial-lease-engine.test.ts` → 10 passed)*
+- [x] CL-2 Input Guide Diagram `src/components/tool/commercial-lease-calculator/LeaseInputGuide.tsx`: SVG diagram positioned above inputs with tab-specific visual flows: Tab 1 floor plan diagram showing usable space vs rentable space (with load factor markup) + NNN pass-through stack + free rent concession ribbon; Tab 2 side-by-side offer comparison bars; Tab 3 building CAM allocation pie/bar; Tab 4 retail percentage rent breakpoint diagram. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] CL-3 UI & ToolShell `src/components/tool/commercial-lease-calculator/CommercialLeaseCalculator.tsx`: TabSlider segmented control for 4 modes (`cost`, `compare`, `cam`, `retail`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, 5-year year-by-year schedule table, side-by-side 2-offer comparison cards with winner banner, pro-rata building CAM calculator, retail percentage rent breakpoint calculator, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Gross, modified gross & NNN`, `Escalations & free rent`, `Compare 2 offers`, `Print & share link`.
+- [x] CL-4 Main Tool Page `src/app/commercial-lease-calculator/page.tsx`: 2,100+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with BOMA, CCIM, and ICSC citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+- [x] CL-5 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#50, category `business`, icon `commercialLease`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `cap-rate-calculator`, `rental-property-calculator`, and `square-footage-calculator`.
+- [x] CL-6 Strict Verification: 0 network calls (`npm run check:no-network`), 741/741 vitest tests passing across 56 test files.
+
+### Phase LC49 — Tool #49: Labor Cost Calculator (Batch 3 Part 2 #3, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/18_Labor_Cost_Calculator/18_Labor_Cost_Calculator_BUILD_SPEC.md` & `18_Labor_Cost_Calculator_Competitor_Analysis.md` (primary `labor cost`, US 1,900 / KD 14 / CPC $6.43; secondary `how to estimate labor costs for construction` 1,000 / KD 5).
+- [x] LC-1 Engine `src/lib/labor-cost-engine.ts` (12 unit tests passing): pure functions for fully burdened employee cost, US payroll-tax caps (Social Security 6.2% up to $184,500 wage base in 2026, Medicare 1.45% uncapped, FUTA 0.6% on first $7,000, SUTA on state wage base, workers' compensation per $100, benefits), paid vs productive billable hours, crew and job quote estimating (markup and margin modes reusing `pricing-engine.ts`), labor cost as a percentage of revenue, and employee vs 1099 subcontractor cost comparison. Spec worked example verified ($30/hr × 2,080 h = $62,400 wages, $5,015.60 payroll taxes, $3,120 wc, $6,000 benefits -> $76,535.60 total annual cost, 22.65% burden, $36.80/paid hr, $39.86/productive hr; 3-worker 40-hr crew quote with 15% overhead & 10% profit = $6,051.10). *(Evidence: `npx vitest run src/lib/labor-cost-engine.test.ts` → 12 passed)*
+- [x] LC-2 Input Guide Diagram `src/components/tool/labor-cost-calculator/LaborInputGuide.tsx`: SVG diagram positioned above inputs with tab-specific visual flows: Tab 1 stacked cost waterfall bar with 6 numbered badges (1 Wages, 2 Payroll Taxes, 3 Comp & Ins, 4 Benefits, 5 Total Cost) plus right-side productive hours clock (7 Paid − 8 Time Off = Billable hours) and true rate formula ribbon; Tab 2 crew roles × hours → Direct Labor + Materials/Subs → Overhead/Profit → Final Quote; Tab 3 labor vs revenue comparative bars. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+- [x] LC-3 UI & ToolShell `src/components/tool/labor-cost-calculator/LaborCostCalculator.tsx`: TabSlider segmented control for 3 modes (`employee`, `job`, `labor-pct`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, itemized waterfall breakdown table, W-2 vs 1099 subcontractor comparison tool, dynamic crew roster builder (add/remove members, hours, overtime), job expenses, markup vs margin pricing toggle, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Payroll-tax caps built in`, `Crew & job quote`, `Paid vs productive hours`, `Print & share link`.
+- [x] LC-4 Main Tool Page `src/app/labor-cost-calculator/page.tsx`: 2,200+ words of original copy, BLUF quick answer box with engine-computed metrics, 10 comprehensive FAQs matching schema, `HowWeCalculate` component with IRS Pub 15, SSA, and DOL FLSA citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+- [x] LC-5 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#49, category `business`, icon `laborCost`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `construction-estimate-template`, `markup-calculator`, and `hourly-to-salary-calculator`.
+- [x] LC-6 Strict Verification: 0 network calls (`npm run check:no-network`), 731/731 vitest tests passing across 55 test files.
+
+### Phase RP48 — Tool #48: Rental Property Calculator (Batch 3 Part 2 #2, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/07_Rental_Property_Calculator/07_Rental_Property_Calculator_BUILD_SPEC.md` & `07_Rental_Property_Calculator_Competitor_Analysis.md` (primary `cash on cash return calculator`, US 1,300 / KD 17; `cash on cash return` 3,600 / KD 7, `calculate rental property` 2,900 / KD 8, `investment property calculator` 1,300 / KD 2, `cash on cash roi` 880 / KD 0, `rental cash flow calculator` 480 / KD 2, `real estate pro forma` 480 / KD 9, `property value to rent ratio` 390 / KD 24).
+- [x] RP-1 Engine `src/lib/rental-property-engine.ts` (9 unit tests passing): full underwriting model reusing `real-estate-engine.ts` and `loan-engine.ts` for NOI, debt service, cash-on-cash return, cap rate, DSCR, gross/net yield, break-even occupancy, 1% rule, 10-year pro forma with equity paydown and IRR, and side-by-side all-cash vs financed deal comparison. Spec worked example verified ($250k price, 25% down, 7% rate, 30 yr, $2,400 rent, 5% vac, $9,468.80 opex -> NOI $17,891.20, debt service $14,969.31, cash flow $2,921.89/yr ($243.49/mo), cash invested $75,000, cash-on-cash 3.90%, cap rate 7.16%, DSCR 1.20×). *(Evidence: `npx vitest run src/lib/rental-property-engine.test.ts` → 9 passed)*
+- [x] RP-2 Input Guide Diagram `src/components/tool/rental-property-calculator/RentalInputGuide.tsx`: SVG diagram positioned above inputs with 8 numbered badge callouts matching inputs (1 Price, 2 Down payment, 3 Closing, 4 Repairs, 5 Monthly rent, 6 Vacancy, 7 Operating expenses, 8 Mortgage payment), live values sync, focus highlight, pro forma timeline arrow, and note that mortgage debt service is paid after NOI.
+- [x] RP-3 UI & ToolShell `src/components/tool/rental-property-calculator/RentalPropertyCalculator.tsx`: TabSlider segmented control for 3 modes (`returns`, `pro-forma`, `cash-vs-mortgage`) with `?tab=` URL sync, dedicated high-contrast light summary banner (`.summaryBanner`), itemized income waterfall table, 10-year pro forma table with SVG equity vs loan balance chart, CSV copy, printable pro forma report, and side-by-side financed vs all-cash comparison card. Wrapped in `ToolShell` with 4 verified pills: `Cash flow + 8 metrics`, `10-year pro forma`, `Cash vs mortgage`, `Print & share link`.
+- [x] RP-4 Main Tool Page `src/app/rental-property-calculator/page.tsx`: 2,300+ words of original copy, BLUF quick answer box with engine-computed metrics, 12 comprehensive FAQs matching schema, `HowWeCalculate` component, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Sourced citations: IRS Pub 527, NARPM, and CFI Real Estate Standards.
+- [x] RP-5 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#48, category `business`, icon `rentalProperty`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Cross-linked from `cap-rate-calculator` and `percentage-change-calculator`.
+- [x] RP-6 Strict Verification: 0 network calls (`npm run check:no-network`), 719/719 vitest tests passing across 54 test files, 83 static export pages generated in `out/`, 0 SEO audit errors.
+
+### Phase CP47 — Tool #47: Cap Rate Calculator & Step A Shared Engines (Batch 3 Part 2 #1, built 2026-11-20)
+Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/06_Cap_Rate_Commercial_Property_Value_Calculator/06_Cap_Rate_Calculator_BUILD_SPEC.md` & `06_Cap_Rate_Commercial_Property_Value_Calculator_Competitor_Analysis.md` (primary `cap rate calculator`, US 33,100 / KD 12; secondary `how to calculate cap rate` 22,200 / KD 18, `what is a good cap rate` 2,400 / KD 24, `what is cap rate` 1,900 / KD 24, `cap rate equation` 1,600 / KD 7, `capitalization rate calculator` 1,600 / KD 8, `what does a 7 cap rate mean` 480 / KD 3).
+- [x] CP-0 Step A Shared Engines:
+  * `src/lib/real-estate-engine.ts` (16 unit tests passing): `noi`, `calculateNoiBreakdown`, `capRate`, `valueFromCap`, `noiFromCap`, `grm`, `dscr`, `debtYield`, `cashOnCash`, `grossYield`, `netYield`, `npv`, `irr`. *(Evidence: `npx vitest run src/lib/real-estate-engine.test.ts` → 16 passed)*
+  * `src/lib/loan-engine.ts` (9 unit tests passing): `monthlyRate`, `payment`, `interestOnlyPayment`, `balanceAfter`, `maxLoanFromPayment`, `aprWithFees`, `factorRateToApr`, `schedule`. *(Evidence: `npx vitest run src/lib/loan-engine.test.ts` → 9 passed)*
+  * `src/content/us-tax-data.ts`: verified IRS Rev. Proc. 2024-40 2025/2026 brackets, standard deductions, standard mileage, self-employment tax thresholds, marked explicit `TODO(owner)` on unverified items.
+- [x] CP-1 Cap Rate Engine `src/lib/cap-rate-engine.ts` (9 unit tests passing): 3 solve modes (Cap Rate, Property Value, Required NOI), itemized NOI builder with units/sqft basis, 7x5 sensitivity matrix, exit valuation model. Spec worked example verified ($180k rent + $3k other - 5% vac - $46,440 exp = $127,560 NOI; $2.4M price → 5.315% / 5.32% cap rate). *(Evidence: `npx vitest run src/lib/cap-rate-engine.test.ts` → 9 passed)*
+- [x] CP-2 Input Guide Diagram `src/components/tool/cap-rate-calculator/CapRateInputGuide.tsx`: SVG diagram positioned above inputs with numbered badge callouts (1 Rent roll, 2 + Other income, 3 - Vacancy loss, 4 - Operating expenses with debt service excluded warning callout, 5 Property price, 6 Cap rate result), live input synchronization, focus tracking highlight, collapsible on mobile screens.
+- [x] CP-3 UI & ToolShell `src/components/tool/cap-rate-calculator/CapRateCalculator.tsx`: TabSlider segmented control for 3 solve modes with `?tab=` URL reflection, itemized NOI waterfall table, 7x5 sensitivity matrix table, exit valuation card, secondary metrics grid (GRM, Price/SqFt, Price/Unit, Price to NOI), one-click copy, shareable URL, and printable pro forma report. Wrapped in `ToolShell` with 4 verified pills: `3 solve modes (Cap, Value, NOI)`, `Itemized NOI waterfall`, `7x5 sensitivity matrix`, `Exit valuation model`.
+- [x] CP-4 Main Tool Page `src/app/cap-rate-calculator/page.tsx`: 2,400+ words of original copy, BLUF quick answer box, 11 comprehensive FAQs matching schema, `HowWeCalculate` component, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Sourced citations: CCIM Institute, Appraisal Institute, and Cornell Real Estate Review.
+- [x] CP-5 Discovery & Routing: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#47, category `business`, icon `capRate`), `Footer.tsx` (Column 5 Business & Finance Tools), `ToolArt.tsx`, and `calculation-methods.ts`. Cross-linked from `percentage-change-calculator` and `square-footage-calculator`.
+- [x] CP-6 Strict Verification: 0 network calls (`npm run check:no-network`), 710/710 vitest tests passing across 53 test files, 82 static export pages generated in `out/`, 0 SEO audit errors.
 
 ### Phase HS — Tool #45: Hourly to Salary Calculator (Batch 3 Tier 1 #5, built 2026-11-18)
 Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/4.Hourly_to_Salary_Wage_Calculator_Competitor_Analysis/04_Hourly_to_Salary_Calculator_BUILD_SPEC.md` & `04_Hourly_to_Salary_Wage_Calculator_Competitor_Analysis.md` (primary `yearly wage calculator`, US 6,600 / KD 0; secondary `calculate annual salary` 6,600 / KD 10, `monthly gross income calculator` 3,600 / KD 9, `how to calculate annual income biweekly` 1,300 / KD 0, `hourly salary calculator` 12,100 / KD 28).
@@ -601,17 +745,17 @@ No competitor text was copied.
 
 ## 3. Open Placeholders (TODO(owner))
 
-| File | Placeholder | Purpose | Status |
-|---|---|---|---|
-| `src/config/site.ts` | `SITE_NAME = 'KKC Tools'` | Site branding | Resolved (KKC Tools) |
-| `src/config/site.ts` | `SITE_URL = 'https://www.kkctools.com'` | Canonical domain | Resolved (https://www.kkctools.com) |
-| `src/config/site.ts` | `OWNER_EMAIL = 'kkchub1@gmail.com'` | Site-wide contact mailto | Resolved 2026-11-15 (owner: `contact@kkctools.com` was not a real mailbox) |
-| `src/config/site.ts` | `FOUNDER` (name, role, email, Instagram) | About page owner identity + Person schema | Resolved 2026-11-15 (Karan Kumar, owner-supplied) |
-| `src/app/about/page.tsx` ("Who runs KKC Tools") | — | Real owner name, role, contact (SEO audit H4, E-E-A-T) | Resolved 2026-11-15. Optional: owner may add real background/experience later — do not invent |
-| `src/app/layout.tsx` (Organization schema) | `TODO(owner)` | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles |
-| Cloudflare dashboard | `TODO(owner)` | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11 | **Open** |
-| Google Analytics admin | `TODO(owner)` | Set data retention and review Enhanced measurement for property `G-DVNM8TFRQE` | **Open** |
-| `src/lib/floor-refinish-engine.ts` (`DIY_DEFAULTS.bufferPerDay`) | `TODO(owner)` | Floor-buffer rental rate — no sourced figure; uses drum-sander midpoint, disclosed in UI (Phase FR-6) | **Open** |
+| File                                                             | Placeholder                              | Purpose                                                                                                     | Status                                                                                        |
+| ---------------------------------------------------------------- | ---------------------------------------- | ----------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `src/config/site.ts`                                             | `SITE_NAME = 'KKC Tools'`                | Site branding                                                                                               | Resolved (KKC Tools)                                                                          |
+| `src/config/site.ts`                                             | `SITE_URL = 'https://www.kkctools.com'`  | Canonical domain                                                                                            | Resolved (https://www.kkctools.com)                                                           |
+| `src/config/site.ts`                                             | `OWNER_EMAIL = 'kkchub1@gmail.com'`      | Site-wide contact mailto                                                                                    | Resolved 2026-11-15 (owner: `contact@kkctools.com` was not a real mailbox)                    |
+| `src/config/site.ts`                                             | `FOUNDER` (name, role, email, Instagram) | About page owner identity + Person schema                                                                   | Resolved 2026-11-15 (Karan Kumar, owner-supplied)                                             |
+| `src/app/about/page.tsx` ("Who runs KKC Tools")                  | —                                        | Real owner name, role, contact (SEO audit H4, E-E-A-T)                                                      | Resolved 2026-11-15. Optional: owner may add real background/experience later — do not invent |
+| `src/app/layout.tsx` (Organization schema)                       | `TODO(owner)`                            | `founder` → Person node (resolved 2026-11-15, personal Instagram in Person `sameAs`); Organization `sameAs` | **Open** only if the site gets its own social profiles                                        |
+| Cloudflare dashboard                                             | `TODO(owner)`                            | Disable Web Analytics (injected beacon, blocked by CSP) — Phase AR-11                                       | **Open**                                                                                      |
+| Google Analytics admin                                           | `TODO(owner)`                            | Set data retention and review Enhanced measurement for property `G-DVNM8TFRQE`                              | **Open**                                                                                      |
+| `src/lib/floor-refinish-engine.ts` (`DIY_DEFAULTS.bufferPerDay`) | `TODO(owner)`                            | Floor-buffer rental rate — no sourced figure; uses drum-sander midpoint, disclosed in UI (Phase FR-6)       | **Open**                                                                                      |
 
 ---
 
@@ -649,6 +793,7 @@ No competitor text was copied.
      - Compendium of Physical Activities edition, plus water-density, IWF/IPF and DST-rule sources.
      - Discord timestamp styles, to be checked against Discord's docs.
    - **Trademark wording:** the "Pomodoro Technique®" name.
+   - **Card processing rate freshness (Phase PF60):** `TODO(owner)`: Re-check card processing presets every 3 months in `src/content/processing-fee-presets.ts` against official pricing pages for Square, Stripe, and PayPal.
 
 ---
 
@@ -680,62 +825,74 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 29 — 1 generator, 1 estimate template, 27 calculators/converters (source: `src/lib/routes.ts`, `src/app/`).
-- **Tests:** 392 Vitest tests passing (`npm run verify`, 2026-11-14).
+- **Live tools:** 67 (source: `src/lib/routes.ts`, `src/lib/tools-catalog.ts`).
+- **Tests:** 904 Vitest tests passing (`npm run verify`, 2026-11-20).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
 
 ## 2. Tool Directory (live)
 
-| # | Tool | URL | UI component (`src/components/tool/`) | Engine (`src/lib/`) |
-|---:|---|---|---|---|
-| 1 | Band Name Generator (+ 6 genre pages) | `/band-name-generator/` | `band-name-generator/` | `generator/` |
-| 2 | Construction Estimate Template | `/construction-estimate-template/` | `construction-estimate/` | (in component) |
-| 3 | Asphalt Calculator | `/asphalt-calculator/` | `asphalt-calculator/` | `volume-engine.ts` |
-| 4 | Cubic Yard Calculator | `/cubic-yard-calculator/` | `cubic-yard-calculator/` | `volume-engine.ts` |
-| 5 | Concrete Calculator | `/concrete-calculator/` | `concrete-calculator/` | `concrete-engine.ts` |
-| 6 | Rebar Calculator | `/rebar-calculator/` | `rebar-calculator/` | `rebar-engine.ts` |
-| 7 | Drywall Calculator | `/drywall-calculator/` | `drywall-calculator/` | `drywall-engine.ts` |
-| 8 | Sand Calculator | `/sand-calculator/` | `sand-calculator/` | `sand-engine.ts` |
-| 9 | Fill Dirt Calculator | `/fill-dirt-calculator/` | `fill-dirt-calculator/` | `fill-dirt-engine.ts` |
-| 10 | Linear Foot Calculator | `/linear-foot-calculator/` | `linear-foot-calculator/` | `linear-foot-engine.ts` |
-| 11 | Rafter Calculator | `/rafter-calculator/` | `rafter-calculator/` | `rafter-engine.ts` |
-| 12 | Square Footage Calculator | `/square-footage-calculator/` | `square-footage-calculator/` | `square-footage-engine.ts` |
-| 13 | Cinder Block Calculator | `/cinder-block-calculator/` | `cinder-block-calculator/` | `cinder-block-engine.ts` |
-| 14 | Brick Calculator (US + Metric) | `/brick-calculator/` | `brick-calculator/` | `brick-engine.ts`, `brick-metric-engine.ts` |
-| 15 | Paint Cost Calculator | `/paint-cost-calculator/` | `paint-calculator/` | `paint-engine.ts` |
-| 16 | Tile Calculator | `/tile-calculator/` | `tile-calculator/` | `tile-engine.ts` |
-| 17 | Laminate Flooring Calculator | `/laminate-flooring-calculator/` | `laminate-calculator/` | `laminate-engine.ts` |
-| 18 | Stone Calculator | `/stone-calculator/` | `stone-calculator/` | `stone-engine.ts` |
-| 19 | Stud Calculator | `/stud-calculator/` | `stud-calculator/` | `stud-engine.ts` |
-| 20 | Tons to Cubic Yards Converter | `/tons-to-cubic-yards/` | `tons-yards-converter/` | `tons-yards-engine.ts` |
-| 21 | Paver Sand Calculator | `/paver-sand-calculator/` | `paver-sand-calculator/` | `paver-sand-engine.ts` |
-| 22 | Paver Base Calculator | `/paver-base-calculator/` | `paver-base-calculator/` | `paver-base-engine.ts` |
-| 23 | Compost Calculator | `/compost-calculator/` | `compost-calculator/` | `compost-engine.ts` |
-| 24 | Fence Stain Calculator | `/fence-stain-calculator/` | `fence-stain-calculator/` | `fence-stain-engine.ts` |
-| 25 | Lawn Mowing Cost Calculator (homeowner + pro views) | `/lawn-mowing-cost-calculator/` | `lawn-mowing-calculator/` | `lawn-mowing-engine.ts` |
-| 26 | Shingle Roof Calculator (sections, bundles + full accessory list) | `/shingle-calculator/` | `shingle-calculator/` | `shingle-engine.ts` |
-| 27 | Board and Batten Calculator (accent wall + exterior siding) | `/board-and-batten-calculator/` | `board-batten-calculator/` | `board-batten-engine.ts` |
-| 28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs) | `/pipe-volume-calculator/` | `pipe-volume-calculator/` | `pipe-volume-engine.ts` |
-| 29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive) | `/wire-gauge-calculator/` | `wire-gauge-calculator/` | `wire-gauge-engine.ts` |
-| 30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies) | `/concrete-slab-cost-calculator/` | `slab-cost-calculator/` | `slab-cost-engine.ts` |
-| 31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro) | `/deck-stain-calculator/` | `deck-stain-calculator/` | `deck-stain-engine.ts` |
-| 32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro) | `/fence-cost-calculator/` | `fence-cost-calculator/` | `fence-cost-engine.ts` |
-| 33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown) | `/cubic-feet-to-square-feet/` | `cubic-square-converter/` | `cubic-square-engine.ts` |
-| 34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment) | `/metal-roof-cost-calculator/` | `metal-roof-calculator/` | `metal-roof-engine.ts` |
-| 35 | Bathroom Remodel Cost Calculator (half/full/primary; cosmetic or full; budget/mid/high; editable fixed and per-area line items; tub/shower options; water heater, permit, region, contingency; quote checker) | `/bathroom-remodel-cost-calculator/` | `bathroom-remodel-calculator/` | `bathroom-remodel-engine.ts` |
-| 36 | Floor Refinishing Cost Calculator (rooms or total area, ft/m; screen & recoat / full sand / dustless; species factor; stain; repairs, board replacement, subfloor, carpet, stairs, furniture, baseboards; region and minimum charge; low–high range; DIY shopping list with gallons from coverage; refinish vs replace; quote checker) | `/floor-refinishing-cost-calculator/` | `floor-refinishing-calculator/` | `floor-refinish-engine.ts` |
-| 37 | Cubic Inch Calculator (volume mode: box, cylinder, tube wall + inside capacity, sphere in any length unit, quantity, 8 output units, volume converter; engine mode: bore × stroke × cylinders in in or mm, 6 manufacturer presets, bore/stroke ratio, overbore and stroker what-if, bore or stroke solver) | `/cubic-inch-calculator/` | `cubic-inch-calculator/` | `cubic-inch-engine.ts` |
-| 38 | Roof Replacement Cost Calculator (footprint or multi-plane roof sections, pitch multiplier √(1+(r/12)²); 10 materials from 3-tab to slate/tile; stories & steep-slope safety multipliers; tear-off scaling by layer; dumpster disposal; decking repair sheet allowance; accessories: synthetic vs felt underlayment, ice & water shield, drip edge, ridge vent, pipe boots, gutters; 3-way repair vs overlay vs replace with IRC R908.3.1.1 2-layer code rule; contractor quote verifier) | `/roof-replacement-cost-calculator/` | `roof-replacement-cost-calculator/` | `roof-replacement-engine.ts` |
-| 39 | Carpet Cost Calculator (multi-room takeoff, 12'/13.5'/15' roll layout optimization, seam minimization, stairs runner geometry with waterfall vs box cap & band, 3 grades, 5 fibres, 5 styles, carpet tiles, cushion padding specifications, tear-out, disposal, tack strips, transitions, contractor quote verifier, flooring comparisons) | `/carpet-cost-calculator/` | `carpet-cost-calculator/` | `carpet-engine.ts` |
-| 40 | Deck Cost Calculator (new build, resurface, replace, repair; materials, railing, stairs, footings; Fixr-sourced price ranges) | `/deck-cost-calculator/` | `deck-cost-calculator/` | `deck-cost-engine.ts` |
-| 41 | Percentage Change Calculator (8 modes: % change, % difference, increase/decrease by %, reverse %, X% of Y, X is what % of Y, percentage points, list mode; Excel/Sheets formula) | `/percentage-change-calculator/` | `percentage-change-calculator/` | `percent-engine.ts` |
-| 42 | Markup Calculator (solve any two of cost/markup/price/profit, target margin, landed cost + fees, VAT/GST/sales tax, price endings, 3-tier price chain, product list) | `/markup-calculator/` | `markup-calculator/` | `pricing-engine.ts` |
-| 43 | Profit Margin Calculator (gross, full P&L waterfall to operating and net, target-margin price, multi-product blended margin; Damodaran Jan 2026 sector table) | `/profit-margin-calculator/` | `profit-margin-calculator/` | `margin-engine.ts` (uses `pricing-engine.ts`) |
-| 44 | Unit Price Calculator (compare 2–6 items in any unit, deals, shrinkflation check, seller unit price) | `/unit-price-calculator/` | `unit-price-calculator/` | `unit-price-engine.ts` |
-| 45 | Hourly to Salary Calculator (8 pay periods both ways, paid vs unpaid time off, overtime, compare jobs/raise; gross only) | `/hourly-to-salary-calculator/` | `hourly-to-salary-calculator/` | `wage-engine.ts` |
-| 46 | Discount Calculator (percent off, sale price, reverse discount, stacked deals, sales tax order) | `/discount-calculator/` | `discount-calculator/` | `discount-engine.ts` |
+|    # | Tool                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | URL                                   | UI component (`src/components/tool/`) | Engine (`src/lib/`)                                                    |
+| ---: | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------- | ------------------------------------- | ---------------------------------------------------------------------- |
+|    1 | Band Name Generator (+ 6 genre pages)                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/band-name-generator/`               | `band-name-generator/`                | `generator/`                                                           |
+|    2 | Construction Estimate Template                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `/construction-estimate-template/`    | `construction-estimate/`              | (in component)                                                         |
+|    3 | Asphalt Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `/asphalt-calculator/`                | `asphalt-calculator/`                 | `volume-engine.ts`                                                     |
+|    4 | Cubic Yard Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/cubic-yard-calculator/`             | `cubic-yard-calculator/`              | `volume-engine.ts`                                                     |
+|    5 | Concrete Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                       | `/concrete-calculator/`               | `concrete-calculator/`                | `concrete-engine.ts`                                                   |
+|    6 | Rebar Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `/rebar-calculator/`                  | `rebar-calculator/`                   | `rebar-engine.ts`                                                      |
+|    7 | Drywall Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `/drywall-calculator/`                | `drywall-calculator/`                 | `drywall-engine.ts`                                                    |
+|    8 | Sand Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `/sand-calculator/`                   | `sand-calculator/`                    | `sand-engine.ts`                                                       |
+|    9 | Fill Dirt Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                      | `/fill-dirt-calculator/`              | `fill-dirt-calculator/`               | `fill-dirt-engine.ts`                                                  |
+|   10 | Linear Foot Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `/linear-foot-calculator/`            | `linear-foot-calculator/`             | `linear-foot-engine.ts`                                                |
+|   11 | Rafter Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                         | `/rafter-calculator/`                 | `rafter-calculator/`                  | `rafter-engine.ts`                                                     |
+|   12 | Square Footage Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                 | `/square-footage-calculator/`         | `square-footage-calculator/`          | `square-footage-engine.ts`                                             |
+|   13 | Cinder Block Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                   | `/cinder-block-calculator/`           | `cinder-block-calculator/`            | `cinder-block-engine.ts`                                               |
+|   14 | Brick Calculator (US + Metric)                                                                                                                                                                                                                                                                                                                                                                                                                                                            | `/brick-calculator/`                  | `brick-calculator/`                   | `brick-engine.ts`, `brick-metric-engine.ts`                            |
+|   15 | Paint Cost Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/paint-cost-calculator/`             | `paint-calculator/`                   | `paint-engine.ts`                                                      |
+|   16 | Tile Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `/tile-calculator/`                   | `tile-calculator/`                    | `tile-engine.ts`                                                       |
+|   17 | Laminate Flooring Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                              | `/laminate-flooring-calculator/`      | `laminate-calculator/`                | `laminate-engine.ts`                                                   |
+|   18 | Stone Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                          | `/stone-calculator/`                  | `stone-calculator/`                   | `stone-engine.ts`                                                      |
+|   19 | Stud Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                           | `/stud-calculator/`                   | `stud-calculator/`                    | `stud-engine.ts`                                                       |
+|   20 | Tons to Cubic Yards Converter                                                                                                                                                                                                                                                                                                                                                                                                                                                             | `/tons-to-cubic-yards/`               | `tons-yards-converter/`               | `tons-yards-engine.ts`                                                 |
+|   21 | Paver Sand Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/paver-sand-calculator/`             | `paver-sand-calculator/`              | `paver-sand-engine.ts`                                                 |
+|   22 | Paver Base Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                     | `/paver-base-calculator/`             | `paver-base-calculator/`              | `paver-base-engine.ts`                                                 |
+|   23 | Compost Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                        | `/compost-calculator/`                | `compost-calculator/`                 | `compost-engine.ts`                                                    |
+|   24 | Fence Stain Calculator                                                                                                                                                                                                                                                                                                                                                                                                                                                                    | `/fence-stain-calculator/`            | `fence-stain-calculator/`             | `fence-stain-engine.ts`                                                |
+|   25 | Lawn Mowing Cost Calculator (homeowner + pro views)                                                                                                                                                                                                                                                                                                                                                                                                                                       | `/lawn-mowing-cost-calculator/`       | `lawn-mowing-calculator/`             | `lawn-mowing-engine.ts`                                                |
+|   26 | Shingle Roof Calculator (sections, bundles + full accessory list)                                                                                                                                                                                                                                                                                                                                                                                                                         | `/shingle-calculator/`                | `shingle-calculator/`                 | `shingle-engine.ts`                                                    |
+|   27 | Board and Batten Calculator (accent wall + exterior siding)                                                                                                                                                                                                                                                                                                                                                                                                                               | `/board-and-batten-calculator/`       | `board-batten-calculator/`            | `board-batten-engine.ts`                                               |
+|   28 | Pipe & Tube Volume Calculator (capacity, wall weight, pipe-size presets, runs)                                                                                                                                                                                                                                                                                                                                                                                                            | `/pipe-volume-calculator/`            | `pipe-volume-calculator/`             | `pipe-volume-engine.ts`                                                |
+|   29 | Wire Gauge Calculator (size / check / gauge lookup; AWG + mm²; safety-sensitive)                                                                                                                                                                                                                                                                                                                                                                                                          | `/wire-gauge-calculator/`             | `wire-gauge-calculator/`              | `wire-gauge-engine.ts`                                                 |
+|   30 | Concrete Slab Cost Calculator (itemised estimate: concrete, short-load, delivery, pump, base, reinforcement, labour, finish, removal; DIY bags vs ready-mix vs contractor; US/metric, 7 currencies)                                                                                                                                                                                                                                                                                       | `/concrete-slab-cost-calculator/`     | `slab-cost-calculator/`               | `slab-cost-engine.ts`                                                  |
+|   31 | Deck Stain Calculator (floor sections, railings with posts/rails/balusters, stairs, skirting; opacity, coats, wood condition; gallons/litres, can plan, cleaner, DIY vs pro)                                                                                                                                                                                                                                                                                                              | `/deck-stain-calculator/`             | `deck-stain-calculator/`              | `deck-stain-engine.ts`                                                 |
+|   32 | Fence Cost Calculator (6 materials; sides, corners, closed loop, walk/double gates; posts, rails, pickets, panels, fabric; concrete per post; removal, slope, permit; range; DIY vs pro)                                                                                                                                                                                                                                                                                                  | `/fence-cost-calculator/`             | `fence-cost-calculator/`              | `fence-cost-engine.ts`                                                 |
+|   33 | Cubic Feet ↔ Square Feet Converter (two-way with depth; volume or bags; area or L × W; ft³, yd³, m³, L, cft; ft², m², yd²; material depth presets; working shown)                                                                                                                                                                                                                                                                                                                         | `/cubic-feet-to-square-feet/`         | `cubic-square-converter/`             | `cubic-square-engine.ts`                                               |
+|   34 | Metal Roof Cost Calculator (roof sections via Shingle geometry; standing seam, corrugated, metal shingles; tear-off; vs asphalt upfront and per year; panels, trim, underlayment)                                                                                                                                                                                                                                                                                                         | `/metal-roof-cost-calculator/`        | `metal-roof-calculator/`              | `metal-roof-engine.ts`                                                 |
+|   35 | Bathroom Remodel Cost Calculator (half/full/primary; cosmetic or full; budget/mid/high; editable fixed and per-area line items; tub/shower options; water heater, permit, region, contingency; quote checker)                                                                                                                                                                                                                                                                             | `/bathroom-remodel-cost-calculator/`  | `bathroom-remodel-calculator/`        | `bathroom-remodel-engine.ts`                                           |
+|   36 | Floor Refinishing Cost Calculator (rooms or total area, ft/m; screen & recoat / full sand / dustless; species factor; stain; repairs, board replacement, subfloor, carpet, stairs, furniture, baseboards; region and minimum charge; low–high range; DIY shopping list with gallons from coverage; refinish vs replace; quote checker)                                                                                                                                                    | `/floor-refinishing-cost-calculator/` | `floor-refinishing-calculator/`       | `floor-refinish-engine.ts`                                             |
+|   37 | Cubic Inch Calculator (volume mode: box, cylinder, tube wall + inside capacity, sphere in any length unit, quantity, 8 output units, volume converter; engine mode: bore × stroke × cylinders in in or mm, 6 manufacturer presets, bore/stroke ratio, overbore and stroker what-if, bore or stroke solver)                                                                                                                                                                                | `/cubic-inch-calculator/`             | `cubic-inch-calculator/`              | `cubic-inch-engine.ts`                                                 |
+|   38 | Roof Replacement Cost Calculator (footprint or multi-plane roof sections, pitch multiplier √(1+(r/12)²); 10 materials from 3-tab to slate/tile; stories & steep-slope safety multipliers; tear-off scaling by layer; dumpster disposal; decking repair sheet allowance; accessories: synthetic vs felt underlayment, ice & water shield, drip edge, ridge vent, pipe boots, gutters; 3-way repair vs overlay vs replace with IRC R908.3.1.1 2-layer code rule; contractor quote verifier) | `/roof-replacement-cost-calculator/`  | `roof-replacement-cost-calculator/`   | `roof-replacement-engine.ts`                                           |
+|   39 | Carpet Cost Calculator (multi-room takeoff, 12'/13.5'/15' roll layout optimization, seam minimization, stairs runner geometry with waterfall vs box cap & band, 3 grades, 5 fibres, 5 styles, carpet tiles, cushion padding specifications, tear-out, disposal, tack strips, transitions, contractor quote verifier, flooring comparisons)                                                                                                                                                | `/carpet-cost-calculator/`            | `carpet-cost-calculator/`             | `carpet-engine.ts`                                                     |
+|   40 | Deck Cost Calculator (new build, resurface, replace, repair; materials, railing, stairs, footings; Fixr-sourced price ranges)                                                                                                                                                                                                                                                                                                                                                             | `/deck-cost-calculator/`              | `deck-cost-calculator/`               | `deck-cost-engine.ts`                                                  |
+|   41 | Percentage Change Calculator (8 modes: % change, % difference, increase/decrease by %, reverse %, X% of Y, X is what % of Y, percentage points, list mode; Excel/Sheets formula)                                                                                                                                                                                                                                                                                                          | `/percentage-change-calculator/`      | `percentage-change-calculator/`       | `percent-engine.ts`                                                    |
+|   42 | Markup Calculator (solve any two of cost/markup/price/profit, target margin, landed cost + fees, VAT/GST/sales tax, price endings, 3-tier price chain, product list)                                                                                                                                                                                                                                                                                                                      | `/markup-calculator/`                 | `markup-calculator/`                  | `pricing-engine.ts`                                                    |
+|   43 | Profit Margin Calculator (gross, full P&L waterfall to operating and net, target-margin price, multi-product blended margin; Damodaran Jan 2026 sector table)                                                                                                                                                                                                                                                                                                                             | `/profit-margin-calculator/`          | `profit-margin-calculator/`           | `margin-engine.ts` (uses `pricing-engine.ts`)                          |
+|   44 | Unit Price Calculator (compare 2–6 items in any unit, deals, shrinkflation check, seller unit price)                                                                                                                                                                                                                                                                                                                                                                                      | `/unit-price-calculator/`             | `unit-price-calculator/`              | `unit-price-engine.ts`                                                 |
+|   45 | Hourly to Salary Calculator (8 pay periods both ways, paid vs unpaid time off, overtime, compare jobs/raise; gross only)                                                                                                                                                                                                                                                                                                                                                                  | `/hourly-to-salary-calculator/`       | `hourly-to-salary-calculator/`        | `wage-engine.ts`                                                       |
+|   46 | Discount Calculator (percent off, sale price, reverse discount, stacked deals, sales tax order)                                                                                                                                                                                                                                                                                                                                                                                           | `/discount-calculator/`               | `discount-calculator/`                | `discount-engine.ts`                                                   |
+|   47 | Cap Rate Calculator (solve cap rate, property value, required NOI, itemized NOI builder, sensitivity matrix, exit valuation)                                                                                                                                                                                                                                                                                                                                                              | `/cap-rate-calculator/`               | `cap-rate-calculator/`                | `real-estate-engine.ts`, `cap-rate-engine.ts`                          |
+|   48 | Rental Property Calculator (cash flow, cash-on-cash return, cap rate, DSCR, 10-year pro forma, cash vs mortgage)                                                                                                                                                                                                                                                                                                                                                                          | `/rental-property-calculator/`        | `rental-property-calculator/`         | `real-estate-engine.ts`, `loan-engine.ts`, `rental-property-engine.ts` |
+|   49 | Labor Cost Calculator (burdened hourly rate, US payroll-tax caps, paid vs productive hours, crew & job quote, labor % of revenue, W-2 vs 1099)                                                                                                                                                                                                                                                                                                                                            | `/labor-cost-calculator/`             | `labor-cost-calculator/`              | `us-tax-data.ts`, `pricing-engine.ts`, `labor-cost-engine.ts`          |
+|   50 | Commercial Lease Calculator (rent per sq ft, NNN / CAM pass-throughs, usable vs rentable area, escalations, free rent, TI allowance, net effective rent, offer compare)                                                                                                                                                                                                                                                                                                                   | `/commercial-lease-calculator/`       | `commercial-lease-calculator/`        | `commercial-lease-engine.ts`                                           |
+|   51 | Airbnb Profit Calculator (nightly ADR, occupancy %, turnover cleaning, platform fees, fixed bills, NOI, cash flow, break-even occ, arbitrage, STR vs LTR)                                                                                                                                                                                                                                                                                                                                 | `/airbnb-calculator/`                 | `airbnb-calculator/`                  | `str-engine.ts`                                                        |
+|   52 | Freelance Rate Calculator (income goal to hourly/day/project rate, 52-week calendar, overhead, US SECA tax, salaried equivalent)                                                                                                                                                                                                                                                                                                                                                          | `/freelance-rate-calculator/`         | `freelance-rate-calculator/`          | `freelance-rate-engine.ts`                                             |
+|   53 | Contribution Margin Calculator (unit CM, CM ratio, break-even units & $, margin of safety, DOL, sales-mix, CVP graph)                                                                                                                                                                                                                                                                                                                                                                     | `/contribution-margin-calculator/`    | `contribution-margin-calculator/`     | `contribution-margin-engine.ts`                                        |
+|   58 | Present Value & NPV Calculator (lump-sum PV, ordinary/due/growing annuity, uneven cash flows, capital budgeting NPV/IRR, printable PV discount table, spreadsheet formulas)                                                                                                                                                                                                                                                                                                               | `/present-value-calculator/`          | `present-value-calculator/`           | `tvm-engine.ts`                                                        |
+|   59 | Compound Interest Calculator (daily/monthly/continuous compounding, regular deposits, 3-way goal solver, simple vs compound advantage, APR/APY converter, real inflation balance)                                                                                                                                                                                                                                                                                                         | `/compound-interest-calculator/`      | `compound-interest-calculator/`       | `tvm-engine.ts`, `compound-interest-engine.ts`                         |
+| 65 | Retirement Drawdown Calculator (years savings will last, annual drawdown schedule, inflation, Bengen 4% rule, maximum spending solver, sequence-of-returns stress test) | `/how-long-will-my-money-last/` | `how-long-will-my-money-last/` | `drawdown-engine.ts` |
+| 66 | SBA Loan Calculator (SBA 504 two-loan split, bank 1st lien, CDC debenture 2nd lien, SBA 7(a) variable rate with guarantee fee, DSCR affordability, business acquisition M&A) | `/sba-loan-calculator/` | `sba-loan-calculator/` | `sba-loan-engine.ts` |
+| 67 | 1099 Self-Employment Tax Calculator (15.3% SE tax, statutory 92.35% multiplier, Social Security wage-base cap, Additional Medicare surtax, 50% above-the-line deduction, 1040-ES quarterly vouchers, safe harbor) | `/self-employment-tax-calculator/` | `self-employment-tax-calculator/` | `se-tax-engine.ts`, `us-tax-data.ts` |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -746,21 +903,21 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 3. Tool #1: Band Name Generator Features
 
-| Feature ID | Feature Name | Description | Status | Code Path |
-|---|---|---|---|---|
-| **F1** | Genre Selector | Radio chips: Any, Rock, Metal, Heavy Metal, Punk, Pop, K-pop, Boy Band, Indie | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
-| **F2** | Name Style | Select: Any, "The ...", Two words, One word, "X of Y" | Done ✅ | `Controls.tsx` |
-| **F3** | Batch Count | 5, 10 (default), 20 names per generation | Done ✅ | `Controls.tsx` |
-| **F4** | Starts With | A–Z letter filter on first significant word | Done ✅ | `Controls.tsx` |
-| **F5** | Must Include Word | Custom word injected into a compatible template, sanitized & filtered | Done ✅ | `Controls.tsx` |
-| **F6** | ALL CAPS Toggle | Capitalize output (default ON for K-pop) | Done ✅ | `Controls.tsx` |
-| **F7** | Generate Action | Button + Enter key; avoids the last 50 names | Done ✅ | `Controls.tsx` |
-| **F8** | Results List | Styled list with copy, save and check buttons | Done ✅ | `Results.tsx` |
-| **F9** | Copy Actions | Copy and copy-all with fallback and non-shifting "Copied" alert | Done ✅ | `ResultRow.tsx` |
-| **F10** | Saved Names Panel | localStorage favorites with copy-all & .txt download | Done ✅ | `SavedPanel.tsx` |
-| **F11** | Availability Check Menu | Google, Spotify, Bandcamp, YouTube search links with disclaimer | Done ✅ | `CheckMenu.tsx` |
-| **F12** | Constraint Warning | "Try fewer filters" when constraints yield fewer names | Done ✅ | `Results.tsx` |
-| **F13** | Server Starter Names | Curated starter names in static HTML (no hydration mismatch) | Done ✅ | `BandNameGenerator.tsx` |
+| Feature ID | Feature Name            | Description                                                                   | Status | Code Path                                              |
+| ---------- | ----------------------- | ----------------------------------------------------------------------------- | ------ | ------------------------------------------------------ |
+| **F1**     | Genre Selector          | Radio chips: Any, Rock, Metal, Heavy Metal, Punk, Pop, K-pop, Boy Band, Indie | Done ✅ | `src/components/tool/band-name-generator/Controls.tsx` |
+| **F2**     | Name Style              | Select: Any, "The ...", Two words, One word, "X of Y"                         | Done ✅ | `Controls.tsx`                                         |
+| **F3**     | Batch Count             | 5, 10 (default), 20 names per generation                                      | Done ✅ | `Controls.tsx`                                         |
+| **F4**     | Starts With             | A–Z letter filter on first significant word                                   | Done ✅ | `Controls.tsx`                                         |
+| **F5**     | Must Include Word       | Custom word injected into a compatible template, sanitized & filtered         | Done ✅ | `Controls.tsx`                                         |
+| **F6**     | ALL CAPS Toggle         | Capitalize output (default ON for K-pop)                                      | Done ✅ | `Controls.tsx`                                         |
+| **F7**     | Generate Action         | Button + Enter key; avoids the last 50 names                                  | Done ✅ | `Controls.tsx`                                         |
+| **F8**     | Results List            | Styled list with copy, save and check buttons                                 | Done ✅ | `Results.tsx`                                          |
+| **F9**     | Copy Actions            | Copy and copy-all with fallback and non-shifting "Copied" alert               | Done ✅ | `ResultRow.tsx`                                        |
+| **F10**    | Saved Names Panel       | localStorage favorites with copy-all & .txt download                          | Done ✅ | `SavedPanel.tsx`                                       |
+| **F11**    | Availability Check Menu | Google, Spotify, Bandcamp, YouTube search links with disclaimer               | Done ✅ | `CheckMenu.tsx`                                        |
+| **F12**    | Constraint Warning      | "Try fewer filters" when constraints yield fewer names                        | Done ✅ | `Results.tsx`                                          |
+| **F13**    | Server Starter Names    | Curated starter names in static HTML (no hydration mismatch)                  | Done ✅ | `BandNameGenerator.tsx`                                |
 
 ### Core Engine Modules (`src/lib/generator/`)
 - `types.ts`: GenreId, StyleId, GenerateOptions, GenerateResult.
@@ -781,22 +938,22 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (55 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-15: 0 SEO audit errors). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (85 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-20: 0 SEO audit errors across 88 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
-| Group | Paths | Schema (JSON-LD graph) | Status |
-|---|---|---|---|
-| Home | `/` | WebSite, Organization, WebPage | Live |
-| Tools index | `/tools/` | CollectionPage, BreadcrumbList | Live |
-| Band Name Generator | `/band-name-generator/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Genre pages (6) | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Genre pages (2) | `/band-name-generator/{punk,pop}/` | — | BLOCKED (owner keyword data) |
-| Estimate template | `/construction-estimate-template/` | WebApplication, BreadcrumbList, FAQPage | Live |
-| Calculators (35) | see `01-FEATURES.md` §2 | WebApplication, BreadcrumbList, FAQPage (one per page) | Live |
-| Guides index | `/guides/` | CollectionPage, BreadcrumbList | Live |
-| Guides (3) | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList | Live (1,686–1,888 words each) |
-| Trust | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/` | AboutPage / ContactPage / WebPage, BreadcrumbList | Live (Disclaimer added 2026-11-15 for the AdSense report) |
-| HTML site map | `/site-map/` | WebPage, BreadcrumbList | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
-| System | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex) | — | Live |
+| Group               | Paths                                                                                                                      | Schema (JSON-LD graph)                                 | Status                                                                                                                                                  |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Home                | `/`                                                                                                                        | WebSite, Organization, WebPage                         | Live                                                                                                                                                    |
+| Tools index         | `/tools/`                                                                                                                  | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
+| Band Name Generator | `/band-name-generator/`                                                                                                    | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Genre pages (6)     | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/`                                                      | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Genre pages (2)     | `/band-name-generator/{punk,pop}/`                                                                                         | —                                                      | BLOCKED (owner keyword data)                                                                                                                            |
+| Estimate template   | `/construction-estimate-template/`                                                                                         | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
+| Calculators (66)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
+| Guides index        | `/guides/`                                                                                                                 | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
+| Guides (3)          | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList                                | Live (1,686–1,888 words each)                                                                                                                           |
+| Trust               | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/`                                                      | AboutPage / ContactPage / WebPage, BreadcrumbList      | Live (Disclaimer added 2026-11-15 for the AdSense report)                                                                                               |
+| HTML site map       | `/site-map/`                                                                                                               | WebPage, BreadcrumbList                                | Live (2026-11-15; built from `TOOLS_CATALOG` + `INDEXABLE_ROUTES`, linked in the footer; named `/site-map/` so it does not clash with `app/sitemap.ts`) |
+| System              | `/sitemap.xml`, `/robots.txt`, `/llms.txt`, `/opengraph-image.png`, `/apple-touch-icon.png`, `/404.html` (noindex)         | —                                                      | Live                                                                                                                                                    |
 
 Primary keywords for the Batch 2 calculators are recorded in `00-PROJECT-STATUS.md` (per-tool phase sections) and in `docs/keywords analysis/Batch 2/`.
 
@@ -999,6 +1156,13 @@ Recorded primary keywords for built Batch 2 tools (from `00-PROJECT-STATUS.md`):
 - Unit Price Calculator — see Batch 3 spec `05_Unit_Price_Calculator_BUILD_SPEC.md` (weakest SERP in Batch 3; build order 1).
 - Hourly to Salary Calculator — `yearly wage calculator` US 6,600 / KD 0 (primary), `calculate annual salary` 6,600/10, `monthly gross income calculator` 3,600/9, `how to calculate annual income biweekly` 1,300/0. `wage calculator` 18.1K is paycheck/tax intent: natural mention only.
 - Discount Calculator — receives the percent-off terms kept off the Percentage Change page (`off percent calculator` 6,600 and "X percent off Y" long tail). `TODO(owner)`: confirm primary keyword and KD from Semrush.
+- Cap Rate Calculator — primary `cap rate calculator` US 33,100 / KD 12 / CPC $2.84; secondaries `how to calculate cap rate` 22,200 / KD 18, `what is a good cap rate` 2,400 / KD 24, `what is cap rate` 1,900 / KD 24, `cap rate equation` 1,600 / KD 7, `capitalization rate calculator` 1,600 / KD 8, `what does a 7 cap rate mean` 480 / KD 3. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/06_Cap_Rate_Commercial_Property_Value_Calculator/06_Cap_Rate_Calculator_BUILD_SPEC.md`. Target page `/cap-rate-calculator/`.
+- Rental Property Calculator — primary `cash on cash return calculator` US 1,300 / KD 17 / CPC $0.81; secondaries `cash on cash return` 3,600 / KD 7, `calculate rental property` 2,900 / KD 8, `investment property calculator` 1,300 / KD 2, `cash on cash roi` 880 / KD 1, `rental cash flow calculator` 480 / KD 14, `real estate pro forma` 480 / KD 18, `property value to rent ratio` 390 / KD 12. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/07_Rental_Property_Calculator/07_Rental_Property_Calculator_BUILD_SPEC.md`. Target page `/rental-property-calculator/`.
+- Labor Cost Calculator — primary `labor cost` US 1,900 / KD 14 / CPC $6.43; secondary `how to estimate labor costs for construction` 1,000 / KD 5. Natural phrases: `burdened labor rate`, `labor burden calculator`, `true cost of an employee`, `labor cost percentage`. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/18_Labor_Cost_Calculator/18_Labor_Cost_Calculator_BUILD_SPEC.md`. Target page `/labor-cost-calculator/`.
+- Commercial Lease Calculator — primary `commercial lease calculator` US 390 / KD 17 / CPC $2.46; secondary `triple net lease calculator` 480 / KD 12, `cam expenses` 260 / KD 8, `rent increase calculator` 1,600 / KD 15. Natural phrases: `rentable vs usable square feet`, `gross vs nnn lease`, `net effective rent calculator`. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/10_Commercial_Lease_Calculator/10_Commercial_Lease_Calculator_BUILD_SPEC.md`. Target page `/commercial-lease-calculator/`.
+- Airbnb Profit Calculator — primary `airbnb profit calculator` US 880 / KD 19 / CPC $2.94; secondary `free airbnb calculator` 480 / KD 0, `vacation rental investment calculator` 320 / KD 5, `airbnb arbitrage calculator` 260 / KD 4, `vrbo calculator` 390 / KD 12. Natural phrases: `how much can i make on airbnb`, `break even occupancy airbnb`, `short term rental cash flow`, `str vs long term rental`. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/14_Airbnb_Short_Term_Rental_Profit_Calculator/14_Airbnb_Calculator_BUILD_SPEC.md`. Target page `/airbnb-calculator/`.
+- Freelance Rate Calculator — primary `freelance rate calculator` US 320 / KD 19; secondaries `why is seo expensive` 480 / KD 14, `how much do copywriters charge` 70 / KD 9, `how much is copywriting` 70 / KD 6, `seo consultant hourly rate` 590 / KD 20, `freelance cost calculator` 260 / KD 24. Natural phrases: `what to charge as a freelancer`, `freelance day rate formula`, `billable hours per year`, `freelance tax set aside`. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/15_Freelance_Hourly_Rate_Calculator/15_Freelance_Rate_Calculator_BUILD_SPEC.md`. Target page `/freelance-rate-calculator/`.
+- Contribution Margin Calculator — primary `contribution margin and contribution margin ratio` US 2,400 / KD 4; secondaries `contribution margin equation` 1,900 / KD 17, `contribution margin ratio formula` 1,900 / KD 22, `define contribution margin` 1,300 / KD 6. Natural phrases: `contribution margin calculator`, `calculate contribution margin`, `how to calculate contribution margin`, `break-even calculator`, `cvp analysis`, `margin of safety calculator`. Spec: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/22_Contribution_Margin_Break_Even_Calculator/22_Contribution_Margin_Calculator_BUILD_SPEC.md`. Target page `/contribution-margin-calculator/`. Note: `TODO(owner)`: pull `break even calculator` Semrush volume/KD to consider dedicated tab/H2 expansion.
 
 ⚠ Batches 3–8 have no Semrush SERP export yet; their competitor lists come from web searches. `TODO(owner)`: pull Google top 10 per primary keyword (Phase KR-9).
 
@@ -1098,6 +1262,279 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [UX / Visual Redesign — Unique Tool Card Illustrations & Dedicated Icons] — 2026-11-21
+- **Tool Card Illustration Redesign (`src/components/home/ToolArt.tsx`, `ToolArt.module.css`)**:
+  * Replaced all generic dual-rectangle placeholder cards across Business & Creative and Financial tools with bespoke, domain-specific architectural and financial SVG artwork.
+  * Every single tool among all 67 tools in KKC Tools now has a distinct, handcrafted visual identity:
+    - `capRate`: Commercial multi-story office building with illuminated windows, ground-floor glass lobby, rooftop HVAC unit, property sale price sign, and high-contrast Cap Rate NOI yield banner (5.32%).
+    - `rentalProperty`: 2-story residential home with pitched gable roof, chimney, mullioned windows, front porch with columns, a post-mounted "FOR RENT" lawn sign, and monthly cash flow / Cash-on-Cash ROI card ($243/mo · 8.4% CoC).
+    - `laborCost`: Construction yellow safety hardhat with curved visor, employee ID punchcard with photo silhouette, lanyard hole, barcode, and burdened labor wage breakdown stack (Base $30/hr + FICA + Ins = $39.86/hr).
+    - `commercialLease`: Retail storefront unit with striped awning, plate-glass display windows, double commercial entrance doors with vertical pull bars, "SPACE FOR LEASE" transom banner, 2,300 RSF dimension, and NNN lease badge ($24/SF + $6 NNN).
+    - `airbnbHost`: Picturesque A-frame vacation cabin nestled among evergreen pines with steep sloping roof, triangular front glass wall, front deck, and an Airbnb booking calendar card with booked nights, occupancy rate, ADR, and net profit (65% Occ · $180/nt · +$967/mo Net).
+    - `freelanceRate`: Modern designer/developer workstation: open laptop with code display and trackpad, steaming coffee mug, desk stopwatch timer tracking billable hours (1,260 billable hrs/yr), and target rate dial ($99.33/hr).
+    - `contributionMargin`: Financial break-even coordinate chart with X/Y axes (Units vs $), flat horizontal Fixed Cost dashed line, upward sloping Total Cost line, upward sloping Revenue line, intersecting at Break-Even Point dot with highlighted green profit margin zone and CM ratio (40.0%).
+    - `commercialMortgage`: Classical bank building facade with triangular pediment, 4 fluted columns, grand entrance stairs, LTV dial meter (75% LTV), and 10-year balloon mortgage schedule timeline ($1.18M Balloon).
+    - `equipmentLoan`: Detailed heavy construction hydraulic excavator machine with crawler tracks, drive rollers, operator cab, articulated boom arm, stick, and toothed digging bucket, with equipment financing vs lease comparison badge ($1,545/mo).
+    - `businessValuation`: Valuation multiple speedometer/barometer gauge with 2.0x, 3.0x, 4.0x SDE/EBITDA multiple bands and needle pointing to 2.8x, next to enterprise valuation range ($482k–$723k).
+    - `presentValue`: Discounted cash-flow timeline: future cash stacks at T10 discounting backward through curved dotted arrows into a bank vault/safe at T0, with formula $PV = FV / (1+r)^n$.
+    - `compoundInterest`: Exponential compound growth chart: 4-tier stepped bar chart (Year 1, 3, 6, 10) showing principal base + contributions + compounding interest layer soaring upward into a 3D coin stack ($47.5k).
+    - `processingFee`: Countertop POS payment terminal / card reader with inserted EMV chip card, display screen ($100.00), keypad, and printed paper receipt tape curling out with serrated edge showing 2.9% + $0.30 fee and $96.80 net deposit.
+    - `creditCardPayoff`: Detailed credit card with metallic EMV chip and contactless waves being sliced by scissors, with an avalanche balance progress bar dropping to $0 Debt-Free.
+    - `netWorth`: Classic brass balance scale with center fulcrum pillar, pivoted beam, suspended pans: left pan heavy with asset blocks (Real Estate, 401k, Cash), right pan with lighter debt block, showing positive net worth tilt (+$535k Net Worth).
+    - `heloc`: Residential home elevation with an internal pie/cross-section bracket showing home equity breakdown: 1st Mortgage bar (60%), HELOC Draw Available credit limit line (25%), and Owner Equity reserve (15%), with a revolving line of credit arrow.
+    - `investmentReturn`: S&P 500 bull market financial trading chart with candlestick price bars, smoothed upward moving average trendline, and total return ROI tag (+196% Return).
+    - `drawdown`: Retirement savings nest egg reservoir tank with glass level gauge showing $500k balance, an inflow pipe on top representing Social Security / pension payments, and a calibrated valve tap spigot at the bottom dispensing the Bengen 4% safe withdrawal stream.
+    - `sbaLoan`: Official Federal Capitol / SBA dome building facade with columns, alongside a clear 3-tier stacked SBA 504 financing pillar: 50% Senior Bank Loan, 40% CDC Debenture, and 10% Borrower Equity down payment.
+    - `seTax`: Official IRS Form 1040-ES / Schedule SE quarterly voucher booklet with 4 quarterly payment coupons (Q1, Q2, Q3, Q4), a tax pencil, and a tax breakdown seal showing 15.3% SE Tax (12.4% Social Security + 2.9% Medicare).
+    - `invoice`: Crisp itemized contractor invoice sheet with folded corner, company header, table of billable hours and rates with gridlines, subtotal & total rows, and an angled "PAID" stamp.
+    - `roofCost`: Roof tear-off and replacement cross section: plywood decking with woodgrain, underlayment felt layer, brand new architectural shingles with drip edge flashing, roofer's claw hammer, and shingle bundle with cost tag ($11,400).
+    - `deckStain`: Wide deck board platform in perspective, half weathered gray wood grain, half freshly coated rich cedar wood with wide stain applicator brush leaving wet stroke marks, open stain bucket with handle, and coverage callout (350 sq ft / gal).
+    - `margin`: Segmented waterfall revenue bar with COGS vs Gross Profit margin % slice and margin meter dial (40.0% Gross Margin).
+    - `unitPrice`: Two grocery containers (12 oz bottle vs 32 oz jug) with comparison unit tags and a "BEST VALUE" rosette (Save 23%).
+    - `wage`: Clock face with hour/minute hands connected by a curved bidirectional exchange arrow to an open salary paycheck envelope with cash banknotes ($52,000 / yr).
+    - `percent`: 3D comparison bar chart with an upward curving arrow with arrowhead and delta badge (+25.0% Increase).
+    - `tag`: Angled retail hangtag with eyelet, string loop, and cost-to-price markup sticker (+50% M/U).
+    - `discount`: Hanging sale tag with scissors cutting original price in half with a -20% OFF sale starburst.
+  * **Dedicated Unique Icons (`src/components/icons/Icons.tsx`, `src/lib/tools-catalog.ts`)**:
+    - Created `roofCost` icon for `/roof-replacement-cost-calculator/` so it no longer shares `roofTruss` with `/rafter-calculator/`.
+    - Created `deckStain` icon for `/deck-stain-calculator/` so it no longer shares `deck` with `/deck-cost-calculator/`.
+    - Verified 67 tools in `tools-catalog.ts` now have 67 completely unique, 1-to-1 icons. Duplicate icon count: 0.
+  * **Zero SVG `<title>` Tags**: Verified 0 title tags in SVG components to prevent multiple title tag errors in SEO audit.
+  * **Full Verification**: All 6 verification steps passed (`npm run verify`: lint, 904 tests, no-network, build with 88 HTML pages, seo:audit with 0 errors, docs:bundle).
+
+---
+
+### [Tool #67 — 1099 Self-Employment Tax Calculator] — 2026-11-20
+- Built Tool #67 `/self-employment-tax-calculator/` (Batch 3 Part 2 #14 / Tier 3 YMYL):
+  * **Engine** (`src/lib/se-tax-engine.ts`, 12 unit tests): implements pure IRS mathematical rules for federal self-employment and estimated taxes. Computes net self-employment earnings, statutory 92.35% net earnings multiplier (IRC § 1402(a)(12) and Schedule SE Line 4a), $400 minimum net earnings exemption (IRC § 1402(b)(2)), Social Security 12.4% tax capped at $184,500 wage base with W-2 wage priority offset, Medicare 2.9% uncapped tax, Additional Medicare 0.9% surtax by filing status, 50% above-the-line deduction on Schedule 1 Line 15 (IRC § 164(f)), quarterly Form 1040-ES payment schedule across official IRS deadlines (Apr 15, Jun 15, Sep 15, Jan 15), safe harbor benchmark (90% current year vs 100% prior year), and what-if deduction analysis. Benchmark verified: $70,000 gross − $10,000 exp = $60,000 net -> $55,410 taxable base -> $8,477.73 SE tax ($6,870.84 SS + $1,606.89 Med) and $4,238.87 deduction.
+  * **Input Guide Diagram** (`src/components/tool/self-employment-tax-calculator/SeTaxInputGuide.tsx`): SVG funnel diagram from gross 1099 receipts down to ordinary expenses, mileage deduction, 92.35% net multiplier, 15.3% SE tax breakdown, half deduction, and 4 quarterly calendar vouchers. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/self-employment-tax-calculator/SelfEmploymentTaxCalculator.tsx`): TabSlider segmented control for 3 modes (`estimate`, `quarterly`, `what-if`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, itemized tax breakdown table, quarterly voucher cards, and dated IRS & SSA verified sources box. Wrapped in `ToolShell` with 4 verified pills: `2026 IRS figures, cited`, `W-2 + 1099 together`, `Quarterly due dates`, `Mileage at IRS rate`.
+  * **Page** (`src/app/self-employment-tax-calculator/page.tsx`): 2,100+ words of original copy, primary keyword in first sentence ("1099 tax calculator"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing IRS and SSA, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`1099 Tax Calculator – Self-Employment Tax`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`seTaxCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#67, category `business`, icon `seTax`), `src/lib/tools-catalog.test.ts` (updated to 67), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `invoice-generator`, `freelance-rate-calculator`, and `hourly-to-salary-calculator`.
+
+---
+
+### [Tool #66 — SBA Loan Calculator (7(a) & 504)] — 2026-11-20
+- Built Tool #66 `/sba-loan-calculator/` (Batch 3 Part 2 #13 / Tier 3 YMYL):
+  * **Engine** (`src/lib/sba-loan-engine.ts`, 9 unit tests): pure functions modeling SBA 504 two-loan capital stack (bank 1st lien, CDC debenture 2nd lien pegged to 10-yr Treasury, borrower equity, ~3% CDC fees financed into note, blended interest rate, balloon payoff), SBA 7(a) single commercial loans with guarantee fees, 504 vs 7(a) head-to-head comparison, and business acquisition M&A debt stack (buyer cash equity, seller note, and 7(a) senior debt with DSCR underwriting). All spec benchmarks verified: $2M project with 50/40/10 split ($1M bank @ 7% 25 yr = $7,067.79/mo; $800k CDC @ 6.5% 25 yr = $5,401.66/mo; 504 total = $1,800,000, 6.778% blended rate, $12,469.45/mo) vs $1.8M 7(a) loan @ 9% 25 yr ($15,105.53/mo) -> $2,636.08/mo monthly cash flow savings.
+  * **Input Guide Diagram** (`src/components/tool/sba-loan-calculator/SbaInputGuide.tsx`): SVG stacked capital structure diagram showing total project cost bar, bank 1st lien, CDC 2nd lien debenture, borrower equity injection, and merged combined monthly debt service arrow. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/sba-loan-calculator/SbaLoanCalculator.tsx`): TabSlider segmented control for 4 modes (`504`, `7a`, `compare`, `acquisition`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, loan split breakdown table, comparison savings matrix, and full combined amortization table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `True 504 two-loan split`, `504 vs 7(a) compare`, `DSCR affordability`, `Printable schedules`.
+  * **Page** (`src/app/sba-loan-calculator/page.tsx`): 2,200+ words of original copy, primary keyword in first sentence ("sba 504 loan"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing SBA.gov and 13 CFR Part 120, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`SBA Loan Calculator – 7(a) and 504 Loan Payments`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`sbaLoanCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#66, category `business`, icon `sbaLoan`), `src/lib/tools-catalog.test.ts` (updated to 66), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `commercial-mortgage-calculator`, `equipment-loan-calculator`, and `business-valuation-calculator`.
+
+---
+
+### [Tool #65 — Retirement Drawdown Calculator] — 2026-11-20
+- Built Tool #65 `/how-long-will-my-money-last/` (Batch 3 Part 2 #12 / Tier 3 YMYL):
+  * **Engine** (`src/lib/drawdown-engine.ts`, 9 unit tests): pure functions modeling portfolio retirement drawdowns: closed-form log exhaustion formula, annual dynamic simulation with compound returns and inflation adjustments, other income (Social Security/pension), maximum sustainable annual spending solver (growing annuity formula), Bengen 4% Rule baseline, and stress testing scenarios (-2% return, bad-start sequence of returns). All spec benchmarks verified: $500k @ 5% with flat $40k/yr = 20.1 years; $500k with $40k/yr rising 3% inflation @ 5% return lasts ~15.2 years (exhausted at age 80); $500k to age 95 @ 5% return with 3% inflation allows $22,810.94 in Year 1 (4.56% withdrawal rate).
+  * **Input Guide Diagram** (`src/components/tool/how-long-will-my-money-last/DrawdownInputGuide.tsx`): SVG savings tank diagram with inflow pipes (returns, pensions), inflation leak, tap outflow, and age timeline ruler. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/how-long-will-my-money-last/DrawdownCalculator.tsx`): TabSlider segmented control for 3 modes (`years`, `spend`, `four-percent`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, metrics grid, stress test scenario comparison cards, and year-by-year balance table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Years left or spending`, `Inflation & return`, `Pensions & Social Security`, `4% rule benchmark`.
+  * **Page** (`src/app/how-long-will-my-money-last/page.tsx`): 2,200+ words of original copy, primary keyword in first sentence ("how long will my money last"), 12 comprehensive FAQs matching schema, `HowWeCalculate` component citing Bengen (1994) and Trinity Study (1998), `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`How Long Will My Money Last? Retirement Drawdown Calculator`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`drawdownCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#65, category `business`, icon `drawdown`), `src/lib/tools-catalog.test.ts` (updated to 65), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `investment-return-calculator` and `compound-interest-calculator`.
+
+---
+
+### [Tool #64 — Investment Return / S&P 500 Calculator] — 2026-11-20
+- Built Tool #64 `/investment-return-calculator/` (Batch 3 Part 3 #7 / Step P3-7):
+  * **Engine** (`src/lib/investment-return-engine.ts`, 9 unit tests): pure functions modeling investment compounding, S&P 500 projections, fee drag, inflation discounting, money market yields, and Treasury bill pricing. Implements `calculateProjection` (monthly compounding, annual step-up %, expense ratio fee drag, tax drag, real purchasing power; verified against spec benchmark: $10,000 + $300/mo for 20 yrs at assumed 7% nominal = $196,665.39 from $82,000 contributed), `calculateMoneyMarket` ($25,000 at 4.5% APY for 12 mos = $1,125.00 interest), `calculateTBill` (TreasuryDirect standard formulas: 360-day discount rate and 365-day coupon equivalent investment yield), and `calculateCompare` (equities vs liquid cash over identical contribution schedules).
+  * **Input Guide Diagram** (`src/components/tool/investment-return-calculator/InvestInputGuide.tsx`): SVG diagrams positioned above inputs with tab-specific visual flows: exponential growth curve with starting amount dot, periodic deposit steps, assumed slope %, fee drag zone, and dashed inflation curve; savings jar with APY compounding; U.S. Treasury bill security graphic showing auction discount to maturity par value; and stocks vs cash comparative divergence lines. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/investment-return-calculator/InvestmentReturnCalculator.tsx`): TabSlider segmented control for 4 modes (`projection`, `money-market`, `tbill`, `compare`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, prominent disclaimer box next to results ("Past performance and assumed rates are illustrative..."), quick return chips (6%, 7%, 8%, 10%), T-bill maturity chips (28d, 91d, 182d, 364d), metrics grid (Final Value, Contributed, Compound Gains, Real Value, Fee Drag, CAGR), stacked principal vs growth bar, and annual schedule table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Stocks vs cash compare`, `Fees & inflation`, `Money market & T-bills`, `Yearly table & chart`.
+  * **Page** (`src/app/investment-return-calculator/page.tsx`): 2,000+ words of original copy, primary keyword in first sentence ("investment calculator s&p 500"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing TreasuryDirect and Federal Reserve FRED, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Investment Calculator – S&P 500, T-Bills & Money Market`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`investmentReturnCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#64, category `business`, icon `investmentReturn`), `src/lib/tools-catalog.test.ts` (updated to 64), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `compound-interest-calculator` and `net-worth-calculator`.
+- Verified 100% green with `npm run verify` (874 unit tests across 70 test files, 0 lint errors, check:no-network passing, static export building 85 HTML pages with 0 SEO errors).
+
+---
+
+### [Tool #63 — HELOC Loan Calculator] — 2026-11-20
+- Built Tool #63 `/heloc-calculator/` (Batch 3 Part 3 #6 / Step P3-6):
+  * **Engine** (`src/lib/heloc-engine.ts`, 7 unit tests): reuses `loan-engine.payment`. Implements `calculateBorrowingLimit` (85% CLTV cap -> $90k max line on $400k home with $250k mortgage), `calculateHelocPayments` ($50k at 8% -> $333.33/mo interest-only draw payment, $418.22/mo 20-yr repayment payment, +25.5% / +$84.89/mo payment shock, 1/360 method, extra principal, balloon option, rate caps), `generateRateScenarios` (+0%, +1%, +2%, +3%), and `compareHomeEquityOptions` (HELOC vs 15-yr Home Equity Loan vs 30-yr Cash-Out Refinance).
+  * **Input Guide Diagram** (`src/components/tool/heloc-calculator/HelocInputGuide.tsx`): SVG house equity stack bar with 85% CLTV cap and two-phase lifecycle timeline showing draw to repayment payment shock. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/heloc-calculator/HelocCalculator.tsx`): TabSlider segmented control for 3 modes (`payment`, `borrow`, `compare`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with copyable BLUF sentence, hero payment shock card with red badge, metrics grid, rate-rise sensitivity table, and full 360-month amortization table with CSV download. Wrapped in `ToolShell` with 4 verified pills: `Borrowing limit (CLTV)`, `Payment shock shown`, `Rate-rise scenarios`, `HELOC vs home equity loan`.
+  * **Page** (`src/app/heloc-calculator/page.tsx`): 2,100+ words of original copy, primary keyword ("heloc loan calculator"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing CFPB and IRS Pub 936, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`HELOC Loan Calculator – Payment, Limit & Payment Shock`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`helocCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#63, category `business`, icon `heloc`), `src/lib/tools-catalog.test.ts` (updated to 63), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `net-worth-calculator`.
+
+---
+
+### [Tool #62 — Net Worth Calculator] — 2026-11-20
+- Built Tool #62 `/net-worth-calculator/` (Batch 3 Part 3 #5 / Step P3-5):
+  * **Engine** (`src/lib/net-worth-engine.ts`, 7 unit tests): pure functions for total assets, total liabilities, net worth, liquid net worth ($31,000 spec benchmark), investable net worth ($151,000), 53.45% debt-to-asset ratio, home equity, monthly spend runway, household dual-earner mode, and local private snapshots comparison.
+  * **Input Guide Diagram** (`src/components/tool/net-worth-calculator/NetWorthInputGuide.tsx`): SVG balance scale with dynamic tilt angle based on assets vs liabilities. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/net-worth-calculator/NetWorthCalculator.tsx`): TabSlider segmented control for 3 modes (`personal`, `household`, `tracker`) with `?tab=` URL sync, multi-currency selector (USD/EUR/GBP/CAD/AUD), high-contrast light mint `.summaryBanner` box, stacked asset allocation bar, local private snapshots via safeStorage in localStorage, and CSV statement export. Wrapped in `ToolShell` with 4 verified pills: `Liquid net worth`, `Household & partner mode`, `Asset-mix breakdown`, `Track over time`.
+  * **Page** (`src/app/net-worth-calculator/page.tsx`): 1,800+ words of original copy, primary keyword ("calculate net worth"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing Federal Reserve Survey of Consumer Finances (SCF), `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Net Worth Calculator – Calculate Your Net Worth`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`netWorthCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#62, category `business`, icon `netWorth`), `src/lib/tools-catalog.test.ts` (updated to 62), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `credit-card-payoff-calculator`.
+
+---
+
+### [Tool #61 — Credit Card Payoff & APR Calculator] — 2026-11-20
+- Built Tool #61 `/credit-card-payoff-calculator/` (Batch 3 Part 3 #4 / Step P3-4):
+  * **Engine** (`src/lib/card-payoff-engine.ts`, 8 unit tests): pure functions modeling credit card amortization and debt reduction math. Implements `simulateCardPayoff` (with <$1.00 remainder roll-over), `calculatePaymentForMonths` ($259.39 for 24 months), `simulateMinimumPayment` (230 months, ~$8,100 interest on $5k @ 22%), `simulateMultiCardPayoff` (avalanche vs snowball priority ordering and debt budget rollover), `calculateBalanceTransfer` (evaluates promo interest vs transfer fee savings), and `convertApr` (APR -> daily rate, monthly rate, compounded APY). Spec worked examples verified ($5,000 at 22% paying $200/mo = 34 months & $1,750 interest; 24 months = $259.39/mo; minimum payments = 230 months & $8,100 interest).
+  * **Input Guide Diagram** (`src/components/tool/credit-card-payoff-calculator/CardPayoffInputGuide.tsx`): credit card outline graphic with live draining balance bar, principal vs interest split, debt-free flag, minimum payment trap visualization showing shrinking monthly payments, avalanche vs snowball priority arrows, and 0% balance transfer bridge. 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/credit-card-payoff-calculator/CreditCardPayoffCalculator.tsx`): TabSlider segmented control for 5 modes (`payoff`, `minimum`, `multi-card`, `transfer`, `converter`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic copyable BLUF sentence, hero payoff card with projected debt-free month/year, metrics strip (Total Interest, Total Paid, Monthly Payment, Initial Interest), sensitivity table ($150–$400 payment range), interactive SVG amortization chart, full monthly schedule table with CSV download, side-by-side minimum payment trap comparison, editable multi-card tracker with avalanche vs snowball interest difference, balance transfer savings calculator, and daily periodic rate converter. Wrapped in `ToolShell` with 4 verified pills: `Minimum-payment simulator`, `Avalanche vs snowball`, `Balance transfer check`, `No card ads`.
+  * **Page** (`src/app/credit-card-payoff-calculator/page.tsx`): 2,000+ words of original copy, primary keywords ("credit card apr calculator", "estimate minimum payment credit card"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing CFPB and Federal Reserve Statistical Release G.19, zero credit card ads, zero affiliate links, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Credit Card APR Calculator – Payoff Time & Interest`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`creditCardPayoffCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#61, category `business`, icon `creditCardPayoff`), `src/lib/tools-catalog.test.ts` (updated to 61), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `compound-interest-calculator` and `percentage-change-calculator`.
+- Verified 100% green with `npm run verify` (851 unit tests across 67 files, ESLint 0 errors, check:no-network passing, static export building 96 pages, SEO audit 0 errors across 82 HTML files).
+
+---
+
+### [Tool #60 — Card Processing Fee Calculator] — 2026-11-20
+- Built Tool #60 `/processing-fee-calculator/` (Batch 3 Part 3 #3 / Step P3-3):
+  * **Engine** (`src/lib/processing-fee-engine.ts`, 10 unit tests): pure functions for transaction fee calculation (`calculateSaleFee`), gross-up charge-to-receive solver (`calculateGrossUp`), monthly overhead modeling (`calculateMonthlyFees`), subscription plan break-even analyzer (`calculatePlanBreakEven`), surcharge calculator (`calculateSurcharge` with 3.0% legal card-network cap), and preset comparator (`comparePresets`). Spec worked example verified ($100 sale at 2.9% + $0.30 -> $3.20 fee, $96.80 net, 3.20% effective; gross-up to net $100 -> charge $103.30).
+  * **Official Presets Registry** (`src/content/processing-fee-presets.ts`): holds verified standard rates read directly from official public pricing pages with source URLs and verified dates (Square In-Person 2.6% + $0.15, Square Online 3.3% + $0.30, Square Keyed 3.5% + $0.15, Square Plus 2.5% + $0.15 with $49/mo; Stripe Online 2.9% + $0.30, Stripe Terminal 2.7% + $0.05; PayPal Zettle 2.29% + $0.09, PayPal Standard Cards 2.99% + $0.49, PayPal Checkout 3.49% + $0.49, PayPal Keyed 3.49% + $0.09). `TODO(owner)`: re-check presets every 3 months.
+  * **Input Guide Diagram** (`src/components/tool/processing-fee-calculator/FeeInputGuide.tsx`): SVG payment flow diagram positioned above inputs with tab-specific visual flows: 3-box transaction payment flow (Customer pays [1] -> Processor cut [2] -> Merchant receives net [3]), reverse gross-up flow, 4-way processor comparison bars, and monthly volume receipt stack. Live values, active focus highlight, mobile collapsible `<details>`, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/processing-fee-calculator/ProcessingFeeCalculator.tsx`): TabSlider segmented control for 4 modes (`fee`, `gross-up`, `compare`, `monthly`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, verified preset selector with auto-fill and custom rate override, international card toggle (+1.5%) and FX conversion toggle (+1.0%), hero Net/Fee card, metrics grid, gross-up solver with live surcharge cap check, side-by-side comparison table ranking lowest monthly cost with verified links, and paid plan break-even analyzer. Wrapped in `ToolShell` with 4 verified pills: `Fee, net & charge-to-receive`, `Compare providers`, `Monthly cost & plans`, `Any processor, any currency`.
+  * **Page** (`src/app/processing-fee-calculator/page.tsx`): 1,900+ words of original copy, primary keyword in first sentence ("square credit card processing fees"), 10 comprehensive FAQs matching schema, `HowWeCalculate` component citing Square, Stripe, PayPal official pricing and Visa Core Rules, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Card Processing Fee Calculator – Square, PayPal & More`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`processingFeeCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#60, category `business`, icon `processingFee`), `src/lib/tools-catalog.test.ts` (updated to 60), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `invoice-generator` and `markup-calculator`.
+- Verified 100% green with `npm run verify` (843 unit tests across 66 files, ESLint 0 errors, check:no-network passing, static export building 95 pages, SEO audit 0 errors across 81 HTML files).
+
+---
+
+### [Tool #59 — Compound Interest Calculator] — 2026-11-20
+- Built Tool #59 `/compound-interest-calculator/` (Batch 3 Part 3 #2 / Step P3-2):
+  * **Engine** (`src/lib/compound-interest-engine.ts`, 16 unit tests): reuses `tvm-engine.ts`. Implements `calculateCompoundGrowth` with mixed-frequency compounding math ($i = (1 + r/n)^{n/m} - 1$), timing toggle (start/end), annual step-up deposit increases, tax on interest drag %, inflation purchasing power deflation, `compareFrequencies` across 7 standard intervals (annual to continuous), `compareSimpleVsCompound` (linear vs exponential math with exact advantage), `solveDepositForGoal`, `solveRateForGoal`, and `solveTimeForGoal`. All spec benchmarks verified: $10,000 @ 5% monthly + $200/mo for 10 yrs = $47,526.55 ($34,000 deposits, $13,526.55 interest); $10k for 10y @ 5% no deposits: Annual $16,288.95 / Monthly $16,470.09 / Daily $16,486.65; APY of 5% monthly = 5.116%; Doubling time = 13.89 yrs.
+  * **Input Guide Diagram** (`src/components/tool/compound-interest-calculator/CompoundInputGuide.tsx`): SVG snowball rolling down gentle slope metaphor across 4 modes (`growth`, `goal`, `simple-vs-compound`, `apr-vs-apy`), live values, active input focus highlight, mobile collapsible `<details>`, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/compound-interest-calculator/CompoundInterestCalculator.tsx`): TabSlider segmented control for 4 modes (`growth`, `goal`, `simple-vs-compound`, `apr-vs-apy`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, hero Future Value card, key metrics strip (Total Deposits, Total Interest, APY, Doubling Time, Real Purchasing Power), SVG stacked growth chart, yearly schedule table with CSV download, 3-variable goal solver (deposit, rate, time), simple vs compound side-by-side comparison, and APR ↔ APY bidirectional converter with compounding yield matrix. Wrapped in `ToolShell` with 4 verified pills: `Solve for deposit, rate or time`, `Daily to continuous`, `Inflation-adjusted value`, `Yearly table & chart`.
+  * **Page** (`src/app/compound-interest-calculator/page.tsx`): 2,200+ words of original copy, primary keyword in first sentence ("compound growth calculator"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing SEC Investor.gov, CFPB Truth in Savings Act (Reg DD), and CFA Institute TVM Curriculum, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Compound Interest Calculator – Daily, Monthly & Growth`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts` (`compoundInterestCalculator`, `indexable: true`), `src/lib/tools-catalog.ts` (#59, category `business`, icon `compoundInterest`), `src/lib/tools-catalog.test.ts` (updated to 59), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `present-value-calculator` and `percentage-change-calculator`.
+- Verified 100% green with `npm run verify` (833 unit tests across 65 files, ESLint 0 errors, check:no-network passing, static export building 94 pages, SEO audit 0 errors across 80 HTML files).
+
+---
+
+### [Tool #58 — Present Value & NPV Calculator] — 2026-11-20
+- Built Tool #58 `/present-value-calculator/` (Batch 3 Part 3 #1 / Step P3-A & P3-1):
+  * **Shared Engine** (`src/lib/tvm-engine.ts`, 21 unit tests): robust time-value-of-money and capital budgeting engine. Exports `pv`, `fv`, `pvAnnuity`, `fvAnnuity`, `pvGrowingAnnuity`, `pvPerpetuity`, `effectiveRate(r, m)`, `nominalFromApy`, `perPeriodRate`, `npvProject`, `profitabilityIndex`, `discountedPayback`, `npvProfile`, `xnpv`, `pvTable`, `annuityTable`, and `generateExcelFormulas`. Reuses `npv` and `irr` from `real-estate-engine.ts`. Spec worked examples verified ($10k in 10y at 6% = $5,583.95; $1k/yr for 10y at 6% = $7,360.09; -$10k + 5×$3k at 8% = $1,978.13 NPV, 15.24% IRR, 1.20 PI, 4.03y discounted payback).
+  * **Input Guide Diagram** (`src/components/tool/present-value-calculator/PvInputGuide.tsx`): SVG timeline diagram positioned above inputs with tab-specific visual flows: lump-sum discounting arc from Year N back to Today with compounding tick marks, periodic annuity stream with due vs ordinary indicator, uneven multi-year cash flows, capital budgeting outlay vs inflow bars with live NPV/IRR, and 4-decimal PV factor table preview. Zero SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/present-value-calculator/PresentValueCalculator.tsx`): TabSlider segmented control for 5 modes (`lump-sum`, `annuity`, `cash-flows`, `npv`, `pv-table`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, compounding frequency selector (annual to continuous), perpetuity and growing annuity toggles, dynamic cash flow row builder (add/remove years), capital budgeting card with interactive SVG NPV profile curve, Excel & Google Sheets formula generator box with one-click copy, and interactive 4-decimal PV/annuity table generator with CSV copy and print stylesheet. Wrapped in `ToolShell` with 4 verified pills: `PV, annuity & NPV/IRR`, `Printable PV table`, `Excel formulas`, `Step-by-step working`.
+  * **Page** (`src/app/present-value-calculator/page.tsx`): 2,000+ words of authoritative copy, primary keyword in first sentence ("pv formula"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing FASB Concepts Statement No. 7, CFA Institute TVM Curriculum, and Brealey/Myers/Allen Corporate Finance, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Present Value Calculator – PV Formula, NPV & PV Table`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#58, category `business`, icon `presentValue`), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `business-valuation-calculator` and `cap-rate-calculator`.
+- Verified 100% green with `npm run verify` (817 unit tests across 64 files, ESLint 0 errors, check:no-network passing, static export building 93 pages, SEO audit 0 errors across 79 HTML files).
+
+---
+
+### [Tool #57 — Invoice Generator] — 2026-11-20
+- Built Tool #57 `/invoice-generator/` (Batch 3 Part 2 #11 / Tool #15 in Batch 3):
+  * **Engine** (`src/lib/invoice-engine.ts`, 17 unit tests): pure functions for flexible duration parsing (`parseDuration` supporting decimal hours like "2.5", standard "h:mm" like "2:30", natural words like "2h 30m", "45m", "1 hr"), increment rounding (`roundHours` supporting 6-minute 0.1h, 15-minute 0.25h, and 30-minute 0.5h rounding with none/up/nearest modes), line amount calculations, invoice totals cascade (subtotal, percentage or flat dollar discount, sales tax computed on discounted or full subtotal, deposit paid deduction, and balance due), due date calculation with calendar month rollover, sequential invoice number generation (`INV-YYYY-001`), CSV export with quote escaping, monospace plain text formatting, and 4 role presets (Freelance, Writer, Translator, Contractor). Spec worked example verified (2:30 + 1:45 + 3:10 with 15-min round-up = 7.5h × $75 = $562.50).
+  * **Input Guide Diagram** (`src/components/tool/invoice-generator/InvoiceInputGuide.tsx`): miniature invoice document outline with 8 numbered zones matching inputs (1 Business profile, 2 Client details, 3 Invoice # & dates, 4 Line items & rates, 5 Discount & tax, 6 Deposit & balance due, 7 Payment terms, 8 Timesheet daily entries), live synchronized totals, focus highlight, and visual timesheet-to-invoice conversion flow. Zero SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/invoice-generator/InvoiceGenerator.tsx`): TabSlider segmented control for 3 modes (`invoice`, `timesheet`, `details`), high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, 100% client-side privacy badge (zero data sent to server), local logo file upload via `FileReader.readAsDataURL`, itemized line editor (Hours, Fixed, Expense items), preset template loader, contractor timesheet logger with one-click conversion into invoice lines, local browser profile persistence via `src/lib/storage.ts`, CSV download, plain text copy, and live printable sheet with clean print stylesheet isolation. Wrapped in `ToolShell` with 4 verified pills: `Hours & h:mm entry`, `Print or save as PDF`, `Saved only on this device`, `Tax, discount & deposit`.
+  * **Page** (`src/app/invoice-generator/page.tsx`): 1,700+ words of original copy, primary keyword in first sentence ("free hourly invoice template"), 11 comprehensive FAQs matching schema, `HowWeCalculate` component citing IRS, UK HMRC, ATO, and CRA official guidelines, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Free Invoice Generator – Hourly & Freelance Invoices`).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#57, category `business`, icon `invoice`), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `freelance-rate-calculator` and `construction-estimate-template`.
+- Verified 100% green with `npm run verify` (796 unit tests across 63 files, ESLint 0 errors, check:no-network passing, static export building 92 pages, SEO audit 0 errors across 78 HTML files).
+
+---
+
+### [Tool #56 — Business Valuation Calculator] — 2026-11-20
+- Built Tool #56 `/business-valuation-calculator/` (Batch 3 Part 2 #10 / Tool #11 in Batch 3):
+  * **Engine** (`src/lib/business-valuation-engine.ts`, 7 unit tests): institutional small business valuation engine modeling Seller's Discretionary Earnings (SDE) add-back bridge, Adjusted EBITDA with replacement manager compensation, enterprise value range across user-entered multiple ranges, balance sheet net equity walk-away proceeds (debt deduction & cash addition), tangible net asset liquidation floor (NAV), 5×5 sensitivity matrix, and seller note deal structure debt service. Spec worked example verified ($120k profit + $80k salary + $10k benefits + $5k personal + $8k one-off + $12k D&A + $6k interest = $241,000 SDE; 2.0x–3.0x multiple -> $482k–$723k EV, $582,500 midpoint net equity after $50k debt and $30k cash; Adjusted EBITDA $166,000 with $75k manager salary; 5x5 sensitivity matrix center match; asset-based NAV floor check; deal structure seller note payment calculation; negative earnings path).
+  * **Input Guide Diagram** (`src/components/tool/business-valuation-calculator/ValuationInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: SDE add-back bridge blocks rising left to right, EBITDA manager salary deduction block, balance scale NAV floor drawing, stacked deal structure bar. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/business-valuation-calculator/BusinessValuationCalculator.tsx`): TabSlider segmented control for 4 modes (`sde`, `ebitda`, `asset`, `deal`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, SDE add-back table with acceptance tags (`generally-accepted`, `often-scrutinized`), 5×5 sensitivity matrix, EBITDA adjustment module, tangible asset liquidation floor calculator, deal structure cash/note/earnout waterfall, and YMYL certified valuation appraisal disclaimer. Wrapped in `ToolShell` with 4 verified pills: `SDE add-back builder`, `EBITDA & equity value`, `Sensitivity grid`, `Print & share link`.
+  * **Page** (`src/app/business-valuation-calculator/page.tsx`): 2,300+ words authoritative copy (guide-heavy by design), primary keyword in first sentence ("small business valuation"), 12 FAQs matching schema, `HowWeCalculate` component with IBBA, AICPA, and NACVA citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata (`Business Valuation Calculator – SDE & EBITDA`). Multiples entered by user; zero uncited industry multiples printed.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#56, category `business`, icon `businessValuation`), `Icons.tsx`, `ToolArt.tsx`, `Footer.tsx` (Column 5), and `calculation-methods.ts`. Inbound cross-links added from `profit-margin-calculator` and `contribution-margin-calculator`.
+- Verified 100% green with `npm run verify` (779 unit tests across 62 files, ESLint 0 errors, check:no-network passing, static export building 91 pages, SEO audit 0 errors across 77 HTML files).
+
+---
+
+### [Tool #55 — Equipment & Business Loan Calculator] — 2026-11-20
+- Built Tool #55 `/equipment-loan-calculator/` (Batch 3 Part 2 #9 / Tool #14 in Batch 3):
+  * **Engine** (`src/lib/equipment-loan-engine.ts`, 7 unit tests): commercial equipment financing engine modeling net amount financed (price + sales tax + fees − cash down − trade-in), amortizing periodic payments with optional balloon payoff at maturity, multi-frequency support (monthly, quarterly, semi-annual, annual farm equipment payments), 24–84 month term comparison matrix, and effective APR factoring in lender doc fees. Features side-by-side Lease vs Loan vs Cash lifecycle evaluation with $1 buyout, FMV buyout, or machine return and salvage resale equity; equipment ROI & payback period calculator; revolving business line of credit draw vs amortizing repayment; and Merchant Cash Advance (MCA) factor rate to nominal & compound APR conversion. Spec worked example verified ($80,000 price + 6% tax + $500 fees − $10,000 down = $75,300 financed at 8.5% over 60 mo -> $1,544.89/mo payment, $17,393.40 total interest; cash purchase $84,800 is cheapest vs $1 buyout lease $89,901 vs loan $102,693; $50k MCA at 1.35 factor repaid over 180 days daily = $375/day = 71.0% nominal APR / >120% effective APR).
+  * **Input Guide Diagram** (`src/components/tool/equipment-loan-calculator/EquipmentInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: excavator silhouette with live price badge, 4-element financed amount equation bar, 60-month amortization timeline with balloon payoff marker, 3-column lease vs loan vs cash feature badges, LOC draw utilization bar, and MCA multiplier diagram. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/equipment-loan-calculator/EquipmentLoanCalculator.tsx`): TabSlider segmented control for 4 modes (`loan`, `lease`, `loc`, `mca`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, 24–84 month payment comparison table with active term highlighted, 3-column lifecycle comparison cards with "Lowest Total Cost" badge, equipment ROI & payback module, revolving credit line debt service card, MCA factor-to-APR converter, printable annual/monthly amortization schedule, and Section 179 YMYL tax deduction notice. Wrapped in `ToolShell` with 4 verified pills: `Lease vs loan vs cash`, `24–84 month table`, `MCA factor → APR`, `Printable schedule`.
+  * **Page** (`src/app/equipment-loan-calculator/page.tsx`): 2,000+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with ELFA, IRS.gov Section 179, and Farm Credit System citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#55, category `business`, icon `equipmentLoan`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `commercial-mortgage-calculator`, `commercial-lease-calculator`, and `labor-cost-calculator`.
+- Verified 100% green with `npm run verify` (772 unit tests across 61 files, ESLint 0 errors, check:no-network passing, static export building 90 pages, SEO audit 0 errors across 76 HTML files).
+
+---
+
+### [Tool #54 — Commercial Mortgage & LTV Calculator] — 2026-11-20
+- Built Tool #54 `/commercial-mortgage-calculator/` (Batch 3 Part 2 #8 / Tool #10 in Batch 3):
+  * **Engine** (`src/lib/commercial-mortgage-engine.ts`, 4 unit tests): institutional commercial real estate debt modeling using compound amortization and mortgage mathematics. Models monthly payment, annual debt service, unpaid balloon balance at maturity, total interest, effective APR factoring in origination points and lender fees, and underwriting metrics (Loan-to-Value LTV %, Debt Service Coverage Ratio DSCR, and Debt Yield %). Sizing module solves maximum commercial loan capacity under the "Underwriting Triad" (simultaneous LTV, DSCR, and Debt Yield constraints), identifying the binding constraint and required borrower cash equity down payment. Balloon refinance module models post-maturity refinancing into a secondary commercial facility. Spec worked example verified ($2,000,000 property, $1,500,000 loan, 7.00% APR, 10-year term, 25-year amortization -> $10,601.69/mo payment, $1,179,500.95 balloon balance at maturity, $951,703.50 interest; 1.26× DSCR, 10.67% debt yield, effective rate 7.18% with 1 point fee).
+  * **Input Guide Diagram** (`src/components/tool/commercial-mortgage-calculator/CommercialMortgageInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: Amortization timeline vs loan term bar showing 10-year maturity, tall balloon marker, IO hatched period, and 3-gauge Underwriting Triad diagram (LTV gauge, DSCR gauge, Debt Yield gauge) displaying safe/caution/danger risk tiers. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/commercial-mortgage-calculator/CommercialMortgageCalculator.tsx`): TabSlider segmented control for 3 modes (`payment`, `sizing`, `refinance`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, SVG balance paydown curve chart, printable annual/monthly amortization schedule table, 3-limit sizing boxes, balloon refinance calculator, and YMYL assumptions card. Wrapped in `ToolShell` with 4 verified pills: `Balloon & interest-only`, `Max loan by LTV & DSCR`, `Printable schedule`, `Share link`.
+  * **Page** (`src/app/commercial-mortgage-calculator/page.tsx`): 2,100+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with MBA, CCIM, and OCC citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#54, category `business`, icon `commercialMortgage`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `cap-rate-calculator`, `rental-property-calculator`, and `commercial-lease-calculator`.
+- Verified 100% green with `npm run verify` (765 unit tests across 60 files, ESLint 0 errors, check:no-network passing, static export building 89 pages, SEO audit 0 errors across 75 HTML files).
+
+---
+
+### [Tool #53 — Contribution Margin & Break-Even Calculator] — 2026-11-20
+- Built Tool #53 `/contribution-margin-calculator/` (Batch 3 Part 2 #7 / Tool #9 in Batch 3):
+  * **Engine** (`src/lib/contribution-margin-engine.ts`, 6 unit tests): pure TypeScript Cost-Volume-Profit (CVP) analysis calculating unit contribution margin, contribution margin ratio, break-even unit volume and revenue, time-to-break-even from monthly run rate, margin of safety (units, dollars, percentage), Degree of Operating Leverage (DOL) and dynamic profit impact (+10% volume -> +30% profit), pre-tax and after-tax target profit volume with tax gross-up, contribution-format income statement generator, multi-product weighted sales mix allocation, and 4-lever what-if simulation. Spec worked example verified ($50 price, $30 VC -> $20 unit CM, 40% ratio; $20,000 fixed costs -> 1,000 break-even units = $50,000 sales; at 1,500 units -> $10,000 operating income, 500 units / $25,000 MOS, DOL of 3.00, 1,750 units needed for $15,000 pre-tax profit).
+  * **Input Guide Diagram** (`src/components/tool/contribution-margin-calculator/CmInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: Tab 1 unit price bar splitting into Variable Cost vs Contribution Margin, animated dotted flow into Fixed Costs absorption bucket with stacked CM slices, live status pill showing current volume vs break-even; Tab 2 multi-product sales mix bar; Tab 3 what-if sensitivity cards. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/contribution-margin-calculator/ContributionMarginCalculator.tsx`): TabSlider segmented control for 3 modes (`single`, `mix`, `whatif`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, inline SVG CVP chart with shaded loss and profit polygons and current volume marker, full contribution-format income statement table, exam-style step-by-step working accordion, dynamic multi-product portfolio table with weighted CM, 4-lever what-if sliders, and clipboard copy. Wrapped in `ToolShell` with 4 verified pills: `Break-even in units & $`, `Margin of safety`, `Sales-mix mode`, `Step-by-step working`.
+  * **Page** (`src/app/contribution-margin-calculator/page.tsx`): 2,200+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with IMA, AICPA, and HBR citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#53, category `business`, icon `contributionMargin`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `profit-margin-calculator` and `markup-calculator`.
+- Verified 100% green with `npm run verify`.
+
+---
+
+### [Tool #52 — Freelance Hourly Rate Calculator] — 2026-11-20
+- Built Tool #52 `/freelance-rate-calculator/` (Batch 3 Part 2 #6 / Tool #8 in Batch 3):
+  * **Engine** (`src/lib/freelance-rate-engine.ts`, 5 unit tests): bi-directional pricing engine connecting take-home income goals to hourly, daily, and weekly retainer rates, as well as project quoting with scope buffer. Features 52-week calendar deductions (vacation, holidays, sick, training), realistic billable ratios (benchmarked at 70% or 1,260 billable hours per year), business overhead, health/retirement benefits, effective tax set-aside %, profit risk buffer %, and US Schedule SE self-employment tax estimation helper (15.3% on 92.35% net earnings with Social Security cap and above-the-line deduction). Spec worked example verified ($70,000 target net + $8,400 overhead + $6,000 benefits + 25% tax set-aside = $108,844 needed gross; 1,260 billable hours -> $86.38/hr break-even floor; with 15% buffer -> $99.33/hr recommended rate, $794.66 day rate, $2,781.30 weekly retainer at 28 billable hours/wk).
+  * **Input Guide Diagram** (`src/components/tool/freelance-rate-calculator/FreelanceInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: 52-week block grid with billable/admin/time-off shading + financial stack waterfall diagram showing Net Income -> Overhead -> Benefits -> Taxes -> Buffer = Total Billable Revenue. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/freelance-rate-calculator/FreelanceRateCalculator.tsx`): TabSlider segmented control for 3 modes (`goal`, `income`, `project`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, itemized financial waterfall table, salaried job equivalent note card, US SE-tax helper box, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Rate ↔ income both ways`, `Billable hours calendar`, `Day & project rates`, `Print & share link`.
+  * **Page** (`src/app/freelance-rate-calculator/page.tsx`): 2,200+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with IRS Schedule SE, BLS, and Freelancers Union citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#52, category `business`, icon `freelanceRate`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `hourly-to-salary-calculator` and `labor-cost-calculator`.
+- Verified 100% green with `npm run verify` (755 unit tests across 58 files, ESLint 0 errors, check:no-network passing, static export building 87 pages, SEO audit 0 errors).
+
+---
+
+### [Tool #51 — Airbnb Profit Calculator] — 2026-11-20
+- Built Tool #51 `/airbnb-calculator/` (Batch 3 Part 2 #5 / Tool #7 in Batch 3):
+  * **Engine** (`src/lib/str-engine.ts`, 9 unit tests): full-stack STR profitability modeling for gross revenue from nightly rate (ADR), occupancy %, nights available, weekend uplift, cleaning fees collected, platform host fees (3%–15%), variable turnover costs (cleaner fee, supplies, management %, maintenance reserve %), fixed bills (utilities, Wi-Fi, STR insurance, permits), Net Operating Income (NOI), mortgage debt service or master lease arbitrage rent, cash flow, RevPAR, break-even occupancy % and ADR, cash-on-cash return, furniture payback period, 3-scenario projections, and STR vs LTR comparison. Spec worked example verified (365 nights, 65% occ = 237.25 booked nights, 79.08 stays, $180 ADR + $90 cleaning fee = $49,822.50 gross rev; $1,494.68 platform fee, $9,608.63 variable costs, $5,520 fixed costs -> NOI $33,199.20; after $1,800/mo mortgage -> $11,599.20/yr cash flow ($966.60/mo), 15.47% cash-on-cash on $75k invested, 45.53% break-even occupancy, 15.5 months furniture payback).
+  * **Input Guide Diagram** (`src/components/tool/airbnb-calculator/AirbnbInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: 30-day visual calendar strip with booked vs vacant day shading, stay duration groupings, turnover cleaning broom badges, live ADR/cleaning fee tags, and net cash flow money waterfall. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/airbnb-calculator/AirbnbCalculator.tsx`): TabSlider segmented control for 4 modes (`buy`, `arbitrage`, `midterm`, `str-vs-ltr`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, honest input standard notice, itemized annual & monthly P&L waterfall table, 3-tier sensitivity & scenario matrix (Conservative, Expected, Optimistic), side-by-side STR vs Long-Term Rental comparison card, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Full expense model`, `Break-even occupancy`, `Arbitrage & mid-term modes`, `STR vs long-term`.
+  * **Page** (`src/app/airbnb-calculator/page.tsx`): 2,300+ words of original copy, BLUF quick answer box with engine-computed metrics, 12 comprehensive FAQs matching schema, `HowWeCalculate` component with AirDNA, AHLA, and NAR citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Descriptive brand use only, no competitor brand targeting.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#51, category `business`, icon `airbnbHost`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `rental-property-calculator` and `cap-rate-calculator`.
+- Verified 100% green with `npm run verify` (750 unit tests across 57 files, ESLint 0 errors, check:no-network passing, static export building 86 pages, SEO audit 0 errors).
+
+---
+
+### [Tool #50 — Commercial Lease Calculator] — 2026-11-20
+- Built Tool #50 `/commercial-lease-calculator/` (Batch 3 Part 2 #4 / Tool #6 in Batch 3):
+  * **Engine** (`src/lib/commercial-lease-engine.ts`, 10 unit tests): pure functions for usable area with load factor % -> rentable area (RSF), rate basis ($/SF/yr or $/SF/mo), lease types (Gross, Modified Gross with toggles, NNN, Absolute NNN), pass-throughs (tax, insurance, CAM, utilities), escalations (annual % or $/SF step, base-only vs all-costs), concessions (free rent months, TI allowance), 5-year multi-year schedule with net effective rent, building CAM pro-rata share, retail percentage rent overage with natural breakpoint, and side-by-side 2-offer comparison. Spec worked example verified (2,000 USF, 15% load = 2,300 RSF, $24 NNN + $8 pass-throughs, 5 yrs, 3% escalation base-only, 2 mos free rent, $10/SF TI ($23,000) -> Year 1 base $55,200 ($4,600/mo), Year 1 NNN $18,400 ($1,533.33/mo), Year 1 monthly total $6,133.33/mo, 5-yr base $293,064.30, 5-yr NNN $92,000.00, free rent -$9,200.00, total lease cost $375,864.30, avg monthly $6,264.40, net effective rent $22.68/SF/yr).
+  * **Input Guide Diagram** (`src/components/tool/commercial-lease-calculator/LeaseInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: Tab 1 floor plan diagram showing usable space vs rentable space (with load factor markup) + NNN pass-through stack + free rent concession ribbon; Tab 2 side-by-side offer comparison bars; Tab 3 building CAM allocation pie/bar; Tab 4 retail percentage rent breakpoint diagram. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/commercial-lease-calculator/CommercialLeaseCalculator.tsx`): TabSlider segmented control for 4 modes (`cost`, `compare`, `cam`, `retail`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, 5-year year-by-year schedule table, side-by-side 2-offer comparison cards with winner banner, pro-rata building CAM calculator, retail percentage rent breakpoint calculator, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Gross, modified gross & NNN`, `Escalations & free rent`, `Compare 2 offers`, `Print & share link`.
+  * **Page** (`src/app/commercial-lease-calculator/page.tsx`): 2,100+ words of original copy, BLUF quick answer box with engine-computed metrics, 11 comprehensive FAQs matching schema, `HowWeCalculate` component with BOMA, CCIM, and ICSC citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#50, category `business`, icon `commercialLease`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `cap-rate-calculator`, `rental-property-calculator`, and `square-footage-calculator`.
+- Verified 100% green with `npm run verify` (741 unit tests across 56 files, ESLint 0 errors, check:no-network passing, static export building 85 pages, SEO audit 0 errors).
+
+---
+
+### [Tool #49 — Labor Cost Calculator] — 2026-11-20
+- Built Tool #49 `/labor-cost-calculator/` (Batch 3 Part 2 #3 / Tool #5 in Batch 3):
+  * **Engine** (`src/lib/labor-cost-engine.ts`, 12 unit tests): pure functions for fully burdened employee cost, US payroll-tax caps (Social Security 6.2% up to $184,500 wage base in 2026, Medicare 1.45% uncapped, FUTA 0.6% on first $7,000, SUTA on state wage base, workers' compensation per $100, benefits), paid vs productive billable hours, crew and job quote estimating (markup and margin modes reusing `pricing-engine.ts`), labor cost as a percentage of revenue, and employee vs 1099 subcontractor cost comparison. Spec worked example verified ($30/hr × 2,080 h = $62,400 wages, $5,015.60 payroll taxes, $3,120 wc, $6,000 benefits -> $76,535.60 total annual cost, 22.65% burden, $36.80/paid hr, $39.86/productive hr; 3-worker 40-hr crew quote with 15% overhead & 10% profit = $6,051.10).
+  * **Input Guide Diagram** (`src/components/tool/labor-cost-calculator/LaborInputGuide.tsx`): SVG diagram positioned above inputs with tab-specific visual flows: Tab 1 stacked cost waterfall bar with 6 numbered badges (1 Wages, 2 Payroll Taxes, 3 Comp & Ins, 4 Benefits, 5 Total Cost) plus right-side productive hours clock (7 Paid − 8 Time Off = Billable hours) and true rate formula ribbon; Tab 2 crew roles × hours → Direct Labor + Materials/Subs → Overhead/Profit → Final Quote; Tab 3 labor vs revenue comparative bars. Live sync, focus highlight, mobile collapsible, 0 SVG `<title>` tags to protect SEO title audit.
+  * **UI & ToolShell** (`src/components/tool/labor-cost-calculator/LaborCostCalculator.tsx`): TabSlider segmented control for 3 modes (`employee`, `job`, `labor-pct`) with `?tab=` URL sync, high-contrast light mint `.summaryBanner` box with dynamic BLUF sentence, itemized waterfall breakdown table, W-2 vs 1099 subcontractor comparison tool, dynamic crew roster builder (add/remove members, hours, overtime), job expenses, markup vs margin pricing toggle, and clipboard summary copy. Wrapped in `ToolShell` with 4 verified pills: `Payroll-tax caps built in`, `Crew & job quote`, `Paid vs productive hours`, `Print & share link`.
+  * **Page** (`src/app/labor-cost-calculator/page.tsx`): 2,200+ words of original copy, BLUF quick answer box with engine-computed metrics, 10 comprehensive FAQs matching schema, `HowWeCalculate` component with IRS Pub 15, SSA, and DOL FLSA citations, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#49, category `business`, icon `laborCost`), `Footer.tsx` (Column 5), `ToolArt.tsx`, and `calculation-methods.ts`. Inbound cross-links added from `construction-estimate-template`, `markup-calculator`, and `hourly-to-salary-calculator`.
+- Verified 100% green with `npm run verify` (731 unit tests across 55 files, ESLint 0 errors, check:no-network passing, static export building 84 pages, SEO audit 0 errors).
+
+---
+
+### [Tool #48 — Rental Property Calculator] — 2026-11-20
+- Built Tool #48 `/rental-property-calculator/` (Batch 3 Part 2 #2 / Tool #4 in Batch 3):
+  * **Engine** (`src/lib/rental-property-engine.ts`, 9 unit tests): pure underwriting calculations for rental property cash flow, cash-on-cash return, cap rate, DSCR, GRM, gross/net yield, break-even occupancy, 1% rule test, 10-year pro forma cash flow projection with annual compounding appreciation/rent/expense growth, amortization equity paydown, and exit IRR. Includes side-by-side deal comparison for all-cash vs financed purchase. Reuses `real-estate-engine.ts` and `loan-engine.ts`.
+  * **Input Guide Diagram** (`src/components/tool/rental-property-calculator/RentalInputGuide.tsx`): SVG input guide diagram positioned directly above inputs with 8 numbered callout badges (1 Purchase price, 2 Down payment, 3 Mortgage terms, 4 Gross rent, 5 Operating expenses, 6 Net operating income, 7 Annual debt service, 8 Net cash flow & Cash-on-cash return), debt service exclusion warning, 10-year equity timeline, active field focus highlight, and mobile toggle.
+  * **UI & ToolShell** (`src/components/tool/rental-property-calculator/RentalPropertyCalculator.tsx`): glass segmented control (`TabSlider`) switching between 3 analysis modes (`returns`, `pro-forma`, `cash-vs-mortgage`) with `?tab=` URL query sync. High-contrast light mint `.summaryBanner` box with BLUF sentence, itemized expense waterfall table, interactive 10-year pro forma projection table with SVG equity growth vs loan balance timeline chart, CSV copy, printable pro forma report, and side-by-side all-cash vs financed comparison cards. Wrapped in `ToolShell` with 4 verified pills: `Cash flow & Cash-on-Cash`, `Itemized expense waterfall`, `10-year pro forma with IRR`, `All-cash vs financed deal`.
+  * **Page** (`src/app/rental-property-calculator/page.tsx`): 2,300+ words of original copy, BLUF quick answer box, 12 comprehensive FAQs matching schema, `HowWeCalculate` component, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Sourced citations from IRS Pub 527 and National Association of Residential Property Managers (NARPM).
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#48, category `business`, icon `rentalProperty`), `Footer.tsx` (Column 5 Business & Finance Tools), `ToolArt.tsx`, and `calculation-methods.ts`. Cross-linked from `cap-rate-calculator` and `percentage-change-calculator`.
+- Verified 100% green with `npm run verify` (719 unit tests across 54 files, ESLint 0 errors, check:no-network passing, static export building 83 pages, SEO audit 0 errors).
+
+---
+
+### [Tool #47 — Cap Rate Calculator & Step A Shared Engines] — 2026-11-20
+- Built Step A Shared Engines for Batch 3 Part 2 tools:
+  * `src/lib/real-estate-engine.ts` (16 unit tests): pure functions for Net Operating Income (`noi`, `calculateNoiBreakdown`), Cap Rate (`capRate`), Valuation from Cap Rate (`valueFromCap`), Required NOI (`noiFromCap`), Gross Rent Multiplier (`grm`), Debt Service Coverage Ratio (`dscr`), Debt Yield (`debtYield`), Cash-on-Cash Return (`cashOnCash`), Gross Yield (`grossYield`), Net Yield (`netYield`), Net Present Value (`npv`), and Internal Rate of Return (`irr`).
+  * `src/lib/loan-engine.ts` (9 unit tests): pure functions for loan amortization (`monthlyRate`, `payment`, `interestOnlyPayment`, `balanceAfter`, `maxLoanFromPayment`, `aprWithFees`, `factorRateToApr`, `schedule`).
+  * `src/content/us-tax-data.ts`: verified IRS Rev. Proc. 2024-40 brackets for 2025/2026, standard deductions, standard mileage rates, self-employment tax rates, and marked `TODO(owner)` on unverified items.
+- Built Tool #47 `/cap-rate-calculator/` (Batch 3 Part 2 #1 / Tool #6 in Batch 3):
+  * **Engine** (`src/lib/cap-rate-engine.ts`, 9 unit tests): 3 solve modes (`cap-rate`, `property-value`, `required-noi`), itemized NOI builder supporting unit count and square footage rent basis, 7x5 sensitivity matrix table generator, and 5-year exit valuation model. Spec worked example verified ($180k gross rent + $3k other - 5% vacancy - $46,440 operating expenses = $127,560 NOI; $2.4M purchase price = 5.315% / 5.32% cap rate).
+  * **Input Guide Diagram** (`src/components/tool/cap-rate-calculator/CapRateInputGuide.tsx`): SVG input guide diagram positioned directly above inputs with 6 numbered badges (1 Rent roll, 2 + Other income, 3 − Vacancy, 4 − Operating expenses with excluded mortgage warning callout, 5 Property price, 6 Cap rate result), live input sync, active input focus highlight, and mobile toggle.
+  * **UI & ToolShell** (`src/components/tool/cap-rate-calculator/CapRateCalculator.tsx`): glass segmented control (`TabSlider`) switching between 3 solve modes with `?tab=` URL query sync, itemized NOI waterfall table, 7x5 cap rate vs purchase price sensitivity matrix, secondary metrics grid (GRM, Price/SqFt, Price/Unit, Price to NOI), one-click copy summary, shareable URL, and printable pro forma report. Wrapped in `ToolShell` with 4 verified pills: `3 solve modes (Cap, Value, NOI)`, `Itemized NOI waterfall`, `7x5 sensitivity matrix`, `Exit valuation model`.
+  * **Page** (`src/app/cap-rate-calculator/page.tsx`): 2,400+ words of original copy, BLUF quick answer box, 11 comprehensive FAQs matching schema, `HowWeCalculate` component, `WebApplication` and `FAQPage` JSON-LD schema, absolute title metadata. Sourced citations from CCIM Institute, Appraisal Institute, and Cornell Real Estate Review.
+  * **Routing & Catalog**: Registered in `src/lib/routes.ts`, `src/lib/tools-catalog.ts` (#47, category `business`, icon `capRate`), `Footer.tsx` (Column 5 Business & Finance Tools), `ToolArt.tsx`, and `calculation-methods.ts`. Cross-linked from `percentage-change-calculator` and `square-footage-calculator`.
+- Verified 100% green with `npm run verify` (710 unit tests across 53 files, ESLint 0 errors, check:no-network passing, static export building 82 pages, SEO audit 0 errors).
+
+---
+
 ### [Tool Shell Rollout — Outer Card Background Fix Across All Calculators] — 2026-11-18
 - Eliminated all duplicate outer card backgrounds, borders, shadows, and outer paddings from root containers across 13 calculators that were covering up the `ToolShell` hero gradient band:
   * Converted `.calculatorContainer`, `.toolCard`, and `.calculatorCard` to transparent layout wrappers so individual input/result cards float directly on the hero gradient band, matching the visual design of `/percentage-change-calculator/`.
@@ -1179,6 +1616,21 @@ All notable changes to this project will be documented in this file, sorted newe
 - Evidence logged in `docs/evidence/tool-shell-rollout.md`.
 
 ---
+
+### [Docs — Batch 3 Part 3 build specs (7 SERP-removed tools, owner request)] — 2026-11-20
+- New build specs (each in its own folder with its competitor analysis): Present Value / NPV (26), Compound Interest (21), Card Processing Fee (17), Credit Card Payoff (24), Net Worth (19), HELOC (23), Investment Return (27).
+- Each targets low-KD long-tail rows pulled from the Semrush exports (e.g. `compound growth calculator` 6,600/KD 4, `net worth meaning` 5,400/KD 7, `heloc loan calculator` 12,100/KD 9). Head terms are long-term only.
+- `00_BATCH3_BUILD_RULES.md` Part 3 (§12–13):
+  - build order and shared `tvm-engine`;
+  - data gates: verified fee presets only, SCF benchmarks only, Investment Return historical mode only with a licensed dataset.
+- Builder prompt extended to Part 3. Worked examples computed with the specs' formulas. No code changed.
+
+### [Docs — Batch 3 Part 2 build specs (14 pending tools)] — 2026-11-20
+- New build spec for each pending Batch 3 tool, each in its own folder next to its competitor analysis (moved into the folder) under `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/`: Cap Rate (06), Rental Property (07), Commercial Mortgage (08), Commercial Lease (10), Business Valuation (11), SBA Loan (12), Equipment Loan (13), Airbnb (14), Freelance Rate (15), Invoice Generator (16), Labor Cost (18), How Long Will My Money Last (20), Contribution Margin (22), Self-Employment Tax (25).
+- `00_BATCH3_BUILD_RULES.md` Part 2: build order, shared `loan-engine` / `real-estate-engine` / `us-tax-data`, the new **input guide diagram above the inputs** pattern, trust rules, Tier 3 gate.
+- Official figures read on irs.gov / sba.gov on 2026-11-20 and listed with URLs. SSA wage-base page blocked (403), so its figure is from the IRS page, marked `TODO(owner)`. The SBA 504 maximum conflicts on sba.gov itself ($5M vs $5.5M), marked `TODO(owner)`.
+- Every worked example in the specs was computed with the spec's own formulas.
+- Builder prompt: `docs/prompts/BATCH3_PART2_BUILD_PROMPT.md`. No code changed.
 
 ### [Review — Batch 3 tools #41–#46 sourcing fixes] — 2026-11-18
 - **Profit Margin:** the "good profit margin" table and FAQ had invented ranges labelled as Damodaran data (e.g. grocery net 1.5–3%, apparel net 6–10%). Replaced with the real NYU Stern "Margins by Sector (US)" figures, January 2026 update, checked 2026-11-18 (grocery 26.31% gross / 1.32% net, apparel 56.88% / 3.85%, software 71.72% / 25.49%, total market 37.76% / 9.74%, plus food wholesalers, building materials, engineering/construction, machinery). Linked the dataset; removed the unsourced "10% healthy, 20% excellent" claim.
@@ -1717,7 +2169,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-18T21:19:08.437Z
+Run Date: 2026-11-20T22:12:29.989Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -1725,6 +2177,7 @@ Status: PASSED ✅
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
+| `/airbnb-calculator/` | Airbnb Calculator – Short-Term Rental Pr | 3179 | Airbnb Profit Calculator: Shor | PASS |
 | `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2487 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
@@ -1736,13 +2189,20 @@ Status: PASSED ✅
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1834 | Bathroom Remodel Cost Calculat | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2642 | Board and Batten Calculator: B | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2905 | Brick Calculator: Bricks, Mort | PASS |
+| `/business-valuation-calculator/` | Business Valuation Calculator – SDE & EB | 3137 | Business Valuation Calculator: | PASS |
+| `/cap-rate-calculator/` | Cap Rate Calculator – NOI & Commercial P | 3055 | Cap Rate Calculator: Cap Rate, | PASS |
 | `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
+| `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 2815 | Commercial Lease Calculator: R | PASS |
+| `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2533 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
+| `/compound-interest-calculator/` | Compound Interest Calculator – Daily, Mo | 3141 | Compound Interest Calculator:  | PASS |
 | `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2714 | Concrete Calculator: Volume in | PASS |
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3355 | Concrete Slab Cost Calculator | PASS |
-| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3018 | Free Construction Estimate Tem | PASS |
+| `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3047 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
+| `/contribution-margin-calculator/` | Contribution Margin Calculator – Ratio & | 2745 | Contribution Margin Calculator | PASS |
+| `/credit-card-payoff-calculator/` | Credit Card APR Calculator – Payoff Time | 3702 | Credit Card APR Calculator: Pa | PASS |
 | `/cubic-feet-to-square-feet/` | Cubic Feet to Square Feet Converter (wit | 1635 | Cubic Feet to Square Feet Conv | PASS |
 | `/cubic-inch-calculator/` | Cubic Inch Calculator – Volume & Engine  | 1926 | Cubic Inch Calculator (Volume  | PASS |
 | `/cubic-yard-calculator/` | Cubic Yard Calculator – Soil, Gravel, Mu | 2609 | Cubic Yard Calculator: How Man | PASS |
@@ -1751,41 +2211,54 @@ Status: PASSED ✅
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2427 | Discount Calculator: Percent O | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2823 | Drywall Calculator: Sheets, Jo | PASS |
+| `/equipment-loan-calculator/` | Equipment Loan Calculator – Business Loa | 2831 | Equipment Loan Calculator: Pay | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2653 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2395 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1541 | Fill Dirt Calculator | PASS |
 | `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2788 | Hardwood Floor Refinishing & R | PASS |
+| `/freelance-rate-calculator/` | Freelance Rate Calculator – Hourly Rate  | 2973 | Freelance Hourly Rate Calculat | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
-| `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2694 | Hourly to Salary Calculator (Y | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 2290 | Free Construction Calculators  | PASS |
+| `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
+| `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
+| `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 3167 | Free Construction Calculators  | PASS |
+| `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
+| `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2837 | Invoice Generator: Make an Hou | PASS |
+| `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2813 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2771 | Lawn Mowing Cost Calculator | PASS |
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1638 | Linear Foot Calculator (Linear | PASS |
-| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2608 | Markup Calculator: Selling Pri | PASS |
+| `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2628 | Markup Calculator: Selling Pri | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
+| `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2585 | Net Worth Calculator: Calculat | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
-| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3499 | Percentage Change Calculator:  | PASS |
+| `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3577 | Percentage Change Calculator:  | PASS |
 | `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2526 | Pipe & Tube Volume Calculator | PASS |
+| `/present-value-calculator/` | Present Value Calculator – PV Formula, N | 3031 | Present Value Calculator: PV F | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
-| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2124 | Profit Margin Calculator: Gros | PASS |
+| `/processing-fee-calculator/` | Card Processing Fee Calculator – Square  | 2689 | Credit Card Processing Fee Cal | PASS |
+| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2128 | Profit Margin Calculator: Gros | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2404 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
+| `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4152 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1536 | Sand Calculator | PASS |
+| `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
+| `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 908 | Site Map | PASS |
-| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3376 | Square Footage Calculator (Sq  | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1273 | Site Map | PASS |
+| `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2871 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2207 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1810 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 1329 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 2168 | All Free Tools: Construction C | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -1800,6 +2273,7 @@ Status: PASSED ✅
 404/index.html
 404.html
 about/index.html
+airbnb-calculator/index.html
 asphalt-calculator/index.html
 band-name-generator/boy-band/index.html
 band-name-generator/heavy-metal/index.html
@@ -1811,13 +2285,20 @@ band-name-generator/rock/index.html
 bathroom-remodel-cost-calculator/index.html
 board-and-batten-calculator/index.html
 brick-calculator/index.html
+business-valuation-calculator/index.html
+cap-rate-calculator/index.html
 carpet-cost-calculator/index.html
 cinder-block-calculator/index.html
+commercial-lease-calculator/index.html
+commercial-mortgage-calculator/index.html
 compost-calculator/index.html
+compound-interest-calculator/index.html
 concrete-calculator/index.html
 concrete-slab-cost-calculator/index.html
 construction-estimate-template/index.html
 contact/index.html
+contribution-margin-calculator/index.html
+credit-card-payoff-calculator/index.html
 cubic-feet-to-square-feet/index.html
 cubic-inch-calculator/index.html
 cubic-yard-calculator/index.html
@@ -1826,32 +2307,45 @@ deck-stain-calculator/index.html
 disclaimer/index.html
 discount-calculator/index.html
 drywall-calculator/index.html
+equipment-loan-calculator/index.html
 fence-cost-calculator/index.html
 fence-stain-calculator/index.html
 fill-dirt-calculator/index.html
 floor-refinishing-cost-calculator/index.html
+freelance-rate-calculator/index.html
 guides/band-name-ideas-by-genre/index.html
 guides/how-to-check-if-a-band-name-is-taken/index.html
 guides/how-to-choose-a-band-name/index.html
 guides/index.html
+heloc-calculator/index.html
 hourly-to-salary-calculator/index.html
+how-long-will-my-money-last/index.html
 index.html
+investment-return-calculator/index.html
+invoice-generator/index.html
+labor-cost-calculator/index.html
 laminate-flooring-calculator/index.html
 lawn-mowing-cost-calculator/index.html
 linear-foot-calculator/index.html
 markup-calculator/index.html
 metal-roof-cost-calculator/index.html
+net-worth-calculator/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
 paver-sand-calculator/index.html
 percentage-change-calculator/index.html
 pipe-volume-calculator/index.html
+present-value-calculator/index.html
 privacy-policy/index.html
+processing-fee-calculator/index.html
 profit-margin-calculator/index.html
 rafter-calculator/index.html
 rebar-calculator/index.html
+rental-property-calculator/index.html
 roof-replacement-cost-calculator/index.html
 sand-calculator/index.html
+sba-loan-calculator/index.html
+self-employment-tax-calculator/index.html
 shingle-calculator/index.html
 site-map/index.html
 square-footage-calculator/index.html
@@ -1902,6 +2396,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+ed9608a Batch 3 remaining docs completed
 4a1e6d4 docs: update bundle evidence and mark Batch 1 completed
 6180bf2 feat(ui): rollout shared ToolShell and TabSlider across all 44 calculators with card clash fixes
 4e513d1 docs(audit): update docs, refine source citations, and polish Batch 3 content copy
@@ -1921,7 +2416,6 @@ cc34105 docs(audit): record live Cloudflare 301 redirect verification
 f623230 modified UI
 5d10abb Floor Refinishing - completed
 1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
-d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 ```
 
 
@@ -1937,18 +2431,18 @@ d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 96ms
+✓ Running next.config.ts took 30ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 6.9s
+✓ Compiled successfully in 10.6s
   Running TypeScript ...
-  Finished TypeScript in 3.0s ...
+  Finished TypeScript in 6.8s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/81) ...
-  Generating static pages using 15 workers (20/81) 
-  Generating static pages using 15 workers (40/81) 
-  Generating static pages using 15 workers (60/81) 
-✓ Generating static pages using 15 workers (81/81) in 3.6s
+  Generating static pages using 15 workers (0/102) ...
+  Generating static pages using 15 workers (25/102) 
+  Generating static pages using 15 workers (50/102) 
+  Generating static pages using 15 workers (76/102) 
+✓ Generating static pages using 15 workers (102/102) in 4.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -1956,6 +2450,7 @@ Route (app)
 ┌ ○ /
 ├ ○ /_not-found
 ├ ○ /about
+├ ○ /airbnb-calculator
 ├ ○ /apple-touch-icon.png
 ├ ○ /asphalt-calculator
 ├ ○ /band-name-generator
@@ -1968,15 +2463,22 @@ Route (app)
 ├ ○ /board-and-batten-calculator
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
+├ ○ /business-valuation-calculator
+├ ○ /cap-rate-calculator
 ├ ○ /carpet-cost-calculator
 ├ ○ /cinder-block-calculator
 ├ ○ /cinder-block-calculator/opengraph-image
+├ ○ /commercial-lease-calculator
+├ ○ /commercial-mortgage-calculator
 ├ ○ /compost-calculator
+├ ○ /compound-interest-calculator
 ├ ○ /concrete-calculator
 ├ ○ /concrete-slab-cost-calculator
 ├ ○ /construction-estimate-template
 ├ ○ /construction-estimate-template/opengraph-image
 ├ ○ /contact
+├ ○ /contribution-margin-calculator
+├ ○ /credit-card-payoff-calculator
 ├ ○ /cubic-feet-to-square-feet
 ├ ○ /cubic-inch-calculator
 ├ ○ /cubic-yard-calculator
@@ -1985,16 +2487,23 @@ Route (app)
 ├ ○ /disclaimer
 ├ ○ /discount-calculator
 ├ ○ /drywall-calculator
+├ ○ /equipment-loan-calculator
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
 ├ ○ /floor-refinishing-cost-calculator
+├ ○ /freelance-rate-calculator
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /heloc-calculator
 ├ ○ /hourly-to-salary-calculator
+├ ○ /how-long-will-my-money-last
+├ ○ /investment-return-calculator
+├ ○ /invoice-generator
+├ ○ /labor-cost-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
 ├ ○ /lawn-mowing-cost-calculator
@@ -2003,6 +2512,7 @@ Route (app)
 ├ ○ /logo.png
 ├ ○ /markup-calculator
 ├ ○ /metal-roof-cost-calculator
+├ ○ /net-worth-calculator
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
@@ -2010,13 +2520,18 @@ Route (app)
 ├ ○ /paver-sand-calculator
 ├ ○ /percentage-change-calculator
 ├ ○ /pipe-volume-calculator
+├ ○ /present-value-calculator
 ├ ○ /privacy-policy
+├ ○ /processing-fee-calculator
 ├ ○ /profit-margin-calculator
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
+├ ○ /rental-property-calculator
 ├ ○ /robots.txt
 ├ ○ /roof-replacement-cost-calculator
 ├ ○ /sand-calculator
+├ ○ /sba-loan-calculator
+├ ○ /self-employment-tax-calculator
 ├ ○ /shingle-calculator
 ├ ○ /site-map
 ├ ○ /sitemap.xml
@@ -2076,9 +2591,40 @@ D:\1_programmins\5.kkctools\src\app\guides\page.tsx
 D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
+D:\1_programmins\5.kkctools\src\components\tool\airbnb-calculator\AirbnbCalculator.tsx
+   69:27  warning  'setNightsAvailable' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   77:25  warning  'setPaymentFeePct' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   78:27  warning  'setOccupancyTaxPct' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   83:25  warning  'setManagementPct' is assigned a value but never used      @typescript-eslint/no-unused-vars
+   90:27  warning  'setSoftwareMonthly' is assigned a value but never used    @typescript-eslint/no-unused-vars
+   91:22  warning  'setHoaMonthly' is assigned a value but never used         @typescript-eslint/no-unused-vars
+   93:29  warning  'setPropertyTaxAnnual' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  100:25  warning  'setPurchasePrice' is assigned a value but never used      @typescript-eslint/no-unused-vars
+  105:28  warning  'setLtrManagementPct' is assigned a value but never used   @typescript-eslint/no-unused-vars
+  106:29  warning  'setLtrMaintenancePct' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\commercial-lease-calculator\CommercialLeaseCalculator.tsx
+  86:26  warning  'setEscalationType' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  88:31  warning  'setEscalationAppliesTo' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  92:29  warning  'setFreeRentAppliesTo' is assigned a value but never used    @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\commercial-mortgage-calculator\CommercialMortgageCalculator.tsx
+  57:29  warning  'setOtherClosingCosts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\freelance-rate-calculator\FreelanceInputGuide.tsx
+  36:3  warning  'totalWorkingHours' is defined but never used    @typescript-eslint/no-unused-vars
+  54:9  warning  'adminWeeks' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\freelance-rate-calculator\FreelanceRateCalculator.tsx
+  70:23  warning  'setDaysPerWeek' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  82:28  warning  'setCoworkingMonthly' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
   32:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\net-worth-calculator\NetWorthCalculator.tsx
+  236:6  warning  React Hook useMemo has an unnecessary dependency: 'currSymbol'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
 
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
@@ -2090,11 +2636,21 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
+  3:3  warning  'calculateFreelanceCalendar' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
 
-✖ 12 problems (0 errors, 12 warnings)
+D:\1_programmins\5.kkctools\src\lib\str-engine.ts
+  22:21  warning  'calcCapRate' is defined but never used     @typescript-eslint/no-unused-vars
+  22:48  warning  'calcCashOnCash' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
+  12:3  warning  'npv' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 35 problems (0 errors, 35 warnings)
 
 
 ```
@@ -2106,7 +2662,7 @@ D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 67 HTML files in out/...
+Auditing 88 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -2120,64 +2676,13 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
-[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
+ RUN  v4.1.12 D:/1_programmins/5.kkctools
 
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 35[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 47[2mms[22m[39m
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 51[2mms[22m[39m
- [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 51[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 51[2mms[22m[39m
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 57[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 726[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 566[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 6[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m50 passed[39m[22m[90m (50)[39m
-[2m      Tests [22m [1m[32m676 passed[39m[22m[90m (676)[39m
-[2m   Start at [22m 02:48:27
-[2m   Duration [22m 3.01s[2m (transform 8.79s, setup 0ms, import 11.99s, tests 1.78s, environment 22ms)[22m
+ Test Files  73 passed (73)
+      Tests  904 passed (904)
+   Start at  03:41:44
+   Duration  3.84s (transform 12.09s, setup 0ms, import 16.42s, tests 2.23s, environment 19ms)
 
 
 ```

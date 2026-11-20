@@ -139,4 +139,16 @@ export const RELATED_CONSTRUCTION_TOOLS: RelatedCalculatorLink[] = [
     description: 'Calculate roof pitch, rafter length, birdsmouth cuts, and roof deck square footage.',
     live: true,
   },
+  {
+    label: 'Cap Rate Calculator',
+    href: '/cap-rate-calculator/',
+    description: 'Calculate commercial property capitalization rate, price per square foot, and NOI valuation.',
+    live: true,
+  },
+  {
+    label: 'Commercial Lease Calculator',
+    href: '/commercial-lease-calculator/',
+    description: 'Calculate commercial rent per square foot, NNN & CAM expenses, escalations, and net effective rent.',
+    live: true,
+  },
 ];

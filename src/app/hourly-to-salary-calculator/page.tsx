@@ -600,6 +600,12 @@ export default function HourlyToSalaryCalculatorPage() {
               calculators:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.freelanceRateCalculator.path} className={styles.pillLink}>
+                Freelance Hourly Rate Calculator (1099 Rates &amp; Taxes)
+              </Link>
+              <Link href={ROUTES.laborCostCalculator.path} className={styles.pillLink}>
+                Labor Cost Calculator (Burdened Rate &amp; Payroll Taxes)
+              </Link>
               <Link href={ROUTES.percentageChangeCalculator.path} className={styles.pillLink}>
                 Percentage Change Calculator (Calculate Pay Raises %)
               </Link>
