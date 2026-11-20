@@ -86,6 +86,21 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Docs — Batch 3 Part 3 build specs (7 SERP-removed tools, owner request)] — 2026-11-20
+- New build specs (each in its own folder with its competitor analysis): Present Value / NPV (26), Compound Interest (21), Card Processing Fee (17), Credit Card Payoff (24), Net Worth (19), HELOC (23), Investment Return (27).
+- Each targets low-KD long-tail rows pulled from the Semrush exports (e.g. `compound growth calculator` 6,600/KD 4, `net worth meaning` 5,400/KD 7, `heloc loan calculator` 12,100/KD 9). Head terms are long-term only.
+- `00_BATCH3_BUILD_RULES.md` Part 3 (§12–13):
+  - build order and shared `tvm-engine`;
+  - data gates: verified fee presets only, SCF benchmarks only, Investment Return historical mode only with a licensed dataset.
+- Builder prompt extended to Part 3. Worked examples computed with the specs' formulas. No code changed.
+
+### [Docs — Batch 3 Part 2 build specs (14 pending tools)] — 2026-11-20
+- New build spec for each pending Batch 3 tool, each in its own folder next to its competitor analysis (moved into the folder) under `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/`: Cap Rate (06), Rental Property (07), Commercial Mortgage (08), Commercial Lease (10), Business Valuation (11), SBA Loan (12), Equipment Loan (13), Airbnb (14), Freelance Rate (15), Invoice Generator (16), Labor Cost (18), How Long Will My Money Last (20), Contribution Margin (22), Self-Employment Tax (25).
+- `00_BATCH3_BUILD_RULES.md` Part 2: build order, shared `loan-engine` / `real-estate-engine` / `us-tax-data`, the new **input guide diagram above the inputs** pattern, trust rules, Tier 3 gate.
+- Official figures read on irs.gov / sba.gov on 2026-11-20 and listed with URLs. SSA wage-base page blocked (403), so its figure is from the IRS page, marked `TODO(owner)`. The SBA 504 maximum conflicts on sba.gov itself ($5M vs $5.5M), marked `TODO(owner)`.
+- Every worked example in the specs was computed with the spec's own formulas.
+- Builder prompt: `docs/prompts/BATCH3_PART2_BUILD_PROMPT.md`. No code changed.
+
 ### [Review — Batch 3 tools #41–#46 sourcing fixes] — 2026-11-18
 - **Profit Margin:** the "good profit margin" table and FAQ had invented ranges labelled as Damodaran data (e.g. grocery net 1.5–3%, apparel net 6–10%). Replaced with the real NYU Stern "Margins by Sector (US)" figures, January 2026 update, checked 2026-11-18 (grocery 26.31% gross / 1.32% net, apparel 56.88% / 3.85%, software 71.72% / 25.49%, total market 37.76% / 9.74%, plus food wholesalers, building materials, engineering/construction, machinery). Linked the dataset; removed the unsourced "10% healthy, 20% excellent" claim.
 - **Markup:** removed the unsourced card-fee ("2.9% + $0.30") and marketplace-fee ("8–15% on Amazon, eBay, Etsy") figures; renamed "Psychological Charm Pricing" to a margin-only price-endings section (no psychology claims without a source).

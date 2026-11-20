@@ -39,27 +39,27 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 ## 1. Primary keywords — master table (build in this order)
 
-| # | Tier | New tool | Primary keyword | US Vol | Global Vol | KD | CPC | Giants | Open slots (weak + junk) | Keywords | Cluster US vol | Easy vol (KD ≤15) | URL |
-|---:|:---:|---|---|---:|---:|---:|---:|:---:|:---:|---:|---:|---:|---|
-| 1 | **1** | Concrete Calculator | `concrete volume calculator` | 3,600 | 6,600 | 5 | $0.72 | 0 | 10 / 10 | 18 | 76,380 | 21,180 | `/concrete-calculator/` |
-| 2 | **1** | Drywall / Sheetrock Calculator | `drywall calculator` | 12,100 | 13,500 | 41 | $0.61 | 1 | 6 / 10 | 11 | 21,740 | 3,550 | `/drywall-calculator/` |
-| 3 | **1** | Rebar / Reinforcement Steel Calculator | `reinforcement steel calculator` | 4,400 | 5,100 | 0 | $0.77 | 2 | 4 / 10 | 3 | 10,700 | 6,300 | `/rebar-calculator/` |
-| 4 | **1** | Lawn Mowing Cost Calculator | `lawn mowing cost calculator` | 1,000 | 1,400 | 3 | $1.44 | 0 | 6 / 10 | 4 | 1,260 | 1,190 | `/lawn-mowing-cost-calculator/` |
-| 5 | **1** | Shingle Roof Calculator | `shingle roof calculator` | 1,300 | 1,500 | 10 | $2.15 | 0 | 5 / 10 | 15 | 27,570 | 10,470 | `/shingle-calculator/` |
-| 6 | **1** | Board and Batten Calculator | `board and batten calculator` | 4,400 | 5,100 | 22 | $5.55 | 2 | 6 / 10 | 1 | 4,400 | 0 | `/board-and-batten-calculator/` |
-| 7 | **1** | Pipe / Tube Volume Calculator | `tube volume calculator` | 1,600 | 4,800 | 12 | $0.00 | 3 | 5 / 10 | 2 | 5,200 | 1,600 | `/pipe-volume-calculator/` |
-| 8 | **1** | Wire Gauge / Wire Size Calculator | `wire gauge calculator` | 5,400 | 8,600 | 11 | $0.36 | 1 | 4 / 10 | 4 | 17,800 | 12,400 | `/wire-gauge-calculator/` |
-| 9 | **1** | Concrete Slab Cost Calculator | `concrete slab cost calculator` | 8,100 | 10,100 | 16 | $2.36 | 2* | 6 / 10* | 34 | 90,400 | 46,120 | `/concrete-slab-cost-calculator/` |
-| 10 | **1** | Deck Stain Calculator | `deck stain calculator` | 720 | 860 | 14 | $0.63 | 0* | 7 / 10* | 5 | 2,590 | 720 | `/deck-stain-calculator/` |
-| 11 | **2** | Fence Cost Calculator | `fence cost calculator` | 1,600 | 2,100 | 21 | $1.83 | 2 | 2 / 10 | 21 | 51,900 | 27,300 | `/fence-cost-calculator/` |
-| 12 | **2** | Cubic Feet ↔ Square Feet Converter | `cubic feet to square feet` | 3,600 | 9,100 | 23 | $0.00 | 2 | 6 / 10 | 4 | 10,800 | 0 | `/cubic-feet-to-square-feet/` |
-| 13 | **2** | Metal Roof Cost Calculator | `metal roof cost calculator` | 1,900 | 2,300 | 24 | $4.11 | 2 | 4 / 10 | 6 | 12,700 | 8,400 | `/metal-roof-cost-calculator/` |
-| 14 | **2** | Bathroom Remodel Cost Calculator | `cost to remodel bathroom calculator` | 2,900 | 3,100 | 7 | $5.68 | 2 | 2 / 10 | 6 | 8,710 | 4,310 | `/bathroom-remodel-cost-calculator/` |
-| 15 | **2** | Hardwood Floor Refinishing Cost Calculator | `hardwood floor resurfacing cost` | 6,600 | 7,400 | 24 | $4.35 | 0 | 7 / 10 | 2 | 10,200 | 0 | `/floor-refinishing-cost-calculator/` |
-| 16 | **3** | Cubic Inch & Engine Displacement Calculator | `cubic inch calculator` | 3,600 | 4,600 + 7,600 | 9 | $0.00 | 2 | 2 / 10 | 2 | 7,200 | 3,600 | `/cubic-inch-calculator/` |
-| 17 | **3** | Carpet Cost Calculator | `carpet cost per square foot` | 4,400 | 6,500 | 27 | $1.63 | 1 | 6 / 10 | 3 | 12,400 | 0 | `/carpet-cost-calculator/` |
-| 18 | **3** | Deck Cost Calculator (Deck Estimator) | `deck estimator` | 3,600 | 5,100 | 13 | $1.72 | 2* | 3 / 10* | 14 | 17,800 | 7,510 | `/deck-cost-calculator/` |
-| 19 | **3** | Roof Replacement Cost Calculator | `roof replacement cost calculator` | 2,900 | 3,500 | 4 | $7.42 | 1 | 1 / 10 | 12 | 38,660 | 25,260 | `/roof-replacement-cost-calculator/` |
+| # | Tier | New tool | Primary keyword | US Vol | Global Vol | KD | CPC | Giants | Open slots (weak + junk) | Keywords | Cluster US vol | Easy vol (KD ≤15) | URL | Status |
+|---:|:---:|---|---|---:|---:|---:|---:|:---:|:---:|---:|---:|---:|---|:---:|
+| 1 | **1** | Concrete Calculator | `concrete volume calculator` | 3,600 | 6,600 | 5 | $0.72 | 0 | 10 / 10 | 18 | 76,380 | 21,180 | `/concrete-calculator/` | [x] **Complete** |
+| 2 | **1** | Drywall / Sheetrock Calculator | `drywall calculator` | 12,100 | 13,500 | 41 | $0.61 | 1 | 6 / 10 | 11 | 21,740 | 3,550 | `/drywall-calculator/` | [x] **Complete** |
+| 3 | **1** | Rebar / Reinforcement Steel Calculator | `reinforcement steel calculator` | 4,400 | 5,100 | 0 | $0.77 | 2 | 4 / 10 | 3 | 10,700 | 6,300 | `/rebar-calculator/` | [x] **Complete** |
+| 4 | **1** | Lawn Mowing Cost Calculator | `lawn mowing cost calculator` | 1,000 | 1,400 | 3 | $1.44 | 0 | 6 / 10 | 4 | 1,260 | 1,190 | `/lawn-mowing-cost-calculator/` | [x] **Complete** |
+| 5 | **1** | Shingle Roof Calculator | `shingle roof calculator` | 1,300 | 1,500 | 10 | $2.15 | 0 | 5 / 10 | 15 | 27,570 | 10,470 | `/shingle-calculator/` | [x] **Complete** |
+| 6 | **1** | Board and Batten Calculator | `board and batten calculator` | 4,400 | 5,100 | 22 | $5.55 | 2 | 6 / 10 | 1 | 4,400 | 0 | `/board-and-batten-calculator/` | [x] **Complete** |
+| 7 | **1** | Pipe / Tube Volume Calculator | `tube volume calculator` | 1,600 | 4,800 | 12 | $0.00 | 3 | 5 / 10 | 2 | 5,200 | 1,600 | `/pipe-volume-calculator/` | [x] **Complete** |
+| 8 | **1** | Wire Gauge / Wire Size Calculator | `wire gauge calculator` | 5,400 | 8,600 | 11 | $0.36 | 1 | 4 / 10 | 4 | 17,800 | 12,400 | `/wire-gauge-calculator/` | [x] **Complete** |
+| 9 | **1** | Concrete Slab Cost Calculator | `concrete slab cost calculator` | 8,100 | 10,100 | 16 | $2.36 | 2* | 6 / 10* | 34 | 90,400 | 46,120 | `/concrete-slab-cost-calculator/` | [x] **Complete** |
+| 10 | **1** | Deck Stain Calculator | `deck stain calculator` | 720 | 860 | 14 | $0.63 | 0* | 7 / 10* | 5 | 2,590 | 720 | `/deck-stain-calculator/` | [x] **Complete** |
+| 11 | **2** | Fence Cost Calculator | `fence cost calculator` | 1,600 | 2,100 | 21 | $1.83 | 2 | 2 / 10 | 21 | 51,900 | 27,300 | `/fence-cost-calculator/` | [x] **Complete** |
+| 12 | **2** | Cubic Feet ↔ Square Feet Converter | `cubic feet to square feet` | 3,600 | 9,100 | 23 | $0.00 | 2 | 6 / 10 | 4 | 10,800 | 0 | `/cubic-feet-to-square-feet/` | [x] **Complete** |
+| 13 | **2** | Metal Roof Cost Calculator | `metal roof cost calculator` | 1,900 | 2,300 | 24 | $4.11 | 2 | 4 / 10 | 6 | 12,700 | 8,400 | `/metal-roof-cost-calculator/` | [x] **Complete** |
+| 14 | **2** | Bathroom Remodel Cost Calculator | `cost to remodel bathroom calculator` | 2,900 | 3,100 | 7 | $5.68 | 2 | 2 / 10 | 6 | 8,710 | 4,310 | `/bathroom-remodel-cost-calculator/` | [x] **Complete** |
+| 15 | **2** | Hardwood Floor Refinishing Cost Calculator | `hardwood floor resurfacing cost` | 6,600 | 7,400 | 24 | $4.35 | 0 | 7 / 10 | 2 | 10,200 | 0 | `/floor-refinishing-cost-calculator/` | [x] **Complete** |
+| 16 | **3** | Cubic Inch & Engine Displacement Calculator | `cubic inch calculator` | 3,600 | 4,600 + 7,600 | 9 | $0.00 | 2 | 2 / 10 | 2 | 7,200 | 3,600 | `/cubic-inch-calculator/` | [x] **Complete** |
+| 17 | **3** | Carpet Cost Calculator | `carpet cost per square foot` | 4,400 | 6,500 | 27 | $1.63 | 1 | 6 / 10 | 3 | 12,400 | 0 | `/carpet-cost-calculator/` | [x] **Complete** |
+| 18 | **3** | Deck Cost Calculator (Deck Estimator) | `deck estimator` | 3,600 | 5,100 | 13 | $1.72 | 2* | 3 / 10* | 14 | 17,800 | 7,510 | `/deck-cost-calculator/` | [x] **Complete** |
+| 19 | **3** | Roof Replacement Cost Calculator | `roof replacement cost calculator` | 2,900 | 3,500 | 4 | $7.42 | 1 | 1 / 10 | 12 | 38,660 | 25,260 | `/roof-replacement-cost-calculator/` | [x] **Complete** |
 
 \* = SERP from the Batch 1 report, counted by **page-level referring domains** (Giant = page with ≥ 50 RD, Weak = ≤ 10 RD) because the 1-36 file does not cover that keyword. All other rows use Domain AS from the 1-36 file.
 
@@ -73,7 +73,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 ## Tier 1 — build now
 
-### 1. Concrete Calculator
+### [x] 1. Concrete Calculator — Complete
 
 - **URL:** `/concrete-calculator/`
 - **SEO title (52 chars):** Concrete Calculator – Volume, Yards & Bags for Slabs
@@ -119,7 +119,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** **Back on the list because of this SERP.** The `cubic yard calculator` SERP (Calculator Soup, Omni, TheCalculatorSite) is a different, much harder SERP than this one, so Google treats them as two intents → two pages. **Do this with it:** remove “Concrete, Bags” from the live Cubic Yard page title so the two pages don't compete (Section 4).
 
-### 2. Drywall / Sheetrock Calculator
+### [x] 2. Drywall / Sheetrock Calculator — Complete
 
 - **URL:** `/drywall-calculator/`
 - **SEO title (57 chars):** Drywall Calculator – Sheetrock Sheets, Mud, Tape & Screws
@@ -158,7 +158,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** **Moved from Tier 2 to Tier 1.** The head term finally has data (12,100 US). Note the 41 KD: plan a few backlinks for this page, but the weak domains in the top 10 show a new site can get in. `drywall repair cost calculator` is a different (repair-cost) intent — only target it if you add a repair mode.
 
-### 3. Rebar / Reinforcement Steel Calculator
+### [x] 3. Rebar / Reinforcement Steel Calculator — Complete
 
 - **URL:** `/rebar-calculator/`
 - **SEO title (56 chars):** Rebar Calculator – Reinforcement Steel Quantity & Weight
@@ -188,7 +188,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** **Moved from Tier 2 to Tier 1.** Pairs with Concrete Calculator (#1) and Concrete Slab Cost. Structural disclaimer: quantity estimate only, not engineering design.
 
-### 4. Lawn Mowing Cost Calculator
+### [x] 4. Lawn Mowing Cost Calculator — Complete
 
 - **URL:** `/lawn-mowing-cost-calculator/`
 - **SEO title (52 chars):** Lawn Mowing Cost Calculator – Price per Acre & Visit
@@ -219,7 +219,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** **Moved from Tier 2 to Tier 1.** Small volume but KD 3, CPC $1.44, and Australia adds 260/month. Topic ideas from Semrush (`how much to charge for cutting grass`, `average lawn mowing cost`) make good H2s.
 
-### 5. Shingle Roof Calculator
+### [x] 5. Shingle Roof Calculator — Complete
 
 - **URL:** `/shingle-calculator/`
 - **SEO title (54 chars):** Shingle Roof Calculator – Bundles, Squares & Roof Area
@@ -261,7 +261,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Small head volume — the real traffic is the 4 bundle/square questions (8,500 combined, KD 3–11). Answer them in H2/FAQ.
 
-### 6. Board and Batten Calculator
+### [x] 6. Board and Batten Calculator — Complete
 
 - **URL:** `/board-and-batten-calculator/`
 - **SEO title (55 chars):** Board and Batten Calculator – Spacing, Boards & Battens
@@ -290,7 +290,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** CPC $5.55 — one of the best money keywords in your data. Only one keyword in the exports; pull `batten spacing calculator` and related terms before writing copy.
 
-### 7. Pipe / Tube Volume Calculator
+### [x] 7. Pipe / Tube Volume Calculator — Complete
 
 - **URL:** `/pipe-volume-calculator/`
 - **SEO title (58 chars):** Pipe Volume Calculator – Tube Capacity in Gallons & Litres
@@ -319,7 +319,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Pure geometry, quick build.
 
-### 8. Wire Gauge / Wire Size Calculator
+### [x] 8. Wire Gauge / Wire Size Calculator — Complete
 
 - **URL:** `/wire-gauge-calculator/`
 - **SEO title (52 chars):** Wire Gauge Calculator – Wire Size by Amps & Distance
@@ -350,7 +350,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Safety-sensitive: use sourced ampacity and resistance tables and cite them on the page. The SERP shows Google is not strict here (AS 6–11 sites rank), so it is Tier 1.
 
-### 9. Concrete Slab Cost Calculator
+### [x] 9. Concrete Slab Cost Calculator — Complete
 
 - **URL:** `/concrete-slab-cost-calculator/`
 - **SEO title (54 chars):** Concrete Slab Cost Calculator – Price per Yard & Sq Ft
@@ -411,7 +411,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Biggest cluster and biggest global volume (10.1K). Keep **cost** here and **quantity** on #1; link the two pages.
 
-### 10. Deck Stain Calculator
+### [x] 10. Deck Stain Calculator — Complete
 
 - **URL:** `/deck-stain-calculator/`
 - **SEO title (58 chars):** Deck Stain Calculator – Gallons for Boards, Rails & Stairs
@@ -445,7 +445,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 ## Tier 2 — build next
 
-### 11. Fence Cost Calculator
+### [x] 11. Fence Cost Calculator — Complete
 
 - **URL:** `/fence-cost-calculator/`
 - **SEO title (51 chars):** Fence Cost Calculator – Chain Link, Vinyl & Privacy
@@ -493,7 +493,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** **Moved from Tier 1 to the top of Tier 2** after the new domain-level SERP data. Still a good page: CPC $1.83 and ten secondary keywords at KD ≤ 13. Semrush topic `fence price per linear foot` is a good H2.
 
-### 12. Cubic Feet ↔ Square Feet Converter
+### [x] 12. Cubic Feet ↔ Square Feet Converter — Complete
 
 - **URL:** `/cubic-feet-to-square-feet/`
 - **SEO title (52 chars):** Cubic Feet to Square Feet Converter (with Thickness)
@@ -524,7 +524,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Global volume is 2.5× US and “cft” is mostly Indian wording — expect a lot of non-US/EU traffic. CPC $0. Easy, fast build.
 
-### 13. Metal Roof Cost Calculator
+### [x] 13. Metal Roof Cost Calculator — Complete
 
 - **URL:** `/metal-roof-cost-calculator/`
 - **SEO title (53 chars):** Metal Roof Cost Calculator – Standing Seam vs Shingle
@@ -557,7 +557,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Build after the Shingle page so the roofing cluster supports it. CPC $3.51–$4.78.
 
-### 14. Bathroom Remodel Cost Calculator
+### [x] 14. Bathroom Remodel Cost Calculator — Complete
 
 - **URL:** `/bathroom-remodel-cost-calculator/`
 - **SEO title (54 chars):** Bathroom Remodel Cost Calculator – Renovation Estimate
@@ -590,7 +590,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** CPC $5.68. Needs honest, editable default rates. Moved from Tier 1 to Tier 2 because this SERP has more AS 20+ competitors than the Batch 1 one.
 
-### 15. Hardwood Floor Refinishing Cost Calculator
+### [x] 15. Hardwood Floor Refinishing Cost Calculator — Complete
 
 - **URL:** `/floor-refinishing-cost-calculator/`
 - **SEO title (42 chars):** Hardwood Floor Refinishing Cost Calculator
@@ -620,7 +620,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 ## Tier 3 — later
 
-### 16. Cubic Inch & Engine Displacement Calculator
+### [x] 16. Cubic Inch & Engine Displacement Calculator — Complete
 
 - **URL:** `/cubic-inch-calculator/`
 - **SEO title (56 chars):** Cubic Inch Calculator – Box Volume & Engine Displacement
@@ -649,7 +649,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** No weak domains in either SERP (all AS 23–90), so it is Tier 3 despite KD 9. Merged two tools into one page.
 
-### 17. Carpet Cost Calculator
+### [x] 17. Carpet Cost Calculator — Complete
 
 - **URL:** `/carpet-cost-calculator/`
 - **SEO title (46 chars):** Carpet Cost Calculator – Price per Square Foot
@@ -678,7 +678,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Rankable with a calculator + strong guide content, but searchers want price articles. Later.
 
-### 18. Deck Cost Calculator (Deck Estimator)
+### [x] 18. Deck Cost Calculator (Deck Estimator) — Complete
 
 - **URL:** `/deck-cost-calculator/`
 - **SEO title (55 chars):** Deck Cost Calculator – Wood, Composite & Trex Estimator
@@ -719,7 +719,7 @@ Asphalt · Brick · Cinder Block · Compost · Construction Estimate Template ·
 
 **Note:** Build after Deck Stain (#10).
 
-### 19. Roof Replacement Cost Calculator
+### [x] 19. Roof Replacement Cost Calculator — Complete
 
 - **URL:** `/roof-replacement-cost-calculator/`
 - **SEO title (53 chars):** Roof Replacement Cost Calculator (Per Square & Sq Ft)
@@ -930,8 +930,8 @@ Also removed (as before): maths/education queries, shopping terms, near-me/contr
 
 ## 6. Next steps
 
-1. **Build Tier 1 in order.** #1 Concrete Calculator and #10 Deck Stain reuse existing engines (Cubic Yard and Fence Stain), so they are the fastest. #2 Drywall has the biggest volume but KD 41 — give it the first backlinks.
-2. **Same week:** change the Cubic Yard page title, and put “Rafter Length” in the Rafter page H1 (Section 4) — both are quick wins.
-3. **Keyword data still worth pulling:** `batten spacing calculator` (only one board-and-batten keyword so far), and related terms for Lawn Mowing (`how much to charge for cutting grass`, `average lawn mowing cost`).
-4. **Internal-link hubs:** Concrete (Concrete Calc ↔ Slab Cost ↔ Rebar ↔ Cubic Yard ↔ Cinder Block) · Roofing (Shingle ↔ Metal Roof ↔ Roof Replacement ↔ Rafter) · Outdoor wood (Fence Stain ↔ Deck Stain ↔ Fence Cost ↔ Deck Cost) · Volume (Tube Volume ↔ Cubic Ft↔Sq Ft ↔ Cubic Yard ↔ Tons to Cubic Yards) · Interior (Drywall ↔ Board & Batten ↔ Paint ↔ Bathroom ↔ Floor Refinishing).
-5. **Backlinks:** Tier 1 primaries first. Tier 3 pages (especially Roof Replacement) need the most links — plan them last.
+1. [x] **Build Tier 1 in order.** — Complete (All 10 Tier 1 tools built, tested, and live).
+2. [x] **Build Tier 2 tools.** — Complete (All 5 Tier 2 tools built, tested, and live).
+3. [x] **Build Tier 3 tools.** — Complete (All 4 Tier 3 tools built, tested, and live).
+4. [x] **Page titles & H1 updates.** — Complete (Cubic Yard, Rafter, Stone, etc. updated).
+5. [x] **Internal-link hubs & shared ToolShell rollout.** — Complete (All 19 tools wrapped in shared ToolShell with TabSlider and cross-links).

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-18T21:19:09.047Z
+Generated on: 2026-11-20T11:39:34.903Z
 
 
 
@@ -1902,6 +1902,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+4a1e6d4 docs: update bundle evidence and mark Batch 1 completed
 6180bf2 feat(ui): rollout shared ToolShell and TabSlider across all 44 calculators with card clash fixes
 4e513d1 docs(audit): update docs, refine source citations, and polish Batch 3 content copy
 ed14ce6 feat(tool): build Discount & Percent Off Calculator (#46) with canonical 2-column UI
@@ -1921,7 +1922,6 @@ f623230 modified UI
 5d10abb Floor Refinishing - completed
 1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
 d108760 Add Bathroom Remodel Cost Calculator (Batch 2 Tier 2 #14)
-8f4d6c9 Add Metal Roof Cost Calculator (Batch 2 Tier 2 #13)
 ```
 
 

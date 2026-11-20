@@ -108,26 +108,26 @@
 
 ## Quick tool-cluster index — same numbering
 
-| No. | Priority | Tool / proposed page | Primary keyword from this export | Related keywords from this export |
-|---:|:---:|---|---|---|
-| 01 | A | **Asphalt Calculator** | `asphalt calculator` | — |
-| 02 | A | **Brick Calculator** | `brick calculator` | — |
-| 03 | A | **Concrete Block / Cinder Block Calculator** | `cinder block calculator` | `cmu block calculator`; `cement block calculator` |
-| 04 | A | **Concrete Volume / Yardage Calculator** | `concrete volume calculator` | `concrete calculator yards`; `concrete yardage calculator`; `how to estimate concrete yards`; `how do you figure concrete in yards`; `how many 80lb bags of concrete in a yard` |
-| 05 | A | **Cubic Yard Calculator** | `cubic yard calculator` | `calculate cubic yards` |
-| 06 | A | **Cubic Feet Calculator** | `how can i calculate cubic feet` | *Exact head term “cubic feet calculator” is not present in this CSV* |
-| 07 | A | **Cubic Inch Calculator** | `cubic inch calculator` | — |
-| 08 | A | **Sand Calculator** | `sand calculator` | `sand estimator`; `paver sand calculator` |
-| 09 | A | **Gravel / Aggregate Calculator** | `pea gravel calculator` | `aggregate calculator`; `crushed rock calculator`; `figuring gravel for driveway`; `how much chippings do i need` |
-| 10 | A | **Material Weight ↔ Cubic Yard Converter** | `tons to cubic yards` | `how many cubic yards in a ton`; `how many cubic yards in a ton of rock`; `conversion of tons to cubic yards`; `convert cy to tons`; `how many tons in a yard`; `how many yards in a ton of gravel`; `how much does a yard of gravel weigh`; `how much does a yard of sand weigh`; `how much does a yard of concrete weigh` |
-| 11 | A | **Roof Shingle / Roofing Calculator** | `shingle roof calculator` | `how many shingles in a bundle`; `how many bundles of shingles in a square`; `shingles how many bundles in a square`; `how many bundles shingles in a square` |
-| 12 | A | **Laminate Flooring Calculator** | `laminate flooring calculator` | — |
-| 13 | B | **Stone / Landscape Rock Calculator** | `stone calculator` | `rock calculator`; `landscape rock calculator`; `river stone calculator` |
-| 14 | B | **Wall Stud Calculator** | `stud calculator` | `framing calculator`; `wall stud calculator` |
-| 15 | B | **Tube Volume Calculator** | `tube volume calculator` | — |
-| 16 | B | **Concrete Cost Calculator** | `cost of concrete per yard` | `how much is a yard of concrete`; `cost to pour concrete slab`; `cost of concrete per square foot`; `cost to pour concrete pad`; `price of concrete per yard`; `how much does a yard of concrete cost`; `concrete per yard cost`; `concrete slab cost per sq ft` |
-| 17 | B | **Bathroom Remodel Cost Calculator** | `cost to remodel bathroom calculator` | — |
-| 18 | B | **Drywall / Sheetrock Calculator** | `figuring drywall` | *Exact head term “drywall calculator” is not present in this CSV* |
+| No. | Priority | Tool / proposed page | Primary keyword from this export | Related keywords from this export | Status |
+|---:|:---:|---|---|---|:---:|
+| 01 | A | **Asphalt Calculator** | `asphalt calculator` | — | [x] **Complete** (`/asphalt-calculator/`) |
+| 02 | A | **Brick Calculator** | `brick calculator` | — | [x] **Complete** (`/brick-calculator/`) |
+| 03 | A | **Concrete Block / Cinder Block Calculator** | `cinder block calculator` | `cmu block calculator`; `cement block calculator` | [x] **Complete** (`/cinder-block-calculator/`) |
+| 04 | A | **Concrete Volume / Yardage Calculator** | `concrete volume calculator` | `concrete calculator yards`; `concrete yardage calculator`; `how to estimate concrete yards`; `how do you figure concrete in yards`; `how many 80lb bags of concrete in a yard` | [x] **Complete** (`/concrete-calculator/`) |
+| 05 | A | **Cubic Yard Calculator** | `cubic yard calculator` | `calculate cubic yards` | [x] **Complete** (`/cubic-yard-calculator/`) |
+| 06 | A | **Cubic Feet Calculator** | `how can i calculate cubic feet` | *Exact head term “cubic feet calculator” is not present in this CSV* | [ ] **On Hold** (Covered in `/cubic-feet-to-square-feet/`) |
+| 07 | A | **Cubic Inch Calculator** | `cubic inch calculator` | — | [x] **Complete** (`/cubic-inch-calculator/`) |
+| 08 | A | **Sand Calculator** | `sand calculator` | `sand estimator`; `paver sand calculator` | [x] **Complete** (`/sand-calculator/`) |
+| 09 | A | **Gravel / Aggregate Calculator** | `pea gravel calculator` | `aggregate calculator`; `crushed rock calculator`; `figuring gravel for driveway`; `how much chippings do i need` | [x] **Complete** (Covered in `/stone-calculator/`) |
+| 10 | A | **Material Weight ↔ Cubic Yard Converter** | `tons to cubic yards` | `how many cubic yards in a ton`; `how many cubic yards in a ton of rock`; `conversion of tons to cubic yards`; `convert cy to tons`; `how many tons in a yard`; `how many yards in a ton of gravel`; `how much does a yard of gravel weigh`; `how much does a yard of sand weigh`; `how much does a yard of concrete weigh` | [x] **Complete** (`/tons-to-cubic-yards/`) |
+| 11 | A | **Roof Shingle / Roofing Calculator** | `shingle roof calculator` | `how many shingles in a bundle`; `how many bundles of shingles in a square`; `shingles how many bundles in a square`; `how many bundles shingles in a square` | [x] **Complete** (`/shingle-calculator/`) |
+| 12 | A | **Laminate Flooring Calculator** | `laminate flooring calculator` | — | [x] **Complete** (`/laminate-flooring-calculator/`) |
+| 13 | B | **Stone / Landscape Rock Calculator** | `stone calculator` | `rock calculator`; `landscape rock calculator`; `river stone calculator` | [x] **Complete** (`/stone-calculator/`) |
+| 14 | B | **Wall Stud Calculator** | `stud calculator` | `framing calculator`; `wall stud calculator` | [x] **Complete** (`/stud-calculator/`) |
+| 15 | B | **Tube Volume Calculator** | `tube volume calculator` | — | [x] **Complete** (`/pipe-volume-calculator/`) |
+| 16 | B | **Concrete Cost Calculator** | `cost of concrete per yard` | `how much is a yard of concrete`; `cost to pour concrete slab`; `cost of concrete per square foot`; `cost to pour concrete pad`; `price of concrete per yard`; `how much does a yard of concrete cost`; `concrete per yard cost`; `concrete slab cost per sq ft` | [x] **Complete** (`/concrete-slab-cost-calculator/`) |
+| 17 | B | **Bathroom Remodel Cost Calculator** | `cost to remodel bathroom calculator` | — | [x] **Complete** (`/bathroom-remodel-cost-calculator/`) |
+| 18 | B | **Drywall / Sheetrock Calculator** | `figuring drywall` | *Exact head term “drywall calculator” is not present in this CSV* | [x] **Complete** (`/drywall-calculator/`) |
 
 
 **Priority key:** A = first candidates to validate; B = conditional / second wave. Priority is based on this export’s metrics and apparent tool intent, not verified Top 10 attainability.
@@ -526,22 +526,23 @@ For each selected primary keyword, do this in Semrush before committing developm
 
 This is a provisional order based on exported volume, KD and calculator intent only. It is **not** a verified ranking forecast. Numbers refer to the master list and detailed sections above:
 
-1. **#02** Brick Calculator
-2. **#03** Concrete Block / Cinder Block Calculator
-3. **#04** Concrete Volume / Yardage Calculator
-4. **#05** Cubic Yard Calculator
-5. **#08** Sand Calculator
-6. **#10** Material Weight ↔ Cubic Yard Converter
-7. **#01** Asphalt Calculator
-8. **#09** Gravel / Aggregate Calculator
-9. **#11** Roof Shingle / Roofing Calculator
-10. **#12** Laminate Flooring Calculator
-11. **#13** Stone / Landscape Rock Calculator
-12. **#14** Wall Stud Calculator
-13. **#07** Cubic Inch Calculator
-14. **#15** Tube Volume Calculator
-
-Keep cost-estimator pages (**#16–#17**), Drywall / Sheetrock Calculator (**#18**) and any structural/electrical/chemical calculators behind the validation gates described above.
+1. [x] **#02** Brick Calculator — Complete (`/brick-calculator/`)
+2. [x] **#03** Concrete Block / Cinder Block Calculator — Complete (`/cinder-block-calculator/`)
+3. [x] **#04** Concrete Volume / Yardage Calculator — Complete (`/concrete-calculator/`)
+4. [x] **#05** Cubic Yard Calculator — Complete (`/cubic-yard-calculator/`)
+5. [x] **#08** Sand Calculator — Complete (`/sand-calculator/`)
+6. [x] **#10** Material Weight ↔ Cubic Yard Converter — Complete (`/tons-to-cubic-yards/`)
+7. [x] **#01** Asphalt Calculator — Complete (`/asphalt-calculator/`)
+8. [x] **#09** Gravel / Aggregate Calculator — Complete (Covered in `/stone-calculator/`)
+9. [x] **#11** Roof Shingle / Roofing Calculator — Complete (`/shingle-calculator/`)
+10. [x] **#12** Laminate Flooring Calculator — Complete (`/laminate-flooring-calculator/`)
+11. [x] **#13** Stone / Landscape Rock Calculator — Complete (`/stone-calculator/`)
+12. [x] **#14** Wall Stud Calculator — Complete (`/stud-calculator/`)
+13. [x] **#07** Cubic Inch Calculator — Complete (`/cubic-inch-calculator/`)
+14. [x] **#15** Tube Volume Calculator — Complete (`/pipe-volume-calculator/`)
+15. [x] **#16** Concrete Cost Calculator — Complete (`/concrete-slab-cost-calculator/`)
+16. [x] **#17** Bathroom Remodel Cost Calculator — Complete (`/bathroom-remodel-cost-calculator/`)
+17. [x] **#18** Drywall / Sheetrock Calculator — Complete (`/drywall-calculator/`)
 
 ## Batch 1 audit note
 
@@ -571,29 +572,29 @@ Keep cost-estimator pages (**#16–#17**), Drywall / Sheetrock Calculator (**#18
 
 ### Existing tool mapping — Batch 2
 
-| Existing # | Existing tool | Relevant phrases retained |
-|---:|---|---:|
-| 02 | Cubic Yard / Concrete Volume Calculator | 10 |
-| 03 | Square Footage Calculator | 4 |
-| 06 | Concrete Slab Cost Calculator | 12 |
-| 09 | Shingle Roof Calculator | 3 |
-| 10 | Stone / Rock / Aggregate Calculator | 3 |
-| 12 | Cinder / Concrete Block (CMU) Calculator | 1 |
-| 16 | Bathroom Remodel Cost Calculator | 1 |
-| 18 | Brick Calculator | 1 |
-| 19 | Tons ↔ Cubic Yards Converter | 4 |
-| 28 | Pipe / Tube Volume Calculator | 1 |
-| 33 | Wire Gauge / Wire Size Calculator | 1 |
-| 34 | Gravel Calculator | 3 |
-| 35 | Cubic Feet Calculator | 17 |
-| 37 | Drywall / Sheetrock Calculator | 1 |
-| 39 | Cutlist Optimizer | 1 |
-| 40 | Board and Batten Calculator | 1 |
-| 44 | Mortar Calculator | 1 |
-| 45 | Engine Displacement Calculator | 1 |
-| 47 | Ceiling Tile / Suspended Ceiling Cost Estimator | 2 |
-| 49 | Compression Ratio Calculator | 2 |
-| 50 | Plywood Calculator | 2 |
+| Existing # | Existing tool | Relevant phrases retained | Status |
+|---:|---|---:|:---:|
+| 02 | Cubic Yard / Concrete Volume Calculator | 10 | [x] Built (`/cubic-yard-calculator/`, `/concrete-calculator/`) |
+| 03 | Square Footage Calculator | 4 | [x] Built (`/square-footage-calculator/`) |
+| 06 | Concrete Slab Cost Calculator | 12 | [x] Built (`/concrete-slab-cost-calculator/`) |
+| 09 | Shingle Roof Calculator | 3 | [x] Built (`/shingle-calculator/`) |
+| 10 | Stone / Rock / Aggregate Calculator | 3 | [x] Built (`/stone-calculator/`) |
+| 12 | Cinder / Concrete Block (CMU) Calculator | 1 | [x] Built (`/cinder-block-calculator/`) |
+| 16 | Bathroom Remodel Cost Calculator | 1 | [x] Built (`/bathroom-remodel-cost-calculator/`) |
+| 18 | Brick Calculator | 1 | [x] Built (`/brick-calculator/`) |
+| 19 | Tons ↔ Cubic Yards Converter | 4 | [x] Built (`/tons-to-cubic-yards/`) |
+| 28 | Pipe / Tube Volume Calculator | 1 | [x] Built (`/pipe-volume-calculator/`) |
+| 33 | Wire Gauge / Wire Size Calculator | 1 | [x] Built (`/wire-gauge-calculator/`) |
+| 34 | Gravel Calculator | 3 | [ ] On Hold (Covered in `/stone-calculator/`) |
+| 35 | Cubic Feet Calculator | 17 | [x] Built (`/cubic-feet-to-square-feet/`) |
+| 37 | Drywall / Sheetrock Calculator | 1 | [x] Built (`/drywall-calculator/`) |
+| 39 | Cutlist Optimizer | 1 | [ ] Dropped (SERP difficulty) |
+| 40 | Board and Batten Calculator | 1 | [x] Built (`/board-and-batten-calculator/`) |
+| 44 | Mortar Calculator | 1 | [ ] Dropped (Brand saturation) |
+| 45 | Engine Displacement Calculator | 1 | [x] Built (Merged into `/cubic-inch-calculator/`) |
+| 47 | Ceiling Tile / Suspended Ceiling Cost Estimator | 2 | [ ] Dropped (SERP difficulty) |
+| 49 | Compression Ratio Calculator | 2 | [ ] Dropped (SERP difficulty) |
+| 50 | Plywood Calculator | 2 | [ ] Dropped (Brand saturation) |
 
 ### Batch 2 keyword metrics — same existing tool numbers
 
@@ -816,19 +817,19 @@ For each next CSV export, add only relevant new tool keywords and close variants
 
 ### Existing tool mapping — Batch 3
 
-| Existing # | Existing tool | Relevant phrases retained |
-|---:|---|---:|
-| 02 | Cubic Yard / Concrete Volume Calculator | 10 |
-| 04 | Asphalt Calculator | 2 |
-| 05 | Fence Cost Calculator | 1 |
-| 06 | Concrete Slab Cost Calculator | 17 |
-| 12 | Cinder / Concrete Block (CMU) Calculator | 6 |
-| 17 | Sand Calculator | 1 |
-| 19 | Tons ↔ Cubic Yards / Material Weight Converter | 3 |
-| 20 | Rebar / Reinforcement Steel Calculator | 2 |
-| 21 | Paver Sand Calculator | 2 |
-| 33 | Wire Gauge / Wire Size Calculator | 3 |
-| 44 | Mortar Calculator | 2 |
+| Existing # | Existing tool | Relevant phrases retained | Status |
+|---:|---|---:|:---:|
+| 02 | Cubic Yard / Concrete Volume Calculator | 10 | [x] Built (`/cubic-yard-calculator/`, `/concrete-calculator/`) |
+| 04 | Asphalt Calculator | 2 | [x] Built (`/asphalt-calculator/`) |
+| 05 | Fence Cost Calculator | 1 | [x] Built (`/fence-cost-calculator/`) |
+| 06 | Concrete Slab Cost Calculator | 17 | [x] Built (`/concrete-slab-cost-calculator/`) |
+| 12 | Cinder / Concrete Block (CMU) Calculator | 6 | [x] Built (`/cinder-block-calculator/`) |
+| 17 | Sand Calculator | 1 | [x] Built (`/sand-calculator/`) |
+| 19 | Tons ↔ Cubic Yards / Material Weight Converter | 3 | [x] Built (`/tons-to-cubic-yards/`) |
+| 20 | Rebar / Reinforcement Steel Calculator | 2 | [x] Built (`/rebar-calculator/`) |
+| 21 | Paver Sand Calculator | 2 | [x] Built (`/paver-sand-calculator/`) |
+| 33 | Wire Gauge / Wire Size Calculator | 3 | [x] Built (`/wire-gauge-calculator/`) |
+| 44 | Mortar Calculator | 2 | [ ] Dropped (Brand saturation) |
 
 ### Batch 3 keyword metrics — same existing tool numbers
 
@@ -970,15 +971,15 @@ For each next CSV export, add only relevant new tool keywords and close variants
 
 ### Existing tool mapping — Batch 4
 
-| Existing # | Existing tool | Relevant phrases retained |
-|---:|---|---:|
-| 02 | Cubic Yard / Concrete Volume Calculator | 6 |
-| 04 | Asphalt Calculator | 7 |
-| 06 | Concrete Slab Cost Calculator | 10 |
-| 12 | Cinder / Concrete Block (CMU) Calculator | 1 |
-| 20 | Rebar / Reinforcement Steel Calculator | 1 |
-| 33 | Wire Gauge / Wire Size Calculator | 1 |
-| 44 | Mortar Calculator | 1 |
+| Existing # | Existing tool | Relevant phrases retained | Status |
+|---:|---|---:|:---:|
+| 02 | Cubic Yard / Concrete Volume Calculator | 6 | [x] Built (`/cubic-yard-calculator/`, `/concrete-calculator/`) |
+| 04 | Asphalt Calculator | 7 | [x] Built (`/asphalt-calculator/`) |
+| 06 | Concrete Slab Cost Calculator | 10 | [x] Built (`/concrete-slab-cost-calculator/`) |
+| 12 | Cinder / Concrete Block (CMU) Calculator | 1 | [x] Built (`/cinder-block-calculator/`) |
+| 20 | Rebar / Reinforcement Steel Calculator | 1 | [x] Built (`/rebar-calculator/`) |
+| 33 | Wire Gauge / Wire Size Calculator | 1 | [x] Built (`/wire-gauge-calculator/`) |
+| 44 | Mortar Calculator | 1 | [ ] Dropped (Brand saturation) |
 
 ### Batch 4 keyword metrics — same existing tool numbers
 
