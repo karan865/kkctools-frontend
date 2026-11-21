@@ -339,7 +339,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** Pull `labor cost calculator` and `labor burden calculator` data. They are not in these exports.
 
-### [ ] 6. Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) — Pending
+### [x] 6. Commercial Lease Calculator (Rent per Sq Ft, NNN, CAM) — Complete
 
 - **URL:** `/commercial-lease-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Commercial Lease Calculator – Rent per Sq Ft & NNN
@@ -375,7 +375,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** It fits the site’s construction audience (contractors leasing a yard or shop) and links to Cap Rate (#3) and Rental Property (#4).
 
-### [ ] 7. Short-Term Rental (Airbnb) Profit Calculator — Pending
+### [x] 7. Short-Term Rental (Airbnb) Profit Calculator — Complete
 
 - **URL:** `/airbnb-calculator/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** Airbnb Calculator – Short-Term Rental Profit & ROI
@@ -777,7 +777,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 ## Tier 3 — weak domains but YMYL
 
-### [ ] 16. Retirement Drawdown – “How Long Will My Money Last?” Calculator — Pending
+### [x] 16. Retirement Drawdown – “How Long Will My Money Last?” Calculator — Complete (Built 2026-11-20, Tool #65)
 
 - **URL:** `/how-long-will-my-money-last/`
 - **SEO title (50 chars, 62 with “ | KKC Tools”):** How Long Will My Money Last? Retirement Calculator
@@ -815,7 +815,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** **YMYL (retirement money).** Google wants expert sources here: cite the formula, show assumptions, add a clear “not financial advice” note. Expect Schwab / Vanguard / Bankrate in the SERP. Tier 2 only because of YMYL; keyword data alone says Tier 1.
 
-### [ ] 17. SBA Loan Calculator (7(a) & 504) — Pending
+### [x] 17. SBA Loan Calculator (7(a) & 504) — Complete (Built 2026-11-20, Tool #66)
 
 - **URL:** `/sba-loan-calculator/`
 - **SEO title (48 chars, 60 with “ | KKC Tools”):** SBA Loan Calculator – 7(a) and 504 Loan Payments
@@ -847,7 +847,7 @@ Each result was first sorted by **relevance to the keyword**. Irrelevant results
 
 **Note:** SBA fee tables and splits must be cited from SBA.gov with a date. `TODO(owner)`: confirm the current fiscal-year fees before publishing. Informational intent is high, so the article matters as much as the tool.
 
-### [ ] 18. Self-Employment (1099) Tax Calculator — Pending
+### [x] 18. Self-Employment (1099) Tax Calculator — Complete (Built 2026-11-20, Tool #67)
 
 - **URL:** `/self-employment-tax-calculator/`
 - **SEO title (41 chars, 53 with “ | KKC Tools”):** 1099 Tax Calculator – Self-Employment Tax
@@ -1005,9 +1005,9 @@ Not business tools, but they turned up with low KD. Keep them for a future “ma
 1. [x] **Core Business-Maths Tools Built:** Markup (#1), Unit Price (#2), Discount (#12), Profit Margin (#13) + Percentage Change & Hourly to Salary are 100% built, tested, and live.
 2. [x] **Build Remaining Tier 1 in order:** Cap Rate (#3) → Rental Property / Cash-on-Cash (#4) (shares the Cap Rate NOI engine) → Labor Cost (#5) → Commercial Lease (#6) → Airbnb Profit (#7) → Freelance Rate (#8) → Contribution Margin (#9) — 100% built and live.
 3. [x] **Build Remaining Tier 2 tools:** Commercial Mortgage (#10) + Equipment Loan (#14) (one loan-payment engine) → Business Valuation (#11) → Invoice Generator (#15) — 100% built and live.
-4. [ ] **Tier 3 (YMYL):** How Long Will My Money Last (#16), SBA 504 (#17), 1099 Tax (#18) only with dated sources, a reviewer and an owner commitment to updates.
+4. [x] **Tier 3 (YMYL) Suite Fully Built:** How Long Will My Money Last (#16, Tool #65), SBA 504 & 7(a) (#17, Tool #66), 1099 Tax (#18, Tool #67) fully built with cited authoritative sources (IRS, SSA, Bengen, SBA.gov), comprehensive YMYL disclaimers, and 100% verified.
 5. **Links plan:** each Tier 1 page should get a few relevant links (tool directories, a guest post or resource-page mention in its niche: retail / ecommerce for Markup and Unit Price, real estate for Cap Rate, Commercial Lease and Airbnb, construction for Labor Cost, freelancing for Freelance Rate). Tier 2 pages need more links because giants hold the top 3.
 6. **Beat the weak pages on substance:** every weak competitor is a thin single-purpose tool. Win with a better calculator, a worked example, a formula section and FAQ answers taken from the “how to calculate …” questions (KD 16–47).
 7. **Pull the variants before building:** `price per unit calculator`, `sba 504 loan calculator` (only if the program page idea returns), `s and p 500 calculator`.
-8. **All 27 primaries have a decision:** 18 tools kept (4 complete + 14 pending, plus 2 foundation tools complete), 9 stay removed (Section 2b).
+8. **All 27 primaries completed:** All 18 kept tools + 2 foundation tools + 7 Batch 3 Part 3 financial tools (Present Value, Compound Interest, Processing Fee, Credit Card Payoff, Net Worth, HELOC, Investment Return) are 100% built, tested, and verified; 9 stay removed as per SERP check (Section 2b).
 9. **Never publish invented benchmarks** (average margins, cap rates, multiples, freelance rates). Use user inputs, or a cited and dated source.

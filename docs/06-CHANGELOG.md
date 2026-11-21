@@ -4,6 +4,87 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Docs — Batch 8 Part 2 build specs: tools 06–10 (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Roman Numeral Converter, Fraction to Decimal, Cooking Measurement Converter, Army Body Fat Calculator, One Rep Max.
+- `00_BATCH8_BUILD_RULES.md` Part 2 (§9–§14):
+  - exact-rational rule: plain floats print 1/16 in as 1.587 mm, the correct half-up value is 1.588 (the same truncation error found in a competitor table);
+  - unit chains from NIST constants;
+  - Roman validation messages;
+  - new categories `Everyday Conversions` and `Health & Fitness` with a methodology page.
+- **Army standard changed:** read Army Directive 2026-13 (1 Jul 2026, active) from armypubs. WHtR < 0.55 is now the sole standard; tape tests, height/weight screening tables and AFT exemptions are rescinded (AD 2023-11, 2023-08, 2025-17). The Army spec is rebuilt around WHtR (title and H1 changed from the keyword file), with no tape-test formulas. Every competitor page read is out of date.
+- Worked examples checked with node:
+  - Roman round-trip 1–3,999 and the invalid-input corrections;
+  - fraction mm values and nearest-1/64 errors;
+  - US kitchen units from the exact chain (½ cup = 8 tbsp; half of ¾ cup = 6 tbsp; TheCalculatorSite's 150 mL → 0.64 cup corrected to 0.634);
+  - 1RM (100 × 5 → 116.67 / 112.50 / 117.46; Epley = Brzycki at 10 reps; GIGA's % chart corrected);
+  - WHtR boundary cases.
+- Builder prompt: `docs/prompts/BATCH8_PART2_BUILD_PROMPT.md`; Part 2 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 8 Part 1 build specs: Date & Time tools 01–05 (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Days Between Dates, Days From Today, Days Until, Time Duration, Military Time. Tools 06–32 are not specced yet.
+- `00_BATCH8_BUILD_RULES.md` (Part 1):
+  - conventions stated on screen; UTC day-number maths; no per-number URLs; no today-relative dates in static HTML; holidays computed by rule;
+  - sources opened 2026-11-22: 5 U.S.C. § 6103 + EO 11582 (observed days), OPM, Microsoft DATEDIF/NETWORKDAYS/WORKDAY/EDATE/ISOWEEKNUM, Google Sheets NETWORKDAYS/WORKDAY, Time and Date military time and zone letters, ISO week and Easter (secondary).
+- Worked examples checked with node: 2026–2028 federal holidays and observed days (incl. New Year 2028 observed 2027-12-31), Microsoft's NETWORKDAYS (110) and WORKDAY (2009-04-30) examples reproduced, Easter 2024–2028, ISO weeks, competitor examples (Omni 18,901 days and 8:42 / 16:06; GIGA 84/85; Inch Dec 29), a DST case, and all 12-hour / military edge cases.
+- Found and fixed: the "borrow" Y/M/D rule gives 2026-01-31 → 2026-03-01 = 0 m −2 d. Switched to month-stepping (1 month 1 day) here and in the **Batch 5 Age Difference spec** (its fixtures are unchanged).
+- Builder prompt: `docs/prompts/BATCH8_PART1_BUILD_PROMPT.md`; Batch 8 Part 1 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 7 build specs: Developer & Web Tools (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Password Generator, Password Strength Checker, UUID / GUID Generator, Passphrase Generator, Hacker Name Generator.
+- `00_BATCH7_BUILD_RULES.md`:
+  - security rules: Web Crypto only (fails closed), rejection sampling, nothing stored or sent, no breach or UUID APIs, no new dependencies, no hacking content;
+  - the existing band-name RNG (`src/lib/generator/rng.ts`, seeded Mulberry32 with a `Math.random` fallback) is banned for secrets and kept for names only;
+  - a sources table opened on 2026-11-22: NIST SP 800-63B rev 4 (§3.1.1.2), CISA (archived), OWASP special characters, EFF dice + licence, SecLists licence, RFC 9562, MDN, Python 3.14 `uuid7`, .NET 9 `CreateVersion7`, PostgreSQL, SQL Server, MySQL, Java, PowerShell; unverified items listed as `TODO(owner)` (SWIFT UETR, WPA2 primary source, attack rates).
+- Worked examples checked with node: RFC 9562 v5 and v3 test vectors reproduced exactly, v7 timestamp decode, entropy (16 characters = 104.87 bits, 104.59 with "one of each"; 6 EFF words = 77.55 bits), 26¹⁰ = 141,167,095,653,376 (correcting a competitor), collision maths.
+- Builder prompt: `docs/prompts/BATCH7_BUILD_PROMPT.md`; Batch 7 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 6 build specs: Text & Writing Utilities (provisional, no SERP export)] — 2026-11-22
+
+- 10 build specs, each in its own folder with its competitor analysis (moved in):
+  Character Counter, Words to Pages, Characters to Words, Twitter (X) & Instagram Counter, Word Counter, Reading & Speaking Time, Numbers to Words (check writing), Comma Separator, Sentence & Paragraph Counter, Keyword Density Checker.
+- `00_BATCH6_BUILD_RULES.md`:
+  - accuracy rules: Unicode-correct counting (graphemes), stated word and sentence rules, `verified` flags for every limit and rate, no invented thresholds;
+  - a sources table opened on 2026-11-22 (X counting docs and twitter-text v3 config, Instagram Graph API, Threads, LinkedIn, Mastodon, YouTube, Google Docs, Microsoft Word, TEXTJOIN, Sheets JOIN, RFC 4180, UCC § 3-114, Google spam policies, digital.gov plain-language guide), with what could not be verified listed as `TODO(owner)`;
+  - shared `text-engine.ts` built with the Character Counter first, used by seven tools.
+- Worked examples checked with node, including X weighted counts ("Hello, world! 👋" = 16), `Intl.Segmenter` fixes (words 12 → 10, sentences 8 → 5), the check and cheque formats, and the characters-to-words and speech tables. Fixed one analysis figure (5,000 words at 238 wpm is 21:01, not 21:00).
+- Twitter counter meta changed from the keyword file: Discord and bio limits are unverified, so the meta no longer promises them.
+- Builder prompt: `docs/prompts/BATCH6_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 4 + Batch 5 build specs (provisional, no SERP export)] — 2026-11-22
+
+**Batch 4 (8 tools: 3D printing, CNC, engineering)**
+- Build specs, each in its own folder with its competitor analysis.
+- `00_BATCH4_BUILD_RULES.md`, which covers the accuracy rules: no invented cure times, SFM or chip loads, or standards tables.
+- Builder prompt: `docs/prompts/BATCH4_BUILD_PROMPT.md`.
+- After a research pass, every spec gained:
+  - research notes (competitor errors, G-code parsing, the electrical vs mechanical stepper intent, thread-formula errors);
+  - FAQs rebuilt from each analysis's question bank.
+
+**Batch 5 (20 tools: math and finance)**
+- All 20 specs fully rewritten from the complete competitor analyses (snapshot, errors found, FAQ bank, gaps, blueprint) and the full keyword placement.
+- Worked examples checked with node; several confirm or correct competitor figures:
+  - A/B z 2.152;
+  - tank 2,538 / 740.6 gal;
+  - age fixture 12 y 7 m 17 d;
+  - CAGR series −7.95%;
+  - t-test p 0.085.
+- New `00_BATCH5_LIVE_PAGE_KEYWORD_UPDATES.md`: keyword and FAQ additions for pages already live, worth about 183,000 searches.
+  - Biggest: the Stone & Gravel page, `gravel calculator` 33,100.
+- Rules (`00_BATCH5_BUILD_RULES.md`) and the prompt (`docs/prompts/BATCH5_BUILD_PROMPT.md`) updated.
+
+No code changed.
+
 ### [UX / Visual Redesign — Unique Tool Card Illustrations & Dedicated Icons] — 2026-11-21
 - **Tool Card Illustration Redesign (`src/components/home/ToolArt.tsx`, `ToolArt.module.css`)**:
   * Replaced all generic dual-rectangle placeholder cards across Business & Creative and Financial tools with bespoke, domain-specific architectural and financial SVG artwork.

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-20T22:12:30.429Z
+Generated on: 2026-11-21T18:26:53.214Z
 
 
 
@@ -890,9 +890,9 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 |   53 | Contribution Margin Calculator (unit CM, CM ratio, break-even units & $, margin of safety, DOL, sales-mix, CVP graph)                                                                                                                                                                                                                                                                                                                                                                     | `/contribution-margin-calculator/`    | `contribution-margin-calculator/`     | `contribution-margin-engine.ts`                                        |
 |   58 | Present Value & NPV Calculator (lump-sum PV, ordinary/due/growing annuity, uneven cash flows, capital budgeting NPV/IRR, printable PV discount table, spreadsheet formulas)                                                                                                                                                                                                                                                                                                               | `/present-value-calculator/`          | `present-value-calculator/`           | `tvm-engine.ts`                                                        |
 |   59 | Compound Interest Calculator (daily/monthly/continuous compounding, regular deposits, 3-way goal solver, simple vs compound advantage, APR/APY converter, real inflation balance)                                                                                                                                                                                                                                                                                                         | `/compound-interest-calculator/`      | `compound-interest-calculator/`       | `tvm-engine.ts`, `compound-interest-engine.ts`                         |
-| 65 | Retirement Drawdown Calculator (years savings will last, annual drawdown schedule, inflation, Bengen 4% rule, maximum spending solver, sequence-of-returns stress test) | `/how-long-will-my-money-last/` | `how-long-will-my-money-last/` | `drawdown-engine.ts` |
-| 66 | SBA Loan Calculator (SBA 504 two-loan split, bank 1st lien, CDC debenture 2nd lien, SBA 7(a) variable rate with guarantee fee, DSCR affordability, business acquisition M&A) | `/sba-loan-calculator/` | `sba-loan-calculator/` | `sba-loan-engine.ts` |
-| 67 | 1099 Self-Employment Tax Calculator (15.3% SE tax, statutory 92.35% multiplier, Social Security wage-base cap, Additional Medicare surtax, 50% above-the-line deduction, 1040-ES quarterly vouchers, safe harbor) | `/self-employment-tax-calculator/` | `self-employment-tax-calculator/` | `se-tax-engine.ts`, `us-tax-data.ts` |
+|   65 | Retirement Drawdown Calculator (years savings will last, annual drawdown schedule, inflation, Bengen 4% rule, maximum spending solver, sequence-of-returns stress test)                                                                                                                                                                                                                                                                                                                   | `/how-long-will-my-money-last/`       | `how-long-will-my-money-last/`        | `drawdown-engine.ts`                                                   |
+|   66 | SBA Loan Calculator (SBA 504 two-loan split, bank 1st lien, CDC debenture 2nd lien, SBA 7(a) variable rate with guarantee fee, DSCR affordability, business acquisition M&A)                                                                                                                                                                                                                                                                                                              | `/sba-loan-calculator/`               | `sba-loan-calculator/`                | `sba-loan-engine.ts`                                                   |
+|   67 | 1099 Self-Employment Tax Calculator (15.3% SE tax, statutory 92.35% multiplier, Social Security wage-base cap, Additional Medicare surtax, 50% above-the-line deduction, 1040-ES quarterly vouchers, safe harbor)                                                                                                                                                                                                                                                                         | `/self-employment-tax-calculator/`    | `self-employment-tax-calculator/`     | `se-tax-engine.ts`, `us-tax-data.ts`                                   |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -1617,6 +1617,29 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Review — Batch 3 Part 2 + Part 3 tools (21 pages) trust and correctness fixes] — 2026-11-21
+- **Processing Fee:**
+  - Presets re-checked against the official pages on 2026-11-21. Square in-person, online and Plus rates match squareup.com/us/en/pricing; the manual-entry rate (3.5% + 15¢) is from Square's support article 5068.
+  - **Stripe and PayPal presets removed.** stripe.com served a non-US page and PayPal returned 403, so their rates could not be verified.
+  - Dropdowns are now generated from `processing-fee-presets.ts`.
+  - Page title/meta no longer promise a PayPal/Stripe comparison.
+  - Removed the hard-coded 3% surcharge "network cap" (engine default is now no cap), plus unsourced interchange, international-fee, refund and hardware claims.
+- **Unsourced market figures removed or rewritten** (rules §10): ~64 spots across 19 pages and 5 components. Examples:
+  - SDE/EBITDA multiples attributed to IBBA;
+  - city cap-rate ranges;
+  - Airbnb occupancy, opex and platform-fee ranges;
+  - labor-% benchmarks by industry; SUTA ranges;
+  - lender LTV/DSCR/debt-yield/CLTV/down-payment ranges;
+  - freelance tax reserve and copywriter/SEO rates;
+  - retirement withdrawal and return ranges; S&P 500 "~10%" average and the assumed-return table; "lump sum wins two-thirds of the time";
+  - SCF net-worth figures without a link;
+  - credit-card minimum %, floor, transfer-fee and post-promo APR ranges;
+  - the unverified 110% safe-harbor rule.
+  - Wording now tells users where to get their own figure (lender, card agreement, official page) or uses the engine's example.
+- **MCA APR fix (Equipment Loan):** "nominal APR" was fee ÷ years (70.97%), which ignores daily repayment. It is now daily IRR × 365 (≈127.9%), with an effective rate ≈258.5% (matches the spec). Engine, test, page copy and HowWeCalculate updated.
+- **Pages:** Lexend + typography scope added to 15 new pages that lacked them. 4 pages (Retirement, SBA, SE Tax, Investment Return) had no `<main>` landmark; fixed.
+- Verified: all 20 spec worked examples are covered by engine tests; Invoice keeps client data out of URLs. `npm run verify` passes (PowerShell).
+
 ### [Docs — Batch 3 Part 3 build specs (7 SERP-removed tools, owner request)] — 2026-11-20
 - New build specs (each in its own folder with its competitor analysis): Present Value / NPV (26), Compound Interest (21), Card Processing Fee (17), Credit Card Payoff (24), Net Worth (19), HELOC (23), Investment Return (27).
 - Each targets low-KD long-tail rows pulled from the Semrush exports (e.g. `compound growth calculator` 6,600/KD 4, `net worth meaning` 5,400/KD 7, `heloc loan calculator` 12,100/KD 9). Head terms are long-term only.
@@ -2169,7 +2192,7 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-20T22:12:29.989Z
+Run Date: 2026-11-21T18:26:52.787Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -2396,6 +2419,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+c55ef1a feat: complete Batch 3 financial tools (#47-#67) and redesign unique card artwork
 ed9608a Batch 3 remaining docs completed
 4a1e6d4 docs: update bundle evidence and mark Batch 1 completed
 6180bf2 feat(ui): rollout shared ToolShell and TabSlider across all 44 calculators with card clash fixes
@@ -2415,7 +2439,6 @@ cc34105 docs(audit): record live Cloudflare 301 redirect verification
 3b3958a feat(seo): implement cue audit fixes, BLUF answers, internal hubs, and mobile enhancements
 f623230 modified UI
 5d10abb Floor Refinishing - completed
-1f6e081 Add Hardwood Floor Refinishing Cost Calculator (Batch 2 Tier 2 #15)
 ```
 
 
@@ -2431,18 +2454,18 @@ f623230 modified UI
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 30ms
+✓ Running next.config.ts took 1190ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 10.6s
+✓ Compiled successfully in 7.4s
   Running TypeScript ...
-  Finished TypeScript in 6.8s ...
+  Finished TypeScript in 3.0s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/102) ...
   Generating static pages using 15 workers (25/102) 
   Generating static pages using 15 workers (50/102) 
   Generating static pages using 15 workers (76/102) 
-✓ Generating static pages using 15 workers (102/102) in 4.0s
+✓ Generating static pages using 15 workers (102/102) in 3.5s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -2676,13 +2699,87 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
- RUN  v4.1.12 D:/1_programmins/5.kkctools
+[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 71[2mms[22m[39m
+ [32m✓[39m src/lib/contribution-margin-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 34[2mms[22m[39m
+ [32m✓[39m src/lib/card-payoff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 35[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 49[2mms[22m[39m
+ [32m✓[39m src/lib/rental-property-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/sba-loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/heloc-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/invoice-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/compound-interest-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/freelance-rate-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 535[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 465[2mms[22m[39m
+ [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 26[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/tvm-engine.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 23[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/se-tax-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/str-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/real-estate-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/investment-return-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/labor-cost-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/processing-fee-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/drawdown-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/cap-rate-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/equipment-loan-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/commercial-lease-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/commercial-mortgage-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/net-worth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/business-valuation-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
 
- Test Files  73 passed (73)
-      Tests  904 passed (904)
-   Start at  03:41:44
-   Duration  3.84s (transform 12.09s, setup 0ms, import 16.42s, tests 2.23s, environment 19ms)
+[2m Test Files [22m [1m[32m73 passed[39m[22m[90m (73)[39m
+[2m      Tests [22m [1m[32m904 passed[39m[22m[90m (904)[39m
+[2m   Start at [22m 23:56:15
+[2m   Duration [22m 3.36s[2m (transform 10.26s, setup 0ms, import 14.37s, tests 1.96s, environment 28ms)[22m
 
 
 ```
