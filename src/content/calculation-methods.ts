@@ -1858,6 +1858,207 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  '3d-print-cost-calculator': {
+    formula: [
+      'Filament cost = (Grams Used ÷ Spool Weight) × Spool Price',
+      'Resin cost = (mL Used ÷ Bottle Volume) × Bottle Price + Wash & Cure Consumables',
+      'Electricity cost = (Printer Watts ÷ 1,000) × Print Hours × Energy Rate ($/kWh)',
+      'Machine depreciation = (Purchase Price ÷ Lifetime Hours) × Print Hours',
+      'Base consumables = Material Cost + Electricity Cost + Depreciation',
+      'Consumables with failure = Base Consumables ÷ (1 − Failure Rate %)',
+      'Total cost (COGS) = Consumables with Failure + (Labor Hours × Labor Rate) + Packaging',
+      'Selling price = Total Cost × (1 + Markup %) × (1 + Tax %)',
+    ],
+    defaults: [
+      { label: 'Filament (example)', value: '50 g PLA @ $20 / 1,000 g spool' },
+      { label: 'Printer Power (example)', value: '120 W average power @ $0.15/kWh (example rate; use your bill)' },
+      { label: 'Machine Lifespan (example)', value: '$300 purchase price across 2,000 hours ($0.15/hr)' },
+      { label: 'Failure Contingency', value: '5% failure rate buffer' },
+      { label: 'Standard Markup', value: '50% default markup' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'U.S. Energy Information Administration (EIA) — Average Retail Price of Electricity',
+        url: 'https://www.eia.gov/electricity/monthly/epm_table_grapher.php?t=epmt_5_6_a',
+        note: 'Where to look up average US electricity prices if you don’t have your own bill; your bill’s rate is more accurate',
+      },
+    ],
+  },
+  'epoxy-table-calculator': {
+    formula: [
+      'River volume (in³) = River Length (in) × Average River Width (in) × River Depth (in)',
+      'Average width = (sum of width readings across river channel) ÷ (number of readings)',
+      'Flood coat volume (in³) = Table Length (in) × Table Width (in) × Flood Thickness (in)',
+      'Seepage volume (in³) = (Table Area − River Area) × Under-Slab Gap (in)',
+      'Total volume (in³) = (River Volume + Flood Coat + Seepage + Edges) × (1 + Waste %)',
+      'Pours count = ceil(River Depth ÷ Maximum Recommended Layer Thickness)',
+      'Liquid conversion: US Gallons = in³ ÷ 231.000; Liters = (in³ × 16.387064) ÷ 1,000',
+    ],
+    defaults: [
+      { label: 'Standard River Table', value: '48 × 24 in table, 6 in average width, 1.0 in depth, 1/8 in flood coat' },
+      { label: 'Standard Waste Allowance', value: '10%' },
+      { label: 'Max Layer Depth', value: '0.5 in (example: check your casting resin data sheet)' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Your epoxy product’s technical data sheet',
+        note: 'Mix ratio, maximum pour depth, working time and cure time are product-specific; this calculator only does the volume maths',
+      },
+    ],
+  },
+  'epoxy-resin-calculator': {
+    formula: [
+      'Rectangular volume (in³) = Length (in) × Width (in) × Thickness (in)',
+      'Circular volume (in³) = π × (Diameter / 2)² × Thickness (in)',
+      'Total with allowances = Base Volume × (1 + Edge Drip %) × (1 + Waste %)',
+      'Liquid conversions: US Fluid Ounces = in³ ÷ 1.804688; US Gallons = in³ ÷ 231.000; Milliliters = in³ × 16.387064',
+      'Mix split (volume): Part A = Total Volume × Ratio A / (Ratio A + Ratio B); Part B = Total Volume × Ratio B / (Ratio A + Ratio B)',
+    ],
+    defaults: [
+      { label: 'Standard Flood Coat', value: '1/8 in (0.125 in / 3.2 mm)' },
+      { label: 'Standard Waste Allowance', value: '10% (mixing cup residue & transfer loss)' },
+      { label: 'Mix Ratio', value: '1:1 by volume (example: verify with your product manufacturer)' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Your epoxy product’s technical data sheet',
+        note: 'Mix ratio, maximum pour depth, working time and cure time are product-specific; this calculator only does the volume maths',
+      },
+    ],
+  },
+  'speeds-and-feeds-calculator': {
+    formula: [
+      'Spindle RPM (imperial) = (12 × SFM) ÷ (π × Tool Diameter in inches)',
+      'Spindle RPM (metric) = (1,000 × Vc in m/min) ÷ (π × Tool Diameter in mm)',
+      'Linear Feed Rate (IPM) = RPM × Flutes × Chip Load (in/tooth)',
+      'Linear Feed Rate (mm/min) = RPM × Flutes × Chip Load (mm/tooth)',
+      'Radial Chip Thinning Factor = D ÷ [2 × √(D × WOC − WOC²)] (when WOC < D / 2)',
+      'Material Removal Rate (MRR) = WOC × DOC × Feed Rate',
+      'Drilling Feed = RPM × Feed per Rev (IPR); Tapping Feed = RPM × Pitch',
+    ],
+    defaults: [
+      { label: 'Tool Diameter', value: '0.5 in (1/2" 3-flute carbide end mill)' },
+      { label: 'Surface Speed', value: '600 SFM (example: use your tool maker’s chart / product data sheet)' },
+      { label: 'Chip Load per Tooth', value: '0.002 in/tooth (starting baseline for light milling)' },
+      { label: 'Cut Depths', value: 'WOC = 0.25 in, DOC = 0.25 in (slotting / profiling)' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Machinery’s Handbook (31st Edition), Industrial Press',
+        note: 'Standard engineering equations for milling spindle RPM, chip load per tooth, radial chip thinning, and drilling feed rates',
+      },
+    ],
+  },
+  'sfm-to-rpm-calculator': {
+    formula: [
+      'Spindle RPM = (12 × SFM) ÷ (π × Diameter in inches)',
+      'Surface Feet per Minute (SFM) = (π × Diameter in inches × RPM) ÷ 12',
+      'Diameter from SFM & RPM = (12 × SFM) ÷ (π × RPM)',
+      'Metric Spindle RPM = (1,000 × Vc in m/min) ÷ (π × Diameter in mm)',
+      'Line Speed (ft/min) = [π × (Roller Diameter + Belt Thickness) × RPM ÷ 12] × (1 − Slip %) × Gear Ratio',
+    ],
+    defaults: [
+      { label: 'Tool Diameter', value: '0.5 in' },
+      { label: 'Surface Speed', value: '300 SFM (example)' },
+      { label: 'Reverse RPM', value: '1,000 RPM' },
+      { label: 'Conveyor Roller Diameter', value: '4.0 in' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Machinery’s Handbook (31st Edition), Industrial Press',
+        note: 'Standard mathematical relations for surface velocity, peripheral rotational speed, and line belt speeds',
+      },
+    ],
+  },
+  'pulley-calculator': {
+    formula: [
+      'Driven RPM = Driver RPM × Driver Diameter ÷ Driven Diameter × (1 − Slip %)',
+      'Speed Ratio = Driven Diameter ÷ Driver Diameter',
+      'Linear Belt Speed = (π × Driver Diameter in inches × Driver RPM) ÷ 12 (ft/min)',
+      'Open Belt Length = 2C + [π × (D1 + D2) ÷ 2] + [(D2 − D1)² ÷ (4C)]',
+      'Crossed Belt Length = 2C + [π × (D1 + D2) ÷ 2] + [(D1 + D2)² ÷ (4C)]',
+      'Small Pulley Contact Arc Wrap (deg) = 180° − 2 × arcsin[(D2 − D1) ÷ (2C)]',
+      'Compound Total Ratio = Product of individual stage ratios',
+      'Wheel Velocity (mph) = (RPM × π × Wheel Diameter in inches × 60) ÷ 63,360',
+    ],
+    defaults: [
+      { label: 'Driver Pulley Diameter (D1)', value: '2.0 in (motor pulley)' },
+      { label: 'Driver Motor Speed (N1)', value: '1,725 RPM (standard 4-pole motor)' },
+      { label: 'Driven Pulley Diameter (D2)', value: '4.0 in (machine pulley)' },
+      { label: 'Shaft Centre Distance (C)', value: '20.0 in' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Machinery’s Handbook (31st Edition), Industrial Press',
+        note: 'Standard mechanical drive engineering formulas for V-belt length, pitch diameter, centre distances, and speed ratios',
+      },
+    ],
+  },
+  'steps-per-mm-calculator': {
+    formula: [
+      'Belt Steps/mm = (Steps per Revolution × Microsteps) ÷ (Belt Pitch in mm × Pulley Teeth)',
+      'Lead Screw Steps/mm = (Steps per Revolution × Microsteps) ÷ Lead in mm',
+      'Extruder Hardware Steps/mm = (Steps per Revolution × Microsteps × Gear Ratio) ÷ (π × Drive Gear Effective Diameter)',
+      'E-Steps Calibration: New E-Steps = Current E-Steps × (Requested Length ÷ Actual Extruded Length)',
+      'Axis Calibration: New Steps/mm = Current Steps/mm × (Commanded Dimension ÷ Measured Dimension)',
+      'Klipper rotation_distance = (full_steps_per_rotation × microsteps) ÷ steps_per_mm',
+    ],
+    defaults: [
+      { label: 'Step Angle', value: '1.8° (200 full steps per revolution)' },
+      { label: 'Microstepping', value: '16 microsteps (standard 1/16 divisor)' },
+      { label: 'Belt Axis', value: '2.0 mm pitch (GT2) with 20-tooth pulley' },
+      { label: 'Lead Screw', value: '8.0 mm lead (T8x8: 2 mm pitch × 4 starts)' },
+      { label: 'E-Steps Calibration', value: '100 mm requested, 120 mm mark distance' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'RepRap Project Calibration and G-code Standards',
+        url: 'https://reprap.org/wiki/Triffid_Hunter%27s_Calibration_Guide',
+        note: 'Open-source kinematic formulas for steps/mm, lead screw pitch, and e-steps physical mark calibration',
+      },
+      {
+        label: 'Klipper Firmware Documentation — Rotation Distance',
+        url: 'https://www.klipper3d.org/Rotation_Distance.html',
+        note: 'Standard mathematical formula for Klipper rotation_distance configuration',
+      },
+    ],
+  },
+  'thread-pitch-diameter-calculator': {
+    formula: [
+      'Fundamental Triangle Height: H = (√3 / 2) × P ≈ 0.866025 × P',
+      '60° Basic Pitch Diameter: d2 = d − (3/4) H = d − (0.649519 × P)',
+      '60° External Minor Diameter (ISO rounded root): d3 = d − (1.226869 × P)',
+      '60° Internal Minor Diameter: D1 = D − (1.082532 × P)',
+      'Tap Drill Size (mm) = D − (0.01299 × %Thread × P)',
+      'Tap Drill Size (in) = D − (0.01299 × %Thread ÷ TPI)',
+      'Best Wire Size (60°): W_best = (P / 2) × sec(30°) ≈ 0.57735 × P',
+      'Measurement Over Wires: M = d2 + 3W − (1.51554 × P)',
+      'Acme 29° Basic Pitch Diameter: d2 = d − 0.5 × P',
+    ],
+    defaults: [
+      { label: 'Standard Thread', value: 'M10 × 1.5 (metric coarse) or 1/4"-20 UNC' },
+      { label: 'Target Thread Engagement', value: '75% (workshop standard tapping depth)' },
+      { label: 'Three-Wire Measurement', value: 'Best wire W = 0.57735 × P' },
+    ],
+    sources: [
+      NIST,
+      {
+        label: 'Machinery’s Handbook (31st Edition), Industrial Press',
+        note: 'Standard geometric formulas for Unified and ISO 68-1 60° V-threads, tap drill engagement percentages, and three-wire pitch diameter measurement',
+      },
+      {
+        label: 'ASME B1.1 / ISO 724 — Screw Thread Dimensions and General Profiles',
+        note: 'International standards for basic thread profile geometry, pitch line definition, and root truncations',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

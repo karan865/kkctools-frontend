@@ -38,6 +38,7 @@
 .framing   { --g1: var(--cat-framing-g1);   --g2: var(--cat-framing-g2); }
 .finishes  { --g1: var(--cat-finishes-g1);  --g2: var(--cat-finishes-g2); }
 .business  { --g1: var(--cat-business-g1);  --g2: var(--cat-business-g2); }
+.engineering { --g1: var(--cat-engineering-g1); --g2: var(--cat-engineering-g2); }
 
 .tile {
   position: relative;

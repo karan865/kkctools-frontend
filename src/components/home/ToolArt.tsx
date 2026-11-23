@@ -1611,6 +1611,131 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={16} y1={86} x2={176} y2={86} label="Decking + Underlayment + Shingles" lx={96} ly={94} />
     </>
   ),
+  /* Epoxy resin: slab coat with A:B mixing jugs */
+  epoxyResin: (
+    <>
+      <polygon className={k('fl', 's2')} points="28,48 112,32 162,50 78,66" />
+      <polygon className={s.f1} points="78,66 162,50 162,58 78,74" />
+      <polygon className={s.f2} points="28,48 78,66 78,74 28,56" />
+      <polygon className={s.fp} points="36,49 104,36 128,44 60,57" opacity={0.7} />
+      <rect className={k('fl', 's1')} x={144} y={16} width={18} height={26} rx={3} />
+      <rect className={s.f1} x={148} y={11} width={10} height={5} rx={1} />
+      <text className={s.tx} x={153} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>A</text>
+      <rect className={k('fp', 's2')} x={168} y={20} width={16} height={22} rx={3} />
+      <rect className={s.f2} x={172} y={16} width={8} height={4} rx={1} />
+      <text className={s.tx} x={176} y={34} textAnchor="middle" fontSize={8} fontWeight={700}>B</text>
+      <Dim x1={78} y1={80} x2={162} y2={64} label="48 × 24 in" lx={120} ly={86} />
+      <Dim x1={170} y1={50} x2={170} y2={58} label="1/8 in" lx={175} ly={56} anchor="start" />
+    </>
+  ),
+  /* River table: two live edge slabs and river resin canyon */
+  riverTable: (
+    <>
+      <rect className={k('fl', 's2')} x={24} y={22} width={152} height={56} rx={4} />
+      <path className={s.f2} d="M24,22 L80,22 Q94,36 82,50 Q74,62 86,78 L24,78 Z" />
+      <path className={s.f2} d="M176,22 L120,22 Q106,36 118,50 Q126,62 114,78 L176,78 Z" />
+      <path className={s.f1} d="M80,22 Q94,36 82,50 Q74,62 86,78 L114,78 Q126,62 118,50 Q106,36 120,22 Z" />
+      <path className={k('fn', 'sp')} d="M96,30 Q104,42 98,56 Q94,66 102,74" strokeWidth={1.5} />
+      <Dim x1={24} y1={86} x2={176} y2={86} label="Length 48 in" lx={100} ly={94} />
+      <Dim x1={84} y1={14} x2={116} y2={14} label="Avg 6 in" lx={100} ly={10} />
+    </>
+  ),
+  /* 3D print cost: printer frame, gantry, heated bed, extruded print */
+  printer3d: (
+    <>
+      <rect className={k('fl', 's2')} x={42} y={72} width={116} height={12} rx={2} />
+      <rect className={s.f2} x={60} y={66} width={80} height={6} rx={1} />
+      <line className={k('s1', 'thick')} x1={52} y1={20} x2={52} y2={72} strokeWidth={3} />
+      <line className={k('s1', 'thick')} x1={148} y1={20} x2={148} y2={72} strokeWidth={3} />
+      <line className={k('s1', 'thick')} x1={50} y1={20} x2={150} y2={20} strokeWidth={3} />
+      <line className={k('s2')} x1={52} y1={42} x2={148} y2={42} strokeWidth={2} />
+      <rect className={s.f1} x={90} y={35} width={20} height={16} rx={2} />
+      <polygon className={s.f1} points="97,51 103,51 100,56" />
+      <polygon className={k('fp', 's2')} points="88,66 112,66 108,56 92,56" />
+      <circle className={k('fl', 's2')} cx={74} cy={14} r={8} />
+      <circle className={s.f1} cx={74} cy={14} r={3} />
+      <path className={k('fn', 'sp')} d="M74,22 Q78,32 94,36" />
+      <rect className={s.f1} x={140} y={38} width={44} height={20} rx={4} />
+      <text className={s.txL} x={162} y={52} textAnchor="middle" fontSize={10} fontWeight={800}>$6.58</text>
+    </>
+  ),
+  /* Speeds and feeds: end mill spindle with RPM and feed rate */
+  speedsFeeds: (
+    <>
+      <rect className={k('fl', 's2')} x={84} y={10} width={32} height={18} rx={2} />
+      <polygon className={s.f2} points="88,28 112,28 108,36 92,36" />
+      <rect className={k('fl', 's1')} x={94} y={36} width={12} height={36} />
+      <path className={k('fn', 's2')} d="M94,44 Q100,48 106,44 M94,54 Q100,58 106,54 M94,64 Q100,68 106,64" strokeWidth={1.5} />
+      <path className={k('fn', 'sp', 'thick')} d="M72,36 A22,12 0 1,1 68,44" strokeWidth={2} />
+      <polyline className={s.sp} points="66,41 68,46 73,43" strokeWidth={2} />
+      <text className={s.tx} x={52} y={32} textAnchor="middle" fontSize={8} fontWeight={700}>4,584 RPM</text>
+      <line className={k('s1', 'thick')} x1={118} y1={68} x2={164} y2={68} strokeWidth={2.5} />
+      <polyline className={k('s1', 'thick')} points="156,63 164,68 156,73" strokeWidth={2.5} />
+      <text className={s.tx} x={142} y={62} textAnchor="middle" fontSize={8} fontWeight={700}>27.5 IPM</text>
+      <Dim x1={94} y1={80} x2={106} y2={80} label="0.5 in" lx={100} ly={88} />
+    </>
+  ),
+  /* SFM to RPM: surface feet per minute tangential speed gauge */
+  sfmRpm: (
+    <>
+      <circle className={k('fl', 's2')} cx={84} cy={50} r={32} />
+      <circle className={s.f2} cx={84} cy={50} r={8} />
+      <line className={s.dim} x1={84} y1={50} x2={116} y2={50} />
+      <Dim x1={84} y1={50} x2={116} y2={50} label="r" lx={100} ly={46} />
+      <line className={k('s1', 'thick')} x1={116} y1={50} x2={116} y2={14} strokeWidth={2.8} />
+      <polyline className={k('s1', 'thick')} points="112,22 116,14 120,22" strokeWidth={2.8} />
+      <text className={s.txL} x={144} y={26} fontSize={10} fontWeight={800}>600 SFM</text>
+      <path className={k('fn', 'sp', 'thick')} d="M60,32 A26,26 0 0,1 98,26" strokeWidth={2} />
+      <polyline className={s.sp} points="93,23 98,26 95,30" strokeWidth={2} />
+      <text className={s.tx} x={52} y={24} textAnchor="middle" fontSize={8} fontWeight={700}>RPM = 12·SFM / πD</text>
+    </>
+  ),
+  /* Pulley ratio and belt speed */
+  pulley: (
+    <>
+      <circle className={k('fl', 's1')} cx={52} cy={50} r={18} />
+      <circle className={s.f1} cx={52} cy={50} r={5} />
+      <circle className={k('fl', 's2')} cx={142} cy={50} r={32} />
+      <circle className={s.f2} cx={142} cy={50} r={8} />
+      <line className={k('s1', 'thick')} x1={52} y1={32} x2={142} y2={18} strokeWidth={2.5} />
+      <line className={k('s1', 'thick')} x1={52} y1={68} x2={142} y2={82} strokeWidth={2.5} />
+      <Dim x1={52} y1={88} x2={142} y2={88} label="Centre C = 20 in" lx={97} ly={96} />
+      <text className={s.tx} x={52} y={26} textAnchor="middle" fontSize={7.5} fontWeight={700}>1,725 RPM</text>
+      <text className={s.tx} x={142} y={12} textAnchor="middle" fontSize={7.5} fontWeight={700}>862.5 RPM (2:1)</text>
+    </>
+  ),
+  /* Stepper steps per mm: stepper motor, pulley, GT2 belt, e-steps */
+  stepperMotor: (
+    <>
+      <rect className={k('fl', 's2')} x={34} y={30} width={44} height={44} rx={4} />
+      <circle className={s.f2} cx={56} cy={52} r={16} />
+      <circle className={s.f1} cx={56} cy={52} r={5} />
+      <line className={s.dim} x1={56} y1={36} x2={56} y2={40} />
+      <line className={s.dim} x1={56} y1={64} x2={56} y2={68} />
+      <line className={s.dim} x1={40} y1={52} x2={44} y2={52} />
+      <line className={s.dim} x1={68} y1={52} x2={72} y2={52} />
+      <rect className={k('fp', 's1')} x={92} y={48} width={80} height={8} rx={1} />
+      {[98, 106, 114, 122, 130, 138, 146, 154, 162].map((x) => (
+        <line key={x} className={s.s1} x1={x} y1={44} x2={x} y2={48} strokeWidth={1.5} />
+      ))}
+      <text className={s.tx} x={56} y={22} textAnchor="middle" fontSize={8} fontWeight={700}>1.8° · 200 Steps</text>
+      <text className={s.txL} x={132} y={38} textAnchor="middle" fontSize={10} fontWeight={800}>80 steps/mm</text>
+      <text className={s.tx} x={132} y={70} textAnchor="middle" fontSize={7.5}>Klipper rotation: 40</text>
+    </>
+  ),
+  /* Thread pitch diameter and tap drill */
+  threadPitch: (
+    <>
+      <path
+        className={k('fl', 's2')}
+        d="M26,30 L40,30 L48,18 L56,30 L64,18 L72,30 L80,18 L88,30 L96,18 L104,30 L112,18 L120,30 L128,18 L136,30 L174,30 L174,70 L136,70 L128,82 L120,70 L112,82 L104,70 L96,82 L88,70 L80,82 L72,70 L64,82 L56,70 L48,82 L40,70 L26,70 Z"
+      />
+      <line className={k('s1', 'thick')} x1={20} y1={24} x2={180} y2={24} strokeDasharray="6 3" strokeWidth={1.5} />
+      <line className={k('s1', 'thick')} x1={20} y1={76} x2={180} y2={76} strokeDasharray="6 3" strokeWidth={1.5} />
+      <Dim x1={64} y1={12} x2={80} y2={12} label="P = 1.5 mm" lx={72} ly={8} />
+      <Dim x1={184} y1={24} x2={184} y2={76} label="Pitch Dia d₂ = 9.026 mm" lx={188} ly={52} anchor="start" />
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

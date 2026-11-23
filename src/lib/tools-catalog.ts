@@ -6,7 +6,8 @@ export type CategoryId =
   | 'earthwork'
   | 'framing'
   | 'finishes'
-  | 'business';
+  | 'business'
+  | 'engineering';
 
 export interface CatalogCategory {
   id: CategoryId;
@@ -73,9 +74,105 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     blurb: 'Professional contractor estimate sheets, band naming utilities, and tool suggestions.',
     order: 6,
   },
+  engineering: {
+    id: 'engineering',
+    name: '3D Printing & CNC',
+    headline: '3D Printing, CNC & Engineering Calculators',
+    blurb: 'Epoxy resin pours, speeds and feeds, 3D print costs, pulley ratios, stepper calibration and thread pitch diameters.',
+    order: 7,
+  },
 };
 
 const RAW_TOOLS_CATALOG: CatalogTool[] = [
+  // 3D Printing & CNC
+  {
+    slug: '/thread-pitch-diameter-calculator/',
+    name: 'Thread Pitch Diameter Calculator',
+    category: 'engineering',
+    description: 'Basic pitch diameter, minor diameter and tap drill size for UN, metric and Acme screw threads.',
+    tags: ['Pitch · Tap drill', 'Threads & CNC'],
+    icon: 'threadPitch',
+    keywords: ['pitch diameter', 'thread pitch diameter calculator', 'tap drill size calculator', 'three wire method', 'thread pitch calculator', 'tpi to pitch'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/steps-per-mm-calculator/',
+    name: 'Steps per mm Calculator',
+    category: 'engineering',
+    description: 'Calculate stepper steps per mm for belts, lead screws, and calibrate 3D printer extruder e-steps.',
+    tags: ['Steps/mm', 'E-steps & CNC'],
+    icon: 'stepperMotor',
+    keywords: ['stepper motor calculator', 'steps per mm calculator', 'e steps calculator', 'esteps calibration', 'rotation distance', '3d printer calibration'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/pulley-calculator/',
+    name: 'Pulley Calculator',
+    category: 'engineering',
+    description: 'Driven pulley speed, pulley sizing for target RPM, belt length, centre distance and multi-stage drives.',
+    tags: ['Ratio · Belt', 'Pulley & speed'],
+    icon: 'pulley',
+    keywords: ['pulley ratio calculator', 'pulley calculator', 'pulley speed calculator', 'belt length calculator', 'pulley size calculator', 'belt speed'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/sfm-to-rpm-calculator/',
+    name: 'SFM to RPM Calculator',
+    category: 'engineering',
+    description: 'Convert surface feet per minute (SFM) to spindle RPM for any diameter, with line speed and RPM matrix.',
+    tags: ['SFM ↔ RPM', 'Surface speed'],
+    icon: 'sfmRpm',
+    keywords: ['sfm calculator', 'sfm to rpm', 'rpm to sfm calculator', 'surface feet per minute', 'line speed calculator', 'sfm rpm'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/speeds-and-feeds-calculator/',
+    name: 'Speeds and Feeds Calculator',
+    category: 'engineering',
+    description: 'Spindle RPM, feed rate, chip load, chip thinning and machine limits for CNC milling, routers and drilling.',
+    tags: ['RPM · Feed', 'CNC & router'],
+    icon: 'speedsFeeds',
+    keywords: ['speeds and feeds calculator', 'feeds and speeds calculator', 'feed rate calculator', 'chip load calculator', 'cnc speeds and feeds', 'spindle speed calculator'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/3d-print-cost-calculator/',
+    name: '3D Print Cost Calculator',
+    category: 'engineering',
+    description: 'Filament, resin, electricity, wear, labor and markup to price 3D prints to sell.',
+    tags: ['Cost · Price', 'Filament & resin'],
+    icon: 'printer3d',
+    keywords: ['3d print cost calculator', 'filament cost calculator', '3d printing pricing', 'cost to 3d print', 'resin print cost', '3d print quote'],
+    added: '2026-11-22',
+    isNew: true,
+  },
+  {
+    slug: '/epoxy-table-calculator/',
+    name: 'Epoxy River Table Calculator',
+    category: 'engineering',
+    description: 'Resin for river tables, voids, multi-layer pour plans and table top flood coats.',
+    tags: ['Gallons · Litres', 'River tables'],
+    icon: 'riverTable',
+    keywords: ['epoxy table calculator', 'river table calculator', 'epoxy river table', 'how much epoxy for river table', 'epoxy table resin', 'river table pours'],
+    added: '2026-11-22',
+    isNew: true,
+  },
+  {
+    slug: '/epoxy-resin-calculator/',
+    name: 'Epoxy Resin Calculator',
+    category: 'engineering',
+    description: 'Resin and hardener amounts for table tops, deep pours and silicone molds in fl oz, gal and mL.',
+    tags: ['fl oz · mL', 'Mix ratio'],
+    icon: 'epoxyResin',
+    keywords: ['epoxy calculator', 'resin calculator', 'epoxy resin calculator', 'resin and hardener', 'deep pour epoxy', 'casting resin', 'mix ratio', 'table top epoxy'],
+    added: '2026-11-22',
+    isNew: true,
+  },
   // 1. Concrete & Masonry
   {
     slug: '/concrete-calculator/',

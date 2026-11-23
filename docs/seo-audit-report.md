@@ -1,10 +1,11 @@
 # SEO Audit Report
 
-Run Date: 2026-11-21T18:26:52.787Z
+Run Date: 2026-11-23T04:29:27.864Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
 |---|---|---|---|---|
+| `/3d-print-cost-calculator/` | 3D Print Cost Calculator – Filament, Pow | 3047 | 3D Print Cost Calculator: Fila | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
@@ -42,6 +43,8 @@ Status: PASSED ✅
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2427 | Discount Calculator: Percent O | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2823 | Drywall Calculator: Sheets, Jo | PASS |
+| `/epoxy-resin-calculator/` | Epoxy Resin Calculator – How Much Resin  | 3423 | Epoxy Resin Calculator: How Mu | PASS |
+| `/epoxy-table-calculator/` | Epoxy Table Calculator – River Table Res | 3028 | Epoxy River Table Calculator:  | PASS |
 | `/equipment-loan-calculator/` | Equipment Loan Calculator – Business Loa | 2831 | Equipment Loan Calculator: Pay | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2653 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2395 | Fence Stain Calculator: Gallon | PASS |
@@ -55,7 +58,7 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 3167 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 3619 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2837 | Invoice Generator: Make an Hou | PASS |
 | `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
@@ -74,6 +77,7 @@ Status: PASSED ✅
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/processing-fee-calculator/` | Card Processing Fee Calculator – Square  | 2689 | Credit Card Processing Fee Cal | PASS |
 | `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2128 | Profit Margin Calculator: Gros | PASS |
+| `/pulley-calculator/` | Pulley Calculator – Ratio, Speed and Bel | 2601 | Pulley Ratio Calculator: Drive | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2404 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
@@ -81,15 +85,19 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1536 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
+| `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1273 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1430 | Site Map | PASS |
+| `/speeds-and-feeds-calculator/` | Speeds and Feeds Calculator – CNC RPM &  | 3188 | Speeds and Feeds Calculator: C | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
+| `/steps-per-mm-calculator/` | Steps per mm Calculator – Stepper & E-st | 2648 | Steps per mm Calculator: Stepp | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2871 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2207 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
+| `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1810 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 2168 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 2431 | All Free Tools: Construction C | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

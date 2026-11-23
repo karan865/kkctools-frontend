@@ -10,6 +10,7 @@
   /* Crisp Typography: Headings #0F172A, Body #334155, Muted #64748B */
   --ink: #0F172A;
   --ink-2: #334155;
+  --ink-soft: #475569;
   --muted: #556274;
   
   /* Clean Borders */
@@ -98,6 +99,11 @@
   --cat-business-ink: #BE123C;
   --cat-business-deep: #9F1239;
 
+  --cat-engineering: #0D9488;
+  --cat-engineering-soft: #CCFBF1;
+  --cat-engineering-ink: #0F766E;
+  --cat-engineering-deep: #115E59;
+
   /* Fixed category gradients (same in both themes; white text on them is >= 5:1) */
   --cat-concrete-g1: #0369A1;
   --cat-concrete-g2: #075985;
@@ -111,6 +117,8 @@
   --cat-finishes-g2: #5B21B6;
   --cat-business-g1: #BE123C;
   --cat-business-g2: #9F1239;
+  --cat-engineering-g1: #0F766E;
+  --cat-engineering-g2: #115E59;
 
   /* Typography Fluid Scale */
   --font-heading: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -131,6 +139,7 @@
   /* Crisp Obsidian & Slate Typography */
   --ink: #F1F5F9;
   --ink-2: #94A3B8;
+  --ink-soft: #94A3B8;
   --muted: #8291A6;
   
   /* Precision Micro-Borders */
@@ -197,4 +206,9 @@
   --cat-business-soft: rgba(251, 113, 133, 0.15);
   --cat-business-ink: #FDA4AF;
   --cat-business-deep: #FECDD3;
+
+  --cat-engineering: #2DD4BF;
+  --cat-engineering-soft: rgba(45, 212, 191, 0.14);
+  --cat-engineering-ink: #5EEAD4;
+  --cat-engineering-deep: #99F6E4;
 }

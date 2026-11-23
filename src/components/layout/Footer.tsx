@@ -143,6 +143,14 @@ export default function Footer() {
           <div className={styles.column}>
             <span className={styles.colTitle}>More Utilities</span>
             <ul className={styles.linkList}>
+              <li><Link href="/thread-pitch-diameter-calculator/" className={styles.link}>Thread Pitch Diameter Calculator</Link></li>
+              <li><Link href="/steps-per-mm-calculator/" className={styles.link}>Steps per mm Calculator</Link></li>
+              <li><Link href="/pulley-calculator/" className={styles.link}>Pulley Calculator</Link></li>
+              <li><Link href="/sfm-to-rpm-calculator/" className={styles.link}>SFM to RPM Calculator</Link></li>
+              <li><Link href="/speeds-and-feeds-calculator/" className={styles.link}>Speeds and Feeds Calculator</Link></li>
+              <li><Link href="/3d-print-cost-calculator/" className={styles.link}>3D Print Cost Calculator</Link></li>
+              <li><Link href="/epoxy-table-calculator/" className={styles.link}>Epoxy River Table Calculator</Link></li>
+              <li><Link href="/epoxy-resin-calculator/" className={styles.link}>Epoxy Resin Calculator</Link></li>
               <li><Link href="/self-employment-tax-calculator/" className={styles.link}>Self-Employment Tax Calculator</Link></li>
               <li><Link href="/sba-loan-calculator/" className={styles.link}>SBA Loan Calculator</Link></li>
               <li><Link href="/how-long-will-my-money-last/" className={styles.link}>How Long Will My Money Last?</Link></li>

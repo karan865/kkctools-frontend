@@ -55,6 +55,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     'framing',
     'finishes',
     'business',
+    'engineering',
   ];
 
   return createPortal(

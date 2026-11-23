@@ -4,6 +4,70 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Batch 4 review fixes — accuracy, safety and shared-UI regressions] — 2026-11-23
+
+Review of the Antigravity build against the Batch 4 specs and rules. `npm run verify` passes (all 6 steps).
+
+- **Speeds & Feeds machine limits (safety bug):** when RPM was capped at the machine maximum, the feed stayed the same, so the chip load per tooth silently went up (e.g. 0.0020 → 0.0031 in/tooth) with no warning. `scaleToLimits` now scales the feed with the RPM to keep the target chip load, then applies the max feed. Warnings are relative to the user's target; the invented 0.0005 in/tooth threshold was removed. The chip-thinning feed now starts from the limited feed. Tests updated and added (cap, min-RPM raise, max-feed thin-chip warning).
+- **Removed unsourced material values** (rules §2: presets only from a cited source):
+  - SFM and chip-load tables in two FAQs (FAQ schema);
+  - material help texts and "typical" claims on Speeds & Feeds and SFM;
+  - epoxy densities, cure times, pour depths and waste %;
+  - river-table prices and "typical" volumes;
+  - filament/resin prices, printer wattage, markups and lifetimes;
+  - V-belt slip %, the "Ender 3 = 93 e-steps" default and extruder gear ratios;
+  - thread-strength claims.
+  
+  They are replaced with formulas, labelled example values and "use your data sheet / tool maker's chart".
+- **HowWeCalculate sources:** removed ASTM D2393/D1763 (cited as covering volume maths and curing; they don't) and ISO 52900; dropped an unverified ISO URL; example inputs labelled as examples.
+- **Thread engine:**
+  - trapezoidal minor diameter now uses the pitch-dependent crest clearance, and H = 1.866P (was a fixed 0.5 mm clearance and 0.866P);
+  - inch tap drill now returns the nearest real 1/64" fractional drill (1/4-20 → 13/64") instead of repeating the ideal size;
+  - tap-drill % and three-wire results are hidden for Acme/trapezoidal threads (60°-only formulas).
+- **Epoxy engine:** exact 1 US fl oz = 231/128 in³ (was 1.804688) and exact ounce constant.
+- **Steps engine:** no GRBL line for the E axis (GRBL has no extruder; it was printing `$103`).
+- **Shared UI regression reverted:** a new rule in `ToolShell.module.css` forced dark text on every element whose class contains "card" inside the band. Its specificity beat ~30 live tools' white text on coloured hero cards (brick, cap rate, stone, tile …). Reverted; Batch 4 cards already set their own text colour.
+- **Double ToolShell:** Epoxy Resin, Epoxy Table and 3D Print Cost rendered a ToolShell inside the page's ToolShell (two bands, two pill rows). Removed the inner one.
+- **Accessibility:** 49 form labels in those three tools were not linked to their inputs; now paired with `htmlFor`/`id`.
+- **SEO/spec alignment:**
+  - 3D Print Cost title and H1 now match the spec, and its pills are true to the tool;
+  - `absoluteTitle` removed from 4 pages whose title fits with the suffix;
+  - all 8 pages read title/description from `ROUTES` (no duplicated copies).
+- **Note:** the new global `.container` class also gives the live SBA Loan and Self-Employment Tax pages the side gutters they were missing (they already used `className="container"`).
+- **Not done here:** `graphify update .` (blocked by the Windows application-control policy on this machine); visual check in a browser at 390/768/1280 px.
+
+### [Batch 4 — 3D Printing, CNC & Engineering Calculators (8 tools)] — 2026-11-23
+
+- Added new catalog category: `3D Printing & CNC` (`engineering`).
+- Built and verified all 8 Batch 4 engineering tools:
+  1. **Epoxy Resin Calculator** (`/epoxy-resin-calculator/`) — `src/lib/epoxy-engine.ts`, surface flood & deep pour volumes, multi-pour layer plan, resin & hardener mix ratio (1:1, 2:1, 3:1, 4:1, 5:1, 100:43), custom ratios, rectangular, round, and irregular river shapes, waste allowance, unit conversions (fl oz, mL, US gal, L, lb, kg).
+  2. **Epoxy River Table Calculator** (`/epoxy-table-calculator/`) — `src/lib/epoxy-engine.ts`, live SVG slab diagram, live-edge gap math, multi-pour depth scheduler (preventing thermal runaway), seal coat & flood coat top layer, and total board-foot estimator.
+  3. **3D Print Cost Calculator** (`/3d-print-cost-calculator/`) — `src/lib/print-cost-engine.ts`, FDM filament and SLA/DLP resin modes, electricity usage with heated bed wattage, printer wear & depreciation, failure risk margin, prep & post-processing labor, and profit markup pricing.
+  4. **Speeds and Feeds Calculator** (`/speeds-and-feeds-calculator/`) — `src/lib/machining-engine.ts`, spindle RPM ($SFM \times 3.8197 / D$), feed rate ($IPM = RPM \times f_z \times z$), chip thinning compensation for light radial depths ($W < D/2$), machine RPM/IPM limits warning, and cited machining presets.
+  5. **SFM to RPM Calculator** (`/sfm-to-rpm-calculator/`) — `src/lib/machining-engine.ts`, bidirectional surface speed converter (SFM ↔ RPM, m/min ↔ RPM), line speed / conveyor surface feet per minute, and diameter RPM quick-reference matrix.
+  6. **Pulley Calculator** (`/pulley-calculator/`) — `src/lib/pulley-engine.ts`, 2-pulley drive ratio and target RPM solver, linear belt speed (ft/min and m/s), open belt center-to-length and belt-to-center solvers, contact wrap angles with < 120° slip warning, and multi-stage compound drive reduction.
+  7. **Steps per mm Calculator** (`/steps-per-mm-calculator/`) — `src/lib/steps-engine.ts`, timing belt drives (GT2 / T5 / custom pitch, tooth counts, microstepping), lead screws (T8, ballscrews, thread starts, pitch), Klipper `rotation_distance` converter, and extruder E-steps 100 mm extrusion calibration formula.
+  8. **Thread Pitch Diameter Calculator** (`/thread-pitch-diameter-calculator/`) — `src/lib/thread-engine.ts`, UN/UNC/UNF (ASME B1.1), Metric ISO 68-1 / ISO 965-1, and 29° Acme (ASME B1.5) threads. Basic pitch diameter ($d_2 = d - 0.649519 \cdot P$), minor diameter ($d_3 = d - 1.082532 \cdot P$), tap drill diameter with percentage thread engagement formula ($D_{tap} = d - (0.01299 \times \% / TPI)$), and 3-wire pitch diameter measurement method ($M = d_2 + W(1 + \csc 30^\circ) - \frac{P}{2} \cot 30^\circ$).
+- Site Catalog updated to 75 total tools, with 79 passing test suites (953 vitest tests), 0 SEO audit errors across 96 static HTML pages, and zero external network calls verified.
+
+---
+
+### [Docs — Batch 8 Part 3 build specs: Heart Rate Zones and Ideal Weight (provisional, no SERP export)] — 2026-11-22
+
+- 2 build specs (YMYL), each in its own folder with its competitor analysis (moved in): Heart Rate Zone Calculator, Ideal Weight Calculator.
+- `00_BATCH8_BUILD_RULES.md` Part 3 (§15–§19):
+  - range-first and citation-status rules; Hamwi computed in its native pounds;
+  - sources opened 2026-11-22: AHA Target Heart Rates (reviewed Aug 12, 2024), CDC adult BMI categories (Mar 19, 2024), the Karvonen formula, the MAF 180 formula, Devine and Hamwi;
+  - Tanaka, Gulati, Robinson and Miller left as "citation to confirm" (publishers blocked).
+- Worked examples checked with node:
+  - the AHA age table is reproduced exactly;
+  - the zone-2 gap for age 40 / resting 60 (108–126 vs 132–144 vs MAF 140);
+  - ideal-weight ranges for 5'2"–6'0";
+  - Calculator.net's 5'10" healthy-BMI range (59.9–81 kg) doesn't match CDC (58.5–79.0 kg).
+- Builder prompt: `docs/prompts/BATCH8_PART3_BUILD_PROMPT.md`; Part 3 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
 ### [Docs — Batch 8 Part 2 build specs: tools 06–10 (provisional, no SERP export)] — 2026-11-22
 
 - 5 build specs, each in its own folder with its competitor analysis (moved in): Roman Numeral Converter, Fraction to Decimal, Cooking Measurement Converter, Army Body Fat Calculator, One Rep Max.

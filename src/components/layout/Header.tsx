@@ -49,6 +49,7 @@ export default function Header() {
     'framing',
     'finishes',
     'business',
+    'engineering',
   ];
 
   return (

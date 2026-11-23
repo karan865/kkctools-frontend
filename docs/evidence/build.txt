@@ -3,24 +3,25 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1190ms
+✓ Running next.config.ts took 1269ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 7.4s
+✓ Compiled successfully in 18.3s
   Running TypeScript ...
-  Finished TypeScript in 3.0s ...
+  Finished TypeScript in 6.0s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/102) ...
-  Generating static pages using 15 workers (25/102) 
-  Generating static pages using 15 workers (50/102) 
-  Generating static pages using 15 workers (76/102) 
-✓ Generating static pages using 15 workers (102/102) in 3.5s
+  Generating static pages using 15 workers (0/110) ...
+  Generating static pages using 15 workers (27/110) 
+  Generating static pages using 15 workers (54/110) 
+  Generating static pages using 15 workers (82/110) 
+✓ Generating static pages using 15 workers (110/110) in 6.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
 Route (app)
 ┌ ○ /
 ├ ○ /_not-found
+├ ○ /3d-print-cost-calculator
 ├ ○ /about
 ├ ○ /airbnb-calculator
 ├ ○ /apple-touch-icon.png
@@ -59,6 +60,8 @@ Route (app)
 ├ ○ /disclaimer
 ├ ○ /discount-calculator
 ├ ○ /drywall-calculator
+├ ○ /epoxy-resin-calculator
+├ ○ /epoxy-table-calculator
 ├ ○ /equipment-loan-calculator
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
@@ -96,6 +99,7 @@ Route (app)
 ├ ○ /privacy-policy
 ├ ○ /processing-fee-calculator
 ├ ○ /profit-margin-calculator
+├ ○ /pulley-calculator
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
@@ -104,15 +108,19 @@ Route (app)
 ├ ○ /sand-calculator
 ├ ○ /sba-loan-calculator
 ├ ○ /self-employment-tax-calculator
+├ ○ /sfm-to-rpm-calculator
 ├ ○ /shingle-calculator
 ├ ○ /site-map
 ├ ○ /sitemap.xml
+├ ○ /speeds-and-feeds-calculator
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
+├ ○ /steps-per-mm-calculator
 ├ ○ /stone-calculator
 ├ ○ /stone-calculator/opengraph-image
 ├ ○ /stud-calculator
 ├ ○ /terms
+├ ○ /thread-pitch-diameter-calculator
 ├ ○ /tile-calculator
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards

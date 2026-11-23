@@ -5,6 +5,7 @@
 .framing   { --c: var(--cat-framing);   --c-soft: var(--cat-framing-soft);   --c-deep: var(--cat-framing-deep);   --g1: var(--cat-framing-g1);   --g2: var(--cat-framing-g2); }
 .finishes  { --c: var(--cat-finishes);  --c-soft: var(--cat-finishes-soft);  --c-deep: var(--cat-finishes-deep);  --g1: var(--cat-finishes-g1);  --g2: var(--cat-finishes-g2); }
 .business  { --c: var(--cat-business);  --c-soft: var(--cat-business-soft);  --c-deep: var(--cat-business-deep);  --g1: var(--cat-business-g1);  --g2: var(--cat-business-g2); }
+.engineering { --c: var(--cat-engineering); --c-soft: var(--cat-engineering-soft); --c-deep: var(--cat-engineering-deep); --g1: var(--cat-engineering-g1); --g2: var(--cat-engineering-g2); }
 
 .section {
   position: relative;

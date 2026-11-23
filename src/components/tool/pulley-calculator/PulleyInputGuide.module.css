@@ -1,0 +1,128 @@
+.guideWrapper {
+  background: var(--surface-secondary, #f8fafc);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 24px;
+  overflow: hidden;
+  transition: border-color 0.2s ease;
+}
+
+.guideWrapper[open] {
+  border-color: var(--cat-engineering);
+}
+
+.guideSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  cursor: pointer;
+  background: var(--surface);
+  user-select: none;
+  border-bottom: 1px solid transparent;
+}
+
+.guideWrapper[open] .guideSummary {
+  border-bottom-color: var(--line);
+}
+
+.summaryTitle {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.summaryBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  background: var(--cat-engineering);
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.summaryHint {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.svgContainer {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background: var(--surface-secondary, #f8fafc);
+}
+
+.diagramSvg {
+  width: 100%;
+  max-width: 720px;
+  height: auto;
+  display: block;
+}
+
+.pulleyCircle {
+  fill: var(--surface);
+  stroke: var(--cat-engineering);
+  stroke-width: 3;
+}
+
+.pulleyHub {
+  fill: var(--cat-engineering-soft);
+  stroke: var(--cat-engineering-deep);
+  stroke-width: 2;
+}
+
+.beltLine {
+  stroke: var(--ink);
+  stroke-width: 3.5;
+  stroke-linecap: round;
+}
+
+.dimLine {
+  stroke: var(--cat-engineering);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 2;
+}
+
+.dimDot {
+  fill: var(--cat-engineering);
+}
+
+.badgeBg {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1;
+  filter: drop-shadow(0 2px 4px rgba(0,0,0,0.06));
+}
+
+.badgeText {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--ink);
+  font-family: inherit;
+}
+
+.captionText {
+  font-size: 10.5px;
+  fill: var(--ink-soft);
+  font-family: inherit;
+}
+
+.callout {
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.activeCallout .badgeBg {
+  stroke: var(--cat-engineering);
+  stroke-width: 2;
+  fill: var(--cat-engineering-soft);
+}
+
+.activeCallout .badgeText {
+  fill: var(--cat-engineering-deep);
+}

@@ -1,0 +1,143 @@
+.main {
+  padding: 1.5rem 0 3.5rem;
+}
+
+.intro {
+  margin-bottom: 2rem;
+}
+
+.title {
+  font-size: clamp(1.8rem, 3.6vw, 2.6rem);
+  font-weight: 800;
+  color: var(--ink);
+  letter-spacing: -0.025em;
+  line-height: 1.2;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.1rem;
+  color: var(--ink-soft);
+  line-height: 1.6;
+  max-width: 820px;
+}
+
+.bluf {
+  background: color-mix(in srgb, var(--cat-engineering-soft) 45%, var(--surface));
+  border-left: 4px solid var(--cat-engineering);
+  padding: 1.1rem 1.35rem;
+  border-radius: 0 10px 10px 0;
+  margin: 1.5rem 0;
+  font-size: 0.98rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+.calculatorWrapper {
+  margin: 2rem 0 3.5rem;
+}
+
+.content {
+  margin-top: 3.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;
+}
+
+.section h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--ink);
+  letter-spacing: -0.015em;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  font-size: 1rem;
+  line-height: 1.7;
+  color: var(--ink);
+  margin-bottom: 1rem;
+}
+
+.section ul,
+.section ol {
+  padding-left: 1.4rem;
+  margin-bottom: 1.2rem;
+}
+
+.section li {
+  font-size: 0.98rem;
+  line-height: 1.65;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.tableWrap {
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.contentTable {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.92rem;
+}
+
+.contentTable th {
+  padding: 10px 14px;
+  background: color-mix(in srgb, var(--cat-engineering-soft) 60%, var(--surface));
+  color: var(--cat-engineering-deep);
+  font-weight: 700;
+  border-bottom: 1px solid var(--line);
+}
+
+.contentTable td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.contentTable tr:last-child td {
+  border-bottom: none;
+}
+
+.faqSection {
+  margin-top: 2rem;
+}
+
+.faqSection h2 {
+  font-size: 1.55rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 1.5rem;
+}
+
+.faqGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+.faqItem {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1.25rem 1.5rem;
+}
+
+.faqQuestion {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 0.5rem;
+}
+
+.faqAnswer {
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--ink-soft);
+  margin: 0;
+}

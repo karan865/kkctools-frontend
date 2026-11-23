@@ -1,0 +1,149 @@
+.guideWrapper {
+  margin-bottom: 24px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition: border-color 0.2s ease;
+}
+
+.guideWrapper[open] {
+  border-color: color-mix(in srgb, var(--cat-engineering) 40%, var(--line));
+}
+
+.guideSummary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: color-mix(in srgb, var(--cat-engineering-soft) 40%, var(--surface));
+  cursor: pointer;
+  user-select: none;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.summaryTitle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.summaryBadge {
+  display: inline-block;
+  padding: 2px 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  background: var(--cat-engineering);
+  color: #ffffff;
+  border-radius: 6px;
+}
+
+.summaryHint {
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--ink-soft);
+}
+
+.svgContainer {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  background: var(--surface);
+  overflow-x: auto;
+}
+
+.diagramSvg {
+  width: 100%;
+  max-width: 740px;
+  height: auto;
+  min-width: 500px;
+}
+
+/* River Table styling */
+.tableOuter {
+  fill: color-mix(in srgb, var(--cat-engineering-soft) 25%, var(--surface));
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.woodSlabLeft {
+  fill: color-mix(in srgb, #D97706 24%, var(--surface));
+  stroke: #B45309;
+  stroke-width: 1.5;
+}
+
+.woodSlabRight {
+  fill: color-mix(in srgb, #D97706 24%, var(--surface));
+  stroke: #B45309;
+  stroke-width: 1.5;
+}
+
+.riverResin {
+  fill: color-mix(in srgb, var(--cat-engineering) 55%, #0284C7);
+  stroke: var(--cat-engineering-deep);
+  stroke-width: 1.5;
+}
+
+.floodCoatOverlay {
+  fill: color-mix(in srgb, var(--cat-engineering-soft) 60%, transparent);
+  stroke: var(--cat-engineering);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.widthArrow {
+  stroke: #ffffff;
+  stroke-width: 1.5;
+}
+
+.dimLine {
+  stroke: var(--cat-engineering-ink);
+  stroke-width: 1.2;
+}
+
+.dimDot {
+  fill: var(--cat-engineering-ink);
+}
+
+.badgeBg {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.badgeText {
+  font-size: 10.5px;
+  font-weight: 700;
+  fill: var(--ink);
+}
+
+.pillBg {
+  fill: var(--cat-engineering-soft);
+  stroke: var(--cat-engineering);
+  stroke-width: 1;
+}
+
+.pillText {
+  font-size: 11px;
+  font-weight: 700;
+  fill: var(--cat-engineering-deep);
+}
+
+.highlight .riverResin {
+  stroke: var(--cat-engineering-deep);
+  stroke-width: 2.5;
+}
+
+.activeCallout .badgeBg {
+  fill: var(--cat-engineering-soft);
+  stroke: var(--cat-engineering);
+}
+
+.activeCallout .badgeText {
+  fill: var(--cat-engineering-deep);
+}

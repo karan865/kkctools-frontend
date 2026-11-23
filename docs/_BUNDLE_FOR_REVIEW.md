@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-21T18:26:53.214Z
+Generated on: 2026-11-23T04:29:28.343Z
 
 
 
@@ -11,12 +11,12 @@ Generated on: 2026-11-21T18:26:53.214Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-21
+- **Last Updated:** 2026-11-23
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 3 Tier 3 (High YMYL) Suite Fully Built and Verified: Tool #67 (Self-Employment Tax Calculator, Phase SE67), Tool #66 (SBA Loan Calculator, Phase SBA66), and Tool #65 (Retirement Drawdown Calculator, Phase DL65); Batch 3 Part 3 Tool #7 (Tool #64 Investment Return / S&P 500 Calculator) built and verified (Phase IR64); Batch 3 Part 3 Tool #6 (Tool #63 HELOC & Home Equity Calculator) built and verified (Phase HC63); Batch 3 Part 3 Tool #5 (Tool #62 Net Worth Calculator) built and verified (Phase NW62); Batch 3 Part 3 Tool #4 (Tool #61 Credit Card Payoff & APR Calculator) built and verified (Phase CC61); Batch 3 Part 3 Tool #3 (Tool #60 Card Processing Fee Calculator) built and verified (Phase PF60); Batch 3 Part 3 Tool #2 (Tool #59 Compound Interest Calculator) built and verified (Phase CI59); Batch 3 Part 3 Tool #1 (Tool #58 Present Value & NPV Calculator) built and verified (Phase PV58); Batch 3 Part 2 Tools #47 through #57 built and verified; Tool Card Artwork & Unique Icon Redesign Completed (67/67 tools with bespoke unique illustrations and 1-to-1 dedicated icons, 0 duplicates).
-- **Overall Completion:** 904 vitest tests passing (73 files, 100% green), 85 static routes in routes.ts, 67 tools in tools-catalog.ts (67 unique icons), every HTML page passes the SEO audit with zero errors (88 HTML pages), no-network check passing (`npm run verify` 2026-11-21).
+- **Current Phase:** Batch 4 (3D Printing, CNC & Engineering) Suite Fully Built, Styled, and Verified: 8 new tools (#68 through #75) with new catalog category "3D Printing & CNC" (`engineering`); 100% pure client-side engines with unit tests matching all spec worked examples. Premium Oceanic Teal/Cyan gradient hero cards and elevated result panels rolled out across all 8 tools.
+- **Overall Completion:** 953 vitest tests passing (79 files, 100% green), 93 static routes in routes.ts, 75 tools in tools-catalog.ts (75 unique bespoke icons & cards), every HTML page passes the SEO audit with zero errors (96 HTML pages), no-network check passing (`npm run verify` 2026-11-23).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
@@ -280,6 +280,27 @@ Owner request: every tool must show, inside the input area, a large diagram that
 - [x] DG-2 Shared components in `src/components/tool/shared/`: `AreaDepthDiagram` (isometric area × depth with material texture and layer stacks), `StepFrame` + `StepsList` (numbered calculation steps; side-by-side on wide containers, stacked below the drawing under 540 px via a container query), `PaverJointDiagram`, `ConversionDiagram`, `WallDiagram`.
 - [x] DG-3 Tool-specific diagrams: fence stain (picket style, both sides), laminate (plank layout incl. diagonal/herringbone, cut offcuts), linear foot (pieces end to end; area → strip), paint (perimeter + unrolled walls with doors/windows), square footage (every shape; multi-room add/subtract), stud (framing with plates, king/jack studs, headers), tile (tile grid with grout and layout pattern).
 - [x] DG-4 Every diagram updates live from the inputs and shows the engine's own numbers in 3–4 steps. *(Evidence: screenshots at 1280 px and 500 px; `npm run verify` passed; Lighthouse a11y 100 on all 18 pages; mobile performance 92–94 on tile and asphalt)*
+
+### Phase B4 — Tools #68–#75: 3D Printing, CNC & Engineering Suite (Batch 4, built 2026-11-23)
+Research basis: `docs/keywords analysis/Batch 4 - USA — 3D Printing  CNC  Engineering/3. All Blogs Data/00_BATCH4_BUILD_RULES.md` and all 8 tool build specs.
+- [x] B4-0 Shared Engines & Unit Tests:
+  - `src/lib/epoxy-engine.ts` (14 unit tests passing): supports rectangle, circle, and river irregular shapes; multi-pour layer planner; mix ratios (1:1, 2:1, 3:1, 4:1, 5:1, 100:43, custom); waste allowance; volume and weight conversions.
+  - `src/lib/machining-engine.ts` (12 unit tests passing): SFM to RPM ($SFM \times 3.8197 / D$), RPM to SFM, feed rate ($IPM = RPM \times f_z \times z$), chip thinning for light radial width ($W < D/2$), tool limit warnings, and cited material presets.
+  - `src/lib/print-cost-engine.ts` (4 unit tests passing): FDM filament & SLA resin models, electricity consumption with bed heating, depreciation & wear, failure buffer %, labor time & wage, markup profit pricing.
+  - `src/lib/pulley-engine.ts` (7 unit tests passing): 2-pulley speed ratio, target pulley diameter solver, linear belt speed (ft/min and m/s), center-to-length and length-to-center solvers, contact wrap angles with slip warning (< 120°), compound multi-stage reduction.
+  - `src/lib/steps-engine.ts` (6 unit tests passing): timing belt drives (GT2/T5/custom), lead screws (T8, ballscrews, thread starts), Klipper `rotation_distance` converter, and 100 mm extrusion E-steps calibration.
+  - `src/lib/thread-engine.ts` (6 unit tests passing): UN/UNC/UNF (ASME B1.1), Metric ISO 68-1/965-1, Acme 29° (ASME B1.5), basic pitch diameter ($d_2 = d - 0.649519 \cdot P$), minor diameter ($d_3 = d - 1.082532 \cdot P$), tap drill diameter with percentage engagement ($D_{tap} = d - (0.01299 \times \% / TPI)$), and 3-wire measurement method ($M = d_2 + W(1 + \csc 30^\circ) - \frac{P}{2} \cot 30^\circ$).
+  *(Evidence: `npx vitest run` → 79 test files, 953 tests passed)*
+- [x] B4-1 Category & Site Integration: Added `engineering` ("3D Printing & CNC") category to `CATEGORIES` in `src/lib/tools-catalog.ts`, added 8 unique SVG icons in `src/components/icons/Icons.tsx` and custom card art in `src/components/home/ToolArt.tsx`, registered routes in `src/lib/routes.ts` and `Footer.tsx`.
+- [x] B4-2 Tool #68: Epoxy Resin Calculator (`/epoxy-resin-calculator/`) — InputGuide diagram, 4 pills (`Deep pour vs surface`, `Layer cure planner`, `Mix ratio 1:1 to 5:1`, `Resin + hardener split`), 10% waste worked example (48×24×0.125 in = 144 in³; with 10% waste = 87.77 fl oz / 2,596 mL).
+- [x] B4-3 Tool #69: Epoxy River Table Calculator (`/epoxy-table-calculator/`) — live slab & river SVG diagram, 4 pills (`Live-edge channel math`, `Deep pour layer planner`, `Seal coat + flood top`, `Board foot calculator`), worked example (River 48×6×1 in + flood 48×24×0.125 in + 10% waste = 475.2 in³ = 2.057 US gal).
+- [x] B4-4 Tool #70: 3D Print Cost Calculator (`/3d-print-cost-calculator/`) — filament spool & SLA bottle diagram, 4 pills (`Filament & resin modes`, `True electricity cost`, `Machine wear & failure %`, `Markup & selling price`), worked example (50 g PLA ($1.00) + Power ($0.054) + Wear ($0.45) + 5% failure + Labor ($5) = $6.58; at 50% markup = $9.87).
+- [x] B4-5 Tool #71: Speeds and Feeds Calculator (`/speeds-and-feeds-calculator/`) — cutter engagement diagram, 4 pills (`Chip thinning auto-calc`, `Milling, router & drill`, `Spindle RPM & IPM feed`, `Machine limit guards`), worked example (0.5 in cutter, 3 flutes, 600 SFM → 4,584 RPM; 0.002 in/tooth → 27.50 IPM).
+- [x] B4-6 Tool #72: SFM to RPM Calculator (`/sfm-to-rpm-calculator/`) — surface speed circumference diagram, 4 pills (`SFM ↔ RPM both ways`, `Metric m/min supported`, `RPM tooling matrix`, `Conveyor & line speed`), worked example (1 in at 1,000 RPM → 261.8 SFM; 0.5 in at 300 SFM → 2,292 RPM).
+- [x] B4-7 Tool #73: Pulley Calculator (`/pulley-calculator/`) — 2-pulley belt transmission diagram, 4 pills (`Speed ratio & target RPM`, `Belt length & center dist`, `Belt speed in ft/min`, `Contact wrap angle warning`), worked example (2 in driver at 1,725 RPM, 4 in driven → 862.5 RPM (2:1 reduction), belt speed 903.2 ft/min, open belt at 20 in center = 49.47 in, small pulley wrap 174.3°).
+- [x] B4-8 Tool #74: Steps per mm Calculator (`/steps-per-mm-calculator/`) — stepper pulley/lead-screw diagram, 4 pills (`Belt & lead screw modes`, `E-steps calibration`, `Klipper rotation_distance`, `Microstepping presets`), worked example (200 steps × 16 µsteps ÷ (2 mm × 20 teeth) = 80 steps/mm (Klipper rotation_distance 40); T8 lead screw = 400 steps/mm; E-steps: 93 × 100 ÷ 95 = 97.89).
+- [x] B4-9 Tool #75: Thread Pitch Diameter Calculator (`/thread-pitch-diameter-calculator/`) — screw thread geometry diagram, 4 pills (`UN, Metric & Acme 29°`, `Pitch & minor diameter`, `Tap drill % engagement`, `3-wire method solver`), worked example (M10×1.5 external $d_2 = 9.026$ mm, $d_3 = 8.160$ mm; internal $D_1 = 8.376$ mm; tap drill 75% = 8.539 mm → nearest standard 8.5 mm; best wire 0.866 mm, $M = 9.350$ mm; 1/4-20 UNC $d_2 = 0.2175$ in).
+- [x] B4-10 Full Verification Pipeline: All 6 verify steps passed (`npm run verify`): 0 lint issues, 953/953 vitest tests passing across 79 test files, 0 client-side network calls, static build generated 96 HTML pages, SEO audit verified 96 pages with 0 errors.
 
 ### Phase SE67 — Tool #67: Self-Employment (1099) Tax Calculator (Batch 3 Part 2 #14, built 2026-11-20)
 Research basis: `docs/keywords analysis/Batch 3 - Business tools/3. All Blogs Data/25_Self_Employment_1099_Tax_Calculator/25_Self_Employment_Tax_Calculator_BUILD_SPEC.md` & `25_Self_Employment_1099_Tax_Calculator_Competitor_Analysis.md` (primary `1099 tax calculator`, US 9,900 / KD 6; secondary `1099 tax estimator` 2,400 / KD 0, `self employed taxes calculator` 1,300 / KD 5, `estimate taxes` 5,400 / KD 1, `estimated tax dates` 2,900 / KD 2).
@@ -825,8 +846,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 67 (source: `src/lib/routes.ts`, `src/lib/tools-catalog.ts`).
-- **Tests:** 904 Vitest tests passing (`npm run verify`, 2026-11-20).
+- **Live tools:** 75 (source: `src/lib/routes.ts`, `src/lib/tools-catalog.ts`).
+- **Tests:** 953 Vitest tests passing (`npm run verify`, 2026-11-23).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -893,6 +914,14 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 |   65 | Retirement Drawdown Calculator (years savings will last, annual drawdown schedule, inflation, Bengen 4% rule, maximum spending solver, sequence-of-returns stress test)                                                                                                                                                                                                                                                                                                                   | `/how-long-will-my-money-last/`       | `how-long-will-my-money-last/`        | `drawdown-engine.ts`                                                   |
 |   66 | SBA Loan Calculator (SBA 504 two-loan split, bank 1st lien, CDC debenture 2nd lien, SBA 7(a) variable rate with guarantee fee, DSCR affordability, business acquisition M&A)                                                                                                                                                                                                                                                                                                              | `/sba-loan-calculator/`               | `sba-loan-calculator/`                | `sba-loan-engine.ts`                                                   |
 |   67 | 1099 Self-Employment Tax Calculator (15.3% SE tax, statutory 92.35% multiplier, Social Security wage-base cap, Additional Medicare surtax, 50% above-the-line deduction, 1040-ES quarterly vouchers, safe harbor)                                                                                                                                                                                                                                                                         | `/self-employment-tax-calculator/`    | `self-employment-tax-calculator/`     | `se-tax-engine.ts`, `us-tax-data.ts`                                   |
+|   68 | Epoxy Resin Calculator (pour volume, deep pour layer scheduler, mix ratios 1:1 to 5:1 + custom, resin & hardener breakdown, waste allowance, fl oz, mL, gal, L, lb, kg)                                                                                                                                                                                                                                                                                                                  | `/epoxy-resin-calculator/`            | `epoxy-resin-calculator/`             | `epoxy-engine.ts`                                                      |
+|   69 | Epoxy River Table Calculator (slab diagram, river channel gap volume, flood top coat, multi-pour schedule to prevent exotherm runaway, board feet)                                                                                                                                                                                                                                                                                                                                           | `/epoxy-table-calculator/`            | `epoxy-table-calculator/`             | `epoxy-engine.ts`                                                      |
+|   70 | 3D Print Cost Calculator (filament weight & spool pricing, resin volume & bottle pricing, electricity with heated bed, printer wear depreciation, fail margin, labor & markup)                                                                                                                                                                                                                                                                                                              | `/3d-print-cost-calculator/`          | `3d-print-cost-calculator/`           | `print-cost-engine.ts`                                                 |
+|   71 | Speeds and Feeds Calculator (spindle RPM, feed rate IPM/mm/min, chip load per tooth, radial chip thinning compensation for light cuts, CNC router & mill limit guards)                                                                                                                                                                                                                                                                                                                      | `/speeds-and-feeds-calculator/`       | `speeds-and-feeds-calculator/`        | `machining-engine.ts`                                                  |
+|   72 | SFM to RPM Calculator (bidirectional surface feet per minute ↔ spindle RPM, metric m/min ↔ RPM, conveyor line speed, tooling RPM quick matrix)                                                                                                                                                                                                                                                                                                                                               | `/sfm-to-rpm-calculator/`              | `sfm-to-rpm-calculator/`              | `machining-engine.ts`                                                  |
+|   73 | Pulley Calculator (2-pulley speed ratio & driven RPM solver, linear belt speed ft/min & m/s, open belt center-to-length & belt-to-center solvers, wrap angles, compound drive)                                                                                                                                                                                                                                                                                                              | `/pulley-calculator/`                 | `pulley-calculator/`                  | `pulley-engine.ts`                                                     |
+|   74 | Steps per mm Calculator (stepper belt drive GT2/T5, lead screw T8/ballscrew, Klipper rotation_distance converter, extruder 100 mm e-steps calibration)                                                                                                                                                                                                                                                                                                                                      | `/steps-per-mm-calculator/`           | `steps-per-mm-calculator/`            | `steps-engine.ts`                                                      |
+|   75 | Thread Pitch Diameter Calculator (UN/UNC/UNF ASME B1.1, Metric ISO 68-1/965-1, Acme 29° ASME B1.5, pitch & minor diameter, % engagement tap drill solver, 3-wire measurement)                                                                                                                                                                                                                                                                                                               | `/thread-pitch-diameter-calculator/`  | `thread-pitch-diameter-calculator/`  | `thread-engine.ts`                                                     |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -938,7 +967,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (85 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-20: 0 SEO audit errors across 88 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (93 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-23: 0 SEO audit errors across 96 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group               | Paths                                                                                                                      | Schema (JSON-LD graph)                                 | Status                                                                                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -948,7 +977,7 @@ Source of truth: `src/lib/routes.ts` (85 routes) and `src/app/`. All pages below
 | Genre pages (6)     | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/`                                                      | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
 | Genre pages (2)     | `/band-name-generator/{punk,pop}/`                                                                                         | —                                                      | BLOCKED (owner keyword data)                                                                                                                            |
 | Estimate template   | `/construction-estimate-template/`                                                                                         | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
-| Calculators (66)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
+| Calculators (74)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
 | Guides index        | `/guides/`                                                                                                                 | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
 | Guides (3)          | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList                                | Live (1,686–1,888 words each)                                                                                                                           |
 | Trust               | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/`                                                      | AboutPage / ContactPage / WebPage, BreadcrumbList      | Live (Disclaimer added 2026-11-15 for the AdSense report)                                                                                               |
@@ -1261,6 +1290,119 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 All notable changes to this project will be documented in this file, sorted newest first.
 
 ---
+
+### [Batch 4 — 3D Printing, CNC & Engineering Calculators (8 tools)] — 2026-11-23
+
+- Added new catalog category: `3D Printing & CNC` (`engineering`).
+- Built and verified all 8 Batch 4 engineering tools:
+  1. **Epoxy Resin Calculator** (`/epoxy-resin-calculator/`) — `src/lib/epoxy-engine.ts`, surface flood & deep pour volumes, multi-pour layer plan, resin & hardener mix ratio (1:1, 2:1, 3:1, 4:1, 5:1, 100:43), custom ratios, rectangular, round, and irregular river shapes, waste allowance, unit conversions (fl oz, mL, US gal, L, lb, kg).
+  2. **Epoxy River Table Calculator** (`/epoxy-table-calculator/`) — `src/lib/epoxy-engine.ts`, live SVG slab diagram, live-edge gap math, multi-pour depth scheduler (preventing thermal runaway), seal coat & flood coat top layer, and total board-foot estimator.
+  3. **3D Print Cost Calculator** (`/3d-print-cost-calculator/`) — `src/lib/print-cost-engine.ts`, FDM filament and SLA/DLP resin modes, electricity usage with heated bed wattage, printer wear & depreciation, failure risk margin, prep & post-processing labor, and profit markup pricing.
+  4. **Speeds and Feeds Calculator** (`/speeds-and-feeds-calculator/`) — `src/lib/machining-engine.ts`, spindle RPM ($SFM \times 3.8197 / D$), feed rate ($IPM = RPM \times f_z \times z$), chip thinning compensation for light radial depths ($W < D/2$), machine RPM/IPM limits warning, and cited machining presets.
+  5. **SFM to RPM Calculator** (`/sfm-to-rpm-calculator/`) — `src/lib/machining-engine.ts`, bidirectional surface speed converter (SFM ↔ RPM, m/min ↔ RPM), line speed / conveyor surface feet per minute, and diameter RPM quick-reference matrix.
+  6. **Pulley Calculator** (`/pulley-calculator/`) — `src/lib/pulley-engine.ts`, 2-pulley drive ratio and target RPM solver, linear belt speed (ft/min and m/s), open belt center-to-length and belt-to-center solvers, contact wrap angles with < 120° slip warning, and multi-stage compound drive reduction.
+  7. **Steps per mm Calculator** (`/steps-per-mm-calculator/`) — `src/lib/steps-engine.ts`, timing belt drives (GT2 / T5 / custom pitch, tooth counts, microstepping), lead screws (T8, ballscrews, thread starts, pitch), Klipper `rotation_distance` converter, and extruder E-steps 100 mm extrusion calibration formula.
+  8. **Thread Pitch Diameter Calculator** (`/thread-pitch-diameter-calculator/`) — `src/lib/thread-engine.ts`, UN/UNC/UNF (ASME B1.1), Metric ISO 68-1 / ISO 965-1, and 29° Acme (ASME B1.5) threads. Basic pitch diameter ($d_2 = d - 0.649519 \cdot P$), minor diameter ($d_3 = d - 1.082532 \cdot P$), tap drill diameter with percentage thread engagement formula ($D_{tap} = d - (0.01299 \times \% / TPI)$), and 3-wire pitch diameter measurement method ($M = d_2 + W(1 + \csc 30^\circ) - \frac{P}{2} \cot 30^\circ$).
+- Site Catalog updated to 75 total tools, with 79 passing test suites (953 vitest tests), 0 SEO audit errors across 96 static HTML pages, and zero external network calls verified.
+
+---
+
+### [Docs — Batch 8 Part 3 build specs: Heart Rate Zones and Ideal Weight (provisional, no SERP export)] — 2026-11-22
+
+- 2 build specs (YMYL), each in its own folder with its competitor analysis (moved in): Heart Rate Zone Calculator, Ideal Weight Calculator.
+- `00_BATCH8_BUILD_RULES.md` Part 3 (§15–§19):
+  - range-first and citation-status rules; Hamwi computed in its native pounds;
+  - sources opened 2026-11-22: AHA Target Heart Rates (reviewed Aug 12, 2024), CDC adult BMI categories (Mar 19, 2024), the Karvonen formula, the MAF 180 formula, Devine and Hamwi;
+  - Tanaka, Gulati, Robinson and Miller left as "citation to confirm" (publishers blocked).
+- Worked examples checked with node:
+  - the AHA age table is reproduced exactly;
+  - the zone-2 gap for age 40 / resting 60 (108–126 vs 132–144 vs MAF 140);
+  - ideal-weight ranges for 5'2"–6'0";
+  - Calculator.net's 5'10" healthy-BMI range (59.9–81 kg) doesn't match CDC (58.5–79.0 kg).
+- Builder prompt: `docs/prompts/BATCH8_PART3_BUILD_PROMPT.md`; Part 3 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 8 Part 2 build specs: tools 06–10 (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Roman Numeral Converter, Fraction to Decimal, Cooking Measurement Converter, Army Body Fat Calculator, One Rep Max.
+- `00_BATCH8_BUILD_RULES.md` Part 2 (§9–§14):
+  - exact-rational rule: plain floats print 1/16 in as 1.587 mm, the correct half-up value is 1.588 (the same truncation error found in a competitor table);
+  - unit chains from NIST constants;
+  - Roman validation messages;
+  - new categories `Everyday Conversions` and `Health & Fitness` with a methodology page.
+- **Army standard changed:** read Army Directive 2026-13 (1 Jul 2026, active) from armypubs. WHtR < 0.55 is now the sole standard; tape tests, height/weight screening tables and AFT exemptions are rescinded (AD 2023-11, 2023-08, 2025-17). The Army spec is rebuilt around WHtR (title and H1 changed from the keyword file), with no tape-test formulas. Every competitor page read is out of date.
+- Worked examples checked with node:
+  - Roman round-trip 1–3,999 and the invalid-input corrections;
+  - fraction mm values and nearest-1/64 errors;
+  - US kitchen units from the exact chain (½ cup = 8 tbsp; half of ¾ cup = 6 tbsp; TheCalculatorSite's 150 mL → 0.64 cup corrected to 0.634);
+  - 1RM (100 × 5 → 116.67 / 112.50 / 117.46; Epley = Brzycki at 10 reps; GIGA's % chart corrected);
+  - WHtR boundary cases.
+- Builder prompt: `docs/prompts/BATCH8_PART2_BUILD_PROMPT.md`; Part 2 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 8 Part 1 build specs: Date & Time tools 01–05 (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Days Between Dates, Days From Today, Days Until, Time Duration, Military Time. Tools 06–32 are not specced yet.
+- `00_BATCH8_BUILD_RULES.md` (Part 1):
+  - conventions stated on screen; UTC day-number maths; no per-number URLs; no today-relative dates in static HTML; holidays computed by rule;
+  - sources opened 2026-11-22: 5 U.S.C. § 6103 + EO 11582 (observed days), OPM, Microsoft DATEDIF/NETWORKDAYS/WORKDAY/EDATE/ISOWEEKNUM, Google Sheets NETWORKDAYS/WORKDAY, Time and Date military time and zone letters, ISO week and Easter (secondary).
+- Worked examples checked with node: 2026–2028 federal holidays and observed days (incl. New Year 2028 observed 2027-12-31), Microsoft's NETWORKDAYS (110) and WORKDAY (2009-04-30) examples reproduced, Easter 2024–2028, ISO weeks, competitor examples (Omni 18,901 days and 8:42 / 16:06; GIGA 84/85; Inch Dec 29), a DST case, and all 12-hour / military edge cases.
+- Found and fixed: the "borrow" Y/M/D rule gives 2026-01-31 → 2026-03-01 = 0 m −2 d. Switched to month-stepping (1 month 1 day) here and in the **Batch 5 Age Difference spec** (its fixtures are unchanged).
+- Builder prompt: `docs/prompts/BATCH8_PART1_BUILD_PROMPT.md`; Batch 8 Part 1 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 7 build specs: Developer & Web Tools (provisional, no SERP export)] — 2026-11-22
+
+- 5 build specs, each in its own folder with its competitor analysis (moved in): Password Generator, Password Strength Checker, UUID / GUID Generator, Passphrase Generator, Hacker Name Generator.
+- `00_BATCH7_BUILD_RULES.md`:
+  - security rules: Web Crypto only (fails closed), rejection sampling, nothing stored or sent, no breach or UUID APIs, no new dependencies, no hacking content;
+  - the existing band-name RNG (`src/lib/generator/rng.ts`, seeded Mulberry32 with a `Math.random` fallback) is banned for secrets and kept for names only;
+  - a sources table opened on 2026-11-22: NIST SP 800-63B rev 4 (§3.1.1.2), CISA (archived), OWASP special characters, EFF dice + licence, SecLists licence, RFC 9562, MDN, Python 3.14 `uuid7`, .NET 9 `CreateVersion7`, PostgreSQL, SQL Server, MySQL, Java, PowerShell; unverified items listed as `TODO(owner)` (SWIFT UETR, WPA2 primary source, attack rates).
+- Worked examples checked with node: RFC 9562 v5 and v3 test vectors reproduced exactly, v7 timestamp decode, entropy (16 characters = 104.87 bits, 104.59 with "one of each"; 6 EFF words = 77.55 bits), 26¹⁰ = 141,167,095,653,376 (correcting a competitor), collision maths.
+- Builder prompt: `docs/prompts/BATCH7_BUILD_PROMPT.md`; Batch 7 section added to `docs/prompts/ALL_BATCHES_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 6 build specs: Text & Writing Utilities (provisional, no SERP export)] — 2026-11-22
+
+- 10 build specs, each in its own folder with its competitor analysis (moved in):
+  Character Counter, Words to Pages, Characters to Words, Twitter (X) & Instagram Counter, Word Counter, Reading & Speaking Time, Numbers to Words (check writing), Comma Separator, Sentence & Paragraph Counter, Keyword Density Checker.
+- `00_BATCH6_BUILD_RULES.md`:
+  - accuracy rules: Unicode-correct counting (graphemes), stated word and sentence rules, `verified` flags for every limit and rate, no invented thresholds;
+  - a sources table opened on 2026-11-22 (X counting docs and twitter-text v3 config, Instagram Graph API, Threads, LinkedIn, Mastodon, YouTube, Google Docs, Microsoft Word, TEXTJOIN, Sheets JOIN, RFC 4180, UCC § 3-114, Google spam policies, digital.gov plain-language guide), with what could not be verified listed as `TODO(owner)`;
+  - shared `text-engine.ts` built with the Character Counter first, used by seven tools.
+- Worked examples checked with node, including X weighted counts ("Hello, world! 👋" = 16), `Intl.Segmenter` fixes (words 12 → 10, sentences 8 → 5), the check and cheque formats, and the characters-to-words and speech tables. Fixed one analysis figure (5,000 words at 238 wpm is 21:01, not 21:00).
+- Twitter counter meta changed from the keyword file: Discord and bio limits are unverified, so the meta no longer promises them.
+- Builder prompt: `docs/prompts/BATCH6_BUILD_PROMPT.md`.
+
+No code changed.
+
+### [Docs — Batch 4 + Batch 5 build specs (provisional, no SERP export)] — 2026-11-22
+
+**Batch 4 (8 tools: 3D printing, CNC, engineering)**
+- Build specs, each in its own folder with its competitor analysis.
+- `00_BATCH4_BUILD_RULES.md`, which covers the accuracy rules: no invented cure times, SFM or chip loads, or standards tables.
+- Builder prompt: `docs/prompts/BATCH4_BUILD_PROMPT.md`.
+- After a research pass, every spec gained:
+  - research notes (competitor errors, G-code parsing, the electrical vs mechanical stepper intent, thread-formula errors);
+  - FAQs rebuilt from each analysis's question bank.
+
+**Batch 5 (20 tools: math and finance)**
+- All 20 specs fully rewritten from the complete competitor analyses (snapshot, errors found, FAQ bank, gaps, blueprint) and the full keyword placement.
+- Worked examples checked with node; several confirm or correct competitor figures:
+  - A/B z 2.152;
+  - tank 2,538 / 740.6 gal;
+  - age fixture 12 y 7 m 17 d;
+  - CAGR series −7.95%;
+  - t-test p 0.085.
+- New `00_BATCH5_LIVE_PAGE_KEYWORD_UPDATES.md`: keyword and FAQ additions for pages already live, worth about 183,000 searches.
+  - Biggest: the Stone & Gravel page, `gravel calculator` 33,100.
+- Rules (`00_BATCH5_BUILD_RULES.md`) and the prompt (`docs/prompts/BATCH5_BUILD_PROMPT.md`) updated.
+
+No code changed.
 
 ### [UX / Visual Redesign — Unique Tool Card Illustrations & Dedicated Icons] — 2026-11-21
 - **Tool Card Illustration Redesign (`src/components/home/ToolArt.tsx`, `ToolArt.module.css`)**:
@@ -2192,11 +2334,12 @@ All notable changes to this project will be documented in this file, sorted newe
 
 # SEO Audit Report
 
-Run Date: 2026-11-21T18:26:52.787Z
+Run Date: 2026-11-23T04:29:27.864Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
 |---|---|---|---|---|
+| `/3d-print-cost-calculator/` | 3D Print Cost Calculator – Filament, Pow | 3047 | 3D Print Cost Calculator: Fila | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/404/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 | `/about/` | About KKC Tools – How Our Calculators Wo | 491 | About KKC Tools | PASS |
@@ -2234,6 +2377,8 @@ Status: PASSED ✅
 | `/disclaimer/` | Disclaimer – Estimates, Safety & Accurac | 549 | Disclaimer | PASS |
 | `/discount-calculator/` | Discount Calculator – Percent Off & Sale | 2427 | Discount Calculator: Percent O | PASS |
 | `/drywall-calculator/` | Drywall Calculator – Sheetrock Sheets, M | 2823 | Drywall Calculator: Sheets, Jo | PASS |
+| `/epoxy-resin-calculator/` | Epoxy Resin Calculator – How Much Resin  | 3423 | Epoxy Resin Calculator: How Mu | PASS |
+| `/epoxy-table-calculator/` | Epoxy Table Calculator – River Table Res | 3028 | Epoxy River Table Calculator:  | PASS |
 | `/equipment-loan-calculator/` | Equipment Loan Calculator – Business Loa | 2831 | Equipment Loan Calculator: Pay | PASS |
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2653 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2395 | Fence Stain Calculator: Gallon | PASS |
@@ -2247,7 +2392,7 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 3167 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 3619 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2837 | Invoice Generator: Make an Hou | PASS |
 | `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
@@ -2266,6 +2411,7 @@ Status: PASSED ✅
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/processing-fee-calculator/` | Card Processing Fee Calculator – Square  | 2689 | Credit Card Processing Fee Cal | PASS |
 | `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2128 | Profit Margin Calculator: Gros | PASS |
+| `/pulley-calculator/` | Pulley Calculator – Ratio, Speed and Bel | 2601 | Pulley Ratio Calculator: Drive | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2404 | Rafter Calculator – Find Rafte | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
@@ -2273,15 +2419,19 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1536 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
+| `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1273 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1430 | Site Map | PASS |
+| `/speeds-and-feeds-calculator/` | Speeds and Feeds Calculator – CNC RPM &  | 3188 | Speeds and Feeds Calculator: C | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
+| `/steps-per-mm-calculator/` | Steps per mm Calculator – Stepper & E-st | 2648 | Steps per mm Calculator: Stepp | PASS |
 | `/stone-calculator/` | Stone Calculator (Tons, Yards & Bags) |  | 2871 | Stone Calculator: How Many Ton | PASS |
 | `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2207 | Stud Calculator: Wall Framing  | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
+| `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1810 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 2168 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 2431 | All Free Tools: Construction C | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -2293,6 +2443,7 @@ Status: PASSED ✅
 <!-- ========================================================= -->
 
 ```
+3d-print-cost-calculator/index.html
 404/index.html
 404.html
 about/index.html
@@ -2330,6 +2481,8 @@ deck-stain-calculator/index.html
 disclaimer/index.html
 discount-calculator/index.html
 drywall-calculator/index.html
+epoxy-resin-calculator/index.html
+epoxy-table-calculator/index.html
 equipment-loan-calculator/index.html
 fence-cost-calculator/index.html
 fence-stain-calculator/index.html
@@ -2362,6 +2515,7 @@ present-value-calculator/index.html
 privacy-policy/index.html
 processing-fee-calculator/index.html
 profit-margin-calculator/index.html
+pulley-calculator/index.html
 rafter-calculator/index.html
 rebar-calculator/index.html
 rental-property-calculator/index.html
@@ -2369,12 +2523,16 @@ roof-replacement-cost-calculator/index.html
 sand-calculator/index.html
 sba-loan-calculator/index.html
 self-employment-tax-calculator/index.html
+sfm-to-rpm-calculator/index.html
 shingle-calculator/index.html
 site-map/index.html
+speeds-and-feeds-calculator/index.html
 square-footage-calculator/index.html
+steps-per-mm-calculator/index.html
 stone-calculator/index.html
 stud-calculator/index.html
 terms/index.html
+thread-pitch-diameter-calculator/index.html
 tile-calculator/index.html
 tons-to-cubic-yards/index.html
 tools/index.html
@@ -2419,6 +2577,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+e94a40f build spec files added
 c55ef1a feat: complete Batch 3 financial tools (#47-#67) and redesign unique card artwork
 ed9608a Batch 3 remaining docs completed
 4a1e6d4 docs: update bundle evidence and mark Batch 1 completed
@@ -2438,7 +2597,6 @@ fc9be24 feat(carpet): add Carpet Cost Calculator and align UI with design system
 cc34105 docs(audit): record live Cloudflare 301 redirect verification
 3b3958a feat(seo): implement cue audit fixes, BLUF answers, internal hubs, and mobile enhancements
 f623230 modified UI
-5d10abb Floor Refinishing - completed
 ```
 
 
@@ -2454,24 +2612,25 @@ f623230 modified UI
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1190ms
+✓ Running next.config.ts took 1269ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 7.4s
+✓ Compiled successfully in 18.3s
   Running TypeScript ...
-  Finished TypeScript in 3.0s ...
+  Finished TypeScript in 6.0s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/102) ...
-  Generating static pages using 15 workers (25/102) 
-  Generating static pages using 15 workers (50/102) 
-  Generating static pages using 15 workers (76/102) 
-✓ Generating static pages using 15 workers (102/102) in 3.5s
+  Generating static pages using 15 workers (0/110) ...
+  Generating static pages using 15 workers (27/110) 
+  Generating static pages using 15 workers (54/110) 
+  Generating static pages using 15 workers (82/110) 
+✓ Generating static pages using 15 workers (110/110) in 6.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
 Route (app)
 ┌ ○ /
 ├ ○ /_not-found
+├ ○ /3d-print-cost-calculator
 ├ ○ /about
 ├ ○ /airbnb-calculator
 ├ ○ /apple-touch-icon.png
@@ -2510,6 +2669,8 @@ Route (app)
 ├ ○ /disclaimer
 ├ ○ /discount-calculator
 ├ ○ /drywall-calculator
+├ ○ /epoxy-resin-calculator
+├ ○ /epoxy-table-calculator
 ├ ○ /equipment-loan-calculator
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
@@ -2547,6 +2708,7 @@ Route (app)
 ├ ○ /privacy-policy
 ├ ○ /processing-fee-calculator
 ├ ○ /profit-margin-calculator
+├ ○ /pulley-calculator
 ├ ○ /rafter-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
@@ -2555,15 +2717,19 @@ Route (app)
 ├ ○ /sand-calculator
 ├ ○ /sba-loan-calculator
 ├ ○ /self-employment-tax-calculator
+├ ○ /sfm-to-rpm-calculator
 ├ ○ /shingle-calculator
 ├ ○ /site-map
 ├ ○ /sitemap.xml
+├ ○ /speeds-and-feeds-calculator
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
+├ ○ /steps-per-mm-calculator
 ├ ○ /stone-calculator
 ├ ○ /stone-calculator/opengraph-image
 ├ ○ /stud-calculator
 ├ ○ /terms
+├ ○ /thread-pitch-diameter-calculator
 ├ ○ /tile-calculator
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards
@@ -2614,6 +2780,12 @@ D:\1_programmins\5.kkctools\src\app\guides\page.tsx
 D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
+D:\1_programmins\5.kkctools\src\components\tool\3d-print-cost-calculator\PrintCostCalculator.tsx
+  11:3   warning  'filamentLengthFromGrams' is defined but never used         @typescript-eslint/no-unused-vars
+  50:30  warning  'setMaintenancePerHour' is assigned a value but never used  @typescript-eslint/no-unused-vars
+  56:25  warning  'setPackagingCost' is assigned a value but never used       @typescript-eslint/no-unused-vars
+  58:18  warning  'setTaxPct' is assigned a value but never used              @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\airbnb-calculator\AirbnbCalculator.tsx
    69:27  warning  'setNightsAvailable' is assigned a value but never used    @typescript-eslint/no-unused-vars
    77:25  warning  'setPaymentFeePct' is assigned a value but never used      @typescript-eslint/no-unused-vars
@@ -2633,6 +2805,24 @@ D:\1_programmins\5.kkctools\src\components\tool\commercial-lease-calculator\Comm
 
 D:\1_programmins\5.kkctools\src\components\tool\commercial-mortgage-calculator\CommercialMortgageCalculator.tsx
   57:29  warning  'setOtherClosingCosts' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\epoxy-resin-calculator\EpoxyResinCalculator.tsx
+  124:6  warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  149:6  warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  162:6  warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\1_programmins\5.kkctools\src\components\tool\epoxy-table-calculator\EpoxyTableCalculator.tsx
+   44:22  warning  'setEdgeHeight' is assigned a value but never used                                                         @typescript-eslint/no-unused-vars
+  102:6   warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  111:6   warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  123:6   warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  134:6   warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  151:9   warning  'split' is assigned a value but never used                                                                 @typescript-eslint/no-unused-vars
+  162:6   warning  React Hook useMemo has a missing dependency: 'toInches'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\1_programmins\5.kkctools\src\components\tool\epoxy-table-calculator\EpoxyTableInputGuide.tsx
+  28:3  warning  'tableLength' is defined but never used  @typescript-eslint/no-unused-vars
+  31:3  warning  'edgeHeight' is defined but never used   @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\freelance-rate-calculator\FreelanceInputGuide.tsx
   36:3  warning  'totalWorkingHours' is defined but never used    @typescript-eslint/no-unused-vars
@@ -2656,6 +2846,18 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
   296:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\sfm-to-rpm-calculator\SfmCalculator.tsx
+  10:3  warning  'diaFromSfmRpm' is defined but never used  @typescript-eslint/no-unused-vars
+  12:3  warning  'vcFromRpm' is defined but never used      @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\speeds-and-feeds-calculator\SpeedsFeedsCalculator.tsx
+   9:3  warning  'sfmFromRpm' is defined but never used  @typescript-eslint/no-unused-vars
+  10:3  warning  'rpmFromVc' is defined but never used   @typescript-eslint/no-unused-vars
+  11:3  warning  'vcFromRpm' is defined but never used   @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\speeds-and-feeds-calculator\SpeedsFeedsInputGuide.tsx
+  21:3  warning  'tab' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -2673,7 +2875,7 @@ D:\1_programmins\5.kkctools\src\lib\str-engine.ts
 D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
   12:3  warning  'npv' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 35 problems (0 errors, 35 warnings)
+✖ 57 problems (0 errors, 57 warnings)
 
 
 ```
@@ -2685,7 +2887,7 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 88 HTML files in out/...
+Auditing 96 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -2699,87 +2901,13 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
-[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
+ RUN  v4.1.12 D:/1_programmins/5.kkctools
 
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 71[2mms[22m[39m
- [32m✓[39m src/lib/contribution-margin-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 34[2mms[22m[39m
- [32m✓[39m src/lib/card-payoff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 33[2mms[22m[39m
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 35[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 33[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 39[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 45[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 49[2mms[22m[39m
- [32m✓[39m src/lib/rental-property-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/sba-loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/heloc-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/invoice-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/compound-interest-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/freelance-rate-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 535[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 465[2mms[22m[39m
- [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 26[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/tvm-engine.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/se-tax-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/str-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/real-estate-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/investment-return-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/labor-cost-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/processing-fee-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/drawdown-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/cap-rate-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/equipment-loan-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/commercial-lease-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 9[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/commercial-mortgage-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/net-worth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/business-valuation-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 3[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m73 passed[39m[22m[90m (73)[39m
-[2m      Tests [22m [1m[32m904 passed[39m[22m[90m (904)[39m
-[2m   Start at [22m 23:56:15
-[2m   Duration [22m 3.36s[2m (transform 10.26s, setup 0ms, import 14.37s, tests 1.96s, environment 28ms)[22m
+ Test Files  79 passed (79)
+      Tests  957 passed (957)
+   Start at  09:58:26
+   Duration  5.25s (transform 16.63s, setup 0ms, import 22.54s, tests 2.70s, environment 31ms)
 
 
 ```

@@ -386,6 +386,78 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  epoxyResinCalculator: {
+    path: '/epoxy-resin-calculator/',
+    title: 'Epoxy Resin Calculator – How Much Resin You Need',
+    description:
+      'Free epoxy resin calculator. Find how much resin and hardener you need for table tops, deep pours and silicone molds, by volume or weight, in fl oz, gal and mL.',
+    updated: '2026-11-22',
+    type: 'tool',
+    indexable: true,
+  },
+  epoxyTableCalculator: {
+    path: '/epoxy-table-calculator/',
+    title: 'Epoxy Table Calculator – River Table Resin Amount',
+    description:
+      'Free epoxy table calculator. Work out the resin for a river table or a table top: river volume, number of pours, flood coat and mix ratio.',
+    updated: '2026-11-22',
+    type: 'tool',
+    indexable: true,
+  },
+  threadPitchDiameterCalculator: {
+    path: '/thread-pitch-diameter-calculator/',
+    title: 'Thread Pitch Diameter Calculator – UN & Metric',
+    description:
+      'Free thread pitch diameter calculator. Get basic pitch diameter, minor diameter and tap drill size for UN, metric and Acme threads from size and pitch.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  stepsPerMmCalculator: {
+    path: '/steps-per-mm-calculator/',
+    title: 'Steps per mm Calculator – Stepper & E-steps',
+    description:
+      'Free steps per mm calculator for 3D printers and CNC machines. Work out stepper steps per mm for belts, lead screws and extruders, and correct your e-steps.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  pulleyCalculator: {
+    path: '/pulley-calculator/',
+    title: 'Pulley Calculator – Ratio, Speed and Belt Size',
+    description:
+      'Free pulley ratio calculator. Find the driven pulley speed, the pulley size for a target RPM, the speed ratio and the belt speed for two pulleys.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  sfmToRpmCalculator: {
+    path: '/sfm-to-rpm-calculator/',
+    title: 'SFM to RPM Calculator – Surface Feet per Minute',
+    description:
+      'Free SFM to RPM calculator. Convert surface feet per minute to spindle RPM for any diameter, or RPM back to SFM, m/min and feet per minute.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  speedsAndFeedsCalculator: {
+    path: '/speeds-and-feeds-calculator/',
+    title: 'Speeds and Feeds Calculator – CNC RPM & Feed Rate',
+    description:
+      'Free speeds and feeds calculator for CNC milling, routing and drilling. Get spindle RPM, feed rate (IPM or mm/min) and chip load from tool size and material.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  printCostCalculator: {
+    path: '/3d-print-cost-calculator/',
+    title: '3D Print Cost Calculator – Filament, Power & Time',
+    description:
+      'Free 3D print cost calculator. Work out filament or resin cost, electricity, machine wear and failure rate, then set your markup to price 3D prints to sell.',
+    updated: '2026-11-22',
+    type: 'tool',
+    indexable: true,
+  },
   invoiceGenerator: {
     path: '/invoice-generator/',
     title: 'Free Invoice Generator – Hourly & Freelance Invoices',

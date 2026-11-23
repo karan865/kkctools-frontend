@@ -69,6 +69,14 @@ export type IconName =
   | 'invoice'
   | 'roofCost'
   | 'gridSearch'
+  | 'epoxyResin'
+  | 'riverTable'
+  | 'printer3d'
+  | 'speedsFeeds'
+  | 'sfmRpm'
+  | 'pulley'
+  | 'stepperMotor'
+  | 'threadPitch'
   | 'plus'
   | 'search'
   | 'check'
@@ -717,6 +725,87 @@ export default function Icon({
           <rect x="3" y="14" width="7" height="7" rx="1.5" />
           <circle cx="16.5" cy="16.5" r="2.5" />
           <line x1="18.5" y1="18.5" x2="21" y2="21" />
+        </svg>
+      );
+    case 'epoxyResin':
+      return (
+        <svg {...common}>
+          <path d="M10 2v4l-5 9.5A3 3 0 0 0 7.6 20h8.8a3 3 0 0 0 2.6-4.5L14 6V2h-4z" />
+          <line x1="8.5" y1="2" x2="15.5" y2="2" />
+          <path d="M7 15c2-1 4 1 6 0 2-1 3 0 4 .5" />
+        </svg>
+      );
+    case 'riverTable':
+      return (
+        <svg {...common}>
+          <rect x="3" y="4" width="18" height="16" rx="2" />
+          <path d="M9 4c-1 3 2 6 0 9s-2 4 0 7" />
+          <path d="M15 4c-1 3 2 6 0 9s-2 4 0 7" />
+        </svg>
+      );
+    case 'printer3d':
+      return (
+        <svg {...common}>
+          <path d="M4 21h16" />
+          <path d="M6 21V5a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v16" />
+          <line x1="6" y1="10" x2="18" y2="10" />
+          <path d="M10 10v3l2 2 2-2v-3" />
+          <rect x="9" y="17" width="6" height="4" rx="1" />
+        </svg>
+      );
+    case 'speedsFeeds':
+      return (
+        <svg {...common}>
+          <path d="M10 2h4v5h-4z" />
+          <path d="M11 7v7l1 2 1-2V7" />
+          <path d="M18 10a6 6 0 0 0-5-5" />
+          <polyline points="18 7 18 10 15 10" />
+          <path d="M5 16h8" />
+          <polyline points="10 13 13 16 10 19" />
+        </svg>
+      );
+    case 'sfmRpm':
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 12l4-4" />
+          <circle cx="12" cy="12" r="2" />
+          <path d="M8 8a5.5 5.5 0 0 1 8 0" />
+        </svg>
+      );
+    case 'pulley':
+      return (
+        <svg {...common}>
+          <circle cx="7" cy="12" r="4" />
+          <circle cx="7" cy="12" r="1.5" />
+          <circle cx="17" cy="12" r="3" />
+          <circle cx="17" cy="12" r="1" />
+          <line x1="7" y1="8" x2="17" y2="9" />
+          <line x1="7" y1="16" x2="17" y2="15" />
+        </svg>
+      );
+    case 'stepperMotor':
+      return (
+        <svg {...common}>
+          <rect x="5" y="8" width="14" height="12" rx="2" />
+          <path d="M10 8V3h4v5" />
+          <line x1="12" y1="3" x2="12" y2="5" />
+          <circle cx="12" cy="14" r="3" />
+          <path d="M3 14h2" />
+          <path d="M19 14h2" />
+        </svg>
+      );
+    case 'threadPitch':
+      return (
+        <svg {...common}>
+          <path d="M7 3h10v3H7z" />
+          <path d="M8 6v14a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V6" />
+          <path d="M8 9l8 2" />
+          <path d="M8 13l8 2" />
+          <path d="M8 17l8 2" />
+          <path d="M5 9v4" />
+          <polyline points="4 10 5 9 6 10" />
+          <polyline points="4 12 5 13 6 12" />
         </svg>
       );
     case 'plus':
