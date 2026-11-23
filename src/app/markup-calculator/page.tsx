@@ -502,6 +502,9 @@ export default function MarkupCalculatorPage() {
               Complement your pricing strategy with our other verified calculators:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.reverseSalesTaxCalculator.path} className={styles.pillLink}>
+                Reverse Sales Tax Calculator (Price Before Tax)
+              </Link>
               <Link href={ROUTES.processingFeeCalculator.path} className={styles.pillLink}>
                 Card Processing Fee Calculator (Square, Stripe &amp; Net Proceeds)
               </Link>

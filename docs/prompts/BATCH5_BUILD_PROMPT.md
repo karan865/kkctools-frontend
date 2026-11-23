@@ -73,3 +73,29 @@
 - The pills used.
 - Every `TODO(owner)` you hit and what you did.
 - Any spec/code mismatch.
+
+## 4. Lessons from the Batch 4 review (added 2026-11-23) — mandatory
+
+The Batch 4 build passed `npm run verify` but still had real problems. Don't repeat them:
+
+1. **No unsourced "typical" values anywhere:**
+   - not in FAQ answers (they go into FAQ schema), help texts, labels, article copy or HowWeCalculate;
+   - e.g. "typical tax rate", "average grade scale", "good ROI is 10%", "typical cap rate", prices, densities;
+   - use a formula, a value labelled "example", or a cited, dated source from the spec;
+   - before you finish each tool, grep its page and component for `typical|usually|average|recommended|standard practice|~[0-9]`.
+2. **Citations must say what the source really covers.** Don't attach a standard to a claim it doesn't support. If you didn't open it, don't cite it.
+3. **Don't change shared files for one tool's styling:**
+   - `ToolShell.module.css`, `globals.css`, `tokens.css`, the layout components;
+   - a broad selector there (e.g. `[class*='card']`) can break ~70 live tools;
+   - fix colours in the tool's own CSS module (set `color: var(--ink)` on its root card).
+4. **ToolShell lives on the page only.** The calculator component must not render its own `<ToolShell>`. Nested shells give two bands and two pill rows.
+5. **Every `<label>` is linked to its control** (`htmlFor` + `id` from `useId()`).
+6. **Pages read `title` and `description` from `ROUTES.<key>`.** Never copy them inline. Use `absoluteTitle` only when the title + " | KKC Tools" is over 60 characters.
+7. **Safety and correctness bugs hide behind passing tests:**
+   - a test must assert the *correct* behaviour from the spec, not whatever the code currently does;
+   - for limits, clamps and edge cases, write the test from the spec first.
+8. **Exact constants:** 1 US gal = 231 in³; 1 in = 2.54 cm; 1 lb = 0.45359237 kg. Never rounded versions.
+9. **Dates (02 Age Difference, 17 Simple Interest, 06 CAGR):**
+   - `date-diff-engine.ts` uses **month-stepping** for Y/M/D (2026-01-31 → 2026-03-01 = 1 month 1 day), not the "borrow" rule (spec 02 updated 2026-11-22);
+   - Batch 8 Part 1 reuses this engine, so build it to the spec interface.
+10. **One-run builds:** when the owner asks for all tools in one run, still run `npm run verify` after every tool and post the short per-tool report. Stop only on a spec/code conflict or a test you can't make pass.

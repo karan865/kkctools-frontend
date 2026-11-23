@@ -50,6 +50,7 @@ export default function Header() {
     'finishes',
     'business',
     'engineering',
+    'math',
   ];
 
   return (
@@ -125,7 +126,7 @@ export default function Header() {
                         <div key={catKey} className={styles.megaCol}>
                           <span className={styles.megaColTitle}>{cat.name}</span>
                           <ul className={styles.megaList}>
-                            {tools.slice(0, 5).map((t) => (
+                            {tools.slice(0, 3).map((t) => (
                               <li key={t.slug}>
                                 <Link
                                   href={t.slug}
@@ -133,20 +134,20 @@ export default function Header() {
                                   onClick={() => setToolsDropdownOpen(false)}
                                 >
                                   <span className={styles.megaIcon}>
-                                    <Icon name={t.icon} size={15} />
+                                    <Icon name={t.icon} size={14} />
                                   </span>
                                   <span className={styles.megaName}>{t.name}</span>
                                 </Link>
                               </li>
                             ))}
-                            {tools.length > 5 && (
+                            {tools.length > 3 && (
                               <li>
                                 <Link
                                   href={`/tools/#${catKey}`}
                                   className={styles.megaMore}
                                   onClick={() => setToolsDropdownOpen(false)}
                                 >
-                                  View all {tools.length} in {cat.name} →
+                                  All {tools.length} in {cat.name} →
                                 </Link>
                               </li>
                             )}

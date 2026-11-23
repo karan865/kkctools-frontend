@@ -13,11 +13,15 @@ import styles from './page.module.css';
 import JsonLd from '@/components/seo/JsonLd';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 
+import { ROUTES } from '@/lib/routes';
+
+const route = ROUTES.stoneCalculator;
+
 export const metadata: Metadata = buildMetadata({
-  title: 'Stone Calculator (Tons, Yards & Bags)',
-  description:
-    'Calculate how many tons of rock, stone, gravel, and river rock you need. Free stone calculator with cubic yards, bags, density chart, and cost estimate.',
-  path: '/stone-calculator/',
+  title: route.title,
+  description: route.description,
+  path: route.path,
+  absoluteTitle: true,
 });
 
 const jsonLd = [
@@ -104,10 +108,10 @@ export default function StoneCalculatorPage() {
         {/* Page Header */}
         <header className={styles.header}>
           <h1 className={styles.h1Title}>
-            Stone Calculator: How Many Tons of Rock Do You Need?
+            Gravel Calculator: Stone, Rock and Pea Gravel in Yards and Tons
           </h1>
           <p className={styles.introParagraph}>
-            Use our free <strong>stone calculator</strong> to figure out exactly how many tons, cubic yards, and 50 lb bags of rock or aggregate you need for your landscaping or driveway project. Whether you need a <strong>rock calculator</strong> for decorative river rock, a <strong>landscape rock calculator</strong> for garden beds, a <strong>crushed stone calculator</strong> for bases, or an <strong>aggregate calculator</strong> for commercial site work, calculate your materials instantly below with accurate quarry densities.
+            This <strong>gravel calculator</strong> works out how much stone or rock you need for driveways, landscaping, and construction projects. Whether you are figuring gravel for a driveway, estimating <strong>pea gravel</strong> for walkways, ordering decorative <strong>river rock</strong>, or calculating <strong>crushed stone</strong> and crusher run for sub-bases, convert length, width, and depth into cubic yards, tons, and bags instantly below.
           </p>
         </header>
 
@@ -302,6 +306,70 @@ export default function StoneCalculatorPage() {
             <p className={styles.helperNote}>
               Source: Aggregate bulk density standards compiled across US and Canadian suppliers. Last verified: {LAST_VERIFIED}.
             </p>
+          </section>
+
+          {/* Section: How to Figure Gravel (Yards and Tons) */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              How to figure gravel (yards and tons)
+            </h2>
+            <p className={styles.paragraph}>
+              Figuring gravel for any project requires converting your surface area and planned depth into solid volume (cubic yards), and then multiplying by quarry density (tons per yard):
+            </p>
+            <ol className={styles.orderedList}>
+              <li><strong>Calculate Area:</strong> Multiply Length (ft) × Width (ft) to get total square footage (sq ft).</li>
+              <li><strong>Convert Depth to Feet:</strong> Divide your depth in inches by 12 (e.g. 3 inches = 0.25 ft, 4 inches = 0.333 ft).</li>
+              <li><strong>Find Cubic Yards:</strong> Multiply Area (sq ft) × Depth (ft) ÷ 27 = Cubic Yards (yd³).</li>
+              <li><strong>Convert Yards to Tons:</strong> Multiply Cubic Yards × Material Density (tons/yd³). Use the density on your supplier&apos;s ticket if you have it; otherwise pick a preset in the calculator (for example #57 stone is preset at 1.40 tons/yd³ and crusher run at 1.50) and edit it.</li>
+              <li><strong>Add a Waste Allowance:</strong> The calculator adds 10% by default for uneven ground and settling; change it to suit your job.</li>
+            </ol>
+          </section>
+
+          {/* Section: How much gravel for a driveway? */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              How much gravel for a driveway?
+            </h2>
+            <p className={styles.paragraph}>
+              A driveway is often built in two layers: a compacted base of dense-graded stone (crusher run) and a top layer of cleaner stone. Work out each layer separately with its own depth and density, then add them. Take the layer depths from your plans or your local supplier or contractor; this page does not set them.
+            </p>
+            <p className={styles.paragraph}>
+              Example only: a driveway 50 feet long by 16 feet wide (800 sq ft) with one 4-inch layer (4 ÷ 12 = 0.333 ft):
+            </p>
+            <ul className={styles.unorderedList}>
+              <li><strong>Volume:</strong> 800 sq ft × (4 ÷ 12) ft ÷ 27 = 9.88 cubic yards.</li>
+              <li><strong>Weight (at the calculator&apos;s #57 stone preset of 1.40 tons/yd³):</strong> 9.88 × 1.40 = 13.83 tons.</li>
+              <li><strong>With the default 10% allowance:</strong> 13.83 × 1.10 = 15.21 tons.</li>
+            </ul>
+          </section>
+
+          {/* Section: Pea Gravel, River Rock and Landscape Rock */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Pea gravel, river rock and landscape rock
+            </h2>
+            <p className={styles.paragraph}>
+              Different stone selections serve distinctly different functional and aesthetic goals:
+            </p>
+            <ul className={styles.unorderedList}>
+              <li><strong>Pea Gravel (small smooth pebbles):</strong> Rounded stones used for paths, dog runs and play areas. The calculator&apos;s pea gravel preset is 1.40 tons/yd³ (editable).</li>
+              <li><strong>River Rock (larger smooth stones):</strong> Rounded decorative stone for dry creek beds and garden borders. The river rock preset is 1.35 tons/yd³ (editable).</li>
+              <li><strong>Landscape Rock:</strong> Decorative stone in many sizes and rock types, so its weight varies a lot. Choose the closest preset or enter your supplier&apos;s density with the Custom option.</li>
+            </ul>
+          </section>
+
+          {/* Section: Crusher Run and Crushed Concrete */}
+          <section className={styles.sectionBlock}>
+            <h2 className={styles.sectionHeading}>
+              Crusher run and crushed concrete
+            </h2>
+            <p className={styles.paragraph}>
+              Both are used as compacted bases rather than as decorative cover:
+            </p>
+            <ul className={styles.unorderedList}>
+              <li><strong>Crusher Run (DGA / ABC Stone):</strong> A blend of crushed stone and stone dust; the fines fill the gaps between the larger stones when it is compacted. The crusher run preset is 1.50 tons/yd³ (editable).</li>
+              <li><strong>Crushed Recycled Concrete:</strong> Made by crushing old concrete. Its weight depends on the source concrete and how it was graded, so there is no preset for it: enter the density from your supplier with the Custom option.</li>
+            </ul>
           </section>
 
           {/* Section 4: Stone Calculator Tons by Area & Depth */}

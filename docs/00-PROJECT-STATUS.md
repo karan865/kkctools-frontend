@@ -6,8 +6,8 @@
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 4 (3D Printing, CNC & Engineering) Suite Fully Built, Styled, and Verified: 8 new tools (#68 through #75) with new catalog category "3D Printing & CNC" (`engineering`); 100% pure client-side engines with unit tests matching all spec worked examples. Premium Oceanic Teal/Cyan gradient hero cards and elevated result panels rolled out across all 8 tools.
-- **Overall Completion:** 953 vitest tests passing (79 files, 100% green), 93 static routes in routes.ts, 75 tools in tools-catalog.ts (75 unique bespoke icons & cards), every HTML page passes the SEO audit with zero errors (96 HTML pages), no-network check passing (`npm run verify` 2026-11-23).
+- **Current Phase:** Batch 5 (Math & Financial Calculators) — Checkpoint reached: First 10 tools completed and verified with `npm run verify` passing across all 6 pipeline steps. Tools built & live: #76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test. All 10 live-page keyword refreshes implemented.
+- **Overall Completion:** 1,039 vitest tests passing (88 test files, 100% green), 103 static routes in routes.ts, 85 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (106 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-23).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).

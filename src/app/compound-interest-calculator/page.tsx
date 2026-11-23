@@ -29,6 +29,10 @@ export const metadata: Metadata = buildMetadata({
 
 const FAQS = [
   {
+    q: 'How do I calculate future value (future value calc)?',
+    a: 'To calculate future value (FV) with compound interest, use the formula FV = P × (1 + r/n)^(n×t) for a single lump sum, or add the future value annuity formula if making regular monthly additions. For example, $10,000 invested at 5% APR for 10 years compounded daily yields a future value of $16,486.65.',
+  },
+  {
     q: 'How does compound interest work?',
     a: 'Compound interest occurs when the interest earned on an investment is credited back to the principal balance, so subsequent interest calculations apply to both the original principal and accumulated interest. This creates an exponential growth curve over time rather than the flat linear growth seen with simple interest.',
   },
@@ -103,7 +107,7 @@ export default function CompoundInterestPage() {
         <header className={styles.hero}>
           <h1 className={styles.title}>Compound Interest Calculator: Daily, Monthly and Compound Growth</h1>
           <p className={styles.bluf}>
-            Compound interest earns interest on your interest. Future value = P × (1 + r/n)^(n×t), plus your deposits
+            Use this <strong>compound calculator</strong> and <strong>compounding calculator</strong> to figure compound interest with daily, monthly, or annual intervals. Future value = P × (1 + r/n)^(n×t), plus your deposits
             grown the same way. $10,000 plus $200 a month at 5% compounded monthly grows to $47,526.55 in 10 years.
           </p>
         </header>
@@ -225,11 +229,11 @@ export default function CompoundInterestPage() {
           </section>
 
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>4. Compounding Frequency: Interest Compounded Monthly vs. Daily vs. Annually</h2>
+            <h2 className={styles.sectionTitle}>4. Daily Compounding Interest Calculator (Compound Daily Calculator) vs. Monthly</h2>
             <div className={styles.prose}>
               <p>
-                A widespread misconception among retail savers is that moving from monthly compounding to daily
-                compounding generates enormous financial windfalls. While higher compounding frequencies mathematically
+                When using a <strong>compound daily calculator</strong> (365 cycles per year), interest is computed and added to your balance every day.
+                A widespread question among retail savers is whether moving from monthly compounding to daily compounding generates enormous windfalls. While higher compounding frequencies mathematically
                 increase yield, the law of diminishing returns sets in rapidly.
               </p>
               <p>
@@ -300,6 +304,18 @@ export default function CompoundInterestPage() {
                 jumping all the way from monthly compounding to daily compounding gains only <strong>$16.56</strong> over
                 an entire decade. The nominal interest rate you earn and your personal savings rate matter exponentially
                 more than the difference between daily and monthly compounding intervals.
+              </p>
+            </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2 className={styles.sectionTitle}>Savings Account Interest Calculator (APY &amp; Bank Deposits)</h2>
+            <div className={styles.prose}>
+              <p>
+                When searching for a <strong>saving account calculator</strong>, look closely at how the financial institution quotes returns. US savings accounts quote an Annual Percentage Yield (APY), which already includes the effect of compounding at whatever frequency the bank uses.
+              </p>
+              <p>
+                For one year with no deposits or withdrawals: <code>Interest Earned = Principal Balance × APY</code>. For multi-year projections with regular paycheck deposits, enter the stated APY into our calculator and toggle the rate basis to &ldquo;Quoted as APY&rdquo; to project savings growth without double-compounding.
               </p>
             </div>
           </section>
@@ -464,6 +480,12 @@ export default function CompoundInterestPage() {
           <section className={styles.section} style={{ marginTop: '2.5rem' }}>
             <h3 className={styles.sectionTitle}>Explore Related Financial Calculators</h3>
             <div className={styles.relatedGrid}>
+              <Link href="/cagr-calculator/" className={styles.relatedCard}>
+                <h4 className={styles.relatedCardTitle}>CAGR Calculator</h4>
+                <p className={styles.relatedCardDesc}>
+                  Work backwards from a start and end value to the compound annual growth rate, with the Rule of 72.
+                </p>
+              </Link>
               <Link href="/present-value-calculator/" className={styles.relatedCard}>
                 <h4 className={styles.relatedCardTitle}>Present Value & NPV Calculator</h4>
                 <p className={styles.relatedCardDesc}>

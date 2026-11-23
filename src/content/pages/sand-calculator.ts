@@ -141,6 +141,10 @@ export const sandCalculatorPageContent: SandCalculatorContent = {
   ],
   faqs: [
     {
+      q: 'How much does a yard of sand weigh?',
+      a: 'It depends on how wet the sand is. This calculator uses about 2,600 lb (1.3 tons) per cubic yard for dry sand, 2,900 lb for damp and 3,200 lb (1.6 tons) for wet sand; water adds weight but no extra sand. These defaults are editable, so use your supplier’s figure if it differs.',
+    },
+    {
       q: 'How do I calculate how much sand I need?',
       a: 'Multiply length × width × depth to get volume, convert it to cubic yards by dividing cubic feet by 27, then add 5–10% for waste. To order by weight, multiply cubic yards by the sand’s density (about 2,600 lb per cubic yard for dry sand) and divide by 2,000 to get tons.',
     },
@@ -151,10 +155,6 @@ export const sandCalculatorPageContent: SandCalculatorContent = {
     {
       q: 'How much sand do I need for pavers?',
       a: 'For bedding, multiply the paved area by about 1 inch of depth. Joint sand depends on paver size, joint width and joint depth. Use the Paver Sand and Polymeric Sand tabs above.',
-    },
-    {
-      q: 'How much does a cubic yard of sand weigh?',
-      a: 'About 2,600 lb (1.3 tons) when dry and up to about 3,200 lb (1.6 tons) when wet.',
     },
     {
       q: 'Should I add extra sand for waste?',

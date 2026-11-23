@@ -58,6 +58,14 @@ export type IconName =
   | 'businessValuation'
   | 'presentValue'
   | 'compoundInterest'
+  | 'calendar'
+  | 'boxPlot'
+  | 'abTest'
+  | 'gallonJug'
+  | 'growthChart'
+  | 'fractionPercent'
+  | 'reverseTax'
+  | 'stdev'
   | 'processingFee'
   | 'creditCardPayoff'
   | 'netWorth'
@@ -77,6 +85,7 @@ export type IconName =
   | 'pulley'
   | 'stepperMotor'
   | 'threadPitch'
+  | 'mathSymbols'
   | 'plus'
   | 'search'
   | 'check'
@@ -806,6 +815,84 @@ export default function Icon({
           <path d="M5 9v4" />
           <polyline points="4 10 5 9 6 10" />
           <polyline points="4 12 5 13 6 12" />
+        </svg>
+      );
+    case 'mathSymbols':
+      return (
+        <svg {...common}>
+          <path d="M4 7h6M7 4v6" />
+          <path d="M14 7h6" />
+          <path d="M5 15l4 4M9 15l-4 4" />
+          <path d="M14 15h6M14 19h6" />
+        </svg>
+      );
+    case 'calendar':
+      return (
+        <svg {...common}>
+          <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
+          <line x1="16" y1="2" x2="16" y2="6" />
+          <line x1="8" y1="2" x2="8" y2="6" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+        </svg>
+      );
+    case 'boxPlot':
+      return (
+        <svg {...common}>
+          <line x1="2" y1="12" x2="6" y2="12" />
+          <line x1="2" y1="9" x2="2" y2="15" />
+          <rect x="6" y="6" width="12" height="12" rx="1" />
+          <line x1="11" y1="6" x2="11" y2="18" />
+          <line x1="18" y1="12" x2="22" y2="12" />
+          <line x1="22" y1="9" x2="22" y2="15" />
+        </svg>
+      );
+    case 'abTest':
+      return (
+        <svg {...common}>
+          <circle cx="6" cy="6" r="3" />
+          <circle cx="18" cy="6" r="3" />
+          <path d="M6 9v3a3 3 0 0 0 3 3h6a3 3 0 0 0 3-3V9" />
+          <line x1="12" y1="15" x2="12" y2="21" />
+          <circle cx="12" cy="21" r="1.5" />
+        </svg>
+      );
+    case 'gallonJug':
+      return (
+        <svg {...common}>
+          <rect x="6" y="8" width="12" height="13" rx="3" />
+          <path d="M10 8V4h4v4" />
+          <path d="M14 10h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2h-3" />
+        </svg>
+      );
+    case 'growthChart':
+      return (
+        <svg {...common}>
+          <path d="M3 3v18h18" />
+          <path d="m19 9-5 5-4-4-3 3" />
+          <path d="m14 9h5v5" />
+        </svg>
+      );
+    case 'fractionPercent':
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 3v9h9" />
+        </svg>
+      );
+    case 'reverseTax':
+      return (
+        <svg {...common}>
+          <path d="M4 2v20l2-1 2 1 2-1 2 1 2-1 2 1 2-1 2 1V2l-2 1-2-1-2 1-2-1-2 1-2-1-2 1Z" />
+          <path d="M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8" />
+          <path d="M12 6v2m0 8v2" />
+        </svg>
+      );
+    case 'stdev':
+      return (
+        <svg {...common}>
+          <path d="M3 18h18" />
+          <path d="M3 18c4 0 5-14 9-14s5 14 9 14" />
+          <line x1="12" y1="4" x2="12" y2="18" strokeDasharray="2 2" />
         </svg>
       );
     case 'plus':

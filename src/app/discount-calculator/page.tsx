@@ -465,6 +465,12 @@ export default function DiscountCalculatorPage() {
               <a href="/markup-calculator/" className={styles.pillLink}>
                 Markup Calculator
               </a>
+              <a href="/reverse-sales-tax-calculator/" className={styles.pillLink}>
+                Reverse Sales Tax Calculator
+              </a>
+              <a href="/fraction-to-percent-calculator/" className={styles.pillLink}>
+                Fraction to Percent Calculator
+              </a>
               <a href="/profit-margin-calculator/" className={styles.pillLink}>
                 Profit Margin Calculator
               </a>

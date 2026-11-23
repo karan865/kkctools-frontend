@@ -1,0 +1,153 @@
+.diagramWrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cat-math-deep);
+  margin-bottom: 12px;
+}
+
+.ratioBanner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+
+.cubeBox {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 14px;
+  text-align: center;
+}
+
+.cubeVisual {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.cubeSub {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.equalsSign {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+}
+
+.jugsBox {
+  flex: 1;
+  min-width: 170px;
+}
+
+.jugsVisual {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--cat-math-deep);
+}
+
+.jugsSub {
+  font-size: 0.76rem;
+  color: var(--ink-soft);
+}
+
+.reciprocalBox {
+  background: var(--cat-math-soft);
+  border: 1px solid var(--cat-math);
+  border-radius: 10px;
+  padding: 8px 14px;
+  text-align: right;
+}
+
+.recipTag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  color: var(--cat-math-deep);
+  letter-spacing: 0.05em;
+}
+
+.recipVal {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.chip {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  padding: 3px 10px;
+}
+
+.shapesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 12px;
+}
+
+.shapeCard {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.shapeIcon {
+  font-size: 1.2rem;
+}
+
+.shapeTitle {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.shapeFormula {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cat-math-deep);
+  font-family: monospace;
+}
+
+.shapeDesc {
+  font-size: 0.74rem;
+  color: var(--ink-soft);
+}
+
+.tableNotes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}

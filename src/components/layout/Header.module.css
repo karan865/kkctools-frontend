@@ -120,27 +120,30 @@
   transform: rotate(180deg);
 }
 
-/* Mega Menu Dropdown (3 Columns, Capped at 5 tools) */
+/* Compact Mega Menu Dropdown (4 Columns × 2 Rows, ~300px height) */
 .megaMenu {
   position: absolute;
-  top: 100%;
-  left: -120px;
-  width: 820px;
+  top: calc(100% + 4px);
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(940px, calc(100vw - 32px));
   background: var(--surface);
   border: 1px solid var(--line);
-  border-radius: var(--radius-card, 16px);
-  box-shadow: var(--shadow-pop);
-  padding: 24px;
+  border-radius: var(--radius-card, 14px);
+  box-shadow: 0 16px 36px -6px rgba(15, 23, 42, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
+  padding: 16px 20px 12px;
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 14px;
   z-index: 1000;
+  max-height: calc(100vh - 80px);
+  overflow-y: auto;
 }
 
 .megaGrid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 24px;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px 18px;
 }
 
 .megaCol {
@@ -149,14 +152,17 @@
 }
 
 .megaColTitle {
-  font-size: 0.75rem;
+  font-size: 0.7rem;
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.08em;
   color: var(--color-primary);
-  margin-bottom: 10px;
-  padding-bottom: 4px;
+  margin-bottom: 6px;
+  padding-bottom: 3px;
   border-bottom: 1px solid var(--line);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .megaList {
@@ -165,15 +171,15 @@
   margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 3px;
+  gap: 2px;
 }
 
 .megaItem {
   display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 6px 8px;
-  border-radius: 6px;
+  gap: 6px;
+  padding: 4px 6px;
+  border-radius: 5px;
   text-decoration: none;
   color: var(--ink);
   transition: background 0.15s ease;
@@ -187,23 +193,30 @@
   color: var(--muted);
   display: flex;
   align-items: center;
+  flex-shrink: 0;
 }
 
 .megaName {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-size: 0.78rem;
+  font-weight: 500;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
 .megaMore {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   color: var(--accent);
   text-decoration: none;
   font-weight: 600;
-  padding: 4px 8px;
+  padding: 3px 6px;
   display: inline-block;
+  transition: color 0.15s ease;
+}
+
+.megaMore:hover {
+  text-decoration: underline;
+  color: var(--color-primary);
 }
 
 .megaBottom {
@@ -211,11 +224,11 @@
   align-items: center;
   justify-content: space-between;
   border-top: 1px solid var(--line);
-  padding-top: 16px;
+  padding-top: 10px;
 }
 
 .megaAllBtn {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--accent);
   text-decoration: none;
@@ -226,11 +239,11 @@
 }
 
 .megaNewPill {
-  font-size: 0.75rem;
+  font-size: 0.72rem;
   font-weight: 600;
   color: #FFFFFF;
   background: var(--brand-gradient);
-  padding: 3px 10px;
+  padding: 2px 8px;
   border-radius: var(--radius-pill);
 }
 

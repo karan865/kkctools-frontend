@@ -1,0 +1,219 @@
+.diagramWrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--cat-math-deep);
+  margin-bottom: 12px;
+}
+
+.funnelGrid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.armCard {
+  flex: 1;
+  min-width: 170px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.armHeader {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.armBadgeA {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #64748B;
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.armBadgeB {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: var(--cat-math);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  font-weight: 800;
+}
+
+.armName {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.funnelTop,
+.funnelBottom {
+  background: var(--surface);
+  border: 1px dashed var(--line);
+  border-radius: 8px;
+  padding: 6px 10px;
+  text-align: center;
+}
+
+.stageLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.funnelMid {
+  text-align: center;
+  padding: 2px 0;
+}
+
+.rateBadge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgba(100, 116, 139, 0.12);
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.rateBadgeVariant {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: var(--cat-math-soft);
+  color: var(--cat-math-deep);
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.vsBadge {
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--ink-soft);
+  padding: 4px 8px;
+}
+
+.testSpecsCard {
+  flex: 1.2;
+  min-width: 220px;
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.specItem {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  font-size: 0.82rem;
+  color: var(--ink);
+}
+
+.specNum {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: var(--line);
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.7rem;
+  font-weight: 700;
+  flex-shrink: 0;
+}
+
+.specSub {
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+}
+
+/* Roadmap flow for sample size tab */
+.flow {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.stepBox {
+  background: var(--bg);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 130px;
+}
+
+.stepNum {
+  font-size: 0.7rem;
+  font-weight: 800;
+  color: var(--cat-math-deep);
+}
+
+.stepLabel {
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepDetail {
+  font-size: 0.72rem;
+  color: var(--ink-soft);
+}
+
+.arrow {
+  font-weight: 700;
+  color: var(--ink-soft);
+  font-size: 1.1rem;
+}
+
+.resultPill {
+  background: var(--cat-math-soft);
+  border: 1px solid var(--cat-math);
+  border-radius: 10px;
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.85rem;
+  color: var(--cat-math-deep);
+}
+
+.pillTag {
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}

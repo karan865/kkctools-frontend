@@ -1,0 +1,214 @@
+.diagramWrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 16px;
+}
+
+.curveRoadmap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.nodeCard {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 14px;
+  flex: 1;
+}
+
+.nodeBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--cat-math-soft);
+  color: var(--cat-math-ink);
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.nodeBadgeEnd {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: rgba(13, 148, 136, 0.15);
+  color: #0D9488;
+  font-weight: 700;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.nodeContent {
+  display: flex;
+  flex-direction: column;
+}
+
+.nodeTitle {
+  font-weight: 700;
+  font-size: 0.9rem;
+  color: var(--ink);
+}
+
+.nodeDetail {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+}
+
+.curveMiddle {
+  text-align: center;
+  padding: 0 8px;
+  flex: 1.2;
+}
+
+.curveLabel {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--cat-math-ink);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.curveEquation {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.84rem;
+  color: var(--ink);
+  background: var(--surface-subtle);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px dashed var(--line);
+  display: inline-block;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.chip {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+/* Series visual */
+.seriesVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.seriesBox {
+  flex: 1;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seriesBoxHighlight {
+  flex: 1;
+  background: var(--cat-math-soft);
+  border: 1px solid var(--cat-math);
+  border-radius: 10px;
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.seriesTag {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--ink-muted);
+}
+
+.seriesTagHighlight {
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: var(--cat-math-ink);
+}
+
+.seriesSub {
+  font-size: 0.8rem;
+  color: var(--ink-muted);
+}
+
+.seriesSubHighlight {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--cat-math-ink);
+}
+
+.vsBadge {
+  font-weight: 800;
+  font-size: 0.85rem;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+/* Doubling tab */
+.doublingBanner {
+  display: flex;
+  gap: 16px;
+}
+
+.doublingFormula,
+.doublingExact {
+  flex: 1;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.ruleLabel {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+@media (max-width: 680px) {
+  .curveRoadmap,
+  .seriesVisual,
+  .doublingBanner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}

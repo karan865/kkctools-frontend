@@ -458,6 +458,96 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  ratioCalculator: {
+    path: '/ratio-calculator/',
+    title: 'Ratio Calculator – Simplify and Solve Proportions',
+    description:
+      'Free ratio calculator. Simplify a ratio, list equivalent ratios, solve a proportion for x and scale a recipe or mix by a ratio, with the steps shown.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  ageDifferenceCalculator: {
+    path: '/age-difference-calculator/',
+    title: 'Age Difference Calculator – Years, Months & Days',
+    description:
+      'Free age difference calculator. Enter two birth dates to see the exact gap in years, months and days, who is older, and the date someone turns 18 or 21.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  iqrCalculator: {
+    path: '/iqr-calculator/',
+    title: 'IQR Calculator – Quartiles, Outliers & Box Plot',
+    description:
+      'Free IQR calculator. Paste a data set to get Q1, median, Q3, the interquartile range, outlier fences and a box plot, with every step shown.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  abTestSignificanceCalculator: {
+    path: '/ab-test-significance-calculator/',
+    title: 'A/B Test Significance Calculator – Stat Sig',
+    description:
+      'Free A/B test significance calculator. Enter visitors and conversions for A and B to get conversion rates, uplift, p-value and confidence, all in your browser.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  gallonsToCubicFeetConverter: {
+    path: '/gallons-to-cubic-feet/',
+    title: 'Gallons to Cubic Feet Converter – ft³, m³ & Litres',
+    description:
+      'Convert gallons to cubic feet and back, plus cubic metres and litres. Includes a quick table and a box or tank volume to gallons mode.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  cagrCalculator: {
+    path: '/cagr-calculator/',
+    title: 'CAGR Calculator – Compound Annual Growth Rate',
+    description:
+      'Free CAGR calculator. Enter a start value, end value and years to get the compound annual growth rate, the Excel formula, and the doubling time.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  fractionToPercentCalculator: {
+    path: '/fraction-to-percent-calculator/',
+    title: 'Fraction to Percent Calculator – X out of Y as %',
+    description:
+      'Free fraction to percent calculator. Turn 4/5, 3/8 or a test score like 16 out of 20 into a percentage, with steps, a letter grade and a full fraction table.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  reverseSalesTaxCalculator: {
+    path: '/reverse-sales-tax-calculator/',
+    title: 'Reverse Sales Tax Calculator – Price Before Tax',
+    description:
+      'Free reverse sales tax calculator. Enter the total paid and the tax rate to get the price before tax and the tax amount, or work out the rate from two prices.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  standardDeviationCalculator: {
+    path: '/standard-deviation-calculator/',
+    title: 'Standard Deviation Calculator – Variance & SE',
+    description:
+      'Free standard deviation calculator. Paste your data to get sample and population standard deviation, variance, standard error, mean, median and mode.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
+  tTestCalculator: {
+    path: '/t-test-calculator/',
+    title: 'T-Test Calculator – One, Two-Sample & Paired',
+    description:
+      'Free t-test calculator. Paste two groups or enter summary stats to get the t value, degrees of freedom and p-value for one-sample, Welch and paired tests.',
+    updated: '2026-11-23',
+    type: 'tool',
+    indexable: true,
+  },
   invoiceGenerator: {
     path: '/invoice-generator/',
     title: 'Free Invoice Generator – Hourly & Freelance Invoices',
@@ -588,9 +678,9 @@ export const ROUTES: Record<string, RouteDefinition> = {
   },
   stoneCalculator: {
     path: '/stone-calculator/',
-    title: 'Stone Calculator — Crushed Rock, Gravel & Tons',
-    description: 'Free stone calculator to estimate cubic yards, tons, and 50 lb bags for river rock, crushed stone, landscape rock, and aggregate. Instant weight & cost math.',
-    updated: '2026-11-14',
+    title: 'Gravel & Stone Calculator – Yards, Tons & Pea Gravel',
+    description: 'Free gravel calculator to estimate cubic yards, tons, and bags for pea gravel, river rock, crushed stone and driveways, with editable material densities.',
+    updated: '2026-11-23',
     type: 'tool',
     indexable: true,
   },

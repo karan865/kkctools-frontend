@@ -4,6 +4,67 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [Batch 5 review fixes — first 10 tools + live-page updates] — 2026-11-24
+
+**Engine bugs (tests added from the spec, not from current output):**
+- `fraction-percent-engine`: repeating percents now use exact long division (2/3 → 66.6̅%, 8/3 → 266.6̅%, 13/15 → 86.6̅%, 1/22 → 4.5̅4̅%). The old rounding gave 66.7̅, 266.7̅, 86.7̅.
+- `ratio-engine`: fraction/decimal terms scale by the true LCM (1/7 : 2/7 → 1 : 2, was 1429 : 2857); part-of-whole fractions for decimal terms are exact (1.5 : 2.5 → 3/8, 5/8).
+- `stats-engine`: `studentTInverse` grows its bracket (df 1, p 0.9995 → 636.62; was capped at 100).
+- `date-diff-engine`: years 0–99 no longer map to 1900–1999.
+- `reverse-tax-engine`: receipt subtotal includes the pre-tax part of a taxable tip/shipping, so subtotal + tax = total.
+- `ab-test-engine`: adds the spec's plain p-value line ("a gap this large would show up about 2.8% of the time"); non-significant wording no longer says the gap "could easily occur".
+
+**UI bugs:** CAGR and Reverse Tax formulas showed "==RRI(" / "==ROUND(" (doubled =). Reverse Tax Excel formula rounded the rate (8.875% → 0.0888); now writes `8.875%`. A/B page showed raw LaTeX (`$H_0$`, `$\alpha$`). SD and T-Test FAQ strings showed literal `&apos;`. T-Test had no `calculation-methods` entry, so HowWeCalculate was empty (added, NIST e-Handbook 1.3.5.3 opened and checked). Gallons table selects and shape group now labelled. Ratio shows messages for zero/negative terms and a correct sentence when fractions are scaled. Fraction tool: grade scales labelled "example US scale" plus a "My own cutoffs" option (rules §2.1).
+
+**Content (no unsourced figures):** removed 3 invented stone presets (crushed concrete 1.20, landscape rock 1.35, driveway gravel 1.45 t/yd³) and rewrote the new Stone, Sand and Tons FAQs/sections to use only each page's existing editable defaults or the method; removed truck-load, contractor-depth and UK bulk-bag claims; merged the duplicate sand-weight FAQ. Removed or softened: "zero rounding errors", "standard 1:2:3", "exact z-test", "universal industry standard", peeking "20–30%", UK VAT as a country rate, state tax-law claims, "half your age + 7" attribution, IQR "completely unchanged", Welch/Hedges/Bessel overstatements. `absoluteTitle` removed where title + suffix ≤ 60 (CAGR, Fraction, Reverse Tax, SD). Source notes corrected (ISO 8601, Hyndman & Fan, Evan Miller, Investopedia, OECD).
+
+**Links:** spec links added out (IQR → SD/T-Test; A/B → T-Test/SD/Profit Margin; CAGR → Investment Return; Fraction → Discount; Reverse Tax → Markup/Unit Price; Ratio → Fraction %) and in (Percentage Change → Fraction %/A/B/CAGR; Pipe Volume → Gallons; Markup/Discount → Reverse Tax; Compound Interest → CAGR).
+
+**Still open:** InputGuides for #04–#08, #11, #13 do not meet rules §4 (static, no live values or focus highlight, no SVG `role="img"`, no mobile `<details>`). Spec gaps: Ratio N-part solve, Reverse Tax tip/shipping toggles, A/B Fisher's exact for small counts, Compound Interest daily mode as headline. Owner: `TODO(owner)` R/Excel fixtures, IQR default method, Feb 29 rule, relationship section (built without owner decision), stone densities still uncited ("typical" presets, editable).
+
+---
+
+### [Batch 5 — Shared Engines, Math & Finance Category & Ratio Calculator] — 2026-11-23
+
+- **Live Page Keyword Updates (Milestone 0):**
+  - Updated `/stone-calculator/`: Title updated to `Gravel & Stone Calculator – Yards, Tons & Pea Gravel` (old: `Stone Calculator — Crushed Rock, Gravel & Tons`), H1 to `Gravel Calculator: Stone, Rock and Pea Gravel in Yards and Tons`. Added presets for crushed concrete, landscape rock, and driveway gravel; added H2 sections for figuring gravel, pea gravel, crusher run, and driveway gravel with 4 new FAQs.
+  - Updated `/tons-to-cubic-yards/`: Added rock yardage FAQs and NIST-sourced Tonnes vs US tons breakdown.
+  - Updated `/cubic-yard-calculator/`: Added 27 ft³ quick conversion strip and dedicated H2 sections.
+  - Updated `/sand-calculator/`: Added dry/wet sand weight FAQ and updated live link to stone calculator.
+  - Updated `/cubic-feet-to-square-feet/`: Added natural keyword phrasing in lead and FAQ.
+  - Updated `/pipe-volume-calculator/`: Added tube volume calculator H2 and formulas.
+  - Updated `/percentage-change-calculator/`: Added MoM drops and multi-year decrease worked examples.
+  - Updated `/compound-interest-calculator/`: Added compound calculator variants, EAR formula, daily compounding H2, and APY bank deposit coverage.
+  - Updated `/credit-card-payoff-calculator/`: Added debt payoff estimator and minimum payment calculator coverage.
+  - Updated `/present-value-calculator/`: Added EAR formula and WACC discount rate guidance.
+- **Shared Engines (Milestone 1):**
+  - Built `stats-engine.ts` with 100% test coverage: robust number parsing, sum, mean, median, mode, 4 quartile algorithms (Tukey exclusive/inclusive, Excel INC/EXC), standard deviation (sample/population), standard error, accurate normal CDF via erf, Student's t CDF and inverse via regularized incomplete beta, and binomial distributions. Tested against spec fixtures (IQR 8, 7, 9; Welch t=1.753, df=56.17 -> p=0.085).
+  - Built `growth-engine.ts` with 100% test coverage: CAGR, end/start/years from CAGR, real inflation-adjusted CAGR, series CAGR, Rule of 72 doubling times, and annualized ROI.
+  - Built `volume-units-engine.ts` with 100% test coverage: NIST exact volume constants (231 in³/gal, 1728 in³/ft³), box/cylinder geometry, horizontal cylinder filling, and water weight conversions.
+  - Built `date-diff-engine.ts` with 100% test coverage: month-stepping algorithm for Y/M/D difference, total days, clamping, age calculations, and day-count conventions (ACT/365, ACT/360, 30/360 NASD, ACT/ACT).
+- **Catalog Category "Math & Finance" (Milestone 2):**
+  - Registered `'math'` category in `tools-catalog.ts`, `tokens.css`, `CategoryTiles.tsx`, `Header.tsx`, `MobileMenu.tsx`, `page.tsx`, and `ToolCard.tsx`.
+- **Tools 02–10 (Batch 5 First 10 Tools Checkpoint Reached):**
+  - **Tool 02: Age Difference Calculator (`/age-difference-calculator/`):** Month-stepping Y/M/D diff, zodiac & milestone milestones.
+  - **Tool 03: IQR Calculator (`/iqr-calculator/`):** 4 quartile algorithms (Tukey TI-84 default, Excel INC/EXC, Tukey inclusive), 1.5×IQR outlier fences, theme-aware box plot SVG.
+  - **Tool 04: A/B Test Significance Calculator (`/ab-test-significance-calculator/`):** Two-proportion pooled z-test, one/two-tailed p-values, 50,000 fixture test (z=2.152, p=0.0314), conversion rate CI, uplifts.
+  - **Tool 05: Gallons to Cubic Feet Converter (`/gallons-to-cubic-feet/`):** Exact NIST factor 7.48051948 gal/ft³, box & horizontal cylinder tank geometry, water weight.
+  - **Tool 06: CAGR Calculator (`/cagr-calculator/`):** End/start/years, real inflation-adjusted CAGR, Excel formula, Rule of 72 doubling time, annual schedule breakdown.
+  - **Tool 07: Fraction to Percent Calculator (`/fraction-to-percent-calculator/`):** Single URL canonical, fraction reduction via Euclidean GCD, letter grade mapping, repeating decimal bar notation, bidirectional internal link with `/percentage-change-calculator/`.
+  - **Tool 08: Reverse Sales Tax Calculator (`/reverse-sales-tax-calculator/`):** Extract pre-tax price from inclusive total, deduce tax rate from pre/post-tax prices, US/Canada/UK/EU presets.
+  - **Tool 09: Standard Deviation Calculator (`/standard-deviation-calculator/`):** Sample (s, n−1) and population (σ, N) standard deviation, variance, standard error, weighted frequency and grouped class modes.
+  - **Tool 10: T-Test Calculator (`/t-test-calculator/`):** Welch's t-test default with unequal variances (Delacre et al., 2017), Student's pooled variance option, paired t-test, one-sample t-test, exact Welch-Satterthwaite df, Student-t CDF p-values, Cohen's d / Hedges' g effect sizes, theme-aware t-distribution curve with critical rejection shading.
+  - **Verification:** All 10 tools verified with `npm run verify` passing 100% across all 6 steps (lint, test, check:no-network, build, seo:audit, docs:bundle); 1,038 tests passing across 89 files; 106 HTML pages audited with 0 errors.
+
+- **Tool 01: Ratio Calculator (`/ratio-calculator/`) (Milestone 3):**
+  - Built `ratio-engine.ts` + `ratio-engine.test.ts` (12 tests, 100% pass) matching all spec worked examples (12:18 -> 2:3, 1/2 : 3/4 -> 2:3, solve 2:3 = 10:x -> x = 15, split 60 kg 1:2:3 -> 10/20/30 kg, 3:4 part-of-whole -> 42.86%/57.14%, equivalence check 4:6 vs 6:9).
+  - Built `RatioInputGuide.tsx` with proportional bar diagrams and callout highlighting for each tab.
+  - Built `RatioCalculator.tsx` with 5 tabs (Simplify, Solve for X, Split a Total, Equivalent Ratios, Ratio to Fraction & %), mix presets, step breakdowns, and oceanic/indigo gradient hero result card.
+  - Built `/ratio-calculator/` page with JSON-LD, breadcrumbs, HowWeCalculate, and complete long-form editorial copy.
+  - Verification: `npm run verify` passed all 6 checks; 1,005 tests passing, 97 static HTML pages audited with 0 errors.
+
+---
+
 ### [Batch 4 review fixes — accuracy, safety and shared-UI regressions] — 2026-11-23
 
 Review of the Antigravity build against the Batch 4 specs and rules. `npm run verify` passes (all 6 steps).

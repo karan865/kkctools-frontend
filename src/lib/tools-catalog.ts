@@ -7,7 +7,8 @@ export type CategoryId =
   | 'framing'
   | 'finishes'
   | 'business'
-  | 'engineering';
+  | 'engineering'
+  | 'math';
 
 export interface CatalogCategory {
   id: CategoryId;
@@ -81,9 +82,116 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     blurb: 'Epoxy resin pours, speeds and feeds, 3D print costs, pulley ratios, stepper calibration and thread pitch diameters.',
     order: 7,
   },
+  math: {
+    id: 'math',
+    name: 'Math & Finance',
+    headline: 'Math, Statistics & Everyday Financial Calculators',
+    blurb: 'Ratios, compound growth, statistical distributions, date intervals, and financial planning.',
+    order: 8,
+  },
 };
 
 const RAW_TOOLS_CATALOG: CatalogTool[] = [
+  // Math & Finance
+  {
+    slug: '/ab-test-significance-calculator/',
+    name: 'A/B Test Significance Calculator',
+    category: 'math',
+    description: 'Two-proportion z-test, uplift, p-value, sample size and SRM for A/B testing.',
+    tags: ['A/B Testing · Stat Sig', 'Conversion Rate & p-value'],
+    icon: 'abTest',
+    keywords: ['stat sig calculator', 'a/b test calculator', 'statistical significance calculator', 'ab test sample size calculator', 'p-value calculator', 'conversion rate calculator'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/age-difference-calculator/',
+    name: 'Age Difference Calculator',
+    category: 'math',
+    description: 'Calculate the exact age gap in years, months, and days between two people, families, or born-on dates.',
+    tags: ['Age Gap · Dates', 'Calendar & Math'],
+    icon: 'calendar',
+    keywords: ['age difference calculator', 'how older is', 'date of birth to be 21 today', 'age gap calculator', 'years apart', 'birth date difference'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/cagr-calculator/',
+    name: 'CAGR Calculator',
+    category: 'math',
+    description: 'Calculate compound annual growth rate (CAGR), ending value, years, or doubling time with the Rule of 72.',
+    tags: ['CAGR Formula', 'Rule of 72'],
+    icon: 'growthChart',
+    keywords: ['cagr formula', 'compound annual growth rate formula', 'cagr calculator', 'cagr calculation', 'cagr formula excel', 'doubling time formula', 'what is the rule of 72'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/fraction-to-percent-calculator/',
+    name: 'Fraction to Percent Calculator',
+    category: 'math',
+    description: 'Turn any fraction, mixed number, or test score into a percentage and letter grade with steps.',
+    tags: ['Fraction · %', 'Test Scores & Grades'],
+    icon: 'fractionPercent',
+    keywords: ['percentage finder', 'fraction to percent calculator', '16 out of 20 as a percentage', '4/5 to a percent', 'how to find a percentage of a number', 'what percent'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/gallons-to-cubic-feet/',
+    name: 'Gallons to Cubic Feet Converter',
+    category: 'math',
+    description: 'Convert between US gallons, cubic feet, cubic metres and litres, or calculate volume from dimensions.',
+    tags: ['Gallons · ft³', 'Volume & Litres'],
+    icon: 'gallonJug',
+    keywords: ['gallons to cubic feet', 'gallons to feet 3', 'how many gallons in a cubic foot', 'how many cubic feet in a gallon', 'gallon to ft3', 'ft3 to gallons', 'cubic ft to gallons', 'gallon to m3'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/iqr-calculator/',
+    name: 'IQR Calculator',
+    category: 'math',
+    description: 'Find Q1, median, Q3, the interquartile range, outlier fences and a box plot for any data set.',
+    tags: ['IQR · Quartiles', 'Box Plot & Stats'],
+    icon: 'boxPlot',
+    keywords: ['iqr calculator', 'interquartile range', 'how to find iqr', 'quartile calculator', 'box plot calculator', 'work out average calculator', 'outlier calculator'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/ratio-calculator/',
+    name: 'Ratio Calculator',
+    category: 'math',
+    description: 'Simplify ratios, solve proportions for x, list equivalents, and split totals with full step-by-step math.',
+    tags: ['Ratios · Solve', 'Math & Proportions'],
+    icon: 'mathSymbols',
+    keywords: ['ratio calculator', 'ratio finder', 'solve proportion', 'simplify ratio', 'equivalent ratios', 'split ratio'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/reverse-sales-tax-calculator/',
+    name: 'Reverse Sales Tax Calculator',
+    category: 'math',
+    description: 'Calculate the pre-tax price and sales tax, VAT, or GST paid from any tax-inclusive total.',
+    tags: ['Reverse Tax · VAT', 'Pre-Tax & Receipts'],
+    icon: 'reverseTax',
+    keywords: ['reverse sales tax calculator', 'reverse tax calculator', 'price before tax', 'remove vat from price', 'sales tax backwards', 'tax-inclusive price'],
+    added: '2026-11-23',
+    isNew: true,
+  },
+  {
+    slug: '/standard-deviation-calculator/',
+    name: 'Standard Deviation Calculator',
+    category: 'math',
+    description: 'Calculate sample and population standard deviation, variance, standard error, mean, median and mode.',
+    tags: ['Standard Deviation · SE', 'Variance & Stats'],
+    icon: 'stdev',
+    keywords: ['stdev calculator', 'standard deviation calculator', 'variance calculator', 'standard error calculator', 'mean median mode calculator', 'how to calculate standard deviation'],
+    added: '2026-11-23',
+    isNew: true,
+  },
   // 3D Printing & CNC
   {
     slug: '/thread-pitch-diameter-calculator/',

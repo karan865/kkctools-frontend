@@ -1736,6 +1736,139 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <Dim x1={184} y1={24} x2={184} y2={76} label="Pitch Dia d₂ = 9.026 mm" lx={188} ly={52} anchor="start" />
     </>
   ),
+  /* Math & Finance: ratio bars & proportion equation */
+  mathSymbols: (
+    <>
+      <rect className={s.f1} x={30} y={35} width={40} height={26} rx={5} />
+      <rect className={s.f2} x={80} y={35} width={60} height={26} rx={5} />
+      <circle className={s.fm} cx={75} cy={43} r={2} />
+      <circle className={s.fm} cx={75} cy={53} r={2} />
+      <text className={s.txL} x={50} y={52} textAnchor="middle" fontSize={11} fontWeight={800} fill="#FFFFFF">2</text>
+      <text className={s.txL} x={110} y={52} textAnchor="middle" fontSize={11} fontWeight={800} fill="#FFFFFF">3</text>
+      <text className={s.tx} x={155} y={52} textAnchor="middle" fontSize={14} fontWeight={800}>= x</text>
+      <text className={s.tx} x={100} y={82} textAnchor="middle" fontSize={8} fontWeight={600}>Ratio &bull; Proportion</text>
+    </>
+  ),
+  /* Age Difference / Calendar */
+  calendar: (
+    <>
+      <rect className={s.f1} x={30} y={25} width={50} height={45} rx={6} />
+      <rect className={s.f2} x={110} y={25} width={50} height={45} rx={6} />
+      <line className={s.s2} x1={30} y1={37} x2={80} y2={37} strokeWidth={2} />
+      <line className={s.s2} x1={110} y1={37} x2={160} y2={37} strokeWidth={2} />
+      <text className={s.txL} x={55} y={56} textAnchor="middle" fontSize={12} fontWeight={800} fill="#FFFFFF">A</text>
+      <text className={s.txL} x={135} y={56} textAnchor="middle" fontSize={12} fontWeight={800} fill="#FFFFFF">B</text>
+      <text className={s.tx} x={95} y={52} textAnchor="middle" fontSize={12} fontWeight={800}>&harr;</text>
+      <text className={s.tx} x={100} y={84} textAnchor="middle" fontSize={8} fontWeight={600}>Age Gap &bull; Dates</text>
+    </>
+  ),
+  /* IQR & Box Plot: Box plot illustration with whiskers, median line and outlier point */
+  boxPlot: (
+    <>
+      <line className={s.s2} x1={30} y1={50} x2={65} y2={50} strokeWidth={2} />
+      <line className={s.s2} x1={30} y1={36} x2={30} y2={64} strokeWidth={2} />
+      <rect className={s.f1} x={65} y={26} width={70} height={48} rx={4} />
+      <line className={s.s2} x1={100} y1={26} x2={100} y2={74} strokeWidth={2.5} stroke="#FFFFFF" />
+      <line className={s.s2} x1={135} y1={50} x2={170} y2={50} strokeWidth={2} />
+      <line className={s.s2} x1={170} y1={36} x2={170} y2={64} strokeWidth={2} />
+      <circle className={s.fp} cx={188} cy={50} r={4} />
+      <text className={s.tx} x={100} y={18} textAnchor="middle" fontSize={8} fontWeight={700}>IQR = Q3 − Q1</text>
+      <text className={s.tx} x={65} y={88} textAnchor="middle" fontSize={8} fontWeight={600}>Q1</text>
+      <text className={s.tx} x={100} y={88} textAnchor="middle" fontSize={8} fontWeight={700}>Median</text>
+      <text className={s.tx} x={135} y={88} textAnchor="middle" fontSize={8} fontWeight={600}>Q3</text>
+    </>
+  ),
+  /* A/B Test: Two comparison bars / funnels with lift badge */
+  abTest: (
+    <>
+      <rect className={s.f1} x={30} y={35} width={45} height={40} rx={4} />
+      <rect className={s.f2} x={110} y={25} width={45} height={50} rx={4} />
+      <text className={s.txL} x={52} y={58} textAnchor="middle" fontSize={11} fontWeight={800} fill="#FFFFFF">5.0%</text>
+      <text className={s.txL} x={132} y={52} textAnchor="middle" fontSize={11} fontWeight={800} fill="#FFFFFF">5.7%</text>
+      <text className={s.tx} x={52} y={88} textAnchor="middle" fontSize={8} fontWeight={700}>A (Ctrl)</text>
+      <text className={s.tx} x={132} y={88} textAnchor="middle" fontSize={8} fontWeight={700}>B (+14%)</text>
+      <path className={s.fp} d="M85 35 L105 35 L95 22 Z" />
+      <text className={s.tx} x={95} y={48} textAnchor="middle" fontSize={7} fontWeight={800} fill="#10B981">p &lt; .05</text>
+    </>
+  ),
+  /* Gallons to Cubic Feet: 1 ft³ cube next to gallon jug */
+  gallonJug: (
+    <>
+      <polygon className={s.f1} points="45,45 25,32 55,20 75,33" />
+      <polygon className={s.f2} points="25,32 25,65 45,78 45,45" />
+      <polygon className={s.fp} points="75,33 75,66 45,78 45,45" />
+      <text className={s.txW} x={45} y={55} textAnchor="middle" fontSize={8} fontWeight={800}>1 ft³</text>
+      <text className={s.tx} x={95} y={54} textAnchor="middle" fontSize={14} fontWeight={800}>=</text>
+      <rect className={s.f1} x={115} y={32} width={36} height={42} rx={4} />
+      <path className={s.s2} d="M127 32 V26 H139 V32" strokeWidth={2} />
+      <path className={s.s2} d="M151 38 H157 a3 3 0 0 1 3 3 V50 a3 3 0 0 1 -3 3 H151" strokeWidth={2} />
+      <text className={s.txL} x={133} y={56} textAnchor="middle" fontSize={10} fontWeight={800} fill="#FFFFFF">7.48</text>
+      <text className={s.tx} x={133} y={88} textAnchor="middle" fontSize={8} fontWeight={700}>US Gallons</text>
+    </>
+  ),
+  /* CAGR: Smooth exponential compound growth curve from start to end with Rule of 72 badge */
+  growthChart: (
+    <>
+      <line className={k('s2', 'thick')} x1={26} y1={18} x2={26} y2={84} />
+      <line className={k('s2', 'thick')} x1={26} y1={84} x2={186} y2={84} />
+      <path className={k('fn', 's1', 'thick')} d="M30 76 Q90 70, 130 46 T180 18" strokeWidth={2.8} />
+      <circle className={s.f1} cx={30} cy={76} r={4} />
+      <circle className={s.fl} cx={180} cy={18} r={5} />
+      <rect className={k('fp', 's2')} x={70} y={12} width={76} height={26} rx={4} />
+      <text className={s.txL} x={108} y={29} textAnchor="middle" fontSize={11} fontWeight={800} fill="#4338CA">
+        14.87% CAGR
+      </text>
+      <text className={s.tx} x={108} y={50} textAnchor="middle" fontSize={7} fontWeight={700}>
+        Rule of 72 · Exact ln(2)
+      </text>
+    </>
+  ),
+  /* Fraction to Percent: 4/5 = 80% visual equation */
+  fractionPercent: (
+    <>
+      <rect className={s.f1} x={36} y={24} width={28} height={20} rx={3} />
+      <text className={s.txW} x={50} y={38} textAnchor="middle" fontSize={11} fontWeight={800}>4</text>
+      <line className={k('s2', 'thick')} x1={32} y1={49} x2={68} y2={49} strokeWidth={2.4} />
+      <rect className={s.fp} x={36} y={54} width={28} height={20} rx={3} />
+      <text className={s.txL} x={50} y={68} textAnchor="middle" fontSize={11} fontWeight={800} fill="#4338CA">5</text>
+      <text className={s.tx} x={88} y={54} textAnchor="middle" fontSize={16} fontWeight={800}>=</text>
+      <rect className={k('fp', 's2')} x={110} y={26} width={64} height={46} rx={6} />
+      <text className={s.txL} x={142} y={50} textAnchor="middle" fontSize={15} fontWeight={800} fill="#0D9488">
+        80%
+      </text>
+      <text className={s.tx} x={142} y={64} textAnchor="middle" fontSize={7.5} fontWeight={700}>
+        Grade B · 0.80
+      </text>
+    </>
+  ),
+  /* Reverse Sales Tax: Receipt with price before tax solved + tax broken out */
+  reverseTax: (
+    <>
+      <rect className={s.f1} x={36} y={16} width={128} height={68} rx={6} />
+      <rect className={s.fp} x={44} y={24} width={112} height={16} rx={3} />
+      <text className={s.txL} x={100} y={35} textAnchor="middle" fontSize={8.5} fontWeight={800} fill="#4338CA">
+        Pre-Tax: $100.00
+      </text>
+      <text className={s.txW} x={60} y={52} fontSize={7} fontWeight={600}>Tax (7.25%):</text>
+      <text className={s.txW} x={140} y={52} textAnchor="end" fontSize={7} fontWeight={700}>$7.25</text>
+      <line className={s.dim} x1={44} y1={58} x2={156} y2={58} strokeWidth={1} />
+      <text className={s.txW} x={60} y={72} fontSize={8.5} fontWeight={800}>Total Paid:</text>
+      <text className={s.txW} x={140} y={72} textAnchor="end" fontSize={8.5} fontWeight={800}>$107.25</text>
+    </>
+  ),
+  /* Standard Deviation: Bell curve with shaded ±1σ band and mean axis */
+  stdev: (
+    <>
+      <path className={s.f1} d="M40 80 Q100 80, 100 24 Q100 80, 160 80 Z" opacity={0.25} />
+      <path className={k('fn', 's1', 'thick')} d="M30 80 Q70 80, 85 55 Q100 20, 115 55 Q130 80, 170 80" strokeWidth={2.4} />
+      <line className={s.s2} x1={100} y1={20} x2={100} y2={80} strokeWidth={2} strokeDasharray="3 2" />
+      <line className={k('s2', 'thick')} x1={24} y1={80} x2={176} y2={80} />
+      <rect className={k('fp', 's2')} x={72} y={38} width={56} height={20} rx={4} />
+      <text className={s.txL} x={100} y={52} textAnchor="middle" fontSize={9} fontWeight={800} fill="#4338CA">
+        s = 2.138
+      </text>
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

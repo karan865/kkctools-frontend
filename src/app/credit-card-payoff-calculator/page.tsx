@@ -29,6 +29,10 @@ export const metadata: Metadata = buildMetadata({
 
 const FAQS = [
   {
+    q: 'How does a minimum payment calculator work?',
+    a: 'It repeats your card’s minimum-payment rule month by month until the balance reaches zero. Because the minimum is tied to the balance, it shrinks as the debt falls, so payoff is slow. This calculator’s minimum mode uses 1% of the balance plus that month’s interest, with a $25 floor; your statement shows your issuer’s exact formula. In the page example ($5,000 at 22% APR) that takes about 19 years, versus 34 months at a fixed $200.',
+  },
+  {
     q: 'What is APR on a credit card?',
     a: 'Annual Percentage Rate (APR) represents the annualized cost of borrowing money on your credit card when you carry a revolving balance past your statement due date. Unlike simple installment loans, credit card APR typically compounds daily, meaning your effective annual yield (APY) is slightly higher than the stated nominal APR. If you pay your balance in full each month before the grace period ends, you are charged 0% interest regardless of your APR.',
   },
@@ -103,8 +107,7 @@ export default function CreditCardPayoffPage() {
         <header className={styles.hero}>
           <h1 className={styles.title}>Credit Card APR Calculator: Payoff Time, Interest and Minimum Payments</h1>
           <p className={styles.bluf}>
-            Credit card interest each month ≈ balance × APR ÷ 12. At 22% APR, $200 a month pays off $5,000 in 34 months
-            with about $1,750 of interest; minimum payments alone take about 19 years and cost over $8,100 in interest.
+            Credit card interest each month ≈ balance × APR ÷ 12. Use this <strong>debt payoff estimator</strong> and <strong>minimum payment calculator</strong> to see how long it takes to clear balances: at 22% APR, $200 a month pays off $5,000 in 34 months with about $1,750 of interest; minimum payments alone take about 19 years and cost over $8,100 in interest.
           </p>
         </header>
 
@@ -379,7 +382,7 @@ export default function CreditCardPayoffPage() {
 
           {/* Section 6: Avalanche vs Snowball */}
           <section className={styles.section}>
-            <h2 className={styles.sectionTitle}>6. Paying Off Several Cards: Avalanche vs Snowball</h2>
+            <h2 className={styles.sectionTitle}>6. Debt Payoff Estimator for Several Cards: Avalanche vs Snowball</h2>
             <div className={styles.prose}>
               <p>
                 When juggling multiple credit cards, debt payoff strategies dictate how you allocate your discretionary

@@ -203,6 +203,20 @@ export default function CubicYardCalculatorPage() {
 
           {/* AD SLOT A — directly below tool card */}
           <AdSlot slotId="ad-slot-a-cubicyard" />
+
+          {/* Quick ft³ ↔ yd³ Converter Strip */}
+          <div style={{ background: 'var(--surface-2)', border: '1px solid var(--line)', borderRadius: '12px', padding: '18px 24px', margin: '24px 0', display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'space-between', gap: '16px' }}>
+            <div>
+              <h3 style={{ margin: '0 0 4px', fontSize: '1.05rem', fontWeight: 700, color: 'var(--ink)' }}>Quick ft³ ↔ yd³ Conversion Strip</h3>
+              <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--muted)' }}>1 Cubic Yard (yd³) = Exactly 27 Cubic Feet (ft³)</p>
+            </div>
+            <div style={{ display: 'flex', gap: '12px', flexWrap: 'wrap', fontSize: '0.88rem' }}>
+              <span style={{ background: 'var(--surface)', color: 'var(--ink)', border: '1px solid var(--line-strong)', padding: '6px 12px', borderRadius: '6px', fontWeight: 600 }}>27 ft³ = 1.0 yd³</span>
+              <span style={{ background: 'var(--surface)', color: 'var(--ink)', border: '1px solid var(--line-strong)', padding: '6px 12px', borderRadius: '6px', fontWeight: 600 }}>54 ft³ = 2.0 yd³</span>
+              <span style={{ background: 'var(--surface)', color: 'var(--ink)', border: '1px solid var(--line-strong)', padding: '6px 12px', borderRadius: '6px', fontWeight: 600 }}>81 ft³ = 3.0 yd³</span>
+              <span style={{ background: 'var(--surface)', color: 'var(--ink)', border: '1px solid var(--line-strong)', padding: '6px 12px', borderRadius: '6px', fontWeight: 600 }}>108 ft³ = 4.0 yd³</span>
+            </div>
+          </div>
         </Container>
       </Section>
 
@@ -210,12 +224,21 @@ export default function CubicYardCalculatorPage() {
       <Section style={{ paddingTop: 'var(--space-2)', paddingBottom: 'var(--space-8)' }}>
         <Container>
           <div style={{ maxWidth: 'var(--prose)' }}>
-            {/* Section 1: How to Calculate Cubic Yards (Formula and Examples) */}
-            <h2>How to Calculate Cubic Yards (Formula and Examples)</h2>
+            {/* Section 1: How to calculate cubic yards */}
+            <h2>How to calculate cubic yards</h2>
             <p>
               Calculating cubic yards takes three steps: find the volume in cubic feet, divide by 27, then add extra for
               waste. The same method works for concrete, soil, mulch and gravel.
             </p>
+
+            {/* Section: Cubic feet to cubic yards (÷ 27) */}
+            <h2>Cubic feet to cubic yards (÷ 27)</h2>
+            <p>
+              Because 1 yard equals 3 feet, a cubic yard contains 3 × 3 × 3 = <strong>27 cubic feet</strong>. To convert any measurement in cubic feet into cubic yards, simply divide by 27:
+            </p>
+            <div className={styles.formulaBox} style={{ marginBottom: '16px' }}>
+              <p style={{ margin: 0, fontWeight: 700 }}>Cubic Yards (yd³) = Cubic Feet (ft³) ÷ 27</p>
+            </div>
 
             <div className={styles.diagramWrapper}>
               <YardCubeDiagram />

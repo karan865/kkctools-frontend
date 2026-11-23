@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 1269ms
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 18.3s
+✓ Compiled successfully in 11.7s
   Running TypeScript ...
-  Finished TypeScript in 6.0s ...
+  Finished TypeScript in 5.9s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/110) ...
-  Generating static pages using 15 workers (27/110) 
-  Generating static pages using 15 workers (54/110) 
-  Generating static pages using 15 workers (82/110) 
-✓ Generating static pages using 15 workers (110/110) in 6.0s
+  Generating static pages using 15 workers (0/120) ...
+  Generating static pages using 15 workers (30/120) 
+  Generating static pages using 15 workers (60/120) 
+  Generating static pages using 15 workers (90/120) 
+✓ Generating static pages using 15 workers (120/120) in 5.7s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -22,7 +22,9 @@ Route (app)
 ┌ ○ /
 ├ ○ /_not-found
 ├ ○ /3d-print-cost-calculator
+├ ○ /ab-test-significance-calculator
 ├ ○ /about
+├ ○ /age-difference-calculator
 ├ ○ /airbnb-calculator
 ├ ○ /apple-touch-icon.png
 ├ ○ /asphalt-calculator
@@ -37,6 +39,7 @@ Route (app)
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
 ├ ○ /business-valuation-calculator
+├ ○ /cagr-calculator
 ├ ○ /cap-rate-calculator
 ├ ○ /carpet-cost-calculator
 ├ ○ /cinder-block-calculator
@@ -67,7 +70,9 @@ Route (app)
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
 ├ ○ /floor-refinishing-cost-calculator
+├ ○ /fraction-to-percent-calculator
 ├ ○ /freelance-rate-calculator
+├ ○ /gallons-to-cubic-feet
 ├ ○ /guides
 ├   /guides/[slug]
 │ ├ ● /guides/how-to-choose-a-band-name
@@ -78,6 +83,7 @@ Route (app)
 ├ ○ /how-long-will-my-money-last
 ├ ○ /investment-return-calculator
 ├ ○ /invoice-generator
+├ ○ /iqr-calculator
 ├ ○ /labor-cost-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
@@ -101,8 +107,10 @@ Route (app)
 ├ ○ /profit-margin-calculator
 ├ ○ /pulley-calculator
 ├ ○ /rafter-calculator
+├ ○ /ratio-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
+├ ○ /reverse-sales-tax-calculator
 ├ ○ /robots.txt
 ├ ○ /roof-replacement-cost-calculator
 ├ ○ /sand-calculator
@@ -115,10 +123,12 @@ Route (app)
 ├ ○ /speeds-and-feeds-calculator
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
+├ ○ /standard-deviation-calculator
 ├ ○ /steps-per-mm-calculator
 ├ ○ /stone-calculator
 ├ ○ /stone-calculator/opengraph-image
 ├ ○ /stud-calculator
+├ ○ /t-test-calculator
 ├ ○ /terms
 ├ ○ /thread-pitch-diameter-calculator
 ├ ○ /tile-calculator

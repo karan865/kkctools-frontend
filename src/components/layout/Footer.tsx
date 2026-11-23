@@ -1,6 +1,5 @@
 import React from 'react';
 import Link from 'next/link';
-import Icon from '@/components/icons/Icons';
 import { SITE_NAME } from '@/config/site';
 import { TOOLS_CATALOG } from '@/lib/tools-catalog';
 import styles from './Footer.module.css';
@@ -10,37 +9,13 @@ export default function Footer() {
 
   return (
     <footer className={styles.footer}>
-      {/* Top Band */}
-      <div className={styles.topBand}>
-        <div className={styles.topBandContainer}>
-          <div className={styles.topBandText}>
-            <span className={styles.topBandIcon}>
-              <Icon name="zap" size={16} />
-            </span>
-            <span>Free construction calculators, material estimators &amp; utilities for builders, DIYers and creators.</span>
-          </div>
-          <div className={styles.topBandActions}>
-            <Link href="/tools/" className={styles.topBandBtn}>
-              All {TOOLS_CATALOG.length} tools directory
-            </Link>
-            <a
-              href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
-              className={styles.topBandBtnSecondary}
-            >
-              Suggest a tool
-            </a>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Grid */}
       <div className={styles.container}>
-        <div className={styles.grid}>
-          {/* Column 1: Brand & Core Commitments (2 cols desktop) */}
-          <div className={`${styles.column} ${styles.brandCol}`}>
+        {/* Brand & Value Header */}
+        <div className={styles.brandHeader}>
+          <div className={styles.brandLeft}>
             <Link href="/" className={styles.brand} aria-label={`${SITE_NAME} Home`}>
               <div className={styles.brandBadge}>
-                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                   <path
                     d="M13 2L3 14H12L11 22L21 10H12L13 2Z"
                     fill="url(#footerBrandGrad)"
@@ -58,29 +33,39 @@ export default function Footer() {
               </div>
               <span className={styles.brandText}>{SITE_NAME}</span>
             </Link>
-
-            <p className={styles.brandDesc}>
-              Fast, privacy-first online calculators for construction, materials, hardscaping, and creative naming. Your inputs never leave your browser.
-            </p>
-
-            <ul className={styles.trustList}>
-              <li>
-                <span className={styles.trustCheck}>✓</span> 100% Free &amp; Open
-              </li>
-              <li>
-                <span className={styles.trustCheck}>✓</span> Zero Mandatory Sign-Up
-              </li>
-              <li>
-                <span className={styles.trustCheck}>✓</span> Private Client-Side Compute
-              </li>
-            </ul>
-
-            <a href="#main-content" className={styles.backToTop}>
-              ↑ Back to top
-            </a>
+            <span className={styles.brandTagline}>
+              Fast, privacy-first calculators for builders, trades, engineers, and creators.
+            </span>
           </div>
 
-          {/* Column 2: Concrete & Masonry */}
+          <div className={styles.trustBadges}>
+            <span className={styles.trustBadge}>
+              <span className={styles.trustCheck}>✓</span> 100% Free
+            </span>
+            <span className={styles.trustBadge}>
+              <span className={styles.trustCheck}>✓</span> Zero Sign-Up
+            </span>
+            <span className={styles.trustBadge}>
+              <span className={styles.trustCheck}>✓</span> Private Client-Side
+            </span>
+          </div>
+
+          <div className={styles.brandActions}>
+            <Link href="/tools/" className={styles.allToolsBtn}>
+              All {TOOLS_CATALOG.length} Tools Directory →
+            </Link>
+            <a
+              href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion%20for%20KKC%20Tools"
+              className={styles.suggestBtn}
+            >
+              Suggest a Tool
+            </a>
+          </div>
+        </div>
+
+        {/* 6 Balanced Category Columns (Max 7-8 links per column) */}
+        <div className={styles.grid}>
+          {/* Column 1: Concrete & Masonry */}
           <div className={styles.column}>
             <span className={styles.colTitle}>Concrete &amp; Masonry</span>
             <ul className={styles.linkList}>
@@ -91,138 +76,125 @@ export default function Footer() {
               <li><Link href="/cinder-block-calculator/" className={styles.link}>Cinder Block Calculator</Link></li>
               <li><Link href="/brick-calculator/" className={styles.link}>Brick Calculator</Link></li>
             </ul>
+            <Link href="/tools/#concrete" className={styles.viewAllLink}>
+              All Concrete Tools →
+            </Link>
           </div>
 
-          {/* Column 3: Gravel, Earth & Paving */}
+          {/* Column 2: Gravel, Earth & Paving */}
           <div className={styles.column}>
-            <span className={styles.colTitle}>Gravel, Earth &amp; Paving</span>
+            <span className={styles.colTitle}>Gravel &amp; Earthwork</span>
             <ul className={styles.linkList}>
-              <li><Link href="/stone-calculator/" className={styles.link}>Stone &amp; Rock</Link></li>
+              <li><Link href="/stone-calculator/" className={styles.link}>Gravel &amp; Rock</Link></li>
               <li><Link href="/sand-calculator/" className={styles.link}>Sand Calculator</Link></li>
               <li><Link href="/paver-base-calculator/" className={styles.link}>Paver Base</Link></li>
               <li><Link href="/paver-sand-calculator/" className={styles.link}>Paver Sand</Link></li>
               <li><Link href="/asphalt-calculator/" className={styles.link}>Asphalt Calculator</Link></li>
               <li><Link href="/fill-dirt-calculator/" className={styles.link}>Fill Dirt &amp; Topsoil</Link></li>
-              <li><Link href="/compost-calculator/" className={styles.link}>Compost Calculator</Link></li>
-              <li><Link href="/lawn-mowing-cost-calculator/" className={styles.link}>Lawn Mowing Cost</Link></li>
               <li><Link href="/tons-to-cubic-yards/" className={styles.link}>Tons ↔ Yards</Link></li>
-              <li><Link href="/cubic-feet-to-square-feet/" className={styles.link}>Cubic ↔ Square Feet</Link></li>
-              <li><Link href="/pipe-volume-calculator/" className={styles.link}>Pipe Volume</Link></li>
             </ul>
+            <Link href="/tools/#gravel" className={styles.viewAllLink}>
+              All Earthwork Tools →
+            </Link>
           </div>
 
-          {/* Column 4: Framing & Finishes */}
+          {/* Column 3: Framing & Finishes */}
           <div className={styles.column}>
             <span className={styles.colTitle}>Framing &amp; Finishes</span>
             <ul className={styles.linkList}>
-              <li><Link href="/rafter-calculator/" className={styles.link}>Rafter Calculator</Link></li>
-              <li><Link href="/shingle-calculator/" className={styles.link}>Shingle Roof Calculator</Link></li>
-              <li><Link href="/metal-roof-cost-calculator/" className={styles.link}>Metal Roof Cost</Link></li>
-              <li><Link href="/roof-replacement-cost-calculator/" className={styles.link}>Roof Replacement Cost</Link></li>
-              <li><Link href="/board-and-batten-calculator/" className={styles.link}>Board and Batten</Link></li>
-              <li><Link href="/wire-gauge-calculator/" className={styles.link}>Wire Gauge</Link></li>
-              <li><Link href="/cubic-inch-calculator/" className={styles.link}>Cubic Inch / Displacement</Link></li>
-              <li><Link href="/fence-cost-calculator/" className={styles.link}>Fence Cost</Link></li>
+              <li><Link href="/drywall-calculator/" className={styles.link}>Drywall Calculator</Link></li>
+              <li><Link href="/paint-cost-calculator/" className={styles.link}>Paint Cost</Link></li>
+              <li><Link href="/shingle-calculator/" className={styles.link}>Shingle Roofing</Link></li>
+              <li><Link href="/tile-calculator/" className={styles.link}>Tile Calculator</Link></li>
               <li><Link href="/stud-calculator/" className={styles.link}>Stud Framing</Link></li>
               <li><Link href="/square-footage-calculator/" className={styles.link}>Square Footage</Link></li>
-              <li><Link href="/linear-foot-calculator/" className={styles.link}>Linear Foot</Link></li>
-              <li><Link href="/drywall-calculator/" className={styles.link}>Drywall Calculator</Link></li>
-              <li><Link href="/tile-calculator/" className={styles.link}>Tile Calculator</Link></li>
-              <li><Link href="/laminate-flooring-calculator/" className={styles.link}>Laminate Flooring</Link></li>
-              <li><Link href="/paint-cost-calculator/" className={styles.link}>Paint Cost</Link></li>
-              <li><Link href="/fence-stain-calculator/" className={styles.link}>Fence Stain</Link></li>
-              <li><Link href="/deck-stain-calculator/" className={styles.link}>Deck Stain</Link></li>
-              <li><Link href="/bathroom-remodel-cost-calculator/" className={styles.link}>Bathroom Remodel Cost</Link></li>
-              <li><Link href="/floor-refinishing-cost-calculator/" className={styles.link}>Floor Refinishing Cost</Link></li>
-              <li><Link href="/carpet-cost-calculator/" className={styles.link}>Carpet Cost Calculator</Link></li>
               <li><Link href="/deck-cost-calculator/" className={styles.link}>Deck Cost Calculator</Link></li>
             </ul>
+            <Link href="/tools/#framing" className={styles.viewAllLink}>
+              All Framing Tools →
+            </Link>
           </div>
 
-          {/* Column 5: More Tools & Utilities (Chhoti Cheez 2 Fix) */}
+          {/* Column 4: Finance & Business */}
           <div className={styles.column}>
-            <span className={styles.colTitle}>More Utilities</span>
+            <span className={styles.colTitle}>Finance &amp; Business</span>
             <ul className={styles.linkList}>
-              <li><Link href="/thread-pitch-diameter-calculator/" className={styles.link}>Thread Pitch Diameter Calculator</Link></li>
-              <li><Link href="/steps-per-mm-calculator/" className={styles.link}>Steps per mm Calculator</Link></li>
-              <li><Link href="/pulley-calculator/" className={styles.link}>Pulley Calculator</Link></li>
-              <li><Link href="/sfm-to-rpm-calculator/" className={styles.link}>SFM to RPM Calculator</Link></li>
-              <li><Link href="/speeds-and-feeds-calculator/" className={styles.link}>Speeds and Feeds Calculator</Link></li>
-              <li><Link href="/3d-print-cost-calculator/" className={styles.link}>3D Print Cost Calculator</Link></li>
-              <li><Link href="/epoxy-table-calculator/" className={styles.link}>Epoxy River Table Calculator</Link></li>
-              <li><Link href="/epoxy-resin-calculator/" className={styles.link}>Epoxy Resin Calculator</Link></li>
-              <li><Link href="/self-employment-tax-calculator/" className={styles.link}>Self-Employment Tax Calculator</Link></li>
-              <li><Link href="/sba-loan-calculator/" className={styles.link}>SBA Loan Calculator</Link></li>
-              <li><Link href="/how-long-will-my-money-last/" className={styles.link}>How Long Will My Money Last?</Link></li>
-              <li><Link href="/investment-return-calculator/" className={styles.link}>Investment Return Calculator</Link></li>
-              <li><Link href="/heloc-calculator/" className={styles.link}>HELOC Calculator</Link></li>
-              <li><Link href="/net-worth-calculator/" className={styles.link}>Net Worth Calculator</Link></li>
-              <li><Link href="/credit-card-payoff-calculator/" className={styles.link}>Credit Card Payoff Calculator</Link></li>
-              <li><Link href="/processing-fee-calculator/" className={styles.link}>Processing Fee Calculator</Link></li>
-              <li><Link href="/compound-interest-calculator/" className={styles.link}>Compound Interest Calculator</Link></li>
-              <li><Link href="/present-value-calculator/" className={styles.link}>Present Value Calculator</Link></li>
               <li><Link href="/invoice-generator/" className={styles.link}>Invoice Generator</Link></li>
-              <li><Link href="/business-valuation-calculator/" className={styles.link}>Business Valuation Calculator</Link></li>
-              <li><Link href="/equipment-loan-calculator/" className={styles.link}>Equipment Loan Calculator</Link></li>
-              <li><Link href="/commercial-mortgage-calculator/" className={styles.link}>Commercial Mortgage Calculator</Link></li>
-              <li><Link href="/contribution-margin-calculator/" className={styles.link}>Contribution Margin Calculator</Link></li>
-              <li><Link href="/freelance-rate-calculator/" className={styles.link}>Freelance Rate Calculator</Link></li>
-              <li><Link href="/airbnb-calculator/" className={styles.link}>Airbnb Profit Calculator</Link></li>
-              <li><Link href="/commercial-lease-calculator/" className={styles.link}>Commercial Lease Calculator</Link></li>
-              <li><Link href="/labor-cost-calculator/" className={styles.link}>Labor Cost Calculator</Link></li>
-              <li><Link href="/rental-property-calculator/" className={styles.link}>Rental Property Calculator</Link></li>
-              <li><Link href="/cap-rate-calculator/" className={styles.link}>Cap Rate Calculator</Link></li>
-              <li><Link href="/discount-calculator/" className={styles.link}>Discount Calculator</Link></li>
-              <li><Link href="/hourly-to-salary-calculator/" className={styles.link}>Hourly to Salary Calculator</Link></li>
-              <li><Link href="/unit-price-calculator/" className={styles.link}>Unit Price Calculator</Link></li>
-              <li><Link href="/profit-margin-calculator/" className={styles.link}>Profit Margin Calculator</Link></li>
-              <li><Link href="/markup-calculator/" className={styles.link}>Markup Calculator</Link></li>
-              <li><Link href="/percentage-change-calculator/" className={styles.link}>Percentage Change</Link></li>
-              <li><Link href="/construction-estimate-template/" className={styles.link}>Estimate Template (PDF)</Link></li>
-              <li><Link href="/band-name-generator/" className={styles.link}>Band Name Generator</Link></li>
-              <li><Link href="/tools/" className={styles.link}>All Tools Directory</Link></li>
-              <li>
-                <a
-                  href="mailto:kkchub1@gmail.com?subject=Tool%20Suggestion"
-                  className={styles.link}
-                >
-                  Suggest a Tool →
-                </a>
-              </li>
+              <li><Link href="/self-employment-tax-calculator/" className={styles.link}>Self-Employment Tax</Link></li>
+              <li><Link href="/compound-interest-calculator/" className={styles.link}>Compound Interest</Link></li>
+              <li><Link href="/credit-card-payoff-calculator/" className={styles.link}>Credit Card Payoff</Link></li>
+              <li><Link href="/sba-loan-calculator/" className={styles.link}>SBA Loan Calculator</Link></li>
+              <li><Link href="/rental-property-calculator/" className={styles.link}>Rental Property</Link></li>
+              <li><Link href="/profit-margin-calculator/" className={styles.link}>Profit Margin</Link></li>
             </ul>
+            <Link href="/tools/#business" className={styles.viewAllLink}>
+              All Finance Tools →
+            </Link>
           </div>
 
-          {/* Column 6: Company & Editorial */}
+          {/* Column 5: 3D Printing & CNC */}
           <div className={styles.column}>
-            <span className={styles.colTitle}>Company &amp; Legal</span>
+            <span className={styles.colTitle}>3D Printing &amp; CNC</span>
             <ul className={styles.linkList}>
-              <li><Link href="/about/" className={styles.link}>About Us</Link></li>
-              <li><Link href="/guides/" className={styles.link}>Guides &amp; Articles</Link></li>
-              <li><Link href="/contact/" className={styles.link}>Contact &amp; Support</Link></li>
-              <li><Link href="/privacy-policy/" className={styles.link}>Privacy Policy</Link></li>
-              <li><Link href="/terms/" className={styles.link}>Terms of Service</Link></li>
-              <li><Link href="/disclaimer/" className={styles.link}>Disclaimer</Link></li>
-              <li><Link href="/site-map/" className={styles.link}>Site Map</Link></li>
+              <li><Link href="/3d-print-cost-calculator/" className={styles.link}>3D Print Cost</Link></li>
+              <li><Link href="/speeds-and-feeds-calculator/" className={styles.link}>Speeds &amp; Feeds</Link></li>
+              <li><Link href="/sfm-to-rpm-calculator/" className={styles.link}>SFM to RPM</Link></li>
+              <li><Link href="/pulley-calculator/" className={styles.link}>Pulley Ratio &amp; Speed</Link></li>
+              <li><Link href="/steps-per-mm-calculator/" className={styles.link}>Steps per mm</Link></li>
+              <li><Link href="/thread-pitch-diameter-calculator/" className={styles.link}>Thread Pitch</Link></li>
+              <li><Link href="/epoxy-table-calculator/" className={styles.link}>Epoxy River Table</Link></li>
             </ul>
+            <Link href="/tools/#engineering" className={styles.viewAllLink}>
+              All CNC &amp; 3D Tools →
+            </Link>
           </div>
+
+          {/* Column 6: Math & Statistics */}
+          <div className={styles.column}>
+            <span className={styles.colTitle}>Math &amp; Statistics</span>
+            <ul className={styles.linkList}>
+              <li><Link href="/ratio-calculator/" className={styles.link}>Ratio Calculator</Link></li>
+              <li><Link href="/standard-deviation-calculator/" className={styles.link}>Standard Deviation</Link></li>
+              <li><Link href="/t-test-calculator/" className={styles.link}>T-Test Calculator</Link></li>
+              <li><Link href="/cagr-calculator/" className={styles.link}>CAGR Calculator</Link></li>
+              <li><Link href="/ab-test-significance-calculator/" className={styles.link}>A/B Test Stat Sig</Link></li>
+              <li><Link href="/iqr-calculator/" className={styles.link}>IQR Calculator</Link></li>
+              <li><Link href="/reverse-sales-tax-calculator/" className={styles.link}>Reverse Sales Tax</Link></li>
+            </ul>
+            <Link href="/tools/#math" className={styles.viewAllLink}>
+              All Math Tools →
+            </Link>
+          </div>
+        </div>
+
+        {/* Company & Legal Ribbon */}
+        <div className={styles.companyRibbon}>
+          <nav className={styles.companyNav} aria-label="Footer Company & Legal Navigation">
+            <Link href="/about/" className={styles.companyLink}>About Us</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/guides/" className={styles.companyLink}>Guides &amp; Articles</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/contact/" className={styles.companyLink}>Contact &amp; Support</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/site-map/" className={styles.companyLink}>Site Map</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/privacy-policy/" className={styles.companyLink}>Privacy Policy</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/terms/" className={styles.companyLink}>Terms of Service</Link>
+            <span className={styles.dot}>·</span>
+            <Link href="/disclaimer/" className={styles.companyLink}>Disclaimer</Link>
+          </nav>
+
+          <a href="#main-content" className={styles.backToTop}>
+            ↑ Back to top
+          </a>
         </div>
 
         {/* Bottom Bar */}
         <div className={styles.bottomBar}>
           <p className={styles.copyright}>
-            &copy; {currentYear} {SITE_NAME}. Free calculators for planning estimates only — verify with local building codes, trade suppliers and structural engineers.
+            &copy; {currentYear} {SITE_NAME}. Free calculators for planning estimates only — verify with local building codes, trade suppliers and structural engineers. All calculations run client-side in your browser.
           </p>
-          <div className={styles.bottomLinks}>
-            <Link href="/privacy-policy/" className={styles.bottomLink}>Privacy</Link>
-            <span className={styles.dot}>·</span>
-            <Link href="/terms/" className={styles.bottomLink}>Terms</Link>
-            <span className={styles.dot}>·</span>
-            <Link href="/disclaimer/" className={styles.bottomLink}>Disclaimer</Link>
-            <span className={styles.dot}>·</span>
-            <Link href="/site-map/" className={styles.bottomLink}>Site Map</Link>
-            <span className={styles.dot}>·</span>
-            <Link href="/contact/" className={styles.bottomLink}>Contact</Link>
-          </div>
         </div>
       </div>
     </footer>

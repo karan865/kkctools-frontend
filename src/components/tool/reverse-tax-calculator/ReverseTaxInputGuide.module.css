@@ -1,0 +1,85 @@
+.diagramWrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.receiptCard {
+  background: var(--surface-subtle);
+  border: 1px dashed var(--line);
+  border-radius: 10px;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 480px;
+  margin: 0 auto 14px;
+}
+
+.receiptRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.9rem;
+}
+
+.highlightRow {
+  background: var(--cat-math-soft);
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--cat-math);
+}
+
+.receiptLabel {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.highlightLabel {
+  font-weight: 700;
+  color: var(--cat-math-ink);
+}
+
+.receiptVal {
+  font-family: var(--font-mono, monospace);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.highlightVal {
+  font-family: var(--font-mono, monospace);
+  font-weight: 800;
+  color: var(--cat-math-deep);
+  font-size: 1.05rem;
+}
+
+.receiptDivider {
+  height: 1px;
+  background: var(--line);
+  margin: 2px 0;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.chip {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}

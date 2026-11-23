@@ -58,6 +58,10 @@ const ex10PctOf50 = pctOf(10, 50); // 5
 
 const faqs = [
   {
+    q: 'How do I calculate growth percentage (percent of change)?',
+    a: 'To calculate growth percentage (or percent of change), subtract the beginning value from the ending value, divide by the beginning value, and multiply by 100: Growth % = ((End − Start) ÷ Start) × 100. For example, if annual sales grow from $50,000 to $65,000, your revenue growth percentage is ((65,000 − 50,000) ÷ 50,000) × 100 = +30%.',
+  },
+  {
     q: 'How do you find percent change?',
     a: `To find percent change, subtract the old value from the new value, divide the difference by the absolute value of the old value, and multiply by 100. For example, moving from 80 to 100: (100 − 80) ÷ 80 × 100 = 20 ÷ 80 × 100 = ${formatPct(
       ex80to100
@@ -152,7 +156,7 @@ export default function PercentageChangePage() {
         <h1 className={styles.h1}>Percentage Change Calculator: Increase, Decrease &amp; Difference</h1>
         <p className={styles.lead}>
           Calculate the exact percentage increase, percentage decrease, or symmetric difference between two numbers.
-          Includes step-by-step math, reverse percentages, percentage points (pp), batch list comparisons, and copyable Excel formulas.
+          Functions as an interactive <strong>growth percentage calculator</strong> and <strong>difference calculator</strong> with step-by-step math, reverse percentages, percentage points (pp), batch list comparisons, and copyable Excel formulas.
         </p>
         <div className={styles.meta}>
           <span>Category: Business &amp; Everyday Utilities</span>
@@ -262,6 +266,19 @@ export default function PercentageChangePage() {
               </tbody>
             </table>
           </div>
+        </section>
+
+        {/* Section: Month-on-Month (MoM) Percentage Change */}
+        <section className={styles.section}>
+          <h2 className={styles.h2}>Month-on-Month (MoM) Percentage Change &amp; Multi-Year Drops</h2>
+          <p className={styles.p}>
+            In business analytics, tracking <strong>month on month (MoM)</strong> or year-on-year (YoY) percentage changes reveals trends that raw dollar figures conceal. When analyzing multi-period reports to answer <em>&ldquo;between which two years was the greatest percentage decrease?&rdquo;</em>, calculate each period sequentially using its preceding baseline:
+          </p>
+          <ul style={{ paddingLeft: '24px', margin: '0 0 16px', lineHeight: '1.7' }}>
+            <li><strong>Year 1 to Year 2:</strong> From $120k to $90k is ((90 − 120) ÷ 120) × 100 = <strong>−25.0%</strong>.</li>
+            <li><strong>Year 2 to Year 3:</strong> From $90k to $72k is ((72 − 90) ÷ 90) × 100 = <strong>−20.0%</strong>.</li>
+            <li><strong>Conclusion:</strong> Although both dropped by $30k and $18k respectively, Year 1 to Year 2 experienced the greatest percentage decrease (−25.0%) due to its larger relative impact on baseline capital.</li>
+          </ul>
         </section>
 
         {/* Section 2 */}
@@ -569,6 +586,24 @@ export default function PercentageChangePage() {
             Explore our companion calculators for material takeoffs, contractor billing, and commercial pricing:
           </p>
           <div className={styles.relatedGrid}>
+            <Link href="/fraction-to-percent-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>Fraction to Percent Calculator</span>
+              <span className={styles.relatedDesc}>
+                Part of a whole rather than a change? Turn a fraction or a score like 16 out of 20 into a percentage.
+              </span>
+            </Link>
+            <Link href="/ab-test-significance-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>A/B Test Significance Calculator</span>
+              <span className={styles.relatedDesc}>
+                Testing a change? Check whether a lift in conversion rate is statistically significant.
+              </span>
+            </Link>
+            <Link href="/cagr-calculator/" className={styles.relatedCard}>
+              <span className={styles.relatedTitle}>CAGR Calculator</span>
+              <span className={styles.relatedDesc}>
+                Turn growth over several years into a compound annual growth rate.
+              </span>
+            </Link>
             <Link href="/credit-card-payoff-calculator/" className={styles.relatedCard}>
               <span className={styles.relatedTitle}>Credit Card Payoff Calculator</span>
               <span className={styles.relatedDesc}>

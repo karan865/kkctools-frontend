@@ -104,6 +104,11 @@
   --cat-engineering-ink: #0F766E;
   --cat-engineering-deep: #115E59;
 
+  --cat-math: #4F46E5;
+  --cat-math-soft: #EEF2FF;
+  --cat-math-ink: #4338CA;
+  --cat-math-deep: #3730A3;
+
   /* Fixed category gradients (same in both themes; white text on them is >= 5:1) */
   --cat-concrete-g1: #0369A1;
   --cat-concrete-g2: #075985;
@@ -119,6 +124,8 @@
   --cat-business-g2: #9F1239;
   --cat-engineering-g1: #0F766E;
   --cat-engineering-g2: #115E59;
+  --cat-math-g1: #4338CA;
+  --cat-math-g2: #312E81;
 
   /* Typography Fluid Scale */
   --font-heading: 'Inter', var(--font-body-loaded), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
@@ -211,4 +218,9 @@
   --cat-engineering-soft: rgba(45, 212, 191, 0.14);
   --cat-engineering-ink: #5EEAD4;
   --cat-engineering-deep: #99F6E4;
+
+  --cat-math: #818CF8;
+  --cat-math-soft: rgba(129, 140, 248, 0.15);
+  --cat-math-ink: #A5B4FC;
+  --cat-math-deep: #C7D2FE;
 }

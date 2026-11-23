@@ -174,7 +174,7 @@ export default function PipeVolumeCalculatorPage() {
             </li>
           </ol>
 
-          <h2>Pipe volume formula</h2>
+          <h2>Pipe and tube volume formula (Tube Volume Calculator)</h2>
           <div className={styles.split}>
             <figure className={styles.figureBox}>
               <CapacityDiagram />
@@ -390,6 +390,11 @@ export default function PipeVolumeCalculatorPage() {
 
           <h2>Related calculators</h2>
           <ul className={styles.related}>
+            <li>
+              <Link href="/gallons-to-cubic-feet/">
+                Gallons to Cubic Feet Converter<span>Convert pipe volume to gallons, ft³ or litres</span>
+              </Link>
+            </li>
             <li>
               <Link href="/cubic-yard-calculator/">
                 Cubic Yard Calculator<span>Volumes for soil, gravel and fill</span>

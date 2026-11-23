@@ -59,6 +59,10 @@ const depthsCm = [2.5, 5, 7.5, 10, 15];
 // ---------- FAQ ----------
 const faqs = [
   {
+    q: 'How do I convert cft to square feet (cubic feet to ft sq)?',
+    a: 'To convert cft to square feet (cubic feet to ft sq), divide your volume in cft by the depth in feet: Square Feet = cft ÷ (depth in inches ÷ 12). For example, 100 cft spread 3 inches deep (0.25 ft) covers 100 ÷ 0.25 = 400 square feet.',
+  },
+  {
     q: 'Can you convert cubic feet to square feet?',
     a: 'Not on their own — cubic feet measure volume and square feet measure area. You need a thickness (depth) to link them: square feet = cubic feet ÷ depth in feet. With a depth, the conversion is exact.',
   },
@@ -114,7 +118,7 @@ export default function CubicFeetToSquareFeetPage() {
         <header className={styles.header}>
           <h1 className={styles.h1}>Cubic Feet to Square Feet Converter</h1>
           <p className={styles.lead}>
-            Convert <strong>cubic feet to square feet</strong> — or square feet to cubic feet — for mulch, soil, gravel, sand, concrete and more. Because
+            Convert <strong>cubic feet to square feet</strong> (cft to square feet) — or convert cubic feet to ft sq — for mulch, soil, gravel, sand, concrete and more. Because
             one is a volume and the other an area, the converter uses a <strong>depth or thickness</strong>: tell it how deep the material goes and it
             tells you how much ground a volume covers, or how much material an area needs, in feet, yards, metres, litres or bags.
           </p>

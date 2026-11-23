@@ -22,9 +22,7 @@ const emptySubscribe = () => () => {};
 export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   const menuRef = useRef<HTMLDivElement>(null);
   const isMounted = useSyncExternalStore(emptySubscribe, () => true, () => false);
-  const [openCategories, setOpenCategories] = useState<Record<string, boolean>>({
-    concrete: true,
-  });
+  const [activeCategory, setActiveCategory] = useState<string | null>('concrete');
 
   useEffect(() => {
     if (isOpen) {
@@ -42,10 +40,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
   if (!isOpen || !isMounted) return null;
 
   const toggleCategory = (catId: string) => {
-    setOpenCategories((prev) => ({
-      ...prev,
-      [catId]: !prev[catId],
-    }));
+    setActiveCategory((prev) => (prev === catId ? null : catId));
   };
 
   const categoryKeys: CategoryId[] = [
@@ -56,6 +51,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     'finishes',
     'business',
     'engineering',
+    'math',
   ];
 
   return createPortal(
@@ -85,7 +81,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
               {categoryKeys.map((catKey) => {
                 const cat = CATEGORIES[catKey];
                 const tools = getToolsByCategory(catKey);
-                const isExpanded = !!openCategories[catKey];
+                const isExpanded = activeCategory === catKey;
 
                 return (
                   <div key={catKey} className={styles.accordionGroup}>
@@ -103,7 +99,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
 
                     {isExpanded && (
                       <div className={styles.accordionBody}>
-                        {tools.slice(0, 5).map((tool) => (
+                        {tools.slice(0, 3).map((tool) => (
                           <Link
                             key={tool.slug}
                             href={tool.slug}
@@ -111,18 +107,18 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
                             onClick={onClose}
                           >
                             <span className={styles.toolIcon}>
-                              <Icon name={tool.icon} size={16} />
+                              <Icon name={tool.icon} size={15} />
                             </span>
                             <span>{tool.name}</span>
                           </Link>
                         ))}
-                        {tools.length > 5 && (
+                        {tools.length > 3 && (
                           <Link
                             href={`/tools/#${catKey}`}
                             className={styles.viewCategoryAll}
                             onClick={onClose}
                           >
-                            View all {tools.length} in {cat.name} →
+                            All {tools.length} in {cat.name} →
                           </Link>
                         )}
                       </div>

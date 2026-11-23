@@ -29,6 +29,10 @@ export const metadata: Metadata = buildMetadata({
 
 const FAQS = [
   {
+    q: 'What is the effective annual rate (EAR) formula?',
+    a: 'The Effective Annual Rate (EAR) formula converts a nominal APR with intra-year compounding into its true effective annualized rate: EAR = (1 + r/m)^m − 1, where r is nominal APR and m is compounding cycles per year. For example, 6% compounded monthly yields EAR = (1 + 0.06/12)¹² − 1 = 6.168%. To convert between APR and EAR/APY automatically, use our Compound Interest Calculator.',
+  },
+  {
     q: 'What is the PV formula?',
     a: 'The standard Present Value formula for a single future sum is PV = FV ÷ (1 + r)ⁿ, where PV is present value, FV is future value, r is the discount rate per period (as a decimal), and n is the total number of discounting periods. If compounding occurs m times per year, the formula becomes PV = FV ÷ (1 + r/m)^(m×t).',
   },
@@ -69,8 +73,8 @@ const FAQS = [
     a: 'The most common mistake in spreadsheets is including Year 0 (the initial outflow) inside Excel’s =NPV() function. Excel’s NPV formula treats the very first argument as Period 1, meaning it mistakenly discounts your immediate initial investment by one year. The correct formula is always: =NPV(rate, inflows_range) − initial_outlay, keeping the initial cost outside the function.',
   },
   {
-    q: 'What discount rate should I choose?',
-    a: 'The discount rate should reflect the opportunity cost of capital—the return you could achieve on an alternative investment of equivalent risk. For corporate capital projects, companies typically use their Weighted Average Cost of Capital (WACC). For individual personal finance decisions, people commonly use the risk-free Treasury yield, expected stock market returns, or expected inflation plus a personal hurdle premium.',
+    q: 'What discount rate should I choose (WACC)?',
+    a: 'The discount rate should reflect the opportunity cost of capital—the return you could achieve on an alternative investment of equivalent risk. For corporate capital projects, finance teams often use their Weighted Average Cost of Capital (WACC), blending after-tax cost of debt and required equity returns. For personal finance decisions, people commonly use the risk-free Treasury yield, expected broad-market index returns, or inflation plus a personal hurdle premium.',
   },
 ];
 

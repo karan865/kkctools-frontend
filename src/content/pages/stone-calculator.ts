@@ -12,6 +12,22 @@ export interface RelatedCalculatorLink {
 
 export const STONE_FAQS: FaqItem[] = [
   {
+    q: 'How much does a yard of gravel weigh?',
+    a: 'It depends on the rock type, its grading and how wet it is, so the best figure is the one on your supplier’s ticket. Weight = cubic yards × density. The calculator’s editable presets are 1.40 tons per yd³ (2,800 lb) for #57 stone and pea gravel, 1.50 tons (3,000 lb) for crusher run and 1.35 tons (2,700 lb) for river rock; replace them with your supplier’s density when you have it.',
+  },
+  {
+    q: 'How much gravel do I need for a driveway?',
+    a: 'To figure gravel for a driveway: Multiply Length (ft) × Width (ft) × Depth (ft) ÷ 27 to find cubic yards, then multiply by your stone’s density. Example: a 50 ft × 12 ft driveway at 4 inches deep is 600 sq ft × (4 ÷ 12) ft ÷ 27 = 7.41 cubic yards. At the #57 stone preset of 1.40 tons per yard plus the default 10% allowance, that is 7.41 × 1.40 × 1.10 = 11.41 short tons. For a base and top layer, work out each layer with its own depth and density and add them.',
+  },
+  {
+    q: 'How many tons of gravel in a yard?',
+    a: 'Tons per yard is the material’s density, so it changes with the stone. The calculator’s editable presets use 1.40 tons per yard for #57 stone and pea gravel and 1.50 for crusher run; use your supplier’s figure if it differs. To convert weights and volumes directly, use the Tons to Cubic Yards Converter.',
+  },
+  {
+    q: 'How much chippings do I need?',
+    a: 'In the UK, small decorative stone is often called chippings. Work in metres: area (m²) × depth (m) = volume (m³), then volume × density (tonnes per m³) = tonnes. Example only: 10 m² at 50 mm deep is 10 × 0.05 = 0.5 m³. Take the density and the bag volume from your supplier, because both vary by stone and product.',
+  },
+  {
     q: 'How many cubic yards are in a ton of rock?',
     a: 'One US short ton of rock contains approximately 0.65 to 0.78 cubic yards, depending on the mineral density and gradation. For standard #57 crushed stone and pea gravel (density ~1.40 tons/yd³), 1 ton equals 0.71 cubic yards. For dense crusher run (~1.50 tons/yd³), 1 ton equals 0.67 cubic yards. For smooth river rock (~1.35 tons/yd³), 1 ton equals 0.74 cubic yards. Lightweight lava rock (~0.61 tons/yd³) yields roughly 1.64 cubic yards per ton. Conversely, 1 cubic yard of common crushed rock weighs between 1.35 and 1.50 tons.',
   },

@@ -2059,6 +2059,261 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'ratio-calculator': {
+    formula: [
+      'Simplification: divide each term by gcd(term_1, term_2, ...)',
+      'Scale to whole numbers: terms × 10^decimals or LCM of fractional denominators',
+      'Proportion: A / B = C / D → unknown x = (B × C) / A (cross-multiplication)',
+      'Split total: Share_i = Total × (Term_i ÷ Sum of all terms)',
+      'Part-of-whole percent: %_i = (Term_i ÷ Sum of all terms) × 100',
+      'Part-to-part percent: % = (Term_1 ÷ Term_2) × 100',
+    ],
+    defaults: [
+      { label: 'Simplify example', value: '12 : 18 simplifies to 2 : 3 (GCD 6)' },
+      { label: 'Proportion solve example', value: '2 : 3 = 10 : x gives x = 15' },
+      { label: 'Split example', value: '60 kg split 1:2:3 gives 10 kg, 20 kg, 30 kg' },
+      { label: 'Part-of-whole vs part-to-part', value: 'In 3:4 ratio, part-of-whole shares are 42.86% and 57.14%; part-to-part ratio is 75%' },
+    ],
+    sources: [
+      {
+        label: 'Euclid’s Elements (Book VII) — Euclidean Algorithm for Greatest Common Divisor (GCD)',
+        note: 'Classical algorithmic basis for computing greatest common divisors and reducing integer ratios to irreducible terms',
+      },
+      NIST,
+    ],
+  },
+  'age-difference-calculator': {
+    formula: [
+      'Month-Stepping Algorithm: find largest integer k such that addMonthsClamped(Date_A, k) ≤ Date_B',
+      'Years = floor(k ÷ 12); Months = k mod 12',
+      'Remaining Days = Date_B (UTC day) − addMonthsClamped(Date_A, k) (UTC day)',
+      'Total Calendar Days = Date_B (UTC day) − Date_A (UTC day)',
+      'Total Weeks = floor(Total Calendar Days ÷ 7); Remainder Days = Total Calendar Days mod 7',
+      'Born-on-or-before: Target Year = AsOf.Year − Target Age (Feb 29 clamped to Feb 28 in common years)',
+    ],
+    defaults: [
+      { label: 'Baseline Example', value: '1990-03-15 vs 1994-07-02 = 4 years, 3 months, 17 days (1,570 days)' },
+      { label: 'Public Reference Fixture', value: '1948-11-14 vs 1961-07-01 = 12 years, 7 months, 17 days' },
+      { label: 'Born on or before 21', value: 'As of 2026-11-22 requires birthdate on or before 2005-11-22' },
+    ],
+    sources: [
+      {
+        label: 'ISO 8601 / Gregorian Calendar Representation of Dates and Times',
+        note: 'YYYY-MM-DD dates on the Gregorian calendar (leap-year rule); the month-stepping Y/M/D difference is this calculator’s stated convention',
+      },
+    ],
+  },
+  'iqr-calculator': {
+    formula: [
+      'Interquartile Range: IQR = Q3 − Q1',
+      'Tukey Method (TI-84 / textbooks): split sorted array at median; Q1 is median of lower half, Q3 is median of upper half',
+      'Inclusive Interpolation (Excel QUARTILE.INC / R type 7): rank = p(n − 1) + 1 where p = 0.25 (Q1) and 0.75 (Q3)',
+      'Exclusive Interpolation (Excel QUARTILE.EXC / R type 6): rank = p(n + 1)',
+      'Tukey Fences: Lower Inner = Q1 − 1.5 × IQR; Upper Inner = Q3 + 1.5 × IQR',
+      'Outer Fences: Lower Outer = Q1 − 3.0 × IQR; Upper Outer = Q3 + 3.0 × IQR',
+      'Mild Outliers: data values between inner and outer fences; Extreme Outliers: beyond outer fences',
+    ],
+    defaults: [
+      { label: 'Example 1 (1..15 Tukey)', value: '1, 3, 5, 7, 9, 11, 13, 15 gives Q1 = 4, Median = 8, Q3 = 12, IQR = 8' },
+      { label: 'Example 1 (Excel INC)', value: '1..15 gives Q1 = 4.5, Q3 = 11.5, IQR = 7' },
+      { label: 'Example 1 (Excel EXC)', value: '1..15 gives Q1 = 3.5, Q3 = 12.5, IQR = 9' },
+      { label: 'Example 2 (5, 7, 8, 9 Tukey)', value: 'Q1 = 6, Q3 = 8.5, IQR = 2.5' },
+    ],
+    sources: [
+      {
+        label: 'John W. Tukey (1977) — Exploratory Data Analysis',
+        note: 'Foundational text establishing five-number summaries, box-and-whisker plots, and the 1.5 × IQR outlier criterion',
+      },
+      {
+        label: 'Hyndman & Fan (1996) — Sample Quantiles in Statistical Packages (The American Statistician)',
+        note: 'defines nine sample-quantile methods (R types 1–9); type 6 and type 7 match Excel QUARTILE.EXC and QUARTILE.INC',
+      },
+    ],
+  },
+  'ab-test-significance-calculator': {
+    formula: [
+      'Conversion Rates: p_A = c_A ÷ n_A; p_B = c_B ÷ n_B; Relative Lift = (p_B − p_A) ÷ p_A × 100%',
+      'Pooled Proportion: p_pool = (c_A + c_B) ÷ (n_A + n_B)',
+      'Pooled Standard Error: SE_pool = sqrt(p_pool × (1 − p_pool) × (1/n_A + 1/n_B))',
+      'Z-Score: z = (p_B − p_A) ÷ SE_pool',
+      'Two-Sided p-value: p = 2 × (1 − Φ(|z|)); One-Sided p-value: p = 1 − Φ(z)',
+      'Unpooled 95% Confidence Interval: (p_B − p_A) ± 1.95996 × sqrt(p_A(1−p_A)/n_A + p_B(1−p_B)/n_B)',
+      'Sample Size (Fleiss/Miller): n = (z_{1−α/2}√(2p̄(1−p̄)) + z_{1−β}√(p₁(1−p₁) + p₂(1−p₂)))² ÷ (p₂−p₁)² per arm',
+      'Sample Ratio Mismatch: Pearson χ² = sum((O_i − E_i)² ÷ E_i) with df = 1; warning if p < 0.001',
+      'Multi-Variant Corrections: Bonferroni α_adj = α ÷ m; Šidák α_adj = 1 − (1 − α)^(1/m)',
+    ],
+    defaults: [
+      { label: 'Spec Example 1 (10k: 500 vs 570)', value: '+14.0% lift, z = 2.20, two-sided p = 0.028 (significant at 95%)' },
+      { label: 'Spec Example 2 (50k: 500 vs 570)', value: '1.00% vs 1.14%, z = 2.152, two-sided p = 0.031' },
+      { label: 'Sample Size Planner (5% baseline, 10% rel MDE)', value: '80% power, α = 0.05 requires 31,234 visitors per arm' },
+    ],
+    sources: [
+      {
+        label: 'Fleiss, Levin, & Paik (2003) — Statistical Methods for Rates and Proportions (3rd ed.)',
+        note: 'Definitive reference for two-sample binomial proportion tests, continuity corrections, and sample size formulas',
+      },
+      {
+        label: 'Evan Miller (2013) — Sample Size Calculator (Formulas for A/B Testing)',
+        note: 'a widely used online sample-size calculator for conversion tests; useful as a cross-check',
+      },
+      {
+        label: 'Fabijan et al. (2019) — Diagnosing Sample Ratio Mismatch in A/B Testing (KDD 2019)',
+        note: 'Microsoft analysis establishing chi-square goodness-of-fit guardrails against traffic skew in online experiments',
+      },
+    ],
+  },
+  'gallons-to-cubic-feet': {
+    formula: [
+      'Exact NIST Definition: 1 US Liquid Gallon = 231 cubic inches',
+      'Exact NIST Definition: 1 Cubic Foot = 1,728 cubic inches (12³ in³)',
+      'Gallons per Cubic Foot: 1,728 ÷ 231 = 7.48051948... US gallons (approx 7.48052)',
+      'Cubic Feet per Gallon: 231 ÷ 1,728 = 0.13368055... cubic feet (approx 0.133681)',
+      'Metric Equivalence: 1 US Gallon = 3.785411784 Litres; 1 Cubic Foot = 28.316846592 Litres',
+      'Imperial Gallon (UK): 1 Imperial Gallon = 4.54609 Litres ≈ 1.20095 US Gallons',
+      'Rectangular Prism Volume: V = Length × Width × Height',
+      'Cylinder Volume: V = π × (Diameter ÷ 2)² × Height',
+      'Estimated Water Weight: ~8.34 lb per US gallon; ~62.4 lb per cubic foot (at 60°F / 15.6°C)',
+    ],
+    defaults: [
+      { label: 'NIST Standards', value: '1 ft³ = 7.48052 US gal; 1 US gal = 0.133681 ft³' },
+      { label: 'Spec Worked Example (100 gal)', value: '100 US gal = 13.3681 ft³ = 0.378541 m³ = 378.541 Litres' },
+      { label: '5 Gal Bucket', value: '5 US gal = 0.668403 ft³' },
+      { label: 'Box 4 × 2 × 2 ft', value: '16 ft³ = 119.69 US gallons' },
+    ],
+    sources: [
+      {
+        label: 'NIST Handbook 44 — Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices',
+        note: 'National Institute of Standards and Technology official legal definitions of US liquid gallons and cubic feet',
+      },
+      {
+        label: 'ISO 80000-3:2019 — Quantities and Units (Part 3: Space and time)',
+        note: 'volume as a quantity; 1 L = 1 dm³ = 0.001 m³'
+      },
+    ],
+  },
+  'cagr-calculator': {
+    formula: [
+      'Compound Annual Growth Rate (CAGR): CAGR = (Ending Value ÷ Starting Value)^(1 ÷ Years) − 1',
+      'Ending Value from CAGR: Ending Value = Starting Value × (1 + CAGR)^Years',
+      'Starting Value from CAGR: Starting Value = Ending Value ÷ (1 + CAGR)^Years',
+      'Years Required: Years = ln(Ending Value ÷ Starting Value) ÷ ln(1 + CAGR)',
+      'Exact Doubling Time: T_double = ln(2) ÷ ln(1 + r)',
+      'Rule of 72 Approximation: T_double ≈ 72 ÷ (r × 100)',
+      'Real CAGR (Inflation-Adjusted): Real CAGR = (1 + Nominal CAGR) ÷ (1 + Inflation) − 1',
+      'Excel / Google Sheets Formula: =(End_Cell/Start_Cell)^(1/Years_Cell)-1 or =RRI(Years, Start, End)',
+    ],
+    defaults: [
+      { label: 'Spec Worked Example', value: '$10,000 to $20,000 in 5 years = 14.87% CAGR' },
+      { label: 'Historical Series', value: '100, 50, 65, 78: -7.95% CAGR vs 0.00% arithmetic average' },
+      { label: 'Doubling at 8%', value: 'Exact 9.01 years vs Rule of 72 9.00 years' },
+    ],
+    sources: [
+      {
+        label: 'Investopedia — Compound Annual Growth Rate (CAGR) Formula and Uses',
+        note: 'general explanation of the CAGR formula'
+      },
+      {
+        label: 'Microsoft Excel Documentation — RRI Function Reference',
+        note: 'Official syntax and mathematical implementation for RRI and RATE in spreadsheet software',
+      },
+    ],
+  },
+  'fraction-to-percent-calculator': {
+    formula: [
+      'Fraction to Percentage: Percentage = (Numerator ÷ Denominator) × 100',
+      'Test Score Percentage: Score (%) = (Points Earned ÷ Total Points) × 100',
+      'Repeating Decimal Identification: Repeating if denominator has prime factors other than 2 or 5 in lowest terms',
+      'Points Needed for Next Grade: Points = ceil(Next_Cutoff% × Total ÷ 100) − Current_Points',
+      'Percentage of a Number: Result = (P ÷ 100) × Base_Number',
+      'X is What Percent of Y: P = (X ÷ Y) × 100',
+    ],
+    defaults: [
+      { label: '4/5 to Percent', value: '4/5 = 80%' },
+      { label: '1/3 to Percent', value: '1/3 = 33.3̅% (repeating decimal)' },
+      { label: '16 out of 20', value: '80.0% (Grade B; +2 pts for A)' },
+    ],
+    sources: [
+      {
+        label: 'NIST — Guide for the Use of the International System of Units (SI)',
+        note: 'Standard definition of dimensionless numbers, ratios, and percentages',
+      },
+    ],
+  },
+  'reverse-sales-tax-calculator': {
+    formula: [
+      'Pre-Tax Price: Pre-Tax = Total Paid ÷ (1 + Tax Rate ÷ 100)',
+      'Sales Tax Amount: Tax = Total Paid − Pre-Tax Price',
+      'Tax Rate from Prices: Rate (%) = ((Total Paid ÷ Pre-Tax) − 1) × 100',
+      'Combined Tax Rate: Combined Rate = State + County + City + District',
+      'Forward Sales Tax: Tax = Pre-Tax × (Rate ÷ 100); Total = Pre-Tax + Tax',
+      'Exact Cent Reconciliation: Pre-Tax rounded to nearest cent; Tax = Total − Pre-Tax',
+    ],
+    defaults: [
+      { label: 'Spec Worked Example', value: '$107.25 at 7.25% = $100.00 pre-tax, $7.25 tax' },
+      { label: '20% VAT example', value: '£120.00 at 20% VAT = £100.00 net, £20.00 VAT (Gross ÷ 6)' },
+      { label: 'Rate from Prices', value: 'Pre-tax $100.00, total $108.875 -> 8.875% tax rate' },
+    ],
+    sources: [
+      {
+        label: 'Your state and local revenue agency',
+        note: 'US combined rates are entered by you (state + county + city + district); no rates are built in',
+      },
+      {
+        label: 'OECD — Consumption Tax Trends and VAT/GST Guidelines',
+        note: 'background on VAT/GST; the price-before-tax formula is plain arithmetic: gross ÷ (1 + rate)',
+      },
+    ],
+  },
+  'standard-deviation-calculator': {
+    formula: [
+      'Sample Standard Deviation: s = √[ Σ(x_i − x̄)² ÷ (n − 1) ]',
+      'Population Standard Deviation: σ = √[ Σ(x_i − μ)² ÷ N ]',
+      'Sample Variance: s² = Σ(x_i − x̄)² ÷ (n − 1)',
+      'Population Variance: σ² = Σ(x_i − μ)² ÷ N',
+      'Standard Error of the Mean: SE = s ÷ √n',
+      'Coefficient of Variation: CV = (s ÷ x̄) × 100%',
+      'z-Score: z = (x_i − x̄) ÷ s',
+    ],
+    defaults: [
+      { label: 'Spec Worked Example', value: '2, 4, 4, 4, 5, 5, 7, 9 (n=8): mean=5, s=2.138, σ=2.000, SE=0.756' },
+      { label: 'Sample Variance', value: 's² = 32 ÷ 7 = 4.571' },
+      { label: 'Population Variance', value: 'σ² = 32 ÷ 8 = 4.000' },
+    ],
+    sources: [
+      {
+        label: 'NIST/SEMATECH e-Handbook of Statistical Methods',
+        note: 'Section 1.3.5.6: Measures of Dispersion — Standard Deviation and Variance',
+      },
+      {
+        label: 'Bessel’s correction (divide by n − 1)',
+        note: 'standard result: makes the sample variance an unbiased estimate of the population variance',
+      },
+    ],
+  },
+  't-test-calculator': {
+    formula: [
+      'Welch (default): t = (x̄₁ − x̄₂ − Δ) ÷ √(s₁²/n₁ + s₂²/n₂); df by the Welch–Satterthwaite equation',
+      'Pooled: sp² = ((n₁ − 1)s₁² + (n₂ − 1)s₂²) ÷ (n₁ + n₂ − 2); t = (x̄₁ − x̄₂ − Δ) ÷ (sp √(1/n₁ + 1/n₂)); df = n₁ + n₂ − 2',
+      'Paired: one-sample test on the differences dᵢ; one-sample: t = (x̄ − μ₀) ÷ (s ÷ √n), df = n − 1',
+      'p-value from the Student-t CDF (regularized incomplete beta); two-tailed p = 2(1 − F(|t|))',
+      'CI = difference ± t* × SE; Cohen’s d = difference ÷ pooled SD (or ÷ s for one-sample/paired); Hedges’ g = d × (1 − 3 ÷ (4·df − 1))',
+    ],
+    defaults: [
+      { label: 'Test', value: 'Welch two-sample, two-tailed, α = 0.05 (all editable)' },
+      { label: 'Worked example', value: 'means 75 vs 70, SD 10 vs 12, n 30 each: Welch t = 1.753, df = 56.17, p = 0.085; pooled df = 58, p = 0.0848' },
+    ],
+    sources: [
+      {
+        label: 'NIST/SEMATECH e-Handbook of Statistical Methods',
+        url: 'https://www.itl.nist.gov/div898/handbook/eda/section3/eda353.htm',
+        note: 'two-sample t-test, including the unequal-variance (Welch) form and its degrees of freedom',
+      },
+      {
+        label: 'Delacre, Lakens & Leys (2017), International Review of Social Psychology',
+        note: 'argues for Welch’s t-test as the default for two independent groups',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

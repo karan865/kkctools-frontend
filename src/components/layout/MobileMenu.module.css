@@ -101,7 +101,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 12px 14px;
+  padding: 10px 12px;
   background: var(--surface-2);
   border: none;
   font-family: inherit;
@@ -110,7 +110,7 @@
 }
 
 .catLabel {
-  font-size: 0.875rem;
+  font-size: 0.8125rem;
   font-weight: 700;
   color: var(--ink);
 }
@@ -128,19 +128,19 @@
 .accordionBody {
   display: flex;
   flex-direction: column;
-  padding: 6px 8px 10px;
+  padding: 4px 6px 8px;
   gap: 2px;
 }
 
 .navLink {
   display: flex;
   align-items: center;
-  gap: 10px;
-  font-size: 0.875rem;
+  gap: 8px;
+  font-size: 0.8125rem;
   font-weight: 600;
   color: var(--ink);
   text-decoration: none;
-  padding: 8px 10px;
+  padding: 6px 8px;
   border-radius: 6px;
   transition: background 0.15s ease;
 }

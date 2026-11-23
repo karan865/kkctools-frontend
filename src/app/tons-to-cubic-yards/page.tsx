@@ -95,6 +95,22 @@ const jsonLd = [
       },
       {
         '@type': 'Question',
+        name: 'How many cubic yards in a ton of rock?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Cubic yards = 2,000 lb ÷ the rock’s density in lb per cubic yard. With this converter’s editable material defaults, one US ton of crushed stone (2,800 lb/yd³) is 0.71 cubic yards and one ton of river rock (2,700 lb/yd³) is 0.74 cubic yards. Use your supplier’s density if it differs.',
+        },
+      },
+      {
+        '@type': 'Question',
+        name: 'How many tons are in a yard?',
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: 'Tons per cubic yard = density (lb/yd³) ÷ 2,000, so it depends on the material. With this converter’s editable defaults: topsoil 1.10 tons, dry sand 1.35 tons, crushed stone or road base 1.40 tons and wet sand 1.60 tons per cubic yard.',
+        },
+      },
+      {
+        '@type': 'Question',
         name: 'How many tons in a cubic yard of sand / topsoil / mulch?',
         acceptedAnswer: {
           '@type': 'Answer',
@@ -489,6 +505,21 @@ export default function TonsToCubicYardsPage() {
             </ol>
           </section>
 
+          {/* Section: Metric Tonnes vs US Tons */}
+          <section style={{ marginBottom: '36px' }}>
+            <h2 style={{ fontSize: '1.4rem', fontWeight: 700, color: '#0F172A', marginBottom: '16px' }}>
+              Tonnes (metric) vs US tons
+            </h2>
+            <p style={{ color: '#475569', lineHeight: 1.6, marginBottom: '12px' }}>
+              When reviewing delivery tickets and international material specs, it is essential to distinguish between standard US short tons and metric tonnes:
+            </p>
+            <ul style={{ paddingLeft: '20px', color: '#475569', lineHeight: 1.6 }}>
+              <li><strong>1 Metric Tonne (t):</strong> Exactly 1,000 kilograms (about 2,204.62 pounds).</li>
+              <li><strong>1 US Short Ton (tn):</strong> Exactly 2,000 pounds = 907.18474 kilograms.</li>
+              <li><strong>Conversion factor:</strong> 1 metric tonne = 1.10231 US short tons. Conversely, 1 US ton = 0.907185 metric tonnes.</li>
+            </ul>
+          </section>
+
           <HowWeCalculate slug="tons-to-cubic-yards" />
 
           {/* Section 8: FAQ */}
@@ -521,6 +552,24 @@ export default function TonsToCubicYardsPage() {
                 </h3>
                 <p style={{ margin: 0, color: '#475569' }}>
                   One US short ton of typical crushed gravel or road base equals approximately 0.71 to 0.74 cubic yards. Conversely, one cubic yard of gravel weighs about 1.35 to 1.40 tons (2,700 to 2,800 pounds).
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  How many cubic yards in a ton of rock?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  Cubic yards = 2,000 lb ÷ the rock’s density in lb per cubic yard. With this converter’s editable material defaults, one US ton of crushed stone (2,800 lb/yd³) is 0.71 cubic yards and one ton of river rock (2,700 lb/yd³) is 0.74 cubic yards. Use your supplier’s density if it differs.
+                </p>
+              </div>
+
+              <div style={{ background: '#F8FAFC', padding: '16px 20px', borderRadius: '8px', border: '1px solid #E2E8F0' }}>
+                <h3 style={{ fontSize: '1.05rem', fontWeight: 600, color: '#0F172A', marginBottom: '6px' }}>
+                  How many tons are in a yard?
+                </h3>
+                <p style={{ margin: 0, color: '#475569' }}>
+                  Tons per cubic yard = density (lb/yd³) ÷ 2,000, so it depends on the material. With this converter’s editable defaults: topsoil 1.10 tons, dry sand 1.35 tons, crushed stone or road base 1.40 tons and wet sand 1.60 tons per cubic yard.
                 </p>
               </div>
 

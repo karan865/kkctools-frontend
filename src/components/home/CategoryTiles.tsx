@@ -11,9 +11,10 @@ export const CATEGORY_ICONS: Record<CategoryId, IconName> = {
   finishes: 'paintRoller',
   business: 'clipboard',
   engineering: 'printer3d',
+  math: 'mathSymbols',
 };
 
-const ORDER: CategoryId[] = ['concrete', 'gravel', 'earthwork', 'framing', 'finishes', 'business', 'engineering'];
+const ORDER: CategoryId[] = ['concrete', 'gravel', 'earthwork', 'framing', 'finishes', 'business', 'engineering', 'math'];
 
 /** Colourful jump links to each category section on the home page. */
 export default function CategoryTiles() {

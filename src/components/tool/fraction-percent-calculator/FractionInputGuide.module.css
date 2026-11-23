@@ -1,0 +1,120 @@
+.diagramWrapper {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 14px;
+}
+
+.visualRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+
+.fractionBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: var(--surface-subtle);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 24px;
+}
+
+.numerator {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--cat-math-deep);
+}
+
+.fractionBar {
+  width: 100%;
+  height: 2px;
+  background: var(--cat-math);
+  margin: 4px 0;
+}
+
+.denominator {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--ink);
+}
+
+.arrowEquation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+}
+
+.eqLabel {
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.eqFormula {
+  font-family: var(--font-mono, monospace);
+  font-size: 0.88rem;
+  background: var(--surface-subtle);
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px dashed var(--line);
+  color: var(--ink);
+}
+
+.resultBadge {
+  background: var(--cat-math-soft);
+  border: 1px solid var(--cat-math);
+  border-radius: 10px;
+  padding: 12px 20px;
+  text-align: center;
+}
+
+.resultVal {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--cat-math-ink);
+}
+
+.resultTag {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--ink-muted);
+  text-transform: uppercase;
+}
+
+.chipsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.chip {
+  font-size: 0.78rem;
+  color: var(--ink-muted);
+  font-weight: 500;
+}
+
+@media (max-width: 640px) {
+  .visualRow {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
