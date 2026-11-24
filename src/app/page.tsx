@@ -66,6 +66,7 @@ const CATEGORY_BANDS: { id: CategoryId; layout: 'split' | 'stack'; flip?: boolea
   { id: 'business', layout: 'stack', show: 2, viewAllText: 'All estimate & creative tools' },
   { id: 'engineering', layout: 'split', flip: true, show: 4, viewAllText: 'All 3D printing & CNC tools' },
   { id: 'math', layout: 'stack', show: 6, viewAllText: 'All math & financial calculators' },
+  { id: 'writing', layout: 'split', show: 4, viewAllText: 'All text & writing tools' },
 ]
 
 const GUIDES: { href: string; badge: string; title: string; excerpt: string; icon: IconName; tone: string }[] = [

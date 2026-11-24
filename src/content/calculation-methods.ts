@@ -35,6 +35,234 @@ const QUIKRETE: MethodSource = {
 };
 
 export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
+  'keyword-density-checker': {
+    formula: [
+      'Standard Density %: (Occurrences / Total Words) × 100',
+      'Share of Words %: (Occurrences × Words in Phrase / Total Words) × 100',
+      'Sentence Bounding: N-grams (1, 2, 3 words) extracted strictly within sentence boundaries, never spanning terminal punctuation',
+      'Stop-Word Filtering: Curated stop words filtered from n-gram tables without changing total word denominator',
+    ],
+    defaults: [
+      { label: 'Minimum Phrase Frequency', value: '2 occurrences' },
+      { label: 'Stop-Word Exclusion', value: 'Enabled (~125 common English terms)' },
+      { label: 'Plural Variant Grouping', value: 'Disabled by default (approximate rules)' },
+      { label: 'Case Sensitivity', value: 'Case-insensitive' },
+    ],
+    sources: [
+      { label: 'Google Search Essentials: Keyword Stuffing Policy', url: 'https://developers.google.com/search/docs/essentials/spam-policies#keyword-stuffing' },
+      { label: 'Unicode UAX #29 Sentence Boundaries for N-Gram Scoping', url: 'https://unicode.org/reports/tr29/' },
+    ],
+  },
+  'sentence-counter': {
+    formula: [
+      'Sentence Segmentation: Raw Intl.Segmenter boundaries refined by left-to-right abbreviation merge pass',
+      'Abbreviation Merging: Never-final abbreviations (Dr., Mr., Prof.) unconditionally joined; maybe-final (etc., Inc., a.m.) joined when next word begins lowercase or numeric',
+      'Initials & Decimals: Single-letter initials (J. K.) and numeric periods ($4.50, 3.14) preserved as single sentences',
+      'Paragraph Rules: Blank-line mode (\\n\\s*\\n) or every-line mode; digital.gov plain-language paragraph guidelines (<= 150 words recommended, never > 250 words)',
+    ],
+    defaults: [
+      { label: 'Long Sentence Threshold', value: '25 words' },
+      { label: 'Paragraph Boundary Rule', value: 'Blank line (double newline)' },
+      { label: 'List Lines as Sentences', value: 'Enabled' },
+    ],
+    sources: [
+      { label: 'digital.gov Plain Language Guidelines (Paragraph Length)', url: 'https://digital.gov/guides/plain-language/writing/clear-short' },
+      { label: 'Unicode UAX #29 Sentence Boundaries & Intl.Segmenter', url: 'https://unicode.org/reports/tr29/' },
+    ],
+  },
+  'comma-separator': {
+    formula: [
+      'Line Separation: Split on CRLF, LF, or CR with whitespace trimming and empty row elimination',
+      'RFC 4180 Quoting: Values containing delimiter, double quotes, or newlines enclosed in quotes with inner quotes doubled',
+      'Deduplication: First-occurrence preservation under case-sensitive or case-insensitive matching',
+      'Spreadsheet Formulas: Excel =TEXTJOIN(", ", TRUE, range) / Google Sheets =JOIN(", ", FILTER(range, range<>""))',
+    ],
+    defaults: [
+      { label: 'Delimiter', value: 'Comma + Space (, )' },
+      { label: 'Quoting Rule', value: 'Auto (RFC 4180 CSV standard)' },
+      { label: 'Deduplication', value: 'Off (optional case-insensitive)' },
+      { label: 'Sorting', value: 'None (A–Z, Z–A, natural or numeric)' },
+    ],
+    sources: [
+      {
+        label: 'IETF RFC 4180 – Common Format and MIME Type for Comma-Separated Values (CSV) Files',
+        url: 'https://datatracker.ietf.org/doc/html/rfc4180',
+      },
+      {
+        label: 'Microsoft Support – TEXTJOIN Function Documentation',
+        url: 'https://support.microsoft.com/office/textjoin-function-357b449a-ec91-49d0-80c3-0e01d29f55d3',
+      },
+      {
+        label: 'Google Docs Editors Help – JOIN Function Documentation',
+        url: 'https://support.google.com/docs/answer/3094077',
+      },
+    ],
+  },
+  'numbers-to-words': {
+    formula: [
+      'Scale Grouping: Tri-digit periods (ones, thousands, millions...) on International scale; Lakh (10^5) and Crore (10^7) on Indian scale',
+      'US Check Amount: Sentence(toWords(int)) + " and " + cents/100 dollars (cents rounded half-up on 3rd digit with integer carry)',
+      'Indian Cheque: "Rupees " + Title(toIndianWords(int)) + (" and " + paise + " Paise")? + " Only"',
+      'If the amounts disagree: UCC § 3-114, words prevail over numbers',
+    ],
+    defaults: [
+      { label: 'Sample Number', value: '1,234,567' },
+      { label: 'Check Amount', value: '$5,075.62' },
+      { label: 'Cheque Amount', value: '₹12,34,567.50' },
+      { label: 'Cents Rounding', value: 'Half-up at 3rd digit' },
+    ],
+    sources: [
+      {
+        label: 'Uniform Commercial Code (UCC) § 3-114 – Contradictory Terms in Instrument',
+        url: 'https://www.law.cornell.edu/ucc/3/3-114',
+      },
+    ],
+  },
+  'reading-time-calculator': {
+    formula: [
+      'Silent Reading: Duration = Words ÷ your reading pace (238 wpm by default, a published estimate being verified); min read = ceil(minutes)',
+      'Speaking Pace: Duration = (Words ÷ 130 WPM) × (1 + Pause Buffer %) + (Slides × Sec/Slide ÷ 60)',
+      'Reverse Speech: Words Needed = Target Minutes × Speaking WPM',
+      'Natural Range: ±15% variance window accounting for material complexity and reader familiarity',
+    ],
+    defaults: [
+      { label: 'Words', value: '1,000 words' },
+      { label: 'Silent Reading Rate', value: '238 wpm (estimate, being verified)' },
+      { label: 'Presentation Rate', value: '130 wpm (example pace)' },
+      { label: 'Slow Speech Rate', value: '110 wpm (example pace)' },
+      { label: 'Reading Aloud Rate', value: '183 wpm (estimate, being verified)' },
+      { label: 'Pause Buffer', value: '0% (0–30% customizable range)' },
+    ],
+    sources: [
+      {
+        label: 'Brysbaert (2019), Journal of Memory and Language 109 (rates being verified)',
+        url: 'https://doi.org/10.1016/j.jml.2019.104047',
+      },
+    ],
+  },
+  'word-counter': {
+    formula: [
+      'Word Tokenization: Unicode UAX #29 word boundaries with URL/email pre-tokenization',
+      'Hyphenated Compounds: Joined as 1 word by default (A-B pattern without internal spaces)',
+      'Contractions: Kept whole as 1 word with standard apostrophes and typographical quotes',
+      'Numeric Words: Numbers with commas and decimals count as words by default',
+      'Reading Time: Reading Minutes = Word Count ÷ 238 words per minute (editable; a published estimate being verified)',
+      'Speaking Time: Speaking Minutes = Word Count ÷ 130 words per minute (example pace, editable)',
+    ],
+    defaults: [
+      { label: 'Hyphenated compounds rule', value: 'Joined as 1 word (toggleable in options)' },
+      { label: 'Numeric values rule', value: 'Counted as words (toggleable in options)' },
+      { label: 'Silent reading speed', value: '238 words per minute (editable)' },
+      { label: 'Speaking aloud pace', value: '130 words per minute (editable)' },
+    ],
+    sources: [
+      {
+        label: 'Unicode Standard Annex #29 (Unicode Text Segmentation)',
+        note: 'specifies word boundary rules for universal text parsing',
+      },
+      {
+        label: 'Google Docs Help (39003 & 179738) & Microsoft Word Support',
+        note: 'verified procedures for checking document word counts and paragraph metrics',
+      },
+    ],
+  },
+  'twitter-character-counter': {
+    formula: [
+      'X Weighted Scoring: Latin, spaces & punctuation = 1; CJK & emoji = 2; web URLs = 23 (twitter-text v3)',
+      'Remaining Post Characters: Remaining = 280 − X_Weighted_Count',
+      'Instagram Caption Limit: Maximum 2,200 characters with spaces (Meta Graph API specification)',
+      'Instagram Tag Limits: Maximum 30 hashtags (#) and 20 @ tags per media post',
+      'Thread Splitting: Greedy sentence packing into ≤ 280 weighted segments with sequential suffix',
+    ],
+    defaults: [
+      { label: 'Standard X (Twitter) Post Limit', value: '280 weighted characters (checked 2026-11-22)' },
+      { label: 'Shortened Link Weight (t.co)', value: '23 weighted characters for any valid web URL' },
+      { label: 'Emoji Character Weight', value: '2 weighted characters per emoji symbol regardless of code points' },
+      { label: 'Instagram Caption Limit', value: '2,200 characters (Meta Graph API verified)' },
+      { label: 'Threads Post Limit', value: '500 characters (Meta verified)' },
+    ],
+    sources: [
+      {
+        label: 'Official X Developer Documentation: Counting Characters',
+        url: 'https://docs.x.com/fundamentals/counting-characters',
+        note: 'defines the official twitter-text v3 weighting algorithm for tweets, links, and emoji',
+      },
+      {
+        label: 'Meta for Developers: Instagram Graph API Media Reference',
+        url: 'https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media',
+        note: 'verified 2,200 caption character limit, 30 hashtag cap, and 20 account tag cap',
+      },
+    ],
+  },
+  'characters-to-words': {
+    formula: [
+      'Effective Characters Per Word: Effective = Average Letters (L) + Spaces (1 if counted, 0 if not) + Punctuation',
+      'Estimated Word Count: Words = Total Characters ÷ Effective Characters Per Word',
+      'Expected Range: Low = Total Characters ÷ (Effective + 1), High = Total Characters ÷ (Effective − 1)',
+      'Reverse Estimation: Total Characters = Word Count × Effective Characters Per Word',
+      'Personal Writing Calibration: Average Letters = Graphemes Without Spaces ÷ Total Word Count',
+    ],
+    defaults: [
+      { label: 'English Average Word Length', value: '4.7 letters per word (commonly used average, editable)' },
+      { label: 'Standard With-Spaces Capacity', value: '175 words per 1,000 characters (range 149–213)' },
+      { label: 'Standard Without-Spaces Capacity', value: '213 words per 1,000 characters (range 175–270)' },
+      { label: 'Reverse 500-Word Estimate', value: '2,850 characters with spaces, 2,350 characters without spaces' },
+    ],
+    sources: [
+      {
+        label: 'Unicode Standard Annex #29 (UAX #29)',
+        note: 'extended grapheme clusters used for user-perceived character and whitespace segmentation',
+      },
+    ],
+  },
+  'words-to-pages': {
+    formula: [
+      'Base Yield: 500 words per page, a common convention (12 pt, single spacing, 1-inch margins, Letter paper)',
+      'Font Scaling: Words per page scales inversely with font size squared: (12 ÷ font_pt)²',
+      'Printable Area: Area = (page_width − 2 × margin) × (page_height − 2 × margin)',
+      'Spacing Adjustment: Words per page = Base × (12 ÷ size)² × (printable_area ÷ letter_area) ÷ line_spacing',
+      'Page Count: Pages = total_words ÷ words_per_page (with ±10% variation range)',
+      'Paragraph & Sentence Estimates: Sentences = words ÷ 20, Paragraphs = words ÷ 100',
+    ],
+    defaults: [
+      { label: 'Standard Letter Single Spacing', value: '500 words per page (12 pt type, 1.0 margin)' },
+      { label: 'Standard Letter Double Spacing', value: '250 words per page (12 pt type, 1.0 margin)' },
+      { label: 'Standard Letter 1.5 Spacing', value: '333 words per page (12 pt type, 1.0 margin)' },
+      { label: 'Standard A4 Single Spacing', value: '519 words per page (3.9% larger printable area)' },
+      { label: 'Standard Trade Book Trim (6×9 in)', value: '250 words per page (example layout figure)' },
+    ],
+    sources: [
+      {
+        label: 'digital.gov plain-language guide',
+        url: 'https://digital.gov/guides/plain-language/writing/clear-short',
+        note: 'paragraphs of no more than 150 words in three to eight sentences (checked 2026-11-22)',
+      },
+    ],
+  },
+  'character-counter': {
+    formula: [
+      'Grapheme Cluster Count: Perceived characters determined via Unicode UAX #29 standard (Intl.Segmenter)',
+      'Without Spaces: Total Graphemes − Whitespace Graphemes (spaces, tabs, newlines, zero-width spaces)',
+      'Remaining Buffer: Remaining Characters = Character Limit − Current Character Count',
+      'UTF-8 Storage Bytes: Sum of variable byte lengths (ASCII = 1B, Accents = 2B, CJK/Symbols = 3B, Emoji = 4B)',
+      'Reading Time: Reading Minutes = Word Count ÷ 238 words per minute (editable; a published estimate being verified)',
+    ],
+    defaults: [
+      { label: 'Alphabet pangram baseline', value: '44 characters, 36 without spaces, 9 words (456 remaining for limit 500)' },
+      { label: 'Multilingual and emoji baseline', value: '31 characters, 24 without spaces, 49 UTF-8 bytes, 5 words' },
+      { label: 'Complex emoji sequence', value: 'Family emoji (👨‍👩‍👧‍👦) counts as 1 character, 7 code points, 25 UTF-8 bytes' },
+    ],
+    sources: [
+      {
+        label: 'Unicode Standard Annex #29 (Unicode Text Segmentation)',
+        note: 'defines extended grapheme clusters as the standard model for human-perceived character counting',
+      },
+      {
+        label: 'W3C Character Model for the World Wide Web',
+        note: 'string length normalization and UTF-8 encoding requirements for modern web applications',
+      },
+    ],
+  },
   'asphalt-calculator': {
     formula: [
       'Volume (ft³) = area (ft²) × thickness (in) ÷ 12',

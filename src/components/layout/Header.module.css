@@ -126,7 +126,7 @@
   top: calc(100% + 4px);
   left: 50%;
   transform: translateX(-50%);
-  width: min(940px, calc(100vw - 32px));
+  width: min(1080px, calc(100vw - 32px));
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 14px);
@@ -142,7 +142,7 @@
 
 .megaGrid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(5, 1fr);
   gap: 14px 18px;
 }
 

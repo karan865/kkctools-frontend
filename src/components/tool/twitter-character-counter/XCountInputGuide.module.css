@@ -1,0 +1,131 @@
+.guideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.summaryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.diagramCard {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 14px);
+  padding: 12px;
+  box-shadow: var(--shadow-s, 0 1px 3px rgba(0, 0, 0, 0.05));
+  overflow: hidden;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 180px;
+}
+
+.cardBg {
+  fill: var(--surface-2);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.segmentBox {
+  fill: var(--surface);
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  rx: 6px;
+}
+
+.segmentBoxActive {
+  fill: color-mix(in srgb, var(--cat-writing-soft) 40%, var(--surface));
+  stroke: var(--cat-writing);
+  stroke-width: 2;
+  rx: 6px;
+}
+
+.calloutText {
+  fill: var(--ink-soft);
+  font-size: 11px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.calloutNum {
+  fill: var(--cat-writing-ink);
+  font-weight: 800;
+}
+
+.segTitle {
+  fill: var(--ink);
+  font-size: 13.5px;
+  font-family: inherit;
+  font-weight: 700;
+}
+
+.segMeta {
+  fill: var(--ink-soft);
+  font-size: 10.5px;
+  font-family: inherit;
+  font-weight: 600;
+}
+
+.badgeBg {
+  fill: var(--cat-writing-soft);
+  stroke: var(--cat-writing);
+  stroke-width: 1.5;
+  rx: 8px;
+}
+
+.badgeTitle {
+  fill: var(--cat-writing-ink);
+  font-size: 11px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.badgeVal {
+  fill: var(--ink);
+  font-size: 12px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+@media (max-width: 768px) {
+  .desktopOnly {
+    display: none;
+  }
+}
+
+@media (min-width: 769px) {
+  .mobileDetails {
+    display: none;
+  }
+}
+
+.mobileDetails summary {
+  cursor: pointer;
+  padding: 8px 12px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m, 8px);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}

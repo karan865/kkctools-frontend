@@ -105,6 +105,7 @@ export type IconName =
   | 'bookOpen'
   | 'arrowRight'
   | 'chevronDown'
+  | 'pencil'
   | 'close';
 
 interface IconProps {
@@ -1053,6 +1054,13 @@ export default function Icon({
       return (
         <svg {...common}>
           <polyline points="6 9 12 15 18 9" />
+        </svg>
+      );
+    case 'pencil':
+      return (
+        <svg {...common}>
+          <path d="M17 3a2.85 2.83 0 1 1 4 4L7.5 20.5 2 22l1.5-5.5Z" />
+          <path d="m15 5 4 4" />
         </svg>
       );
     case 'close':

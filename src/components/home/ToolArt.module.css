@@ -79,3 +79,5 @@
 .cat_finishes  { fill: var(--cat-finishes-g1); }
 .cat_business  { fill: var(--cat-business-g1); }
 .cat_engineering { fill: var(--cat-engineering-g1); }
+.cat_math        { fill: var(--cat-math-g1); }
+.cat_writing     { fill: var(--cat-writing-g1); }

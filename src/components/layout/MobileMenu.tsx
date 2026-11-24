@@ -52,6 +52,7 @@ export default function MobileMenu({ isOpen, onClose }: MobileMenuProps) {
     'business',
     'engineering',
     'math',
+    'writing',
   ];
 
   return createPortal(

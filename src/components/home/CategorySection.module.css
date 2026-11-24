@@ -6,6 +6,8 @@
 .finishes  { --c: var(--cat-finishes);  --c-soft: var(--cat-finishes-soft);  --c-deep: var(--cat-finishes-deep);  --g1: var(--cat-finishes-g1);  --g2: var(--cat-finishes-g2); }
 .business  { --c: var(--cat-business);  --c-soft: var(--cat-business-soft);  --c-deep: var(--cat-business-deep);  --g1: var(--cat-business-g1);  --g2: var(--cat-business-g2); }
 .engineering { --c: var(--cat-engineering); --c-soft: var(--cat-engineering-soft); --c-deep: var(--cat-engineering-deep); --g1: var(--cat-engineering-g1); --g2: var(--cat-engineering-g2); }
+.math      { --c: var(--cat-math);      --c-soft: var(--cat-math-soft);      --c-deep: var(--cat-math-deep);      --g1: var(--cat-math-g1);      --g2: var(--cat-math-g2); }
+.writing   { --c: var(--cat-writing);   --c-soft: var(--cat-writing-soft);   --c-deep: var(--cat-writing-deep);   --g1: var(--cat-writing-g1);   --g2: var(--cat-writing-g2); }
 
 .section {
   position: relative;

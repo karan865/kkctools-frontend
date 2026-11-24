@@ -1,0 +1,250 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+}
+
+.card {
+  padding: 16px 20px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 12px);
+  box-shadow: var(--shadow-sm);
+}
+
+.gridCols4 {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gridCols3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.gridCols2 {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.fieldHint {
+  font-size: 0.6875rem;
+  color: var(--ink-muted);
+}
+
+.input,
+.select {
+  padding: 8px 12px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--input-bg);
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  outline: none;
+}
+
+.input:focus,
+.select:focus {
+  border-color: var(--cat-writing);
+}
+
+.quickPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.pillBtn {
+  padding: 4px 10px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 4px);
+  color: var(--ink-2);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pillBtn:hover {
+  border-color: var(--cat-writing);
+  color: var(--cat-writing-deep, var(--ink));
+}
+
+.pillBtnActive {
+  background: var(--cat-writing-soft);
+  border-color: var(--cat-writing);
+  color: var(--cat-writing-deep, var(--ink));
+}
+
+.wordsOutputBanner {
+  padding: 18px 20px;
+  background: var(--cat-writing-soft);
+  border: 1.5px solid var(--cat-writing);
+  border-radius: var(--radius-card, 10px);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.wordsText {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--cat-writing-deep, var(--ink));
+  line-height: 1.4;
+  word-break: break-word;
+}
+
+.groupingBar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.8125rem;
+  color: var(--ink);
+}
+
+.actionRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.btnPrimary {
+  padding: 8px 16px;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: #ffffff;
+  background: var(--cat-writing);
+  border: none;
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: opacity 0.15s ease;
+}
+
+.btnPrimary:hover {
+  opacity: 0.9;
+}
+
+.btnSecondary {
+  padding: 8px 14px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-sm, 6px);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.btnSecondary:hover {
+  border-color: var(--ink-soft);
+}
+
+/* Check / Cheque SVG Preview */
+.checkPreviewWrapper {
+  margin-top: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 10px);
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.checkSvg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.checkBg {
+  fill: var(--surface);
+  stroke: var(--line-strong, #cbd5e1);
+  stroke-width: 2;
+}
+
+.watermark {
+  fill: var(--line);
+  font-size: 34px;
+  font-weight: 900;
+  letter-spacing: 0.25em;
+  opacity: 0.25;
+  text-anchor: middle;
+}
+
+.checkText {
+  fill: var(--ink);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.checkTextScript {
+  fill: var(--cat-writing-deep, var(--ink));
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+.checkSub {
+  fill: var(--ink-soft);
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.checkLine {
+  stroke: var(--line-strong, #94a3b8);
+  stroke-width: 1.5;
+}
+
+.trailDash {
+  stroke: var(--line-strong, #94a3b8);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.uccCallout {
+  margin-top: 10px;
+  padding: 10px 14px;
+  background: var(--surface-2);
+  border-left: 3px solid var(--cat-writing);
+  border-radius: 0 6px 6px 0;
+  font-size: 0.8125rem;
+  color: var(--ink);
+  line-height: 1.45;
+}
+
+@media (max-width: 768px) {
+  .gridCols4,
+  .gridCols3,
+  .gridCols2 {
+    grid-template-columns: 1fr;
+  }
+}

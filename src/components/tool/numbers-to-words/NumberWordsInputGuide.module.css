@@ -1,0 +1,150 @@
+.guideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.summaryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cat-writing-deep, var(--ink));
+  background: var(--cat-writing-soft);
+  border: 1px solid var(--cat-writing);
+  border-radius: var(--radius-sm, 6px);
+  width: fit-content;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.diagramCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 12px);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardBg {
+  fill: var(--surface-2);
+}
+
+.periodBox {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1.5;
+  transition: all 0.2s ease;
+}
+
+.periodBoxActive {
+  fill: var(--surface);
+  stroke: var(--cat-writing);
+  stroke-width: 2.5;
+}
+
+.textPrimary {
+  fill: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: inherit;
+}
+
+.textSecondary {
+  fill: var(--ink-soft);
+  font-size: 9.5px;
+  font-weight: 500;
+  font-family: inherit;
+}
+
+.textAccent {
+  fill: var(--cat-writing);
+  font-size: 13px;
+  font-weight: 800;
+  font-family: inherit;
+}
+
+.calloutCircle {
+  fill: var(--cat-writing);
+}
+
+.calloutText {
+  fill: #ffffff;
+  font-size: 9px;
+  font-weight: 800;
+  text-anchor: middle;
+  dominant-baseline: central;
+}
+
+.checkBg {
+  fill: var(--surface);
+  stroke: var(--line-strong, #cbd5e1);
+  stroke-width: 2;
+}
+
+.watermark {
+  fill: var(--line);
+  font-size: 32px;
+  font-weight: 900;
+  letter-spacing: 0.2em;
+  opacity: 0.35;
+  text-anchor: middle;
+}
+
+.checkLine {
+  stroke: var(--line-strong, #94a3b8);
+  stroke-width: 1.5;
+}
+
+.trailDash {
+  stroke: var(--line-strong, #94a3b8);
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.mobileDetails {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .diagramCard {
+    display: none;
+  }
+
+  .mobileDetails {
+    display: block;
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-card, 10px);
+    padding: 10px 14px;
+    font-size: 0.8125rem;
+    color: var(--ink-2);
+  }
+
+  .mobileDetails summary {
+    font-weight: 700;
+    color: var(--cat-writing-deep, var(--ink));
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .mobileList {
+    margin: 8px 0 0 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    color: var(--ink-soft);
+  }
+}

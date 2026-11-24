@@ -28,6 +28,7 @@ const CATEGORY_LABEL: Record<CategoryId, string> = {
   business: 'Business & Creative',
   engineering: '3D Printing & CNC',
   math: 'Math & Finance',
+  writing: 'Text & Writing',
 };
 
 export default function ToolCard({

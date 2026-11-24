@@ -38,7 +38,7 @@ export default function Header() {
   }, []);
 
   const isHomeActive = pathname === '/';
-  const isToolsActive = pathname.startsWith('/tools') || pathname.includes('-calculator') || pathname.includes('-generator') || pathname.includes('-template');
+  const isToolsActive = pathname.startsWith('/tools') || TOOLS_CATALOG.some((t) => t.slug === pathname);
   const isGuidesActive = pathname.startsWith('/guides');
   const isAboutActive = pathname.startsWith('/about');
 
@@ -51,6 +51,7 @@ export default function Header() {
     'business',
     'engineering',
     'math',
+    'writing',
   ];
 
   return (

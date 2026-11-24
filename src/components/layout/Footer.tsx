@@ -165,6 +165,23 @@ export default function Footer() {
               All Math Tools →
             </Link>
           </div>
+
+          {/* Column 7: Text & Writing */}
+          <div className={styles.column}>
+            <span className={styles.colTitle}>Text &amp; Writing</span>
+            <ul className={styles.linkList}>
+              <li><Link href="/sentence-counter/" className={styles.link}>Sentence Counter</Link></li>
+              <li><Link href="/numbers-to-words/" className={styles.link}>Numbers to Words</Link></li>
+              <li><Link href="/reading-time-calculator/" className={styles.link}>Reading Time</Link></li>
+              <li><Link href="/word-counter/" className={styles.link}>Word Counter</Link></li>
+              <li><Link href="/twitter-character-counter/" className={styles.link}>Twitter (X) Counter</Link></li>
+              <li><Link href="/words-to-pages/" className={styles.link}>Words to Pages</Link></li>
+              <li><Link href="/character-counter/" className={styles.link}>Character Counter</Link></li>
+            </ul>
+            <Link href="/tools/#writing" className={styles.viewAllLink}>
+              All Writing Tools →
+            </Link>
+          </div>
         </div>
 
         {/* Company & Legal Ribbon */}

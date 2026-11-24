@@ -1,0 +1,128 @@
+.guideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.summaryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  letter-spacing: -0.01em;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.diagramCard {
+  width: 100%;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 14px);
+  padding: 12px;
+  box-shadow: var(--shadow-s, 0 1px 3px rgba(0, 0, 0, 0.05));
+  overflow: hidden;
+}
+
+.svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 200px;
+}
+
+.cardBg {
+  fill: var(--surface-2);
+  stroke: var(--line);
+  stroke-width: 1;
+}
+
+.pageSheet {
+  fill: var(--surface);
+  stroke: var(--line-strong);
+  stroke-width: 1.5;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.marginBox {
+  fill: none;
+  stroke: var(--cat-writing, var(--accent));
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+}
+
+.focusedLine {
+  stroke: var(--cat-writing-deep, var(--accent-hover));
+  stroke-width: 2.5;
+}
+
+.textLine {
+  stroke: var(--line-strong);
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  opacity: 0.6;
+}
+
+.badgeCircle {
+  fill: var(--cat-writing, var(--accent));
+}
+
+.badgeNum {
+  font-family: var(--font-heading);
+  font-size: 11px;
+  font-weight: 800;
+  fill: #FFFFFF;
+  text-anchor: middle;
+}
+
+.calloutText {
+  font-family: var(--font-body);
+  font-size: 12px;
+  font-weight: 600;
+  fill: var(--ink-2);
+}
+
+.focused .calloutText {
+  fill: var(--ink);
+  font-weight: 700;
+}
+
+.focused .badgeCircle {
+  fill: var(--cat-writing-deep, var(--accent-hover));
+}
+
+.yieldBg {
+  fill: var(--cat-writing-soft);
+  stroke: color-mix(in srgb, var(--cat-writing) 40%, transparent);
+  stroke-width: 1.5;
+}
+
+.yieldTitle {
+  font-family: var(--font-heading);
+  font-size: 10px;
+  font-weight: 700;
+  fill: var(--cat-writing-deep);
+  text-anchor: middle;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.yieldValue {
+  font-family: var(--font-heading);
+  font-size: 13.5px;
+  font-weight: 800;
+  fill: var(--cat-writing-deep);
+  text-anchor: middle;
+}
+
+@media (max-width: 640px) {
+  .calloutText {
+    font-size: 10.5px;
+  }
+}

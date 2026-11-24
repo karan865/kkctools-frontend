@@ -57,6 +57,16 @@ const minWordCounts = {
   '/guides/how-to-check-if-a-band-name-is-taken/': 1000,
   '/about/': 250,
   '/contact/': 100,
+  '/character-counter/': 1200,
+  '/words-to-pages/': 1500,
+  '/characters-to-words/': 1100,
+  '/twitter-character-counter/': 1300,
+  '/word-counter/': 1500,
+  '/reading-time-calculator/': 1400,
+  '/numbers-to-words/': 1400,
+  '/comma-separator/': 1000,
+  '/sentence-counter/': 1200,
+  '/keyword-density-checker/': 1200,
 };
 
 let errors = [];

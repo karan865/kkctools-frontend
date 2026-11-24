@@ -1,0 +1,99 @@
+.guideWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  width: 100%;
+}
+
+.summaryBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--cat-writing-deep, var(--ink));
+  background: var(--cat-writing-soft);
+  border: 1px solid var(--cat-writing);
+  border-radius: var(--radius-sm, 6px);
+  width: fit-content;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.diagramCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-card, 12px);
+  padding: 12px;
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+}
+
+.svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.cardBg {
+  fill: var(--surface-2);
+}
+
+.phraseBox {
+  fill: var(--surface);
+  stroke: var(--line);
+  stroke-width: 1.5;
+}
+
+.phraseBoxActive {
+  fill: var(--surface);
+  stroke: var(--cat-writing);
+  stroke-width: 2.5;
+}
+
+.highlightPill {
+  fill: color-mix(in srgb, var(--cat-writing-soft) 80%, var(--surface));
+  stroke: var(--cat-writing);
+  stroke-width: 1.5;
+}
+
+.textPrimary {
+  fill: var(--ink);
+  font-size: 11px;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+}
+
+.textSoft {
+  fill: var(--ink-soft);
+  font-size: 10px;
+  font-family: var(--font-body, sans-serif);
+}
+
+.textEmphasized {
+  fill: var(--cat-writing-deep, var(--cat-writing));
+  font-size: 10.5px;
+  font-weight: 700;
+  font-family: var(--font-mono, monospace);
+}
+
+.calloutBadge {
+  fill: var(--surface);
+  stroke: var(--cat-writing);
+  stroke-width: 1.5;
+}
+
+.calloutText {
+  fill: var(--ink);
+  font-size: 10px;
+  font-weight: 600;
+}
+
+.crossBoundary {
+  fill: #ef4444;
+  font-size: 14px;
+  font-weight: 800;
+}

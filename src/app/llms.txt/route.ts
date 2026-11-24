@@ -24,7 +24,7 @@ export function GET() {
     '',
     'All calculators run client-side in the browser. Results are planning estimates; each page shows its formula and default values.',
     '',
-    '## Construction & Landscaping Calculators',
+    '## Calculators and Tools',
     '',
     ...calculators.map(line),
     '',

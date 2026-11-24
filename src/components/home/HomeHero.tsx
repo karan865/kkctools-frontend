@@ -73,6 +73,18 @@ export default function HomeHero() {
                 <span className={`${styles.chipDot} ${styles.dotBusiness}`} />
                 <span>Estimates &amp; Names</span>
               </a>
+              <a href="#engineering" className={`${styles.chip} ${styles.chipEngineering}`}>
+                <span className={`${styles.chipDot} ${styles.dotEngineering}`} />
+                <span>3D &amp; CNC</span>
+              </a>
+              <a href="#math" className={`${styles.chip} ${styles.chipMath}`}>
+                <span className={`${styles.chipDot} ${styles.dotMath}`} />
+                <span>Math &amp; Finance</span>
+              </a>
+              <a href="#writing" className={`${styles.chip} ${styles.chipWriting}`}>
+                <span className={`${styles.chipDot} ${styles.dotWriting}`} />
+                <span>Text &amp; Writing</span>
+              </a>
             </div>
 
             {/* Action Buttons */}

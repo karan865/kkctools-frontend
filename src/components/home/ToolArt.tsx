@@ -2048,6 +2048,40 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       <line className={k('s2')} x1={160} y1={68} x2={174} y2={82} strokeWidth={6} strokeLinecap="round" />
     </>
   ),
+  /* Pencil & text notepad with character count badge */
+  pencil: (
+    <>
+      <rect className={k('fp', 's2')} x={42} y={16} width={92} height={68} rx={6} />
+      <line className={s.s1} x1={54} y1={30} x2={100} y2={30} strokeWidth={2} />
+      <line className={s.s2} x1={54} y1={42} x2={120} y2={42} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={54} y1={54} x2={110} y2={54} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={54} y1={66} x2={90} y2={66} strokeWidth={1.5} opacity={0.6} />
+      <rect className={s.f1} x={112} y={54} width={42} height={20} rx={4} />
+      <text className={s.txW} x={133} y={67} textAnchor="middle" fontSize={9} fontWeight={800}>
+        140
+      </text>
+      <path className={s.f2} d="M145 16 L158 29 L115 72 L102 72 L102 59 Z" />
+      <polygon className={s.f1} points="102,72 108,72 102,66" />
+    </>
+  ),
+  /* BookOpen: an open manuscript book with text lines and page count badge */
+  bookOpen: (
+    <>
+      <rect className={k('fp', 's2')} x={25} y={20} width={70} height={60} rx={4} />
+      <rect className={k('fp', 's2')} x={95} y={20} width={70} height={60} rx={4} />
+      <line className={s.s1} x1={95} y1={20} x2={95} y2={80} strokeWidth={2} />
+      <line className={s.s2} x1={35} y1={32} x2={85} y2={32} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={35} y1={42} x2={85} y2={42} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={35} y1={52} x2={75} y2={52} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={105} y1={32} x2={155} y2={32} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={105} y1={42} x2={155} y2={42} strokeWidth={1.5} opacity={0.6} />
+      <line className={s.s2} x1={105} y1={52} x2={140} y2={52} strokeWidth={1.5} opacity={0.6} />
+      <rect className={s.f1} x={115} y={56} width={42} height={20} rx={4} />
+      <text className={s.txW} x={136} y={69} textAnchor="middle" fontSize={8.5} fontWeight={800}>
+        2.0 pgs
+      </text>
+    </>
+  ),
   /* Suggest: a dashed card with a plus */
   plus: (
     <>

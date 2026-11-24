@@ -223,6 +223,9 @@
 .dotFraming { background-color: var(--cat-framing); }
 .dotFinishes { background-color: var(--cat-finishes); }
 .dotBusiness { background-color: var(--cat-business); }
+.dotEngineering { background-color: var(--cat-engineering); }
+.dotMath { background-color: var(--cat-math); }
+.dotWriting { background-color: var(--cat-writing); }
 
 /* Each chip wears its category colour */
 .chipConcrete { background: var(--cat-concrete-soft); color: var(--cat-concrete-deep); border-color: color-mix(in srgb, var(--cat-concrete) 35%, transparent); }
@@ -237,6 +240,12 @@
 .chipFinishes:hover { background: var(--cat-finishes-soft); color: var(--cat-finishes-deep); border-color: var(--cat-finishes); }
 .chipBusiness { background: var(--cat-business-soft); color: var(--cat-business-deep); border-color: color-mix(in srgb, var(--cat-business) 35%, transparent); }
 .chipBusiness:hover { background: var(--cat-business-soft); color: var(--cat-business-deep); border-color: var(--cat-business); }
+.chipEngineering { background: var(--cat-engineering-soft); color: var(--cat-engineering-deep); border-color: color-mix(in srgb, var(--cat-engineering) 35%, transparent); }
+.chipEngineering:hover { background: var(--cat-engineering-soft); color: var(--cat-engineering-deep); border-color: var(--cat-engineering); }
+.chipMath { background: var(--cat-math-soft); color: var(--cat-math-deep); border-color: color-mix(in srgb, var(--cat-math) 35%, transparent); }
+.chipMath:hover { background: var(--cat-math-soft); color: var(--cat-math-deep); border-color: var(--cat-math); }
+.chipWriting { background: var(--cat-writing-soft); color: var(--cat-writing-deep); border-color: color-mix(in srgb, var(--cat-writing) 35%, transparent); }
+.chipWriting:hover { background: var(--cat-writing-soft); color: var(--cat-writing-deep); border-color: var(--cat-writing); }
 
 /* Buttons */
 .actionButtons {

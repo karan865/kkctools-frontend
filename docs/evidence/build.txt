@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 26ms
+✓ Running next.config.ts took 29ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 12.5s
+✓ Compiled successfully in 11.8s
   Running TypeScript ...
-  Finished TypeScript in 3.6s ...
+  Finished TypeScript in 3.9s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/130) ...
-  Generating static pages using 15 workers (32/130) 
-  Generating static pages using 15 workers (64/130) 
-  Generating static pages using 15 workers (97/130) 
-✓ Generating static pages using 15 workers (130/130) in 5.0s
+  Generating static pages using 15 workers (0/140) ...
+  Generating static pages using 15 workers (35/140) 
+  Generating static pages using 15 workers (70/140) 
+  Generating static pages using 15 workers (105/140) 
+✓ Generating static pages using 15 workers (140/140) in 5.3s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -45,8 +45,11 @@ Route (app)
 ├ ○ /cagr-calculator
 ├ ○ /cap-rate-calculator
 ├ ○ /carpet-cost-calculator
+├ ○ /character-counter
+├ ○ /characters-to-words
 ├ ○ /cinder-block-calculator
 ├ ○ /cinder-block-calculator/opengraph-image
+├ ○ /comma-separator
 ├ ○ /commercial-lease-calculator
 ├ ○ /commercial-mortgage-calculator
 ├ ○ /compost-calculator
@@ -88,6 +91,7 @@ Route (app)
 ├ ○ /investment-return-calculator
 ├ ○ /invoice-generator
 ├ ○ /iqr-calculator
+├ ○ /keyword-density-checker
 ├ ○ /labor-cost-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
@@ -99,6 +103,7 @@ Route (app)
 ├ ○ /metal-roof-cost-calculator
 ├ ○ /metric-conversion-calculator
 ├ ○ /net-worth-calculator
+├ ○ /numbers-to-words
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
@@ -114,6 +119,7 @@ Route (app)
 ├ ○ /pythagorean-theorem-calculator
 ├ ○ /rafter-calculator
 ├ ○ /ratio-calculator
+├ ○ /reading-time-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
 ├ ○ /reverse-sales-tax-calculator
@@ -123,6 +129,7 @@ Route (app)
 ├ ○ /sand-calculator
 ├ ○ /sba-loan-calculator
 ├ ○ /self-employment-tax-calculator
+├ ○ /sentence-counter
 ├ ○ /sfm-to-rpm-calculator
 ├ ○ /shingle-calculator
 ├ ○ /simple-interest-calculator
@@ -145,8 +152,11 @@ Route (app)
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards
 ├ ○ /tools
+├ ○ /twitter-character-counter
 ├ ○ /unit-price-calculator
-└ ○ /wire-gauge-calculator
+├ ○ /wire-gauge-calculator
+├ ○ /word-counter
+└ ○ /words-to-pages
 
 
 ○  (Static)  prerendered as static content

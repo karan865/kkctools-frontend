@@ -405,6 +405,12 @@ export default function InvoiceGeneratorPage() {
                   Analyze gross, operating, and net margins across service and product revenue streams.
                 </div>
               </Link>
+              <Link href={ROUTES.numbersToWords.path} className={styles.relatedCard}>
+                <div className={styles.relatedTitle}>Numbers to Words Converter</div>
+                <div className={styles.relatedDesc}>
+                  Write invoice totals and check amounts in words, with cents as a fraction over 100.
+                </div>
+              </Link>
             </div>
           </section>
         </article>

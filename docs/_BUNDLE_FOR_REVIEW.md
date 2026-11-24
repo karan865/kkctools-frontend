@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-24T03:57:26.432Z
+Generated on: 2026-11-24T18:48:51.234Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-24T03:57:26.432Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 5 (Math & Financial Calculators) — **COMPLETED**: All 20 of 20 tools built & live (#76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test, #86 Binomial Probability, #87 Pythagorean Theorem, #88 Slope, #89 Tank Volume, #90 Simple Interest, #91 ROI, #92 Final Grade, #93 Monthly Budget, #94 Boolean Algebra, #95 Metric Conversion). All 10 live-page keyword refreshes implemented and verified.
-- **Overall Completion:** 1,114 vitest tests passing (97 test files, 100% green), 113 static routes in routes.ts, 95 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (130 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
+- **Current Phase:** Batch 6 (Text & Writing Utilities) — COMPLETED: ALL 10 tools built, fully cross-linked, and verified (#96 Character Counter, #97 Words to Pages, #98 Characters to Words, #99 Twitter Character Counter, #100 Word Counter, #101 Reading & Speaking Time, #102 Numbers to Words, #103 Comma Separator, #104 Sentence Counter, #105 Keyword Density Checker).
+- **Overall Completion:** 1,340 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories (writing category added), every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
@@ -1311,6 +1311,29 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [UI Contrast & Accessibility Hotfix — High Contrast Metric Cards] — 2026-11-24
+
+- **Global Design Tokens (`src/styles/tokens.css`):**
+  - Added `--ink-muted: #556274;` and `--surface-subtle: #F8FAFC;` in `:root`.
+  - Added `--ink-muted: #8291A6;` and `--surface-subtle: #19202D;` in `:root[data-theme="dark"]`.
+- **Binomial Probability Calculator (`/binomial-probability-calculator/`):**
+  - Fixed white text contrast issue on statistical moments cards (`Expected Mean (μ)`, `Variance (σ²)`, `Standard Dev (σ)`, `Mode (Most Likely k)`).
+  - Explicitly set `color: var(--ink, #0F172A)` on `.statCard`, and updated `.statLabel` and `.statSub` to `color: var(--ink-soft, #475569)`.
+  - Updated `.pillBtn` to `var(--ink-2)`, `.helperText` to `var(--muted)`, `.chartLegend` to `var(--ink-soft)`, and `.assumptionItem` to `var(--ink-2)`.
+  - Updated `BinomialInputGuide.module.css` `.title` and `.chip` to `var(--ink-soft)`.
+- **System-Wide Metric & Stat Cards Contrast Hardening Across All Calculators:**
+  - `StandardDeviationCalculator` & `StdevInputGuide`: Hardened `.statCard`, `.statLabel`, `.statVal`, `.statSub`, `.title`, `.chip`, `.helperText`.
+  - `TTestCalculator` & `TTestInputGuide`: Hardened `.statCard`, `.statLabel`, `.statVal`, `.statSub`, `.chartLegend`, `.modeBtn`, `.pillBtn`, `.helperText`, `.assumptionItem`, `.title`, `.chip`.
+  - `CagrCalculator` & `CagrInputGuide`: Hardened `.prefix`, `.suffix`, `.helperText`, `.formulaLabel`, `.title`, `.nodeDetail`, `.seriesTag`, `.seriesSub`, `.vsBadge`, `.ruleLabel`, `.chip`.
+  - `FractionPercentCalculator` & `FractionInputGuide`: Hardened `.helperText`, `.title`, `.eqLabel`, `.resultTag`, `.chip`.
+  - `ReverseTaxCalculator` & `ReverseTaxInputGuide`: Hardened `.prefix`, `.suffix`, `.helperText`, `.title`, `.chip`.
+  - `UnitPriceCalculator`: Hardened `.addBtn:disabled` text color.
+  - `BooleanCalculator` & `MetricCalculator`: Added design token mappings for `--color-*` to `--surface`, `--line`, `--ink`, `--muted`, and enforced `color: var(--color-text)` on `.calculatorWrapper`.
+  - `IqrCalculator`, `AgeCalculator`, `AbTestCalculator`, `GallonsConverter`, `PythagoreanCalculator`, `SlopeCalculator`, `TankCalculator`, `SimpleInterestCalculator`, `RoiCalculator`, `FinalGradeCalculator`, `BudgetCalculator`, `RatioCalculator`: Enforced explicit `color: var(--ink)` on card containers to prevent white text inheritance.
+- **Verification:** `npm run verify` passed all 6 steps (`lint`, `test`, `check:no-network`, `build`, `seo:audit`, `docs:bundle`) with 1,114 tests passing.
+
+---
+
 ### [Batch 5 — All 20 Tools & Milestones Completed] — 2026-11-24
 
 - **Tool 20: Metric Conversion Calculator (`/metric-conversion-calculator/`):**
@@ -2574,7 +2597,7 @@ No code changed.
 
 # SEO Audit Report
 
-Run Date: 2026-11-24T03:57:25.965Z
+Run Date: 2026-11-24T18:47:27.383Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -2604,7 +2627,10 @@ Status: PASSED ✅
 | `/cagr-calculator/` | CAGR Calculator – Compound Annual Growth | 3112 | CAGR Calculator: Compound Annu | PASS |
 | `/cap-rate-calculator/` | Cap Rate Calculator – NOI & Commercial P | 3055 | Cap Rate Calculator: Cap Rate, | PASS |
 | `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
+| `/character-counter/` | Character Counter – Count Characters Wit | 2899 | Character Counter: Characters  | PASS |
+| `/characters-to-words/` | Characters to Words Converter – How Many | 2637 | Characters to Words: How Many  | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
+| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2145 | Comma Separator: Turn a Column | PASS |
 | `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 2815 | Commercial Lease Calculator: R | PASS |
 | `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2533 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
@@ -2641,10 +2667,11 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 4424 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 4800 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
-| `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2837 | Invoice Generator: Make an Hou | PASS |
+| `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2854 | Invoice Generator: Make an Hou | PASS |
 | `/iqr-calculator/` | IQR Calculator – Quartiles, Outliers & B | 2972 | IQR Calculator: Interquartile  | PASS |
+| `/keyword-density-checker/` | Keyword Density Checker – Count Words in | 2018 | Keyword Density Checker: How O | PASS |
 | `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2813 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2771 | Lawn Mowing Cost Calculator | PASS |
@@ -2653,6 +2680,7 @@ Status: PASSED ✅
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
 | `/metric-conversion-calculator/` | Metric Conversion Calculator – Length, W | 2026 | Metric Conversion Calculator:  | PASS |
 | `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2603 | Net Worth Calculator: Calculat | PASS |
+| `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2544 | Numbers to Words: Write Any Nu | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
@@ -2666,6 +2694,7 @@ Status: PASSED ✅
 | `/pythagorean-theorem-calculator/` | Pythagorean Theorem Calculator – Right T | 2725 | Pythagorean Theorem Calculator | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2430 | Rafter Calculator – Find Rafte | PASS |
 | `/ratio-calculator/` | Ratio Calculator – Simplify and Solve Pr | 2828 | Ratio Calculator: Simplify Rat | PASS |
+| `/reading-time-calculator/` | Reading Time Calculator – Words to Minut | 2650 | Reading Time Calculator: How L | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
 | `/reverse-sales-tax-calculator/` | Reverse Sales Tax Calculator – Price Bef | 2592 | Reverse Sales Tax Calculator:  | PASS |
@@ -2674,10 +2703,11 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1571 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
+| `/sentence-counter/` | Sentence Counter – Count Sentences and P | 2062 | Sentence Counter: Count Senten | PASS |
 | `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
 | `/simple-interest-calculator/` | Simple Interest Calculator – Accrued Int | 2446 | Simple Interest Calculator: In | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1797 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1992 | Site Map | PASS |
 | `/slope-calculator/` | Slope Calculator – Rise over Run, Percen | 2618 | Slope Calculator: Rise over Ru | PASS |
 | `/speeds-and-feeds-calculator/` | Speeds and Feeds Calculator – CNC RPM &  | 3188 | Speeds and Feeds Calculator: C | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
@@ -2691,9 +2721,12 @@ Status: PASSED ✅
 | `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1975 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 3016 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 3280 | All Free Tools: Construction C | PASS |
+| `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2429 | Twitter (X) Character Counter: | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
+| `/word-counter/` | Word Counter – Free Online Word Count To | 2602 | Word Counter: Count Words, Cha | PASS |
+| `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 4019 | Words to Pages Calculator: How | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -2728,7 +2761,10 @@ business-valuation-calculator/index.html
 cagr-calculator/index.html
 cap-rate-calculator/index.html
 carpet-cost-calculator/index.html
+character-counter/index.html
+characters-to-words/index.html
 cinder-block-calculator/index.html
+comma-separator/index.html
 commercial-lease-calculator/index.html
 commercial-mortgage-calculator/index.html
 compost-calculator/index.html
@@ -2769,6 +2805,7 @@ index.html
 investment-return-calculator/index.html
 invoice-generator/index.html
 iqr-calculator/index.html
+keyword-density-checker/index.html
 labor-cost-calculator/index.html
 laminate-flooring-calculator/index.html
 lawn-mowing-cost-calculator/index.html
@@ -2777,6 +2814,7 @@ markup-calculator/index.html
 metal-roof-cost-calculator/index.html
 metric-conversion-calculator/index.html
 net-worth-calculator/index.html
+numbers-to-words/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
 paver-sand-calculator/index.html
@@ -2790,6 +2828,7 @@ pulley-calculator/index.html
 pythagorean-theorem-calculator/index.html
 rafter-calculator/index.html
 ratio-calculator/index.html
+reading-time-calculator/index.html
 rebar-calculator/index.html
 rental-property-calculator/index.html
 reverse-sales-tax-calculator/index.html
@@ -2798,6 +2837,7 @@ roof-replacement-cost-calculator/index.html
 sand-calculator/index.html
 sba-loan-calculator/index.html
 self-employment-tax-calculator/index.html
+sentence-counter/index.html
 sfm-to-rpm-calculator/index.html
 shingle-calculator/index.html
 simple-interest-calculator/index.html
@@ -2816,8 +2856,11 @@ thread-pitch-diameter-calculator/index.html
 tile-calculator/index.html
 tons-to-cubic-yards/index.html
 tools/index.html
+twitter-character-counter/index.html
 unit-price-calculator/index.html
 wire-gauge-calculator/index.html
+word-counter/index.html
+words-to-pages/index.html
 _not-found/index.html
 ```
 
@@ -2857,6 +2900,8 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+eca54a5 goolge search console analysis files created
+eeaa86f fix(ui): harden high-contrast dark text styling on tool metric boxes and stat cards
 c6ce78d feat(batch-5): implement first 10 math tools, redesign compact footer & header mega menu - Implement first 10 Math & Financial calculators with premium dark gradient hero cards (#312E81 to #0D9488) and custom InputGuides:   * Ratio Calculator (/ratio-calculator/)   * Age Difference Calculator (/age-difference-calculator/)   * IQR Calculator (/iqr-calculator/) with dynamic box plot SVG   * A/B Test Significance Calculator (/ab-test-significance-calculator/)   * Gallons to Cubic Feet Converter (/gallons-to-cubic-feet/)   * CAGR Calculator (/cagr-calculator/)   * Fraction to Percent Calculator (/fraction-to-percent-calculator/)   * Reverse Sales Tax Calculator (/reverse-sales-tax-calculator/)   * Standard Deviation Calculator (/standard-deviation-calculator/)   * T-Test Calculator (/t-test-calculator/) with Welch default and t-curve SVG - Add 'Math & Finance' category and 4 shared engines with 100% test coverage (stats, growth, volume-units, date-diff) - Apply 10 live-page keyword refreshes (Stone & Gravel, Tons to Yards, Sand, etc.) - Redesign footer: eliminate 50-link wall, organize into 6 balanced categories (6-7 tools each), add top brand header & company ribbon (height cut by ~75%) - Redesign Tools Mega Menu: compact 4-column x 2-row layout (~290px height) and single-expand accordion mobile drawer - All 1,039 vitest tests passing, 0 lint errors, 0 network calls, static build verified across 106 HTML pages
 a86c1e1 feat(batch-4): add 8 3D Printing & CNC engineering calculators with oceanic gradient UI - Build 8 pure client-side tools (#68–#75) in the '3D Printing & CNC' category:   * Epoxy Resin Calculator (/epoxy-resin-calculator/)   * Epoxy River Table Calculator (/epoxy-table-calculator/)   * 3D Print Cost Calculator (/3d-print-cost-calculator/)   * Speeds and Feeds Calculator (/speeds-and-feeds-calculator/)   * SFM to RPM Surface Speed Calculator (/sfm-to-rpm-calculator/)   * Pulley Ratio & Belt Speed Calculator (/pulley-calculator/)   * Stepper Steps/mm & E-Steps Calculator (/steps-per-mm-calculator/)   * Thread Pitch Diameter & Tap Drill Calculator (/thread-pitch-diameter-calculator/) - Add calculation engines with 100% test coverage matching all spec worked examples - Add bespoke SVG icons, home card artwork, and category navigation - Fix global container max-width to prevent widescreen stretching - Elevate results UI with oceanic teal/cyan gradient hero cards, glassmorphic badges, and modern data tables - Keep Batch 8 specifications, research, and prompt files intact - All 957 Vitest tests passing, 0 lint errors, static build verified (96 pages)
 e94a40f build spec files added
@@ -2875,8 +2920,6 @@ c70c17f all Batch 2 completed
 775f6f3 Deck Cost Calculator & Estimator - completed
 fc9be24 feat(carpet): add Carpet Cost Calculator and align UI with design system
 6717356 tool 19 completed
-15a6cff docs(status): mark Netlify HUD eliminated after full Cloudflare migration
-cc34105 docs(audit): record live Cloudflare 301 redirect verification
 ```
 
 
@@ -2892,18 +2935,18 @@ cc34105 docs(audit): record live Cloudflare 301 redirect verification
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 26ms
+✓ Running next.config.ts took 29ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 12.5s
+✓ Compiled successfully in 11.8s
   Running TypeScript ...
-  Finished TypeScript in 3.6s ...
+  Finished TypeScript in 3.9s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/130) ...
-  Generating static pages using 15 workers (32/130) 
-  Generating static pages using 15 workers (64/130) 
-  Generating static pages using 15 workers (97/130) 
-✓ Generating static pages using 15 workers (130/130) in 5.0s
+  Generating static pages using 15 workers (0/140) ...
+  Generating static pages using 15 workers (35/140) 
+  Generating static pages using 15 workers (70/140) 
+  Generating static pages using 15 workers (105/140) 
+✓ Generating static pages using 15 workers (140/140) in 5.3s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -2934,8 +2977,11 @@ Route (app)
 ├ ○ /cagr-calculator
 ├ ○ /cap-rate-calculator
 ├ ○ /carpet-cost-calculator
+├ ○ /character-counter
+├ ○ /characters-to-words
 ├ ○ /cinder-block-calculator
 ├ ○ /cinder-block-calculator/opengraph-image
+├ ○ /comma-separator
 ├ ○ /commercial-lease-calculator
 ├ ○ /commercial-mortgage-calculator
 ├ ○ /compost-calculator
@@ -2977,6 +3023,7 @@ Route (app)
 ├ ○ /investment-return-calculator
 ├ ○ /invoice-generator
 ├ ○ /iqr-calculator
+├ ○ /keyword-density-checker
 ├ ○ /labor-cost-calculator
 ├ ○ /laminate-flooring-calculator
 ├ ○ /laminate-flooring-calculator/opengraph-image
@@ -2988,6 +3035,7 @@ Route (app)
 ├ ○ /metal-roof-cost-calculator
 ├ ○ /metric-conversion-calculator
 ├ ○ /net-worth-calculator
+├ ○ /numbers-to-words
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
@@ -3003,6 +3051,7 @@ Route (app)
 ├ ○ /pythagorean-theorem-calculator
 ├ ○ /rafter-calculator
 ├ ○ /ratio-calculator
+├ ○ /reading-time-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
 ├ ○ /reverse-sales-tax-calculator
@@ -3012,6 +3061,7 @@ Route (app)
 ├ ○ /sand-calculator
 ├ ○ /sba-loan-calculator
 ├ ○ /self-employment-tax-calculator
+├ ○ /sentence-counter
 ├ ○ /sfm-to-rpm-calculator
 ├ ○ /shingle-calculator
 ├ ○ /simple-interest-calculator
@@ -3034,8 +3084,11 @@ Route (app)
 ├ ○ /tile-calculator/opengraph-image
 ├ ○ /tons-to-cubic-yards
 ├ ○ /tools
+├ ○ /twitter-character-counter
 ├ ○ /unit-price-calculator
-└ ○ /wire-gauge-calculator
+├ ○ /wire-gauge-calculator
+├ ○ /word-counter
+└ ○ /words-to-pages
 
 
 ○  (Static)  prerendered as static content
@@ -3089,6 +3142,10 @@ D:\1_programmins\5.kkctools\src\app\guides\page.tsx
 D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
 
+D:\1_programmins\5.kkctools\src\app\numbers-to-words\page.tsx
+  17:3  warning  'bigIntToIndianWords' is defined but never used  @typescript-eslint/no-unused-vars
+  20:3  warning  'groupDigits' is defined but never used          @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\app\pythagorean-theorem-calculator\page.tsx
   3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -3118,6 +3175,12 @@ D:\1_programmins\5.kkctools\src\components\tool\airbnb-calculator\AirbnbCalculat
   100:25  warning  'setPurchasePrice' is assigned a value but never used      @typescript-eslint/no-unused-vars
   105:28  warning  'setLtrManagementPct' is assigned a value but never used   @typescript-eslint/no-unused-vars
   106:29  warning  'setLtrMaintenancePct' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\character-counter\CharacterCounter.tsx
+  131:6  warning  React Hook useMemo has a missing dependency: 'cjkPerChar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+
+D:\1_programmins\5.kkctools\src\components\tool\characters-to-words\CharactersToWordsCalculator.tsx
+  161:5  warning  React Hook useMemo has an unnecessary dependency: 'limit'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
 
 D:\1_programmins\5.kkctools\src\components\tool\commercial-lease-calculator\CommercialLeaseCalculator.tsx
   86:26  warning  'setEscalationType' is assigned a value but never used       @typescript-eslint/no-unused-vars
@@ -3156,6 +3219,9 @@ D:\1_programmins\5.kkctools\src\components\tool\freelance-rate-calculator\Freela
 D:\1_programmins\5.kkctools\src\components\tool\iqr-calculator\IqrInputGuide.tsx
   17:3  warning  'tab' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\keyword-density-checker\KeywordDensityInputGuide.tsx
+  15:3  warning  'focusedField' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used          @typescript-eslint/no-unused-vars
   32:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
@@ -3191,15 +3257,35 @@ D:\1_programmins\5.kkctools\src\components\tool\speeds-and-feeds-calculator\Spee
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\twitter-character-counter\TwitterCharacterCounter.tsx
+  11:30  warning  'TextLimitPreset' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\components\tool\word-counter\WordCountInputGuide.tsx
+  19:3  warning  'totalChars' is assigned a value but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\budget-engine.test.ts
   4:3  warning  'calculateTotalMonthlyIncome' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\char-word-engine.test.ts
+  3:3  warning  'DEFAULT_AVERAGE_WORD_LENGTH' is defined but never used  @typescript-eslint/no-unused-vars
+  9:3  warning  'getEffectivePerWord' is defined but never used          @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
   3:3  warning  'calculateFreelanceCalendar' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\list-engine.test.ts
+  5:3  warning  'quoteCsv' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\page-estimate-engine.test.ts
+  3:3  warning  'calculatePrintableArea' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\paint-engine.test.ts
   4:3   warning  'calculateContainerBreakdown' is defined but never used  @typescript-eslint/no-unused-vars
   8:10  warning  'COVERAGE' is defined but never used                     @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\lib\reading-time-engine.test.ts
+  4:3  warning  'calculateWordsNeeded' is defined but never used  @typescript-eslint/no-unused-vars
+  7:3  warning  'formatDuration' is defined but never used        @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\lib\str-engine.ts
   22:21  warning  'calcCapRate' is defined but never used     @typescript-eslint/no-unused-vars
@@ -3211,7 +3297,7 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 69 problems (0 errors, 69 warnings)
+✖ 82 problems (0 errors, 82 warnings)
 
 
 ```
@@ -3223,7 +3309,7 @@ D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 116 HTML files in out/...
+Auditing 126 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -3237,112 +3323,13 @@ Report written to docs/seo-audit-report.md
 > vitest run
 
 
-[1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
+ RUN  v4.1.12 D:/1_programmins/5.kkctools
 
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/lib/card-payoff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 50[2mms[22m[39m
- [32m✓[39m src/lib/contribution-margin-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 40[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 40[2mms[22m[39m
- [32m✓[39m src/lib/metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 45[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 40[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 44[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 33[2mms[22m[39m
- [32m✓[39m src/lib/heloc-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 51[2mms[22m[39m
- [32m✓[39m src/lib/sba-loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/compound-interest-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/rental-property-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 30[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/boolean-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/tank-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/ratio-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 580[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 475[2mms[22m[39m
- [32m✓[39m src/lib/stats-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/invoice-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/se-tax-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/fraction-percent-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/labor-cost-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/simple-interest-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/tvm-engine.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/epoxy-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/machining-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/right-triangle-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/drawdown-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/binomial-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/cap-rate-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/ab-test-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/real-estate-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/investment-return-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/date-diff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/str-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/processing-fee-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/reverse-tax-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/pulley-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/slope-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/commercial-mortgage-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/commercial-lease-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/equipment-loan-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/final-grade-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/t-test-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/thread-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/business-valuation-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/steps-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/net-worth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/budget-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/volume-units-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/growth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/roi-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/print-cost-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/freelance-rate-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m98 passed[39m[22m[90m (98)[39m
-[2m      Tests [22m [1m[32m1133 passed[39m[22m[90m (1133)[39m
-[2m   Start at [22m 09:26:40
-[2m   Duration [22m 4.59s[2m (transform 12.86s, setup 0ms, import 18.27s, tests 2.42s, environment 43ms)[22m
+ Test Files  107 passed (107)
+      Tests  1340 passed (1340)
+   Start at  00:16:40
+   Duration  5.32s (transform 14.69s, setup 0ms, import 20.90s, tests 4.48s, environment 29ms)
 
 
 ```
