@@ -18,6 +18,7 @@ import {
   toCheckAmount,
   toIndianChequeAmount,
   groupDigits,
+  LARGE_NUMBER_NAMES,
 } from '@/lib/number-words-engine';
 import { NumbersToWordsCalculator } from '@/components/tool/numbers-to-words';
 import styles from './page.module.css';
@@ -126,7 +127,7 @@ export default function NumbersToWordsPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> Type a number to instantly see it in words with digit place value periods shown.
+            Type a number to instantly see it in words with digit place value periods shown.
             For a check, <strong>$5,075.62</strong> is written <em>&quot;Five thousand seventy-five and 62/100 dollars&quot;</em>.
             For an Indian cheque, <strong>₹12,34,567.50</strong> is written <em>&quot;Rupees Twelve Lakh Thirty-Four Thousand Five Hundred Sixty-Seven and Fifty Paise Only&quot;</em>.
             You can also convert spelled words back into numbers.
@@ -152,7 +153,7 @@ export default function NumbersToWordsPage() {
           <section className={styles.section}>
             <h2>How to Use the Numbers to Words Converter</h2>
             <p>
-              This tool provides comprehensive number spelling and check-writing conversions in a single browser-based application:
+              This number to words converter writes any figure, or an amount in words for a check or invoice. It has five tabs:
             </p>
             <ol>
               <li>
@@ -350,10 +351,10 @@ export default function NumbersToWordsPage() {
             <p>
               Our reverse parser tokenizes words, ignores conversational connectors like &quot;and&quot;, recognizes hyphenated compound numbers,
               and converts phrases like <em>&quot;three hundred fifty&quot;</em> directly into <strong>350</strong>.
-              It also effortlessly resolves Indian scale phrases such as <em>&quot;twelve lakh thirty-four thousand&quot;</em> into <strong>12,34,000</strong>.
+              It also resolves Indian scale phrases such as <em>&quot;twelve lakh thirty-four thousand&quot;</em> into <strong>12,34,000</strong>.
             </p>
             <p>
-              Need to create a complete commercial bill? Use our free <Link href="/invoice-generator/">Invoice Generator</Link> to produce itemized client invoices, or calculate pre-tax amounts using our <Link href="/reverse-sales-tax-calculator/">Reverse Sales Tax Calculator</Link>.
+              Need to create a complete commercial bill? Use our free <Link href="/invoice-generator/">Invoice Generator</Link> to produce itemized client invoices, calculate pre-tax amounts using our <Link href="/reverse-sales-tax-calculator/">Reverse Sales Tax Calculator</Link>, or format columns of numbers into separated lists with our <Link href="/comma-separator/">Comma Separator</Link>.
             </p>
           </section>
 
@@ -397,6 +398,38 @@ export default function NumbersToWordsPage() {
           </section>
 
           <section className={styles.section}>
+            <h2>Names of Large Numbers</h2>
+            <p>
+              Each short-scale name is 1,000 times the one before it. Lakh and crore are shown where they fall between them:
+            </p>
+            <div className={styles.tableWrapper}>
+              <table className={styles.table}>
+                <caption>Names of Large Numbers in International and Indian Systems</caption>
+                <thead>
+                  <tr>
+                    <th>Scale Name</th>
+                    <th>Scientific (Power of 10)</th>
+                    <th>Digits</th>
+                    <th>Number System</th>
+                    <th>Example Format</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {LARGE_NUMBER_NAMES.map((item) => (
+                    <tr key={item.name}>
+                      <td><strong>{item.name}</strong></td>
+                      <td>10<sup>{item.powerOfTen}</sup></td>
+                      <td>{item.digits} digits</td>
+                      <td>{item.system}</td>
+                      <td><code>{item.example}</code></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className={styles.section}>
             <h2>Frequently Asked Questions</h2>
             <div className={styles.faqSection}>
               {faqs.map((item, idx) => (
@@ -408,6 +441,45 @@ export default function NumbersToWordsPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Related Financial &amp; Writing Calculators</h2>
+            <p>
+              Explore our full suite of free client-side financial and text tools:
+            </p>
+            <ul>
+              <li>
+                <Link href="/invoice-generator/">
+                  <strong>Invoice Generator:</strong>
+                </Link>{' '}
+                Create professional PDF invoices with automatic tax, discounts, and line-item totals.
+              </li>
+              <li>
+                <Link href="/reverse-sales-tax-calculator/">
+                  <strong>Reverse Sales Tax Calculator:</strong>
+                </Link>{' '}
+                Calculate pre-tax prices and sales tax breakdowns from gross totals.
+              </li>
+              <li>
+                <Link href="/comma-separator/">
+                  <strong>Comma Separator:</strong>
+                </Link>{' '}
+                Convert lists of numbers or values into comma-delimited text or SQL queries.
+              </li>
+              <li>
+                <Link href="/word-counter/">
+                  <strong>Word Counter:</strong>
+                </Link>{' '}
+                Count words, characters, sentences, and paragraphs with live limit tracking.
+              </li>
+              <li>
+                <Link href="/character-counter/">
+                  <strong>Character Counter:</strong>
+                </Link>{' '}
+                Count characters, letters, spaces, and UTF-8 bytes with live progress bars.
+              </li>
+            </ul>
           </section>
 
           <HowWeCalculate slug="numbers-to-words" />

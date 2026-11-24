@@ -1,6 +1,6 @@
 # SEO Audit Report
 
-Run Date: 2026-11-24T18:47:27.383Z
+Run Date: 2026-11-24T20:52:24.967Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -30,10 +30,10 @@ Status: PASSED ✅
 | `/cagr-calculator/` | CAGR Calculator – Compound Annual Growth | 3112 | CAGR Calculator: Compound Annu | PASS |
 | `/cap-rate-calculator/` | Cap Rate Calculator – NOI & Commercial P | 3055 | Cap Rate Calculator: Cap Rate, | PASS |
 | `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
-| `/character-counter/` | Character Counter – Count Characters Wit | 2899 | Character Counter: Characters  | PASS |
-| `/characters-to-words/` | Characters to Words Converter – How Many | 2637 | Characters to Words: How Many  | PASS |
+| `/character-counter/` | Character Counter – Count Characters Wit | 3041 | Character Counter: Characters  | PASS |
+| `/characters-to-words/` | Characters to Words Converter – How Many | 2566 | Characters to Words: How Many  | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
-| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2145 | Comma Separator: Turn a Column | PASS |
+| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2243 | Comma Separator: Turn a Column | PASS |
 | `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 2815 | Commercial Lease Calculator: R | PASS |
 | `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2533 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
@@ -70,11 +70,11 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 4800 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 4810 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2854 | Invoice Generator: Make an Hou | PASS |
 | `/iqr-calculator/` | IQR Calculator – Quartiles, Outliers & B | 2972 | IQR Calculator: Interquartile  | PASS |
-| `/keyword-density-checker/` | Keyword Density Checker – Count Words in | 2018 | Keyword Density Checker: How O | PASS |
+| `/keyword-density-checker/` | Keyword Density Checker – Count Words in | 2082 | Keyword Density Checker: How O | PASS |
 | `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2813 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2771 | Lawn Mowing Cost Calculator | PASS |
@@ -83,7 +83,7 @@ Status: PASSED ✅
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
 | `/metric-conversion-calculator/` | Metric Conversion Calculator – Length, W | 2026 | Metric Conversion Calculator:  | PASS |
 | `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2603 | Net Worth Calculator: Calculat | PASS |
-| `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2544 | Numbers to Words: Write Any Nu | PASS |
+| `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2699 | Numbers to Words: Write Any Nu | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
@@ -97,7 +97,7 @@ Status: PASSED ✅
 | `/pythagorean-theorem-calculator/` | Pythagorean Theorem Calculator – Right T | 2725 | Pythagorean Theorem Calculator | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2430 | Rafter Calculator – Find Rafte | PASS |
 | `/ratio-calculator/` | Ratio Calculator – Simplify and Solve Pr | 2828 | Ratio Calculator: Simplify Rat | PASS |
-| `/reading-time-calculator/` | Reading Time Calculator – Words to Minut | 2650 | Reading Time Calculator: How L | PASS |
+| `/reading-time-calculator/` | Reading Time Calculator – Words to Minut | 2851 | Reading Time Calculator: How L | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
 | `/reverse-sales-tax-calculator/` | Reverse Sales Tax Calculator – Price Bef | 2592 | Reverse Sales Tax Calculator:  | PASS |
@@ -106,7 +106,7 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1571 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
-| `/sentence-counter/` | Sentence Counter – Count Sentences and P | 2062 | Sentence Counter: Count Senten | PASS |
+| `/sentence-counter/` | Sentence Counter – Count Sentences and P | 2159 | Sentence Counter: Count Senten | PASS |
 | `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
 | `/simple-interest-calculator/` | Simple Interest Calculator – Accrued Int | 2446 | Simple Interest Calculator: In | PASS |
@@ -124,10 +124,10 @@ Status: PASSED ✅
 | `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1975 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 3280 | All Free Tools: Construction C | PASS |
-| `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2429 | Twitter (X) Character Counter: | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 3287 | All Free Tools: Construction C | PASS |
+| `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2474 | Twitter (X) Character Counter: | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
-| `/word-counter/` | Word Counter – Free Online Word Count To | 2602 | Word Counter: Count Words, Cha | PASS |
-| `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 4019 | Words to Pages Calculator: How | PASS |
+| `/word-counter/` | Word Counter – Free Online Word Count To | 2984 | Word Counter: Count Words, Cha | PASS |
+| `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 3942 | Words to Pages Calculator: How | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |

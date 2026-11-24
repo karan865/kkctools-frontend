@@ -104,7 +104,7 @@ export default function CommaSeparatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> Paste a vertical column (one item per line) to instantly generate a clean
+            Paste a vertical column (one item per line) to instantly generate a clean
             comma-delimited list. Automatically trim excess spaces, remove empty lines, eliminate duplicates, and sort alphabetically
             or numerically. Any value containing an embedded comma is safely quoted the standard CSV way (RFC 4180), and your
             data is processed entirely within your browser — zero text ever leaves your machine.
@@ -130,9 +130,7 @@ export default function CommaSeparatorPage() {
           <section className={styles.section}>
             <h2>How to Use the Comma Separator</h2>
             <p>
-              Whether you are preparing a list of customer email addresses for an email campaign, preparing an array of IDs
-              for an engineering database query, or cleaning up scraped keyword lists for search marketing, this tool provides
-              a fast, private workflow:
+              When you need to add commas to a list or turn spreadsheet columns into a comma delimited string for SQL, emails, or data analysis, this tool provides a fast, private workflow:
             </p>
             <ol>
               <li>
@@ -276,7 +274,7 @@ export default function CommaSeparatorPage() {
               </li>
             </ul>
             <p>
-              Need to inspect character lengths for database VARCHAR columns or check string storage bytes? Visit our free <Link href="/character-counter/">Character Counter</Link>.
+              Need to inspect character lengths for database VARCHAR columns or check string storage bytes? Visit our free <Link href="/character-counter/">Character Counter</Link>. If your list contains financial figures or check values, you can convert them with our <Link href="/numbers-to-words/">Numbers to Words Converter</Link>, or analyze complete text and essay volume using our <Link href="/word-counter/">Word Counter</Link>.
             </p>
           </section>
 
@@ -292,6 +290,45 @@ export default function CommaSeparatorPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Related Writing &amp; Text Calculators</h2>
+            <p>
+              Explore our full suite of free client-side writing and editing tools:
+            </p>
+            <ul>
+              <li>
+                <Link href="/word-counter/">
+                  <strong>Word Counter:</strong>
+                </Link>{' '}
+                Count words, characters, sentences, paragraphs and reading time with essay limits.
+              </li>
+              <li>
+                <Link href="/numbers-to-words/">
+                  <strong>Numbers to Words Converter:</strong>
+                </Link>{' '}
+                Convert numeric amounts to full words for checks, financial documents, and formal contracts.
+              </li>
+              <li>
+                <Link href="/character-counter/">
+                  <strong>Character Counter:</strong>
+                </Link>{' '}
+                Count characters, spaces, and UTF-8 storage bytes with live limit alerts.
+              </li>
+              <li>
+                <Link href="/sentence-counter/">
+                  <strong>Sentence Counter:</strong>
+                </Link>{' '}
+                Count sentences, paragraphs and lines with smart abbreviation handling.
+              </li>
+              <li>
+                <Link href="/words-to-pages/">
+                  <strong>Words to Pages Calculator:</strong>
+                </Link>{' '}
+                Convert word counts to printed pages for single, 1.5, and double line spacing.
+              </li>
+            </ul>
           </section>
 
           <HowWeCalculate slug="comma-separator" />

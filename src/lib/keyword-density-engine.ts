@@ -1,4 +1,4 @@
-import { extractWords, extractSentences } from './text-engine';
+import { extractWords, extractSentences, normalizeForWords } from './text-engine';
 import { STOP_WORDS_EN } from '@/data/stop-words-en';
 
 export interface KeywordDensityOptions {
@@ -22,6 +22,8 @@ export interface KwicMatch {
   match: string;
   after: string;
   wordIndex: number; // 1-based index
+  startIndex: number;
+  endIndex: number;
 }
 
 export interface TargetAnalysis {
@@ -45,6 +47,34 @@ export interface KeywordDensityReport {
   topWord: NgramTableRow | null;
   topTwoGram: NgramTableRow | null;
   targetAnalysis: TargetAnalysis | null;
+}
+
+/**
+ * Start and end of each token in the original text. Tokens come from normalised text (NFC, straight quotes,
+ * no soft hyphens), so every normalised character is mapped back to where it came from.
+ */
+export function tokenOffsets(text: string, tokens: string[]): { start: number; end: number }[] {
+  let normal = '';
+  const from: number[] = [];
+  const to: number[] = [];
+  const chunks = /[\s\S][\uDC00-\uDFFF]?\p{M}*/gu;
+  let match: RegExpExecArray | null;
+  while ((match = chunks.exec(text)) !== null) {
+    const out = normalizeForWords(match[0]);
+    for (let k = 0; k < out.length; k++) {
+      from.push(match.index);
+      to.push(match.index + match[0].length);
+    }
+    normal += out;
+  }
+
+  let cursor = 0;
+  return tokens.map((token) => {
+    const at = normal.indexOf(token, cursor);
+    if (at === -1) return { start: 0, end: 0 };
+    cursor = at + token.length;
+    return { start: from[at], end: to[cursor - 1] };
+  });
 }
 
 /**
@@ -228,6 +258,7 @@ export function calculateKeywordDensity(
         offset += words.length;
       }
 
+      const offsets = tokenOffsets(text, allTokens);
       for (let i = 0; i <= allTokens.length - targetLen; i++) {
         let match = true;
         for (let j = 0; j < targetLen; j++) {
@@ -245,6 +276,9 @@ export function calculateKeywordDensity(
           const decile = Math.min(9, Math.floor((i / totalWords) * 10));
           heat[decile]++;
 
+          const startIdx = offsets[i].start;
+          const endIdx = offsets[i + targetLen - 1].end;
+
           // KWIC: ±5 words around hit
           const beforeStart = Math.max(0, i - 5);
           const afterEnd = Math.min(allTokens.length, i + targetLen + 5);
@@ -257,6 +291,8 @@ export function calculateKeywordDensity(
             match: matchedText,
             after,
             wordIndex,
+            startIndex: startIdx,
+            endIndex: endIdx,
           });
         }
       }

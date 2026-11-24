@@ -191,6 +191,7 @@
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 8px);
+  background: var(--surface);
 }
 
 .table {
@@ -261,6 +262,10 @@
 
 .dialOverrun {
   stroke: #ef4444;
+}
+
+.dialWarning {
+  stroke: #f59e0b;
 }
 
 .dialCenter {
@@ -351,4 +356,9 @@
   .advancedGrid {
     grid-template-columns: 1fr;
   }
+}
+
+.btnPrimary {
+  background: var(--cat-writing-g1);
+  color: #ffffff;
 }

@@ -593,3 +593,134 @@ export function parseWordsToNumber(text: string): ReverseParseResult {
     formattedIndian: `${sign}${groupDigits(digits, 'indian')}${tail}`,
   };
 }
+
+/**
+ * Formats fractional decimals in words:
+ * e.g. "14" -> "and fourteen hundredths"
+ * e.g. "5" -> "and five tenths"
+ * e.g. "05" -> "and five hundredths"
+ * e.g. "000" -> "and zero thousandths"
+ * Past millionths (> 6 decimals): falls back to "point" and notes it.
+ */
+export function formatFractionalDecimals(
+  fracStr: string,
+  options: { style?: ScaleStyle; groupingSystem?: GroupingStyle } = {}
+): { text: string; fallbackToPoint: boolean } {
+  if (!fracStr) return { text: '', fallbackToPoint: false };
+
+  // Past millionths (> 6 decimal digits): fall back to "point"
+  if (fracStr.length > 6) {
+    const pointWords = fracStr
+      .split('')
+      .map((d) => bigIntToWords(BigInt(d), options))
+      .join(' ');
+    return {
+      text: `point ${pointWords}`,
+      fallbackToPoint: true,
+    };
+  }
+
+  const denominatorUnits: { [len: number]: [string, string] } = {
+    1: ['tenth', 'tenths'],
+    2: ['hundredth', 'hundredths'],
+    3: ['thousandth', 'thousandths'],
+    4: ['ten-thousandth', 'ten-thousandths'],
+    5: ['hundred-thousandth', 'hundred-thousandths'],
+    6: ['millionth', 'millionths'],
+  };
+
+  const den = denominatorUnits[fracStr.length];
+  const val = BigInt(fracStr);
+  const numWords = options.groupingSystem === 'indian' ? bigIntToIndianWords(val) : bigIntToWords(val, options);
+  const unit = val === BigInt('1') ? den[0] : den[1];
+
+  return {
+    text: `and ${numWords} ${unit}`,
+    fallbackToPoint: false,
+  };
+}
+
+export interface ConvertNumberOptions {
+  groupingSystem?: GroupingStyle;
+  scaleStyle?: ScaleStyle;
+  decimalStyle?: 'point' | 'fraction';
+  caseStyle?: CaseStyle;
+}
+
+/**
+ * Converts a string number representation into full spelled words.
+ */
+export function numberStringToWords(
+  input: string,
+  options: ConvertNumberOptions = {}
+): { text: string; isError: boolean; note?: string; groupedIntl?: string; groupedIndian?: string } {
+  const {
+    groupingSystem = 'intl',
+    scaleStyle = 'us',
+    decimalStyle = 'point',
+    caseStyle = 'sentence',
+  } = options;
+
+  const parsed = parseNumberInput(input);
+  if (!parsed) return { text: 'Enter digits only (e.g. 1,234,567 or -42.5)', isError: true };
+
+  if (parsed.intPart.toString().length > MAX_NAMED_DIGITS) {
+    return { text: 'Too large to name (over 36 digits). Use scientific notation.', isError: true };
+  }
+
+  let note: string | undefined;
+  let words =
+    groupingSystem === 'indian'
+      ? bigIntToIndianWords(parsed.intPart)
+      : bigIntToWords(parsed.intPart, { style: scaleStyle });
+
+  if (parsed.fracStr) {
+    if (decimalStyle === 'fraction') {
+      const frac = formatFractionalDecimals(parsed.fracStr, { style: scaleStyle, groupingSystem });
+      if (frac.fallbackToPoint) note = 'More than 6 decimal places, so the point style was used.';
+      words += ` ${frac.text}`;
+    } else {
+      const pointWords = parsed.fracStr
+        .split('')
+        .map((d) => bigIntToWords(BigInt(d), { style: scaleStyle }))
+        .join(' ');
+      words += ` point ${pointWords}`;
+    }
+  }
+
+  if (parsed.sign === '-') {
+    words = `negative ${words}`;
+  }
+
+  return {
+    text: applyCase(words, caseStyle),
+    isError: false,
+    note,
+    groupedIntl: groupDigits(parsed.intPart.toString(), 'intl'),
+    groupedIndian: groupDigits(parsed.intPart.toString(), 'indian'),
+  };
+}
+
+export interface LargeNumberScaleItem {
+  name: string;
+  powerOfTen: number;
+  digits: number;
+  system: string;
+  example: string;
+}
+
+export const LARGE_NUMBER_NAMES: LargeNumberScaleItem[] = [
+  { name: 'Thousand', powerOfTen: 3, digits: 4, system: 'International', example: '1,000' },
+  { name: 'Lakh', powerOfTen: 5, digits: 6, system: 'Indian', example: '1,00,000' },
+  { name: 'Million', powerOfTen: 6, digits: 7, system: 'International', example: '1,000,000' },
+  { name: 'Crore', powerOfTen: 7, digits: 8, system: 'Indian', example: '1,00,00,000' },
+  { name: 'Billion', powerOfTen: 9, digits: 10, system: 'International (Short Scale)', example: '1,000,000,000' },
+  { name: 'Trillion', powerOfTen: 12, digits: 13, system: 'International', example: '1,000,000,000,000' },
+  { name: 'Quadrillion', powerOfTen: 15, digits: 16, system: 'International', example: '1,000,000,000,000,000' },
+  { name: 'Quintillion', powerOfTen: 18, digits: 19, system: 'International', example: '10^18' },
+  { name: 'Sextillion', powerOfTen: 21, digits: 22, system: 'International', example: '10^21' },
+  { name: 'Septillion', powerOfTen: 24, digits: 25, system: 'International', example: '10^24' },
+  { name: 'Octillion', powerOfTen: 27, digits: 28, system: 'International', example: '10^27' },
+  { name: 'Nonillion', powerOfTen: 30, digits: 31, system: 'International', example: '10^30' },
+  { name: 'Decillion', powerOfTen: 33, digits: 34, system: 'International', example: '10^33' },
+];

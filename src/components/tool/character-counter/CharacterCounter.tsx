@@ -38,6 +38,9 @@ export default function CharacterCounter() {
   const [focusedField, setFocusedField] = useState<string | null>(null);
   const [caseSensitiveFreq, setCaseSensitiveFreq] = useState<boolean>(false);
   const [cjkPerChar, setCjkPerChar] = useState<boolean>(false);
+  const [ignorePunctuation, setIgnorePunctuation] = useState<boolean>(false);
+  const [ignoreDigits, setIgnoreDigits] = useState<boolean>(false);
+  const [nfcNormalization, setNfcNormalization] = useState<boolean>(true);
   const [copiedSentence, setCopiedSentence] = useState<boolean>(false);
 
   // Sync tab with URL parameter ?tab=
@@ -64,16 +67,15 @@ export default function CharacterCounter() {
     }
   };
 
-  // Perform full text analysis
+  // Perform full text analysis with options
   const analysis = useMemo(() => {
-    const rawAnalysis = analyzeText(text);
-    if (cjkPerChar) {
-      // Recalculate word count with CJK expansion
-      const customWords = countWords(text, { cjkPerChar: true });
-      return { ...rawAnalysis, words: customWords };
-    }
-    return rawAnalysis;
-  }, [text, cjkPerChar]);
+    return analyzeText(text, {
+      nfc: nfcNormalization,
+      ignorePunctuation,
+      ignoreDigits,
+      cjkPerChar,
+    });
+  }, [text, nfcNormalization, ignorePunctuation, ignoreDigits, cjkPerChar]);
 
   // Determine current count against selected limit unit
   const currentCountForLimit = useMemo(() => {
@@ -93,8 +95,15 @@ export default function CharacterCounter() {
   const remaining = limit - currentCountForLimit;
   const isOverLimit = remaining < 0;
   const overflowStart = useMemo(
-    () => (tab === 'limit' && isOverLimit ? overflowIndex(text, limit, limitUnit) : -1),
-    [tab, isOverLimit, text, limit, limitUnit]
+    () =>
+      tab === 'limit' && isOverLimit
+        ? overflowIndex(text, limit, limitUnit, {
+            nfc: nfcNormalization,
+            ignorePunctuation,
+            ignoreDigits,
+          })
+        : -1,
+    [tab, isOverLimit, text, limit, limitUnit, nfcNormalization, ignorePunctuation, ignoreDigits]
   );
   const unitLabel = { graphemes: 'Characters', noSpaces: 'Characters (no spaces)', words: 'Words', bytes: 'Bytes' }[limitUnit];
   const percentUsed = limit > 0 ? Math.min(100, Math.round((currentCountForLimit / limit) * 100)) : 0;
@@ -198,7 +207,15 @@ export default function CharacterCounter() {
     }));
   }, [text]);
 
-  const summarySentence = `Your text has ${analysis.characters.toLocaleString('en-US')} characters (${analysis.charactersNoSpaces.toLocaleString('en-US')} without spaces) and ${analysis.words.toLocaleString('en-US')} words.`;
+  const activeFiltersNote = useMemo(() => {
+    const filters: string[] = [];
+    if (ignorePunctuation) filters.push('punctuation ignored');
+    if (ignoreDigits) filters.push('digits ignored');
+    if (!nfcNormalization) filters.push('NFC disabled');
+    return filters.length > 0 ? ` [${filters.join(', ')}]` : '';
+  }, [ignorePunctuation, ignoreDigits, nfcNormalization]);
+
+  const summarySentence = `Your text has ${analysis.characters.toLocaleString('en-US')} characters (${analysis.charactersNoSpaces.toLocaleString('en-US')} without spaces) and ${analysis.words.toLocaleString('en-US')} words.${activeFiltersNote}`;
 
   const handleCopySentence = async () => {
     try {
@@ -250,6 +267,34 @@ export default function CharacterCounter() {
             onBlur={() => setFocusedField(null)}
           />
 
+          {/* Counting Options */}
+          <div className={styles.optionsBar}>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={ignorePunctuation}
+                onChange={(e) => setIgnorePunctuation(e.target.checked)}
+              />
+              <span>Ignore punctuation</span>
+            </label>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={ignoreDigits}
+                onChange={(e) => setIgnoreDigits(e.target.checked)}
+              />
+              <span>Ignore digits (0–9)</span>
+            </label>
+            <label className={styles.checkboxLabel}>
+              <input
+                type="checkbox"
+                checked={nfcNormalization}
+                onChange={(e) => setNfcNormalization(e.target.checked)}
+              />
+              <span>Unicode NFC normalization</span>
+            </label>
+          </div>
+
           <div className={styles.summaryBar}>
             <p className={styles.summaryText}>{summarySentence}</p>
             <button
@@ -262,13 +307,13 @@ export default function CharacterCounter() {
           </div>
 
           <div className={styles.sectionHeader}>
-            <h2 className={styles.sectionTitle}>Key Character Metrics</h2>
+            <div className={styles.sectionTitle}>Key Character Metrics</div>
           </div>
 
           <StatTiles stats={headlineStats} columns={4} />
 
           <div className={styles.sectionHeader} style={{ marginTop: '16px' }}>
-            <h3 className={styles.subsectionTitle}>Structural &amp; Encoding Breakdown</h3>
+            <div className={styles.subsectionTitle}>Structural &amp; Encoding Breakdown</div>
           </div>
 
           <StatTiles stats={secondaryStats} columns={3} />
@@ -361,6 +406,34 @@ export default function CharacterCounter() {
               </div>
             </div>
 
+            {/* Limit Counting Options */}
+            <div className={styles.optionsBar} style={{ marginTop: '8px' }}>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={ignorePunctuation}
+                  onChange={(e) => setIgnorePunctuation(e.target.checked)}
+                />
+                <span>Ignore punctuation</span>
+              </label>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={ignoreDigits}
+                  onChange={(e) => setIgnoreDigits(e.target.checked)}
+                />
+                <span>Ignore digits (0–9)</span>
+              </label>
+              <label className={styles.checkboxLabel}>
+                <input
+                  type="checkbox"
+                  checked={nfcNormalization}
+                  onChange={(e) => setNfcNormalization(e.target.checked)}
+                />
+                <span>Unicode NFC</span>
+              </label>
+            </div>
+
             {/* Platform Presets */}
             <div className={styles.presetsBlock}>
               <span className={styles.presetsLabel}>Social Platforms:</span>
@@ -416,7 +489,7 @@ export default function CharacterCounter() {
 
           {/* Encodings Comparison Grid */}
           <div className={styles.sectionHeader}>
-            <h3 className={styles.sectionTitle}>Unicode Length by Encoding Model</h3>
+            <div className={styles.sectionTitle}>Unicode Length by Encoding Model</div>
           </div>
           <div className={styles.encodingGrid}>
             <div className={styles.encodingCard}>
@@ -444,7 +517,7 @@ export default function CharacterCounter() {
           {/* Character Frequency Table */}
           <div className={styles.sectionHeader} style={{ marginTop: '24px' }}>
             <div className={styles.headerWithAction}>
-              <h3 className={styles.sectionTitle}>Top 20 Character Frequencies</h3>
+              <div className={styles.sectionTitle}>Top 20 Character Frequencies</div>
               <label className={styles.checkboxLabel}>
                 <input
                   type="checkbox"
@@ -487,7 +560,7 @@ export default function CharacterCounter() {
           {paragraphLengths.length > 1 && (
             <div style={{ marginTop: '24px' }}>
               <div className={styles.sectionHeader}>
-                <h3 className={styles.sectionTitle}>Per-Paragraph Character Breakdown</h3>
+                <div className={styles.sectionTitle}>Per-Paragraph Character Breakdown</div>
               </div>
               <div className={styles.tableWrapper}>
                 <table className={styles.table}>

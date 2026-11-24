@@ -10,7 +10,6 @@ import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
-import { generateCharWordTable } from '@/lib/char-word-engine';
 import styles from './page.module.css';
 import { toolDisplayFont } from '@/lib/fonts';
 import typo from '@/styles/tool-typography.module.css';
@@ -75,7 +74,6 @@ const sample1000 =
   'Drafting an admissions essay, scholarship statement, or job application with a fixed character limit requires balancing substantive depth with rigorous editorial brevity. In professional publishing and academic admissions, review panels impose character ceilings to evaluate how efficiently candidates communicate under strict boundaries. A one-thousand-character limit is approximately one hundred and seventy-five words with spaces included, or two hundred and thirteen words if whitespace is omitted. This provides enough space for two well-developed paragraphs consisting of roughly seven to nine carefully structured sentences.\n\nTo maximize every character, eliminate introductory throat-clearing like \'in order to\'. Replace weak verb-noun pairings with active verbs. When you measure prose against our conversion table, remember that average word lengths vary across vocabularies. Technical prose with complex terminology yields fewer total words per thousand characters. Edit sample here well!';
 
 export default function CharactersToWordsPage() {
-  const tableRows = generateCharWordTable();
   const breadcrumbs = [
     { name: 'Tools', path: '/tools/' },
     { name: 'Text & Writing', path: '/tools/#writing' },
@@ -105,7 +103,7 @@ export default function CharactersToWordsPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> 1,000 characters is about <strong>175 words with spaces</strong>{' '}
+            1,000 characters is about <strong>175 words with spaces</strong>{' '}
             (between 149 and 213 words), or about <strong>213 words if spaces aren’t counted</strong>. That assumes an
             average English word length of 4.7 letters. Change the average, or paste your writing to measure your exact
             pace, and every calculation below updates live.
@@ -131,8 +129,7 @@ export default function CharactersToWordsPage() {
           <section className={styles.section}>
             <h2>How to Use the Characters to Words Converter</h2>
             <p>
-              Whether you are preparing a scholarship statement, submitting a grant proposal, or polishing a social
-              media bio, our converter provides three versatile modes:
+              For scholarship statements, grant proposals, and application bios, this converter provides three flexible modes:
             </p>
             <ol>
               <li>
@@ -217,7 +214,9 @@ export default function CharactersToWordsPage() {
             </ul>
             <p>
               Notice the substantial impact: 1,000 characters without spaces yields roughly 38 additional words (a 21%
-              increase) compared to a with-spaces limit.
+              increase) compared to a with-spaces limit. To inspect exact whitespace, glyphs, and line counts, use our{' '}
+              <Link href="/character-counter/">Character Counter</Link>. If you want to see how long your converted word count takes to speak or present, use our{' '}
+              <Link href="/reading-time-calculator/">Reading Time Calculator</Link>.
             </p>
           </section>
 
@@ -248,48 +247,6 @@ export default function CharactersToWordsPage() {
                 as 1 character, matching Unicode UAX #29 extended grapheme cluster standards.
               </li>
             </ul>
-          </section>
-
-          <section className={styles.section}>
-            <h2>Characters to Words Conversion Reference Table</h2>
-            <p>
-              The table below outlines common application limits from 100 to 10,000 characters, detailing estimated
-              words and statistical ranges for both with-spaces and without-spaces scenarios:
-            </p>
-
-            <div className={styles.tableWrapper}>
-              <table className={styles.table}>
-                <caption>
-                  Standard Characters to Words Reference (at 4.7 letters per word, a commonly used average)
-                </caption>
-                <thead>
-                  <tr>
-                    <th>Character Count</th>
-                    <th>Words (With Spaces)</th>
-                    <th>Range (With Spaces)</th>
-                    <th>Words (No Spaces)</th>
-                    <th>Range (No Spaces)</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableRows.map((row) => (
-                    <tr key={row.chars} style={row.chars === 1000 ? { fontWeight: 700 } : undefined}>
-                      <td>
-                        <strong>{row.chars.toLocaleString('en-US')} characters</strong>
-                      </td>
-                      <td>{row.withSpaces.est.toLocaleString('en-US')} words</td>
-                      <td>
-                        {row.withSpaces.low}–{row.withSpaces.high}
-                      </td>
-                      <td>{row.withoutSpaces.est.toLocaleString('en-US')} words</td>
-                      <td>
-                        {row.withoutSpaces.low}–{row.withoutSpaces.high}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
           </section>
 
           <section className={styles.section}>
@@ -396,10 +353,10 @@ export default function CharactersToWordsPage() {
                 Convert word counts to printed pages for single, 1.5, and double spacing across Letter and A4 paper.
               </li>
               <li>
-                <Link href="/tools/#writing">
-                  <strong>Text &amp; Writing Hub:</strong>
+                <Link href="/reading-time-calculator/">
+                  <strong>Reading &amp; Speaking Time Calculator:</strong>
                 </Link>{' '}
-                Explore all free client-side writing tools.
+                Convert word counts to minutes and rehearse speeches with an interactive timer.
               </li>
             </ul>
           </section>

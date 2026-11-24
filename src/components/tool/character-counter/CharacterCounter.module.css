@@ -327,6 +327,7 @@
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 12px);
+  background: var(--surface);
 }
 
 .table {
@@ -397,4 +398,8 @@
   .encodingGrid {
     grid-template-columns: 1fr;
   }
+}
+
+.headerWithAction .checkboxLabel {
+  color: #ffffff;
 }

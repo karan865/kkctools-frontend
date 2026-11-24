@@ -2082,6 +2082,127 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Word Counter: document sheet with word badge */
+  fileText: (
+    <>
+      <rect className={k('fp', 's2')} x={45} y={14} width={75} height={72} rx={4} />
+      <polygon className={s.fm} points="96,14 120,14 120,38 96,14" />
+      <line className={s.s1} x1={56} y1={26} x2={90} y2={26} strokeWidth={2} />
+      <line className={s.s2} x1={56} y1={38} x2={110} y2={38} strokeWidth={1.5} opacity={0.7} />
+      <line className={s.s2} x1={56} y1={48} x2={110} y2={48} strokeWidth={1.5} opacity={0.7} />
+      <line className={s.s2} x1={56} y1={58} x2={96} y2={58} strokeWidth={1.5} opacity={0.7} />
+      <line className={s.s2} x1={56} y1={68} x2={86} y2={68} strokeWidth={1.5} opacity={0.7} />
+      <rect className={s.f1} x={108} y={52} width={50} height={22} rx={5} />
+      <text className={s.txW} x={133} y={66} textAnchor="middle" fontSize={8.5} fontWeight={800}>
+        520 wds
+      </text>
+    </>
+  ),
+  /* Reading Time Calculator: stopwatch / clock with speech minutes badge */
+  clock: (
+    <>
+      <circle className={k('fp', 's2')} cx={95} cy={50} r={32} />
+      <circle className={s.f2} cx={95} cy={50} r={3} />
+      <line className={k('s1', 'thick')} x1={95} y1={50} x2={95} y2={28} />
+      <line className={k('s2', 'thick')} x1={95} y1={50} x2={112} y2={58} />
+      <line className={s.dim} x1={95} y1={20} x2={95} y2={24} />
+      <line className={s.dim} x1={95} y1={76} x2={95} y2={80} />
+      <line className={s.dim} x1={65} y1={50} x2={69} y2={50} />
+      <line className={s.dim} x1={121} y1={50} x2={125} y2={50} />
+      <rect className={s.f1} x={122} y={22} width={46} height={20} rx={4} />
+      <text className={s.txW} x={145} y={35} textAnchor="middle" fontSize={8.5} fontWeight={800}>
+        4.0 min
+      </text>
+    </>
+  ),
+  /* Twitter Counter: social post card with 280 progress arc and thread count */
+  socialPost: (
+    <>
+      <rect className={k('fp', 's2')} x={36} y={18} width={100} height={64} rx={8} />
+      <circle className={s.f2} cx={54} cy={34} r={8} />
+      <line className={s.s1} x1={68} y1={32} x2={100} y2={32} strokeWidth={2} />
+      <line className={s.s2} x1={68} y1={38} x2={88} y2={38} strokeWidth={1.2} opacity={0.6} />
+      <line className={s.s2} x1={48} y1={52} x2={124} y2={52} strokeWidth={1.5} opacity={0.7} />
+      <line className={s.s2} x1={48} y1={62} x2={112} y2={62} strokeWidth={1.5} opacity={0.7} />
+      <circle className={k('fn', 's2')} cx={146} cy={50} r={16} strokeWidth={3} strokeDasharray="75 25" />
+      <text className={s.tx} x={146} y={54} textAnchor="middle" fontSize={9} fontWeight={800}>
+        280
+      </text>
+    </>
+  ),
+  /* Comma Separator: items turning into comma delimited list */
+  listFilter: (
+    <>
+      <rect className={k('fp', 's2')} x={30} y={16} width={50} height={68} rx={4} />
+      <line className={s.s1} x1={38} y1={28} x2={72} y2={28} strokeWidth={2} />
+      <line className={s.s1} x1={38} y1={42} x2={66} y2={42} strokeWidth={2} />
+      <line className={s.s1} x1={38} y1={56} x2={70} y2={56} strokeWidth={2} />
+      <line className={s.s1} x1={38} y1={70} x2={60} y2={70} strokeWidth={2} />
+      <path className={k('fn', 's2', 'thick')} d="M88 50 H106 M102 44 L108 50 L102 56" />
+      <rect className={k('fl', 's2')} x={114} y={32} width={58} height={36} rx={5} />
+      <text className={s.tx} x={143} y={53} textAnchor="middle" fontSize={10} fontWeight={800}>
+        a, b, c, d
+      </text>
+    </>
+  ),
+  /* Sentence Counter: pilcrow symbol with numbered sentence blocks */
+  paragraph: (
+    <>
+      <rect className={k('fp', 's2')} x={34} y={16} width={82} height={68} rx={6} />
+      <circle className={s.f1} cx={50} cy={30} r={6} />
+      <text className={s.txW} x={50} y={33} textAnchor="middle" fontSize={7} fontWeight={800}>
+        1
+      </text>
+      <line className={s.s1} x1={62} y1={30} x2={106} y2={30} strokeWidth={2} />
+      <circle className={s.f1} cx={50} cy={48} r={6} />
+      <text className={s.txW} x={50} y={51} textAnchor="middle" fontSize={7} fontWeight={800}>
+        2
+      </text>
+      <line className={s.s2} x1={62} y1={48} x2={100} y2={48} strokeWidth={2} />
+      <circle className={s.f1} cx={50} cy={66} r={6} />
+      <text className={s.txW} x={50} y={69} textAnchor="middle" fontSize={7} fontWeight={800}>
+        3
+      </text>
+      <line className={s.s2} x1={62} y1={66} x2={94} y2={66} strokeWidth={2} />
+      <rect className={s.f2} x={124} y={38} width={44} height={24} rx={5} />
+      <text className={s.txW} x={146} y={53} textAnchor="middle" fontSize={9} fontWeight={800}>
+        ¶ 3 sent
+      </text>
+    </>
+  ),
+  /* Characters to Words: ratio conversion card */
+  charToWord: (
+    <>
+      <rect className={k('fp', 's2')} x={25} y={30} width={56} height={40} rx={6} />
+      <text className={s.tx} x={53} y={48} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Chars
+      </text>
+      <text className={s.txL} x={53} y={62} textAnchor="middle" fontSize={11}>
+        2,500
+      </text>
+      <path className={k('fn', 's2', 'thick')} d="M86 50 H106 M102 44 L108 50 L102 56" />
+      <rect className={k('fl', 's2')} x={112} y={30} width={56} height={40} rx={6} />
+      <text className={s.tx} x={140} y={48} textAnchor="middle" fontSize={8} fontWeight={700}>
+        Words
+      </text>
+      <text className={s.txL} x={140} y={62} textAnchor="middle" fontSize={11}>
+        500
+      </text>
+    </>
+  ),
+  /* Keyword Density Checker: frequency bars with density badge */
+  zap: (
+    <>
+      <rect className={k('fp', 's2')} x={34} y={16} width={82} height={68} rx={6} />
+      <rect className={s.f1} x={44} y={28} width={58} height={9} rx={2} />
+      <rect className={s.f2} x={44} y={43} width={42} height={9} rx={2} />
+      <rect className={s.fm} x={44} y={58} width={28} height={9} rx={2} />
+      <rect className={s.f1} x={122} y={38} width={48} height={24} rx={5} />
+      <text className={s.txW} x={146} y={53} textAnchor="middle" fontSize={9} fontWeight={800}>
+        2.4%
+      </text>
+    </>
+  ),
   /* Suggest: a dashed card with a plus */
   plus: (
     <>

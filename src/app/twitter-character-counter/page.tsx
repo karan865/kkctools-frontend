@@ -102,7 +102,7 @@ export default function TwitterCharacterCounterPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> Type or paste your post and this Twitter character counter counts it
+            Type or paste your post and this Twitter character counter counts it
             the way X does: <strong>280 weighted characters</strong>, every web link counts as <strong>23</strong>, and
             each emoji counts as <strong>2</strong>. A sample like &quot;Hello, world! 👋&quot; counts as{' '}
             <strong>16</strong>, not 15. Switch tabs to check Instagram&apos;s 2,200-character caption limit or split
@@ -135,7 +135,7 @@ export default function TwitterCharacterCounterPage() {
             <ol>
               <li>
                 <strong>X (Twitter) Post Mode (Default):</strong> Evaluates your tweet against X’s official 280-weighted
-                limit. It automatically recognizes web URLs (attributing 23 characters) and weights emoji as 2
+                limit to verify your exact tweet character count. It automatically recognizes web URLs (attributing 23 characters) and weights emoji as 2
                 characters, providing an exact preview of what X’s composer calculates.
               </li>
               <li>
@@ -233,7 +233,7 @@ export default function TwitterCharacterCounterPage() {
                 or &quot; (1/4)&quot;), ensuring that appending the counter never pushes a tweet past the limit.
               </li>
               <li>
-                <strong>Nothing is cut in half:</strong> links and emoji stay whole, and your line breaks are kept.
+                <strong>Nothing is cut in half:</strong> links and emoji stay whole, and your line breaks are kept. To inspect individual sentence lengths and structure before composing a thread, use our <Link href="/sentence-counter/">Sentence Counter</Link>.
               </li>
             </ol>
           </section>
@@ -241,7 +241,7 @@ export default function TwitterCharacterCounterPage() {
           <section className={styles.section}>
             <h2>Instagram Character Counter: Captions, Hashtags, and Mentions</h2>
             <p>
-              According to{' '}
+              When drafting your IG captions or planning carousel slides, these limits apply. According to{' '}
               <a
                 href="https://developers.facebook.com/docs/instagram-platform/instagram-graph-api/reference/ig-user/media"
                 target="_blank"
@@ -269,7 +269,7 @@ export default function TwitterCharacterCounterPage() {
           </section>
 
           <section className={styles.section}>
-            <h2>Social Media Character Limits Quick Reference</h2>
+            <h2>Instagram, LinkedIn, Threads and YouTube Character Limits</h2>
             <p>
               The table below summarizes character constraints across leading digital platforms, documented with
               official developer sources and checked verification status:
@@ -359,7 +359,7 @@ export default function TwitterCharacterCounterPage() {
           <section className={styles.section}>
             <h2>Related Writing &amp; Text Calculators</h2>
             <p>
-              Explore our comprehensive suite of free client-side writing and editing tools:
+              Explore our full suite of free client-side writing and editing tools:
             </p>
             <ul>
               <li>
@@ -367,6 +367,18 @@ export default function TwitterCharacterCounterPage() {
                   <strong>Character Counter:</strong>
                 </Link>{' '}
                 Count characters with and without spaces, words, sentences, and UTF-8 storage bytes.
+              </li>
+              <li>
+                <Link href="/sentence-counter/">
+                  <strong>Sentence Counter:</strong>
+                </Link>{' '}
+                Count sentences, paragraphs and lines with editable abbreviation rules.
+              </li>
+              <li>
+                <Link href="/word-counter/">
+                  <strong>Word Counter:</strong>
+                </Link>{' '}
+                Count words, characters, and reading time with essay quotas.
               </li>
               <li>
                 <Link href="/characters-to-words/">
@@ -379,12 +391,6 @@ export default function TwitterCharacterCounterPage() {
                   <strong>Words to Pages Calculator:</strong>
                 </Link>{' '}
                 Convert word counts to printed pages for single, 1.5, and double spacing.
-              </li>
-              <li>
-                <Link href="/tools/#writing">
-                  <strong>Text &amp; Writing Hub:</strong>
-                </Link>{' '}
-                Browse all writing utilities.
               </li>
             </ul>
           </section>

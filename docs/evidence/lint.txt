@@ -53,7 +53,7 @@ D:\1_programmins\5.kkctools\src\components\tool\airbnb-calculator\AirbnbCalculat
   106:29  warning  'setLtrMaintenancePct' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\character-counter\CharacterCounter.tsx
-  131:6  warning  React Hook useMemo has a missing dependency: 'cjkPerChar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  140:6  warning  React Hook useMemo has a missing dependency: 'cjkPerChar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 D:\1_programmins\5.kkctools\src\components\tool\characters-to-words\CharactersToWordsCalculator.tsx
   161:5  warning  React Hook useMemo has an unnecessary dependency: 'limit'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
@@ -105,6 +105,11 @@ D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalc
 D:\1_programmins\5.kkctools\src\components\tool\net-worth-calculator\NetWorthCalculator.tsx
   236:6  warning  React Hook useMemo has an unnecessary dependency: 'currSymbol'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
 
+D:\1_programmins\5.kkctools\src\components\tool\numbers-to-words\NumbersToWordsCalculator.tsx
+   7:3  warning  'parseNumberInput' is defined but never used     @typescript-eslint/no-unused-vars
+   9:3  warning  'bigIntToIndianWords' is defined but never used  @typescript-eslint/no-unused-vars
+  13:3  warning  'groupDigits' is defined but never used          @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
    12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
@@ -152,6 +157,9 @@ D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\list-engine.test.ts
   5:3  warning  'quoteCsv' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\number-words-engine.test.ts
+  12:3  warning  'formatFractionalDecimals' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\page-estimate-engine.test.ts
   3:3  warning  'calculatePrintableArea' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -173,5 +181,5 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 82 problems (0 errors, 82 warnings)
+✖ 86 problems (0 errors, 86 warnings)
 

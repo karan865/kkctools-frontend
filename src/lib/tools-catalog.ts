@@ -127,7 +127,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Count sentences, paragraphs and lines with smart abbreviation rules and long-sentence highlighting.',
     tags: ['Sentence Counter', 'Paragraph Count'],
-    icon: 'pencil',
+    icon: 'paragraph',
     keywords: [
       'sentence counter',
       'paragraph counter',
@@ -147,7 +147,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Convert columns into comma-separated lists, add quotes, dedupe, sort, or split lists back into lines.',
     tags: ['Comma Separator', 'Delimited List'],
-    icon: 'pencil',
+    icon: 'listFilter',
     keywords: [
       'comma delimited',
       'comma separator',
@@ -187,7 +187,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Convert word counts to reading and speaking times, find words for timed speeches, and rehearse with a timer.',
     tags: ['Reading Time', 'Speech Length'],
-    icon: 'zap',
+    icon: 'clock',
     keywords: [
       'reading time calculation',
       'reading time calculator',
@@ -207,7 +207,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Count words, characters, sentences, paragraphs and reading time, with essay limits and word frequency.',
     tags: ['Word Count', 'Essay Limit'],
-    icon: 'pencil',
+    icon: 'fileText',
     keywords: [
       'word counter free',
       'word counter',
@@ -227,7 +227,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Count tweets with X’s official weighted rules (links 23, emoji 2), split threads, and check Instagram limits.',
     tags: ['Social Media', 'Character Limit'],
-    icon: 'pencil',
+    icon: 'socialPost',
     keywords: [
       'twitter character counter',
       'x character counter',
@@ -247,7 +247,7 @@ const RAW_TOOLS_CATALOG: CatalogTool[] = [
     category: 'writing',
     description: 'Convert characters to estimated words with or without spaces, calibrate your writing, and check form limits.',
     tags: ['Characters', 'Word Count'],
-    icon: 'scale',
+    icon: 'charToWord',
     keywords: [
       '1000 characters to words',
       'characters to words',

@@ -10,7 +10,6 @@ import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
-import { generateWordsToPagesTable } from '@/lib/page-estimate-engine';
 import styles from './page.module.css';
 import { toolDisplayFont } from '@/lib/fonts';
 import typo from '@/styles/tool-typography.module.css';
@@ -49,7 +48,7 @@ const faqs = [
   },
   {
     q: 'How long is an essay?',
-    a: 'As long as your assignment says. If you were given words, the table shows the pages: 500 words is 1 page single-spaced or 2 double-spaced, and 1,500 words is 3 or 6. If you were given pages, the Pages to Words tab gives the words to aim for.',
+    a: 'If you are asking how long should an essay be, it is as long as your assignment specifies. A short 300 words response is about 0.6 pages single-spaced or 1.2 pages double-spaced. For standard essays, 500 words is 1 page single-spaced or 2 double-spaced, and 1,500 words is 3 or 6. If you were given pages, the Pages to Words tab gives the words to aim for.',
   },
   {
     q: 'How many words are in a novel or a 300-page book?',
@@ -84,10 +83,9 @@ const sample200 =
   'Understanding how raw word counts translate into physical pages is essential for students, authors, and professionals alike. A document is not simply an abstract sequence of characters; it occupies physical layout space governed by typography, line height, margins, and paper dimensions. In university classrooms, instructors frequently specify page limits rather than strict word ceilings, expecting double-spaced submissions in standard twelve-point type. In contrast, corporate white papers and grant proposals favor compact single spacing to maximize reading efficiency across printed handouts.\n\nWhen writing across diverse mediums, estimating your final page volume prevents eleventh-hour reformatting panics. If a journal demands a ten-page paper, aiming for 2,500 words double-spaced provides the ideal breathing room. Knowing these geometric relationships allows writers to pace their arguments evenly across distinct sections, ensuring that introductory context, analytical evidence, and final conclusions receive proportional emphasis. By tracking paragraphs and sentence frequencies alongside raw page counts, authors can maintain engaging structural rhythm throughout their entire document. Print one page of a draft and count its words by hand if the page limit really matters to you. Your own page is better evidence than any average, because it already includes your headings, your lists and the way you break paragraphs.';
 
 const sample300 =
-  'The relationship between word count and printed page yield has evolved alongside centuries of publishing technology. In the era of mechanical typewriters, monospaced typefaces like Courier guaranteed that every typed character occupied an identical horizontal pitch. Ten characters per inch (pica) or twelve characters per inch (elite) allowed editors and typesetters to calculate exact galley lengths using simple mechanical line counts. With twenty-five lines per double-spaced page, a standard submission manuscript reliably contained approximately two hundred and fifty words on each page.\n\nModern digital word processors introduced proportional typography, where glyphs vary in width according to their organic letterforms. A lowercase letter like "i" or "l" occupies a fraction of the horizontal space required by a capital "M" or "W". Consequently, modern fonts like Times New Roman, Calibri, Arial, and Georgia yield slightly different page lengths even when set at identical point sizes. Furthermore, variable paragraph indentation, subheading hierarchy, block quotes, and widow-and-orphan controls introduce natural variance into final pagination.\n\nDespite these nuances, five hundred words per single-spaced page and two hundred and fifty per double-spaced page remain a common convention. Utilizing this metric alongside printable area adjustments provides authors with an accurate forecasting framework. Whether you are pacing a novel chapter, preparing an executive briefing, or polishing a thesis, understanding pagination geometry empowers you to communicate with confidence and structural precision. A page count is still only a forecast. Headings, lists, tables and pictures take space that words do not, and a short final paragraph can leave half a page empty. When a teacher or editor gives you a limit in pages, ask which font, spacing and margins they expect before you begin. When they give you a limit in words, trust the counter and ignore the pages. Either way, leave yourself a little room at the very end.';
+  'The relationship between word count and printed page yield has evolved alongside centuries of publishing technology. In the era of mechanical typewriters, monospaced typefaces like Courier guaranteed that every typed character occupied an identical horizontal pitch. Ten characters per inch (pica) or twelve characters per inch (elite) allowed editors and typesetters to calculate exact galley lengths using simple mechanical line counts. With twenty-five lines per double-spaced page, a standard submission manuscript reliably contained approximately two hundred and fifty words on each page.\n\nModern digital word processors introduced proportional typography, where glyphs vary in width according to their organic letterforms. A lowercase letter like "i" or "l" occupies a fraction of the horizontal space required by a capital "M" or "W". Consequently, modern fonts like Times New Roman, Calibri, Arial, and Georgia yield slightly different page lengths even when set at identical point sizes. Furthermore, variable paragraph indentation, subheading hierarchy, block quotes, and widow-and-orphan controls introduce natural variance into final pagination.\n\nDespite these nuances, five hundred words per single-spaced page and two hundred and fifty per double-spaced page remain a common convention. Utilizing this metric alongside printable area adjustments provides authors with an accurate forecasting framework. Whether you are pacing a novel chapter, preparing an executive briefing, or polishing a thesis, understanding pagination geometry empowers you to communicate with confidence and structural clarity. A page count is still only a forecast. Headings, lists, tables and pictures take space that words do not, and a short final paragraph can leave half a page empty. When a teacher or editor gives you a limit in pages, ask which font, spacing and margins they expect before you begin. When they give you a limit in words, trust the counter and ignore the pages. Either way, leave yourself a little room at the very end.';
 
 export default function WordsToPagesPage() {
-  const tableRows = generateWordsToPagesTable();
   const breadcrumbs = [
     { name: 'Tools', path: '/tools/' },
     { name: 'Text & Writing', path: '/tools/#writing' },
@@ -117,7 +115,7 @@ export default function WordsToPagesPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> 1,000 words is about <strong>2 pages single-spaced</strong> or{' '}
+            1,000 words is about <strong>2 pages single-spaced</strong> or{' '}
             <strong>4 pages double-spaced</strong>, using standard 12 pt type, 1-inch margins, and US Letter paper.
             With 1.5 line spacing, 1,000 words takes approximately 3 pages. Customize your typography, paper
             size, or margins below, or paste your essay directly into the calculator.
@@ -302,7 +300,7 @@ export default function WordsToPagesPage() {
             </ul>
             <p>
               Based on our default assumptions (20 words per sentence, 100 words per paragraph), a 1,000-word essay
-              consists of roughly <strong>50 sentences</strong> and <strong>10 paragraphs</strong>. A 300-word
+              consists of roughly <strong>50 sentences</strong> and <strong>10 paragraphs</strong>. To measure your actual text for exact sentence counts, paragraph lengths, and abbreviation rules, use our <Link href="/sentence-counter/">Sentence Counter</Link>. If your submission form specifies character boundaries or portal limits, verify exact counts with our <Link href="/character-counter/">Character Counter</Link>. A 300-word
               short response comprises roughly 15 sentences and 3 paragraphs. You can adjust these baseline averages
               in the calculator above to match your specific writing rhythm.
             </p>
@@ -415,47 +413,6 @@ export default function WordsToPagesPage() {
           </section>
 
           <section className={styles.section}>
-            <h2>Words to Pages Conversion Table</h2>
-            <p>
-              The reference table below calculates exact page counts, estimated sentences, and estimated paragraphs
-              for word counts from 100 to 50,000 words under standard 12 pt font, 1-inch margins, and US Letter paper:
-            </p>
-
-            <div className={styles.tableWrapper}>
-              <table className={styles.table}>
-                <caption>
-                  Words to Pages Quick Reference (12 pt font, 1-inch margins, Letter paper, 20 words/sentence, 100
-                  words/paragraph)
-                </caption>
-                <thead>
-                  <tr>
-                    <th>Word Count</th>
-                    <th>Single Spaced</th>
-                    <th>1.5 Spaced</th>
-                    <th>Double Spaced</th>
-                    <th>Est. Sentences</th>
-                    <th>Est. Paragraphs</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {tableRows.map((row) => (
-                    <tr key={row.words}>
-                      <td>
-                        <strong>{row.words.toLocaleString('en-US')} words</strong>
-                      </td>
-                      <td>{row.singlePages} pages</td>
-                      <td>{row.onePointFivePages} pages</td>
-                      <td>{row.doublePages} pages</td>
-                      <td>{Math.round(row.words / 20).toLocaleString('en-US')}</td>
-                      <td>{Math.round(row.words / 100).toLocaleString('en-US')}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </section>
-
-          <section className={styles.section}>
             <h2>Frequently Asked Questions</h2>
             <div className={styles.faqList}>
               {faqs.map((faq, index) => (
@@ -472,9 +429,9 @@ export default function WordsToPagesPage() {
           <HowWeCalculate slug="words-to-pages" />
 
           <section className={styles.section}>
-            <h2>Related Writing & Text Calculators</h2>
+            <h2>Related Writing &amp; Text Calculators</h2>
             <p>
-              Explore our comprehensive suite of free client-side writing and editing tools:
+              Explore our full suite of free client-side writing and editing tools:
             </p>
             <ul>
               <li>
@@ -506,12 +463,6 @@ export default function WordsToPagesPage() {
                   <strong>Character Counter:</strong>
                 </Link>{' '}
                 Count characters with and without spaces, words, sentences, and UTF-8 storage bytes.
-              </li>
-              <li>
-                <Link href="/tools/#writing">
-                  <strong>Text & Writing Tools Hub:</strong>
-                </Link>{' '}
-                Browse all writing utilities including word counters, reading speed calculators, and comma separators.
               </li>
             </ul>
           </section>

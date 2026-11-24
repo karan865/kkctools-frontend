@@ -1,10 +1,10 @@
 import { describe, it, expect } from 'vitest';
 import { readFileSync } from 'fs';
-import { extractWords, countWords, countSentences, extractSentences, getNgrams, overflowIndex, emojiCount, countGraphemes } from './text-engine';
+import { extractWords, countWords, countSentences, extractSentences, getNgrams, overflowIndex, emojiCount, countGraphemes, analyzeText } from './text-engine';
 import { xWeightedLength, xOverflowIndex, splitThread } from './x-count-engine';
 import { bigIntToWords, bigIntToIndianWords, parseWordsToNumber, toCheckAmount, toIndianChequeAmount, toOrdinalWords } from './number-words-engine';
 import { joinList, parseDelimited, detectDelimiter, cleanList } from './list-engine';
-import { calculateKeywordDensity } from './keyword-density-engine';
+import { calculateKeywordDensity, tokenOffsets } from './keyword-density-engine';
 import { calculateSentenceStats, analyzeParagraphs } from './sentence-stats-engine';
 
 describe('words', () => {
@@ -239,4 +239,29 @@ describe('sample blocks on the pages have the length they state', () => {
   it('100, 200 and 300 words', () => expect(longStrings('words-to-pages').map((t) => countWords(t))).toEqual([100, 200, 300]));
   it('500 and 1,000 characters', () =>
     expect(longStrings('characters-to-words').map((t) => countGraphemes(t))).toEqual([500, 1000]));
+});
+
+describe('improvement round', () => {
+  it('ignoring punctuation keeps emoji and symbols', () => {
+    expect(analyzeText('Hi 👋 $5+!', { ignorePunctuation: true }).characters).toBe(8);
+    expect(analyzeText('½ 1a', { ignoreDigits: true }).characters).toBe(3);
+  });
+  it('overflow index is valid for text typed with combining marks', () => {
+    const typed = 'cafe\u0301s';
+    expect(overflowIndex(typed, 4, 'graphemes')).toBe(5);
+    expect(overflowIndex('a,b', 2, 'bytes', { ignorePunctuation: true })).toBe(2);
+  });
+  it('keyword hits select the word itself, not a longer word before it', () => {
+    const text = 'Category one. The cat sat; it\u2019s a ca\u00ADt, my cat.';
+    const hits = calculateKeywordDensity(text, { targetPhrase: 'cat' }).targetAnalysis!.kwic.map((k) => [k.startIndex, text.slice(k.startIndex, k.endIndex)]);
+    expect(hits).toEqual([
+      [18, 'cat'],
+      [34, 'ca\u00ADt'],
+      [43, 'cat'],
+    ]);
+    expect(tokenOffsets('cafe\u0301 ok', ['caf\u00E9', 'ok'])).toEqual([
+      { start: 0, end: 5 },
+      { start: 6, end: 8 },
+    ]);
+  });
 });

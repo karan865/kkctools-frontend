@@ -69,7 +69,7 @@ const faqs = [
   },
   {
     q: 'How do I count lines in my text?',
-    a: 'Our tool calculates line counts based on physical newline characters (both Unix \\n and Windows \\r\\n). In the Paragraphs tab and the top stat tiles, you can see total physical lines alongside your paragraph and sentence counts.',
+    a: 'Our built-in lines counter calculates line counts based on physical newline characters (both Unix \\n and Windows \\r\\n). In the Paragraphs tab and the top stat tiles, you can see total physical lines alongside your paragraph and sentence counts.',
   },
 ];
 
@@ -108,11 +108,11 @@ export default function SentenceCounterPage() {
             </p>
 
             <div className={styles.bluf}>
-              <strong>Bottom Line Up Front:</strong> Paste your text to count sentences, paragraphs,
+              Paste your text to count sentences, paragraphs,
               and lines, with your average and longest sentence metrics. Abbreviations like
               &ldquo;Dr.&rdquo; and &ldquo;Mr.&rdquo;, numeric values like 3.14, and initials like
               &ldquo;J. K.&rdquo; do not break a sentence. Sentences longer than your custom limit
-              are automatically highlighted so you can refine and split them effortlessly.
+              are automatically highlighted so you can refine and split them smoothly.
             </div>
           </header>
 
@@ -151,8 +151,8 @@ export default function SentenceCounterPage() {
                   length histogram, and a filtered list of all sentences exceeding your threshold.
                 </li>
                 <li>
-                  <strong>Paragraphs Tab:</strong> Numbers each paragraph block (¶1, ¶2, etc.) and
-                  reports its word count, sentence count, and character density. Paragraphs that
+                  <strong>Paragraphs Tab:</strong> Assigns an indexed paragraph number (¶1, ¶2, etc.) to each block
+                  and reports its word count, sentence count, and character density. Paragraphs that
                   exceed federal plain-language readability thresholds are flagged with helpful
                   editing notices.
                 </li>
@@ -369,9 +369,9 @@ export default function SentenceCounterPage() {
               </ol>
               <p>
                 Need to monitor full document metrics? Pair this tool with our free{' '}
-                <Link href="/word-counter/">Word Counter</Link>, inspect exact glyph counts with our{' '}
-                <Link href="/character-counter/">Character Counter</Link>, or gauge vocal presentation
-                timing with our{' '}
+                <Link href="/word-counter/">Word Counter</Link>, convert your text into printed sheets with our{' '}
+                <Link href="/words-to-pages/">Words to Pages Calculator</Link>, check repeated phrases with our{' '}
+                <Link href="/keyword-density-checker/">Keyword Density Checker</Link>, or time a speech with our{' '}
                 <Link href="/reading-time-calculator/">Reading &amp; Speaking Time Calculator</Link>.
               </p>
             </section>
@@ -388,6 +388,45 @@ export default function SentenceCounterPage() {
                   </div>
                 ))}
               </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2>Related Writing &amp; Text Calculators</h2>
+              <p>
+                Explore our full suite of free client-side writing and editing tools:
+              </p>
+              <ul>
+                <li>
+                  <Link href="/word-counter/">
+                    <strong>Word Counter:</strong>
+                  </Link>{' '}
+                  Count words, characters, sentences, paragraphs and reading time with essay limits.
+                </li>
+                <li>
+                  <Link href="/words-to-pages/">
+                    <strong>Words to Pages Calculator:</strong>
+                  </Link>{' '}
+                  Convert word counts to printed pages for single, 1.5, and double line spacing.
+                </li>
+                <li>
+                  <Link href="/reading-time-calculator/">
+                    <strong>Reading &amp; Speaking Time Calculator:</strong>
+                  </Link>{' '}
+                  Convert word counts to estimated reading duration and speech practice pacing.
+                </li>
+                <li>
+                  <Link href="/keyword-density-checker/">
+                    <strong>Keyword Density Checker:</strong>
+                  </Link>{' '}
+                  Analyze 1-, 2-, and 3-word n-gram frequencies and track target keyword distribution.
+                </li>
+                <li>
+                  <Link href="/character-counter/">
+                    <strong>Character Counter:</strong>
+                  </Link>{' '}
+                  Count characters with and without spaces, words, sentences, and UTF-8 storage bytes.
+                </li>
+              </ul>
             </section>
           </article>
 

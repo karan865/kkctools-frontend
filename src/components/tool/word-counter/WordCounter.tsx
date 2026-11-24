@@ -48,6 +48,7 @@ export default function WordCounter() {
   const [extraIgnore, setExtraIgnore] = useState<string>('');
   const [ngramSize, setNgramSize] = useState<1 | 2 | 3>(1);
   const [ignoreStopWords, setIgnoreStopWords] = useState<boolean>(true);
+  const [caseSensitive, setCaseSensitive] = useState<boolean>(false);
   const [readingWpm, setReadingWpm] = useState<number>(238);
   const [speakingWpm, setSpeakingWpm] = useState<number>(130);
 
@@ -127,9 +128,10 @@ export default function WordCounter() {
             ...(ignoreStopWords ? Array.from(STOP_WORDS_EN) : []),
             ...extraIgnore.toLowerCase().split(/[\s,]+/).filter(Boolean),
           ]),
+          caseSensitive,
         }
       ).slice(0, 15),
-    [sentences, hyphenJoin, countNumbers, ngramSize, ignoreStopWords, extraIgnore]
+    [sentences, hyphenJoin, countNumbers, ngramSize, ignoreStopWords, extraIgnore, caseSensitive]
   );
 
   // Primary Stat Tiles
@@ -420,6 +422,17 @@ export default function WordCounter() {
                   onChange={(e) => setIgnoreStopWords(e.target.checked)}
                 />
                 Filter common English stop words (the, and, is, in...)
+              </label>
+            </div>
+
+            <div className={styles.fieldGroup} style={{ justifyContent: 'center' }}>
+              <label className={styles.checkboxLabel} style={{ paddingTop: '1.25rem' }}>
+                <input
+                  type="checkbox"
+                  checked={caseSensitive}
+                  onChange={(e) => setCaseSensitive(e.target.checked)}
+                />
+                Case-sensitive frequency matching
               </label>
             </div>
 

@@ -15,6 +15,28 @@ import styles from './KeywordDensityChecker.module.css';
 
 type ActiveTab = 'all' | 'target' | 'settings';
 
+type SortField = 'term' | 'count' | 'density';
+type SortOrder = 'asc' | 'desc';
+
+interface TableSort {
+  field: SortField;
+  order: SortOrder;
+}
+
+function sortNgrams(rows: NgramTableRow[], sort: TableSort): NgramTableRow[] {
+  return [...rows].sort((a, b) => {
+    let diff = 0;
+    if (sort.field === 'term') {
+      diff = a.term.localeCompare(b.term, 'en');
+    } else if (sort.field === 'count') {
+      diff = a.count - b.count;
+    } else if (sort.field === 'density') {
+      diff = a.density - b.density;
+    }
+    return sort.order === 'asc' ? diff : -diff;
+  });
+}
+
 const TABS: TabItem<ActiveTab>[] = [
   { id: 'all', label: '1. Words & Phrases' },
   { id: 'target', label: '2. Target Keyword' },
@@ -68,6 +90,44 @@ export default function KeywordDensityChecker() {
     minFrequency,
     targetPhrase,
   ]);
+
+  // Sorting states
+  const [sort1, setSort1] = useState<TableSort>({ field: 'count', order: 'desc' });
+  const [sort2, setSort2] = useState<TableSort>({ field: 'count', order: 'desc' });
+  const [sort3, setSort3] = useState<TableSort>({ field: 'count', order: 'desc' });
+
+  const toggleSort = (
+    current: TableSort,
+    setSort: React.Dispatch<React.SetStateAction<TableSort>>,
+    field: SortField
+  ) => {
+    if (current.field === field) {
+      setSort({ field, order: current.order === 'asc' ? 'desc' : 'asc' });
+    } else {
+      setSort({ field, order: field === 'term' ? 'asc' : 'desc' });
+    }
+  };
+
+  const sortedOneGrams = useMemo(() => sortNgrams(report.oneGrams, sort1), [report.oneGrams, sort1]);
+  const sortedTwoGrams = useMemo(() => sortNgrams(report.twoGrams, sort2), [report.twoGrams, sort2]);
+  const sortedThreeGrams = useMemo(() => sortNgrams(report.threeGrams, sort3), [report.threeGrams, sort3]);
+
+  const handleSelectKwic = (k: { startIndex: number; endIndex: number }) => {
+    setActiveTab('all');
+    setTimeout(() => {
+      const textarea = document.querySelector<HTMLTextAreaElement>('main textarea');
+      if (textarea) {
+        textarea.focus();
+        textarea.setSelectionRange(k.startIndex, k.endIndex);
+        const fullLength = textarea.value.length;
+        if (fullLength > 0) {
+          const ratio = k.startIndex / fullLength;
+          textarea.scrollTop = ratio * textarea.scrollHeight;
+        }
+        textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 50);
+  };
 
   // Stat Tiles
   const statTiles: StatTileItem[] = [
@@ -197,38 +257,62 @@ export default function KeywordDensityChecker() {
           {/* 1-Word Table */}
           <div className={styles.tableSection}>
             <div className={styles.tableSubheader}>
-              <h3 className={styles.tableTitle}>1-Word Terms ({report.oneGrams.length})</h3>
+              <div className={styles.tableTitle}>1-Word Terms ({report.oneGrams.length})</div>
               <div className={styles.tableActions}>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => copyTable(report.oneGrams, '1-word')}
+                  onClick={() => copyTable(sortedOneGrams, '1-word')}
                 >
                   {copied === '1-word' ? 'Copied!' : 'Copy 1-Words'}
                 </button>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => downloadCsv(report.oneGrams, '1-word')}
+                  onClick={() => downloadCsv(sortedOneGrams, '1-word')}
                 >
                   CSV
                 </button>
               </div>
             </div>
 
-            {report.oneGrams.length > 0 ? (
+            {sortedOneGrams.length > 0 ? (
               <div className={styles.tableWrapper}>
                 <table className={styles.dataTable}>
                   <thead>
                     <tr>
-                      <th>Term</th>
-                      <th>Count</th>
-                      <th>Density (%)</th>
+                      <th aria-sort={sort1.field === 'term' ? (sort1.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort1, setSort1, 'term')}
+                        >
+                          Term {sort1.field === 'term' ? (sort1.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort1.field === 'count' ? (sort1.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort1, setSort1, 'count')}
+                        >
+                          Count {sort1.field === 'count' ? (sort1.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort1.field === 'density' ? (sort1.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort1, setSort1, 'density')}
+                        >
+                          Density (%) {sort1.field === 'density' ? (sort1.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
                       {showShareCol && <th>Share of Words (%)</th>}
                     </tr>
                   </thead>
                   <tbody>
-                    {report.oneGrams.slice(0, 30).map((r, idx) => (
+                    {sortedOneGrams.slice(0, 30).map((r, idx) => (
                       <tr key={idx}>
                         <td className={styles.termCell}>{r.term}</td>
                         <td><span className={styles.countBadge}>{r.count}</span></td>
@@ -249,38 +333,62 @@ export default function KeywordDensityChecker() {
           {/* 2-Word Table */}
           <div className={styles.tableSection}>
             <div className={styles.tableSubheader}>
-              <h3 className={styles.tableTitle}>2-Word Phrases ({report.twoGrams.length})</h3>
+              <div className={styles.tableTitle}>2-Word Phrases ({report.twoGrams.length})</div>
               <div className={styles.tableActions}>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => copyTable(report.twoGrams, '2-word')}
+                  onClick={() => copyTable(sortedTwoGrams, '2-word')}
                 >
                   {copied === '2-word' ? 'Copied!' : 'Copy 2-Words'}
                 </button>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => downloadCsv(report.twoGrams, '2-word')}
+                  onClick={() => downloadCsv(sortedTwoGrams, '2-word')}
                 >
                   CSV
                 </button>
               </div>
             </div>
 
-            {report.twoGrams.length > 0 ? (
+            {sortedTwoGrams.length > 0 ? (
               <div className={styles.tableWrapper}>
                 <table className={styles.dataTable}>
                   <thead>
                     <tr>
-                      <th>Phrase (2 Words)</th>
-                      <th>Count</th>
-                      <th>Density (%)</th>
+                      <th aria-sort={sort2.field === 'term' ? (sort2.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort2, setSort2, 'term')}
+                        >
+                          Phrase (2 Words) {sort2.field === 'term' ? (sort2.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort2.field === 'count' ? (sort2.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort2, setSort2, 'count')}
+                        >
+                          Count {sort2.field === 'count' ? (sort2.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort2.field === 'density' ? (sort2.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort2, setSort2, 'density')}
+                        >
+                          Density (%) {sort2.field === 'density' ? (sort2.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
                       {showShareCol && <th>Share of Words (%)</th>}
                     </tr>
                   </thead>
                   <tbody>
-                    {report.twoGrams.slice(0, 25).map((r, idx) => (
+                    {sortedTwoGrams.slice(0, 25).map((r, idx) => (
                       <tr key={idx}>
                         <td className={styles.termCell}>{r.term}</td>
                         <td><span className={styles.countBadge}>{r.count}</span></td>
@@ -301,38 +409,62 @@ export default function KeywordDensityChecker() {
           {/* 3-Word Table */}
           <div className={styles.tableSection}>
             <div className={styles.tableSubheader}>
-              <h3 className={styles.tableTitle}>3-Word Phrases ({report.threeGrams.length})</h3>
+              <div className={styles.tableTitle}>3-Word Phrases ({report.threeGrams.length})</div>
               <div className={styles.tableActions}>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => copyTable(report.threeGrams, '3-word')}
+                  onClick={() => copyTable(sortedThreeGrams, '3-word')}
                 >
                   {copied === '3-word' ? 'Copied!' : 'Copy 3-Words'}
                 </button>
                 <button
                   type="button"
                   className={styles.actionBtn}
-                  onClick={() => downloadCsv(report.threeGrams, '3-word')}
+                  onClick={() => downloadCsv(sortedThreeGrams, '3-word')}
                 >
                   CSV
                 </button>
               </div>
             </div>
 
-            {report.threeGrams.length > 0 ? (
+            {sortedThreeGrams.length > 0 ? (
               <div className={styles.tableWrapper}>
                 <table className={styles.dataTable}>
                   <thead>
                     <tr>
-                      <th>Phrase (3 Words)</th>
-                      <th>Count</th>
-                      <th>Density (%)</th>
+                      <th aria-sort={sort3.field === 'term' ? (sort3.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort3, setSort3, 'term')}
+                        >
+                          Phrase (3 Words) {sort3.field === 'term' ? (sort3.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort3.field === 'count' ? (sort3.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort3, setSort3, 'count')}
+                        >
+                          Count {sort3.field === 'count' ? (sort3.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
+                      <th aria-sort={sort3.field === 'density' ? (sort3.order === 'asc' ? 'ascending' : 'descending') : 'none'}>
+                        <button
+                          type="button"
+                          className={styles.sortBtn}
+                          onClick={() => toggleSort(sort3, setSort3, 'density')}
+                        >
+                          Density (%) {sort3.field === 'density' ? (sort3.order === 'asc' ? '▲' : '▼') : '↕'}
+                        </button>
+                      </th>
                       {showShareCol && <th>Share of Words (%)</th>}
                     </tr>
                   </thead>
                   <tbody>
-                    {report.threeGrams.slice(0, 20).map((r, idx) => (
+                    {sortedThreeGrams.slice(0, 20).map((r, idx) => (
                       <tr key={idx}>
                         <td className={styles.termCell}>{r.term}</td>
                         <td><span className={styles.countBadge}>{r.count}</span></td>
@@ -406,7 +538,21 @@ export default function KeywordDensityChecker() {
                 {report.targetAnalysis.kwic.length > 0 ? (
                   <div className={styles.kwicList}>
                     {report.targetAnalysis.kwic.map((k, idx) => (
-                      <div key={idx} className={styles.kwicItem}>
+                      <div
+                        key={idx}
+                        className={styles.kwicItem}
+                        onClick={() => handleSelectKwic(k)}
+                        style={{ cursor: 'pointer' }}
+                        role="button"
+                        tabIndex={0}
+                        onKeyDown={(e) => {
+                          if (e.key === 'Enter' || e.key === ' ') {
+                            e.preventDefault();
+                            handleSelectKwic(k);
+                          }
+                        }}
+                        title="Click to select and scroll in text box"
+                      >
                         <span className={styles.kwicIndex}>Word #{k.wordIndex}</span>
                         ...{k.before} <span className={styles.kwicMatch}>{k.match}</span> {k.after}...
                       </div>
@@ -430,7 +576,7 @@ export default function KeywordDensityChecker() {
         <div className={styles.settingsGrid}>
           {/* Options Card */}
           <div className={styles.settingsCard}>
-            <h3 className={styles.cardHeading}>Analysis Controls</h3>
+            <div className={styles.cardHeading}>Analysis Controls</div>
 
             <div className={styles.toggleRow}>
               <div>
@@ -506,7 +652,7 @@ export default function KeywordDensityChecker() {
           {/* Stop Words Editor Card */}
           <div className={styles.settingsCard}>
             <div className={styles.tableSubheader}>
-              <h3 className={styles.cardHeading}>Editable Stop Words ({customStopWords.size})</h3>
+              <div className={styles.cardHeading}>Editable Stop Words ({customStopWords.size})</div>
               <button
                 type="button"
                 className={styles.actionBtn}

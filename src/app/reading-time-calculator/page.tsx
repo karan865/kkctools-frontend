@@ -35,11 +35,11 @@ export const metadata: Metadata = buildMetadata({
 const faqs = [
   {
     q: 'How long does it take to read 500, 1,000, or 2,000 words?',
-    a: 'At 238 words per minute (a published estimate, being verified), 500 words take about 2 minutes 6 seconds, 1,000 words 4 minutes 12 seconds and 2,000 words 8 minutes 24 seconds. At an example presentation pace of 130, they take 3:51, 7:42 and 15:23. Both paces are editable.',
+    a: 'At 238 words per minute (a published estimate, being verified), 500 words take about 2 minutes 6 seconds, and 1,000 words take 4 minutes 12 seconds. If you are asking how long is 2,000 words, it takes about 8 minutes 24 seconds to read silently, or 15 minutes 23 seconds to deliver at an example presentation pace of 130 words per minute. Both paces are editable.',
   },
   {
-    q: 'How many words is a 4, 5, or 7-minute speech?',
-    a: 'At an example pace of 130 words per minute: 520 words for 4 minutes, 650 for 5 and 910 for 7. At a slower 110: 440, 550 and 770. Time yourself to find your own pace.',
+    q: 'How many words for a 4-minute speech or 7-minute speech?',
+    a: 'If you want to know how many words for a 4-minute speech, it takes 520 words at an example presentation pace of 130 words per minute. For a 5-minute speech you need 650 words, and for a 7-minute speech you need about 910 words (or 770 words at a slower 110 wpm pace). Rehearse with our practice timer to calibrate your delivery.',
   },
   {
     q: 'What is the average silent reading speed?',
@@ -115,7 +115,7 @@ export default function ReadingTimeCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> Reading time equals total words divided by words per minute (<code>Time = Words ÷ WPM</code>).
+            Reading time equals total words divided by words per minute (<code>Time = Words ÷ WPM</code>).
             Enter any word count or paste your script to instantly see how long it takes to read silently, narrate aloud, or deliver as a public presentation,
             or switch to Speech Length to calculate the exact words required for a 3, 5, or 10-minute talk.
             At an example pace of 130 words per minute, a 5-minute speech is <strong>650 words</strong>.
@@ -141,8 +141,7 @@ export default function ReadingTimeCalculatorPage() {
           <section className={styles.section}>
             <h2>How to Use the Reading Time Calculator</h2>
             <p>
-              Whether you are preparing a corporate keynote, timing a podcast script, determining an estimated reading time
-              badge for a blog post, or pacing an academic lecture, this calculator gives you realistic, multi-scenario durations:
+              For corporate keynotes, podcast scripts, blog post read time estimates, and academic lectures, this calculator provides multi-scenario durations:
             </p>
             <ol>
               <li>
@@ -289,7 +288,8 @@ export default function ReadingTimeCalculatorPage() {
           <section className={styles.section}>
             <h2>How Many Words for a 3, 4, 5, 7, 10, 15, or 20-Minute Speech?</h2>
             <p>
-              When an event organizer gives you a 5-minute lightning talk or a 20-minute keynote slot, writing to length is crucial.
+              When an event organizer gives you a scheduled slot, writing to length is crucial.
+              If you are budgeting how many words for a 4-minute speech, aim for 520 words at a 130 wpm presentation tempo, while a 7-minute speech requires approximately 910 words.
               Overrunning your scheduled time disrupts the schedule, while rushing leaves your audience disconnected.
             </p>
             <div className={styles.tableWrapper}>
@@ -357,7 +357,7 @@ export default function ReadingTimeCalculatorPage() {
             </p>
             <p>
               By navigating to our <strong>Measure My Pace</strong> tab and reading our short passage,
-              the stopwatch works out your words per minute. Then choose whether you read silently or aloud, and the matching pace is updated in the calculator.
+              the stopwatch works out your words per minute. Then choose whether you read silently or aloud, and the matching pace is updated in the calculator. If your text was submitted with a character limit, you can first <Link href="/characters-to-words/">convert characters to words</Link> to estimate its length, or check sentence flow and cadence with our <Link href="/sentence-counter/">Sentence Counter</Link>.
             </p>
           </section>
 
@@ -373,6 +373,45 @@ export default function ReadingTimeCalculatorPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Related Writing &amp; Text Calculators</h2>
+            <p>
+              Explore our full suite of free client-side writing and speech tools:
+            </p>
+            <ul>
+              <li>
+                <Link href="/word-counter/">
+                  <strong>Word Counter:</strong>
+                </Link>{' '}
+                Count words, characters, sentences, paragraphs and reading time with essay limits.
+              </li>
+              <li>
+                <Link href="/characters-to-words/">
+                  <strong>Characters to Words Converter:</strong>
+                </Link>{' '}
+                Convert character counts to estimated words with and without spaces.
+              </li>
+              <li>
+                <Link href="/words-to-pages/">
+                  <strong>Words to Pages Calculator:</strong>
+                </Link>{' '}
+                Convert word counts to printed pages for single, 1.5, and double line spacing.
+              </li>
+              <li>
+                <Link href="/sentence-counter/">
+                  <strong>Sentence Counter:</strong>
+                </Link>{' '}
+                Count sentences, paragraphs and lines with editable abbreviation rules.
+              </li>
+              <li>
+                <Link href="/character-counter/">
+                  <strong>Character Counter:</strong>
+                </Link>{' '}
+                Count characters with and without spaces, words, sentences, and UTF-8 storage bytes.
+              </li>
+            </ul>
           </section>
 
           <HowWeCalculate slug="reading-time-calculator" />

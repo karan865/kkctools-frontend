@@ -480,11 +480,12 @@ export default function CharactersToWordsCalculator() {
 
       {/* Dynamic Conversion Table */}
       <div className={styles.tableSection}>
-        <h3 className={styles.tableSectionTitle}>
+        <div className={styles.tableSectionTitle}>
           Common Character Limits to Words Reference Table ({avgLetters} letters/word)
-        </h3>
+        </div>
         <div className={styles.tableWrapper}>
           <table className={styles.table}>
+            <caption>Words for common character counts, with the estimated range</caption>
             <thead>
               <tr>
                 <th>Character Count</th>

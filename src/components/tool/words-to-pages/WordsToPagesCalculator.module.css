@@ -265,6 +265,7 @@
   overflow-x: auto;
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 12px);
+  background: var(--surface);
 }
 
 .table {
@@ -311,4 +312,12 @@
     width: 100%;
     text-align: left;
   }
+}
+
+.table caption {
+  padding: 10px 12px;
+  text-align: left;
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+  background: var(--surface);
 }

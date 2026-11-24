@@ -479,22 +479,25 @@ export default function WordsToPagesCalculator() {
         </div>
       )}
 
-      {/* Static Word-to-Pages Reference Table */}
+      {/* Live Word-to-Pages Reference Table */}
       <div className={styles.tableSection}>
         <div className={styles.tableHeader}>
-          <h3 className={styles.tableTitle}>Words to Pages Reference Guide</h3>
+          <div className={styles.tableTitle}>Words to Pages Reference Guide</div>
           <span className={styles.tableSubtitle}>
             Live table updated for {fontSize} pt, {paper === 'a4' ? 'A4' : 'Letter'} paper, {marginInches}-inch margins
           </span>
         </div>
         <div className={styles.tableWrapper}>
           <table className={styles.table}>
+            <caption>Pages, sentences and paragraphs by word count (500 words per single-spaced page convention)</caption>
             <thead>
               <tr>
                 <th>Word Count</th>
                 <th>Single Spaced (1.0)</th>
                 <th>1.5 Spaced</th>
                 <th>Double Spaced (2.0)</th>
+                <th>Est. Sentences</th>
+                <th>Est. Paragraphs</th>
               </tr>
             </thead>
             <tbody>
@@ -504,6 +507,8 @@ export default function WordsToPagesCalculator() {
                   <td>{row.singlePages} pages</td>
                   <td>{row.onePointFivePages} pages</td>
                   <td>{row.doublePages} pages</td>
+                  <td>{Math.round(row.words / wordsPerSentence).toLocaleString('en-US')}</td>
+                  <td>{Math.round(row.words / wordsPerParagraph).toLocaleString('en-US')}</td>
                 </tr>
               ))}
             </tbody>

@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-24T18:48:51.234Z
+Generated on: 2026-11-24T20:52:25.413Z
 
 
 
@@ -11,12 +11,12 @@ Generated on: 2026-11-24T18:48:51.234Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-24
+- **Last Updated:** 2026-11-25
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 6 (Text & Writing Utilities) — COMPLETED: ALL 10 tools built, fully cross-linked, and verified (#96 Character Counter, #97 Words to Pages, #98 Characters to Words, #99 Twitter Character Counter, #100 Word Counter, #101 Reading & Speaking Time, #102 Numbers to Words, #103 Comma Separator, #104 Sentence Counter, #105 Keyword Density Checker).
-- **Overall Completion:** 1,340 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories (writing category added), every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
+- **Current Phase:** Batch 6 (Text & Writing Utilities) — IMPROVEMENT COMPLETED: All 10 live Batch 6 pages improved per `docs/prompts/BATCH6_IMPROVE_PROMPT.md` (Section 1 A1–A6 + P1, P2, P3 enhancements). All 10 URLs, titles, metas, and H1s preserved; 0 errors on verify; frozen for 28 days from deploy.
+- **Overall Completion:** 1,349 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories (writing category added), every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-25).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
@@ -2597,7 +2597,7 @@ No code changed.
 
 # SEO Audit Report
 
-Run Date: 2026-11-24T18:47:27.383Z
+Run Date: 2026-11-24T20:52:24.967Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -2627,10 +2627,10 @@ Status: PASSED ✅
 | `/cagr-calculator/` | CAGR Calculator – Compound Annual Growth | 3112 | CAGR Calculator: Compound Annu | PASS |
 | `/cap-rate-calculator/` | Cap Rate Calculator – NOI & Commercial P | 3055 | Cap Rate Calculator: Cap Rate, | PASS |
 | `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
-| `/character-counter/` | Character Counter – Count Characters Wit | 2899 | Character Counter: Characters  | PASS |
-| `/characters-to-words/` | Characters to Words Converter – How Many | 2637 | Characters to Words: How Many  | PASS |
+| `/character-counter/` | Character Counter – Count Characters Wit | 3041 | Character Counter: Characters  | PASS |
+| `/characters-to-words/` | Characters to Words Converter – How Many | 2566 | Characters to Words: How Many  | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
-| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2145 | Comma Separator: Turn a Column | PASS |
+| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2243 | Comma Separator: Turn a Column | PASS |
 | `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 2815 | Commercial Lease Calculator: R | PASS |
 | `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2533 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
@@ -2667,11 +2667,11 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 4800 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 4810 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2854 | Invoice Generator: Make an Hou | PASS |
 | `/iqr-calculator/` | IQR Calculator – Quartiles, Outliers & B | 2972 | IQR Calculator: Interquartile  | PASS |
-| `/keyword-density-checker/` | Keyword Density Checker – Count Words in | 2018 | Keyword Density Checker: How O | PASS |
+| `/keyword-density-checker/` | Keyword Density Checker – Count Words in | 2082 | Keyword Density Checker: How O | PASS |
 | `/labor-cost-calculator/` | Labor Cost Calculator – Burdened Hourly  | 3253 | Labor Cost Calculator: True Ho | PASS |
 | `/laminate-flooring-calculator/` | Laminate Flooring Calculator (Boxes & Co | 2813 | Laminate Flooring Calculator:  | PASS |
 | `/lawn-mowing-cost-calculator/` | Lawn Mowing Cost Calculator – Price per  | 2771 | Lawn Mowing Cost Calculator | PASS |
@@ -2680,7 +2680,7 @@ Status: PASSED ✅
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
 | `/metric-conversion-calculator/` | Metric Conversion Calculator – Length, W | 2026 | Metric Conversion Calculator:  | PASS |
 | `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2603 | Net Worth Calculator: Calculat | PASS |
-| `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2544 | Numbers to Words: Write Any Nu | PASS |
+| `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2699 | Numbers to Words: Write Any Nu | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
@@ -2694,7 +2694,7 @@ Status: PASSED ✅
 | `/pythagorean-theorem-calculator/` | Pythagorean Theorem Calculator – Right T | 2725 | Pythagorean Theorem Calculator | PASS |
 | `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2430 | Rafter Calculator – Find Rafte | PASS |
 | `/ratio-calculator/` | Ratio Calculator – Simplify and Solve Pr | 2828 | Ratio Calculator: Simplify Rat | PASS |
-| `/reading-time-calculator/` | Reading Time Calculator – Words to Minut | 2650 | Reading Time Calculator: How L | PASS |
+| `/reading-time-calculator/` | Reading Time Calculator – Words to Minut | 2851 | Reading Time Calculator: How L | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
 | `/reverse-sales-tax-calculator/` | Reverse Sales Tax Calculator – Price Bef | 2592 | Reverse Sales Tax Calculator:  | PASS |
@@ -2703,7 +2703,7 @@ Status: PASSED ✅
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1571 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
-| `/sentence-counter/` | Sentence Counter – Count Sentences and P | 2062 | Sentence Counter: Count Senten | PASS |
+| `/sentence-counter/` | Sentence Counter – Count Sentences and P | 2159 | Sentence Counter: Count Senten | PASS |
 | `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
 | `/simple-interest-calculator/` | Simple Interest Calculator – Accrued Int | 2446 | Simple Interest Calculator: In | PASS |
@@ -2721,12 +2721,12 @@ Status: PASSED ✅
 | `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1975 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 3280 | All Free Tools: Construction C | PASS |
-| `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2429 | Twitter (X) Character Counter: | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 3287 | All Free Tools: Construction C | PASS |
+| `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2474 | Twitter (X) Character Counter: | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
-| `/word-counter/` | Word Counter – Free Online Word Count To | 2602 | Word Counter: Count Words, Cha | PASS |
-| `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 4019 | Words to Pages Calculator: How | PASS |
+| `/word-counter/` | Word Counter – Free Online Word Count To | 2984 | Word Counter: Count Words, Cha | PASS |
+| `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 3942 | Words to Pages Calculator: How | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
 
 
@@ -2900,6 +2900,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+ba85920 feat(writing): build and integrate all 10 Batch 6 Text & Writing tools - Add new 'writing' (Text & Writing) category across design tokens, 3x3 category grid, hero chips, megamenu, and footer - Implement core client-side engines and unit test suites:   * text-engine: Grapheme clusters, UTF-8 bytes, CJK glyphs, and sentence segmentation   * page-estimate-engine: Single/1.5/double spacing and Letter/A4 pagination models   * char-word-engine: Ranges, space toggles, and personalized pace calibration   * x-count-engine: Official X weighted rules (links=23, emoji=2) and thread splitter   * reading-time-engine: Silent/spoken pace conversion and speech practice timer   * number-words-engine: US check and Indian cheque (lakh/crore) formats with reverse parser   * list-engine: RFC 4180 auto-quoting, SQL/JSON/Excel presets, dedupe, and sorting   * sentence-stats-engine: Abbreviation merge pass, histogram, and paragraph density   * keyword-density-engine: Sentence-bounded 1/2/3-grams, stop-word filters, decile heatmap, and KWIC - Build 10 complete UI tools and long-form SEO pages (1,000-1,500+ words, JSON-LD schemas, verified FAQs):   1. Character Counter (/character-counter/)   2. Words to Pages Calculator (/words-to-pages/)   3. Characters to Words Converter (/characters-to-words/)   4. Twitter (X) Character Counter (/twitter-character-counter/)   5. Word Counter (/word-counter/)   6. Reading & Speaking Time Calculator (/reading-time-calculator/)   7. Numbers to Words Converter (/numbers-to-words/)   8. Comma Separator (/comma-separator/)   9. Sentence & Paragraph Counter (/sentence-counter/)   10. Keyword Density Checker (/keyword-density-checker/) - Establish bidirectional cross-links across counters, converters, social, and invoice tools - Update catalog to 105 tools; 140 static HTML export pages; 1,225 vitest tests passing (100% green)
 eca54a5 goolge search console analysis files created
 eeaa86f fix(ui): harden high-contrast dark text styling on tool metric boxes and stat cards
 c6ce78d feat(batch-5): implement first 10 math tools, redesign compact footer & header mega menu - Implement first 10 Math & Financial calculators with premium dark gradient hero cards (#312E81 to #0D9488) and custom InputGuides:   * Ratio Calculator (/ratio-calculator/)   * Age Difference Calculator (/age-difference-calculator/)   * IQR Calculator (/iqr-calculator/) with dynamic box plot SVG   * A/B Test Significance Calculator (/ab-test-significance-calculator/)   * Gallons to Cubic Feet Converter (/gallons-to-cubic-feet/)   * CAGR Calculator (/cagr-calculator/)   * Fraction to Percent Calculator (/fraction-to-percent-calculator/)   * Reverse Sales Tax Calculator (/reverse-sales-tax-calculator/)   * Standard Deviation Calculator (/standard-deviation-calculator/)   * T-Test Calculator (/t-test-calculator/) with Welch default and t-curve SVG - Add 'Math & Finance' category and 4 shared engines with 100% test coverage (stats, growth, volume-units, date-diff) - Apply 10 live-page keyword refreshes (Stone & Gravel, Tons to Yards, Sand, etc.) - Redesign footer: eliminate 50-link wall, organize into 6 balanced categories (6-7 tools each), add top brand header & company ribbon (height cut by ~75%) - Redesign Tools Mega Menu: compact 4-column x 2-row layout (~290px height) and single-expand accordion mobile drawer - All 1,039 vitest tests passing, 0 lint errors, 0 network calls, static build verified across 106 HTML pages
@@ -2919,7 +2920,6 @@ d7b7d42 feat(tool): build Percentage Change Calculator (#41) with interactive vi
 c70c17f all Batch 2 completed
 775f6f3 Deck Cost Calculator & Estimator - completed
 fc9be24 feat(carpet): add Carpet Cost Calculator and align UI with design system
-6717356 tool 19 completed
 ```
 
 
@@ -2935,12 +2935,12 @@ fc9be24 feat(carpet): add Carpet Cost Calculator and align UI with design system
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 29ms
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 11.8s
+✓ Compiled successfully in 10.3s
   Running TypeScript ...
-  Finished TypeScript in 3.9s ...
+  Finished TypeScript in 3.6s ...
   Collecting page data using 15 workers ...
   Generating static pages using 15 workers (0/140) ...
   Generating static pages using 15 workers (35/140) 
@@ -3177,7 +3177,7 @@ D:\1_programmins\5.kkctools\src\components\tool\airbnb-calculator\AirbnbCalculat
   106:29  warning  'setLtrMaintenancePct' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\character-counter\CharacterCounter.tsx
-  131:6  warning  React Hook useMemo has a missing dependency: 'cjkPerChar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
+  140:6  warning  React Hook useMemo has a missing dependency: 'cjkPerChar'. Either include it or remove the dependency array  react-hooks/exhaustive-deps
 
 D:\1_programmins\5.kkctools\src\components\tool\characters-to-words\CharactersToWordsCalculator.tsx
   161:5  warning  React Hook useMemo has an unnecessary dependency: 'limit'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
@@ -3229,6 +3229,11 @@ D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalc
 D:\1_programmins\5.kkctools\src\components\tool\net-worth-calculator\NetWorthCalculator.tsx
   236:6  warning  React Hook useMemo has an unnecessary dependency: 'currSymbol'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
 
+D:\1_programmins\5.kkctools\src\components\tool\numbers-to-words\NumbersToWordsCalculator.tsx
+   7:3  warning  'parseNumberInput' is defined but never used     @typescript-eslint/no-unused-vars
+   9:3  warning  'bigIntToIndianWords' is defined but never used  @typescript-eslint/no-unused-vars
+  13:3  warning  'groupDigits' is defined but never used          @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator.tsx
     4:8   warning  'Link' is defined but never used                  @typescript-eslint/no-unused-vars
    12:3   warning  'COVERAGE' is defined but never used              @typescript-eslint/no-unused-vars
@@ -3276,6 +3281,9 @@ D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\list-engine.test.ts
   5:3  warning  'quoteCsv' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\number-words-engine.test.ts
+  12:3  warning  'formatFractionalDecimals' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\page-estimate-engine.test.ts
   3:3  warning  'calculatePrintableArea' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -3297,7 +3305,7 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 82 problems (0 errors, 82 warnings)
+✖ 86 problems (0 errors, 86 warnings)
 
 
 ```
@@ -3327,9 +3335,9 @@ Report written to docs/seo-audit-report.md
 
 
  Test Files  107 passed (107)
-      Tests  1340 passed (1340)
-   Start at  00:16:40
-   Duration  5.32s (transform 14.69s, setup 0ms, import 20.90s, tests 4.48s, environment 29ms)
+      Tests  1348 passed (1348)
+   Start at  02:21:40
+   Duration  5.42s (transform 15.66s, setup 0ms, import 22.04s, tests 4.18s, environment 26ms)
 
 
 ```

@@ -12,6 +12,48 @@ export interface SentenceItem {
   text: string;
   words: number;
   isLong: boolean;
+  startIndex: number;
+  endIndex: number;
+}
+
+export interface SentenceOffset {
+  text: string;
+  startIndex: number;
+  endIndex: number;
+}
+
+/**
+ * Extracts sentences with precise start and end character offsets in the original text.
+ * Disambiguates repeated sentences by advancing the search cursor sequentially.
+ */
+export function extractSentenceOffsets(
+  text: string,
+  options: {
+    abbreviations?: ReadonlySet<string>;
+    listLines?: boolean;
+  } = {}
+): SentenceOffset[] {
+  if (!text) return [];
+  const sentenceTexts = extractSentences(text, options);
+  const result: SentenceOffset[] = [];
+  let cursor = 0;
+
+  for (let i = 0; i < sentenceTexts.length; i++) {
+    const sText = sentenceTexts[i].trim();
+    if (!sText) continue;
+    let idx = text.indexOf(sText, cursor);
+    if (idx === -1) {
+      idx = cursor;
+    }
+    const end = idx + sText.length;
+    result.push({
+      text: sText,
+      startIndex: idx,
+      endIndex: end,
+    });
+    cursor = end;
+  }
+  return result;
 }
 
 export interface SentenceHistogram {
@@ -89,11 +131,13 @@ export function calculateSentenceStats(
   const sentences: SentenceItem[] = [];
   const wordsCounts: number[] = [];
   let longCount = 0;
+  const offsets = extractSentenceOffsets(text, { abbreviations, listLines });
 
   for (let i = 0; i < sentenceTexts.length; i++) {
     const sText = sentenceTexts[i].trim();
     const wCount = countWords(sText);
     const isLong = wCount > threshold;
+    const offset = offsets[i] || { startIndex: 0, endIndex: sText.length };
 
     if (isLong) longCount++;
     wordsCounts.push(wCount);
@@ -103,6 +147,8 @@ export function calculateSentenceStats(
       text: sText,
       words: wCount,
       isLong,
+      startIndex: offset.startIndex,
+      endIndex: offset.endIndex,
     });
 
     if (wCount <= 10) histogram.bucket1_10++;

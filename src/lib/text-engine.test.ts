@@ -17,6 +17,8 @@ import {
   getNgrams,
   calculateReadingTime,
   calculateSpeakingTime,
+  analyzeText,
+  overflowIndex,
 } from './text-engine';
 import { xWeightedLength, splitThread } from './x-count-engine';
 
@@ -156,6 +158,17 @@ describe('Batch 6 Shared Text Engine — Rules §4 & Section 3 Fixtures', () => 
     expect(bigrams.find((b) => b.phrase === 'quick brown')?.count).toBe(1);
   });
 
+  it('supports case-sensitive n-gram matching when enabled', () => {
+    const words = ['Apple', 'apple', 'APPLE', 'banana'];
+    const caseInsensitive = getNgrams(words, 1, { caseSensitive: false, stopWords: new Set() });
+    expect(caseInsensitive.find((u) => u.phrase === 'apple')?.count).toBe(3);
+
+    const caseSensitive = getNgrams(words, 1, { caseSensitive: true, stopWords: new Set() });
+    expect(caseSensitive.find((u) => u.phrase === 'Apple')?.count).toBe(1);
+    expect(caseSensitive.find((u) => u.phrase === 'apple')?.count).toBe(1);
+    expect(caseSensitive.find((u) => u.phrase === 'APPLE')?.count).toBe(1);
+  });
+
   it('splits twitter threads cleanly respecting limit', () => {
     const longText =
       'This is tweet one of a long thread explaining how client-side word counting and text analysis work without any external network dependencies or API calls. '.repeat(
@@ -208,6 +221,48 @@ describe('Batch 6 Shared Text Engine — Rules §4 & Section 3 Fixtures', () => 
       expect(countGraphemes(b100)).toBe(100);
       expect(countGraphemes(b150)).toBe(150);
       expect(countGraphemes(b255)).toBe(255);
+    });
+
+    it('toggles: ignore punctuation, ignore digits, and NFC normalization', () => {
+      const text = 'Hello, 123 world!';
+      const defaultAnalysis = analyzeText(text);
+      expect(defaultAnalysis.characters).toBe(17);
+
+      const noPunct = analyzeText(text, { ignorePunctuation: true });
+      // ',' and '!' are ignored -> 15 characters
+      expect(noPunct.characters).toBe(15);
+
+      const noDigits = analyzeText(text, { ignoreDigits: true });
+      // '1', '2', '3' are ignored -> 14 characters
+      expect(noDigits.characters).toBe(14);
+
+      const noPunctNoDigits = analyzeText(text, { ignorePunctuation: true, ignoreDigits: true });
+      // 17 - 2 punct - 3 digits = 12 characters
+      expect(noPunctNoDigits.characters).toBe(12);
+
+      // NFC vs NFD
+      const nfdText = 'cafe\u0301'; // 5 code points in NFD
+      const nfcAnalysis = analyzeText(nfdText, { nfc: true });
+      expect(nfcAnalysis.codePoints).toBe(4);
+
+      const rawAnalysis = analyzeText(nfdText, { nfc: false });
+      expect(rawAnalysis.codePoints).toBe(5);
+    });
+
+    it('overflowIndex with ignore punctuation and digits toggles', () => {
+      const text = 'Hello, 123 world!';
+      // With limit = 5 and ignorePunctuation: true
+      // 'H'(0), 'e'(1), 'l'(2), 'l'(3), 'o'(4) = 5 characters.
+      // ',' at index 5 is punctuation (ignored).
+      // ' ' at index 6 is the 6th character -> limit breached!
+      const overPunct = overflowIndex(text, 5, 'graphemes', { ignorePunctuation: true });
+      expect(overPunct).toBe(6);
+
+      // With limit = 6 and ignoreDigits: true
+      // 'H'(0), 'e'(1), 'l'(2), 'l'(3), 'o'(4), ','(5), ' '(6) = 7th character breaches limit 6!
+      // Index of ' ' is 6.
+      const overDigits = overflowIndex(text, 6, 'graphemes', { ignoreDigits: true });
+      expect(overDigits).toBe(6);
     });
   });
 });

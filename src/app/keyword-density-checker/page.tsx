@@ -35,8 +35,8 @@ const faqs = [
     a: 'There is no fixed number. Pick one main topic, answer it fully, and let related terms appear where they help the reader.',
   },
   {
-    q: 'How many keywords should a single webpage target?',
-    a: 'As a best practice in search engine optimization, a single page should focus on one primary search topic (or intent) along with a handful of naturally supporting sub-topics. Trying to target ten completely distinct concepts on one page confuses search engines and dilutes content relevance. Create dedicated, in-depth pages for distinct user intentions rather than forcing unrelated phrases into one article.',
+    q: 'How many keywords per page for SEO?',
+    a: 'Search engines do not look for a specific number of keywords. Focus each page on answering a single search intent thoroughly, and let supporting terms appear where they help the reader understand your point. Trying to hit an arbitrary keyword target leads to forced phrasing and unnatural repetition.',
   },
   {
     q: 'What is the ideal keyword density percentage?',
@@ -59,8 +59,8 @@ const faqs = [
     a: 'On short copy (such as a 100-word product description or email), mentioning your product name just three times results in a 3.0% keyword density, which might look artificially high. Conversely, in a 5,000-word comprehensive white paper, mentioning your key subject 30 times yields only a 0.6% density. Percentages are highly sensitive to document length, which is why examining raw occurrence counts and context is far more actionable than watching percentages in isolation.',
   },
   {
-    q: 'Can I check a live website URL directly with this tool?',
-    a: 'Our keyword density checker is built with a zero-network privacy architecture: it runs completely client-side inside your browser without making external server calls. To analyze a live web page, simply copy the text from the page and paste it into the input area. This ensures that confidential drafts, unpublished blogs, and proprietary intranet documents remain 100% private on your machine.',
+    q: 'Can I count keywords on a website URL directly?',
+    a: 'To count keywords on website pages while ensuring complete privacy, our tool evaluates pasted text locally in your browser rather than fetching remote URLs. Simply copy the text from your website or draft document and paste it directly into the input area above to analyze phrase frequencies.',
   },
   {
     q: 'Is adding too many keywords bad for Google Ads?',
@@ -107,7 +107,7 @@ export default function KeywordDensityPage() {
             </p>
 
             <div className={styles.bluf}>
-              <strong>Bottom Line Up Front:</strong> Paste your text to see how often each word and
+              Paste your text to see how often each word and
               2- or 3-word phrase appears, as a count and a percentage of all words, and where a
               target keyword shows up. Density here is calculated as{' '}
               <code>Occurrences ÷ Total Words × 100</code>. There is no &ldquo;ideal&rdquo; keyword
@@ -300,7 +300,8 @@ export default function KeywordDensityPage() {
               <p>
                 Looking for additional writing utilities? Check out our dedicated{' '}
                 <Link href="/word-counter/">Word Counter</Link>, analyze sentence rhythm with our{' '}
-                <Link href="/sentence-counter/">Sentence Counter</Link>, verify precise character
+                <Link href="/sentence-counter/">Sentence Counter</Link>, convert word counts into printed sheets with our{' '}
+                <Link href="/words-to-pages/">Words to Pages Calculator</Link>, verify character
                 limits with our <Link href="/character-counter/">Character Counter</Link>, or convert
                 vertical lists with our <Link href="/comma-separator/">Comma Separator</Link>.
               </p>
@@ -318,6 +319,45 @@ export default function KeywordDensityPage() {
                   </div>
                 ))}
               </div>
+            </section>
+
+            <section className={styles.section}>
+              <h2>Related Writing &amp; Text Calculators</h2>
+              <p>
+                Explore our full suite of free client-side writing and editing tools:
+              </p>
+              <ul>
+                <li>
+                  <Link href="/word-counter/">
+                    <strong>Word Counter:</strong>
+                  </Link>{' '}
+                  Count words, characters, sentences, paragraphs and reading time with essay limits.
+                </li>
+                <li>
+                  <Link href="/sentence-counter/">
+                    <strong>Sentence Counter:</strong>
+                  </Link>{' '}
+                  Count sentences, paragraphs and lines with editable abbreviation rules.
+                </li>
+                <li>
+                  <Link href="/words-to-pages/">
+                    <strong>Words to Pages Calculator:</strong>
+                  </Link>{' '}
+                  Convert word counts to printed pages for single, 1.5, and double line spacing.
+                </li>
+                <li>
+                  <Link href="/reading-time-calculator/">
+                    <strong>Reading &amp; Speaking Time Calculator:</strong>
+                  </Link>{' '}
+                  Convert word counts to estimated silent reading and spoken presentation durations.
+                </li>
+                <li>
+                  <Link href="/character-counter/">
+                    <strong>Character Counter:</strong>
+                  </Link>{' '}
+                  Count characters with and without spaces, words, sentences, and UTF-8 storage bytes.
+                </li>
+              </ul>
             </section>
           </article>
 

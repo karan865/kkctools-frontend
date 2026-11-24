@@ -9,6 +9,8 @@ import {
   parseWordsToNumber,
   roundCents,
   parseNumberInput,
+  formatFractionalDecimals,
+  numberStringToWords,
 } from './number-words-engine';
 
 describe('number-words-engine', () => {
@@ -138,6 +140,36 @@ describe('number-words-engine', () => {
       const res = parseWordsToNumber('one hundred banana fifty');
       expect(res.success).toBe(false);
       expect(res.unknownWord).toBe('banana');
+    });
+
+    it('decimal style tests: 3.14, 0.5, 2.05, 1.000, 7 decimals', () => {
+      // 3.14 -> "Three and fourteen hundredths"
+      const res314 = numberStringToWords('3.14', { decimalStyle: 'fraction' });
+      expect(res314.text).toBe('Three and fourteen hundredths');
+
+      // 0.5 -> "Zero and five tenths"
+      const res05 = numberStringToWords('0.5', { decimalStyle: 'fraction' });
+      expect(res05.text).toBe('Zero and five tenths');
+
+      // 2.05 -> "Two and five hundredths"
+      const res205 = numberStringToWords('2.05', { decimalStyle: 'fraction' });
+      expect(res205.text).toBe('Two and five hundredths');
+
+      // 1.000 -> "One and zero thousandths"
+      const res1000 = numberStringToWords('1.000', { decimalStyle: 'fraction' });
+      expect(res1000.text).toBe('One and zero thousandths');
+
+      // 7 decimals -> falls back to "point" and explicitly says so
+      const res7Dec = numberStringToWords('3.1415926', { decimalStyle: 'fraction' });
+      expect(res7Dec.text).toBe('Three point one four one five nine two six');
+      expect(res7Dec.note).toContain('point style');
+      expect(numberStringToWords('0.123456', { decimalStyle: 'fraction', groupingSystem: 'indian' }).text).toBe(
+        'Zero and one lakh twenty-three thousand four hundred fifty-six millionths'
+      );
+
+      // Point style default works as expected
+      const resPoint = numberStringToWords('3.14', { decimalStyle: 'point' });
+      expect(resPoint.text).toBe('Three point one four');
     });
   });
 });

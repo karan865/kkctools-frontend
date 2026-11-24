@@ -133,5 +133,8 @@ describe('Keyword Density Engine', () => {
     expect(kwic?.before).toBe('One two three four five');
     expect(kwic?.match).toBe('target');
     expect(kwic?.after).toBe('six seven eight nine ten');
+    expect(kwic?.startIndex).toBe(24);
+    expect(kwic?.endIndex).toBe(30);
+    expect(text.slice(kwic!.startIndex, kwic!.endIndex)).toBe('target');
   });
 });

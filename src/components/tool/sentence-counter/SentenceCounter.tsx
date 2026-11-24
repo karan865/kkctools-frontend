@@ -118,6 +118,24 @@ export default function SentenceCounter() {
     }
   };
 
+  // Select sentence in textarea and scroll to it
+  const handleSelectSentence = (sentence: (typeof sentenceStats.sentences)[0]) => {
+    setActiveTab('count');
+    setTimeout(() => {
+      const textarea = document.querySelector<HTMLTextAreaElement>('main textarea');
+      if (textarea) {
+        textarea.focus();
+        textarea.setSelectionRange(sentence.startIndex, sentence.endIndex);
+        const fullLength = textarea.value.length;
+        if (fullLength > 0) {
+          const ratio = sentence.startIndex / fullLength;
+          textarea.scrollTop = ratio * textarea.scrollHeight;
+        }
+        textarea.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      }
+    }, 50);
+  };
+
   const handleAddAbbrev = (e: React.FormEvent) => {
     e.preventDefault();
     if (!newAbbrev.trim()) return;
@@ -208,7 +226,9 @@ export default function SentenceCounter() {
                     className={`${styles.sentenceSpan} ${
                       idx % 2 === 0 ? styles.sentenceEven : styles.sentenceOdd
                     } ${item.isLong ? styles.sentenceLong : ''}`}
-                    title={`Sentence #${item.id}: ${item.words} words`}
+                    title={`Sentence #${item.id}: ${item.words} words. Click to select in text box.`}
+                    onClick={() => handleSelectSentence(item)}
+                    style={{ cursor: 'pointer' }}
                   >
                     {item.text}{' '}
                   </span>
@@ -260,7 +280,21 @@ export default function SentenceCounter() {
           {/* Numbered List of Sentences */}
           <div className={styles.sentenceList}>
             {sentenceStats.sentences.map((item) => (
-              <div key={item.id} className={styles.sentenceListItem}>
+              <div
+                key={item.id}
+                className={styles.sentenceListItem}
+                onClick={() => handleSelectSentence(item)}
+                style={{ cursor: 'pointer' }}
+                title="Click to select and scroll in text box"
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    handleSelectSentence(item);
+                  }
+                }}
+              >
                 <span className={styles.sentenceListText}>
                   <strong>#{item.id}:</strong> {item.text}
                 </span>

@@ -67,7 +67,7 @@ const faqs = [
   },
   {
     q: 'How do I build a character counter for a textarea in JavaScript?',
-    a: 'Avoid using naive string.length, which splits emoji and complex diacritics into surrogate pairs. Instead, use modern browser Intl.Segmenter: "const count = [...new Intl.Segmenter(\'en\', { granularity: \'grapheme\' }).segment(text)].length;". This one-liner ensures emoji and accented characters count as single units.',
+    a: 'To build a responsive textarea counter for an HTML textarea, avoid using naive string.length, which splits emoji and complex diacritics into surrogate pairs. Instead, listen for the input event on your textarea and count grapheme clusters using Intl.Segmenter: "const count = [...new Intl.Segmenter(\'en\', { granularity: \'grapheme\' }).segment(textarea.value)].length;". This textarea counter snippet guarantees that multi-byte emoji and accented letters count as single visible characters.',
   },
 ];
 
@@ -99,10 +99,10 @@ export default function CharacterCounterPage() {
           </h1>
           <p className={styles.subtitle}>
             Analyze character length, words, sentences, whitespace, and storage bytes with real-time
-            Unicode grapheme precision.
+            Unicode grapheme accuracy.
           </p>
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> Paste or type below and the online
+            Paste or type below and the online
             character counter updates as you go: characters with and without spaces, words,
             sentences, lines, and UTF-8 bytes. Set a limit to see how many remaining characters you
             have left before hitting platform boundaries. All emoji count as one character each, the
@@ -405,7 +405,7 @@ export default function CharacterCounterPage() {
             <div className={styles.calloutCard}>
               <h4>255 Characters Example </h4>
               <p className={styles.sampleBlock}>
-                Writing effectively requires deliberate focus on clarity and structure. Every sentence must serve a distinct purpose, guiding the reader effortlessly from one concept to the next. When drafts are trimmed of redundant filler, the core message shines clean.
+                Writing effectively requires deliberate focus on clarity and structure. Every sentence must serve a distinct purpose, guiding the reader smoothly from one concept to the next. When drafts are trimmed of redundant filler, the core message shines clean.
               </p>
               <span className={styles.sampleMeta}>
                 Exactly 255 Characters (with spaces) · 219 Without spaces · 36 Words
@@ -445,8 +445,9 @@ export default function CharacterCounterPage() {
               <Link href="/sentence-counter/">Sentence Counter</Link>, inspect phrase frequency with our{' '}
               <Link href="/keyword-density-checker/">Keyword Density Checker</Link>, optimize social media posts with our{' '}
               <Link href="/twitter-character-counter/">Twitter (X) Character Counter</Link>, or format columns with our{' '}
-              <Link href="/comma-separator/">Comma Separator</Link>. To compare word counts across different formatting models or convert word counts into
-              printed page estimates, explore our full suite in the{' '}
+              <Link href="/comma-separator/">Comma Separator</Link>. When working with essay or form guidelines, you can also{' '}
+              <Link href="/characters-to-words/">convert characters to words</Link> to estimate article length or{' '}
+              <Link href="/words-to-pages/">calculate words to printed pages</Link>. Explore our full suite in the{' '}
               <Link href="/tools/#writing">Text &amp; Writing Directory</Link>.
             </p>
           </section>
@@ -461,6 +462,45 @@ export default function CharacterCounterPage() {
                 </div>
               ))}
             </div>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Related Writing &amp; Text Calculators</h2>
+            <p>
+              Explore our full suite of free client-side writing and editing tools:
+            </p>
+            <ul>
+              <li>
+                <Link href="/word-counter/">
+                  <strong>Word Counter:</strong>
+                </Link>{' '}
+                Count words, characters, sentences, paragraphs and reading time with essay limits.
+              </li>
+              <li>
+                <Link href="/characters-to-words/">
+                  <strong>Characters to Words Converter:</strong>
+                </Link>{' '}
+                Convert character counts to estimated words with and without spaces across various writing formats.
+              </li>
+              <li>
+                <Link href="/words-to-pages/">
+                  <strong>Words to Pages Calculator:</strong>
+                </Link>{' '}
+                Convert word counts to printed pages for single, 1.5, and double line spacing.
+              </li>
+              <li>
+                <Link href="/sentence-counter/">
+                  <strong>Sentence Counter:</strong>
+                </Link>{' '}
+                Count sentences, paragraphs and lines with editable abbreviation rules.
+              </li>
+              <li>
+                <Link href="/reading-time-calculator/">
+                  <strong>Reading &amp; Speaking Time Calculator:</strong>
+                </Link>{' '}
+                Convert word counts to estimated silent reading and spoken presentation durations.
+              </li>
+            </ul>
           </section>
         </article>
       </div>

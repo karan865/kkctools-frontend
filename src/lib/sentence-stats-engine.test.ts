@@ -1,5 +1,9 @@
 import { describe, it, expect } from 'vitest';
-import { calculateSentenceStats, analyzeParagraphs } from './sentence-stats-engine';
+import {
+  calculateSentenceStats,
+  analyzeParagraphs,
+  extractSentenceOffsets,
+} from './sentence-stats-engine';
 import { extractSentences, countWords } from './text-engine';
 
 describe('sentence-stats-engine', () => {
@@ -32,6 +36,34 @@ describe('sentence-stats-engine', () => {
       const text = 'He said “Stop!” Then he left.';
       const s = extractSentences(text);
       expect(s.length).toBe(2);
+    });
+
+    it('maps source offsets accurately including repeated sentences', () => {
+      const sample = 'First test sentence. Second test sentence! First test sentence.';
+      const offsets = extractSentenceOffsets(sample);
+      expect(offsets.length).toBe(3);
+
+      expect(offsets[0].text).toBe('First test sentence.');
+      expect(offsets[0].startIndex).toBe(0);
+      expect(offsets[0].endIndex).toBe(20);
+      expect(sample.slice(offsets[0].startIndex, offsets[0].endIndex)).toBe('First test sentence.');
+
+      expect(offsets[1].text).toBe('Second test sentence!');
+      expect(offsets[1].startIndex).toBe(21);
+      expect(offsets[1].endIndex).toBe(42);
+      expect(sample.slice(offsets[1].startIndex, offsets[1].endIndex)).toBe('Second test sentence!');
+
+      // The repeated sentence must disambiguate to the second occurrence
+      expect(offsets[2].text).toBe('First test sentence.');
+      expect(offsets[2].startIndex).toBe(43);
+      expect(offsets[2].endIndex).toBe(63);
+      expect(sample.slice(offsets[2].startIndex, offsets[2].endIndex)).toBe('First test sentence.');
+
+      // Also verify calculateSentenceStats carries the offsets
+      const stats = calculateSentenceStats(sample);
+      expect(stats.sentences[0].startIndex).toBe(0);
+      expect(stats.sentences[1].startIndex).toBe(21);
+      expect(stats.sentences[2].startIndex).toBe(43);
     });
   });
 

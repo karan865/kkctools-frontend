@@ -350,6 +350,7 @@ export default function ReadingTimeCalculator() {
   const timerProgressRatio = timerTargetSec > 0 ? Math.min(timerElapsedSec / timerTargetSec, 1) : 0;
   const timerStrokeDashoffset = timerCircumference * (1 - timerProgressRatio);
   const isOverrun = timerElapsedSec > timerTargetSec;
+  const isNearEnd = !isOverrun && timerElapsedSec >= timerTargetSec * 0.9 && timerElapsedSec > 0;
 
   return (
     <div className={styles.container}>
@@ -683,7 +684,9 @@ export default function ReadingTimeCalculator() {
                 cx="80"
                 cy="80"
                 r={timerRadius}
-                className={`${styles.dialProgress} ${isOverrun ? styles.dialOverrun : ''}`}
+                className={`${styles.dialProgress} ${
+                  isOverrun ? styles.dialOverrun : isNearEnd ? styles.dialWarning : ''
+                }`}
                 strokeDasharray={timerCircumference}
                 strokeDashoffset={timerStrokeDashoffset}
               />
@@ -694,11 +697,15 @@ export default function ReadingTimeCalculator() {
             </div>
           </div>
 
-          {isOverrun && (
+          {isOverrun ? (
             <div style={{ color: '#ef4444', fontWeight: 700, fontSize: '0.875rem' }}>
               ⚠️ Target Exceeded by {formatDuration(timerElapsedSec - timerTargetSec)}! Shorten pauses or edit content.
             </div>
-          )}
+          ) : isNearEnd ? (
+            <div style={{ color: '#d97706', fontWeight: 700, fontSize: '0.875rem' }}>
+              ⏳ Final 10% remaining ({formatDuration(timerTargetSec - timerElapsedSec)} left) — prepare concluding remarks.
+            </div>
+          ) : null}
 
           <div className={styles.timerControls}>
             <button type="button" className={styles.btnPrimary} onClick={handleStartPauseTimer}>

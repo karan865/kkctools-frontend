@@ -2,12 +2,12 @@
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-24
+- **Last Updated:** 2026-11-25
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 6 (Text & Writing Utilities) — COMPLETED: ALL 10 tools built, fully cross-linked, and verified (#96 Character Counter, #97 Words to Pages, #98 Characters to Words, #99 Twitter Character Counter, #100 Word Counter, #101 Reading & Speaking Time, #102 Numbers to Words, #103 Comma Separator, #104 Sentence Counter, #105 Keyword Density Checker).
-- **Overall Completion:** 1,340 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories (writing category added), every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
+- **Current Phase:** Batch 6 (Text & Writing Utilities) — IMPROVEMENT COMPLETED: All 10 live Batch 6 pages improved per `docs/prompts/BATCH6_IMPROVE_PROMPT.md` (Section 1 A1–A6 + P1, P2, P3 enhancements). All 10 URLs, titles, metas, and H1s preserved; 0 errors on verify; frozen for 28 days from deploy.
+- **Overall Completion:** 1,349 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories (writing category added), every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-25).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).

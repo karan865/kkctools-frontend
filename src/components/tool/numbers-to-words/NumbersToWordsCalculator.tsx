@@ -14,6 +14,7 @@ import {
   MAX_NAMED_DIGITS,
   applyCase,
   parseWordsToNumber,
+  numberStringToWords,
   CaseStyle,
   ScaleStyle,
   GroupingStyle,
@@ -47,43 +48,81 @@ export default function NumbersToWordsCalculator() {
   // Options
   const [groupingSystem, setGroupingSystem] = useState<GroupingStyle>('intl');
   const [scaleStyle, setScaleStyle] = useState<ScaleStyle>('us');
+  const [decimalStyle, setDecimalStyle] = useState<'point' | 'fraction'>('point');
   const [caseStyle, setCaseStyle] = useState<CaseStyle>('sentence');
   const [checkSuffix, setCheckSuffix] = useState<string>('');
+
+  // Bulk Mode
+  const [isBulkMode, setIsBulkMode] = useState<boolean>(false);
+  const [bulkInput, setBulkInput] = useState<string>('42\n1234.56\n3.14\n12,34,567');
+  const [bulkCopied, setBulkCopied] = useState<boolean>(false);
 
   const [copied, setCopied] = useState<boolean>(false);
 
   // Standard Words Calculation
   const wordsResult = useMemo(() => {
-    const parsed = parseNumberInput(numberInput);
-    if (!parsed) return { text: 'Enter digits only, for example 1,234,567 or -42.5.', isError: true };
+    return numberStringToWords(numberInput, {
+      groupingSystem,
+      scaleStyle,
+      decimalStyle,
+      caseStyle,
+    });
+  }, [numberInput, groupingSystem, scaleStyle, decimalStyle, caseStyle]);
 
-    if (parsed.intPart.toString().length > MAX_NAMED_DIGITS) {
-      return { text: 'Too large to name (over 36 digits). Use scientific notation.', isError: true };
-    }
+  // Bulk calculations (capped at 500 lines)
+  const bulkResults = useMemo(() => {
+    if (!isBulkMode) return [];
+    const rawLines = bulkInput.split(/\r?\n/);
+    const lines = rawLines.slice(0, 500);
+    return lines.map((line, idx) => {
+      const trimmed = line.trim();
+      if (!trimmed) {
+        return { line: idx + 1, input: '', text: '(empty line)', isError: false };
+      }
+      const res = numberStringToWords(trimmed, {
+        groupingSystem,
+        scaleStyle,
+        decimalStyle,
+        caseStyle,
+      });
+      return {
+        line: idx + 1,
+        input: trimmed,
+        text: res.note ? `${res.text} (${res.note})` : res.text,
+        isError: res.isError,
+      };
+    });
+  }, [isBulkMode, bulkInput, groupingSystem, scaleStyle, decimalStyle, caseStyle]);
 
-    let words =
-      groupingSystem === 'indian'
-        ? bigIntToIndianWords(parsed.intPart)
-        : bigIntToWords(parsed.intPart, { style: scaleStyle });
+  const handleCopyBulk = () => {
+    const textContent = bulkResults
+      .map((r) => (r.input ? `${r.input}: ${r.text}` : ''))
+      .filter(Boolean)
+      .join('\n');
+    navigator.clipboard?.writeText(textContent).then(
+      () => {
+        setBulkCopied(true);
+        setTimeout(() => setBulkCopied(false), 2000);
+      },
+      () => {}
+    );
+  };
 
-    if (parsed.fracStr) {
-      words += ` point ${parsed.fracStr
-        .split('')
-        .map((d) => bigIntToWords(BigInt(d)))
-        .join(' ')}`;
-    }
-
-    if (parsed.sign === '-') {
-      words = `negative ${words}`;
-    }
-
-    return {
-      text: applyCase(words, caseStyle),
-      isError: false,
-      groupedIntl: groupDigits(parsed.intPart.toString(), 'intl'),
-      groupedIndian: groupDigits(parsed.intPart.toString(), 'indian'),
-    };
-  }, [numberInput, groupingSystem, scaleStyle, caseStyle]);
+  const handleDownloadBulkTxt = () => {
+    const textContent = bulkResults
+      .map((r) => (r.input ? `${r.input}: ${r.text}` : ''))
+      .filter(Boolean)
+      .join('\n');
+    const blob = new Blob([textContent], { type: 'text/plain;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    link.download = 'numbers-to-words-bulk.txt';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    URL.revokeObjectURL(url);
+  };
 
   // US Check Calculation
   const checkResult = useMemo(() => {
@@ -161,7 +200,9 @@ export default function NumbersToWordsCalculator() {
           onClick={() => {
             const copyText =
               activeTab === 'words'
-                ? wordsResult.text
+                ? isBulkMode
+                ? bulkResults.filter((r) => r.input).map((r) => `${r.input}: ${r.text}`).join('\n')
+                : wordsResult.text
                 : activeTab === 'check'
                 ? checkResult
                 : activeTab === 'cheque'
@@ -179,105 +220,252 @@ export default function NumbersToWordsCalculator() {
       {/* Tab 1: Standard Words */}
       {activeTab === 'words' && (
         <div className={styles.card}>
-          <div className={styles.field}>
-            <label htmlFor="number-input-field" className={styles.label}>
-              Enter Any Number or Decimals
-            </label>
-            <input
-              id="number-input-field"
-              type="text"
-              value={numberInput}
-              onFocus={() => setFocusedField('number')}
-              onBlur={() => setFocusedField(null)}
-              onChange={(e) => setNumberInput(e.target.value)}
-              className={styles.input}
-              placeholder="e.g. 1234567 or 1,234.56"
-            />
-            <div className={styles.quickPills}>
-              {['42', '123', '1000', '1234567', '5000000', '123456789', '1000000000'].map((preset) => (
-                <button
-                  key={preset}
-                  type="button"
-                  className={`${styles.pillBtn} ${numberInput === preset ? styles.pillBtnActive : ''}`}
-                  onClick={() => setNumberInput(preset)}
-                >
-                  {preset}
-                </button>
-              ))}
-            </div>
+          {/* Mode Switch: Single vs Bulk */}
+          <div style={{ display: 'flex', gap: '8px', marginBottom: '14px' }}>
+            <button
+              type="button"
+              className={`${styles.pillBtn} ${!isBulkMode ? styles.pillBtnActive : ''}`}
+              onClick={() => setIsBulkMode(false)}
+            >
+              Single Number
+            </button>
+            <button
+              type="button"
+              className={`${styles.pillBtn} ${isBulkMode ? styles.pillBtnActive : ''}`}
+              onClick={() => setIsBulkMode(true)}
+            >
+              Bulk Mode (One per line)
+            </button>
           </div>
 
-          {/* Formatting Controls */}
-          <div className={styles.gridCols4} style={{ marginTop: '14px' }}>
-            <div className={styles.field}>
-              <label htmlFor="nw-sys" className={styles.label}>System Scale</label>
-              <select
-                id="nw-sys"
-                value={groupingSystem}
-                onChange={(e) => setGroupingSystem(e.target.value as GroupingStyle)}
-                className={styles.select}
-              >
-                <option value="intl">International (Million, Billion)</option>
-                <option value="indian">Indian (Lakh, Crore)</option>
-              </select>
-            </div>
+          {!isBulkMode ? (
+            <>
+              <div className={styles.field}>
+                <label htmlFor="number-input-field" className={styles.label}>
+                  Enter Any Number or Decimals
+                </label>
+                <input
+                  id="number-input-field"
+                  type="text"
+                  value={numberInput}
+                  onFocus={() => setFocusedField('number')}
+                  onBlur={() => setFocusedField(null)}
+                  onChange={(e) => setNumberInput(e.target.value)}
+                  className={styles.input}
+                  placeholder="e.g. 1234567 or 1,234.56"
+                />
+                <div className={styles.quickPills}>
+                  {['42', '123', '1000', '1234567', '5000000', '123456789', '1000000000'].map((preset) => (
+                    <button
+                      key={preset}
+                      type="button"
+                      className={`${styles.pillBtn} ${numberInput === preset ? styles.pillBtnActive : ''}`}
+                      onClick={() => setNumberInput(preset)}
+                    >
+                      {preset}
+                    </button>
+                  ))}
+                </div>
+              </div>
 
-            <div className={styles.field}>
-              <label htmlFor="nw-and" className={styles.label}>&quot;And&quot; Style</label>
-              <select
-                id="nw-and"
-                value={scaleStyle}
-                onChange={(e) => setScaleStyle(e.target.value as ScaleStyle)}
-                className={styles.select}
-              >
-                <option value="us">US Standard (no &quot;and&quot;)</option>
-                <option value="uk">UK Formal (&quot;and&quot;)</option>
-              </select>
-            </div>
+              {/* Formatting Controls */}
+              <div className={styles.gridCols4} style={{ marginTop: '14px' }}>
+                <div className={styles.field}>
+                  <label htmlFor="nw-sys" className={styles.label}>System Scale</label>
+                  <select
+                    id="nw-sys"
+                    value={groupingSystem}
+                    onChange={(e) => setGroupingSystem(e.target.value as GroupingStyle)}
+                    className={styles.select}
+                  >
+                    <option value="intl">International (Million, Billion)</option>
+                    <option value="indian">Indian (Lakh, Crore)</option>
+                  </select>
+                </div>
 
-            <div className={styles.field}>
-              <label htmlFor="nw-case" className={styles.label}>Letter Casing</label>
-              <select
-                id="nw-case"
-                value={caseStyle}
-                onChange={(e) => setCaseStyle(e.target.value as CaseStyle)}
-                className={styles.select}
-              >
-                <option value="sentence">Sentence case</option>
-                <option value="lower">lower case</option>
-                <option value="upper">UPPER CASE</option>
-                <option value="title">Title Case</option>
-              </select>
-            </div>
+                <div className={styles.field}>
+                  <label htmlFor="nw-and" className={styles.label}>&quot;And&quot; Style</label>
+                  <select
+                    id="nw-and"
+                    value={scaleStyle}
+                    onChange={(e) => setScaleStyle(e.target.value as ScaleStyle)}
+                    className={styles.select}
+                  >
+                    <option value="us">US Standard (no &quot;and&quot;)</option>
+                    <option value="uk">UK Formal (&quot;and&quot;)</option>
+                  </select>
+                </div>
 
-            <div className={styles.field} style={{ justifyContent: 'flex-end' }}>
-              <button
-                type="button"
-                className={styles.btnSecondary}
-                onClick={() => setNumberInput('1234567')}
-              >
-                Reset Default
-              </button>
-            </div>
-          </div>
+                <div className={styles.field}>
+                  <label htmlFor="nw-decimal" className={styles.label}>Decimal Style</label>
+                  <select
+                    id="nw-decimal"
+                    value={decimalStyle}
+                    onChange={(e) => setDecimalStyle(e.target.value as 'point' | 'fraction')}
+                    className={styles.select}
+                  >
+                    <option value="point">Point digits (e.g. point one four)</option>
+                    <option value="fraction">Fraction (e.g. and fourteen hundredths)</option>
+                  </select>
+                </div>
 
-          {/* Output Display Banner */}
-          <div className={styles.wordsOutputBanner} style={{ marginTop: '16px' }}>
-            <span className={styles.label}>Amount in Words</span>
-            <div className={styles.wordsText}>{wordsResult.text}</div>
-          </div>
+                <div className={styles.field}>
+                  <label htmlFor="nw-case" className={styles.label}>Letter Casing</label>
+                  <select
+                    id="nw-case"
+                    value={caseStyle}
+                    onChange={(e) => setCaseStyle(e.target.value as CaseStyle)}
+                    className={styles.select}
+                  >
+                    <option value="sentence">Sentence case</option>
+                    <option value="lower">lower case</option>
+                    <option value="upper">UPPER CASE</option>
+                    <option value="title">Title Case</option>
+                  </select>
+                </div>
+              </div>
 
-          {/* Grouped Periods Bar */}
-          {!wordsResult.isError && (
-            <div className={styles.groupingBar} style={{ marginTop: '12px' }}>
-              <span>
-                <strong>International:</strong> {wordsResult.groupedIntl}
-              </span>
-              <span>•</span>
-              <span>
-                <strong>Indian:</strong> {wordsResult.groupedIndian}
-              </span>
-            </div>
+              {/* Output Display Banner */}
+              <div className={styles.wordsOutputBanner} style={{ marginTop: '16px' }}>
+                <span className={styles.label}>Amount in Words</span>
+                <div className={styles.wordsText}>{wordsResult.text}</div>
+                {wordsResult.note && <span className={styles.label}>{wordsResult.note}</span>}
+              </div>
+
+              {/* Grouped Periods Bar */}
+              {!wordsResult.isError && (
+                <div className={styles.groupingBar} style={{ marginTop: '12px' }}>
+                  <span>
+                    <strong>International:</strong> {wordsResult.groupedIntl}
+                  </span>
+                  <span>•</span>
+                  <span>
+                    <strong>Indian:</strong> {wordsResult.groupedIndian}
+                  </span>
+                </div>
+              )}
+            </>
+          ) : (
+            <>
+              <div className={styles.field}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <label htmlFor="bulk-input-field" className={styles.label}>
+                    Paste Numbers (One per Line, max 500 lines)
+                  </label>
+                  <span style={{ fontSize: '0.8rem', color: 'var(--ink-muted)' }}>
+                    {bulkInput.split(/\r?\n/).length.toLocaleString('en-US')} lines
+                    {bulkInput.split(/\r?\n/).length > 500 ? ': only the first 500 are converted' : ''}
+                  </span>
+                </div>
+                <textarea
+                  id="bulk-input-field"
+                  rows={6}
+                  value={bulkInput}
+                  onChange={(e) => setBulkInput(e.target.value)}
+                  className={styles.input}
+                  style={{ fontFamily: 'monospace', resize: 'vertical' }}
+                  placeholder="Paste numbers here, one per line (up to 500 lines)..."
+                />
+              </div>
+
+              {/* Formatting Controls in Bulk Mode */}
+              <div className={styles.gridCols4} style={{ marginTop: '14px', marginBottom: '14px' }}>
+                <div className={styles.field}>
+                  <label htmlFor="nw-bulk-sys" className={styles.label}>System Scale</label>
+                  <select
+                    id="nw-bulk-sys"
+                    value={groupingSystem}
+                    onChange={(e) => setGroupingSystem(e.target.value as GroupingStyle)}
+                    className={styles.select}
+                  >
+                    <option value="intl">International</option>
+                    <option value="indian">Indian (Lakh/Crore)</option>
+                  </select>
+                </div>
+
+                <div className={styles.field}>
+                  <label htmlFor="nw-bulk-and" className={styles.label}>&quot;And&quot; Style</label>
+                  <select
+                    id="nw-bulk-and"
+                    value={scaleStyle}
+                    onChange={(e) => setScaleStyle(e.target.value as ScaleStyle)}
+                    className={styles.select}
+                  >
+                    <option value="us">US (no &quot;and&quot;)</option>
+                    <option value="uk">UK (&quot;and&quot;)</option>
+                  </select>
+                </div>
+
+                <div className={styles.field}>
+                  <label htmlFor="nw-bulk-decimal" className={styles.label}>Decimal Style</label>
+                  <select
+                    id="nw-bulk-decimal"
+                    value={decimalStyle}
+                    onChange={(e) => setDecimalStyle(e.target.value as 'point' | 'fraction')}
+                    className={styles.select}
+                  >
+                    <option value="point">Point digits</option>
+                    <option value="fraction">Fraction</option>
+                  </select>
+                </div>
+
+                <div className={styles.field}>
+                  <label htmlFor="nw-bulk-case" className={styles.label}>Letter Casing</label>
+                  <select
+                    id="nw-bulk-case"
+                    value={caseStyle}
+                    onChange={(e) => setCaseStyle(e.target.value as CaseStyle)}
+                    className={styles.select}
+                  >
+                    <option value="sentence">Sentence case</option>
+                    <option value="lower">lower case</option>
+                    <option value="upper">UPPER CASE</option>
+                    <option value="title">Title Case</option>
+                  </select>
+                </div>
+
+                <div className={styles.field} style={{ justifyContent: 'flex-end', flexDirection: 'row', gap: '8px' }}>
+                  <button
+                    type="button"
+                    className={styles.btnSecondary}
+                    onClick={handleCopyBulk}
+                  >
+                    {bulkCopied ? '✓ Copied' : '📋 Copy All'}
+                  </button>
+                  <button
+                    type="button"
+                    className={styles.btnSecondary}
+                    onClick={handleDownloadBulkTxt}
+                  >
+                    📥 Download .txt
+                  </button>
+                </div>
+              </div>
+
+              {/* Bulk Results Table */}
+              <div style={{ maxHeight: '320px', overflowY: 'auto', border: '1px solid var(--line)', borderRadius: '6px' }}>
+                <table className={styles.table} style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.875rem' }}>
+                  <thead>
+                    <tr style={{ background: 'var(--surface-2)', textAlign: 'left' }}>
+                      <th style={{ padding: '8px 12px', width: '50px' }}>#</th>
+                      <th style={{ padding: '8px 12px', width: '140px' }}>Input</th>
+                      <th style={{ padding: '8px 12px' }}>Amount in Words</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {bulkResults.map((r) => (
+                      <tr key={r.line} style={{ borderTop: '1px solid var(--line)' }}>
+                        <td style={{ padding: '6px 12px', color: 'var(--ink-muted)' }}>{r.line}</td>
+                        <td style={{ padding: '6px 12px', fontFamily: 'monospace' }}>{r.input}</td>
+                        <td style={{ padding: '6px 12px', color: r.isError ? 'var(--red, #e11d48)' : 'inherit' }}>
+                          {r.text}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </>
           )}
         </div>
       )}

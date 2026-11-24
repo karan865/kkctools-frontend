@@ -463,7 +463,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Character Counter – Count Characters With Spaces',
     description:
       'Free character counter. Paste text to count characters with and without spaces, words, sentences and lines, and see how many characters are left for a limit.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -472,7 +472,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Words to Pages Calculator – How Many Pages Is It?',
     description:
       'Free words to pages calculator. See how many pages, paragraphs and sentences a word count makes, single or double spaced, for any font size and paper size.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -481,7 +481,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Characters to Words Converter – How Many Words?',
     description:
       'Free characters to words converter. See roughly how many words fit in 500, 1,000, 2,000 or 5,000 characters, with and without spaces, or paste text to check.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -490,7 +490,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Twitter Character Counter – X & Instagram Limits',
     description:
       'Free Twitter (X) character counter. Count a post the way X does (links 23, emoji 2) and check Instagram, Threads, LinkedIn and YouTube limits as you type.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -499,7 +499,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Word Counter – Free Online Word Count Tool',
     description:
       'Free word counter. Paste or type to count words, characters, sentences and paragraphs, see reading time and keyword frequency, and check against a word limit.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -508,7 +508,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Reading Time Calculator – Words to Minutes',
     description:
       'Free reading time calculator. Turn a word count into reading and speaking time, or find how many words you need for a 3, 5 or 10 minute speech.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -517,7 +517,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Numbers to Words Converter – Amount in Words',
     description:
       'Free numbers to words converter. Turn any number or dollar amount into words for checks and invoices, with US and lakh / crore styles and ordinals.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -526,7 +526,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Comma Separator – Column to Comma-Separated List',
     description:
       'Free comma separator. Paste a column of values to get a comma-separated list, add quotes, remove duplicates, or split a list back into lines, in your browser.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -535,7 +535,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Sentence Counter – Count Sentences and Paragraphs',
     description:
       'Free sentence counter. Count sentences, paragraphs and lines in any text, see average sentence length and spot long sentences that need splitting.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -544,7 +544,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Keyword Density Checker – Count Words in Text',
     description:
       'Free keyword density checker. Paste your text to see how often each word and 2–3 word phrase appears, as a count and a percentage, in your browser.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },

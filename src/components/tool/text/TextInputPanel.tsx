@@ -49,7 +49,7 @@ export default function TextInputPanel({
       if (typeof navigator !== 'undefined' && navigator.clipboard?.readText) {
         const clipText = await navigator.clipboard.readText();
         if (clipText) {
-          onChange(clipText);
+          onChange(clipText.replace(/\r\n?/g, '\n'));
           showFeedback('Pasted from clipboard');
         }
       } else {
@@ -78,7 +78,7 @@ export default function TextInputPanel({
     reader.onload = (event) => {
       const content = event.target?.result;
       if (typeof content === 'string') {
-        onChange(content);
+        onChange(content.replace(/\r\n?/g, '\n')); // textareas use LF, so offsets match
         showFeedback(`Loaded ${file.name}`);
       }
     };

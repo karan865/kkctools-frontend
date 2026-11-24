@@ -475,11 +475,13 @@ export function getNgrams(
   options: {
     stopWords?: ReadonlySet<string>;
     minFrequency?: number;
+    caseSensitive?: boolean;
   } = {}
 ): NgramItem[] {
   if (!words || words.length === 0 || n < 1 || n > 3) return [];
   const stopWords = options.stopWords || STOP_WORDS_EN;
   const minFreq = options.minFrequency ?? 1;
+  const caseSensitive = Boolean(options.caseSensitive);
 
   const freqMap = new Map<string, number>();
   const groups: string[][] = Array.isArray(words[0]) ? (words as string[][]) : [words as string[]];
@@ -487,9 +489,9 @@ export function getNgrams(
 
   for (const group of groups) {
     for (let i = 0; i <= group.length - n; i++) {
-      const slice = group.slice(i, i + n).map((w) => w.toLowerCase());
+      const slice = group.slice(i, i + n).map((w) => (caseSensitive ? w : w.toLowerCase()));
       // Skip stop words, and phrases made only of stop words
-      if (slice.every((w) => stopWords.has(w))) continue;
+      if (slice.every((w) => stopWords.has(w.toLowerCase()))) continue;
       const phrase = slice.join(' ');
       freqMap.set(phrase, (freqMap.get(phrase) || 0) + 1);
     }
@@ -546,26 +548,62 @@ export function calculateSpeakingTime(wordCount: number, wpm: number = 130): Rea
   return calculateReadingTime(wordCount, wpm);
 }
 
+export interface TextAnalysisOptions {
+  nfc?: boolean;
+  ignorePunctuation?: boolean;
+  ignoreDigits?: boolean;
+  cjkPerChar?: boolean;
+}
+
 /**
  * Full snapshot analysis of text for fast UI rendering.
  */
-export function analyzeText(text: string): TextAnalysis {
-  const graphemes = countGraphemes(text);
-  const words = countWords(text);
+export function analyzeText(text: string, options: TextAnalysisOptions = {}): TextAnalysis {
+  const nfc = options.nfc !== false;
+  const processedText = nfc ? (text ? text.normalize('NFC') : '') : text;
+
+  let graphemes = 0;
+  let charsWithoutSpaces = 0;
+
+  if (options.ignorePunctuation || options.ignoreDigits) {
+    const segmenter =
+      typeof Intl !== 'undefined' && Intl.Segmenter
+        ? new Intl.Segmenter('en', { granularity: 'grapheme' })
+        : null;
+    const parts = segmenter
+      ? segmenter.segment(processedText)
+      : Array.from(processedText).map((s) => ({ segment: s }));
+    for (const { segment } of parts) {
+      const isSpace = /^[\s\u200B]+$/u.test(segment);
+      const isPunct = /^\p{P}+$/u.test(segment);
+      const isDigit = /^\p{Nd}+$/u.test(segment);
+
+      if (options.ignorePunctuation && isPunct) continue;
+      if (options.ignoreDigits && isDigit) continue;
+
+      graphemes++;
+      if (!isSpace) charsWithoutSpaces++;
+    }
+  } else {
+    graphemes = countGraphemes(processedText);
+    charsWithoutSpaces = charsNoSpaces(processedText);
+  }
+
+  const words = countWords(processedText, { cjkPerChar: options.cjkPerChar });
 
   return {
     characters: graphemes,
-    charactersNoSpaces: charsNoSpaces(text),
-    codePoints: countCodePoints(text),
-    utf16Units: countUtf16(text),
-    utf8Bytes: countUtf8Bytes(text),
+    charactersNoSpaces: charsWithoutSpaces,
+    codePoints: countCodePoints(processedText),
+    utf16Units: countUtf16(processedText),
+    utf8Bytes: countUtf8Bytes(processedText),
     words,
-    sentences: countSentences(text),
-    paragraphs: countParagraphs(text),
-    lines: countLines(text),
-    emojis: emojiCount(text),
-    classCounts: classCounts(text),
-    scriptCounts: scriptCounts(text),
+    sentences: countSentences(processedText),
+    paragraphs: countParagraphs(processedText),
+    lines: countLines(processedText),
+    emojis: emojiCount(processedText),
+    classCounts: classCounts(processedText),
+    scriptCounts: scriptCounts(processedText),
     readingTime: calculateReadingTime(words, 238),
     speakingTime: calculateSpeakingTime(words, 130),
   };
@@ -573,9 +611,23 @@ export function analyzeText(text: string): TextAnalysis {
 
 export type OverflowUnit = 'graphemes' | 'noSpaces' | 'bytes' | 'words';
 
+export interface OverflowOptions {
+  nfc?: boolean;
+  ignorePunctuation?: boolean;
+  ignoreDigits?: boolean;
+}
+
 /** UTF-16 index where the text first passes the limit, or -1 when it fits. */
-export function overflowIndex(text: string, limit: number, unit: OverflowUnit): number {
+export function overflowIndex(
+  text: string,
+  limit: number,
+  unit: OverflowUnit,
+  options: OverflowOptions = {}
+): number {
   if (!text) return -1;
+  // Walk the text as typed, so the index is valid for the caller's own string.
+  const nfc = options.nfc !== false;
+  const byCharacter = unit === 'graphemes' || unit === 'noSpaces';
   let used = 0;
 
   if (unit === 'words') {
@@ -594,8 +646,26 @@ export function overflowIndex(text: string, limit: number, unit: OverflowUnit): 
       : Array.from(text, (segment) => ({ segment }));
   let index = 0;
   for (const { segment } of parts) {
-    if (unit === 'bytes') used += countUtf8Bytes(segment);
-    else if (unit !== 'noSpaces' || !/^[\s​]+$/u.test(segment)) used += 1;
+    const isSpace = /^[\s\u200B]+$/u.test(segment);
+    const isPunct = /^\p{P}+$/u.test(segment);
+    const isDigit = /^\p{Nd}+$/u.test(segment);
+
+    if (byCharacter && options.ignorePunctuation && isPunct) {
+      index += segment.length;
+      continue;
+    }
+    if (byCharacter && options.ignoreDigits && isDigit) {
+      index += segment.length;
+      continue;
+    }
+
+    if (unit === 'bytes') used += countUtf8Bytes(nfc ? segment.normalize('NFC') : segment);
+    else if (unit === 'noSpaces') {
+      if (!isSpace) used += 1;
+    } else {
+      used += 1;
+    }
+
     if (used > limit) return index;
     index += segment.length;
   }

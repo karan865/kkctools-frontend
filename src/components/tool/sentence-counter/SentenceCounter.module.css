@@ -223,6 +223,7 @@
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 8px);
   margin-top: 12px;
+  background: var(--surface);
 }
 
 .table {
@@ -293,4 +294,9 @@
   .gridCols2 {
     grid-template-columns: 1fr;
   }
+}
+
+.btnPrimary {
+  background: var(--cat-writing-g1);
+  color: #ffffff;
 }

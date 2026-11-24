@@ -62,6 +62,10 @@ const faqs = [
     a: 'Tools use different rules for hyphens, numbers, dashes and links. Google Docs also leaves headers, footers and footnotes out of its count unless you select that text. Compare the same text under the same rules before worrying about a small gap.',
   },
   {
+    q: 'What are stop words, and why ignore them?',
+    a: 'Stop words are high-frequency grammatical particles—such as "the", "and", "is", "in", and "of"—that provide syntactic structure but carry little topical meaning. In keyword density and phrase frequency analysis, ignoring stop words lets you see the core thematic vocabulary driving your draft rather than common English function words. In this tool, filtering stop words affects only the frequency table and never changes your headline word count.',
+  },
+  {
     q: 'Is my text safe and private on this site?',
     a: 'Yes. The counting runs in your browser. Your text is not uploaded or stored.',
   },
@@ -97,7 +101,7 @@ export default function WordCounterPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Quick Answer (BLUF):</strong> Paste or type below and this free word counter shows words,
+            Paste or type below and this free word counter shows words,
             characters, sentences, paragraphs, and reading time as you write. Set an essay word limit to track how many
             words you have left. Hyphenated words count as one and numbers count as words by default, with instant
             toggles to customize rules. Your text stays entirely on your device.
@@ -123,8 +127,7 @@ export default function WordCounterPage() {
           <section className={styles.section}>
             <h2>How to Use the Free Online Word Counter</h2>
             <p>
-              Whether you are refining a university research essay, writing a novel chapter, or optimizing a digital blog
-              post, our tool gives you four dedicated analytical perspectives:
+              For university research essays, manuscript chapters, and web articles, our tool gives you four dedicated analytical perspectives:
             </p>
             <ol>
               <li>
@@ -144,7 +147,7 @@ export default function WordCounterPage() {
               </li>
               <li>
                 <strong>Reading &amp; Speaking Time Mode:</strong> Plan speeches, podcast scripts, and executive
-                briefings with precision. Adjust silent reading and verbal speaking tempos to gauge presentation
+                briefings with confidence. Adjust silent reading and verbal speaking tempos to gauge presentation
                 timing down to the exact second.
               </li>
             </ol>
@@ -195,7 +198,7 @@ export default function WordCounterPage() {
               </li>
               <li>
                 <strong>Numbers and Numerals (Count = 1):</strong> Numeric strings like <em>2026</em>, <em>2,500</em>,
-                or <em>99.9%</em> represent standalone lexical quantities and count as words.
+                or <em>99.9%</em> represent standalone lexical quantities and count as words. To write out numeric amounts as spelled words or check formats, use our <Link href="/numbers-to-words/">Numbers to Words Converter</Link>. If your document contains data lists or column items, you can clean them up with our <Link href="/comma-separator/">Comma Separator</Link>.
               </li>
               <li>
                 <strong>Dashes and Punctuation (Count = 0):</strong> Em dashes (—) and en dashes (–) serve as syntactic
@@ -235,96 +238,93 @@ export default function WordCounterPage() {
             </section>
 
           <section className={styles.section}>
-            <h2>How to Check Word Count in Google Docs</h2>
+            <h2>How to Check and Show Word Count in Google Docs</h2>
             <p>
-              If you draft your papers in Google Docs, you can check your count using verified official steps:
+              To check, view, or continuously display word count in Google Docs on desktop, follow these steps:
             </p>
             <ol>
               <li>
-                Open your document in <strong>Google Docs</strong> on your desktop web browser.
+                Open your document in <strong>Google Docs</strong> in a desktop web browser.
               </li>
               <li>
-                Click the <strong>Tools</strong> menu located at the top of the screen.
+                Click the <strong>Tools</strong> menu located in the top application navigation bar.
               </li>
               <li>
                 Select <strong>Word count</strong> from the drop-down list.
               </li>
               <li>
-                A dialogue box will display your document’s total pages, words, characters, and characters excluding
-                spaces.
+                The box shows words, characters and pages.
               </li>
               <li>
-                <em>Pro Tip:</em> Check the box labelled <strong>&quot;Display word count while typing&quot;</strong>{' '}
-                and click OK. A convenient floating badge will remain in the lower-left corner of your editor.
+                <strong>Show word count while typing:</strong> In the Word count dialogue, check the box labelled <strong>&quot;Display word count while typing&quot;</strong> and click <strong>OK</strong>. A persistent word counter will remain visible in the lower-left corner of your document window.
               </li>
               <li>
-                To count only a specific section, highlight the target text before opening the Word count menu.
+                <strong>Keyboard shortcuts:</strong> Press <span className={styles.kbd}>Ctrl</span> + <span className={styles.kbd}>Shift</span> + <span className={styles.kbd}>C</span> on Windows and ChromeOS, or <span className={styles.kbd}>⌘ Command</span> + <span className={styles.kbd}>Shift</span> + <span className={styles.kbd}>C</span> on macOS to open the count.
+              </li>
+              <li>
+                <strong>Count specific sections:</strong> Select the text before opening the box. Google Docs leaves out headers, footers, and footnotes from its count unless you select a section.
               </li>
             </ol>
+            <p>
+              <small>Source: Google Docs Help (support.google.com/docs/answer/39003, checked 2026-11-25; answer/179738, checked 2026-11-22).</small>
+            </p>
           </section>
 
           <section className={styles.section}>
-            <h2>How to Check Word Count in Microsoft Word</h2>
+            <h2>How to Check and Show Word Count in Microsoft Word</h2>
             <p>
-              Word shows the count while you type:
+              To view or inspect live word counts in Microsoft Word follow these steps:
             </p>
             <ol>
               <li>
-                Look at the <strong>Status Bar</strong> along the very bottom of the Word window on the left-hand side.
-                Your live word count is displayed continuously.
+                Look at the <strong>Status Bar</strong> located at the very bottom left of your Microsoft Word window. The total word count is displayed continuously in real time as you type.
               </li>
               <li>
-                Click directly on the word count number in the status bar to open the full <strong>Word Count</strong>{' '}
-                dialog box.
+                Click directly on the word count indicator on the status bar to open the full <strong>Word Count</strong> dialogue box. It lists characters, paragraphs, and lines.
               </li>
               <li>
-                On a Mac, select the text, then choose <strong>Tools</strong> &gt; <strong>Word Count</strong>.
+                <strong>Count selected text:</strong> Highlight any sentence or paragraph. The status bar shows the count for the selection and for the whole document.
               </li>
               <li>
-                The box lists characters, lines and paragraphs as well as words.
+                <strong>macOS menu:</strong> In Microsoft Word for Mac, you can also select your text and click <strong>Tools</strong> &gt; <strong>Word Count</strong> from the top menu bar.
               </li>
             </ol>
+            <p>
+              <small>Source: Microsoft Support, &quot;Show word count&quot;, checked 2026-11-25. The page lists no keyboard shortcut.</small>
+            </p>
           </section>
 
           <section className={styles.section}>
-            <h2>Word Count Shortcuts for Windows and Mac</h2>
+            <h2>Why Word Counts Differ Between Tools</h2>
             <p>
-              Save time while writing with standard keyboard shortcuts:
+              If you paste the exact same article into Google Docs, Microsoft Word, and an online text editor, you will frequently observe small differences in total word count. These discrepancies occur because different software programs apply contrasting lexical rules:
             </p>
-
-            <div className={styles.shortcutGrid}>
-              <div className={styles.shortcutCard}>
-                <div className={styles.shortcutHeader}>
-                  <strong>Google Docs (Windows / ChromeOS)</strong>
-                  <span className={styles.shortcutBadge}>Keyboard Shortcut</span>
-                </div>
-                <p>
-                  Press <span className={styles.kbd}>Ctrl</span> + <span className={styles.kbd}>Shift</span> +{' '}
-                  <span className={styles.kbd}>C</span> to immediately open the Word count dialog box.
-                </p>
-              </div>
-
-              <div className={styles.shortcutCard}>
-                <div className={styles.shortcutHeader}>
-                  <strong>Google Docs (macOS)</strong>
-                  <span className={styles.shortcutBadge}>Keyboard Shortcut</span>
-                </div>
-                <p>
-                  Press <span className={styles.kbd}>⌘ Command</span> + <span className={styles.kbd}>Shift</span> +{' '}
-                  <span className={styles.kbd}>C</span> to toggle the Word count popup.
-                </p>
-              </div>
-
-              <div className={styles.shortcutCard}>
-                <div className={styles.shortcutHeader}>
-                  <strong>Microsoft Word</strong>
-                  <span className={styles.shortcutBadge}>Quick Access</span>
-                </div>
-                <p>
-                  Click the word count in the status bar. We list no keyboard shortcut for Word because
-                  Microsoft’s help page does not give one.
-                </p>
-              </div>
+            <ul>
+              <li>
+                <strong>Hyphenated compound words:</strong> Our default rule treats compound adjectives like <em>well-known</em> or <em>state-of-the-art</em> as single words, matching reader perception. With hyphen join turned off, they split into multiple individual words.
+              </li>
+              <li>
+                <strong>Numbers and digits:</strong> Our engine counts standalone figures like <em>2,500</em> or <em>2026</em> as words by default, while some academic essay checkers exclude standalone digits.
+              </li>
+              <li>
+                <strong>Headers, footers, and footnotes:</strong> Google Docs excludes headers, footers, and footnotes from its headline word count by default.
+              </li>
+              <li>
+                <strong>Web links and email addresses:</strong> Modern text analyzers treat full URLs (e.g. <code>https://example.com/research</code>) as single lexical tokens, whereas older tools split links at punctuation marks, periods, and forward slashes.
+              </li>
+            </ul>
+            <p>
+              To see these rules in action, consider our engine&apos;s benchmark fixture sentence:
+            </p>
+            <div className={styles.calloutCard}>
+              <p>
+                <code>&quot;It’s a well-known fact — numbers like 2,500 and e-mail count.&quot;</code>
+              </p>
+              <ul>
+                <li><strong>Our engine default (hyphens joined, numbers counted):</strong> exactly <strong>10 words</strong>.</li>
+                <li><strong>Hyphen join OFF:</strong> <em>well-known</em> and <em>e-mail</em> split, producing <strong>12 words</strong>.</li>
+                <li><strong>Numbers toggle OFF:</strong> <em>2,500</em> is excluded, yielding <strong>9 words</strong>.</li>
+              </ul>
             </div>
           </section>
 
