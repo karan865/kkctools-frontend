@@ -1869,6 +1869,168 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* T-Test: Student-t distribution with critical regions and Welch df badge */
+  tTest: (
+    <>
+      <path className={s.f1} d="M30 80 Q60 80, 80 50 Q100 20, 120 50 Q140 80, 170 80 Z" opacity={0.25} />
+      <path className={k('fn', 's1', 'thick')} d="M26 80 Q60 80, 80 48 Q100 18, 120 48 Q140 80, 174 80" strokeWidth={2.4} />
+      <line className={s.s2} x1={100} y1={18} x2={100} y2={80} strokeWidth={2} strokeDasharray="3 2" />
+      <line className={k('s2', 'thick')} x1={22} y1={80} x2={178} y2={80} />
+      <rect className={k('fp', 's2')} x={68} y={38} width={64} height={20} rx={4} />
+      <text className={s.txL} x={100} y={52} textAnchor="middle" fontSize={9} fontWeight={800} fill="#4338CA">
+        t = 1.753 (p=0.085)
+      </text>
+    </>
+  ),
+  /* Binomial: PMF bars with highlighted k=3 bar */
+  binomial: (
+    <>
+      <line className={k('s2', 'thick')} x1={20} y1={82} x2={180} y2={82} />
+      <rect className={s.f1} x={30} y={72} width={10} height={10} rx={2} opacity={0.4} />
+      <rect className={s.f1} x={45} y={58} width={10} height={24} rx={2} opacity={0.5} />
+      <rect className={s.f1} x={60} y={40} width={10} height={42} rx={2} opacity={0.6} />
+      <rect className={s.f2} x={75} y={26} width={10} height={56} rx={2} />
+      <rect className={s.f1} x={90} y={22} width={10} height={60} rx={2} opacity={0.8} />
+      <rect className={s.f1} x={105} y={26} width={10} height={56} rx={2} opacity={0.8} />
+      <rect className={s.f1} x={120} y={40} width={10} height={42} rx={2} opacity={0.6} />
+      <rect className={s.f1} x={135} y={58} width={10} height={24} rx={2} opacity={0.5} />
+      <rect className={s.f1} x={150} y={72} width={10} height={10} rx={2} opacity={0.4} />
+      <rect className={k('fp', 's2')} x={56} y={10} width={88} height={18} rx={4} />
+      <text className={s.txL} x={100} y={23} textAnchor="middle" fontSize={8} fontWeight={800} fill="#4338CA">
+        P(X = 3) = 0.1172
+      </text>
+    </>
+  ),
+  /* Pythagorean: Right triangle with 3-4-5 labels and hypotenuse badge */
+  pythagorean: (
+    <>
+      <polygon className={s.f1} points="40,82 160,82 40,22" opacity={0.25} />
+      <line className={k('s1', 'thick')} x1={40} y1={22} x2={40} y2={82} strokeWidth={2.4} />
+      <line className={k('s1', 'thick')} x1={40} y1={82} x2={160} y2={82} strokeWidth={2.4} />
+      <line className={k('s2', 'thick')} x1={40} y1={22} x2={160} y2={82} strokeWidth={2.8} />
+      <polyline className={s.s2} points="40,72 50,72 50,82" strokeWidth={1.5} />
+      <text className={s.txL} x={28} y={55} textAnchor="middle" fontSize={10} fontWeight={800} fill="#4338CA">
+        a=3
+      </text>
+      <text className={s.txL} x={100} y={94} textAnchor="middle" fontSize={10} fontWeight={800} fill="#4338CA">
+        b=4
+      </text>
+      <rect className={k('fp', 's2')} x={92} y={34} width={50} height={20} rx={4} />
+      <text className={s.txL} x={117} y={48} textAnchor="middle" fontSize={9} fontWeight={800} fill="#0D9488">
+        c = 5
+      </text>
+    </>
+  ),
+  /* Slope: Rise over run incline triangle with % grade badge */
+  slope: (
+    <>
+      <polygon className={s.f1} points="36,82 164,82 164,30" opacity={0.25} />
+      <line className={k('s2', 'thick')} x1={24} y1={82} x2={176} y2={82} strokeWidth={2.4} />
+      <line className={k('s1', 'thick')} x1={164} y1={82} x2={164} y2={30} strokeWidth={2.4} />
+      <line className={k('fn', 's1', 'thick')} x1={36} y1={82} x2={164} y2={30} strokeWidth={2.8} />
+      <polyline className={s.s2} points="152,82 152,70 164,70" strokeWidth={1.5} />
+      <rect className={k('fp', 's2')} x={68} y={16} width={64} height={20} rx={4} />
+      <text className={s.txL} x={100} y={30} textAnchor="middle" fontSize={9} fontWeight={800} fill="#4338CA">
+        8.33% (1:12)
+      </text>
+    </>
+  ),
+  /* Tank Volume: Horizontal cylinder with liquid level and gallons badge */
+  tankVolume: (
+    <>
+      <rect className={s.f1} x={50} y={32} width={100} height={46} rx={4} opacity={0.25} />
+      <ellipse className={k('s1', 'thick')} cx={50} cy={55} rx={14} ry={23} strokeWidth={2.2} />
+      <line className={k('s1', 'thick')} x1={50} y1={32} x2={150} y2={32} strokeWidth={2.2} />
+      <line className={k('s1', 'thick')} x1={50} y1={78} x2={150} y2={78} strokeWidth={2.2} />
+      <path className={s.s1} d="M150 32 c8 0 14 10 14 23 s-6 23 -14 23" strokeWidth={2.2} fill="none" />
+      <line className={s.s2} x1={45} y1={64} x2={155} y2={64} strokeWidth={1.8} strokeDasharray="3 2" />
+      <rect className={k('fp', 's2')} x={62} y={12} width={76} height={20} rx={4} />
+      <text className={s.txL} x={100} y={26} textAnchor="middle" fontSize={9} fontWeight={800} fill="#0D9488">
+        2,538 gal
+      </text>
+    </>
+  ),
+  /* Simple Interest: Linear timeline with coin stack and percentage growth */
+  simpleInterest: (
+    <>
+      <rect className={s.f1} x={36} y={35} width={30} height={45} rx={4} opacity={0.25} />
+      <circle className={k('fp', 's1')} cx={51} cy={45} r={10} strokeWidth={2} />
+      <line className={k('s1', 'thick')} x1={51} y1={65} x2={160} y2={65} strokeWidth={2.4} />
+      {[75, 100, 125, 150].map((x) => (
+        <circle key={x} className={s.s2} cx={x} cy={65} r={3} fill="#4338CA" />
+      ))}
+      <rect className={k('fp', 's2')} x={88} y={16} width={78} height={22} rx={4} />
+      <text className={s.txL} x={127} y={31} textAnchor="middle" fontSize={9} fontWeight={800} fill="#4338CA">
+        I = P·r·t
+      </text>
+    </>
+  ),
+  /* ROI: Investment bar chart with percentage growth badge */
+  roi: (
+    <>
+      <rect className={s.f1} x={45} y={48} width={28} height={32} rx={3} opacity={0.3} />
+      <rect className={k('fp', 's1')} x={85} y={32} width={28} height={48} rx={3} strokeWidth={2} />
+      <rect className={k('fp', 's2')} x={125} y={18} width={28} height={62} rx={3} strokeWidth={2} />
+      <line className={k('s1', 'thick')} x1={35} y1={80} x2={165} y2={80} strokeWidth={2} />
+      <rect className={k('fp', 's2')} x={84} y={6} width={68} height={20} rx={4} />
+      <text className={s.txL} x={118} y={20} textAnchor="middle" fontSize={9} fontWeight={800} fill="#0D9488">
+        +50% ROI
+      </text>
+    </>
+  ),
+  /* Final Grade: Course bar split with target grade badge */
+  finalGrade: (
+    <>
+      <rect className={s.f1} x={35} y={42} width={80} height={28} rx={4} opacity={0.3} />
+      <rect className={k('fp', 's1')} x={115} y={42} width={50} height={28} rx={4} strokeWidth={2} />
+      <line className={s.s2} x1={115} y1={28} x2={115} y2={84} strokeWidth={2} strokeDasharray="3 2" />
+      <rect className={k('fp', 's2')} x={68} y={12} width={74} height={22} rx={4} />
+      <text className={s.txL} x={105} y={27} textAnchor="middle" fontSize={9} fontWeight={800} fill="#4338CA">
+        Need: 95%
+      </text>
+    </>
+  ),
+  /* Budget: 3 buckets with 50/30/20 pill badge */
+  budget: (
+    <>
+      <rect className={s.f1} x={36} y={35} width={36} height={46} rx={5} opacity={0.25} />
+      <rect className={k('fp', 's1')} x={82} y={35} width={36} height={46} rx={5} strokeWidth={2} />
+      <rect className={k('fp', 's2')} x={128} y={35} width={36} height={46} rx={5} strokeWidth={2} />
+      <line className={s.s2} x1={30} y1={85} x2={170} y2={85} strokeWidth={2} />
+      <rect className={k('fp', 's2')} x={66} y={10} width={68} height={20} rx={4} />
+      <text className={s.txL} x={100} y={24} textAnchor="middle" fontSize={9} fontWeight={800} fill="#0D9488">
+        50 / 30 / 20
+      </text>
+    </>
+  ),
+  /* Boolean: logic gate with inputs and truth output */
+  boolean: (
+    <>
+      <path className={k('fp', 's2')} d="M50 25 H80 C110 25 130 50 130 50 C130 50 110 75 80 75 H50 Z" strokeWidth={2} />
+      <line className={s.s1} x1={30} y1={38} x2={50} y2={38} strokeWidth={2} />
+      <line className={s.s1} x1={30} y1={62} x2={50} y2={62} strokeWidth={2} />
+      <line className={s.s2} x1={130} y1={50} x2={165} y2={50} strokeWidth={2} />
+      <circle className={s.f1} cx={140} cy={50} r={4} />
+      <text className={s.txL} x={78} y={54} textAnchor="middle" fontSize={11} fontWeight={800} fill="#0D9488">
+        AND
+      </text>
+    </>
+  ),
+  /* Metric conversion: dual-ended scale arrow with units */
+  metricConversion: (
+    <>
+      <rect className={s.f2} x={30} y={35} width={140} height={30} rx={4} opacity={0.3} />
+      <line className={s.s2} x1={40} y1={50} x2={160} y2={50} strokeWidth={2} />
+      <path d="M48 42 L40 50 L48 58" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <path d="M152 42 L160 50 L152 58" stroke="currentColor" strokeWidth={2} strokeLinecap="round" strokeLinejoin="round" fill="none" />
+      <text className={s.txL} x={70} y={30} textAnchor="middle" fontSize={10} fontWeight={700} fill="currentColor">
+        IN / LB
+      </text>
+      <text className={s.txL} x={130} y={30} textAnchor="middle" fontSize={10} fontWeight={700} fill="#0D9488">
+        CM / KG
+      </text>
+    </>
+  ),
   /* All tools: grid of category colours with a magnifier */
   gridSearch: (
     <>

@@ -100,7 +100,7 @@
 
 .helperText {
   font-size: 0.78rem;
-  color: var(--ink-muted);
+  color: var(--muted, #556274);
 }
 
 /* Hero Result Card */

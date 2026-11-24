@@ -384,6 +384,10 @@ export default function NetWorthPage() {
                   <Link href="/compound-interest-calculator/">Compound Interest Calculator</Link> to visualize how modest
                   monthly deposits compound exponentially into six- and seven-figure wealth over 20 to 30 years.
                 </li>
+                <li>
+                  <strong>Establish a Monthly Cash Flow Plan:</strong> Manage household income and allocate surplus cash
+                  using our <Link href="/budget-calculator/">Monthly Budget Calculator (50/30/20)</Link>.
+                </li>
               </ul>
             </div>
           </section>

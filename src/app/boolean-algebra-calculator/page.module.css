@@ -1,0 +1,37 @@
+.main {
+  padding-bottom: var(--space-16);
+}
+
+.intro {
+  margin-bottom: var(--space-8);
+  max-width: 800px;
+}
+
+.title {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-text);
+  line-height: 1.2;
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.02em;
+}
+
+.description {
+  font-size: var(--text-lg);
+  color: var(--color-text-secondary);
+  line-height: 1.6;
+}
+
+.calculatorWrapper {
+  margin-bottom: var(--space-12);
+}
+
+.content {
+  margin-top: var(--space-12);
+}
+
+@media (max-width: 640px) {
+  .title {
+    font-size: var(--text-2xl);
+  }
+}

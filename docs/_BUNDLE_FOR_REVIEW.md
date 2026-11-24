@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-23T19:58:59.713Z
+Generated on: 2026-11-24T03:57:26.432Z
 
 
 
@@ -11,12 +11,12 @@ Generated on: 2026-11-23T19:58:59.713Z
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-23
+- **Last Updated:** 2026-11-24
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 5 (Math & Financial Calculators) — Checkpoint reached: First 10 tools completed and verified with `npm run verify` passing across all 6 pipeline steps. Tools built & live: #76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test. All 10 live-page keyword refreshes implemented.
-- **Overall Completion:** 1,039 vitest tests passing (88 test files, 100% green), 103 static routes in routes.ts, 85 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (106 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-23).
+- **Current Phase:** Batch 5 (Math & Financial Calculators) — **COMPLETED**: All 20 of 20 tools built & live (#76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test, #86 Binomial Probability, #87 Pythagorean Theorem, #88 Slope, #89 Tank Volume, #90 Simple Interest, #91 ROI, #92 Final Grade, #93 Monthly Budget, #94 Boolean Algebra, #95 Metric Conversion). All 10 live-page keyword refreshes implemented and verified.
+- **Overall Completion:** 1,114 vitest tests passing (97 test files, 100% green), 113 static routes in routes.ts, 95 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (130 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
@@ -846,8 +846,8 @@ No competitor text was copied.
 
 ## 1. Overview
 KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no API, no server, no network calls — enforced by `npm run check:no-network`).
-- **Live tools:** 75 (source: `src/lib/routes.ts`, `src/lib/tools-catalog.ts`).
-- **Tests:** 953 Vitest tests passing (`npm run verify`, 2026-11-23).
+- **Live tools:** 95 (source: `src/lib/routes.ts`, `src/lib/tools-catalog.ts`).
+- **Tests:** 1,114 Vitest tests passing (`npm run verify`, 2026-11-24).
 - **Hosting:** static export (`out/`), deployed to Cloudflare Workers Static Assets (see `05-DEPLOY-AND-LAUNCH.md`).
 
 ---
@@ -922,6 +922,26 @@ KKC Tools is a fast multi-tool website. Every tool runs fully in the browser (no
 |   73 | Pulley Calculator (2-pulley speed ratio & driven RPM solver, linear belt speed ft/min & m/s, open belt center-to-length & belt-to-center solvers, wrap angles, compound drive)                                                                                                                                                                                                                                                                                                              | `/pulley-calculator/`                 | `pulley-calculator/`                  | `pulley-engine.ts`                                                     |
 |   74 | Steps per mm Calculator (stepper belt drive GT2/T5, lead screw T8/ballscrew, Klipper rotation_distance converter, extruder 100 mm e-steps calibration)                                                                                                                                                                                                                                                                                                                                      | `/steps-per-mm-calculator/`           | `steps-per-mm-calculator/`            | `steps-engine.ts`                                                      |
 |   75 | Thread Pitch Diameter Calculator (UN/UNC/UNF ASME B1.1, Metric ISO 68-1/965-1, Acme 29° ASME B1.5, pitch & minor diameter, % engagement tap drill solver, 3-wire measurement)                                                                                                                                                                                                                                                                                                               | `/thread-pitch-diameter-calculator/`  | `thread-pitch-diameter-calculator/`  | `thread-engine.ts`                                                     |
+|   76 | Ratio Calculator (simplify 2-3 terms, scale & solve for X, part-to-whole fractions, visual aspect ratios)                                                                                                                                                                                                                                                                                                                                                                                 | `/ratio-calculator/`                  | `ratio-calculator/`                   | `ratio-engine.ts`                                                      |
+|   77 | Age Difference Calculator (years, months, days, total hours/days/weeks, when A is 2× as old, half-your-age-plus-7)                                                                                                                                                                                                                                                                                                                                                                       | `/age-difference-calculator/`         | `age-difference-calculator/`          | `date-diff-engine.ts`                                                  |
+|   78 | IQR Calculator (Tukey, Inclusive, Excel EXC quartiles, 1.5×IQR outlier detection fences, 5-number summary)                                                                                                                                                                                                                                                                                                                                                                                | `/iqr-calculator/`                    | `iqr-calculator/`                     | `stats-engine.ts`                                                      |
+|   79 | A/B Test Significance Calculator (two-tailed z-test, relative uplift & confidence intervals, power & sample size)                                                                                                                                                                                                                                                                                                                                                                          | `/ab-test-significance-calculator/`   | `ab-test-calculator/`                  | `stats-engine.ts`                                                      |
+|   80 | Gallons to Cubic Feet Converter (exact 231/1728 NIST factor, US/Imperial gallons, m³, litres, water weight, tank capacity)                                                                                                                                                                                                                                                                                                                                                                | `/gallons-to-cubic-feet/`              | `gallons-converter/`                  | `volume-units-engine.ts`                                               |
+|   81 | CAGR Calculator (compound annual growth rate, Rule of 72 doubling time, inflation-adjusted real CAGR, schedule)                                                                                                                                                                                                                                                                                                                                                                            | `/cagr-calculator/`                   | `cagr-calculator/`                    | `growth-engine.ts`                                                     |
+|   82 | Fraction to Percent Calculator (exact repeating decimals with overline, mixed numbers, grade percentage scale)                                                                                                                                                                                                                                                                                                                                                                            | `/fraction-to-percent-calculator/`    | `fraction-percent-calculator/`        | `fraction-percent-engine.ts`                                           |
+|   83 | Reverse Sales Tax Calculator (pre-tax extraction, exact statutory rounding, receipt reconstruction, state presets)                                                                                                                                                                                                                                                                                                                                                                         | `/reverse-sales-tax-calculator/`     | `reverse-tax-calculator/`             | `reverse-tax-engine.ts`                                                |
+|   84 | Pythagorean Theorem Calculator (solve any side, builder 3-4-5 square check, exact radical form, feet-inches-fractions)                                                                                                                                                                                                                                                                                                                                                                    | `/pythagorean-theorem-calculator/`   | `pythagorean-calculator/`             | `right-triangle-engine.ts`                                             |
+|   85 | Slope Calculator (rise & run solver, percentage grade & degrees, roof pitch, ADA ramp & pipe fall)                                                                                                                                                                                                                                                                                                                                                                                         | `/slope-calculator/`                  | `slope-calculator/`                   | `slope-engine.ts`                                                      |
+|   86 | Standard Deviation Calculator (sample vs population SD, variance, standard error, step-by-step deviations)                                                                                                                                                                                                                                                                                                                                                                                 | `/standard-deviation-calculator/`     | `standard-deviation-calculator/`     | `stats-engine.ts`                                                      |
+|   87 | Binomial Probability Calculator (exact PMF/CDF, normal approximation check, at least/at most, trials needed solver)                                                                                                                                                                                                                                                                                                                                                                       | `/binomial-probability-calculator/`   | `binomial-calculator/`                | `binomial-engine.ts`                                                   |
+|   88 | T-Test Calculator (independent & paired two-sample t-test, Welch's t, Student's t, p-value, critical bounds)                                                                                                                                                                                                                                                                                                                                                                               | `/t-test-calculator/`                 | `t-test-calculator/`                  | `stats-engine.ts`                                                      |
+|   89 | Tank Volume Calculator (horizontal & vertical cylinder, partial fill & dipstick chart, ASME 2:1 heads, tank sizing)                                                                                                                                                                                                                                                                                                                                                                       | `/tank-volume-calculator/`            | `tank-calculator/`                    | `tank-engine.ts`, `volume-units-engine.ts`                             |
+|   90 | Simple Interest Calculator (I = P·r·t, date-to-date calendar accrual, Actual/365, Actual/360, 30/360, bond coupons)                                                                                                                                                                                                                                                                                                                                                                       | `/simple-interest-calculator/`        | `simple-interest-calculator/`         | `simple-interest-engine.ts`                                            |
+|   91 | ROI Calculator (simple & annualized ROI, marketing campaign ROAS & gross margin ROI, payback period, real inflation ROI)                                                                                                                                                                                                                                                                                                                                                                  | `/roi-calculator/`                    | `roi-calculator/`                     | `roi-engine.ts`                                                        |
+|   92 | Final Grade Calculator (score needed on final, letter cutoff bounds, weighted categories, multiple test equivalency)                                                                                                                                                                                                                                                                                                                                                                      | `/final-grade-calculator/`            | `final-grade-calculator/`             | `final-grade-engine.ts`                                                |
+|   93 | Monthly Budget Calculator (50/30/20 rule, needs/wants/savings itemized allocation, sinking fund annual bills, CSV)                                                                                                                                                                                                                                                                                                                                                                         | `/budget-calculator/`                 | `budget-calculator/`                  | `budget-engine.ts`                                                     |
+|   94 | Boolean Algebra Calculator (minimal SOP via Quine-McCluskey, truth tables 2ⁿ, equivalence check, two's complement binary)                                                                                                                                                                                                                                                                                                                                                                | `/boolean-algebra-calculator/`        | `boolean-calculator/`                 | `boolean-engine.ts`                                                    |
+|   95 | Metric Conversion Calculator (universal length, weight, volume, area, temperature, speed via exact NIST factors)                                                                                                                                                                                                                                                                                                                                                                          | `/metric-conversion-calculator/`      | `metric-calculator/`                  | `metric-engine.ts`                                                     |
 
 Shared helpers: `area-depth-engine.ts`, `tools-catalog.ts` (catalog for `/tools/` and home), `storage.ts` (safe localStorage), `guides.ts`.
 Every calculator page has a "How This Calculator Works" block (formula, defaults, sources, last-updated date, correction link).
@@ -967,7 +987,7 @@ Planned tools (not built): Batches 2–8 in `docs/keywords analysis/` — each h
 
 ## 1. Page Inventory & SEO Targets
 
-Source of truth: `src/lib/routes.ts` (93 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-23: 0 SEO audit errors across 96 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
+Source of truth: `src/lib/routes.ts` (113 routes) and `src/app/`. All pages below are **Live** in the static build (`npm run verify` 2026-11-24: 0 SEO audit errors across 130 HTML pages). Per-page titles and descriptions live in `routes.ts`; this table lists the page groups.
 
 | Group               | Paths                                                                                                                      | Schema (JSON-LD graph)                                 | Status                                                                                                                                                  |
 | ------------------- | -------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -977,7 +997,7 @@ Source of truth: `src/lib/routes.ts` (93 routes) and `src/app/`. All pages below
 | Genre pages (6)     | `/band-name-generator/{kpop,metal,heavy-metal,rock,random,boy-band}/`                                                      | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
 | Genre pages (2)     | `/band-name-generator/{punk,pop}/`                                                                                         | —                                                      | BLOCKED (owner keyword data)                                                                                                                            |
 | Estimate template   | `/construction-estimate-template/`                                                                                         | WebApplication, BreadcrumbList, FAQPage                | Live                                                                                                                                                    |
-| Calculators (74)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
+| Calculators (94)    | see `01-FEATURES.md` §2                                                                                                    | WebApplication, BreadcrumbList, FAQPage (one per page) | Live                                                                                                                                                    |
 | Guides index        | `/guides/`                                                                                                                 | CollectionPage, BreadcrumbList                         | Live                                                                                                                                                    |
 | Guides (3)          | `/guides/how-to-choose-a-band-name/`, `/guides/band-name-ideas-by-genre/`, `/guides/how-to-check-if-a-band-name-is-taken/` | Article, BreadcrumbList                                | Live (1,686–1,888 words each)                                                                                                                           |
 | Trust               | `/about/`, `/contact/`, `/privacy-policy/`, `/terms/`, `/disclaimer/`                                                      | AboutPage / ContactPage / WebPage, BreadcrumbList      | Live (Disclaimer added 2026-11-15 for the AdSense report)                                                                                               |
@@ -1288,6 +1308,133 @@ Local check before pushing: `npm run build && npx wrangler deploy --dry-run` (ve
 # 06 — Changelog
 
 All notable changes to this project will be documented in this file, sorted newest first.
+
+---
+
+### [Batch 5 — All 20 Tools & Milestones Completed] — 2026-11-24
+
+- **Tool 20: Metric Conversion Calculator (`/metric-conversion-calculator/`):**
+  - Engine: `src/lib/metric-engine.ts` with 10 Vitest tests (`src/lib/metric-engine.test.ts`) matching all spec worked examples (10 ft $\implies$ exactly 3.048 m; 5′ 10″ $\implies$ 1.778 m; 100 kg $\implies$ 220.462 lb; 68 °F $\implies$ 20 °C; 10 °C temperature difference $\implies$ 18 °F; 1 m² $\implies$ 10.7639 ft²).
+  - Modes: Length, Weight/Mass, Volume (US liquid vs Imperial vs metric), Area (squared factors), Temperature (reading vs Δ difference), and Speed.
+  - UI: `MetricCalculator.tsx` with mixed feet-inches parsing (e.g. `5' 10"`, `5 ft 10 1/2 in`), live swap button, precision toggles (2, 4, 6 decimals), category-wide conversion cards, and dynamic 1–10 conversion table with CSV download.
+  - Custom InputGuide: `MetricInputGuide.tsx` with dual-scale ruler, balance scale, jug volume comparisons, and thermodynamic thermometer.
+  - Page & SEO: `src/app/metric-conversion-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing NIST SP 811 & HB 44 and BIPM 2019 SI Brochure, and 10 FAQs.
+
+- **Tool 19: Boolean Algebra Calculator (`/boolean-algebra-calculator/`):**
+  - Engine: `src/lib/boolean-engine.ts` with 10 Vitest tests (`src/lib/boolean-engine.test.ts`) matching all spec worked examples (`(A AND B) OR (A AND NOT B)` $\implies$ minimal SOP `A` with $\Sigma m(2,3)$; `NOT(A AND B)` vs `NOT A OR NOT B` $\implies$ equivalent via De Morgan; `A AND (A OR B)` $\implies$ `A` via absorption; binary addition $1011_2 + 0110_2 = 10001_2$ ($11 + 6 = 17$); −5 in 8-bit two's complement $\implies 11111011_2$).
+  - Modes: Simplify & Truth Table (full $2^n$ evaluation with minterms/maxterms and RFC 4180 CSV export), Equivalence Check with first differing counterexample row, and Binary/Bitwise Math (arbitrary-precision BigInt, 8/16/32/64-bit registers, two's complement signed view, and hex/octal/decimal).
+  - UI: `BooleanCalculator.tsx` with syntax insertion chips, dark gradient hero card, and quick two's complement signed decimal converter.
+  - Custom InputGuide: `BooleanInputGuide.tsx` with logic gate pipeline, equivalence indicator, and bit register blocks.
+  - Page & SEO: `src/app/boolean-algebra-calculator/page.tsx`, Breadcrumbs, HowWeCalculate referencing Quine (1952) and McCluskey (1956), and 10 FAQs.
+
+- **Tool 18: Monthly Budget Calculator (50/30/20) (`/budget-calculator/`):**
+  - Engine: `src/lib/budget-engine.ts` with 4 Vitest test suites (`src/lib/budget-engine.test.ts`) matching all spec worked examples ($5,000 net income $\implies$ Needs $2,750 (55%), Wants $1,000 (20%), Savings $750 (15%), leaving $500 leftover surplus; bi-weekly $2,000 $\implies$ $4,333.33/mo; weekly $1,000 $\implies$ $4,333.33/mo; sinking fund annual bills $1,200/yr $\implies$ $100/mo).
+  - Modes: Income normalization across 5 pay frequencies, itemized expense allocation with 50/30/20 or custom percentage splits, sinking fund annual bills, and RFC 4180 CSV spreadsheet export.
+  - UI: `BudgetCalculator.tsx` with dynamic visual breakdown bars, delta gap analysis, and interactive line-item management.
+  - Custom InputGuide: `BudgetInputGuide.tsx` with 3 bucket cards, target percentages, and status badge.
+  - Page & SEO: `src/app/budget-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing Elizabeth Warren (2005) and CFPB standards, and 10 FAQs.
+
+- **Tool 17: Final Grade Calculator (`/final-grade-calculator/`):**
+  - Engine: `src/lib/final-grade-engine.ts` with 6 Vitest tests (`src/lib/final-grade-engine.test.ts`) matching all spec worked examples (Current 85%, final 20%, target 87% $\implies$ 95.00% needed on final with reachable range 68%–88%; Letter cutoffs: A (90%) not reachable, B (80%) requires 60.00%, D (60%) already secured; Weighted categories: HW 20% @ 92, Quiz 20% @ 85, Tests 35% @ 80, Final 25%, target 85% $\implies$ 86.40% needed).
+  - Modes: Simple Course Grade, Category-Weighted Grade, Total Points / Point Accumulation, and Final Worth Multiple Tests.
+  - UI: `FinalGradeCalculator.tsx` with visual progress meter, reachable score bounds, letter grade cutoff status table, and course category manager.
+  - Custom InputGuide: `FinalGradeInputGuide.tsx` with semester progress visual, final weight badge, and target grade indicator.
+  - Page & SEO: `src/app/final-grade-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing College Board & MAA weighted grading frameworks, and 10 FAQs.
+
+- **Tool 16: ROI Calculator (`/roi-calculator/`):**
+  - Engine: `src/lib/roi-engine.ts` with 6 Vitest tests (`src/lib/roi-engine.test.ts`) matching all spec worked examples ($10,000 initial, $15,000 final in 3 years $\implies$ 50% simple ROI, 14.47% annualized ROI; Marketing: $20,000 revenue, $5,000 cost, 40% margin $\implies$ 60% ROI on margin, 300% revenue ROI, 4.0 ROAS; Project: $12,000 cost, $4,000/yr savings $\implies$ 3.0 year payback, 66.67% 5-yr ROI; Fisher equation real inflation-adjusted ROI).
+  - Modes: Simple Investment ROI & Annualized Rate, Marketing & Advertising Campaign ROI (ROAS vs gross margin ROI), Business Project / Capital Investment Payback, and Real Inflation-Adjusted ROI.
+  - UI: `RoiCalculator.tsx` with metric cards, annual breakdown table with CSV export, and Fisher equation inflation adjustment.
+  - Custom InputGuide: `RoiInputGuide.tsx` with capital growth arrow, gain/loss indicators, and duration meter.
+  - Page & SEO: `src/app/roi-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing CFA Institute & SEC Rule 156 GIPS guidelines, and 10 FAQs.
+
+- **Tool 15: Simple Interest Calculator (`/simple-interest-calculator/`):**
+  - Engine: `src/lib/simple-interest-engine.ts` with 7 Vitest tests (`src/lib/simple-interest-engine.test.ts`) matching all spec worked examples ($10,000 principal at 5% for 3 years $\implies$ $1,500 interest, $11,500 total; accrued interest 2026-01-15 to 2026-04-15 (90 days) $\implies$ $123.29 (Actual/365) vs $125.00 (Actual/360) vs $125.00 (30/360); Bond coupon: $1,000 face at 5.75% semi-annual, 61 of 180 days $\implies$ $9.74 accrued; Compound comparison $\implies$ $1,614.72).
+  - Modes: Standard I = P·r·t (solve for any variable), Date-to-Date Accrual with day-count conventions, Fixed-Income Bond Coupon Accrual, and Compound vs Simple comparison side-by-side.
+  - UI: `SimpleInterestCalculator.tsx` with dynamic year-by-year amortization schedule, day-count convention selector, and CSV export.
+  - Custom InputGuide: `InterestInputGuide.tsx` with loan principal arrow, interest earnings pillar, and calendar timeline.
+  - Page & SEO: `src/app/simple-interest-calculator/page.tsx`, Breadcrumbs, HowWeCalculate referencing ICMA and MSRB Rule G-33 standards, and 10 FAQs.
+
+- **Verification Pipeline:**
+  - `npm run verify` passed all 6 steps (`lint`, `test`, `check:no-network`, `build`, `seo:audit`, `docs:bundle`). All 130 static routes prerendered without errors.
+  - Total catalog tools: 95 tools. Total passing Vitest tests: 1,114. Total static routes in routes.ts: 113.
+
+---
+
+### [Batch 5 — Tool 14: Tank Volume Calculator] — 2026-11-24
+
+- **Tool 14 (`/tank-volume-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/tank-engine.ts` with 9 Vitest tests (`src/lib/tank-engine.test.ts`) matching all spec worked examples (6 × 12 ft flat-end cylinder $\implies$ 2,538.1 US gal full, at 2 ft depth $\implies$ 740.6 gal, 29.2% full; 10 ft diameter at 3 ft depth $\implies$ 25.2% full; vertical 4 × 6 ft cylinder $\implies$ 564.0 US gal; 4 × 10 ft horizontal $\implies$ 940.0 gal full, 183.8 gal at 1 ft depth; hemispherical & ASME 2:1 semi-elliptical dished heads; cone-bottom hopper; monotonic dipstick strapping table; inverse tank sizing).
+  - Modes: Capacity & Partial Fill (depth from bottom or ullage gap from top), Dipstick (Strapping) Chart with CSV export, and Tank Sizing solver.
+  - Multi-unit outputs: US Gallons, Imperial Gallons, Litres, m³, Cubic Feet, Oil Barrels (bbl), and liquid weight by density.
+  - UI: `TankCalculator.tsx` with dynamic proportional SVG visualization, quick presets (6×12 ft, 4×6 ft vert, 4×10 ft, 10×20 ft), and step-by-step geometry math.
+  - Custom InputGuide: `TankInputGuide.tsx` dynamically adapting between horizontal cylinder and vertical upright silo geometry with shaded liquid levels and ullage gap.
+  - Contextual Cross-Links: added links to `/tank-volume-calculator/` from Gallons to Cubic Feet Converter (`/gallons-to-cubic-feet/`) and Pipe Volume Calculator (`/pipe-volume-calculator/`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/tank-volume-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 10 questions), Breadcrumbs, and HowWeCalculate referencing ASME BPVC and Perry's Chemical Engineers' Handbook.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 13: Slope Calculator] — 2026-11-24
+
+- **Tool 13 (`/slope-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/slope-engine.ts` with 8 Vitest tests (`src/lib/slope-engine.test.ts`) matching all spec worked examples (rise 1 over run 12 $\implies$ 8.33% grade, 1:12 ratio, 4.76° angle, 1/12 pitch, 1 in/ft; run 20 ft at 2% $\implies$ rise 0.4 ft = 4.8 in; 4/12 roof pitch $\implies$ 18.43°, 33.33%; 1/4 in/ft $\implies$ 2.08%; accessible ramp with 24 in rise at 1:12 $\implies$ 24 ft minimum run; points (1, 2) and (4, 11) $\implies m = 3, b = -1, y = 3x - 1$).
+  - Modes: Rise & Run (any two solver), Construction Presets (ADA ramp planning with 2010 ADA Standards §§405.2, 405.6 citations; plumbing drain with 2021 IPC §704.1; roof pitch), and Two-Point Coordinate / Table linearity analysis.
+  - UI: `SlopeCalculator.tsx` with dynamic proportional SVG visualization, quick presets (1:12 ramp, 4:12 roof, 1/4 in/ft drain, 2% walkway), and step-by-step conversion math.
+  - Custom InputGuide: `SlopeInputGuide.tsx` dynamically adapting between rise/run geometry, construction slope limits, and coordinate Cartesian grid.
+  - Contextual Inbound Links: added links to `/slope-calculator/` from Concrete Calculator (`/concrete-calculator/`) and Rafter Calculator (`src/content/pages/rafter-calculator.ts`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/slope-calculator/page.tsx` with metadata (`absoluteTitle: true`), JSON-LD Schema (SoftwareApplication + FAQPage with 12 questions), Breadcrumbs, and HowWeCalculate referencing ADA and IPC.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 12: Pythagorean Theorem Calculator] — 2026-11-24
+
+- **Tool 12 (`/pythagorean-theorem-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/right-triangle-engine.ts` with 8 Vitest tests (`src/lib/right-triangle-engine.test.ts`) matching all spec worked examples ($a=3, b=4 \implies c=5, \alpha=36.87^\circ, \beta=53.13^\circ$, area 6, altitude 2.4; legs 3 and 6 $\implies c = \sqrt{45} = 3\sqrt{5} \approx 6.7082$; square 12 × 16 ft pad $\implies 20$ ft; square 10 × 14 ft deck $\implies 17.2047$ ft = 17′ 2-7/16″).
+  - Modes: Find a side ($a^2+b^2=c^2$), side + angle trigonometry, builder squareness check (3-4-5 rule and dual-diagonal comparison), and triangle classification (Right, Acute, Obtuse).
+  - Exact radical factorization ($k\sqrt{m}$) and builder fractional feet/inches parsing and formatting to nearest 1/16″.
+  - UI: `PythagoreanCalculator.tsx` with dynamic proportional SVG visualization, 4 tabs, quick-pick triples (3-4-5, 5-12-13, 8-15-17, 7-24-25), and step-by-step math.
+  - Custom InputGuide: `PythagorasInputGuide.tsx` dynamically adapting between right triangle geometry and rectangle diagonal/3-4-5 corner layout.
+  - Contextual Inbound Links: added links to `/pythagorean-theorem-calculator/` from Concrete Calculator (`/concrete-calculator/`), Rafter Calculator (`src/content/pages/rafter-calculator.ts`), and Stud Calculator (`/stud-calculator/`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/pythagorean-theorem-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 11 questions), Breadcrumbs, and HowWeCalculate referencing Euclid and IRC builder layout practices.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 11: Binomial Probability Calculator] — 2026-11-24
+
+- **Tool 11 (`/binomial-probability-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/binomial-engine.ts` with 10 Vitest tests (`src/lib/binomial-engine.test.ts`) matching all spec worked examples ($n=10, p=0.5, k=3 \implies P=0.1172, CDF=0.1719$, mean 5, var 2.5, SD 1.581, mode 5; 99.99% certainty at $p=1\% \implies 917$ trials).
+  - Normal approximation criteria implemented and cited from Walpole et al. (2012) and Hogg & Tanis (2015): $np \ge 10$ and $n(1-p) \ge 10$ with $\pm 0.5$ continuity correction.
+  - UI: `BinomialCalculator.tsx` with dynamic responsive SVG probability distribution chart, interactive region highlighting, PMF/CDF copyable data table, step-by-step breakdown with user inputs, inverse trials needed solver, and assumption checklist.
+  - Custom InputGuide: `BinomialInputGuide.tsx` with coin trials visual, highlighted k successes, probability dial, and comparison mode picker.
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial gradient highlight.
+  - Page & SEO: `src/app/binomial-probability-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 10 questions), Breadcrumbs, and HowWeCalculate referencing Walpole (2012) and Hogg (2015).
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 review fixes — remaining 10 tools (#09, #10, #12, #14–#20)] — 2026-11-24
+
+All spec worked examples were re-run against the engines and match (tank 2,538.1 / 740.6 gal, 25.2%, 564.0 gal; final 95% and 86.4%; budget +$250/−$500/−$250, $500 left; accrued $123.29/$125/$125, bond $9.74; ROI 50% / 14.47%, ROAS 4.0, payback 3 yr; binomial 0.1172 / 0.1719, 917 trials; slope 8.33% / 4.76° / 18.43° / y = 3x − 1; Boolean → A, 10001, 11111011; metric 3.048 m, 1.778 m, 20 °C, 18 °F, 10.7639 ft²).
+
+**Engine bugs (tests added):**
+- `tank-engine`: vertical and cone-bottom tanks clamped the fill depth to the **diameter** instead of the height (4 × 6 ft vertical tank at 5 ft showed the 4 ft volume); ullage was wrong for the same reason. Rounded constants (7.48051948, 1/1.20095) replaced with the shared exact `volume-units-engine` factors.
+- `right-triangle-engine`: the 3-4-5 multiple only checked the short side (10 × 10 suggested 9-12-15); the invented 0.01 ft "square" tolerance was replaced by "diagonals match to the displayed 1/16 in".
+- `slope-engine`: the ramp planner always returned `isCompliant: true`, even for 1:8. ADA §405.2/405.6/405.7.3 wording was opened and checked on access-board.gov.
+- `boolean-engine`: the minimum cover was greedy (not always minimal); now an exact search (≤ 18 candidates). Binary division by zero returned 0; now returns null.
+- `roi-engine`: real ROI was computed from the 2-dp rounded annual rate.
+- `simple-interest-engine`, `binomial-engine`, `metric-engine`: removed convention "standard for …" usage claims (spec TODO), the unverified textbook citation and the "is exactly" wording on rounded values.
+
+**UI:** 9 tools used hand-made tabs; all now use the shared `TabSlider` with `?tab=` links (rules §4). Unlinked labels fixed (Budget table, Final Grade what-if, Simple Interest compare). Budget's "Saved only on your device" pill was untrue (nothing was saved): the draft is now kept with `safeStorage` and Reset clears it. Tank fuel density presets (diesel/gasoline/oil/propane, unsourced) replaced by water (approx.) + a custom density field. Missing WebApplication JSON-LD added to Boolean, Metric and Simple Interest.
+
+**Content:** removed the unverified IPC §704.1 drain table (ICC site refused the fetch) in favour of "check your adopted plumbing code" plus the conversion; removed ASME/"common in heating oil" claims, driveway code percentages, gross-pay "20–35%", "housing 60%+", "In many high schools", day-count "primary market usage" column (now shows the worked numbers), "guarantee minimal", "prototype kilogram". Misattributed sources replaced in `calculation-methods.ts`: IRC (3-4-5), ASME BPVC and Perry's (tank volume), College Board/MAA (grades), CFA GIPS/CFI (ROI), SIFMA, CFPB, Walpole/Hogg; IPC removed. Kept: Quine 1952, McCluskey 1956, Warren & Tyagi 2005, NIST SP 811/HB 44, BIPM, ADA.
+
+**Still open:** InputGuides for these 10 do not meet rules §4 (no focus highlight, no mobile `<details>`, many hard-coded hex colours; Boolean and Metric have no SVG). Spec gaps: Tank oval/stadium and capsule shapes (H1 mentions "Oval"), Final Grade drop-lowest mode, Boolean K-map and NAND/NOR-only views. `TODO(owner)`: cite the 2:1 head formula, the IPC table if a drain preset is wanted, and the ROI-vs-CAGR fold rule.
 
 ---
 
@@ -2427,7 +2574,7 @@ No code changed.
 
 # SEO Audit Report
 
-Run Date: 2026-11-23T19:58:59.264Z
+Run Date: 2026-11-24T03:57:25.965Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -2448,18 +2595,21 @@ Status: PASSED ✅
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
 | `/band-name-generator/rock/` | Rock Band Name Generator – Free Name Ide | 1155 | Rock Band Name Generator | PASS |
 | `/bathroom-remodel-cost-calculator/` | Bathroom Remodel Cost Calculator – Itemi | 1834 | Bathroom Remodel Cost Calculat | PASS |
+| `/binomial-probability-calculator/` | Binomial Probability Calculator – P(X =  | 2783 | Binomial Probability Calculato | PASS |
 | `/board-and-batten-calculator/` | Board and Batten Calculator – Spacing &  | 2642 | Board and Batten Calculator: B | PASS |
+| `/boolean-algebra-calculator/` | Boolean Algebra Calculator – Truth Table | 2176 | Boolean Algebra Calculator: Tr | PASS |
 | `/brick-calculator/` | Brick Calculator (Brick Wall & Mortar) | | 2905 | Brick Calculator: Bricks, Mort | PASS |
+| `/budget-calculator/` | Budget Calculator – Monthly Budget Plann | 2273 | Monthly Budget Calculator: Pla | PASS |
 | `/business-valuation-calculator/` | Business Valuation Calculator – SDE & EB | 3137 | Business Valuation Calculator: | PASS |
-| `/cagr-calculator/` | CAGR Calculator – Compound Annual Growth | 3107 | CAGR Calculator: Compound Annu | PASS |
+| `/cagr-calculator/` | CAGR Calculator – Compound Annual Growth | 3112 | CAGR Calculator: Compound Annu | PASS |
 | `/cap-rate-calculator/` | Cap Rate Calculator – NOI & Commercial P | 3055 | Cap Rate Calculator: Cap Rate, | PASS |
 | `/carpet-cost-calculator/` | Carpet Cost Calculator – Price per Squar | 4139 | Carpet Cost Calculator | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
 | `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 2815 | Commercial Lease Calculator: R | PASS |
 | `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2533 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
-| `/compound-interest-calculator/` | Compound Interest Calculator – Daily, Mo | 3396 | Compound Interest Calculator:  | PASS |
-| `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2714 | Concrete Calculator: Volume in | PASS |
+| `/compound-interest-calculator/` | Compound Interest Calculator – Daily, Mo | 3407 | Compound Interest Calculator:  | PASS |
+| `/concrete-calculator/` | Concrete Calculator – Volume, Yards & Ba | 2732 | Concrete Calculator: Volume in | PASS |
 | `/concrete-slab-cost-calculator/` | Concrete Slab Cost Calculator – Per Yard | 3355 | Concrete Slab Cost Calculator | PASS |
 | `/construction-estimate-template/` | Construction Estimate Template – Free Bu | 3047 | Free Construction Estimate Tem | PASS |
 | `/contact/` | Contact KKC Tools – Report a Bug or Sugg | 205 | Contact KKC Tools | PASS |
@@ -2479,10 +2629,11 @@ Status: PASSED ✅
 | `/fence-cost-calculator/` | Fence Cost Calculator – Chain Link, Viny | 2653 | Fence Cost Calculator: Chain L | PASS |
 | `/fence-stain-calculator/` | Fence Stain Calculator (Gallons & Picket | 2395 | Fence Stain Calculator: Gallon | PASS |
 | `/fill-dirt-calculator/` | Fill Dirt Calculator: Cubic Yards & Tons | 1541 | Fill Dirt Calculator | PASS |
+| `/final-grade-calculator/` | Final Grade Calculator – What Do I Need  | 2267 | Final Grade Calculator: What S | PASS |
 | `/floor-refinishing-cost-calculator/` | Hardwood Floor Refinishing Cost Calculat | 2788 | Hardwood Floor Refinishing & R | PASS |
-| `/fraction-to-percent-calculator/` | Fraction to Percent Calculator – X out o | 2417 | Fraction to Percent Calculator | PASS |
+| `/fraction-to-percent-calculator/` | Fraction to Percent Calculator – X out o | 2439 | Fraction to Percent Calculator | PASS |
 | `/freelance-rate-calculator/` | Freelance Rate Calculator – Hourly Rate  | 2973 | Freelance Hourly Rate Calculat | PASS |
-| `/gallons-to-cubic-feet/` | Gallons to Cubic Feet Converter – ft³, m | 2177 | Gallons to Cubic Feet: Convert | PASS |
+| `/gallons-to-cubic-feet/` | Gallons to Cubic Feet Converter – ft³, m | 2182 | Gallons to Cubic Feet: Convert | PASS |
 | `/guides/band-name-ideas-by-genre/` | Band Name Ideas by Genre – Naming Guide  | 1686 | Band Name Ideas by Genre: The  | PASS |
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
@@ -2490,7 +2641,7 @@ Status: PASSED ✅
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 2875 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3290 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 4107 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 4424 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 2971 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2837 | Invoice Generator: Make an Hou | PASS |
 | `/iqr-calculator/` | IQR Calculator – Quartiles, Outliers & B | 2972 | IQR Calculator: Interquartile  | PASS |
@@ -2500,41 +2651,47 @@ Status: PASSED ✅
 | `/linear-foot-calculator/` | Linear Foot Calculator (Sq Ft to Linear  | 1638 | Linear Foot Calculator (Linear | PASS |
 | `/markup-calculator/` | Markup Calculator – Selling Price, Marku | 2634 | Markup Calculator: Selling Pri | PASS |
 | `/metal-roof-cost-calculator/` | Metal Roof Cost Calculator – Standing Se | 2066 | Metal Roof Cost Calculator | PASS |
-| `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2585 | Net Worth Calculator: Calculat | PASS |
+| `/metric-conversion-calculator/` | Metric Conversion Calculator – Length, W | 2026 | Metric Conversion Calculator:  | PASS |
+| `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2603 | Net Worth Calculator: Calculat | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
 | `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3881 | Percentage Change Calculator:  | PASS |
-| `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2542 | Pipe & Tube Volume Calculator | PASS |
+| `/pipe-volume-calculator/` | Pipe & Tube Volume Calculator – Gallons  | 2552 | Pipe & Tube Volume Calculator | PASS |
 | `/present-value-calculator/` | Present Value Calculator – PV Formula, N | 3191 | Present Value Calculator: PV F | PASS |
 | `/privacy-policy/` | Privacy Policy – Transparent & Privacy F | 876 | Privacy Policy | PASS |
 | `/processing-fee-calculator/` | Card Processing Fee Calculator – Square  | 2689 | Credit Card Processing Fee Cal | PASS |
-| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2128 | Profit Margin Calculator: Gros | PASS |
+| `/profit-margin-calculator/` | Profit Margin Calculator – Gross, Net &  | 2129 | Profit Margin Calculator: Gros | PASS |
 | `/pulley-calculator/` | Pulley Calculator – Ratio, Speed and Bel | 2601 | Pulley Ratio Calculator: Drive | PASS |
-| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2404 | Rafter Calculator – Find Rafte | PASS |
+| `/pythagorean-theorem-calculator/` | Pythagorean Theorem Calculator – Right T | 2725 | Pythagorean Theorem Calculator | PASS |
+| `/rafter-calculator/` | Rafter Calculator: Length, Pitch & Cut A | 2430 | Rafter Calculator – Find Rafte | PASS |
 | `/ratio-calculator/` | Ratio Calculator – Simplify and Solve Pr | 2828 | Ratio Calculator: Simplify Rat | PASS |
 | `/rebar-calculator/` | Rebar Calculator – Reinforcement Steel B | 2324 | Reinforcement Steel Calculator | PASS |
 | `/rental-property-calculator/` | Rental Property Calculator – Cash-on-Cas | 3029 | Rental Property Calculator: Ca | PASS |
 | `/reverse-sales-tax-calculator/` | Reverse Sales Tax Calculator – Price Bef | 2592 | Reverse Sales Tax Calculator:  | PASS |
+| `/roi-calculator/` | ROI Calculator – Return on Investment &  | 2177 | ROI Calculator: Return on Inve | PASS |
 | `/roof-replacement-cost-calculator/` | Roof Replacement Cost Calculator – Per S | 4152 | Roof Replacement Cost Calculat | PASS |
 | `/sand-calculator/` | Sand Calculator: Cubic Yards, Tons & Bag | 1571 | Sand Calculator | PASS |
 | `/sba-loan-calculator/` | SBA Loan Calculator – 7(a) and 504 Loan  | 3461 | SBA Loan Calculator: 7(a) and  | PASS |
 | `/self-employment-tax-calculator/` | 1099 Tax Calculator – Self-Employment Ta | 2826 | 1099 Tax Calculator: Self-Empl | PASS |
 | `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1597 | Site Map | PASS |
+| `/simple-interest-calculator/` | Simple Interest Calculator – Accrued Int | 2446 | Simple Interest Calculator: In | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1797 | Site Map | PASS |
+| `/slope-calculator/` | Slope Calculator – Rise over Run, Percen | 2618 | Slope Calculator: Rise over Ru | PASS |
 | `/speeds-and-feeds-calculator/` | Speeds and Feeds Calculator – CNC RPM &  | 3188 | Speeds and Feeds Calculator: C | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
 | `/standard-deviation-calculator/` | Standard Deviation Calculator – Variance | 2431 | Standard Deviation Calculator: | PASS |
 | `/steps-per-mm-calculator/` | Steps per mm Calculator – Stepper & E-st | 2648 | Steps per mm Calculator: Stepp | PASS |
 | `/stone-calculator/` | Gravel & Stone Calculator – Yards, Tons  | 3609 | Gravel Calculator: Stone, Rock | PASS |
-| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2207 | Stud Calculator: Wall Framing  | PASS |
+| `/stud-calculator/` | Stud Calculator: Wall Framing & Lumber C | 2217 | Stud Calculator: Wall Framing  | PASS |
 | `/t-test-calculator/` | T-Test Calculator – One, Two-Sample & Pa | 2905 | T-Test Calculator: One-Sample, | PASS |
+| `/tank-volume-calculator/` | Tank Volume Calculator – Gallons in Any  | 2551 | Tank Volume Calculator: Gallon | PASS |
 | `/terms/` | Terms of Service – Simple & Fair Usage | | 559 | Terms of Service | PASS |
 | `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1975 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 2707 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 3016 | All Free Tools: Construction C | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/_not-found/` | Page Not Found – 404 | KKC Tools | 23 | Page Not Found | PASS |
@@ -2562,8 +2719,11 @@ band-name-generator/metal/index.html
 band-name-generator/random/index.html
 band-name-generator/rock/index.html
 bathroom-remodel-cost-calculator/index.html
+binomial-probability-calculator/index.html
 board-and-batten-calculator/index.html
+boolean-algebra-calculator/index.html
 brick-calculator/index.html
+budget-calculator/index.html
 business-valuation-calculator/index.html
 cagr-calculator/index.html
 cap-rate-calculator/index.html
@@ -2593,6 +2753,7 @@ equipment-loan-calculator/index.html
 fence-cost-calculator/index.html
 fence-stain-calculator/index.html
 fill-dirt-calculator/index.html
+final-grade-calculator/index.html
 floor-refinishing-cost-calculator/index.html
 fraction-to-percent-calculator/index.html
 freelance-rate-calculator/index.html
@@ -2614,6 +2775,7 @@ lawn-mowing-cost-calculator/index.html
 linear-foot-calculator/index.html
 markup-calculator/index.html
 metal-roof-cost-calculator/index.html
+metric-conversion-calculator/index.html
 net-worth-calculator/index.html
 paint-cost-calculator/index.html
 paver-base-calculator/index.html
@@ -2625,18 +2787,22 @@ privacy-policy/index.html
 processing-fee-calculator/index.html
 profit-margin-calculator/index.html
 pulley-calculator/index.html
+pythagorean-theorem-calculator/index.html
 rafter-calculator/index.html
 ratio-calculator/index.html
 rebar-calculator/index.html
 rental-property-calculator/index.html
 reverse-sales-tax-calculator/index.html
+roi-calculator/index.html
 roof-replacement-cost-calculator/index.html
 sand-calculator/index.html
 sba-loan-calculator/index.html
 self-employment-tax-calculator/index.html
 sfm-to-rpm-calculator/index.html
 shingle-calculator/index.html
+simple-interest-calculator/index.html
 site-map/index.html
+slope-calculator/index.html
 speeds-and-feeds-calculator/index.html
 square-footage-calculator/index.html
 standard-deviation-calculator/index.html
@@ -2644,6 +2810,7 @@ steps-per-mm-calculator/index.html
 stone-calculator/index.html
 stud-calculator/index.html
 t-test-calculator/index.html
+tank-volume-calculator/index.html
 terms/index.html
 thread-pitch-diameter-calculator/index.html
 tile-calculator/index.html
@@ -2690,6 +2857,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+c6ce78d feat(batch-5): implement first 10 math tools, redesign compact footer & header mega menu - Implement first 10 Math & Financial calculators with premium dark gradient hero cards (#312E81 to #0D9488) and custom InputGuides:   * Ratio Calculator (/ratio-calculator/)   * Age Difference Calculator (/age-difference-calculator/)   * IQR Calculator (/iqr-calculator/) with dynamic box plot SVG   * A/B Test Significance Calculator (/ab-test-significance-calculator/)   * Gallons to Cubic Feet Converter (/gallons-to-cubic-feet/)   * CAGR Calculator (/cagr-calculator/)   * Fraction to Percent Calculator (/fraction-to-percent-calculator/)   * Reverse Sales Tax Calculator (/reverse-sales-tax-calculator/)   * Standard Deviation Calculator (/standard-deviation-calculator/)   * T-Test Calculator (/t-test-calculator/) with Welch default and t-curve SVG - Add 'Math & Finance' category and 4 shared engines with 100% test coverage (stats, growth, volume-units, date-diff) - Apply 10 live-page keyword refreshes (Stone & Gravel, Tons to Yards, Sand, etc.) - Redesign footer: eliminate 50-link wall, organize into 6 balanced categories (6-7 tools each), add top brand header & company ribbon (height cut by ~75%) - Redesign Tools Mega Menu: compact 4-column x 2-row layout (~290px height) and single-expand accordion mobile drawer - All 1,039 vitest tests passing, 0 lint errors, 0 network calls, static build verified across 106 HTML pages
 a86c1e1 feat(batch-4): add 8 3D Printing & CNC engineering calculators with oceanic gradient UI - Build 8 pure client-side tools (#68–#75) in the '3D Printing & CNC' category:   * Epoxy Resin Calculator (/epoxy-resin-calculator/)   * Epoxy River Table Calculator (/epoxy-table-calculator/)   * 3D Print Cost Calculator (/3d-print-cost-calculator/)   * Speeds and Feeds Calculator (/speeds-and-feeds-calculator/)   * SFM to RPM Surface Speed Calculator (/sfm-to-rpm-calculator/)   * Pulley Ratio & Belt Speed Calculator (/pulley-calculator/)   * Stepper Steps/mm & E-Steps Calculator (/steps-per-mm-calculator/)   * Thread Pitch Diameter & Tap Drill Calculator (/thread-pitch-diameter-calculator/) - Add calculation engines with 100% test coverage matching all spec worked examples - Add bespoke SVG icons, home card artwork, and category navigation - Fix global container max-width to prevent widescreen stretching - Elevate results UI with oceanic teal/cyan gradient hero cards, glassmorphic badges, and modern data tables - Keep Batch 8 specifications, research, and prompt files intact - All 957 Vitest tests passing, 0 lint errors, static build verified (96 pages)
 e94a40f build spec files added
 c55ef1a feat: complete Batch 3 financial tools (#47-#67) and redesign unique card artwork
@@ -2709,7 +2877,6 @@ fc9be24 feat(carpet): add Carpet Cost Calculator and align UI with design system
 6717356 tool 19 completed
 15a6cff docs(status): mark Netlify HUD eliminated after full Cloudflare migration
 cc34105 docs(audit): record live Cloudflare 301 redirect verification
-3b3958a feat(seo): implement cue audit fixes, BLUF answers, internal hubs, and mobile enhancements
 ```
 
 
@@ -2725,18 +2892,18 @@ cc34105 docs(audit): record live Cloudflare 301 redirect verification
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 27ms
+✓ Running next.config.ts took 26ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 11.7s
+✓ Compiled successfully in 12.5s
   Running TypeScript ...
-  Finished TypeScript in 5.9s ...
+  Finished TypeScript in 3.6s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/120) ...
-  Generating static pages using 15 workers (30/120) 
-  Generating static pages using 15 workers (60/120) 
-  Generating static pages using 15 workers (90/120) 
-✓ Generating static pages using 15 workers (120/120) in 5.7s
+  Generating static pages using 15 workers (0/130) ...
+  Generating static pages using 15 workers (32/130) 
+  Generating static pages using 15 workers (64/130) 
+  Generating static pages using 15 workers (97/130) 
+✓ Generating static pages using 15 workers (130/130) in 5.0s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -2757,9 +2924,12 @@ Route (app)
 │ ├ ● /band-name-generator/heavy-metal
 │ └ ● [+3 more paths]
 ├ ○ /bathroom-remodel-cost-calculator
+├ ○ /binomial-probability-calculator
 ├ ○ /board-and-batten-calculator
+├ ○ /boolean-algebra-calculator
 ├ ○ /brick-calculator
 ├ ○ /brick-calculator/opengraph-image
+├ ○ /budget-calculator
 ├ ○ /business-valuation-calculator
 ├ ○ /cagr-calculator
 ├ ○ /cap-rate-calculator
@@ -2791,6 +2961,7 @@ Route (app)
 ├ ○ /fence-cost-calculator
 ├ ○ /fence-stain-calculator
 ├ ○ /fill-dirt-calculator
+├ ○ /final-grade-calculator
 ├ ○ /floor-refinishing-cost-calculator
 ├ ○ /fraction-to-percent-calculator
 ├ ○ /freelance-rate-calculator
@@ -2815,6 +2986,7 @@ Route (app)
 ├ ○ /logo.png
 ├ ○ /markup-calculator
 ├ ○ /metal-roof-cost-calculator
+├ ○ /metric-conversion-calculator
 ├ ○ /net-worth-calculator
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
@@ -2828,20 +3000,24 @@ Route (app)
 ├ ○ /processing-fee-calculator
 ├ ○ /profit-margin-calculator
 ├ ○ /pulley-calculator
+├ ○ /pythagorean-theorem-calculator
 ├ ○ /rafter-calculator
 ├ ○ /ratio-calculator
 ├ ○ /rebar-calculator
 ├ ○ /rental-property-calculator
 ├ ○ /reverse-sales-tax-calculator
 ├ ○ /robots.txt
+├ ○ /roi-calculator
 ├ ○ /roof-replacement-cost-calculator
 ├ ○ /sand-calculator
 ├ ○ /sba-loan-calculator
 ├ ○ /self-employment-tax-calculator
 ├ ○ /sfm-to-rpm-calculator
 ├ ○ /shingle-calculator
+├ ○ /simple-interest-calculator
 ├ ○ /site-map
 ├ ○ /sitemap.xml
+├ ○ /slope-calculator
 ├ ○ /speeds-and-feeds-calculator
 ├ ○ /square-footage-calculator
 ├ ○ /square-footage-calculator/opengraph-image
@@ -2851,6 +3027,7 @@ Route (app)
 ├ ○ /stone-calculator/opengraph-image
 ├ ○ /stud-calculator
 ├ ○ /t-test-calculator
+├ ○ /tank-volume-calculator
 ├ ○ /terms
 ├ ○ /thread-pitch-diameter-calculator
 ├ ○ /tile-calculator
@@ -2897,11 +3074,32 @@ Route (app)
 > eslint src
 
 
+D:\1_programmins\5.kkctools\src\app\binomial-probability-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\budget-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\final-grade-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\app\guides\page.tsx
   12:74  warning  'LD_ORG_ID' is defined but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+
+D:\1_programmins\5.kkctools\src\app\pythagorean-theorem-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\roi-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\slope-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\tank-volume-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\3d-print-cost-calculator\PrintCostCalculator.tsx
   11:3   warning  'filamentLengthFromGrams' is defined but never used         @typescript-eslint/no-unused-vars
@@ -2993,6 +3191,9 @@ D:\1_programmins\5.kkctools\src\components\tool\speeds-and-feeds-calculator\Spee
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\budget-engine.test.ts
+  4:3  warning  'calculateTotalMonthlyIncome' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
   3:3  warning  'calculateFreelanceCalendar' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -3010,7 +3211,7 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 61 problems (0 errors, 61 warnings)
+✖ 69 problems (0 errors, 69 warnings)
 
 
 ```
@@ -3022,7 +3223,7 @@ D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 106 HTML files in out/...
+Auditing 116 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -3038,100 +3239,110 @@ Report written to docs/seo-audit-report.md
 
 [1m[30m[46m RUN [49m[39m[22m [36mv4.1.12 [39m[90mD:/1_programmins/5.kkctools[39m
 
- [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 45[2mms[22m[39m
- [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 51[2mms[22m[39m
- [32m✓[39m src/lib/contribution-margin-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 37[2mms[22m[39m
- [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 40[2mms[22m[39m
- [32m✓[39m src/lib/heloc-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 44[2mms[22m[39m
- [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 47[2mms[22m[39m
- [32m✓[39m src/lib/card-payoff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 53[2mms[22m[39m
- [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/sba-loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/rental-property-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 53[2mms[22m[39m
- [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 53[2mms[22m[39m
+ [32m✓[39m src/lib/pricing-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 27[2mms[22m[39m
+ [32m✓[39m src/lib/carpet-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 31[2mms[22m[39m
+ [32m✓[39m src/lib/fill-dirt-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 24[2mms[22m[39m
+ [32m✓[39m src/lib/wage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/deck-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/lib/card-payoff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 50[2mms[22m[39m
+ [32m✓[39m src/lib/contribution-margin-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/lib/slab-cost-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/lib/metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 45[2mms[22m[39m
+ [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 37[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/calculations.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 40[2mms[22m[39m
+ [32m✓[39m src/components/tool/construction-estimate/formatter.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 44[2mms[22m[39m
+ [32m✓[39m src/lib/tools-catalog.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 33[2mms[22m[39m
+ [32m✓[39m src/lib/heloc-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 29[2mms[22m[39m
+ [32m✓[39m src/lib/percent-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 51[2mms[22m[39m
+ [32m✓[39m src/lib/sba-loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/compound-interest-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 25[2mms[22m[39m
+ [32m✓[39m src/lib/rental-property-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 30[2mms[22m[39m
+ [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/boolean-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/tank-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 20[2mms[22m[39m
+ [32m✓[39m src/lib/floor-refinish-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/ratio-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
  [32m✓[39m src/lib/concrete-engine.test.ts [2m([22m[2m25 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/board-batten-engine.test.ts [2m([22m[2m27 tests[22m[2m)[22m[32m 32[2mms[22m[39m
- [32m✓[39m src/lib/drywall-engine.test.ts [2m([22m[2m26 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/sand-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 48[2mms[22m[39m
- [32m✓[39m src/lib/invoice-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/rebar-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/compound-interest-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/stats-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/investment-return-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/shingle-engine.test.ts [2m([22m[2m20 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 778[2mms[22m[39m
-     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 625[2mms[22m[39m
- [32m✓[39m src/lib/roof-replacement-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 28[2mms[22m[39m
+ [32m✓[39m src/lib/generator/engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[33m 580[2mms[22m[39m
+     [33m[2m✓[22m[39m never leaves an unfilled {slot} in a name [33m 475[2mms[22m[39m
+ [32m✓[39m src/lib/stats-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/paint-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/invoice-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/wire-gauge-engine.test.ts [2m([22m[2m31 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/se-tax-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/fraction-percent-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/labor-cost-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/simple-interest-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/content/pages/band-name-ideas.test.ts [2m([22m[2m2 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/tvm-engine.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 22[2mms[22m[39m
+ [32m✓[39m src/lib/epoxy-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/lawn-mowing-engine.test.ts [2m([22m[2m22 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/machining-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/tile-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 19[2mms[22m[39m
  [32m✓[39m src/lib/unit-price-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/deck-stain-engine.test.ts [2m([22m[2m23 tests[22m[2m)[22m[32m 29[2mms[22m[39m
- [32m✓[39m src/lib/cubic-inch-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/discount-engine.test.ts [2m([22m[2m17 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/pipe-volume-engine.test.ts [2m([22m[2m19 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/tvm-engine.test.ts [2m([22m[2m21 tests[22m[2m)[22m[32m 31[2mms[22m[39m
- [32m✓[39m src/lib/fraction-percent-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/ratio-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/str-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/ab-test-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/labor-cost-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/machining-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 25[2mms[22m[39m
- [32m✓[39m src/lib/real-estate-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 22[2mms[22m[39m
- [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 23[2mms[22m[39m
- [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 28[2mms[22m[39m
- [32m✓[39m src/lib/epoxy-engine.test.ts [2m([22m[2m14 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 20[2mms[22m[39m
- [32m✓[39m src/lib/commercial-lease-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/date-diff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/se-tax-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 19[2mms[22m[39m
- [32m✓[39m src/lib/cap-rate-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/processing-fee-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 21[2mms[22m[39m
- [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/right-triangle-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 19[2mms[22m[39m
+ [32m✓[39m src/lib/volume-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 18[2mms[22m[39m
  [32m✓[39m src/lib/drawdown-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/net-worth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/equipment-loan-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 24[2mms[22m[39m
- [32m✓[39m src/lib/commercial-mortgage-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 17[2mms[22m[39m
- [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 15[2mms[22m[39m
- [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/business-valuation-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/pulley-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 27[2mms[22m[39m
- [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/binomial-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/bathroom-remodel-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/cap-rate-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/ab-test-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/real-estate-engine.test.ts [2m([22m[2m16 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/rafter-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/investment-return-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/metal-roof-engine.test.ts [2m([22m[2m13 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/margin-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/date-diff-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/fence-cost-engine.test.ts [2m([22m[2m15 tests[22m[2m)[22m[32m 21[2mms[22m[39m
+ [32m✓[39m src/lib/str-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/loan-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 17[2mms[22m[39m
+ [32m✓[39m src/lib/processing-fee-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/reverse-tax-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/laminate-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 15[2mms[22m[39m
+ [32m✓[39m src/lib/pulley-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/slope-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/stone-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/commercial-mortgage-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 16[2mms[22m[39m
+ [32m✓[39m src/lib/cubic-square-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 18[2mms[22m[39m
+ [32m✓[39m src/lib/commercial-lease-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/equipment-loan-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/final-grade-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/t-test-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/brick-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/cinder-block-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 13[2mms[22m[39m
  [32m✓[39m src/lib/thread-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 14[2mms[22m[39m
- [32m✓[39m src/lib/freelance-rate-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 12[2mms[22m[39m
- [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 11[2mms[22m[39m
- [32m✓[39m src/lib/reverse-tax-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 18[2mms[22m[39m
- [32m✓[39m src/lib/growth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 16[2mms[22m[39m
- [32m✓[39m src/lib/print-cost-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/t-test-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 10[2mms[22m[39m
- [32m✓[39m src/lib/volume-units-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 8[2mms[22m[39m
- [32m✓[39m src/lib/steps-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 7[2mms[22m[39m
- [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 9[2mms[22m[39m
+ [32m✓[39m src/lib/square-footage-engine.test.ts [2m([22m[2m11 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/area-depth-engine.test.ts [2m([22m[2m12 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/stud-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/business-valuation-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/brick-metric-engine.test.ts [2m([22m[2m10 tests[22m[2m)[22m[32m 14[2mms[22m[39m
+ [32m✓[39m src/lib/steps-engine.test.ts [2m([22m[2m6 tests[22m[2m)[22m[32m 11[2mms[22m[39m
+ [32m✓[39m src/lib/net-worth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 12[2mms[22m[39m
+ [32m✓[39m src/lib/tons-yards-engine.test.ts [2m([22m[2m9 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/linear-foot-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/budget-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/volume-units-engine.test.ts [2m([22m[2m8 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/growth-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 10[2mms[22m[39m
+ [32m✓[39m src/lib/roi-engine.test.ts [2m([22m[2m7 tests[22m[2m)[22m[32m 13[2mms[22m[39m
+ [32m✓[39m src/lib/compost-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/print-cost-engine.test.ts [2m([22m[2m4 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/freelance-rate-engine.test.ts [2m([22m[2m5 tests[22m[2m)[22m[32m 8[2mms[22m[39m
+ [32m✓[39m src/lib/paver-sand-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 5[2mms[22m[39m
+ [32m✓[39m src/lib/fence-stain-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
+ [32m✓[39m src/lib/paver-base-engine.test.ts [2m([22m[2m3 tests[22m[2m)[22m[32m 4[2mms[22m[39m
 
-[2m Test Files [22m [1m[32m88 passed[39m[22m[90m (88)[39m
-[2m      Tests [22m [1m[32m1046 passed[39m[22m[90m (1046)[39m
-[2m   Start at [22m 01:28:04
-[2m   Duration [22m 7.08s[2m (transform 24.07s, setup 0ms, import 32.42s, tests 2.78s, environment 61ms)[22m
+[2m Test Files [22m [1m[32m98 passed[39m[22m[90m (98)[39m
+[2m      Tests [22m [1m[32m1133 passed[39m[22m[90m (1133)[39m
+[2m   Start at [22m 09:26:40
+[2m   Duration [22m 4.59s[2m (transform 12.86s, setup 0ms, import 18.27s, tests 2.42s, environment 43ms)[22m
 
 
 ```

@@ -1,0 +1,630 @@
+.calculatorWrapper {
+  --color-surface: var(--surface, #ffffff);
+  --color-surface-sunken: var(--surface-2, #f8fafc);
+  --color-border: var(--line, #e2e8f0);
+  --color-accent: var(--accent, #0369a1);
+  --color-accent-subtle: var(--accent-soft, #e0f2fe);
+  --color-text: var(--ink, #0f172a);
+  --color-text-secondary: var(--ink-2, #334155);
+  --color-text-muted: var(--muted, #556274);
+  --radius-sm: var(--radius-s, 8px);
+  --radius-md: var(--radius-m, 14px);
+  --radius-lg: var(--radius-l, 18px);
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 1.875rem;
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+  width: 100%;
+}
+
+.guideWrapper {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.guideHeader {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.guideBadge {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+.guideTitle {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+}
+
+.diagramGrid {
+  padding: var(--space-2) 0;
+  overflow-x: auto;
+}
+
+.guideVisual {
+  min-width: 500px;
+}
+
+/* Ruler */
+.rulerContainer {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.rulerImperial,
+.rulerMetric {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.rulerLabel {
+  font-weight: 700;
+  color: var(--color-text);
+  width: 130px;
+}
+
+.rulerTicks {
+  display: flex;
+  justify-content: space-between;
+  flex: 1;
+  border-top: 2px solid var(--color-border);
+  padding-top: 4px;
+}
+
+.rulerCenterLine {
+  text-align: center;
+  border-top: 1px dashed var(--color-accent);
+  padding-top: 2px;
+}
+
+.exactTag {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-accent);
+  background: var(--color-accent-subtle);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* Balance Scale */
+.balanceVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.balancePan {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.panLabel {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.panValue {
+  font-size: var(--text-base);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+}
+
+.balanceBeam {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.fulcrum {
+  font-size: var(--text-lg);
+  color: var(--color-accent);
+}
+
+.balanceEq {
+  font-size: var(--text-xl);
+  font-weight: 800;
+  color: var(--color-accent);
+}
+
+/* Volume Visual */
+.volumeVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  gap: var(--space-3);
+}
+
+.jugBox {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  padding: var(--space-2) var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.jugTitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.jugVal {
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  color: var(--color-accent);
+}
+
+.compareBadge {
+  font-size: 11px;
+  font-weight: 600;
+  background: rgba(245, 158, 11, 0.15);
+  color: #d97706;
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  text-align: center;
+}
+
+/* Area visual */
+.areaVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.areaBox {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.areaDim {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+}
+
+.areaVal {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+}
+
+.areaArrow {
+  font-size: var(--text-xs);
+  color: var(--color-accent);
+  font-weight: 600;
+}
+
+/* Temperature visual */
+.tempVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.tempScale {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.tempTitle {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.tempDivider {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+/* Speed visual */
+.speedVisual {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+}
+
+.speedItem {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.speedItem span {
+  font-size: var(--text-base);
+  font-weight: 700;
+  font-family: var(--font-mono);
+}
+
+.speedItem small {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.speedDivider {
+  color: var(--color-accent);
+  font-weight: 700;
+}
+
+.guideFooter {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-xs);
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--space-2);
+}
+
+.legendTitle {
+  font-weight: 700;
+  color: var(--color-text-secondary);
+}
+
+.currentPair {
+  color: var(--color-text);
+}
+
+/* Category Tabs */
+.tabsBar {
+  display: flex;
+  gap: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+  overflow-x: auto;
+}
+
+.tabBtn {
+  background: none;
+  border: none;
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  margin-bottom: -2px;
+  white-space: nowrap;
+  transition: all 0.2s ease;
+}
+
+.tabBtnActive {
+  color: var(--color-accent);
+  border-bottom-color: var(--color-accent);
+}
+
+/* Card */
+.calcCard {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  padding: var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Inputs grid */
+.inputGrid {
+  display: grid;
+  grid-template-columns: 2fr auto 2fr auto;
+  gap: var(--space-3);
+  align-items: flex-end;
+}
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.label {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.input,
+.select {
+  padding: var(--space-3);
+  font-size: var(--text-base);
+  font-family: var(--font-mono);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  color: var(--color-text);
+  width: 100%;
+}
+
+.input:focus,
+.select:focus {
+  outline: none;
+  border-color: var(--color-accent);
+  box-shadow: 0 0 0 3px var(--color-accent-subtle);
+}
+
+.swapBtn {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  cursor: pointer;
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s ease;
+}
+
+.swapBtn:hover {
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+}
+
+/* Controls row (precision & mode) */
+.controlsRow {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  padding-top: var(--space-2);
+}
+
+.segmentedControl {
+  display: flex;
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 2px;
+}
+
+.segBtn {
+  background: none;
+  border: none;
+  padding: 4px 12px;
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+}
+
+.segBtnActive {
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Dark gradient hero card */
+.heroCard {
+  background: linear-gradient(135deg, #312E81 0%, #4338CA 48%, #0D9488 100%);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6);
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.12);
+}
+
+.heroLabel {
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+.heroValue {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  font-family: var(--font-mono);
+  letter-spacing: 0.02em;
+}
+
+.heroExplanation {
+  font-size: var(--text-sm);
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.pitfallBox {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: var(--radius-md);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--text-xs);
+  line-height: 1.5;
+  display: flex;
+  gap: var(--space-2);
+}
+
+.pitfallIcon {
+  font-weight: 800;
+  color: #FCD34D;
+}
+
+/* All Category Units Grid */
+.allUnitsSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.sectionHeading {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  color: var(--color-text);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.unitsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-3);
+}
+
+.unitCard {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-3);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.unitCardActive {
+  border-color: var(--color-accent);
+  background: var(--color-accent-subtle);
+}
+
+.unitCardTitle {
+  font-size: 11px;
+  color: var(--color-text-muted);
+}
+
+.unitCardVal {
+  font-size: var(--text-base);
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: var(--color-text);
+}
+
+/* Conversion Chart */
+.chartSection {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  margin-top: var(--space-4);
+}
+
+.chartHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.csvBtn {
+  background: var(--color-surface-sunken);
+  border: 1px solid var(--color-border);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.csvBtn:hover {
+  background: var(--color-surface);
+  border-color: var(--color-accent);
+}
+
+.chartScroll {
+  overflow-x: auto;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+}
+
+.chartTable {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: var(--text-sm);
+  font-family: var(--font-mono);
+  text-align: left;
+}
+
+.chartTable th {
+  background: var(--color-surface-sunken);
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 2px solid var(--color-border);
+  font-weight: 700;
+}
+
+.chartTable td {
+  padding: var(--space-2) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.chartTable tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .inputGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .swapBtn {
+    align-self: center;
+    width: 48px;
+  }
+
+  .heroValue {
+    font-size: var(--text-2xl);
+  }
+}

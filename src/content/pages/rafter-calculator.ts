@@ -256,6 +256,8 @@ export const rafterPageContent: RafterContent = {
     },
   ],
   relatedCalculators: [
+    { label: 'Slope Calculator', href: '/slope-calculator/', live: true, desc: 'Convert roof pitch (x/12) to percentage grade, angle in degrees and rise over run.' },
+    { label: 'Pythagorean Theorem Calculator', href: '/pythagorean-theorem-calculator/', live: true, desc: 'Find rafter hypotenuse length and square roof framing corners.' },
     { label: 'Roof Replacement Cost Calculator', href: '/roof-replacement-cost-calculator/', live: true, desc: 'Estimate total tear-off, shingles and installation pricing.' },
     { label: 'Linear Foot Calculator', href: '/linear-foot-calculator/', live: true, desc: 'Total up board lengths and lumber needs.' },
     { label: 'Construction Estimate Template', href: '/construction-estimate-template/', live: true, desc: 'Build contractor invoices and material estimates.' },

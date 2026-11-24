@@ -3,11 +3,32 @@
 > eslint src
 
 
+D:\1_programmins\5.kkctools\src\app\binomial-probability-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\budget-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\final-grade-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\app\guides\page.tsx
   12:74  warning  'LD_ORG_ID' is defined but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\app\layout.tsx
   119:13  warning  Prefer `GoogleTagManager` component from `@next/third-parties/google` when using the inline script for Google Tag Manager. See: https://nextjs.org/docs/messages/next-script-for-ga  @next/next/next-script-for-ga
+
+D:\1_programmins\5.kkctools\src\app\pythagorean-theorem-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\roi-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\slope-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
+
+D:\1_programmins\5.kkctools\src\app\tank-volume-calculator\page.tsx
+  3:8  warning  'JsonLd' is defined but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\3d-print-cost-calculator\PrintCostCalculator.tsx
   11:3   warning  'filamentLengthFromGrams' is defined but never used         @typescript-eslint/no-unused-vars
@@ -99,6 +120,9 @@ D:\1_programmins\5.kkctools\src\components\tool\speeds-and-feeds-calculator\Spee
 D:\1_programmins\5.kkctools\src\components\tool\stone-calculator\StoneCalculator.tsx
   12:3  warning  'LAST_VERIFIED' is defined but never used  @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\lib\budget-engine.test.ts
+  4:3  warning  'calculateTotalMonthlyIncome' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\lib\freelance-rate-engine.test.ts
   3:3  warning  'calculateFreelanceCalendar' is defined but never used  @typescript-eslint/no-unused-vars
 
@@ -116,5 +140,5 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 61 problems (0 errors, 61 warnings)
+✖ 69 problems (0 errors, 69 warnings)
 

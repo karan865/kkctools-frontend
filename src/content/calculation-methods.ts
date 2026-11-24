@@ -2314,6 +2314,251 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
       },
     ],
   },
+  'binomial-probability-calculator': {
+    formula: [
+      'P(X = k) = C(n, k) × pᵏ × (1 − p)ⁿ⁻ᵏ, where C(n, k) = n! ÷ (k!(n − k)!)',
+      'P(X ≤ k) = Σ_{i=0}^k P(X = i), evaluated via regularized incomplete beta I_{1−p}(n − k, k + 1) for large n',
+      'P(X ≥ k) = 1 − P(X ≤ k − 1); P(k₁ ≤ X ≤ k₂) = P(X ≤ k₂) − P(X ≤ k₁ − 1)',
+      'Mean: μ = n × p; Variance: σ² = n × p × (1 − p); SD: σ = √(n × p × (1 − p)); Mode: ⌊(n + 1)p⌋; Skewness: (1 − 2p) ÷ σ',
+      'Normal approximation: P(X ≤ k) ≈ Φ((k + 0.5 − np) ÷ σ) when np ≥ 10 and n(1 − p) ≥ 10 (with continuity correction)',
+      'Trials needed: n = ⌈ln(1 − P) ÷ ln(1 − p)⌉ for at least one success with probability ≥ P',
+    ],
+    defaults: [
+      { label: 'Coin flip baseline', value: 'n = 10 trials, p = 0.5, k = 3: P(X = 3) = 0.1172, P(X ≤ 3) = 0.1719' },
+      { label: 'Normal approximation criteria', value: 'np ≥ 10 and n(1 − p) ≥ 10 with ±0.5 continuity correction' },
+      { label: 'Trials needed example', value: 'P = 99.99%, p = 1% requires 917 trials' },
+    ],
+    sources: [
+      {
+        label: 'Binomial distribution (standard probability formulas)',
+        note: 'P(X = k) = C(n, k)·pᵏ·(1 − p)ⁿ⁻ᵏ; the cumulative probability uses the regularized incomplete beta function',
+      },
+      {
+        label: 'Normal approximation with continuity correction',
+        note: 'shown only as a comparison; the rule of thumb used is np ≥ 10 and n(1 − p) ≥ 10 (some textbooks use 5)',
+      },
+    ],
+  },
+  'pythagorean-theorem-calculator': {
+    formula: [
+      'Hypotenuse: c = √(a² + b²); missing legs: a = √(c² − b²), b = √(c² − a²)',
+      'Angles: α = arctan(a ÷ b) in degrees; β = 90° − α; right angle = 90°',
+      'Area = (a × b) ÷ 2; Perimeter = a + b + c; Altitude to hypotenuse: h = (a × b) ÷ c',
+      'Radical simplification: n = k² × m → k√m where k² is the largest square factor',
+      'Triangle classification: a² + b² = c² (Right); a² + b² > c² (Acute); a² + b² < c² (Obtuse)',
+      'Builder squareness: Diagonal = √(L² + W²); 3-4-5 rule: 3k : 4k : 5k layout checks',
+    ],
+    defaults: [
+      { label: 'Right triangle baseline', value: 'legs a = 3, b = 4: hypotenuse c = 5, α = 36.87°, β = 53.13°, area = 6, altitude = 2.4' },
+      { label: 'Radical example', value: 'legs 3 and 6: c = √45 = 3√5 ≈ 6.7082' },
+      { label: 'Squaring layout example', value: '12 × 16 ft pad: diagonal 20 ft (3-4-5 × 4); 10 × 14 ft deck: diagonal 17.2047 ft (17′ 2-7/16″)' },
+    ],
+    sources: [
+      {
+        label: 'Euclid’s Elements, Book I, Proposition 47',
+        note: 'Geometric proof of the Pythagorean theorem',
+      },
+    ],
+  },
+  'slope-calculator': {
+    formula: [
+      'Slope m = Rise ÷ Run = Δy ÷ Δx',
+      'Percent grade = m × 100%; Angle in degrees = arctan(|m|) × (180 ÷ π)',
+      'Ratio 1:N = 1 : (Run ÷ Rise); Roof pitch = |m| × 12 (in/ft)',
+      'Slope length = √(Rise² + Run²)',
+      'Accessible ramp minimum run: Run = Rise × 12 (1:12 slope, ADA §405.2); max rise per run: 30 inches (§405.6)',
+      'Drain fall example: ¼ inch per foot = 0.25 ÷ 12 = 2.08% (check your local plumbing code for the required fall)',
+      'Linear equation from two points: m = (y₂ − y₁) ÷ (x₂ − x₁); b = y₁ − m·x₁; y = mx + b',
+    ],
+    defaults: [
+      { label: 'Baseline rise & run', value: 'rise 1 over run 12 = 8.33% slope, 1:12 ratio, 4.76° angle, 1/12 pitch, 1 in/ft' },
+      { label: 'Ramp example', value: '24 in total rise at 1:12 requires 24 ft minimum horizontal run' },
+      { label: 'Two points example', value: '(1, 2) and (4, 11) yields slope m = 3, y-intercept b = −1 (y = 3x − 1)' },
+    ],
+    sources: [
+      {
+        label: '2010 ADA Standards for Accessible Design (U.S. Access Board)',
+        url: 'https://www.access-board.gov/ada/#ada-405',
+        note: '§405.2 running slope not steeper than 1:12; §405.6 rise 30 in (760 mm) maximum per run; §405.7.3 landing length 60 in (1525 mm) minimum (checked 2026-11-24)',
+      },
+      {
+        label: 'Drain fall',
+        note: 'no code values are built in: the minimum fall depends on pipe size and the plumbing code your area has adopted',
+      },
+    ],
+  },
+  'tank-volume-calculator': {
+    formula: [
+      'Cylinder total volume: V = π × r² × L; 1 cu ft = 7.48052 US gal = 28.31685 litres',
+      'Horizontal cylinder partial fill: A(h) = r²·arccos((r − h) ÷ r) − (r − h)·√(2rh − h²); V = A(h) × L',
+      'Hemispherical heads (both ends): full = (4/3)πr³; partial = πh²(3r − h) ÷ 3 (spherical cap)',
+      '2:1 semi-elliptical heads (approximation): full = (2/3)πr³; partial = 0.5 × spherical cap volume',
+      'Cone bottom hopper: V_cone = (1/3)πr²H_cone; partial in cone: V = (1/3)π(r·h/H_cone)²h',
+      'Tank sizing: Required Length = (Target Gallons ÷ 7.48052) ÷ (π × r²)',
+    ],
+    defaults: [
+      { label: 'Horizontal baseline', value: '6 × 12 ft flat-end cylinder holds 2,538.1 US gal; at 2 ft depth holds 740.6 gal (29.2% full)' },
+      { label: 'Vertical cylinder baseline', value: '4 × 6 ft upright cylinder holds 564.0 US gal' },
+      { label: 'Horizontal 10 ft tank', value: '10 ft diameter filled to 3 ft depth is exactly 25.2% full' },
+    ],
+    sources: [
+      {
+        label: 'Plane and solid geometry',
+        note: 'circular segment area r²·acos((r − h)/r) − (r − h)·√(2rh − h²); spherical cap πh²(3r − h)/3; cone (1/3)πr²h',
+      },
+      {
+        label: '2:1 semi-elliptical heads',
+        note: 'modelled as half-depth hemispheres (head depth = D/4); an approximation, so check your tank maker’s drawing',
+      },
+    ],
+  },
+  'simple-interest-calculator': {
+    formula: [
+      'Simple Interest: I = P × r × t; Total Amount: A = P + I = P(1 + r × t)',
+      'Variable Solvers: P = I ÷ (r × t); r = I ÷ (P × t); t = I ÷ (P × r)',
+      'Accrued Interest: Accrued = P × r × τ, where τ = counted_days ÷ year_basis',
+      'Actual/365: exact calendar days ÷ 365; Actual/360: exact calendar days ÷ 360',
+      '30/360 US: (360(Y2 − Y1) + 30(M2 − M1) + (D2 − D1)) ÷ 360 with standard US EOM adjustments',
+      'Bond Accrued Interest: AI = Face × (Coupon ÷ Freq) × (Days Accrued ÷ Period Days)',
+    ],
+    defaults: [
+      { label: 'Accrued baseline', value: '$10,000 at 5% between 15 Jan and 15 Apr 2026 (90 days) accrues $123.29 on Act/365, or $125.00 on Act/360' },
+      { label: '3-Year simple loan', value: '$10,000 at 5% for 3 years accrues $1,500.00 simple interest (total $11,500.00)' },
+      { label: 'Bond coupon fixture', value: '$1,000 par bond with 5.75% semi-annual coupon for 61 days yields $9.74 accrued interest' },
+    ],
+    sources: [
+      {
+        label: 'Microsoft Excel YEARFRAC, DAYS360 and ACCRINT functions',
+        note: 'basis codes 0 = US 30/360, 1 = actual/actual (Excel’s own method, not ISDA), 2 = actual/360, 3 = actual/365, 4 = European 30/360',
+      },
+      {
+        label: 'ISDA Definitions (day count fractions)',
+        note: 'source of the Actual/Actual (ISDA) and 30/360 day count fractions used here; your loan or bond documents decide which convention applies',
+      },
+    ],
+  },
+  'roi-calculator': {
+    formula: [
+      'Return on Investment: ROI = ((Final Value + Income − Expenses − Cost) ÷ Cost) × 100',
+      'Annualized ROI: Annualized = ((1 + ROI)^(1 ÷ Years) − 1) × 100 (where years = days ÷ 365.25)',
+      'Real ROI (Fisher equation): Real = ((1 + Annualized) ÷ (1 + Inflation)) − 1',
+      'Target Ending Value: Required Final = Cost × (1 + Target ROI ÷ 100)',
+      'Marketing ROI on Margin: ROI_margin = ((Revenue × Margin % − Ad Spend) ÷ Ad Spend) × 100',
+      'ROAS (Return on Ad Spend): ROAS = Revenue ÷ Ad Spend',
+      'Capital Equipment Payback: Payback Period = Equipment Cost ÷ Annual Cash Savings',
+    ],
+    defaults: [
+      { label: 'Standard investment baseline', value: '$10,000 grew to $15,000 in 3 years yields 50.00% ROI (14.47% annualized)' },
+      { label: 'Marketing campaign fixture', value: '$20,000 revenue from $5,000 ad spend at 40% margin yields 60.00% ROI on margin and 4.0x ROAS' },
+      { label: 'Equipment payback fixture', value: '$12,000 equipment with $4,000 annual saving yields 3.0-year payback and 66.67% 5-year ROI' },
+    ],
+    sources: [
+      {
+        label: 'ROI and annualized ROI (plain arithmetic)',
+        note: 'ROI = net gain ÷ cost; annualized = (1 + ROI)^(1 ÷ years) − 1, the same formula as the CAGR calculator',
+      },
+    ],
+  },
+  'final-grade-calculator': {
+    formula: [
+      'Final Grade Formula: Final Grade = Current Grade × (1 − w) + Final Exam × w',
+      'Needed Final Score: Needed = (Target Grade − Current Grade × (1 − w)) ÷ w',
+      'Minimum Guaranteed Grade: Min Grade = Current Grade × (1 − w) (assuming 0% on final)',
+      'Maximum Possible Grade: Max Grade = Current Grade × (1 − w) + 100 × w (assuming 100% on final)',
+      'Weighted Course Categories: Course Average = Σ (Category Average × Weight) ÷ Total Weight',
+      'Points-Based System: Needed Points = Total Target Points − Earned Points to Date',
+    ],
+    defaults: [
+      { label: 'Score needed baseline', value: '85% current grade, 20% final exam weight, 87% target requires 95.00% on the final' },
+      { label: 'Letter cutoff baseline', value: 'From 85% current grade with 20% final: A (90%) is not reachable (max 88%), B requires 60%, D is already secured' },
+      { label: 'Weighted categories fixture', value: 'HW 20% @ 92, Quiz 20% @ 85, Tests 35% @ 80, Final 25% requires 86.40% on final for an 85% course grade' },
+    ],
+    sources: [
+      {
+        label: 'Weighted average (plain arithmetic)',
+        note: 'course grade = current grade × (1 − final weight) + final score × final weight; the weights and letter cutoffs come from your syllabus',
+      },
+    ],
+  },
+  'budget-calculator': {
+    formula: [
+      'Take-Home Monthly Income: Monthly = Σ (Income Amount × Annual Frequency Multiplier) ÷ 12',
+      'Expense Bucketing: Total Expenses = Σ Needs + Σ Wants + Σ Savings',
+      'Leftover Surplus / Shortfall: Leftover = Monthly Income − Total Monthly Expenses',
+      '50/30/20 Guideline Allocation: Needs Target = 50% Income, Wants Target = 30% Income, Savings Target = 20% Income',
+      'Category Variance Gap: Gap = Actual Spend − Target Allocation (+ indicates over target, − indicates under)',
+      'Sinking Fund Monthly Charge: Monthly Allocation = Annual Lump Sum Bill ÷ 12',
+    ],
+    defaults: [
+      { label: '50/30/20 baseline scenario', value: '$5,000 income: Needs $2,750 (55%), Wants $1,000 (20%), Savings $750 (15%), leaving $500.00 surplus' },
+      { label: 'Pay frequency baseline', value: 'Bi-weekly $2,000 equals $4,333.33/mo (×26 ÷ 12); Weekly $1,000 equals $4,333.33/mo (×52 ÷ 12)' },
+      { label: 'Debt classification standard', value: 'Minimum contractual loan payments classify as Needs; extra accelerated principal payments classify as Savings/Debt' },
+    ],
+    sources: [
+      {
+        label: 'Elizabeth Warren & Amelia Warren Tyagi (2005), All Your Worth',
+        note: 'origin of the 50/30/20 split; it is a planning guide, not a rule, and other splits are shown for comparison only',
+      },
+    ],
+  },
+  'boolean-algebra-calculator': {
+    formula: [
+      'Canonical Minterm Expansion: F = Σm(m₀, m₁, …, mₖ) where each minterm produces a 1 in the truth table',
+      'Canonical Maxterm Expansion: F = ΠM(M₀, M₁, …, Mⱼ) where each maxterm produces a 0 in the truth table',
+      'Prime Implicant Reduction: Group minterms differing by 1 bit iteratively via Quine-McCluskey algorithm',
+      'Petrick / Greedy Cover: Select minimal set of essential and secondary prime implicants to cover all minterms',
+      'Two\'s Complement Signed Binary: Negative value −X in N-bit width = ((~X) + 1) & ((1 << N) − 1)',
+    ],
+    defaults: [
+      { label: 'SOP simplification baseline', value: '(A AND B) OR (A AND NOT B) reduces to A (B is irrelevant)' },
+      { label: 'De Morgan equivalence baseline', value: 'NOT(A AND B) is logically equivalent to NOT A OR NOT B across all states' },
+      { label: 'Absorption law baseline', value: 'A AND (A OR B) reduces to A' },
+      { label: 'Binary addition baseline', value: '1011₂ (11) + 0110₂ (6) = 10001₂ (17)' },
+      { label: 'Two\'s complement baseline', value: '−5 in 8-bit two\'s complement binary = 11111011₂ (0xFB)' },
+    ],
+    sources: [
+      {
+        label: 'W. V. Quine (1952)',
+        note: 'The Problem of Simplifying Truth Functions, The American Mathematical Monthly, Vol. 59, No. 8',
+      },
+      {
+        label: 'E. J. McCluskey (1956)',
+        note: 'Minimization of Boolean Functions, Bell System Technical Journal, Vol. 35, No. 6, pp. 1417–1444',
+      },
+    ],
+  },
+  'metric-conversion-calculator': {
+    formula: [
+      'Length: 1 in = 0.0254 m (exact); 1 ft = 0.3048 m (exact); 1 mi = 1,609.344 m (exact)',
+      'Mass: 1 lb (avdp) = 0.45359237 kg (exact); 1 oz = 28.349523125 g (exact); 1 short ton = 2,000 lb = 907.18474 kg',
+      'Volume: 1 US gal = 231 in³ = 3.785411784 L (exact); 1 imp gal = 4.54609 L (exact); 1 ft³ = 28.316846592 L',
+      'Area: Scaled linearly squared: 1 ft² = (0.3048 m)² = 0.09290304 m² (exact); 1 acre = 43,560 ft² = 4,046.8564224 m²',
+      'Temperature Points: °F = (°C × 9/5) + 32; °C = (°F − 32) × 5/9; K = °C + 273.15',
+      'Temperature Differences: Δ°F = Δ°C × 1.8 (slope only; zero-point offset cancels out)',
+    ],
+    defaults: [
+      { label: 'Length conversion baseline', value: '10 ft equals exactly 3.048 m; 5 ft 10 in (70 inches) equals 1.778 m' },
+      { label: 'Weight conversion baseline', value: '100 kg converts to 220.462 lb (using exact 0.45359237 kg/lb factor)' },
+      { label: 'Temperature reading baseline', value: '68 °F converts to 20.00 °C; 100 °C boiling point converts to 212.00 °F' },
+      { label: 'Temperature difference baseline', value: 'A 10 °C temperature difference converts to an 18 °F difference' },
+      { label: 'Area conversion baseline', value: '1 m² converts to 10.7639 ft² (1 ÷ 0.09290304)' },
+    ],
+    sources: [
+      {
+        label: 'National Institute of Standards and Technology (NIST)',
+        url: 'https://www.nist.gov/pml/special-publication-811',
+        note: 'Special Publication 811: Guide for the Use of the International System of Units (SI), Appendix B (Conversion Factors)',
+      },
+      {
+        label: 'NIST Handbook 44 (2024)',
+        note: 'Specifications, Tolerances, and Other Technical Requirements for Weighing and Measuring Devices, Appendix C (General Tables of Units of Measurement)',
+      },
+      {
+        label: 'BIPM (Bureau International des Poids et Mesures)',
+        note: 'The International System of Units (SI Brochure, 9th edition, 2019 redefinition of base units via fundamental physical constants)',
+      },
+    ],
+  },
   'construction-estimate-template': {
     formula: [
       'Line total = quantity × unit price',

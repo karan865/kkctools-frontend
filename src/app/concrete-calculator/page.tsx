@@ -514,6 +514,16 @@ export default function ConcreteCalculatorPage() {
           <h2>Related calculators</h2>
           <ul className={styles.related}>
             <li>
+              <Link href="/slope-calculator/">
+                Slope Calculator<span>Check driveway incline, sidewalk fall and patio drainage slopes</span>
+              </Link>
+            </li>
+            <li>
+              <Link href="/pythagorean-theorem-calculator/">
+                Pythagorean Theorem Calculator<span>Square slab corners and check diagonals with 3-4-5</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/deck-cost-calculator/">
                 Deck Cost Calculator<span>Lumber, pier footings and composite decking</span>
               </Link>

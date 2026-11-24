@@ -264,7 +264,7 @@ export default function GallonsToCubicFeetPage() {
               </li>
             </ul>
             <p>
-              For calculating cylindrical tanks with dish heads, conical bottoms, or partial fill dipsticks, visit our dedicated <Link href="/pipe-volume-calculator/">Pipe Volume Calculator</Link> or <Link href="/concrete-calculator/">Concrete Calculator</Link>.
+              For calculating cylindrical tanks with dish heads, conical bottoms, or partial fill dipsticks, visit our dedicated <Link href="/tank-volume-calculator/">Tank Volume Calculator</Link>, <Link href="/pipe-volume-calculator/">Pipe Volume Calculator</Link>, or general <Link href="/metric-conversion-calculator/">Metric Conversion Calculator</Link>.
             </p>
           </section>
 

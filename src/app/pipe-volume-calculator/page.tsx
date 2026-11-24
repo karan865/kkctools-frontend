@@ -391,6 +391,11 @@ export default function PipeVolumeCalculatorPage() {
           <h2>Related calculators</h2>
           <ul className={styles.related}>
             <li>
+              <Link href="/tank-volume-calculator/">
+                Tank Volume Calculator<span>Calculate liquid gallons in round, box, and cone tanks</span>
+              </Link>
+            </li>
+            <li>
               <Link href="/gallons-to-cubic-feet/">
                 Gallons to Cubic Feet Converter<span>Convert pipe volume to gallons, ft³ or litres</span>
               </Link>

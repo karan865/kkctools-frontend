@@ -321,7 +321,7 @@
   opacity: 0.5;
   cursor: not-allowed;
   border-color: var(--line);
-  color: var(--ink-muted);
+  color: var(--ink-soft, #64748b);
 }
 
 /* Global Output Preferences */

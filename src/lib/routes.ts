@@ -548,6 +548,96 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'tool',
     indexable: true,
   },
+  binomialProbabilityCalculator: {
+    path: '/binomial-probability-calculator/',
+    title: 'Binomial Probability Calculator – P(X = k)',
+    description:
+      'Free binomial probability calculator. Enter trials, successes and probability to get P(X = k), P(X ≤ k) and P(X ≥ k), with the mean, variance and a chart.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  pythagoreanTheoremCalculator: {
+    path: '/pythagorean-theorem-calculator/',
+    title: 'Pythagorean Theorem Calculator – Right Triangles',
+    description:
+      'Free Pythagorean theorem calculator. Find the missing side of a right triangle, check a corner is square with the 3-4-5 method, and see every step.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  slopeCalculator: {
+    path: '/slope-calculator/',
+    title: 'Slope Calculator – Rise over Run, Percent & Angle',
+    description:
+      'Free slope calculator. Enter rise and run to get slope as a percent, ratio (1:12), angle and pitch, or find the rise for a ramp, drain or roof.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  tankVolumeCalculator: {
+    path: '/tank-volume-calculator/',
+    title: 'Tank Volume Calculator – Gallons in Any Tank',
+    description:
+      'Free tank volume calculator. Find the capacity and the filled volume of round, horizontal, oval, rectangular and cone-bottom tanks in gallons and litres.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  simpleInterestCalculator: {
+    path: '/simple-interest-calculator/',
+    title: 'Simple Interest Calculator – Accrued Interest',
+    description:
+      'Free simple interest calculator. Get interest on a principal for any number of days, months or years, and the accrued interest between two dates.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  roiCalculator: {
+    path: '/roi-calculator/',
+    title: 'ROI Calculator – Return on Investment & Annualized',
+    description:
+      'Free ROI calculator. Enter what you invested and what you got back to see ROI, net profit and annualized ROI over any period, with the formula shown.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  finalGradeCalculator: {
+    path: '/final-grade-calculator/',
+    title: 'Final Grade Calculator – What Do I Need on My Final?',
+    description:
+      "Free final grade calculator. Enter your current grade, the final's weight and the grade you want, and see the score you need on the final exam.",
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  budgetCalculator: {
+    path: '/budget-calculator/',
+    title: 'Budget Calculator – Monthly Budget Planner 50/30/20',
+    description:
+      'Free monthly budget calculator. List income and expenses, compare them with the 50/30/20 rule and print a budget worksheet. Nothing leaves your browser.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  booleanCalculator: {
+    path: '/boolean-algebra-calculator/',
+    title: 'Boolean Algebra Calculator – Truth Tables',
+    description:
+      'Free boolean algebra calculator. Type an expression to get its truth table and a simplified form, and do binary add, subtract and convert in one place.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
+  metricConversionCalculator: {
+    path: '/metric-conversion-calculator/',
+    title: 'Metric Conversion Calculator – Length, Weight & More',
+    description:
+      'Free metric conversion calculator. Convert length, weight, volume, area and temperature between metric and US units, with a printable chart for each.',
+    updated: '2026-11-24',
+    type: 'tool',
+    indexable: true,
+  },
   invoiceGenerator: {
     path: '/invoice-generator/',
     title: 'Free Invoice Generator – Hourly & Freelance Invoices',

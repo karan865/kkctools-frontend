@@ -342,7 +342,7 @@ export default function CagrCalculatorPage() {
           </ul>
 
           <p>
-            To compare CAGR with compound interest with regular contributions, use our <Link href="/compound-interest-calculator/">Compound Interest Calculator</Link>, evaluate total percentage growth with our <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link>, discount future cash flows using our <Link href="/present-value-calculator/">Present Value Calculator</Link>, or measure an investment&apos;s total and annualized return with the <Link href="/investment-return-calculator/">Investment Return Calculator</Link>.
+            To compare CAGR with compound interest with regular contributions, use our <Link href="/compound-interest-calculator/">Compound Interest Calculator</Link>, evaluate total percentage growth with our <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link>, discount future cash flows using our <Link href="/present-value-calculator/">Present Value Calculator</Link>, measure an investment&apos;s total return with the <Link href="/roi-calculator/">ROI Calculator</Link>, or track periodic returns with the <Link href="/investment-return-calculator/">Investment Return Calculator</Link>.
           </p>
 
           <h2>Frequently Asked Questions</h2>

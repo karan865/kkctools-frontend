@@ -454,6 +454,9 @@ export default function ProfitMarginCalculatorPage() {
               Explore our other free commercial tools:
             </p>
             <div className={styles.internalLinks}>
+              <Link href={ROUTES.roiCalculator.path} className={styles.pillLink}>
+                ROI Calculator
+              </Link>
               <Link href={ROUTES.businessValuationCalculator.path} className={styles.pillLink}>
                 Business Valuation Calculator
               </Link>

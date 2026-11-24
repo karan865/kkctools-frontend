@@ -1,0 +1,402 @@
+.container {
+  width: 100%;
+}
+
+.tabNav {
+  margin-bottom: 20px;
+}
+
+.calculatorCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 24px;
+  margin-bottom: 24px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.inputsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.inputsGrid:last-child {
+  margin-bottom: 0;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.input {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+  transition: border-color 0.15s ease;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--cat-math);
+}
+
+.select {
+  width: 100%;
+  padding: 9px 12px;
+  font-size: 0.9rem;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--surface);
+  color: var(--ink);
+}
+
+.select:focus {
+  outline: none;
+  border-color: var(--cat-math);
+}
+
+.quickPills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 6px;
+}
+
+.pillBtn {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 3px 8px;
+  border-radius: 5px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink-2, #334155);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.pillBtnActive {
+  background: var(--cat-math-soft);
+  color: var(--cat-math-ink);
+  border-color: var(--cat-math);
+}
+
+.helperText {
+  font-size: 0.78rem;
+  color: var(--muted, #556274);
+}
+
+/* Hero Result Card */
+.heroResult {
+  text-align: center;
+  margin-bottom: 24px;
+  padding: 32px 24px 26px;
+  background: linear-gradient(135deg, #312E81 0%, #4338CA 48%, #0D9488 100%);
+  border-radius: 18px;
+  color: #FFFFFF;
+  box-shadow: 0 12px 28px -6px rgba(67, 56, 202, 0.42), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+  position: relative;
+  overflow: hidden;
+}
+
+.heroResult::after {
+  content: '';
+  position: absolute;
+  top: -40%;
+  right: -10%;
+  width: 260px;
+  height: 260px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.heroBadge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.22);
+  padding: 4px 14px;
+  border-radius: 9999px;
+  margin-bottom: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  backdrop-filter: blur(6px);
+}
+
+.heroValue {
+  font-size: clamp(2.4rem, 5.5vw, 3.4rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  line-height: 1.1;
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+  margin: 6px 0 10px;
+}
+
+.heroSub {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: #FFFFFF;
+  background: rgba(0, 0, 0, 0.24);
+  padding: 6px 16px;
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  margin-bottom: 16px;
+}
+
+.heroVerdict {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin-bottom: 8px;
+  padding: 0 10px;
+}
+
+.heroMeaning {
+  font-size: 0.88rem;
+  color: rgba(255, 255, 255, 0.9);
+  max-width: 620px;
+  margin: 0 auto;
+  line-height: 1.45;
+}
+
+/* Stats Metric Cards */
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 14px;
+  margin-bottom: 24px;
+}
+
+.statCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  color: var(--ink, #0F172A);
+}
+
+.statLabel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-soft, #475569);
+}
+
+.statVal {
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--ink, #0F172A);
+}
+
+.statSub {
+  font-size: 0.75rem;
+  color: var(--ink-soft, #475569);
+}
+
+/* Distribution Bar Chart */
+.chartContainer {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 20px;
+  margin-bottom: 24px;
+}
+
+.chartHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.chartTitle {
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink);
+}
+
+.chartLegend {
+  display: flex;
+  gap: 12px;
+  font-size: 0.78rem;
+  color: var(--ink-soft, #475569);
+}
+
+.chartSvg {
+  width: 100%;
+  height: auto;
+  max-height: 220px;
+}
+
+/* Table Wrapper */
+.tableWrapper {
+  overflow-x: auto;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  margin-bottom: 24px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+  font-size: 0.88rem;
+}
+
+.table th {
+  background: var(--surface-subtle);
+  padding: 12px 16px;
+  font-weight: 700;
+  color: var(--ink);
+  border-bottom: 1px solid var(--line);
+}
+
+.table td {
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+.selectedRow {
+  background: var(--cat-math-soft) !important;
+  font-weight: 600;
+}
+
+/* Collapsible Steps Card */
+.stepsCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin-bottom: 24px;
+}
+
+.stepsHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  cursor: pointer;
+  background: none;
+  border: none;
+  width: 100%;
+  padding: 0;
+  text-align: left;
+}
+
+.stepsTitle {
+  font-size: 0.92rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.stepBox {
+  margin-top: 14px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  font-family: monospace;
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: var(--ink);
+}
+
+/* Assumptions helper */
+.assumptionsCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 16px 20px;
+  margin-bottom: 24px;
+  color: var(--ink, #0F172A);
+}
+
+.assumptionsTitle {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink, #0F172A);
+  margin-bottom: 10px;
+}
+
+.assumptionItem {
+  font-size: 0.82rem;
+  color: var(--ink-2, #334155);
+  line-height: 1.5;
+  margin-bottom: 6px;
+}
+
+.assumptionItem:last-child {
+  margin-bottom: 0;
+}
+
+.actionsRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.actionBtn {
+  font-size: 0.85rem;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 8px;
+  border: 1px solid var(--line);
+  background: var(--surface);
+  color: var(--ink);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.actionBtn:hover {
+  background: var(--cat-math-soft);
+  color: var(--cat-math-ink);
+  border-color: var(--cat-math);
+}
+
+.copiedNotification {
+  font-size: 0.82rem;
+  color: #0D9488;
+  font-weight: 600;
+}
+
+.errorBox {
+  background: #FEF2F2;
+  border: 1px solid #FCA5A5;
+  color: #991B1B;
+  border-radius: 10px;
+  padding: 14px 18px;
+  font-size: 0.88rem;
+  margin-bottom: 20px;
+}

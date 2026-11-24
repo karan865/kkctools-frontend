@@ -513,6 +513,12 @@ export default function StudCalculatorPage() {
             </p>
             <ul style={{ paddingLeft: '20px', color: '#075985', display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))', gap: '10px' }}>
               <li>
+                <Link href="/pythagorean-theorem-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
+                  Pythagorean Theorem Calculator
+                </Link>
+                <span style={{ display: 'block', fontSize: '0.85rem', color: '#475569' }}>Check wall corners are 90° square using 3-4-5 rule</span>
+              </li>
+              <li>
                 <Link href="/deck-cost-calculator/" style={{ color: '#0369A1', fontWeight: 600 }}>
                   Deck Cost Calculator
                 </Link>

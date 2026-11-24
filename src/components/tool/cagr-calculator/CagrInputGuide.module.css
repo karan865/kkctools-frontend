@@ -9,7 +9,7 @@
 .title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 16px;
@@ -75,7 +75,7 @@
 
 .nodeDetail {
   font-size: 0.78rem;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
 }
 
 .curveMiddle {
@@ -113,7 +113,7 @@
 
 .chip {
   font-size: 0.78rem;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   font-weight: 500;
 }
 
@@ -151,7 +151,7 @@
   font-size: 0.7rem;
   font-weight: 700;
   letter-spacing: 0.05em;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
 }
 
 .seriesTagHighlight {
@@ -163,7 +163,7 @@
 
 .seriesSub {
   font-size: 0.8rem;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
 }
 
 .seriesSubHighlight {
@@ -175,7 +175,7 @@
 .vsBadge {
   font-weight: 800;
   font-size: 0.85rem;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
 }
 
@@ -200,7 +200,7 @@
 .ruleLabel {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
 }
 

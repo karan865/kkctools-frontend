@@ -66,6 +66,17 @@ export type IconName =
   | 'fractionPercent'
   | 'reverseTax'
   | 'stdev'
+  | 'tTest'
+  | 'binomial'
+  | 'pythagorean'
+  | 'slope'
+  | 'tankVolume'
+  | 'simpleInterest'
+  | 'roi'
+  | 'finalGrade'
+  | 'budget'
+  | 'boolean'
+  | 'metricConversion'
   | 'processingFee'
   | 'creditCardPayoff'
   | 'netWorth'
@@ -893,6 +904,103 @@ export default function Icon({
           <path d="M3 18h18" />
           <path d="M3 18c4 0 5-14 9-14s5 14 9 14" />
           <line x1="12" y1="4" x2="12" y2="18" strokeDasharray="2 2" />
+        </svg>
+      );
+    case 'tTest':
+      return (
+        <svg {...common}>
+          <path d="M3 18h18" />
+          <path d="M3 18c3-1 6-13 9-13s6 12 9 13" />
+          <path d="M5 18c1-1 2-4 3-6v6" />
+          <path d="M19 18c-1-1-2-4-3-6v6" />
+          <line x1="12" y1="5" x2="12" y2="18" strokeDasharray="2 2" />
+        </svg>
+      );
+    case 'binomial':
+      return (
+        <svg {...common}>
+          <path d="M3 19h18" />
+          <rect x="5" y="14" width="2.5" height="5" rx="0.5" />
+          <rect x="8.5" y="9" width="2.5" height="10" rx="0.5" />
+          <rect x="12" y="5" width="2.5" height="14" rx="0.5" />
+          <rect x="15.5" y="11" width="2.5" height="8" rx="0.5" />
+          <circle cx="6.25" cy="12" r="1" />
+          <circle cx="9.75" cy="7" r="1" />
+          <circle cx="13.25" cy="3" r="1" />
+          <circle cx="16.75" cy="9" r="1" />
+        </svg>
+      );
+    case 'pythagorean':
+      return (
+        <svg {...common}>
+          <polygon points="5,19 19,19 19,5" fill="none" />
+          <polyline points="16,19 16,16 19,16" />
+        </svg>
+      );
+    case 'slope':
+      return (
+        <svg {...common}>
+          <line x1="4" y1="20" x2="20" y2="20" />
+          <line x1="4" y1="20" x2="4" y2="4" />
+          <line x1="6" y1="16" x2="18" y2="6" strokeWidth={2.5} />
+          <polyline points="10,13 14,13 14,9" strokeDasharray="2 2" />
+        </svg>
+      );
+    case 'tankVolume':
+      return (
+        <svg {...common}>
+          <ellipse cx="12" cy="7" rx="7" ry="3" />
+          <path d="M5 7v10c0 1.66 3.13 3 7 3s7-1.34 7-3V7" />
+          <line x1="5" y1="12" x2="19" y2="12" strokeDasharray="2 2" />
+        </svg>
+      );
+    case 'simpleInterest':
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <line x1="3" y1="10" x2="21" y2="10" />
+          <path d="M7 15l3-3 2 2 4-4" />
+          <polyline points="13 10 16 10 16 13" />
+        </svg>
+      );
+    case 'roi':
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <polyline points="12 7 12 12 15 15" />
+          <path d="M8 12l3-3 2 2 3-3" />
+        </svg>
+      );
+    case 'finalGrade':
+      return (
+        <svg {...common}>
+          <path d="M22 10v6M2 10l10-5 10 5-10 5z" />
+          <path d="M6 12v5c3 3 9 3 12 0v-5" />
+        </svg>
+      );
+    case 'budget':
+      return (
+        <svg {...common}>
+          <circle cx="12" cy="12" r="9" />
+          <path d="M12 3v9h9" />
+          <path d="M12 12l-6.36 6.36" />
+        </svg>
+      );
+    case 'boolean':
+      return (
+        <svg {...common}>
+          <path d="M5 5h6a6 6 0 0 1 6 6 6 6 0 0 1-6 6H5z" />
+          <line x1="2" y1="9" x2="5" y2="9" />
+          <line x1="2" y1="15" x2="5" y2="15" />
+          <line x1="17" y1="11" x2="22" y2="11" />
+        </svg>
+      );
+    case 'metricConversion':
+      return (
+        <svg {...common}>
+          <path d="M7 16l-4-4 4-4" />
+          <path d="M17 8l4 4-4 4" />
+          <line x1="3" y1="12" x2="21" y2="12" />
         </svg>
       );
     case 'plus':

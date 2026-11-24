@@ -44,7 +44,7 @@
 .prefix {
   position: absolute;
   left: 12px;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   font-weight: 600;
   pointer-events: none;
 }
@@ -52,7 +52,7 @@
 .suffix {
   position: absolute;
   right: 12px;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   font-size: 0.85rem;
   pointer-events: none;
 }
@@ -99,7 +99,7 @@
 
 .helperText {
   font-size: 0.78rem;
-  color: var(--ink-muted);
+  color: var(--muted, #556274);
 }
 
 .rateBuilderBox {

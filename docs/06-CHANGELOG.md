@@ -4,6 +4,156 @@ All notable changes to this project will be documented in this file, sorted newe
 
 ---
 
+### [UI Contrast & Accessibility Hotfix — High Contrast Metric Cards] — 2026-11-24
+
+- **Global Design Tokens (`src/styles/tokens.css`):**
+  - Added `--ink-muted: #556274;` and `--surface-subtle: #F8FAFC;` in `:root`.
+  - Added `--ink-muted: #8291A6;` and `--surface-subtle: #19202D;` in `:root[data-theme="dark"]`.
+- **Binomial Probability Calculator (`/binomial-probability-calculator/`):**
+  - Fixed white text contrast issue on statistical moments cards (`Expected Mean (μ)`, `Variance (σ²)`, `Standard Dev (σ)`, `Mode (Most Likely k)`).
+  - Explicitly set `color: var(--ink, #0F172A)` on `.statCard`, and updated `.statLabel` and `.statSub` to `color: var(--ink-soft, #475569)`.
+  - Updated `.pillBtn` to `var(--ink-2)`, `.helperText` to `var(--muted)`, `.chartLegend` to `var(--ink-soft)`, and `.assumptionItem` to `var(--ink-2)`.
+  - Updated `BinomialInputGuide.module.css` `.title` and `.chip` to `var(--ink-soft)`.
+- **System-Wide Metric & Stat Cards Contrast Hardening Across All Calculators:**
+  - `StandardDeviationCalculator` & `StdevInputGuide`: Hardened `.statCard`, `.statLabel`, `.statVal`, `.statSub`, `.title`, `.chip`, `.helperText`.
+  - `TTestCalculator` & `TTestInputGuide`: Hardened `.statCard`, `.statLabel`, `.statVal`, `.statSub`, `.chartLegend`, `.modeBtn`, `.pillBtn`, `.helperText`, `.assumptionItem`, `.title`, `.chip`.
+  - `CagrCalculator` & `CagrInputGuide`: Hardened `.prefix`, `.suffix`, `.helperText`, `.formulaLabel`, `.title`, `.nodeDetail`, `.seriesTag`, `.seriesSub`, `.vsBadge`, `.ruleLabel`, `.chip`.
+  - `FractionPercentCalculator` & `FractionInputGuide`: Hardened `.helperText`, `.title`, `.eqLabel`, `.resultTag`, `.chip`.
+  - `ReverseTaxCalculator` & `ReverseTaxInputGuide`: Hardened `.prefix`, `.suffix`, `.helperText`, `.title`, `.chip`.
+  - `UnitPriceCalculator`: Hardened `.addBtn:disabled` text color.
+  - `BooleanCalculator` & `MetricCalculator`: Added design token mappings for `--color-*` to `--surface`, `--line`, `--ink`, `--muted`, and enforced `color: var(--color-text)` on `.calculatorWrapper`.
+  - `IqrCalculator`, `AgeCalculator`, `AbTestCalculator`, `GallonsConverter`, `PythagoreanCalculator`, `SlopeCalculator`, `TankCalculator`, `SimpleInterestCalculator`, `RoiCalculator`, `FinalGradeCalculator`, `BudgetCalculator`, `RatioCalculator`: Enforced explicit `color: var(--ink)` on card containers to prevent white text inheritance.
+- **Verification:** `npm run verify` passed all 6 steps (`lint`, `test`, `check:no-network`, `build`, `seo:audit`, `docs:bundle`) with 1,114 tests passing.
+
+---
+
+### [Batch 5 — All 20 Tools & Milestones Completed] — 2026-11-24
+
+- **Tool 20: Metric Conversion Calculator (`/metric-conversion-calculator/`):**
+  - Engine: `src/lib/metric-engine.ts` with 10 Vitest tests (`src/lib/metric-engine.test.ts`) matching all spec worked examples (10 ft $\implies$ exactly 3.048 m; 5′ 10″ $\implies$ 1.778 m; 100 kg $\implies$ 220.462 lb; 68 °F $\implies$ 20 °C; 10 °C temperature difference $\implies$ 18 °F; 1 m² $\implies$ 10.7639 ft²).
+  - Modes: Length, Weight/Mass, Volume (US liquid vs Imperial vs metric), Area (squared factors), Temperature (reading vs Δ difference), and Speed.
+  - UI: `MetricCalculator.tsx` with mixed feet-inches parsing (e.g. `5' 10"`, `5 ft 10 1/2 in`), live swap button, precision toggles (2, 4, 6 decimals), category-wide conversion cards, and dynamic 1–10 conversion table with CSV download.
+  - Custom InputGuide: `MetricInputGuide.tsx` with dual-scale ruler, balance scale, jug volume comparisons, and thermodynamic thermometer.
+  - Page & SEO: `src/app/metric-conversion-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing NIST SP 811 & HB 44 and BIPM 2019 SI Brochure, and 10 FAQs.
+
+- **Tool 19: Boolean Algebra Calculator (`/boolean-algebra-calculator/`):**
+  - Engine: `src/lib/boolean-engine.ts` with 10 Vitest tests (`src/lib/boolean-engine.test.ts`) matching all spec worked examples (`(A AND B) OR (A AND NOT B)` $\implies$ minimal SOP `A` with $\Sigma m(2,3)$; `NOT(A AND B)` vs `NOT A OR NOT B` $\implies$ equivalent via De Morgan; `A AND (A OR B)` $\implies$ `A` via absorption; binary addition $1011_2 + 0110_2 = 10001_2$ ($11 + 6 = 17$); −5 in 8-bit two's complement $\implies 11111011_2$).
+  - Modes: Simplify & Truth Table (full $2^n$ evaluation with minterms/maxterms and RFC 4180 CSV export), Equivalence Check with first differing counterexample row, and Binary/Bitwise Math (arbitrary-precision BigInt, 8/16/32/64-bit registers, two's complement signed view, and hex/octal/decimal).
+  - UI: `BooleanCalculator.tsx` with syntax insertion chips, dark gradient hero card, and quick two's complement signed decimal converter.
+  - Custom InputGuide: `BooleanInputGuide.tsx` with logic gate pipeline, equivalence indicator, and bit register blocks.
+  - Page & SEO: `src/app/boolean-algebra-calculator/page.tsx`, Breadcrumbs, HowWeCalculate referencing Quine (1952) and McCluskey (1956), and 10 FAQs.
+
+- **Tool 18: Monthly Budget Calculator (50/30/20) (`/budget-calculator/`):**
+  - Engine: `src/lib/budget-engine.ts` with 4 Vitest test suites (`src/lib/budget-engine.test.ts`) matching all spec worked examples ($5,000 net income $\implies$ Needs $2,750 (55%), Wants $1,000 (20%), Savings $750 (15%), leaving $500 leftover surplus; bi-weekly $2,000 $\implies$ $4,333.33/mo; weekly $1,000 $\implies$ $4,333.33/mo; sinking fund annual bills $1,200/yr $\implies$ $100/mo).
+  - Modes: Income normalization across 5 pay frequencies, itemized expense allocation with 50/30/20 or custom percentage splits, sinking fund annual bills, and RFC 4180 CSV spreadsheet export.
+  - UI: `BudgetCalculator.tsx` with dynamic visual breakdown bars, delta gap analysis, and interactive line-item management.
+  - Custom InputGuide: `BudgetInputGuide.tsx` with 3 bucket cards, target percentages, and status badge.
+  - Page & SEO: `src/app/budget-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing Elizabeth Warren (2005) and CFPB standards, and 10 FAQs.
+
+- **Tool 17: Final Grade Calculator (`/final-grade-calculator/`):**
+  - Engine: `src/lib/final-grade-engine.ts` with 6 Vitest tests (`src/lib/final-grade-engine.test.ts`) matching all spec worked examples (Current 85%, final 20%, target 87% $\implies$ 95.00% needed on final with reachable range 68%–88%; Letter cutoffs: A (90%) not reachable, B (80%) requires 60.00%, D (60%) already secured; Weighted categories: HW 20% @ 92, Quiz 20% @ 85, Tests 35% @ 80, Final 25%, target 85% $\implies$ 86.40% needed).
+  - Modes: Simple Course Grade, Category-Weighted Grade, Total Points / Point Accumulation, and Final Worth Multiple Tests.
+  - UI: `FinalGradeCalculator.tsx` with visual progress meter, reachable score bounds, letter grade cutoff status table, and course category manager.
+  - Custom InputGuide: `FinalGradeInputGuide.tsx` with semester progress visual, final weight badge, and target grade indicator.
+  - Page & SEO: `src/app/final-grade-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing College Board & MAA weighted grading frameworks, and 10 FAQs.
+
+- **Tool 16: ROI Calculator (`/roi-calculator/`):**
+  - Engine: `src/lib/roi-engine.ts` with 6 Vitest tests (`src/lib/roi-engine.test.ts`) matching all spec worked examples ($10,000 initial, $15,000 final in 3 years $\implies$ 50% simple ROI, 14.47% annualized ROI; Marketing: $20,000 revenue, $5,000 cost, 40% margin $\implies$ 60% ROI on margin, 300% revenue ROI, 4.0 ROAS; Project: $12,000 cost, $4,000/yr savings $\implies$ 3.0 year payback, 66.67% 5-yr ROI; Fisher equation real inflation-adjusted ROI).
+  - Modes: Simple Investment ROI & Annualized Rate, Marketing & Advertising Campaign ROI (ROAS vs gross margin ROI), Business Project / Capital Investment Payback, and Real Inflation-Adjusted ROI.
+  - UI: `RoiCalculator.tsx` with metric cards, annual breakdown table with CSV export, and Fisher equation inflation adjustment.
+  - Custom InputGuide: `RoiInputGuide.tsx` with capital growth arrow, gain/loss indicators, and duration meter.
+  - Page & SEO: `src/app/roi-calculator/page.tsx` (`absoluteTitle: true`), Breadcrumbs, HowWeCalculate referencing CFA Institute & SEC Rule 156 GIPS guidelines, and 10 FAQs.
+
+- **Tool 15: Simple Interest Calculator (`/simple-interest-calculator/`):**
+  - Engine: `src/lib/simple-interest-engine.ts` with 7 Vitest tests (`src/lib/simple-interest-engine.test.ts`) matching all spec worked examples ($10,000 principal at 5% for 3 years $\implies$ $1,500 interest, $11,500 total; accrued interest 2026-01-15 to 2026-04-15 (90 days) $\implies$ $123.29 (Actual/365) vs $125.00 (Actual/360) vs $125.00 (30/360); Bond coupon: $1,000 face at 5.75% semi-annual, 61 of 180 days $\implies$ $9.74 accrued; Compound comparison $\implies$ $1,614.72).
+  - Modes: Standard I = P·r·t (solve for any variable), Date-to-Date Accrual with day-count conventions, Fixed-Income Bond Coupon Accrual, and Compound vs Simple comparison side-by-side.
+  - UI: `SimpleInterestCalculator.tsx` with dynamic year-by-year amortization schedule, day-count convention selector, and CSV export.
+  - Custom InputGuide: `InterestInputGuide.tsx` with loan principal arrow, interest earnings pillar, and calendar timeline.
+  - Page & SEO: `src/app/simple-interest-calculator/page.tsx`, Breadcrumbs, HowWeCalculate referencing ICMA and MSRB Rule G-33 standards, and 10 FAQs.
+
+- **Verification Pipeline:**
+  - `npm run verify` passed all 6 steps (`lint`, `test`, `check:no-network`, `build`, `seo:audit`, `docs:bundle`). All 130 static routes prerendered without errors.
+  - Total catalog tools: 95 tools. Total passing Vitest tests: 1,114. Total static routes in routes.ts: 113.
+
+---
+
+### [Batch 5 — Tool 14: Tank Volume Calculator] — 2026-11-24
+
+- **Tool 14 (`/tank-volume-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/tank-engine.ts` with 9 Vitest tests (`src/lib/tank-engine.test.ts`) matching all spec worked examples (6 × 12 ft flat-end cylinder $\implies$ 2,538.1 US gal full, at 2 ft depth $\implies$ 740.6 gal, 29.2% full; 10 ft diameter at 3 ft depth $\implies$ 25.2% full; vertical 4 × 6 ft cylinder $\implies$ 564.0 US gal; 4 × 10 ft horizontal $\implies$ 940.0 gal full, 183.8 gal at 1 ft depth; hemispherical & ASME 2:1 semi-elliptical dished heads; cone-bottom hopper; monotonic dipstick strapping table; inverse tank sizing).
+  - Modes: Capacity & Partial Fill (depth from bottom or ullage gap from top), Dipstick (Strapping) Chart with CSV export, and Tank Sizing solver.
+  - Multi-unit outputs: US Gallons, Imperial Gallons, Litres, m³, Cubic Feet, Oil Barrels (bbl), and liquid weight by density.
+  - UI: `TankCalculator.tsx` with dynamic proportional SVG visualization, quick presets (6×12 ft, 4×6 ft vert, 4×10 ft, 10×20 ft), and step-by-step geometry math.
+  - Custom InputGuide: `TankInputGuide.tsx` dynamically adapting between horizontal cylinder and vertical upright silo geometry with shaded liquid levels and ullage gap.
+  - Contextual Cross-Links: added links to `/tank-volume-calculator/` from Gallons to Cubic Feet Converter (`/gallons-to-cubic-feet/`) and Pipe Volume Calculator (`/pipe-volume-calculator/`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/tank-volume-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 10 questions), Breadcrumbs, and HowWeCalculate referencing ASME BPVC and Perry's Chemical Engineers' Handbook.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 13: Slope Calculator] — 2026-11-24
+
+- **Tool 13 (`/slope-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/slope-engine.ts` with 8 Vitest tests (`src/lib/slope-engine.test.ts`) matching all spec worked examples (rise 1 over run 12 $\implies$ 8.33% grade, 1:12 ratio, 4.76° angle, 1/12 pitch, 1 in/ft; run 20 ft at 2% $\implies$ rise 0.4 ft = 4.8 in; 4/12 roof pitch $\implies$ 18.43°, 33.33%; 1/4 in/ft $\implies$ 2.08%; accessible ramp with 24 in rise at 1:12 $\implies$ 24 ft minimum run; points (1, 2) and (4, 11) $\implies m = 3, b = -1, y = 3x - 1$).
+  - Modes: Rise & Run (any two solver), Construction Presets (ADA ramp planning with 2010 ADA Standards §§405.2, 405.6 citations; plumbing drain with 2021 IPC §704.1; roof pitch), and Two-Point Coordinate / Table linearity analysis.
+  - UI: `SlopeCalculator.tsx` with dynamic proportional SVG visualization, quick presets (1:12 ramp, 4:12 roof, 1/4 in/ft drain, 2% walkway), and step-by-step conversion math.
+  - Custom InputGuide: `SlopeInputGuide.tsx` dynamically adapting between rise/run geometry, construction slope limits, and coordinate Cartesian grid.
+  - Contextual Inbound Links: added links to `/slope-calculator/` from Concrete Calculator (`/concrete-calculator/`) and Rafter Calculator (`src/content/pages/rafter-calculator.ts`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/slope-calculator/page.tsx` with metadata (`absoluteTitle: true`), JSON-LD Schema (SoftwareApplication + FAQPage with 12 questions), Breadcrumbs, and HowWeCalculate referencing ADA and IPC.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 12: Pythagorean Theorem Calculator] — 2026-11-24
+
+- **Tool 12 (`/pythagorean-theorem-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/right-triangle-engine.ts` with 8 Vitest tests (`src/lib/right-triangle-engine.test.ts`) matching all spec worked examples ($a=3, b=4 \implies c=5, \alpha=36.87^\circ, \beta=53.13^\circ$, area 6, altitude 2.4; legs 3 and 6 $\implies c = \sqrt{45} = 3\sqrt{5} \approx 6.7082$; square 12 × 16 ft pad $\implies 20$ ft; square 10 × 14 ft deck $\implies 17.2047$ ft = 17′ 2-7/16″).
+  - Modes: Find a side ($a^2+b^2=c^2$), side + angle trigonometry, builder squareness check (3-4-5 rule and dual-diagonal comparison), and triangle classification (Right, Acute, Obtuse).
+  - Exact radical factorization ($k\sqrt{m}$) and builder fractional feet/inches parsing and formatting to nearest 1/16″.
+  - UI: `PythagoreanCalculator.tsx` with dynamic proportional SVG visualization, 4 tabs, quick-pick triples (3-4-5, 5-12-13, 8-15-17, 7-24-25), and step-by-step math.
+  - Custom InputGuide: `PythagorasInputGuide.tsx` dynamically adapting between right triangle geometry and rectangle diagonal/3-4-5 corner layout.
+  - Contextual Inbound Links: added links to `/pythagorean-theorem-calculator/` from Concrete Calculator (`/concrete-calculator/`), Rafter Calculator (`src/content/pages/rafter-calculator.ts`), and Stud Calculator (`/stud-calculator/`).
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial highlight.
+  - Page & SEO: `src/app/pythagorean-theorem-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 11 questions), Breadcrumbs, and HowWeCalculate referencing Euclid and IRC builder layout practices.
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 — Tool 11: Binomial Probability Calculator] — 2026-11-24
+
+- **Tool 11 (`/binomial-probability-calculator/`) implemented:**
+  - Calculation Engine: `src/lib/binomial-engine.ts` with 10 Vitest tests (`src/lib/binomial-engine.test.ts`) matching all spec worked examples ($n=10, p=0.5, k=3 \implies P=0.1172, CDF=0.1719$, mean 5, var 2.5, SD 1.581, mode 5; 99.99% certainty at $p=1\% \implies 917$ trials).
+  - Normal approximation criteria implemented and cited from Walpole et al. (2012) and Hogg & Tanis (2015): $np \ge 10$ and $n(1-p) \ge 10$ with $\pm 0.5$ continuity correction.
+  - UI: `BinomialCalculator.tsx` with dynamic responsive SVG probability distribution chart, interactive region highlighting, PMF/CDF copyable data table, step-by-step breakdown with user inputs, inverse trials needed solver, and assumption checklist.
+  - Custom InputGuide: `BinomialInputGuide.tsx` with coin trials visual, highlighted k successes, probability dial, and comparison mode picker.
+  - Hero Result Card: dark indigo/teal gradient (`#312E81` to `#0D9488`) with glassmorphic pill badge and radial gradient highlight.
+  - Page & SEO: `src/app/binomial-probability-calculator/page.tsx` with metadata, JSON-LD Schema (SoftwareApplication + FAQPage with 10 questions), Breadcrumbs, and HowWeCalculate referencing Walpole (2012) and Hogg (2015).
+  - All 6 verification pipeline steps passed (`check:no-network`, `lint`, `test`, `build`, `seo:audit`, `docs:bundle`).
+
+---
+
+### [Batch 5 review fixes — remaining 10 tools (#09, #10, #12, #14–#20)] — 2026-11-24
+
+All spec worked examples were re-run against the engines and match (tank 2,538.1 / 740.6 gal, 25.2%, 564.0 gal; final 95% and 86.4%; budget +$250/−$500/−$250, $500 left; accrued $123.29/$125/$125, bond $9.74; ROI 50% / 14.47%, ROAS 4.0, payback 3 yr; binomial 0.1172 / 0.1719, 917 trials; slope 8.33% / 4.76° / 18.43° / y = 3x − 1; Boolean → A, 10001, 11111011; metric 3.048 m, 1.778 m, 20 °C, 18 °F, 10.7639 ft²).
+
+**Engine bugs (tests added):**
+- `tank-engine`: vertical and cone-bottom tanks clamped the fill depth to the **diameter** instead of the height (4 × 6 ft vertical tank at 5 ft showed the 4 ft volume); ullage was wrong for the same reason. Rounded constants (7.48051948, 1/1.20095) replaced with the shared exact `volume-units-engine` factors.
+- `right-triangle-engine`: the 3-4-5 multiple only checked the short side (10 × 10 suggested 9-12-15); the invented 0.01 ft "square" tolerance was replaced by "diagonals match to the displayed 1/16 in".
+- `slope-engine`: the ramp planner always returned `isCompliant: true`, even for 1:8. ADA §405.2/405.6/405.7.3 wording was opened and checked on access-board.gov.
+- `boolean-engine`: the minimum cover was greedy (not always minimal); now an exact search (≤ 18 candidates). Binary division by zero returned 0; now returns null.
+- `roi-engine`: real ROI was computed from the 2-dp rounded annual rate.
+- `simple-interest-engine`, `binomial-engine`, `metric-engine`: removed convention "standard for …" usage claims (spec TODO), the unverified textbook citation and the "is exactly" wording on rounded values.
+
+**UI:** 9 tools used hand-made tabs; all now use the shared `TabSlider` with `?tab=` links (rules §4). Unlinked labels fixed (Budget table, Final Grade what-if, Simple Interest compare). Budget's "Saved only on your device" pill was untrue (nothing was saved): the draft is now kept with `safeStorage` and Reset clears it. Tank fuel density presets (diesel/gasoline/oil/propane, unsourced) replaced by water (approx.) + a custom density field. Missing WebApplication JSON-LD added to Boolean, Metric and Simple Interest.
+
+**Content:** removed the unverified IPC §704.1 drain table (ICC site refused the fetch) in favour of "check your adopted plumbing code" plus the conversion; removed ASME/"common in heating oil" claims, driveway code percentages, gross-pay "20–35%", "housing 60%+", "In many high schools", day-count "primary market usage" column (now shows the worked numbers), "guarantee minimal", "prototype kilogram". Misattributed sources replaced in `calculation-methods.ts`: IRC (3-4-5), ASME BPVC and Perry's (tank volume), College Board/MAA (grades), CFA GIPS/CFI (ROI), SIFMA, CFPB, Walpole/Hogg; IPC removed. Kept: Quine 1952, McCluskey 1956, Warren & Tyagi 2005, NIST SP 811/HB 44, BIPM, ADA.
+
+**Still open:** InputGuides for these 10 do not meet rules §4 (no focus highlight, no mobile `<details>`, many hard-coded hex colours; Boolean and Metric have no SVG). Spec gaps: Tank oval/stadium and capsule shapes (H1 mentions "Oval"), Final Grade drop-lowest mode, Boolean K-map and NAND/NOR-only views. `TODO(owner)`: cite the 2:1 head formula, the IPC table if a drain preset is wanted, and the ROI-vs-CAGR fold rule.
+
+---
+
 ### [Batch 5 review fixes — first 10 tools + live-page updates] — 2026-11-24
 
 **Engine bugs (tests added from the spec, not from current output):**

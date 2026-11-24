@@ -214,6 +214,12 @@ export default function FractionToPercentPage() {
               <li><strong>21 out of 25:</strong> (21 ÷ 25) × 100 = <strong>84.0% (Grade B)</strong>.</li>
               <li><strong>12 out of 20:</strong> (12 ÷ 20) × 100 = <strong>60.0% (Grade D)</strong>.</li>
             </ul>
+            <p>
+              To determine what exam score you need to pass a class or achieve a desired course grade, use our dedicated{' '}
+              <Link href="/final-grade-calculator/" style={{ color: 'var(--cat-math)', fontWeight: 600 }}>
+                Final Grade Calculator
+              </Link>.
+            </p>
 
             <h2>X is What Percent of Y?</h2>
             <p>

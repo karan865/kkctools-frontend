@@ -9,7 +9,7 @@
 .title {
   font-size: 0.85rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   margin-bottom: 14px;
@@ -63,7 +63,7 @@
 .eqLabel {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
 }
 
@@ -94,7 +94,7 @@
 .resultTag {
   font-size: 0.72rem;
   font-weight: 700;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   text-transform: uppercase;
 }
 
@@ -108,7 +108,7 @@
 
 .chip {
   font-size: 0.78rem;
-  color: var(--ink-muted);
+  color: var(--ink-soft, #475569);
   font-weight: 500;
 }
 

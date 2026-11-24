@@ -346,7 +346,10 @@ export default function CompoundInterestPage() {
             <div className={styles.prose}>
               <p>
                 Simple interest is calculated strictly on original principal, regardless of how much interest has
-                previously accrued. The growth formula is linear:
+                previously accrued. Calculate exact linear accruals between dates using our{' '}
+                <Link href="/simple-interest-calculator/" style={{ color: 'var(--cat-math)', fontWeight: 600 }}>
+                  Simple Interest Calculator
+                </Link>. The growth formula is linear:
               </p>
               <div className={styles.formulaBox}>Simple Future Value = P × (1 + r × t)</div>
               <p>
