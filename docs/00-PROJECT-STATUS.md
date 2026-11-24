@@ -2,12 +2,12 @@
 
 ## 1. Executive Summary & Progress
 
-- **Last Updated:** 2026-11-24
+- **Last Updated:** 2026-11-23
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 5 (Math & Financial Calculators) — **COMPLETED**: All 20 of 20 tools built & live (#76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test, #86 Binomial Probability, #87 Pythagorean Theorem, #88 Slope, #89 Tank Volume, #90 Simple Interest, #91 ROI, #92 Final Grade, #93 Monthly Budget, #94 Boolean Algebra, #95 Metric Conversion). All 10 live-page keyword refreshes implemented and verified.
-- **Overall Completion:** 1,114 vitest tests passing (97 test files, 100% green), 113 static routes in routes.ts, 95 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (130 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
+- **Current Phase:** Batch 5 (Math & Financial Calculators) — In Progress: 11 of 20 tools built & live (#76 Ratio, #77 Age Difference, #78 IQR, #79 A/B Test Significance, #80 Gallons to Cubic Feet, #81 CAGR, #82 Fraction to Percent, #83 Reverse Sales Tax, #84 Standard Deviation, #85 T-Test, #86 Binomial Probability). All 10 live-page keyword refreshes implemented.
+- **Overall Completion:** 1,049 vitest tests passing (89 test files, 100% green), 104 static routes in routes.ts, 86 tools in tools-catalog.ts, every HTML page passes the SEO audit with zero errors (107 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-24).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).

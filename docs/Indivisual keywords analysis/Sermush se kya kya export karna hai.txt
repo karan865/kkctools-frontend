@@ -1,0 +1,70 @@
+Bhai, Semrush se sirf 3 main reports export karni hain (aur sabhi ke liye Database: United States (US) select karna hai, kyunki humari 76% traffic US se hai).
+
+Yeh raha exact step-by-step guide:
+
+1. SERP Analysis Export (12 Focus Keywords)
+
+Kyun chahiye: Isse pata chalega ki Google US ke top 10 mein kaunse competitors hain, unke paas kitne backlinks hain, aur wo tool dikha rahe hain ya article.
+
+Kaise nikalna hai:
+
+Semrush mein Keyword Overview par jao.
+Country dropdown mein United States (US) chuno.
+Ek-ek karke niche diye gaye 12 keywords search karo:
+
+how to check if a band name is taken
+metal band name generator
+boy band name generator
+discount calculator
+percent off calculator
+-----------------------------yaha tak ho gaya hai------------------
+unit price calculator
+percentage change calculator
+percentage change formula
+interior painting cost calculator
+house painting cost calculator
+paver sand calculator
+yards to tons sand
+Page par scroll karke neeche "SERP Analysis" table par aao.
+Upar right corner mein Export (CSV ya Excel) par click karo.
+File ka naam keyword ke hisaab se save karo (jaise serp-discount-calculator.csv).
+2. Keyword Magic Tool — Questions Export (6 Seeds)
+
+Kyun chahiye: Isse pata chalega ki log in topics par kya-kya sawaal (questions) pooch rahe hain, taaki hum tools ke andar unke exact step-by-step examples aur FAQs add kar sakein.
+
+Kaise nikalna hai:
+
+Left menu mein Keyword Magic Tool kholo.
+Database: United States (US).
+Ek-ek karke yeh 6 seed keywords daalo:
+percentage change
+discount
+unit price
+band name
+paint cost
+sand calculator
+Search karne ke baad, upar filter bar mein "Questions" tab par click karo.
+Sort: KD% (Keyword Difficulty) par click karke low-to-high kar lo.
+Upar right se Export (CSV/Excel) kar lo (jaise questions-percentage-change.csv).
+3. Apni Site Ka Backlink Report (kkctools.com)
+
+Kyun chahiye: Dekhne ke liye ki Semrush ke hisaab se humari site par abhi kaunse referring domains/links live hain.
+
+Kaise nikalna hai:
+
+Left menu mein Backlink Analytics kholo.
+Domain search box mein daalo: kkctools.com
+Upar tabs mein "Referring Domains" tab par click karo.
+Right corner se Export (CSV/Excel) kar lo.
+4. Ek Setup Kaam: Position Tracking (Optional lekin recommended)
+Semrush mein Position Tracking par click karo.
+Domain: kkctools.com, Device: Desktop, Location: United States.
+Upar diye gaye 12 keywords add kar do aur tags laga do (money, music, construction). Isse hafte-dar-hafte rankings auto-track hongi.
+Files Kahan Rakhni Hain:
+
+In exports ko is folder mein save kar dena: 📁 docs/Google Search console data/data-requests-2026-11/
+
+Jaise hi aap yeh files daaloge, main SERP analysis dekh kar bata dunga ki:
+
+Kis page ka title/H2 kaise optimize karna hai.
+Aur kin 4 weak competitors ke khilaf humein Backlink Gap chala kar free backlinks target karne hain!
