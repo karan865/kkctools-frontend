@@ -1,5 +1,5 @@
 # COMPLETE PROJECT REVIEW BUNDLE
-Generated on: 2026-11-25T04:46:22.253Z
+Generated on: 2026-11-25T08:34:49.037Z
 
 
 
@@ -15,8 +15,8 @@ Generated on: 2026-11-25T04:46:22.253Z
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 5 + 8 Finance Pages — IMPROVEMENT COMPLETED: All 28 pages improved per `docs/prompts/BATCH5_IMPROVE_PROMPT.md` (Part A 8 finance static HTML controls + `seo-audit.mjs` tool-route guard; Part B contrast/inputCard/undefined CSS variable fixes; Part C BLUF removals, table captions, Known Gaps, fluff cleanup, cross-links; Part D Python independent checks & exact NIST constants). All URLs, titles, metas, and H1s preserved; 0 errors on verify.
-- **Overall Completion:** 1,349 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories, every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-25).
+- **Current Phase:** Batch 7 (Developer & Web Tools) COMPLETED: Added `Developer & Web` category (`order: 10`), shared Web Crypto `secure-random.ts`, and all 5 tools (`/password-generator/`, `/password-strength-checker/`, `/uuid-generator/`, `/passphrase-generator/`, `/hacker-name-generator/`) per `docs/prompts/BATCH7_BUILD_PROMPT.md`, plus §6 cross-links and §7 security/offline invariant tests.
+- **Overall Completion:** 110 tools in `tools-catalog.ts` across 10 categories, every HTML page passes `seo-audit.mjs` with 0 errors, no-network check passing (`npm run verify` 2026-11-25).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).
@@ -2597,7 +2597,7 @@ No code changed.
 
 # SEO Audit Report
 
-Run Date: 2026-11-25T04:46:20.865Z
+Run Date: 2026-11-25T08:34:48.587Z
 Status: PASSED ✅
 
 | Route | Title | Words | H1 | Status |
@@ -2612,7 +2612,7 @@ Status: PASSED ✅
 | `/asphalt-calculator/` | Asphalt Calculator: Tons, Cubic Yards &  | 2487 | Asphalt Calculator: How Many T | PASS |
 | `/band-name-generator/boy-band/` | Boy Band Name Generator – Catchy Group N | 1056 | Boy Band Name Generator | PASS |
 | `/band-name-generator/heavy-metal/` | Heavy Metal Band Name Generator – Classi | 1122 | Heavy Metal Band Name Generato | PASS |
-| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2660 | Band Name Generator | PASS |
+| `/band-name-generator/` | Band Name Generator – Free Band Name Ide | 2674 | Band Name Generator | PASS |
 | `/band-name-generator/kpop/` | K-pop Band Name Generator – Group Name I | 1194 | K-pop Band Name Generator | PASS |
 | `/band-name-generator/metal/` | Metal Band Name Generator – Dark & Heavy | 1227 | Metal Band Name Generator | PASS |
 | `/band-name-generator/random/` | Random Band Name Generator – Instant Ide | 1110 | Random Band Name Generator | PASS |
@@ -2630,7 +2630,7 @@ Status: PASSED ✅
 | `/character-counter/` | Character Counter – Count Characters Wit | 3041 | Character Counter: Characters  | PASS |
 | `/characters-to-words/` | Characters to Words Converter – How Many | 2566 | Characters to Words: How Many  | PASS |
 | `/cinder-block-calculator/` | Cinder Block Calculator – CMU & Concrete | 3548 | Cinder Block Calculator – Conc | PASS |
-| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2243 | Comma Separator: Turn a Column | PASS |
+| `/comma-separator/` | Comma Separator – Column to Comma-Separa | 2264 | Comma Separator: Turn a Column | PASS |
 | `/commercial-lease-calculator/` | Commercial Lease Calculator – Rent per S | 3050 | Commercial Lease Calculator: R | PASS |
 | `/commercial-mortgage-calculator/` | Commercial Mortgage Calculator – Payment | 2788 | Commercial Mortgage Calculator | PASS |
 | `/compost-calculator/` | Compost Calculator (Garden Beds & Lawns) | 2606 | Compost Calculator: Cubic Yard | PASS |
@@ -2664,10 +2664,11 @@ Status: PASSED ✅
 | `/guides/how-to-check-if-a-band-name-is-taken/` | How to Check If a Band Name Is Taken | K | 1875 | How to Check If a Band Name Is | PASS |
 | `/guides/how-to-choose-a-band-name/` | How to Choose a Band Name – Complete Gui | 1888 | How to Choose a Band Name: The | PASS |
 | `/guides/` | Guides – Band Naming & Name Checks | KKC | 249 | Guides: Band Naming and Checki | PASS |
+| `/hacker-name-generator/` | Hacker Name Generator – Cool Hacker User | 1450 | Hacker Name Generator: Cool Ha | PASS |
 | `/heloc-calculator/` | HELOC Loan Calculator – Payment, Limit & | 3096 | HELOC Calculator: Borrowing Li | PASS |
 | `/hourly-to-salary-calculator/` | Hourly to Salary Calculator – Yearly Wag | 2708 | Hourly to Salary Calculator (Y | PASS |
 | `/how-long-will-my-money-last/` | How Long Will My Money Last? Retirement  | 3541 | How Long Will My Money Last Ca | PASS |
-| `/` | KKC Tools – Free Construction Calculator | 4810 | Free Construction Calculators  | PASS |
+| `/` | KKC Tools – Free Construction Calculator | 5100 | Free Construction Calculators  | PASS |
 | `/investment-return-calculator/` | Investment Calculator – S&P 500, T-Bills | 3187 | Investment Return Calculator:  | PASS |
 | `/invoice-generator/` | Free Invoice Generator – Hourly & Freela | 2854 | Invoice Generator: Make an Hou | PASS |
 | `/iqr-calculator/` | IQR Calculator – Quartiles, Outliers & B | 2974 | IQR Calculator: Interquartile  | PASS |
@@ -2682,6 +2683,9 @@ Status: PASSED ✅
 | `/net-worth-calculator/` | Net Worth Calculator – Calculate Your Ne | 2834 | Net Worth Calculator: Calculat | PASS |
 | `/numbers-to-words/` | Numbers to Words Converter – Amount in W | 2699 | Numbers to Words: Write Any Nu | PASS |
 | `/paint-cost-calculator/` | Paint Cost Calculator (Coverage & Price) | 2547 | Paint Cost Calculator: Gallons | PASS |
+| `/passphrase-generator/` | Passphrase Generator – Random Memorable  | 2131 | Passphrase Generator: Strong P | PASS |
+| `/password-generator/` | Password Generator – Strong Random Passw | 2406 | Password Generator: Create a S | PASS |
+| `/password-strength-checker/` | Password Strength Checker – Test Your Pa | 1979 | Password Strength Checker: How | PASS |
 | `/paver-base-calculator/` | Paver Base Calculator (Tons & Cubic Yard | 3097 | Paver Base Calculator: Tons &  | PASS |
 | `/paver-sand-calculator/` | Paver Sand Calculator (Bedding & Polymer | 2494 | Paver Sand Calculator: Bedding | PASS |
 | `/percentage-change-calculator/` | Percentage Change Calculator – Increase  | 3881 | Percentage Change Calculator:  | PASS |
@@ -2707,7 +2711,7 @@ Status: PASSED ✅
 | `/sfm-to-rpm-calculator/` | SFM to RPM Calculator – Surface Feet per | 2302 | SFM to RPM Calculator: Surface | PASS |
 | `/shingle-calculator/` | Shingle Roof Calculator – Bundles, Squar | 2895 | Shingle Roof Calculator: Bundl | PASS |
 | `/simple-interest-calculator/` | Simple Interest Calculator – Accrued Int | 2449 | Simple Interest Calculator: In | PASS |
-| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 1992 | Site Map | PASS |
+| `/site-map/` | Site Map – Every KKC Tools Page | KKC To | 2081 | Site Map | PASS |
 | `/slope-calculator/` | Slope Calculator – Rise over Run, Percen | 2613 | Slope Calculator: Rise over Ru | PASS |
 | `/speeds-and-feeds-calculator/` | Speeds and Feeds Calculator – CNC RPM &  | 3188 | Speeds and Feeds Calculator: C | PASS |
 | `/square-footage-calculator/` | Square Footage Calculator – Sq Ft of Roo | 3405 | Square Footage Calculator (Sq  | PASS |
@@ -2721,9 +2725,10 @@ Status: PASSED ✅
 | `/thread-pitch-diameter-calculator/` | Thread Pitch Diameter Calculator – UN &  | 2530 | Thread Pitch Diameter Calculat | PASS |
 | `/tile-calculator/` | Tile Calculator (Tile Sq Ft & Boxes) | K | 3397 | Tile Calculator: Square Feet,  | PASS |
 | `/tons-to-cubic-yards/` | Tons to Cubic Yards Converter by Materia | 1975 | Tons to Cubic Yards Converter | PASS |
-| `/tools/` | All Free Tools – Construction Calculator | 3287 | All Free Tools: Construction C | PASS |
+| `/tools/` | All Free Tools – Construction Calculator | 3411 | All Free Tools: Construction C | PASS |
 | `/twitter-character-counter/` | Twitter Character Counter – X & Instagra | 2474 | Twitter (X) Character Counter: | PASS |
 | `/unit-price-calculator/` | Unit Price Calculator – Price per Ounce, | 2706 | Unit Price Calculator: Compare | PASS |
+| `/uuid-generator/` | UUID Generator – Random UUID v4 & GUID O | 2895 | UUID Generator: Create Random  | PASS |
 | `/wire-gauge-calculator/` | Wire Gauge Calculator – Wire Size by Amp | 2580 | Wire Gauge Calculator: Wire Si | PASS |
 | `/word-counter/` | Word Counter – Free Online Word Count To | 2984 | Word Counter: Count Words, Cha | PASS |
 | `/words-to-pages/` | Words to Pages Calculator – How Many Pag | 3942 | Words to Pages Calculator: How | PASS |
@@ -2798,6 +2803,7 @@ guides/band-name-ideas-by-genre/index.html
 guides/how-to-check-if-a-band-name-is-taken/index.html
 guides/how-to-choose-a-band-name/index.html
 guides/index.html
+hacker-name-generator/index.html
 heloc-calculator/index.html
 hourly-to-salary-calculator/index.html
 how-long-will-my-money-last/index.html
@@ -2816,6 +2822,9 @@ metric-conversion-calculator/index.html
 net-worth-calculator/index.html
 numbers-to-words/index.html
 paint-cost-calculator/index.html
+passphrase-generator/index.html
+password-generator/index.html
+password-strength-checker/index.html
 paver-base-calculator/index.html
 paver-sand-calculator/index.html
 percentage-change-calculator/index.html
@@ -2858,6 +2867,7 @@ tons-to-cubic-yards/index.html
 tools/index.html
 twitter-character-counter/index.html
 unit-price-calculator/index.html
+uuid-generator/index.html
 wire-gauge-calculator/index.html
 word-counter/index.html
 words-to-pages/index.html
@@ -2900,6 +2910,7 @@ _not-found/index.html
 <!-- ========================================================= -->
 
 ```
+d1cf3d1 tools updated
 930c190 Batch 6 - bug fixed
 ba85920 feat(writing): build and integrate all 10 Batch 6 Text & Writing tools - Add new 'writing' (Text & Writing) category across design tokens, 3x3 category grid, hero chips, megamenu, and footer - Implement core client-side engines and unit test suites:   * text-engine: Grapheme clusters, UTF-8 bytes, CJK glyphs, and sentence segmentation   * page-estimate-engine: Single/1.5/double spacing and Letter/A4 pagination models   * char-word-engine: Ranges, space toggles, and personalized pace calibration   * x-count-engine: Official X weighted rules (links=23, emoji=2) and thread splitter   * reading-time-engine: Silent/spoken pace conversion and speech practice timer   * number-words-engine: US check and Indian cheque (lakh/crore) formats with reverse parser   * list-engine: RFC 4180 auto-quoting, SQL/JSON/Excel presets, dedupe, and sorting   * sentence-stats-engine: Abbreviation merge pass, histogram, and paragraph density   * keyword-density-engine: Sentence-bounded 1/2/3-grams, stop-word filters, decile heatmap, and KWIC - Build 10 complete UI tools and long-form SEO pages (1,000-1,500+ words, JSON-LD schemas, verified FAQs):   1. Character Counter (/character-counter/)   2. Words to Pages Calculator (/words-to-pages/)   3. Characters to Words Converter (/characters-to-words/)   4. Twitter (X) Character Counter (/twitter-character-counter/)   5. Word Counter (/word-counter/)   6. Reading & Speaking Time Calculator (/reading-time-calculator/)   7. Numbers to Words Converter (/numbers-to-words/)   8. Comma Separator (/comma-separator/)   9. Sentence & Paragraph Counter (/sentence-counter/)   10. Keyword Density Checker (/keyword-density-checker/) - Establish bidirectional cross-links across counters, converters, social, and invoice tools - Update catalog to 105 tools; 140 static HTML export pages; 1,225 vitest tests passing (100% green)
 eca54a5 goolge search console analysis files created
@@ -2919,7 +2930,6 @@ e0883d1 feat(tool): build Profit Margin Calculator (#43) with interactive P&L wa
 47208bf feat(tool): build Markup Calculator (#42) with interactive visual diagram and 5 modes
 d7b7d42 feat(tool): build Percentage Change Calculator (#41) with interactive visual diagram and 8 modes
 c70c17f all Batch 2 completed
-775f6f3 Deck Cost Calculator & Estimator - completed
 ```
 
 
@@ -2935,18 +2945,18 @@ c70c17f all Batch 2 completed
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 3.2s
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 58s
+✓ Compiled successfully in 10.0s
   Running TypeScript ...
-  Finished TypeScript in 24.9s ...
+  Finished TypeScript in 3.6s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/140) ...
-  Generating static pages using 15 workers (35/140) 
-  Generating static pages using 15 workers (70/140) 
-  Generating static pages using 15 workers (105/140) 
-✓ Generating static pages using 15 workers (140/140) in 18.7s
+  Generating static pages using 15 workers (0/145) ...
+  Generating static pages using 15 workers (36/145) 
+  Generating static pages using 15 workers (72/145) 
+  Generating static pages using 15 workers (108/145) 
+✓ Generating static pages using 15 workers (145/145) in 5.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -3017,6 +3027,7 @@ Route (app)
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /hacker-name-generator
 ├ ○ /heloc-calculator
 ├ ○ /hourly-to-salary-calculator
 ├ ○ /how-long-will-my-money-last
@@ -3039,6 +3050,9 @@ Route (app)
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
+├ ○ /passphrase-generator
+├ ○ /password-generator
+├ ○ /password-strength-checker
 ├ ○ /paver-base-calculator
 ├ ○ /paver-sand-calculator
 ├ ○ /percentage-change-calculator
@@ -3086,6 +3100,7 @@ Route (app)
 ├ ○ /tools
 ├ ○ /twitter-character-counter
 ├ ○ /unit-price-calculator
+├ ○ /uuid-generator
 ├ ○ /wire-gauge-calculator
 ├ ○ /word-counter
 └ ○ /words-to-pages
@@ -3241,6 +3256,9 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
   296:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\password-generator\PasswordGenerator.tsx
+  8:3  warning  'DEFAULT_PASSWORD_OPTIONS' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\reverse-tax-calculator\ReverseTaxCalculator.tsx
   55:24  warning  'setReceiptItems' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
@@ -3305,7 +3323,7 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 86 problems (0 errors, 86 warnings)
+✖ 87 problems (0 errors, 87 warnings)
 
 
 ```
@@ -3317,7 +3335,7 @@ D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
 > band-name-generator-site@0.1.0 seo:audit
 > node scripts/seo-audit.mjs
 
-Auditing 126 HTML files in out/...
+Auditing 131 HTML files in out/...
 Report written to docs/seo-audit-report.md
 ✅ SEO Audit Passed with 0 errors.
 
@@ -3334,10 +3352,10 @@ Report written to docs/seo-audit-report.md
  RUN  v4.1.12 D:/1_programmins/5.kkctools
 
 
- Test Files  107 passed (107)
-      Tests  1348 passed (1348)
-   Start at  10:12:51
-   Duration  21.56s (transform 73.33s, setup 0ms, import 93.80s, tests 11.36s, environment 204ms)
+ Test Files  115 passed (115)
+      Tests  1387 passed (1387)
+   Start at  14:04:03
+   Duration  5.87s (transform 15.56s, setup 0ms, import 22.22s, tests 8.73s, environment 41ms)
 
 
 ```

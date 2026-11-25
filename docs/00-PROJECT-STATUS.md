@@ -6,8 +6,8 @@
 - **Node.js Version:** `v25.8.0` (LTS requirement: ≥ 20.9 met)
 - **NPM Version:** `11.11.0`
 - **Hosting:** moving from Netlify to Cloudflare Workers Static Assets (`wrangler.jsonc`, serves `out/`); config verified by `wrangler deploy --dry-run` 2026-11-14, live deploy pending owner push.
-- **Current Phase:** Batch 5 + 8 Finance Pages — IMPROVEMENT COMPLETED: All 28 pages improved per `docs/prompts/BATCH5_IMPROVE_PROMPT.md` (Part A 8 finance static HTML controls + `seo-audit.mjs` tool-route guard; Part B contrast/inputCard/undefined CSS variable fixes; Part C BLUF removals, table captions, Known Gaps, fluff cleanup, cross-links; Part D Python independent checks & exact NIST constants). All URLs, titles, metas, and H1s preserved; 0 errors on verify.
-- **Overall Completion:** 1,349 vitest tests passing (107 test files, 100% green), 105 tools in tools-catalog.ts across 9 categories, every HTML page passes the SEO audit with zero errors (140 HTML pages in out/), no-network check passing (`npm run verify` 2026-11-25).
+- **Current Phase:** Batch 7 (Developer & Web Tools) COMPLETED: Added `Developer & Web` category (`order: 10`), shared Web Crypto `secure-random.ts`, and all 5 tools (`/password-generator/`, `/password-strength-checker/`, `/uuid-generator/`, `/passphrase-generator/`, `/hacker-name-generator/`) per `docs/prompts/BATCH7_BUILD_PROMPT.md`, plus §6 cross-links and §7 security/offline invariant tests.
+- **Overall Completion:** 110 tools in `tools-catalog.ts` across 10 categories, every HTML page passes `seo-audit.mjs` with 0 errors, no-network check passing (`npm run verify` 2026-11-25).
 - **Tier 3 (YMYL) Standing Maintenance Commitment:**
   * Tool #65 (Retirement Drawdown): Yearly check of Bengen 4% withdrawal rate studies and SSA actuarial life expectancy tables.
   * Tool #66 (SBA Loan): Yearly review of SBA 504 CDC debenture fee tables and 7(a) guarantee fee schedules at the start of each federal fiscal year (October).

@@ -3,8 +3,8 @@ import { TOOLS_CATALOG, CATEGORIES, CategoryId } from './tools-catalog';
 import { ROUTES } from './routes';
 
 describe('TOOLS_CATALOG single source of truth', () => {
-  it('contains exactly 105 tools currently', () => {
-    expect(TOOLS_CATALOG.length).toBe(105);
+  it('contains exactly 110 tools currently', () => {
+    expect(TOOLS_CATALOG.length).toBe(110);
   });
 
   it('ensures every tool has a valid existing route in ROUTES', () => {
@@ -30,9 +30,9 @@ describe('TOOLS_CATALOG single source of truth', () => {
   });
 
   it('ensures newer tools appear first and older tools appear last', () => {
-    // Top tool is newest addition from 2026-11-24 (sorted alphabetically when added date matches)
-    expect(TOOLS_CATALOG[0].added).toBe('2026-11-24');
-    expect(TOOLS_CATALOG[0].slug).toBe('/character-counter/');
+    // Top tool is newest addition from 2026-11-25 (sorted alphabetically when added date matches)
+    expect(TOOLS_CATALOG[0].added).toBe('2026-11-25');
+    expect(TOOLS_CATALOG[0].slug).toBe('/hacker-name-generator/');
     expect(TOOLS_CATALOG.some((t) => t.slug === '/ratio-calculator/')).toBe(true);
 
     // Date monotonicity: earlier items must have equal or newer added dates than later items

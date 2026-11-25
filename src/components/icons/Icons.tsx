@@ -112,6 +112,11 @@ export type IconName =
   | 'listFilter'
   | 'paragraph'
   | 'charToWord'
+  | 'passwordKey'
+  | 'strengthGauge'
+  | 'uuidHex'
+  | 'wordTiles'
+  | 'terminal'
   | 'close';
 
 interface IconProps {
@@ -1117,6 +1122,48 @@ export default function Icon({
           <path d="M4 7V4h16v3" />
           <line x1="9" y1="20" x2="15" y2="20" />
           <line x1="12" y1="4" x2="12" y2="20" />
+        </svg>
+      );
+    case 'passwordKey':
+      return (
+        <svg {...common}>
+          <circle cx="7.5" cy="15.5" r="4.5" />
+          <path d="m21 2-9.6 9.6" />
+          <path d="m15.5 7.5 3 3L22 7l-3-3" />
+        </svg>
+      );
+    case 'strengthGauge':
+      return (
+        <svg {...common}>
+          <path d="M12 14l4-4" />
+          <path d="M3.34 19a10 10 0 1 1 17.32 0" />
+          <circle cx="12" cy="14" r="1.5" />
+        </svg>
+      );
+    case 'uuidHex':
+      return (
+        <svg {...common}>
+          <rect x="3" y="5" width="18" height="14" rx="2" />
+          <path d="M7 10h2v4H7z" />
+          <path d="M12 12h2" />
+          <path d="M16 10v4" />
+        </svg>
+      );
+    case 'wordTiles':
+      return (
+        <svg {...common}>
+          <rect x="3" y="4" width="8" height="7" rx="1.5" />
+          <rect x="13" y="4" width="8" height="7" rx="1.5" />
+          <rect x="3" y="13" width="8" height="7" rx="1.5" />
+          <rect x="13" y="13" width="8" height="7" rx="1.5" />
+        </svg>
+      );
+    case 'terminal':
+      return (
+        <svg {...common}>
+          <rect x="2" y="4" width="20" height="16" rx="2" />
+          <polyline points="7 10 10 13 7 16" />
+          <line x1="12" y1="16" x2="17" y2="16" />
         </svg>
       );
     case 'close':

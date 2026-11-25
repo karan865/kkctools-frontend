@@ -328,6 +328,12 @@ export default function CommaSeparatorPage() {
                 </Link>{' '}
                 Convert word counts to printed pages for single, 1.5, and double line spacing.
               </li>
+              <li>
+                <Link href="/uuid-generator/">
+                  <strong>UUID / GUID Generator:</strong>
+                </Link>{' '}
+                Generate RFC 9562 v4 or v7 UUIDs in bulk and format them as comma-separated, SQL, or JSON lists.
+              </li>
             </ul>
           </section>
 

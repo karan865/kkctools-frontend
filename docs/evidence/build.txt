@@ -3,18 +3,18 @@
 > next build --webpack
 
 ▲ Next.js 16.4.5 (webpack)
-✓ Running next.config.ts took 3.2s
+✓ Running next.config.ts took 27ms
 
   Creating an optimized production build ...
-✓ Compiled successfully in 58s
+✓ Compiled successfully in 10.0s
   Running TypeScript ...
-  Finished TypeScript in 24.9s ...
+  Finished TypeScript in 3.6s ...
   Collecting page data using 15 workers ...
-  Generating static pages using 15 workers (0/140) ...
-  Generating static pages using 15 workers (35/140) 
-  Generating static pages using 15 workers (70/140) 
-  Generating static pages using 15 workers (105/140) 
-✓ Generating static pages using 15 workers (140/140) in 18.7s
+  Generating static pages using 15 workers (0/145) ...
+  Generating static pages using 15 workers (36/145) 
+  Generating static pages using 15 workers (72/145) 
+  Generating static pages using 15 workers (108/145) 
+✓ Generating static pages using 15 workers (145/145) in 5.2s
   Finalizing page optimization ...
   Collecting build traces ...
 
@@ -85,6 +85,7 @@ Route (app)
 │ ├ ● /guides/how-to-choose-a-band-name
 │ ├ ● /guides/how-to-check-if-a-band-name-is-taken
 │ └ ● /guides/band-name-ideas-by-genre
+├ ○ /hacker-name-generator
 ├ ○ /heloc-calculator
 ├ ○ /hourly-to-salary-calculator
 ├ ○ /how-long-will-my-money-last
@@ -107,6 +108,9 @@ Route (app)
 ├ ○ /opengraph-image.png
 ├ ○ /paint-cost-calculator
 ├ ○ /paint-cost-calculator/opengraph-image
+├ ○ /passphrase-generator
+├ ○ /password-generator
+├ ○ /password-strength-checker
 ├ ○ /paver-base-calculator
 ├ ○ /paver-sand-calculator
 ├ ○ /percentage-change-calculator
@@ -154,6 +158,7 @@ Route (app)
 ├ ○ /tools
 ├ ○ /twitter-character-counter
 ├ ○ /unit-price-calculator
+├ ○ /uuid-generator
 ├ ○ /wire-gauge-calculator
 ├ ○ /word-counter
 └ ○ /words-to-pages

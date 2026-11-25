@@ -399,6 +399,12 @@ export default function BandNameGeneratorPage() {
                 <span className={styles.relatedToolExcerpt}>Explore all published and upcoming browser utilities</span>
                 <span className={styles.relatedToolLink}>Browse all tools →</span>
               </Link>
+
+              <Link href="/hacker-name-generator/" className={styles.relatedToolItem}>
+                <span className={styles.relatedToolName}>💻 More name generators: Hacker Name Generator</span>
+                <span className={styles.relatedToolExcerpt}>l33t, cyberpunk, gamer tag, and terminal handles</span>
+                <span className={styles.relatedToolLink}>Open tool →</span>
+              </Link>
             </div>
           </div>
         </aside>

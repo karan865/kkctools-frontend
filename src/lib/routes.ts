@@ -1040,6 +1040,51 @@ export const ROUTES: Record<string, RouteDefinition> = {
     type: 'trust',
     indexable: true,
   },
+  passwordGenerator: {
+    path: '/password-generator/',
+    title: 'Password Generator – Strong Random Passwords',
+    description:
+      'Free password generator. Create strong random passwords or PINs with your own length and character rules, made in your browser and never sent anywhere.',
+    updated: '2026-11-25',
+    type: 'tool',
+    indexable: true,
+  },
+  passwordStrengthChecker: {
+    path: '/password-strength-checker/',
+    title: 'Password Strength Checker – Test Your Password',
+    description:
+      'Free password strength checker. See how long your password would take to guess, why it is weak, and whether it is on a common-password list, all offline.',
+    updated: '2026-11-25',
+    type: 'tool',
+    indexable: true,
+  },
+  uuidGenerator: {
+    path: '/uuid-generator/',
+    title: 'UUID Generator – Random UUID v4 & GUID Online',
+    description:
+      'Free UUID generator. Create random v4 or time-ordered v7 UUIDs and GUIDs in bulk, check if a UUID is valid, and copy code for your language, in your browser.',
+    updated: '2026-11-25',
+    type: 'tool',
+    indexable: true,
+  },
+  passphraseGenerator: {
+    path: '/passphrase-generator/',
+    title: 'Passphrase Generator – Random Memorable Words',
+    description:
+      'Free passphrase generator. Build a strong, easy-to-remember passphrase from random words, with your own word count, separator and number rules, in your browser.',
+    updated: '2026-11-25',
+    type: 'tool',
+    indexable: true,
+  },
+  hackerNameGenerator: {
+    path: '/hacker-name-generator/',
+    title: 'Hacker Name Generator – Cool Hacker Usernames',
+    description:
+      'Free hacker name generator. Get cool hacker-style names and gamer tags from your own words and styles, then copy your favourites. Made in your browser.',
+    updated: '2026-11-25',
+    type: 'tool',
+    indexable: true,
+  },
 };
 
 export const INDEXABLE_ROUTES = Object.values(ROUTES).filter((r) => r.indexable);

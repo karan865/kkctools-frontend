@@ -8,6 +8,7 @@
 .cat-engineering { --cat-tile-bg: var(--cat-engineering-soft); --cat-border: var(--cat-engineering); --cat-deep: var(--cat-engineering-deep); --g1: var(--cat-engineering-g1); --g2: var(--cat-engineering-g2); }
 .cat-math        { --cat-tile-bg: var(--cat-math-soft);        --cat-border: var(--cat-math);        --cat-deep: var(--cat-math-deep);        --g1: var(--cat-math-g1);        --g2: var(--cat-math-g2); }
 .cat-writing     { --cat-tile-bg: var(--cat-writing-soft);     --cat-border: var(--cat-writing);     --cat-deep: var(--cat-writing-deep);     --g1: var(--cat-writing-g1);     --g2: var(--cat-writing-g2); }
+.cat-developer   { --cat-tile-bg: var(--cat-developer-soft);   --cat-border: var(--cat-developer);   --cat-deep: var(--cat-developer-deep);   --g1: var(--cat-developer-g1);   --g2: var(--cat-developer-g2); }
 
 /* ---------- Card ---------- */
 .card {

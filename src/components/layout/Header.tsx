@@ -52,6 +52,7 @@ export default function Header() {
     'engineering',
     'math',
     'writing',
+    'developer',
   ];
 
   return (

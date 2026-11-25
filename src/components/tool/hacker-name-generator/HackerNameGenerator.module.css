@@ -1,0 +1,221 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  padding: 20px;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.controlsGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: 12px;
+}
+
+.fieldGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.fieldLabel {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.textInput,
+.selectInput,
+.numberInput {
+  padding: 8px 10px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line-strong);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.92rem;
+}
+
+.lengthRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.numberInput {
+  width: 68px;
+  text-align: center;
+}
+
+.checkboxRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.checkboxLabel {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  background: var(--surface-2);
+  color: var(--ink);
+  font-size: 0.88rem;
+  cursor: pointer;
+}
+
+.actionRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+}
+
+.primaryBtn {
+  padding: 10px 18px;
+  border-radius: var(--radius-s);
+  border: none;
+  background: var(--cat-developer-g1);
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.primaryBtn:hover {
+  opacity: 0.92;
+}
+
+.secondaryBtn {
+  padding: 8px 14px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-weight: 600;
+  font-size: 0.86rem;
+  cursor: pointer;
+}
+
+.secondaryBtn:hover {
+  background: var(--surface-hover);
+}
+
+.warningBanner {
+  padding: 10px 14px;
+  border-radius: var(--radius-s);
+  border: 1px solid var(--warn, #d97706);
+  background: color-mix(in srgb, var(--warn, #d97706) 12%, var(--surface));
+  color: var(--ink);
+  font-size: 0.88rem;
+}
+
+.summaryText {
+  font-size: 0.92rem;
+  color: var(--ink-soft);
+}
+
+.namesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 10px;
+}
+
+.nameCard {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  background: var(--surface-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+}
+
+.nameTop {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+
+.nameText {
+  font-family: var(--font-mono, ui-monospace, monospace);
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ink);
+  word-break: break-word;
+}
+
+.styleBadge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 4px;
+  background: var(--cat-developer-soft);
+  color: var(--cat-developer);
+}
+
+.readableNote {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+.cardActions {
+  display: flex;
+  gap: 8px;
+}
+
+.smallBtn {
+  padding: 5px 10px;
+  border-radius: 4px;
+  border: 1px solid var(--line-strong);
+  background: var(--surface);
+  color: var(--ink);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.smallBtn:hover {
+  background: var(--surface-hover);
+}
+
+.funNote {
+  font-size: 0.84rem;
+  color: #ffffff;
+  padding-top: 8px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.linkRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.link {
+  color: var(--cat-developer);
+  font-weight: 600;
+  text-decoration: underline;
+}
+
+/* Sits on the purple band, outside a card */
+.funNote,
+.funNote .link {
+  color: #ffffff;
+}

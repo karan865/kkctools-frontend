@@ -2796,4 +2796,131 @@ export const CALCULATION_METHODS: Record<string, CalculationMethod> = {
     defaults: [{ label: 'Markup and tax', value: 'you enter your own rates; nothing is preset for your area' }],
     sources: [{ label: 'Plain arithmetic', note: 'no outside data; check tax rules for your state or country' }],
   },
+  'password-generator': {
+    formula: [
+      'Uniform draw via Web Crypto crypto.getRandomValues with 32-bit rejection sampling: limit = floor(2^32 / pool) * pool',
+      'Entropy (uniform): length * log2(poolSize)',
+      'Entropy (at least one of each set): log2 of inclusion-exclusion combinations across non-overlapping active sets',
+      'Average guess time: 2^(entropyBits - 1) / guessesPerSecond',
+    ],
+    defaults: [
+      { label: 'Default password', value: '16 characters, uppercase + lowercase + digits + 32 OWASP symbols (94 total), require each on (104.59 bits)' },
+      { label: 'Wi-Fi preset', value: '20 characters, letters + digits, look-alikes excluded (pool 57, 116.66 bits without require-each)' },
+      { label: 'PIN preset', value: '6 digits (0-9, 19.93 bits, 1,000,000 combinations)' },
+    ],
+    sources: [
+      {
+        label: 'NIST SP 800-63B rev 4 (§3.1.1.2)',
+        url: 'https://pages.nist.gov/800-63-4/sp800-63b.html',
+        note: 'Checked 2026-11-22: 15-char minimum single-factor, 8-char with MFA, no composition rules or periodic expiry',
+      },
+      {
+        label: 'OWASP Password Special Characters',
+        url: 'https://owasp.org/www-community/password-special-characters',
+        note: 'Checked 2026-11-22: 32 non-space printable ASCII symbols (33 with space)',
+      },
+      {
+        label: 'CISA Use Strong Passwords (archived guidance page)',
+        url: 'https://www.cisa.gov/secure-our-world/use-strong-passwords',
+        note: 'Checked 2026-11-22: archived page recommending 16+ characters and a password manager',
+      },
+    ],
+  },
+  'password-strength-checker': {
+    formula: [
+      'Pattern-aware minimum guesses: total = m! * Π guesses_i across m segments (minimized via log2 dynamic programming over first 128 NFC code points)',
+      'Naive character-count entropy: length * log2(activeClassPool)',
+      'Average guess time: 2^(realBits - 1) / guessesPerSecond',
+    ],
+    defaults: [
+      { label: 'Common-password list', value: 'SecLists 10k-most-common.txt (10,001 entries, MIT license, lazy-loaded offline)' },
+      { label: 'Score bands (ours)', value: '<28 Very Weak, <36 Weak, <60 Fair, <80 Strong, >=80 Very Strong' },
+      { label: 'Scenario rates (assumptions)', value: '100/hr online throttled, 10/s online unthrottled, 10,000/s slow hash, 100B/s fast hash' },
+    ],
+    sources: [
+      {
+        label: 'NIST SP 800-63B rev 4 (§3.1.1.2)',
+        url: 'https://pages.nist.gov/800-63-4/sp800-63b.html',
+        note: 'Checked 2026-11-22: blocklist checks, 15-char single-factor / 8-char MFA minimum, NFC normalization',
+      },
+      {
+        label: 'SecLists 10k-most-common.txt (MIT)',
+        url: 'https://github.com/danielmiessler/SecLists',
+        note: 'Bundled locally as a same-origin chunk for offline common-password matching',
+      },
+    ],
+  },
+  'uuid-generator': {
+    formula: [
+      'UUIDv4: 122 bits from Web Crypto crypto.getRandomValues + 4-bit version (0100) + 2-bit RFC variant (10)',
+      'UUIDv7 (RFC 9562): 48-bit big-endian Unix ms timestamp + version (0111) + 12-bit monotonic counter + variant (10) + 62 random bits',
+      'UUIDv5 / v3: SHA-1 (v5) or MD5 (v3) over 16-byte namespace UUID || UTF-8 name bytes, formatted with version & variant bits',
+      'v4 Collision probability (birthday approximation): p ~= n^2 / (2 * 2^122)',
+    ],
+    defaults: [
+      { label: 'Default mode', value: 'UUIDv4 canonical lowercase (8-4-4-4-12)' },
+      { label: 'Bulk limit', value: 'Up to 1,000 UUIDs per click (monotonic counter supported for v7)' },
+      { label: 'Standard namespaces', value: 'RFC 9562 DNS, URL, OID, X.500 DN, or custom UUID' },
+    ],
+    sources: [
+      {
+        label: 'RFC 9562 — Universally Unique IDentifiers (UUIDs)',
+        url: 'https://www.rfc-editor.org/rfc/rfc9562',
+        note: 'May 2024 specification defining v4, v7, v5, v3, Nil, and Max UUIDs (obsoletes RFC 4122)',
+      },
+      {
+        label: 'RFC 1321 — The MD5 Message-Digest Algorithm',
+        url: 'https://www.rfc-editor.org/rfc/rfc1321',
+        note: 'Used for deterministic client-side UUIDv3 computation',
+      },
+    ],
+  },
+  'passphrase-generator': {
+    formula: [
+      'Words entropy (with replacement): k * log2(N), where N = 7,776 (12.925 bits/word)',
+      'Words entropy (no repeats): sum_{i=0..k-1} log2(N - i)',
+      'Capitals (one random word): +log2(k); Title Case / none: +0 bits',
+      'Extra number 0-99 at random gap: +log2(100 * (k + 1)); extra symbol: +log2(|symbols| * (k + 1))',
+      'Random digit separator: +(k - 1) * log2(10); random symbol separator: +(k - 1) * log2(|symbols|)',
+    ],
+    defaults: [
+      { label: 'Default passphrase', value: '6 words with hyphen separator from EFF Long Wordlist (77.55 bits)' },
+      { label: 'Word list', value: 'EFF Long Wordlist (7,776 words, CC BY, bundled locally)' },
+      { label: 'Average guess time', value: '2^(totalBits - 1) / guessesPerSecond (attacker assumed to know the list)' },
+    ],
+    sources: [
+      {
+        label: 'Electronic Frontier Foundation — Deep Dive: EFF’s New Wordlists for Random Passphrases',
+        url: 'https://www.eff.org/dice',
+        note: '7,776-word Long Wordlist (5 dice = 6^5), 6-word recommendation, CC BY license',
+      },
+      {
+        label: 'NIST SP 800-63B rev 4 (§3.1.1.2)',
+        url: 'https://pages.nist.gov/800-63-4/sp800-63b.html',
+        note: 'Verifiers should accept spaces and at least 64 characters',
+      },
+      {
+        label: 'CISA Use Strong Passwords (archived guidance page)',
+        url: 'https://www.cisa.gov/secure-our-world/use-strong-passwords',
+        note: 'Passphrase guidance suggesting 4 to 7 unrelated words',
+      },
+    ],
+  },
+  'hacker-name-generator': {
+    formula: [
+      'Template-based fictional handle synthesis using Mulberry32 seeded PRNG across 5 styles (l33t, cyberpunk, minimal, gamerTag, terminal)',
+      'Light leet: o->0, e->3; Heavy leet: a->4, e->3, i->1, o->0, s->5, t->7',
+      'Safety filter: checks both generated output and de-leeted copy against offensive-terms and real-alias/brand blocklists',
+    ],
+    defaults: [
+      { label: 'Default output', value: '10 handles across all 5 styles, 4–16 characters, underscores allowed, no spaces' },
+      { label: 'Favourites', value: 'Stored locally in browser localStorage only (try/catch guarded)' },
+    ],
+    sources: [
+      {
+        label: 'Original KKC Tools word bank',
+        note: 'Fictional handle components created for entertainment, gaming, and RPG character naming only',
+      },
+    ],
+  },
 };

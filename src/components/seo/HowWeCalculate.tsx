@@ -14,6 +14,11 @@ export default function HowWeCalculate({ slug }: { slug: string }) {
   const method = CALCULATION_METHODS[slug];
   if (!method) return null;
   const isTextTool = TOOLS_CATALOG.some((t) => t.slug === `/${slug}/` && t.category === 'writing');
+  const isDeveloperTool = TOOLS_CATALOG.some((t) => t.slug === `/${slug}/` && t.category === 'developer');
+  const isPasswordEstimate =
+    slug === 'password-generator' ||
+    slug === 'password-strength-checker' ||
+    slug === 'passphrase-generator';
   const route = INDEXABLE_ROUTES.find((r) => r.path === `/${slug}/`);
   const updated = route
     ? new Date(route.updated).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric', timeZone: 'UTC' })
@@ -72,9 +77,11 @@ export default function HowWeCalculate({ slug }: { slug: string }) {
       </ul>
 
       <p style={{ margin: '16px 0 0', fontSize: '0.9rem', color: 'var(--ink-2, #475569)' }}>
-        {isTextTool
-          ? 'Counts follow the rules above. Estimates are a guide: your document, form or platform has the final say.'
-          : 'Results are planning estimates, not engineering advice. Confirm quantities with your supplier and follow your plans and local building code.'}{updated ? ` Last updated: ${updated}.` : ''} Spotted a wrong number?{' '}
+        {isPasswordEstimate
+          ? 'Strength and time figures are estimates from the stated assumptions.'
+          : isTextTool || isDeveloperTool
+            ? 'Counts follow the rules above. Estimates are a guide: your document, form or platform has the final say.'
+            : 'Results are planning estimates, not engineering advice. Confirm quantities with your supplier and follow your plans and local building code.'}{updated ? ` Last updated: ${updated}.` : ''} Spotted a wrong number?{' '}
         <a href={`mailto:${OWNER_EMAIL}?subject=${encodeURIComponent(`Correction: /${slug}/`)}`}>Email us</a> or use the{' '}
         <Link href="/contact/">contact page</Link>.
       </p>

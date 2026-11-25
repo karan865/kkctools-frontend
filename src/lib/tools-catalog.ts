@@ -9,7 +9,8 @@ export type CategoryId =
   | 'business'
   | 'engineering'
   | 'math'
-  | 'writing';
+  | 'writing'
+  | 'developer';
 
 export interface CatalogCategory {
   id: CategoryId;
@@ -97,9 +98,111 @@ export const CATEGORIES: Record<CategoryId, CatalogCategory> = {
     blurb: 'Count characters, words, sentences, reading time, and format text for social platforms, essays, and documents.',
     order: 9,
   },
+  developer: {
+    id: 'developer',
+    name: 'Developer & Web',
+    headline: 'Security, Passwords & UUID Utilities',
+    blurb: 'Browser-only password generators, strength testers, RFC 9562 UUIDs, passphrases, and developer aliases.',
+    order: 10,
+  },
 };
 
 const RAW_TOOLS_CATALOG: CatalogTool[] = [
+  // Developer & Web Tools
+  {
+    slug: '/password-generator/',
+    name: 'Password Generator',
+    category: 'developer',
+    description: 'Generate strong random passwords, PINs, and WPA2 Wi-Fi keys with Web Crypto in your browser.',
+    tags: ['Web Crypto', 'PIN & Wi-Fi'],
+    icon: 'passwordKey',
+    keywords: [
+      'generate secure password',
+      'password generator',
+      'random password generator',
+      'online password generator',
+      'password special characters',
+      'strongest wifi password',
+    ],
+    added: '2026-11-25',
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: '/password-strength-checker/',
+    name: 'Password Strength Checker',
+    category: 'developer',
+    description: 'Test password strength offline with pattern detection, guess-time scenarios, and a common-password check.',
+    tags: ['Offline Check', 'Pattern Match'],
+    icon: 'strengthGauge',
+    keywords: [
+      'password strength tester',
+      'password strength checker',
+      'password complexity checker',
+      'most common passwords',
+      'how secure is my password',
+    ],
+    added: '2026-11-25',
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: '/uuid-generator/',
+    name: 'UUID / GUID Generator',
+    category: 'developer',
+    description: 'Generate RFC 9562 v4, v7, v5, v3, Nil/Max UUIDs and GUIDs in bulk, or validate any UUID offline.',
+    tags: ['RFC 9562', 'v4 / v7 / v5'],
+    icon: 'uuidHex',
+    keywords: [
+      'uuid generator',
+      'guid generator',
+      'uuid v4',
+      'uuid v7',
+      'uuid validator',
+      'online uuid generator',
+    ],
+    added: '2026-11-25',
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: '/passphrase-generator/',
+    name: 'Passphrase Generator',
+    category: 'developer',
+    description: 'Generate memorable random-word passphrases from the 7,776-word EFF list with live entropy math.',
+    tags: ['EFF 7,776', 'Diceware'],
+    icon: 'wordTiles',
+    keywords: [
+      'generate passphrase',
+      'passphrase generator',
+      'what is a passphrase',
+      'diceware',
+      'eff word list',
+      'random word password',
+    ],
+    added: '2026-11-25',
+    isNew: true,
+    featured: true,
+  },
+  {
+    slug: '/hacker-name-generator/',
+    name: 'Hacker Name Generator',
+    category: 'developer',
+    description: 'Generate fictional l33t, cyberpunk, minimal, gamer tag, and terminal handles with custom length rules.',
+    tags: ['5 Styles', 'l33t & Terminal'],
+    icon: 'terminal',
+    keywords: [
+      'hacker name generator',
+      'hacker names',
+      'cool hacker names',
+      'hacker usernames',
+      'leet speak',
+      'cyberpunk names',
+    ],
+    added: '2026-11-25',
+    isNew: true,
+    featured: true,
+  },
   // Text & Writing Utilities
   {
     slug: '/keyword-density-checker/',

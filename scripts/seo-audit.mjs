@@ -77,6 +77,11 @@ const minWordCounts = {
   '/comma-separator/': 1000,
   '/sentence-counter/': 1200,
   '/keyword-density-checker/': 1200,
+  '/password-generator/': 1300,
+  '/password-strength-checker/': 1400,
+  '/uuid-generator/': 1600,
+  '/passphrase-generator/': 1200,
+  '/hacker-name-generator/': 800,
 };
 
 let errors = [];

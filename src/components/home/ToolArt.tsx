@@ -2203,6 +2203,63 @@ const ART: Partial<Record<IconName, React.ReactNode>> = {
       </text>
     </>
   ),
+  /* Password Generator: key and masked character boxes */
+  passwordKey: (
+    <>
+      <rect className={k('fp', 's2')} x={22} y={24} width={156} height={52} rx={10} />
+      <circle className={s.f1} cx={48} cy={50} r={12} />
+      <circle className={s.fp} cx={48} cy={50} r={5} />
+      <rect className={s.f1} x={58} y={47} width={22} height={6} rx={2} />
+      <rect className={s.f1} x={72} y={53} width={5} height={7} rx={1} />
+      {[92, 108, 124, 140, 156].map((x, idx) => (
+        <circle key={idx} className={idx === 2 ? s.f1 : s.f2} cx={x} cy={50} r={4.5} />
+      ))}
+    </>
+  ),
+  /* Strength Checker: semi-circular meter gauge with needle */
+  strengthGauge: (
+    <>
+      <path className={k('fn', 's2', 'thick')} d="M45 74 A55 55 0 0 1 155 74" />
+      <path className={k('fn', 's1', 'thick')} d="M110 20 A55 55 0 0 1 155 74" />
+      <line className={k('s2', 'thick')} x1={100} y1={74} x2={136} y2={42} />
+      <circle className={s.f1} cx={100} cy={74} r={7} />
+      <text className={s.tx} x={100} y={90} textAnchor="middle">bits</text>
+    </>
+  ),
+  /* UUID Generator: segmented hex blocks 8-4-4 */
+  uuidHex: (
+    <>
+      <rect className={k('fp', 's2')} x={18} y={32} width={56} height={34} rx={6} />
+      <rect className={s.f1} x={82} y={32} width={44} height={34} rx={6} />
+      <rect className={s.f2} x={134} y={32} width={48} height={34} rx={6} />
+      <text className={s.tx} x={46} y={53} textAnchor="middle">550e8400</text>
+      <text className={s.txW} x={104} y={53} textAnchor="middle">41d4</text>
+      <text className={s.txW} x={158} y={53} textAnchor="middle">a716</text>
+    </>
+  ),
+  /* Passphrase Generator: four linked dice/word tiles */
+  wordTiles: (
+    <>
+      {[20, 62, 104, 146].map((x, idx) => (
+        <g key={x}>
+          <rect className={idx % 2 === 0 ? k('fp', 's2') : s.f1} x={x} y={32} width={34} height={36} rx={6} />
+          <text className={idx % 2 === 0 ? s.tx : s.txW} x={x + 17} y={54} textAnchor="middle">
+            {['dice', 'word', 'pass', 'salt'][idx]}
+          </text>
+        </g>
+      ))}
+    </>
+  ),
+  /* Hacker Name Generator: terminal window with prompt */
+  terminal: (
+    <>
+      <rect className={s.f2} x={30} y={18} width={140} height={64} rx={8} />
+      <circle className={s.fp} cx={44} cy={29} r={2.5} />
+      <circle className={s.fm} cx={53} cy={29} r={2.5} />
+      <circle className={s.fp} cx={62} cy={29} r={2.5} />
+      <text className={s.txW} x={44} y={54} textAnchor="start">&gt;_ n3xus_root</text>
+    </>
+  ),
   /* Suggest: a dashed card with a plus */
   plus: (
     <>

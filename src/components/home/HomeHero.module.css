@@ -226,6 +226,7 @@
 .dotEngineering { background-color: var(--cat-engineering); }
 .dotMath { background-color: var(--cat-math); }
 .dotWriting { background-color: var(--cat-writing); }
+.dotDeveloper { background-color: var(--cat-developer); }
 
 /* Each chip wears its category colour */
 .chipConcrete { background: var(--cat-concrete-soft); color: var(--cat-concrete-deep); border-color: color-mix(in srgb, var(--cat-concrete) 35%, transparent); }
@@ -246,6 +247,8 @@
 .chipMath:hover { background: var(--cat-math-soft); color: var(--cat-math-deep); border-color: var(--cat-math); }
 .chipWriting { background: var(--cat-writing-soft); color: var(--cat-writing-deep); border-color: color-mix(in srgb, var(--cat-writing) 35%, transparent); }
 .chipWriting:hover { background: var(--cat-writing-soft); color: var(--cat-writing-deep); border-color: var(--cat-writing); }
+.chipDeveloper { background: var(--cat-developer-soft); color: var(--cat-developer-deep); border-color: color-mix(in srgb, var(--cat-developer) 35%, transparent); }
+.chipDeveloper:hover { background: var(--cat-developer-soft); color: var(--cat-developer-deep); border-color: var(--cat-developer); }
 
 /* Buttons */
 .actionButtons {

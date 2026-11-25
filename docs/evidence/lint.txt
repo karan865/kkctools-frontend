@@ -117,6 +117,9 @@ D:\1_programmins\5.kkctools\src\components\tool\paint-calculator\PaintCalculator
    16:3   warning  'DEFAULT_SUNDRIES' is defined but never used      @typescript-eslint/no-unused-vars
   296:35  warning  'idx' is defined but never used                   @typescript-eslint/no-unused-vars
 
+D:\1_programmins\5.kkctools\src\components\tool\password-generator\PasswordGenerator.tsx
+  8:3  warning  'DEFAULT_PASSWORD_OPTIONS' is defined but never used  @typescript-eslint/no-unused-vars
+
 D:\1_programmins\5.kkctools\src\components\tool\reverse-tax-calculator\ReverseTaxCalculator.tsx
   55:24  warning  'setReceiptItems' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
@@ -181,5 +184,5 @@ D:\1_programmins\5.kkctools\src\lib\tvm-engine.test.ts
 D:\1_programmins\5.kkctools\src\lib\volume-units-engine.test.ts
   5:3  warning  'calculateCylinderVolume' is defined but never used  @typescript-eslint/no-unused-vars
 
-✖ 86 problems (0 errors, 86 warnings)
+✖ 87 problems (0 errors, 87 warnings)
 

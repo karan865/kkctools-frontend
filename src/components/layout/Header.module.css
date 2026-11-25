@@ -105,7 +105,10 @@
 }
 
 .dropdownContainer {
-  position: relative;
+  /* Static on purpose: the menu centres on the sticky header, not on this button */
+  display: flex;
+  align-items: center;
+  height: 68px;
 }
 
 .dropdownArrow {
@@ -120,10 +123,10 @@
   transform: rotate(180deg);
 }
 
-/* Compact Mega Menu Dropdown (4 Columns × 2 Rows, ~300px height) */
+/* Compact Mega Menu Dropdown (5 Columns × 2 Rows, ~300px height) */
 .megaMenu {
   position: absolute;
-  top: calc(100% + 4px);
+  top: 100%;
   left: 50%;
   transform: translateX(-50%);
   width: min(1080px, calc(100vw - 32px));
@@ -142,7 +145,7 @@
 
 .megaGrid {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   gap: 14px 18px;
 }
 

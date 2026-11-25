@@ -182,6 +182,21 @@ export default function Footer() {
               All Writing Tools →
             </Link>
           </div>
+
+          {/* Column 8: Developer & Web */}
+          <div className={styles.column}>
+            <span className={styles.colTitle}>Developer &amp; Web</span>
+            <ul className={styles.linkList}>
+              <li><Link href="/password-generator/" className={styles.link}>Password Generator</Link></li>
+              <li><Link href="/password-strength-checker/" className={styles.link}>Password Strength</Link></li>
+              <li><Link href="/uuid-generator/" className={styles.link}>UUID / GUID Generator</Link></li>
+              <li><Link href="/passphrase-generator/" className={styles.link}>Passphrase Generator</Link></li>
+              <li><Link href="/hacker-name-generator/" className={styles.link}>Hacker Name Generator</Link></li>
+            </ul>
+            <Link href="/tools/#developer" className={styles.viewAllLink}>
+              All Developer Tools →
+            </Link>
+          </div>
         </div>
 
         {/* Company & Legal Ribbon */}

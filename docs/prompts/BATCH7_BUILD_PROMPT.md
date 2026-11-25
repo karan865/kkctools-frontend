@@ -1,14 +1,14 @@
 # Batch 7: Builder Prompt (Antigravity / Gemini)
 
 > **Goal:** build **all 5** Batch 7 tools (Developer & Web) in one run, from their build specs.
-> **Rewritten:** 2026-11-25, for the code after Batch 6 (105 tools, 9 categories).
+> **Rewritten:** 2026-11-25, for the code after the Batch 5 fixes (105 tools, 9 categories, 1,348 tests).
 > **Result:** 110 catalog tools, 5 new routes, a `Developer & Web` category, `npm run verify` green, and a browser check.
 
 - `B7` = `docs/keywords analysis/Batch 7 - Developer & Web Tools/`
 - **Keyword file:** `B7/2. Batch 7 - filtered master keywords/KKCTools_Batch7_Final_Tool_Keywords.md`
 - **Rules:** `B7/3. All Blogs Data/00_BATCH7_BUILD_RULES.md`
 - **Specs:** `B7/3. All Blogs Data/NN_<Name>/NN_<Name>_BUILD_SPEC.md`
-- **Competitor analyses:** `B7/3. All Blogs Data/NN_<Name>/NN_<Name>_Competitor_Analysis.md` (what already ranks, its errors, the gaps, the FAQ bank)
+- **Competitor analyses:** `B7/3. All Blogs Data/NN_<Name>/NN_<Name>_Competitor_Analysis.md` (what already ranks, its errors, the gaps, the FAQ bank). Tool 03 is `03_UUID_GUID_Generator/`: spec `03_UUID_Generator_BUILD_SPEC.md`, analysis `03_UUID_GUID_Generator_Competitor_Analysis.md`
 
 **Which file wins:** `AGENTS.md` → §3 here → §5 here → Rules → spec → keyword file → competitor analysis.
 
@@ -81,13 +81,15 @@ Id **`developer`**, order 10. Lime is unused by the other nine categories.
 14. Spec 05 says the filter matches whole terms. It matches substrings after removing symbols, and it does **not** undo leet (`sh1t` passes). In the new engine, check the readable form, the output, and a de-leeted copy (0→o, 1→i, 3→e, 4→a, 5→s, 7→t, @→a, $→s, !→i). Don't edit `offensive.ts` or the band engine.
 
 **All tools (bugs from Batch 6; don't repeat them)**
-15. **No `useSearchParams` and no page-level Suspense:** they left 5 tools as "Loading…" in the static HTML. Use `src/components/tool/text/useTabParam.ts` and `TabSlider`. Read options from the URL in an effect. On first load the static HTML shows the real inputs and a masked placeholder; generation happens after mount.
+15. **No `useSearchParams` and no page-level Suspense:** they left 5 tools as "Loading…" in the static HTML. Use `src/components/tool/shared/useTabParam.ts` and `TabSlider`. Read options from the URL in an effect. On first load the static HTML shows the real inputs and a masked placeholder; generation happens after mount.
 16. **Node is not Chrome.** Check each tool in a real browser; no React hydration errors.
 17. Undefined CSS variables render as nothing. Use only variables that exist in `tokens.css` (`--border` and `--surface-alt` **don't**; use `--line`, `--surface-2`). Inputs need a visible border.
 18. On the purple ToolShell band, text outside a card must be white; inside cards use `var(--ink)` / `var(--ink-soft)`.
 19. SVG `<text>` uses `y`, not `cy`. No overlapping labels. The guide sits above the inputs, is live, and never draws a real secret.
 20. Every input named in a pill, tab or article must exist and change the result. Every toggle gets a test or a manual check.
-21. Wrap clipboard calls in try/catch; `toLocaleString('en-US')`; one `h1`; breadcrumb = Tools › Developer & Web › page (the component adds Home itself).
+21. **Dark mode:** no hard-coded light backgrounds, dark text or bright green (`#10b981`) on cards, in CSS or inline styles. Use `var(--ink)`, `--ink-soft`, `--surface`, `--surface-2`, `--line`, `--success`, `--danger`, `--accent`. Tables inherit the band's white text, so set `color: var(--ink)` on every table class.
+22. **Bad inputs:** type empty, 0, -5, `1e9`, `1,234.5`, spaces and 99,999 into every field in Chrome. No `NaN`, infinity, crash or frozen tab. Give every count and length a hard limit (bulk lists too) and say so on screen.
+23. Wrap clipboard calls in try/catch; `toLocaleString('en-US')`; one `h1`; breadcrumb = Tools › Developer & Web › page (the component adds Home itself).
 
 ## 4. Build order
 
@@ -160,7 +162,8 @@ Password ↔ Strength ↔ Passphrase · Password ↔ UUID · UUID ↔ Comma Sepa
 - [ ] §4A done: FAQ bank, feature matrix and keyword map (spec §1) ticked row by row in the progress file.
 - [ ] A test scans the source of tools 1–4 (engines, data, components) for `Math.random`, `generator/rng`, `fetch(`, `localStorage`, `sessionStorage`: none.
 - [ ] `out/` for the 5 pages: no `TODO(`, `NaN`, "Loading", generated secret, misspelling or `aggregateRating`; real inputs present in the HTML.
-- [ ] Browser, every tab, 390 / 768 / 1280 px, light and dark: no console or hydration error, no horizontal page scroll, readable text, no overlapping SVG labels.
+- [ ] Browser, every tab, 390 / 768 / 1280 px, light and dark (text contrast at least 4.5:1, scanned by script outside the repo; result per page): no console or hydration error, no horizontal page scroll, readable text, no overlapping SVG labels.
+- [ ] §3.22 inputs: value → what the screen shows, per field.
 - [ ] Loaded once, then offline: all 5 still generate or check, including the common-password list.
 - [ ] Web Crypto removed in a test: nothing is generated and the error shows.
 - [ ] 64-character typing in the strength checker stays smooth (record the ms).
