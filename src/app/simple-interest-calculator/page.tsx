@@ -107,7 +107,7 @@ export default function SimpleInterestPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front:</strong> Accrued interest is interest earned but not yet paid.
+            Accrued interest is interest earned but not yet paid.
             Simple interest follows <em>Principal × Rate × Time</em>: a $10,000 principal at 5% simple
             interest for 3 years produces $1,500 in interest (total $11,500). Between 15 January 2026 and
             15 April 2026 (90 calendar days), $10,000 at 5% accrues $123.29 under Actual/365, or $125.00
@@ -253,6 +253,7 @@ export default function SimpleInterestPage() {
             </p>
             <div className={styles.tableWrap}>
               <table className={styles.contentTable}>
+                <caption>Comparison of day-count conventions for accrued interest calculations</caption>
                 <thead>
                   <tr>
                     <th>Convention</th>

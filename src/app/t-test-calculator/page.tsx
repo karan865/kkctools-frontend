@@ -127,7 +127,7 @@ export default function TTestCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> A t-test checks whether two means differ by more than chance.
+            A t-test checks whether two means differ by more than chance.
             Group means of 75 and 70 (SD 10 and 12, 30 each) give Welch&apos;s t = 1.753 with about 56 degrees of freedom:
             a two-sided p-value of 0.085, so the difference is not significant at the 5% level.
           </div>

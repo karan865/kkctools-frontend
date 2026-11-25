@@ -3,15 +3,15 @@
 }
 
 .details {
-  border: 1px solid var(--border-default, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: var(--radius-md, 8px);
-  background-color: var(--bg-surface-elevated, #f8fafc);
+  background-color: var(--surface-2);
   overflow: hidden;
   transition: border-color 0.2s ease;
 }
 
 .details[open] {
-  border-color: var(--color-primary-light, #93c5fd);
+  border-color: var(--color-primary-subtle);
 }
 
 .summary {
@@ -21,19 +21,19 @@
   padding: 0.625rem 1rem;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--text-secondary, #475569);
+  color: var(--ink-2);
   cursor: pointer;
   user-select: none;
-  background-color: var(--bg-surface, #ffffff);
+  background-color: var(--surface);
   border-bottom: 1px solid transparent;
 }
 
 .details[open] .summary {
-  border-bottom-color: var(--border-subtle, #f1f5f9);
+  border-bottom-color: var(--line);
 }
 
 .summary:hover {
-  color: var(--text-primary, #0f172a);
+  color: var(--ink);
 }
 
 .summaryLabel {
@@ -57,7 +57,7 @@
 
 .summaryHint {
   font-size: 0.6875rem;
-  color: var(--text-tertiary, #94a3b8);
+  color: var(--ink-soft);
   font-weight: 400;
 }
 

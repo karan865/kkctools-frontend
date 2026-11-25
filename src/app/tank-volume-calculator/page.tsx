@@ -8,6 +8,7 @@ import TankCalculator from '@/components/tool/tank-calculator';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import AdSlot from '@/components/ads/AdSlot';
 import { ROUTES } from '@/lib/routes';
+import { convertVolume } from '@/lib/volume-units-engine';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { toolDisplayFont } from '@/lib/fonts';
 import typo from '@/styles/tool-typography.module.css';
@@ -119,7 +120,7 @@ export default function TankVolumePage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> For a vertical round tank, volume = π × radius² × height: 4 ft across and 6 ft tall holds about 564 US gallons. A horizontal 6 × 12 ft tank holds about 2,538 gallons, and at 2 ft of liquid it contains 740.6 gallons; the calculator does that partial-fill maths for any depth.
+            For a vertical round tank, volume = π × radius² × height: 4 ft across and 6 ft tall holds about 564 US gallons. A horizontal 6 × 12 ft tank holds about 2,538 gallons, and at 2 ft of liquid it contains 740.6 gallons; the calculator does that partial-fill maths for any depth.
           </div>
         </div>
 
@@ -241,6 +242,14 @@ export default function TankVolumePage() {
             </p>
             <p>
               Using the “Dipstick Chart” tab, you can generate a custom strapping table for any tank geometry to print or laminate for maintenance personnel.
+            </p>
+
+            <h2>Tank Volume in Gallons, Litres, and Barrels</h2>
+            <p>
+              Industrial, agricultural, and residential tanks are measured across different regional volume units. One cubic foot equals {convertVolume(1, 'ft3', 'us_gal').toFixed(5)} US gallons, while 1 US gallon equals {convertVolume(1, 'us_gal', 'litres').toFixed(4)} litres and 1 UK Imperial gallon equals {convertVolume(1, 'imp_gal', 'litres').toFixed(5)} litres. One standard US oil barrel holds exactly 42 US gallons ({convertVolume(1, 'barrels', 'litres').toFixed(2)} litres).
+            </p>
+            <p>
+              For residential propane, heating oil, or custom storage vessels, check the manufacturer specification plate and enter your tank&apos;s exact dimensions into the calculator above.
             </p>
 
             <h2>What Size Tank Do I Need?</h2>

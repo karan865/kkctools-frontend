@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import AirbnbInputGuide, { StrFieldId } from './AirbnbInputGuide';
@@ -970,9 +970,7 @@ export default function AirbnbCalculator() {
         'STR vs long-term',
       ]}
     >
-      <Suspense fallback={<div>Loading calculator...</div>}>
-        <AirbnbCalculatorInner />
-      </Suspense>
+      <AirbnbCalculatorInner />
     </ToolShell>
   );
 }

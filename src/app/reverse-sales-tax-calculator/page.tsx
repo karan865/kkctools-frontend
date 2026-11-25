@@ -113,7 +113,7 @@ export default function ReverseSalesTaxPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> To remove sales tax, divide the total by 1 plus the tax rate. $107.25 with a 7.25% rate is $107.25 ÷ 1.0725 = $100.00 before tax, so the tax was $7.25. Don&apos;t subtract 7.25% of the total: that gives the wrong answer.
+            To remove sales tax, divide the total by 1 plus the tax rate. $107.25 with a 7.25% rate is $107.25 ÷ 1.0725 = $100.00 before tax, so the tax was $7.25. Don&apos;t subtract 7.25% of the total: that gives the wrong answer.
           </div>
         </div>
 

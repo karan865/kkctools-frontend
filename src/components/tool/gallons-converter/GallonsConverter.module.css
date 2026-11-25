@@ -100,6 +100,7 @@
   margin-top: 12px;
   padding: 24px;
   background: var(--surface);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-top: 4px solid var(--cat-math);
   border-radius: 20px;
@@ -222,6 +223,7 @@
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 16px;
   background: var(--surface);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 16px;
   padding: 20px;
@@ -270,6 +272,7 @@
 .table td {
   padding: 8px 14px;
   border-bottom: 1px solid var(--line);
+  color: var(--ink);
 }
 
 .table th {

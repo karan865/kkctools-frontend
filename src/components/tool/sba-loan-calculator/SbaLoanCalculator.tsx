@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import SbaInputGuide, { SbaFieldId } from './SbaInputGuide';
 import styles from './SbaLoanCalculator.module.css';
@@ -393,7 +393,7 @@ function SbaLoanCalculatorInner() {
                 </div>
               </div>
 
-              <hr style={{ border: 'none', borderTop: '1px dashed var(--border-color, #e2e8f0)' }} />
+              <hr style={{ border: 'none', borderTop: '1px dashed var(--line)' }} />
 
               <div className={styles.formRow}>
                 <div className={styles.formGroup}>
@@ -1155,8 +1155,6 @@ function SbaLoanCalculatorInner() {
 
 export default function SbaLoanCalculator() {
   return (
-    <Suspense fallback={<div>Loading SBA loan calculator...</div>}>
-      <SbaLoanCalculatorInner />
-    </Suspense>
+    <SbaLoanCalculatorInner />
   );
 }

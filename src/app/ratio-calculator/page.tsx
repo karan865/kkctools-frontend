@@ -95,7 +95,7 @@ export default function RatioCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> To simplify a ratio, divide every term by their greatest common factor: 12:18 ÷ 6 = 2:3. To solve a proportion a:b = c:x, cross-multiply: x = b × c ÷ a, so 2:3 = 10:x gives x = 15.
+            To simplify a ratio, divide every term by their greatest common factor: 12:18 ÷ 6 = 2:3. To solve a proportion a:b = c:x, cross-multiply: x = b × c ÷ a, so 2:3 = 10:x gives x = 15.
           </div>
         </div>
 
@@ -189,6 +189,7 @@ export default function RatioCalculatorPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Ratios equivalent to 5:2 for scaling factors 1 through 5</caption>
                 <thead>
                   <tr>
                     <th>Scaling Factor</th>
@@ -303,6 +304,7 @@ export default function RatioCalculatorPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Part-of-whole shares vs part-to-part percentage for ratio 3:4</caption>
                 <thead>
                   <tr>
                     <th>Interpretation</th>
@@ -328,7 +330,7 @@ export default function RatioCalculatorPage() {
               </table>
             </div>
             <p>
-              When dividing a batch, budget, or recipe, always use the part-of-whole share (42.86% and 57.14%). To calculate percentage changes or margins, see our <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link>.
+              When dividing a batch, budget, or recipe, always use the part-of-whole share (42.86% and 57.14%). For converting individual fractions or test scores directly into percentages, use our <Link href="/fraction-to-percent-calculator/">Fraction to Percent Calculator</Link>, or see our <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link> for before-and-after changes.
             </p>
           </section>
 

@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
@@ -119,9 +119,7 @@ export default function CreditCardPayoffPage() {
             'No card ads',
           ]}
         >
-          <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading calculator...</div>}>
-            <CreditCardPayoffCalculator />
-          </Suspense>
+          <CreditCardPayoffCalculator />
         </ToolShell>
 
         <div className={styles.adBand}>

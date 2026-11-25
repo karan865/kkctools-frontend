@@ -113,7 +113,7 @@ export default function CardPayoffInputGuide({
                 })()}
 
                 <text x="115" y="72" textAnchor="middle" fontSize="9" fontWeight="600" fill="#64748b">
-                  Total interest cost: ~{formatMoney(totalInterest)}
+                  Total interest cost: {Number.isFinite(totalInterest) ? `~${formatMoney(totalInterest)}` : 'never clears'}
                 </text>
               </g>
 
@@ -131,7 +131,7 @@ export default function CardPayoffInputGuide({
                   DEBT-FREE
                 </text>
                 <text x="52" y="66" textAnchor="middle" fontSize="13" fontWeight="900" fill="#047857">
-                  {months} mos
+                  {Number.isFinite(months) ? `${months} mos` : 'Never'}
                 </text>
                 <text x="52" y="80" textAnchor="middle" fontSize="8" fontWeight="600" fill="#059669">
                   {debtFreeDateText}

@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import PvInputGuide from './PvInputGuide';
 import {
   pv,
@@ -30,13 +30,10 @@ const TABS = [
   { id: 'npv', label: 'NPV & IRR' },
   { id: 'pv-table', label: 'PV Table' },
 ];
+const TAB_IDS: readonly Mode[] = ['lump-sum', 'annuity', 'cash-flows', 'npv', 'pv-table'];
 
 export default function PresentValueCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'lump-sum';
-  const activeTab: Mode = ['lump-sum', 'annuity', 'cash-flows', 'npv', 'pv-table'].includes(initialTab)
-    ? initialTab
-    : 'lump-sum';
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'lump-sum');
 
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
@@ -76,11 +73,7 @@ export default function PresentValueCalculator() {
 
   // Tab change handler with URL sync
   const handleTabChange = (tabId: string) => {
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
+    setActiveTab(tabId as Mode);
   };
 
   // Calculations

@@ -7,6 +7,7 @@ import FractionPercentCalculator from '@/components/tool/fraction-percent-calcul
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import AdSlot from '@/components/ads/AdSlot';
 import { ROUTES } from '@/lib/routes';
+import { generateCommonFractionsTable } from '@/lib/fraction-percent-engine';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { toolDisplayFont } from '@/lib/fonts';
 import typo from '@/styles/tool-typography.module.css';
@@ -121,7 +122,7 @@ export default function FractionToPercentPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> To turn a fraction or score into a percentage, divide the part by the whole and multiply by 100. For example: 4/5 = 80%, 16 out of 20 = 80%, 3/8 = 37.5%, and 1/3 = 33.3̅% (repeating decimal).
+            To turn a fraction or score into a percentage, divide the part by the whole and multiply by 100. For example: 4/5 = 80%, 16 out of 20 = 80%, 3/8 = 37.5%, and 1/3 = 33.3̅% (repeating decimal).
           </div>
         </div>
 
@@ -257,6 +258,32 @@ export default function FractionToPercentPage() {
             <p>
               For calculating differences between two time periods or values, explore our <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link>. For scaling recipe mixtures or concrete blends, visit our <Link href="/ratio-calculator/">Ratio Calculator</Link>. To take a percentage off a price, use the <Link href="/discount-calculator/">Discount Calculator</Link>.
             </p>
+
+            <h2>Fraction to Percent Conversion Table</h2>
+            <p>
+              This reference table lists common fractions converted to decimals and exact percentages (including repeating decimals marked with an overline bar) using the engine above.
+            </p>
+            <div className={styles.tableWrapper}>
+              <table className={styles.contentTable}>
+                <caption>Common fractions converted to decimals and percentages</caption>
+                <thead>
+                  <tr>
+                    <th>Fraction</th>
+                    <th>Decimal</th>
+                    <th>Percentage</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {generateCommonFractionsTable().map((row) => (
+                    <tr key={row.fraction}>
+                      <td><strong>{row.fraction}</strong></td>
+                      <td>{row.decimal}</td>
+                      <td><strong>{row.percent}</strong></td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
 
             <h2>Frequently Asked Questions</h2>
             {FAQ_ITEMS.map((item, idx) => (

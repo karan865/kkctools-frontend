@@ -156,7 +156,7 @@
 .relatedCard:hover {
   transform: translateY(-2px);
   border-color: var(--cat-math);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-s);
 }
 
 .relatedCardTitle {

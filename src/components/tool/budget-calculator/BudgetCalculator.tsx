@@ -895,14 +895,7 @@ export function BudgetCalculator() {
         </button>
       </div>
 
-      <p
-        style={{
-          fontSize: "0.8rem",
-          color: "var(--ink-soft)",
-          lineHeight: 1.5,
-          marginTop: "0.5rem",
-        }}
-      >
+      <p className={styles.bandNote}>
         <strong>Privacy Note:</strong> All budget figures, incomes, and expenses
         run 100% inside your web browser. Nothing is sent to a server. Your
         figures are saved only in this browser so they are still here next time;

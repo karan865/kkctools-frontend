@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import HelocInputGuide from './HelocInputGuide';
 import {
   calculateBorrowingLimit,
@@ -20,13 +20,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'borrow', label: 'How Much Can I Borrow?' },
   { id: 'compare', label: 'HELOC vs Loan vs Refi' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function HelocCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'payment';
-  const validatedTab: Mode = ['payment', 'borrow', 'compare'].includes(initialTab) ? initialTab : 'payment';
-
-  const [activeTab, setActiveTab] = useState<Mode>(validatedTab);
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'payment');
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
   const [showAllRows, setShowAllRows] = useState(false);
@@ -63,11 +60,6 @@ export default function HelocCalculator() {
 
   const handleTabChange = (tabId: Mode) => {
     setActiveTab(tabId);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
   };
 
   const fmt = useCallback((val: number) => {
@@ -442,7 +434,7 @@ export default function HelocCalculator() {
             <div className={styles.metricsGrid}>
               <div className={styles.metricTile}>
                 <span className={styles.metricLabel}>Monthly Jump</span>
-                <span className={styles.metricValue} style={{ color: '#ef4444' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--danger)' }}>
                   +{fmt(paymentsResult.paymentShockDollars)}
                 </span>
                 <span className={styles.metricHelp}>Monthly budget impact</span>
@@ -498,7 +490,7 @@ export default function HelocCalculator() {
                   </thead>
                   <tbody>
                     {rateScenarios.map((sc, i) => (
-                      <tr key={sc.label} style={{ background: i === 0 ? '#eff6ff' : 'inherit' }}>
+                      <tr key={sc.label} style={{ background: i === 0 ? 'color-mix(in srgb, #2563eb 9%, var(--surface))' : 'inherit' }}>
                         <td>
                           <strong>{sc.label}</strong> {i === 0 ? '★' : ''}
                         </td>
@@ -550,14 +542,14 @@ export default function HelocCalculator() {
                     {(showAllRows ? paymentsResult.schedule : paymentsResult.schedule.slice(0, 12)).map((row) => (
                       <tr key={row.month}>
                         <td>#{row.month}</td>
-                        <td style={{ textTransform: 'capitalize', color: row.phase === 'draw' ? '#2563eb' : '#b91c1c' }}>
+                        <td style={{ textTransform: 'capitalize', color: row.phase === 'draw' ? 'var(--accent)' : 'var(--danger)' }}>
                           {row.phase}
                         </td>
                         <td className={styles.numCell}>{fmt(row.startingBalance)}</td>
                         <td className={styles.numCell} style={{ fontWeight: 700 }}>
                           {fmt(row.payment)}
                         </td>
-                        <td className={styles.numCell} style={{ color: '#ef4444' }}>
+                        <td className={styles.numCell} style={{ color: 'var(--danger)' }}>
                           {fmt(row.interest)}
                         </td>
                         <td className={styles.numCell}>{fmt(row.endingBalance)}</td>
@@ -793,11 +785,11 @@ export default function HelocCalculator() {
                 <div className={styles.compareTitle}>1. HELOC</div>
                 <div className={styles.compareRow}>
                   <span>Draw Payment:</span>
-                  <strong style={{ color: '#2563eb' }}>{fmt(compareResult.heloc.monthlyDraw)}/mo</strong>
+                  <strong style={{ color: 'var(--accent)' }}>{fmt(compareResult.heloc.monthlyDraw)}/mo</strong>
                 </div>
                 <div className={styles.compareRow}>
                   <span>Repay Payment:</span>
-                  <strong style={{ color: '#ef4444' }}>{fmt(compareResult.heloc.monthlyRepay)}/mo</strong>
+                  <strong style={{ color: 'var(--danger)' }}>{fmt(compareResult.heloc.monthlyRepay)}/mo</strong>
                 </div>
                 <div className={styles.compareRow}>
                   <span>Total Interest:</span>
@@ -818,7 +810,7 @@ export default function HelocCalculator() {
                 <div className={styles.compareTitle}>2. Home Equity Loan</div>
                 <div className={styles.compareRow}>
                   <span>Fixed Payment:</span>
-                  <strong style={{ color: '#16a34a' }}>{fmt(compareResult.homeEquityLoan.monthlyPayment)}/mo</strong>
+                  <strong style={{ color: 'var(--success)' }}>{fmt(compareResult.homeEquityLoan.monthlyPayment)}/mo</strong>
                 </div>
                 <div className={styles.compareRow}>
                   <span>Term:</span>
@@ -847,7 +839,7 @@ export default function HelocCalculator() {
                 </div>
                 <div className={styles.compareRow}>
                   <span>Monthly Increase:</span>
-                  <strong style={{ color: '#ef4444' }}>+{fmt(compareResult.cashOutRefi.monthlyPaymentDiff)}/mo</strong>
+                  <strong style={{ color: 'var(--danger)' }}>+{fmt(compareResult.cashOutRefi.monthlyPaymentDiff)}/mo</strong>
                 </div>
                 <div className={styles.compareRow}>
                   <span>New Total Debt:</span>

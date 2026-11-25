@@ -517,7 +517,7 @@ export default function CagrCalculator() {
 
                 <div className={styles.heroSummary}>
                   <p>
-                    Over this series, your asset grew from <strong>{seriesResult.yearlyChanges.length > 0 ? (seriesResult.finalVsStartRatio * 100).toFixed(1) : 0}%</strong> of its starting base.
+                    Over this series, your asset ended at <strong>{seriesResult.yearlyChanges.length > 0 ? (seriesResult.finalVsStartRatio * 100).toFixed(1) : 0}%</strong> of its starting value.
                     Notice that the simple arithmetic average is <strong>{(seriesResult.arithmeticAverage * 100).toFixed(2)}%</strong>, but the true compound return (CAGR) is <strong>{(seriesResult.cagr * 100).toFixed(2)}%</strong>. Arithmetic averages ignore the compounding impact of previous drawdowns.
                   </p>
                 </div>

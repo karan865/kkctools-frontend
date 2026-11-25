@@ -123,7 +123,7 @@ export default function PythagoreanTheoremPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> The Pythagoras equation is a² + b² = c². With legs of 3 and 4, c = √(9 + 16) = 5. Builders use it to check a corner: a 12 × 16 ft slab is square when its diagonal is exactly 20 ft, and a 10 × 14 ft deck should measure 17′ 2-7/16″.
+            The Pythagoras equation is a² + b² = c². With legs of 3 and 4, c = √(9 + 16) = 5. Builders use it to check a corner: a 12 × 16 ft slab is square when its diagonal is exactly 20 ft, and a 10 × 14 ft deck should measure 17′ 2-7/16″.
           </div>
         </div>
 

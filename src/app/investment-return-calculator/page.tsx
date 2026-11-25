@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
@@ -113,9 +113,7 @@ export default function InvestmentReturnPage() {
             'Yearly table & chart',
           ]}
         >
-          <Suspense fallback={<div>Loading investment return calculator...</div>}>
-            <InvestmentReturnCalculator />
-          </Suspense>
+          <InvestmentReturnCalculator />
         </ToolShell>
 
         <div className={styles.adBand}>

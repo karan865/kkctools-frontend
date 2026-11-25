@@ -54,7 +54,7 @@
 
 .summaryHint {
   font-size: 0.75rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   font-weight: 500;
 }
 

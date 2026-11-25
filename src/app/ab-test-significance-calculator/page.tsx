@@ -94,7 +94,7 @@ export default function AbTestSignificanceCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> This stat sig calculator runs a two-proportion z-test. For example: Control A converts at 5.0% (500 / 10,000) and Variant B converts at 5.7% (570 / 10,000), representing a +14.0% relative lift with a z-score of 2.20 and a two-sided p-value of 0.028. Because p &lt; 0.05, the result is statistically significant at 95% confidence.
+            This stat sig calculator runs a two-proportion z-test. For example: Control A converts at 5.0% (500 / 10,000) and Variant B converts at 5.7% (570 / 10,000), representing a +14.0% relative lift with a z-score of 2.20 and a two-sided p-value of 0.028. Because p &lt; 0.05, the result is statistically significant at 95% confidence.
           </div>
         </div>
 
@@ -262,6 +262,7 @@ export default function AbTestSignificanceCalculatorPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Comparison of Bonferroni, Šidák, and unadjusted multiplicity correction methods</caption>
                 <thead>
                   <tr>
                     <th>Correction Method</th>

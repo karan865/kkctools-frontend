@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import CmInputGuide, { CmFieldId } from './CmInputGuide';
@@ -706,7 +706,7 @@ function ContributionMarginCalculatorInner() {
                     <div className={styles.metricLabel}>Operating Income (Profit)</div>
                     <div
                       className={styles.metricValue}
-                      style={{ color: singleResult.isOperatingProfit ? '#047857' : '#dc2626' }}
+                      style={{ color: singleResult.isOperatingProfit ? 'var(--success)' : 'var(--danger)' }}
                     >
                       {singleResult.operatingIncome >= 0
                         ? `$${Math.round(singleResult.operatingIncome).toLocaleString()}`
@@ -1118,8 +1118,6 @@ function ContributionMarginCalculatorInner() {
 
 export default function ContributionMarginCalculator() {
   return (
-    <Suspense fallback={<div>Loading Contribution Margin Calculator...</div>}>
-      <ContributionMarginCalculatorInner />
-    </Suspense>
+    <ContributionMarginCalculatorInner />
   );
 }

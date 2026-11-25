@@ -671,7 +671,7 @@ export default function TTestCalculator() {
               <div className={styles.chartHeader}>
                 <span className={styles.chartTitle}>Student-t Distribution (df = {result.df.toFixed(1)})</span>
                 <div className={styles.chartLegend}>
-                  <span style={{ color: '#4338CA' }}>━ Curve</span>
+                  <span style={{ color: 'var(--ink-soft)' }}>━ Curve</span>
                   <span style={{ color: '#EF4444' }}>- - Critical t (±{result.criticalT.toFixed(2)})</span>
                   <span style={{ color: '#0D9488' }}>● Observed t ({result.t.toFixed(2)})</span>
                 </div>

@@ -1,6 +1,6 @@
 .guideContainer {
   background: var(--surface-2, #f8fafc);
-  border: 1px solid var(--border-color, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg, 12px);
   padding: 1.25rem;
   margin-bottom: 1.5rem;
@@ -19,7 +19,7 @@
   list-style: none;
   font-weight: 700;
   font-size: 0.95rem;
-  color: var(--text-1, #0f172a);
+  color: var(--ink);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -31,7 +31,7 @@
 
 .toggleIcon {
   font-size: 0.75rem;
-  color: var(--text-3, #64748b);
+  color: var(--ink-soft);
   transition: transform 0.2s ease;
 }
 
@@ -54,7 +54,7 @@ details[open] .toggleIcon {
 }
 
 .highlighted {
-  stroke: var(--accent-1, #0284c7) !important;
+  stroke: var(--color-primary) !important;
   stroke-width: 3px !important;
   filter: drop-shadow(0 0 6px rgba(2, 132, 199, 0.35));
 }
@@ -65,9 +65,9 @@ details[open] .toggleIcon {
   gap: 1rem;
   margin-top: 0.85rem;
   padding-top: 0.85rem;
-  border-top: 1px dashed var(--border-color, #e2e8f0);
+  border-top: 1px dashed var(--line);
   font-size: 0.8rem;
-  color: var(--text-2, #475569);
+  color: var(--ink-2);
 }
 
 .legendItem {
@@ -85,11 +85,11 @@ details[open] .toggleIcon {
   border-radius: 50%;
   font-size: 0.7rem;
   font-weight: 700;
-  background: var(--surface-3, #e2e8f0);
-  color: var(--text-1, #0f172a);
+  background: var(--surface-2);
+  color: var(--ink);
 }
 
 .legendBadgeActive {
-  background: var(--accent-1, #0284c7);
+  background: var(--color-primary);
   color: #ffffff;
 }

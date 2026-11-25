@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import CommercialMortgageInputGuide, { CommercialMortgageFieldId } from './CommercialMortgageInputGuide';
@@ -605,11 +605,11 @@ function CommercialMortgageCalculatorInner() {
 
                   <div className={styles.metricCard}>
                     <div className={styles.metricLabel}>Balloon Balance at Maturity</div>
-                    <div className={styles.metricValue} style={{ color: '#b91c1c' }}>
+                    <div className={styles.metricValue} style={{ color: 'var(--danger)' }}>
                       ${loanResult.balloonBalance.toLocaleString()}
                     </div>
                     <div className={styles.metricSubtext}>
-                      Due at end of Year {termYears} ({((loanResult.balloonBalance / loanAmount) * 100).toFixed(1)}% of loan)
+                      Due at end of Year {termYears} ({((loanResult.balloonBalance / (loanAmount || 1)) * 100).toFixed(1)}% of loan)
                     </div>
                   </div>
 
@@ -673,12 +673,12 @@ function CommercialMortgageCalculatorInner() {
 
                 {/* Amortization Schedule Table */}
                 <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
-                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: '#0f172a' }}>
+                  <span style={{ fontSize: '0.875rem', fontWeight: 700, color: 'var(--ink)' }}>
                     Amortization Schedule ({viewMonthlySchedule ? 'Monthly' : 'Annual Rollup'})
                   </span>
                   <button
                     type="button"
-                    style={{ background: 'transparent', border: 'none', color: '#2563eb', fontSize: '0.75rem', cursor: 'pointer', fontWeight: 600 }}
+                    style={{ background: 'transparent', border: 'none', color: 'var(--accent)', fontSize: '0.75rem', cursor: 'pointer', fontWeight: 600 }}
                     onClick={() => setViewMonthlySchedule(!viewMonthlySchedule)}
                   >
                     {viewMonthlySchedule ? 'Show Annual Summary' : 'Show Full Monthly Schedule'}
@@ -764,7 +764,7 @@ function CommercialMortgageCalculatorInner() {
                       ${sizingResult.requiredEquity.toLocaleString()}
                     </div>
                     <div className={styles.metricSubtext}>
-                      {((sizingResult.requiredEquity / propertyValue) * 100).toFixed(1)}% cash equity required
+                      {((sizingResult.requiredEquity / (propertyValue || 1)) * 100).toFixed(1)}% cash equity required
                     </div>
                   </div>
                 </div>
@@ -833,8 +833,6 @@ function CommercialMortgageCalculatorInner() {
 
 export default function CommercialMortgageCalculator() {
   return (
-    <Suspense fallback={<div>Loading Commercial Mortgage Calculator...</div>}>
-      <CommercialMortgageCalculatorInner />
-    </Suspense>
+    <CommercialMortgageCalculatorInner />
   );
 }

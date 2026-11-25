@@ -515,7 +515,7 @@ export default function BinomialCalculator() {
                 <span className={styles.chartTitle}>Binomial Distribution PMF (Selected Highlighted)</span>
                 <div className={styles.chartLegend}>
                   <span style={{ color: '#0D9488' }}>■ Selected</span>
-                  <span style={{ color: '#94A3B8' }}>■ Other</span>
+                  <span style={{ color: 'var(--ink-soft)' }}>■ Other</span>
                 </div>
               </div>
               <svg className={styles.chartSvg} viewBox={`0 0 ${chartConfig.width} ${chartConfig.height}`}>

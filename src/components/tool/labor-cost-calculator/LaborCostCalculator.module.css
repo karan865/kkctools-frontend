@@ -36,7 +36,7 @@
 
 .inputCard {
   background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg, 12px);
   padding: 1.5rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -51,7 +51,7 @@
 .sectionTitle {
   font-size: 1.0625rem;
   font-weight: 700;
-  color: var(--text, #0f172a);
+  color: var(--ink);
   margin-bottom: 1rem;
   display: flex;
   align-items: center;
@@ -63,8 +63,8 @@
   font-weight: 600;
   padding: 0.2rem 0.6rem;
   border-radius: 9999px;
-  background: var(--bg-subtle, #f1f5f9);
-  color: var(--text-muted, #64748b);
+  background: var(--surface-2);
+  color: var(--ink-soft);
 }
 
 .fieldGroup {
@@ -75,14 +75,14 @@
   display: block;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--text, #1e293b);
+  color: var(--ink);
   margin-bottom: 0.375rem;
 }
 
 .fieldHint {
   display: block;
   font-size: 0.75rem;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
   margin-top: 0.25rem;
   line-height: 1.4;
 }
@@ -104,7 +104,7 @@
   position: absolute;
   font-size: 0.875rem;
   font-weight: 600;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
   pointer-events: none;
 }
 
@@ -121,16 +121,16 @@
   height: 2.5rem;
   padding: 0.5rem 0.75rem;
   font-size: 0.9375rem;
-  color: var(--text, #0f172a);
+  color: var(--ink);
   background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #cbd5e1);
+  border: 1px solid var(--line);
   border-radius: var(--radius-md, 6px);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
 }
 
 .textInput:focus {
   outline: none;
-  border-color: var(--primary, #2563eb);
+  border-color: var(--color-primary);
   box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
@@ -144,7 +144,7 @@
 
 .toggleButtonGroup {
   display: flex;
-  background: var(--bg-subtle, #f1f5f9);
+  background: var(--surface-2);
   padding: 0.25rem;
   border-radius: var(--radius-md, 6px);
   gap: 0.25rem;
@@ -158,15 +158,15 @@
   font-weight: 600;
   border: none;
   background: transparent;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
   border-radius: 4px;
   cursor: pointer;
   transition: all 0.15s ease;
 }
 
 .toggleBtnActive {
-  background: #ffffff;
-  color: var(--primary, #2563eb);
+  background: var(--surface);
+  color: var(--accent);
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
 }
 
@@ -211,7 +211,7 @@
 }
 
 .burdenBadge {
-  background: #10b981;
+  background: #047857;
   color: #ffffff;
   font-size: 0.75rem;
   font-weight: 700;
@@ -251,7 +251,7 @@
 /* Secondary result card */
 .card {
   background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg, 12px);
   padding: 1.25rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -271,22 +271,22 @@
 
 .table th {
   padding: 0.625rem 0.75rem;
-  background: var(--bg-subtle, #f8fafc);
+  background: var(--surface-2);
   font-weight: 700;
-  color: var(--text-muted, #475569);
-  border-bottom: 2px solid var(--border, #e2e8f0);
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--line);
 }
 
 .table td {
   padding: 0.5rem 0.75rem;
-  border-bottom: 1px solid var(--border, #e2e8f0);
-  color: var(--text, #1e293b);
+  border-bottom: 1px solid var(--line);
+  color: var(--ink);
 }
 
 .table tr:last-child td {
   font-weight: 700;
   border-bottom: none;
-  background: var(--bg-subtle, #f8fafc);
+  background: var(--surface-2);
 }
 
 .numCell {
@@ -304,15 +304,15 @@
 
 .crewTable th {
   padding: 0.5rem;
-  background: var(--bg-subtle, #f8fafc);
+  background: var(--surface-2);
   font-weight: 600;
-  color: var(--text-muted, #64748b);
-  border-bottom: 1px solid var(--border, #e2e8f0);
+  color: var(--ink-soft);
+  border-bottom: 1px solid var(--line);
 }
 
 .crewTable td {
   padding: 0.375rem 0.5rem;
-  border-bottom: 1px solid var(--border, #e2e8f0);
+  border-bottom: 1px solid var(--line);
 }
 
 .removeBtn {
@@ -330,9 +330,9 @@
 }
 
 .addBtn {
-  background: var(--bg-subtle, #f1f5f9);
-  border: 1px dashed var(--border, #cbd5e1);
-  color: var(--primary, #2563eb);
+  background: var(--surface-2);
+  border: 1px dashed var(--line);
+  color: var(--accent);
   font-size: 0.8125rem;
   font-weight: 600;
   padding: 0.5rem 1rem;
@@ -363,14 +363,14 @@
   font-weight: 600;
   border-radius: var(--radius-md, 6px);
   cursor: pointer;
-  border: 1px solid var(--border, #cbd5e1);
+  border: 1px solid var(--line);
   background: var(--surface, #ffffff);
-  color: var(--text, #1e293b);
+  color: var(--ink);
   transition: all 0.15s ease;
 }
 
 .actionBtn:hover {
-  background: var(--bg-subtle, #f1f5f9);
+  background: var(--surface-2);
   border-color: #94a3b8;
 }
 
@@ -388,13 +388,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  background: var(--bg-subtle, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
   padding: 0.625rem 0.875rem;
   border-radius: 6px;
   font-size: 0.8125rem;
   font-weight: 600;
-  color: var(--text, #1e293b);
+  color: var(--ink);
   cursor: pointer;
   margin-bottom: 0.75rem;
 }
@@ -414,26 +414,26 @@
 .compareCard {
   padding: 0.75rem;
   border-radius: 8px;
-  background: var(--bg-subtle, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface-2);
+  border: 1px solid var(--line);
 }
 
 .compareCardWinner {
-  background: #ecfdf5;
+  background: color-mix(in srgb, #10b981 9%, var(--surface));
   border-color: #a7f3d0;
 }
 
 .compareTitle {
   font-size: 0.75rem;
   font-weight: 700;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
   text-transform: uppercase;
 }
 
 .compareVal {
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--text, #0f172a);
+  color: var(--ink);
   margin-top: 0.25rem;
 }
 

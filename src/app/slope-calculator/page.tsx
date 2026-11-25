@@ -128,7 +128,7 @@ export default function SlopeCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> Slope = rise ÷ run. A rise of 1 over a run of 12 is 1/12: an 8.33% slope, a 1:12 ratio, an angle of 4.76° or a 1/12 roof pitch. Multiply by 100 for percent; use the arctangent for degrees. A 10% slope is not 10°.
+            Slope = rise ÷ run. A rise of 1 over a run of 12 is 1/12: an 8.33% slope, a 1:12 ratio, an angle of 4.76° or a 1/12 roof pitch. Multiply by 100 for percent; use the arctangent for degrees. A 10% slope is not 10°.
           </div>
         </div>
 

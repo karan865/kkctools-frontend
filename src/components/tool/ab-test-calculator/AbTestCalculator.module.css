@@ -143,6 +143,12 @@
   gap: 8px;
 }
 
+.presetLabel {
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
 .presetBtn {
   padding: 5px 12px;
   background: var(--surface);
@@ -166,6 +172,7 @@
   margin-top: 12px;
   padding: 24px;
   background: var(--surface);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-top: 4px solid var(--cat-math);
   border-radius: 20px;
@@ -328,6 +335,7 @@
 .table td {
   padding: 10px 14px;
   border-bottom: 1px solid var(--line);
+  color: var(--ink);
 }
 
 .table th {
@@ -338,6 +346,7 @@
 
 .srmCard {
   background: var(--bg);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 14px 18px;
@@ -354,7 +363,7 @@
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #10B981;
+  background: #047857;
   color: #FFFFFF;
 }
 
@@ -363,7 +372,7 @@
   font-weight: 700;
   padding: 4px 10px;
   border-radius: 999px;
-  background: #EF4444;
+  background: #B91C1C;
   color: #FFFFFF;
 }
 

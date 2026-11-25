@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
@@ -121,9 +121,7 @@ export default function HowLongPage() {
             'Year-by-year table',
           ]}
         >
-          <Suspense fallback={<div>Loading retirement drawdown calculator...</div>}>
-            <DrawdownCalculator />
-          </Suspense>
+          <DrawdownCalculator />
         </ToolShell>
 
         <div className={styles.adBand}>

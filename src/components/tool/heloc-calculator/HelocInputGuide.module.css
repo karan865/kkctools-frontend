@@ -54,7 +54,7 @@
 
 .summaryHint {
   font-size: 0.75rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
 }
 
 .diagramWrap {
@@ -80,7 +80,7 @@
   max-width: 680px;
   margin-top: 0.75rem;
   font-size: 0.78rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   border-top: 1px dashed var(--line, #e2e8f0);
   padding-top: 0.5rem;
 }

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import Link from 'next/link';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
@@ -803,7 +803,7 @@ function FreelanceRateCalculatorInner() {
                 <strong>{fmt(goalResult.equivalentSalaryGross)} gross</strong>, because corporate employers directly cover
                 paid leave (holidays, vacation, sick days) and match 7.65% in payroll taxes plus healthcare subsidies. Compare
                 directly on our{' '}
-                <Link href={ROUTES.hourlyToSalaryCalculator.path} style={{ textDecoration: 'underline', fontWeight: 700 }}>
+                <Link href={ROUTES.hourlyToSalaryCalculator.path} style={{ textDecoration: 'underline', fontWeight: 700, color: 'inherit' }}>
                   Hourly to Salary Calculator
                 </Link>
                 .
@@ -946,9 +946,7 @@ export default function FreelanceRateCalculator() {
         'Print & share link',
       ]}
     >
-      <Suspense fallback={<div>Loading calculator...</div>}>
-        <FreelanceRateCalculatorInner />
-      </Suspense>
+      <FreelanceRateCalculatorInner />
     </ToolShell>
   );
 }

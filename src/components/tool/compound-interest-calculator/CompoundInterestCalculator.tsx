@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import CompoundInputGuide from './CompoundInputGuide';
 import {
   calculateCompoundGrowth,
@@ -27,13 +27,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'simple-vs-compound', label: 'Simple vs. Compound' },
   { id: 'apr-vs-apy', label: 'APR ↔ APY Converter' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function CompoundInterestCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'growth';
-  const activeTab: Mode = ['growth', 'goal', 'simple-vs-compound', 'apr-vs-apy'].includes(initialTab)
-    ? initialTab
-    : 'growth';
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'growth');
 
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
@@ -73,13 +70,9 @@ export default function CompoundInterestCalculator() {
 
   const baseId = useId();
 
-  // Tab change handler with URL sync
+  // Tab change handler with URL sync handled by useTabParam
   const handleTabChange = (tabId: Mode) => {
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
+    setActiveTab(tabId);
   };
 
   // 1. Growth calculation
@@ -658,7 +651,7 @@ export default function CompoundInterestCalculator() {
             <div className={styles.card}>
               <h4 className={styles.cardTitle}>Daily vs. Monthly vs. Continuous (Starting Principal Only)</h4>
               <p className={styles.cardSubtitle}>
-                See how different frequencies impact your ${principal.toLocaleString()} initial investment over {years} years:
+                See how different frequencies impact your ${principal.toLocaleString('en-US')} initial investment over {years} years:
               </p>
 
               <div className={styles.tableWrap} style={{ marginTop: '0.75rem' }}>
@@ -679,7 +672,7 @@ export default function CompoundInterestCalculator() {
                         <td>{row.periodsPerYear}</td>
                         <td>{row.apy.toFixed(3)}%</td>
                         <td className={styles.numCell}>{formatCurrency(row.endingBalance)}</td>
-                        <td className={styles.numCell} style={{ color: row.diffFromAnnual > 0 ? '#10b981' : '#64748b' }}>
+                        <td className={styles.numCell} style={{ color: row.diffFromAnnual > 0 ? 'var(--success)' : 'var(--ink-soft)' }}>
                           {row.diffFromAnnual > 0 ? `+${formatCurrency(row.diffFromAnnual)}` : 'Baseline'}
                         </td>
                       </tr>
@@ -1014,7 +1007,7 @@ export default function CompoundInterestCalculator() {
               </div>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>Net Outperformance</span>
-                <span className={styles.metricValue} style={{ color: '#10b981' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--success)' }}>
                   +{formatCurrency(svcResult.advantage)}
                 </span>
                 <span className={styles.metricSub}>+{svcResult.advantagePct.toFixed(1)}% advantage</span>

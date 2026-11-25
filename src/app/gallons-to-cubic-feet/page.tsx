@@ -10,6 +10,7 @@ import AdSlot from '@/components/ads/AdSlot';
 import { buildMetadata } from '@/components/seo/buildMetadata';
 import { buildFaqSchema, buildWebApplicationSchema } from '@/components/seo/buildSchema';
 import { ROUTES } from '@/lib/routes';
+import { convertVolume } from '@/lib/volume-units-engine';
 import styles from './page.module.css';
 import { toolDisplayFont } from '@/lib/fonts';
 import typo from '@/styles/tool-typography.module.css';
@@ -87,7 +88,7 @@ export default function GallonsToCubicFeetPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> One cubic foot holds <strong>7.48052 US gallons</strong>, and one US gallon equals <strong>0.133681 cubic feet</strong>. To convert gallons to feet³ / cubic feet, multiply by 0.133681: 100 US gallons = 13.37 cubic feet (378.5 litres). Enter container dimensions in Tab 2 to find the exact gallons of any box, tank, or pond.
+            One cubic foot holds <strong>7.48052 US gallons</strong>, and one US gallon equals <strong>0.133681 cubic feet</strong>. To convert gallons to feet³ / cubic feet, multiply by 0.133681: 100 US gallons = 13.37 cubic feet (378.5 litres). Enter container dimensions in Tab 2 to find the exact gallons of any box, tank, or pond.
           </div>
         </div>
 
@@ -189,6 +190,7 @@ export default function GallonsToCubicFeetPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Comparison of US Liquid, UK Imperial, and US Dry gallon definitions</caption>
                 <thead>
                   <tr>
                     <th>Gallon Variant</th>
@@ -280,6 +282,36 @@ export default function GallonsToCubicFeetPage() {
             <p>
               KKC Tools performs all internal calculations using full-precision IEEE 754 floating-point arithmetic with exact NIST integer fractions (231 / 1,728), rounding only in the final display presentation.
             </p>
+          </section>
+
+          <section className={styles.section}>
+            <h2>Gallons to Cubic Feet Conversion Table</h2>
+            <p>
+              Use this quick reference table to look up exact conversions from US liquid gallons to cubic feet, cubic metres, and litres. For custom ranges or printable charts, use the Conversion Table tab above.
+            </p>
+            <div className={styles.tableWrapper}>
+              <table className={styles.contentTable}>
+                <caption>US gallons to cubic feet (ft³), cubic metres (m³), and litres conversion table</caption>
+                <thead>
+                  <tr>
+                    <th>US Gallons (gal)</th>
+                    <th>Cubic Feet (ft³)</th>
+                    <th>Cubic Metres (m³)</th>
+                    <th>Litres (L)</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[1, 2, 5, 10, 15, 20, 25, 50, 55, 75, 100, 150, 200, 250, 500, 1000].map((gal) => (
+                    <tr key={gal}>
+                      <td><strong>{gal.toLocaleString('en-US')} gal</strong></td>
+                      <td>{convertVolume(gal, 'us_gal', 'ft3').toFixed(4)} ft³</td>
+                      <td>{convertVolume(gal, 'us_gal', 'm3').toFixed(4)} m³</td>
+                      <td>{convertVolume(gal, 'us_gal', 'litres').toFixed(2)} L</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
           </section>
 
           <section className={styles.section}>

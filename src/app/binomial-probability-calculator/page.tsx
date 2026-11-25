@@ -119,7 +119,7 @@ export default function BinomialProbabilityPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> This binomial probability distribution calculator uses P(X = k) = C(n, k) × pᵏ × (1 − p)ⁿ⁻ᵏ. For 10 fair coin flips, the chance of exactly 3 heads is 0.1172, and of 3 or fewer is 0.1719.
+            This binomial probability distribution calculator uses P(X = k) = C(n, k) × pᵏ × (1 − p)ⁿ⁻ᵏ. For 10 fair coin flips, the chance of exactly 3 heads is 0.1172, and of 3 or fewer is 0.1719.
           </div>
         </div>
 

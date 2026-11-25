@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useEffect, useId } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import NetWorthInputGuide from './NetWorthInputGuide';
 import {
   calculateNetWorth,
@@ -21,6 +21,7 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'household', label: 'Household Mode' },
   { id: 'tracker', label: 'Track Changes' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 const CURRENCIES = [
   { code: 'USD', symbol: '$', label: 'USD ($)' },
@@ -41,13 +42,7 @@ interface SavedSnapshot {
 }
 
 export default function NetWorthCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'personal';
-  const validatedTab: Mode = ['personal', 'household', 'tracker'].includes(initialTab)
-    ? initialTab
-    : 'personal';
-
-  const [activeTab, setActiveTab] = useState<Mode>(validatedTab);
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'personal');
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
   const [currency, setCurrency] = useState('USD');
@@ -108,11 +103,6 @@ export default function NetWorthCalculator() {
 
   const handleTabChange = (tabId: Mode) => {
     setActiveTab(tabId);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
   };
 
   const currSymbol = useMemo(() => {
@@ -980,7 +970,7 @@ export default function NetWorthCalculator() {
                 </button>
               </div>
               {snapshotSavedNotice && (
-                <p style={{ marginTop: '0.5rem', fontSize: '0.78rem', color: '#16a34a', fontWeight: 600 }}>
+                <p style={{ marginTop: '0.5rem', fontSize: '0.78rem', color: 'var(--success)', fontWeight: 600 }}>
                   ✓ Snapshot saved privately in this browser! View it in the &quot;Track Changes&quot; tab.
                 </p>
               )}
@@ -1156,10 +1146,10 @@ export default function NetWorthCalculator() {
             <div className={styles.householdCols}>
               <div className={styles.householdCard}>
                 <div className={styles.householdCardTitle}>{memberAName}</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#2563eb' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent)' }}>
                   {fmt(householdResult.netA)}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
                   Assets: {fmt(memberAAssets)}
                   <br />
                   Debt: {fmt(memberALiabilities)}
@@ -1168,10 +1158,10 @@ export default function NetWorthCalculator() {
 
               <div className={styles.householdCard}>
                 <div className={styles.householdCardTitle}>{memberBName}</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#06b6d4' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--accent)' }}>
                   {fmt(householdResult.netB)}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
                   Assets: {fmt(memberBAssets)}
                   <br />
                   Debt: {fmt(memberBLiabilities)}
@@ -1180,10 +1170,10 @@ export default function NetWorthCalculator() {
 
               <div className={styles.householdCard}>
                 <div className={styles.householdCardTitle}>Joint Accounts</div>
-                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: '#10b981' }}>
+                <div style={{ fontSize: '1.2rem', fontWeight: 800, color: 'var(--success)' }}>
                   {fmt(householdResult.netJoint)}
                 </div>
-                <div style={{ fontSize: '0.75rem', color: '#64748b' }}>
+                <div style={{ fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
                   Assets: {fmt(jointAssets)}
                   <br />
                   Debt: {fmt(jointLiabilities)}
@@ -1209,7 +1199,7 @@ export default function NetWorthCalculator() {
                 </div>
               </div>
 
-              <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: '#475569' }}>
+              <p style={{ fontSize: '0.85rem', lineHeight: 1.6, color: 'var(--ink-soft)' }}>
                 Track your financial freedom journey by taking periodic snapshots (monthly or quarterly). None of your
                 account numbers, names, or balances are ever uploaded to a server or third-party database.
               </p>
@@ -1245,7 +1235,7 @@ export default function NetWorthCalculator() {
                       {snapshots.map((snap) => (
                         <tr key={snap.id}>
                           <td>{snap.dateStr}</td>
-                          <td className={styles.numCell} style={{ fontWeight: 700, color: '#2563eb' }}>
+                          <td className={styles.numCell} style={{ fontWeight: 700, color: 'var(--accent)' }}>
                             {fmt(snap.netWorth)}
                           </td>
                           <td className={styles.numCell}>{fmt(snap.totalAssets)}</td>
@@ -1256,7 +1246,7 @@ export default function NetWorthCalculator() {
                   </table>
                 </div>
               ) : (
-                <p style={{ fontSize: '0.85rem', color: '#64748b', marginTop: '0.75rem' }}>
+                <p style={{ fontSize: '0.85rem', color: 'var(--ink-soft)', marginTop: '0.75rem' }}>
                   No snapshots saved yet. Click &quot;Save Today&apos;s Snapshot&quot; to establish your baseline!
                 </p>
               )}

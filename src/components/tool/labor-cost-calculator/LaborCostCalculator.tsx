@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider from '@/components/tool/shared/TabSlider';
 import LaborInputGuide, { LaborFieldId } from './LaborInputGuide';
@@ -883,7 +883,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td className={styles.numCell}>{fmt(employeeResult.wagesAnnual)}</td>
                         <td className={styles.numCell}>100.0%</td>
                         <td className={styles.numCell}>
-                          {((employeeResult.wagesAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                          {((employeeResult.wagesAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                       {countryMode === 'us' ? (
@@ -892,20 +892,20 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                             <td>Social Security (6.2%)</td>
                             <td className={styles.numCell}>{fmt(employeeResult.socialSecurityAnnual)}</td>
                             <td className={styles.numCell}>
-                              {((employeeResult.socialSecurityAnnual / employeeResult.wagesAnnual) * 100).toFixed(2)}%
+                              {((employeeResult.socialSecurityAnnual / (employeeResult.wagesAnnual || 1)) * 100).toFixed(2)}%
                             </td>
                             <td className={styles.numCell}>
-                              {((employeeResult.socialSecurityAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                              {((employeeResult.socialSecurityAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                             </td>
                           </tr>
                           <tr>
                             <td>Medicare (1.45%)</td>
                             <td className={styles.numCell}>{fmt(employeeResult.medicareAnnual)}</td>
                             <td className={styles.numCell}>
-                              {((employeeResult.medicareAnnual / employeeResult.wagesAnnual) * 100).toFixed(2)}%
+                              {((employeeResult.medicareAnnual / (employeeResult.wagesAnnual || 1)) * 100).toFixed(2)}%
                             </td>
                             <td className={styles.numCell}>
-                              {((employeeResult.medicareAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                              {((employeeResult.medicareAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                             </td>
                           </tr>
                           <tr>
@@ -913,14 +913,14 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                             <td className={styles.numCell}>{fmt(employeeResult.futaAnnual + employeeResult.sutaAnnual)}</td>
                             <td className={styles.numCell}>
                               {(
-                                ((employeeResult.futaAnnual + employeeResult.sutaAnnual) / employeeResult.wagesAnnual) *
+                                ((employeeResult.futaAnnual + employeeResult.sutaAnnual) / (employeeResult.wagesAnnual || 1)) *
                                 100
                               ).toFixed(2)}
                               %
                             </td>
                             <td className={styles.numCell}>
                               {(
-                                ((employeeResult.futaAnnual + employeeResult.sutaAnnual) / employeeResult.totalCostAnnual) *
+                                ((employeeResult.futaAnnual + employeeResult.sutaAnnual) / (employeeResult.totalCostAnnual || 1)) *
                                 100
                               ).toFixed(1)}
                               %
@@ -933,7 +933,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                           <td className={styles.numCell}>{fmt(employeeResult.otherOnCostsAnnual)}</td>
                           <td className={styles.numCell}>{otherOnCostsPct.toFixed(1)}%</td>
                           <td className={styles.numCell}>
-                            {((employeeResult.otherOnCostsAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                            {((employeeResult.otherOnCostsAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                           </td>
                         </tr>
                       )}
@@ -941,10 +941,10 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td>Workers&apos; Comp Insurance</td>
                         <td className={styles.numCell}>{fmt(employeeResult.workersCompAnnual)}</td>
                         <td className={styles.numCell}>
-                          {((employeeResult.workersCompAnnual / employeeResult.wagesAnnual) * 100).toFixed(2)}%
+                          {((employeeResult.workersCompAnnual / (employeeResult.wagesAnnual || 1)) * 100).toFixed(2)}%
                         </td>
                         <td className={styles.numCell}>
-                          {((employeeResult.workersCompAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                          {((employeeResult.workersCompAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                       {employeeResult.generalLiabilityAnnual > 0 && (
@@ -952,10 +952,10 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                           <td>General Liability Insurance</td>
                           <td className={styles.numCell}>{fmt(employeeResult.generalLiabilityAnnual)}</td>
                           <td className={styles.numCell}>
-                            {((employeeResult.generalLiabilityAnnual / employeeResult.wagesAnnual) * 100).toFixed(2)}%
+                            {((employeeResult.generalLiabilityAnnual / (employeeResult.wagesAnnual || 1)) * 100).toFixed(2)}%
                           </td>
                           <td className={styles.numCell}>
-                            {((employeeResult.generalLiabilityAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                            {((employeeResult.generalLiabilityAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                           </td>
                         </tr>
                       )}
@@ -963,10 +963,10 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td>Benefits, Health & Perks</td>
                         <td className={styles.numCell}>{fmt(employeeResult.benefitsAnnual)}</td>
                         <td className={styles.numCell}>
-                          {((employeeResult.benefitsAnnual / employeeResult.wagesAnnual) * 100).toFixed(2)}%
+                          {((employeeResult.benefitsAnnual / (employeeResult.wagesAnnual || 1)) * 100).toFixed(2)}%
                         </td>
                         <td className={styles.numCell}>
-                          {((employeeResult.benefitsAnnual / employeeResult.totalCostAnnual) * 100).toFixed(1)}%
+                          {((employeeResult.benefitsAnnual / (employeeResult.totalCostAnnual || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                       <tr>
@@ -1050,7 +1050,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                   </div>
                 </div>
 
-                <div style={{ marginTop: '0.75rem', fontSize: '0.8125rem', color: 'var(--text-muted, #475569)' }}>
+                <div style={{ marginTop: '0.75rem', fontSize: '0.8125rem', color: 'var(--ink-soft)' }}>
                   {subVsEmployeeResult.cheaperOption === 'employee' ? (
                     <span>
                       <strong>Employee is cheaper:</strong> saves {fmt(subVsEmployeeResult.costDifference)} (
@@ -1352,7 +1352,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                       <td>Direct Labor ({jobQuoteResult.totalLaborHours} hours)</td>
                       <td className={styles.numCell}>{fmt(jobQuoteResult.totalLaborCost)}</td>
                       <td className={styles.numCell}>
-                        {((jobQuoteResult.totalLaborCost / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                        {((jobQuoteResult.totalLaborCost / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                       </td>
                     </tr>
                     {materialsCost > 0 && (
@@ -1360,7 +1360,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td>Materials & Supplies</td>
                         <td className={styles.numCell}>{fmt(materialsCost)}</td>
                         <td className={styles.numCell}>
-                          {((materialsCost / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                          {((materialsCost / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     )}
@@ -1369,7 +1369,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td>Equipment Rental</td>
                         <td className={styles.numCell}>{fmt(equipmentCost)}</td>
                         <td className={styles.numCell}>
-                          {((equipmentCost / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                          {((equipmentCost / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     )}
@@ -1378,7 +1378,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                         <td>Subcontractors</td>
                         <td className={styles.numCell}>{fmt(subsCost)}</td>
                         <td className={styles.numCell}>
-                          {((subsCost / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                          {((subsCost / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                         </td>
                       </tr>
                     )}
@@ -1386,21 +1386,21 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                       <td>Direct Job Costs Subtotal</td>
                       <td className={styles.numCell}>{fmt(jobQuoteResult.directCostsSubtotal)}</td>
                       <td className={styles.numCell}>
-                        {((jobQuoteResult.directCostsSubtotal / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                        {((jobQuoteResult.directCostsSubtotal / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                       </td>
                     </tr>
                     <tr>
                       <td>Company Overhead ({overheadPercent}%)</td>
                       <td className={styles.numCell}>{fmt(jobQuoteResult.overheadAmount)}</td>
                       <td className={styles.numCell}>
-                        {((jobQuoteResult.overheadAmount / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                        {((jobQuoteResult.overheadAmount / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                       </td>
                     </tr>
                     <tr>
                       <td>Profit ({profitPercent}%)</td>
                       <td className={styles.numCell}>{fmt(jobQuoteResult.profitAmount)}</td>
                       <td className={styles.numCell}>
-                        {((jobQuoteResult.profitAmount / jobQuoteResult.finalQuotePrice) * 100).toFixed(1)}%
+                        {((jobQuoteResult.profitAmount / (jobQuoteResult.finalQuotePrice || 1)) * 100).toFixed(1)}%
                       </td>
                     </tr>
                     <tr>
@@ -1477,7 +1477,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                   type="button"
                   onClick={() => setCustomLaborCost(null)}
                   className={styles.toggleBtn}
-                  style={{ border: '1px solid var(--border, #cbd5e1)', marginTop: '0.5rem' }}
+                  style={{ border: '1px solid var(--line)', marginTop: '0.5rem' }}
                 >
                   Reset to Tab 1 Employee Cost ({fmt(employeeResult.totalCostAnnual)})
                 </button>
@@ -1525,7 +1525,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                   <span>Interpreting Your Labor Percentage</span>
                   <span className={styles.sectionBadge}>Analysis</span>
                 </div>
-                <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--text, #1e293b)' }}>
+                <p style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--ink)' }}>
                   {laborPercentResult.laborPercent !== null && laborPercentResult.laborPercent > 0 ? (
                     <>
                       For every <strong>$1.00</strong> of gross revenue generated,{' '}
@@ -1539,7 +1539,7 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
                     'Enter positive gross revenue to see your labor cost percentage and revenue distribution.'
                   )}
                 </p>
-                <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--text-muted, #64748b)' }}>
+                <div style={{ marginTop: '0.75rem', fontSize: '0.75rem', color: 'var(--ink-soft)' }}>
                   <em>Note:</em> Healthy labor percentages vary drastically by industry (e.g., 20%–35% in construction, 25%–35% in hospitality, and 40%–60% in professional services). No universal target fits all business models.
                 </div>
               </div>
@@ -1564,8 +1564,6 @@ Calculated at: https://kkctools.com/labor-cost-calculator/?tab=labor-pct`;
 
 export default function LaborCostCalculator() {
   return (
-    <Suspense fallback={<div>Loading Labor Cost Calculator...</div>}>
-      <LaborCostCalculatorInner />
-    </Suspense>
+    <LaborCostCalculatorInner />
   );
 }

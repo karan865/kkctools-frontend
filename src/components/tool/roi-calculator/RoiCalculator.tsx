@@ -781,10 +781,10 @@ export function RoiCalculator() {
       )}
 
       {/* Cross link for cash flows */}
-      <p style={{ fontSize: '0.85rem', color: 'var(--ink-soft)', lineHeight: 1.5 }}>
+      <p className={styles.bandNote}>
         Note: Simple and annualized ROI assume a single starting cost and a single exit value. For multi-period uneven cash
         flows, examine Net Present Value and Internal Rate of Return in our{' '}
-        <Link href="/present-value-calculator/" style={{ color: 'var(--cat-math)', fontWeight: 600 }}>
+        <Link href="/present-value-calculator/">
           Present Value & NPV Calculator
         </Link>.
       </p>

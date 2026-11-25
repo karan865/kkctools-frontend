@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
@@ -112,9 +112,7 @@ export default function ProcessingFeePage() {
             'Any processor, any currency',
           ]}
         >
-          <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading calculator...</div>}>
-            <ProcessingFeeCalculator />
-          </Suspense>
+          <ProcessingFeeCalculator />
         </ToolShell>
 
         <div className={styles.adBand}>

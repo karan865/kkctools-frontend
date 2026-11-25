@@ -43,12 +43,12 @@ const FAQ_ITEMS = [
     a: 'Annualized ROI translates cumulative multi-year returns into an equivalent compound annual rate: Annualized ROI = [(1 + Total ROI)^(1 ÷ Years)] − 1. It enables direct, fair comparisons between assets held for differing time horizons.',
   },
   {
-    q: 'What is the difference between ROI, CAGR, and IRR?',
-    a: 'ROI measures total percentage gain regardless of time. CAGR measures the constant annual compounding rate between a single starting and ending balance. IRR (Internal Rate of Return) accounts for multiple irregular cash inflows and outflows over time.',
+    q: 'What is the difference between ROI, rate of return, and CAGR?',
+    a: 'ROI (return on investment) measures cumulative percentage gain or loss over the entire holding period: (Ending − Starting) ÷ Starting. Rate of return often refers to an annualized or periodic return. CAGR (compound annual growth rate) is the geometric mean annual return assuming profits are reinvested each year: (Ending ÷ Starting)^(1/n) − 1. For example, a 50% cumulative ROI over 3 years corresponds to an annualized rate of return (CAGR) of 14.47% per year.',
   },
   {
-    q: 'What is a good ROI?',
-    a: 'A target return depends entirely on asset class, market conditions, and personal risk tolerance. Historically, broad market equity indices have delivered different long-term returns than cash equivalents or venture capital. Evaluate your return against your specific hurdle rate or benchmark cost of capital.',
+    q: 'What is considered a positive or acceptable ROI?',
+    a: 'Mathematically, any positive ROI (> 0%) means the investment returned more than its cost. In financial planning, an acceptable return is evaluated against an investor’s opportunity cost or benchmark hurdle rate—such as the risk-free rate on government bonds or broad market equity indices—adjusted for inflation and risk tolerance.',
   },
   {
     q: 'How do I calculate marketing ROI?',
@@ -123,7 +123,7 @@ export default function RoiPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front:</strong> ROI = (what you got back − what you put in) ÷ what you put in.
+            ROI = (what you got back − what you put in) ÷ what you put in.
             Turning $10,000 into $15,000 is a 50% return on investment; over 3 years that is 14.47% a year
             annualized. Compare up to four options, evaluate marketing campaigns by gross margin profit, or
             calculate equipment payback.
@@ -245,6 +245,7 @@ export default function RoiPage() {
             <h2>ROI vs. Rate of Return vs. CAGR vs. IRR</h2>
             <div className={styles.tableWrap}>
               <table className={styles.contentTable}>
+                <caption>Comparison of Simple ROI, Annualized ROI (CAGR), and IRR</caption>
                 <thead>
                   <tr>
                     <th>Metric</th>

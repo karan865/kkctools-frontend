@@ -10,7 +10,7 @@
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: var(--radius-card, 12px);
-  box-shadow: var(--shadow-sm);
+  box-shadow: var(--shadow-s);
 }
 
 .gridCols4 {

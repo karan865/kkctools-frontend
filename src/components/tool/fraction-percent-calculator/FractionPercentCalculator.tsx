@@ -240,7 +240,7 @@ export default function FractionPercentCalculator() {
                       <strong>Multiply by 100%:</strong> {fractionResult.decimal.toFixed(6).replace(/\.?0+$/, '')} × 100% = {fractionResult.isRepeating ? fractionResult.repeatString : fractionResult.formattedPercent}
                     </li>
                     <li>
-                      <strong>Simplify Fraction:</strong> GCD({fractionResult.numerator}, {fractionResult.denominator}) = {fractionResult.numerator / fractionResult.simplifiedNum} → {fractionResult.simplifiedNum}/{fractionResult.simplifiedDen}
+                      <strong>Simplify Fraction:</strong> GCD({fractionResult.numerator}, {fractionResult.denominator}) = {fractionResult.denominator / fractionResult.simplifiedDen} → {fractionResult.simplifiedNum}/{fractionResult.simplifiedDen}
                     </li>
                   </ol>
                 </div>

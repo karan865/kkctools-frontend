@@ -553,7 +553,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Ratio Calculator – Simplify and Solve Proportions',
     description:
       'Free ratio calculator. Simplify a ratio, list equivalent ratios, solve a proportion for x and scale a recipe or mix by a ratio, with the steps shown.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -562,7 +562,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Age Difference Calculator – Years, Months & Days',
     description:
       'Free age difference calculator. Enter two birth dates to see the exact gap in years, months and days, who is older, and the date someone turns 18 or 21.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -571,7 +571,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'IQR Calculator – Quartiles, Outliers & Box Plot',
     description:
       'Free IQR calculator. Paste a data set to get Q1, median, Q3, the interquartile range, outlier fences and a box plot, with every step shown.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -580,7 +580,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'A/B Test Significance Calculator – Stat Sig',
     description:
       'Free A/B test significance calculator. Enter visitors and conversions for A and B to get conversion rates, uplift, p-value and confidence, all in your browser.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -589,7 +589,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Gallons to Cubic Feet Converter – ft³, m³ & Litres',
     description:
       'Convert gallons to cubic feet and back, plus cubic metres and litres. Includes a quick table and a box or tank volume to gallons mode.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -598,7 +598,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'CAGR Calculator – Compound Annual Growth Rate',
     description:
       'Free CAGR calculator. Enter a start value, end value and years to get the compound annual growth rate, the Excel formula, and the doubling time.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -607,7 +607,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Fraction to Percent Calculator – X out of Y as %',
     description:
       'Free fraction to percent calculator. Turn 4/5, 3/8 or a test score like 16 out of 20 into a percentage, with steps, a letter grade and a full fraction table.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -616,7 +616,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Reverse Sales Tax Calculator – Price Before Tax',
     description:
       'Free reverse sales tax calculator. Enter the total paid and the tax rate to get the price before tax and the tax amount, or work out the rate from two prices.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -625,7 +625,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Standard Deviation Calculator – Variance & SE',
     description:
       'Free standard deviation calculator. Paste your data to get sample and population standard deviation, variance, standard error, mean, median and mode.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -634,7 +634,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'T-Test Calculator – One, Two-Sample & Paired',
     description:
       'Free t-test calculator. Paste two groups or enter summary stats to get the t value, degrees of freedom and p-value for one-sample, Welch and paired tests.',
-    updated: '2026-11-23',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -643,7 +643,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Binomial Probability Calculator – P(X = k)',
     description:
       'Free binomial probability calculator. Enter trials, successes and probability to get P(X = k), P(X ≤ k) and P(X ≥ k), with the mean, variance and a chart.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -652,7 +652,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Pythagorean Theorem Calculator – Right Triangles',
     description:
       'Free Pythagorean theorem calculator. Find the missing side of a right triangle, check a corner is square with the 3-4-5 method, and see every step.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -661,7 +661,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Slope Calculator – Rise over Run, Percent & Angle',
     description:
       'Free slope calculator. Enter rise and run to get slope as a percent, ratio (1:12), angle and pitch, or find the rise for a ramp, drain or roof.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -670,7 +670,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Tank Volume Calculator – Gallons in Any Tank',
     description:
       'Free tank volume calculator. Find the capacity and the filled volume of round, horizontal, oval, rectangular and cone-bottom tanks in gallons and litres.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -679,7 +679,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Simple Interest Calculator – Accrued Interest',
     description:
       'Free simple interest calculator. Get interest on a principal for any number of days, months or years, and the accrued interest between two dates.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -688,7 +688,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'ROI Calculator – Return on Investment & Annualized',
     description:
       'Free ROI calculator. Enter what you invested and what you got back to see ROI, net profit and annualized ROI over any period, with the formula shown.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -697,7 +697,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Final Grade Calculator – What Do I Need on My Final?',
     description:
       "Free final grade calculator. Enter your current grade, the final's weight and the grade you want, and see the score you need on the final exam.",
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },
@@ -706,7 +706,7 @@ export const ROUTES: Record<string, RouteDefinition> = {
     title: 'Budget Calculator – Monthly Budget Planner 50/30/20',
     description:
       'Free monthly budget calculator. List income and expenses, compare them with the 50/30/20 rule and print a budget worksheet. Nothing leaves your browser.',
-    updated: '2026-11-24',
+    updated: '2026-11-25',
     type: 'tool',
     indexable: true,
   },

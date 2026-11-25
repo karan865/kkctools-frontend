@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import ToolShell from '@/components/tool/shared/ToolShell';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import LeaseInputGuide, { LeaseFieldId } from './LeaseInputGuide';
@@ -825,14 +825,14 @@ Calculated at: https://kkctools.com/commercial-lease-calculator/`;
                   <span>Offer A (Current Inputs)</span>
                   <span className={styles.sectionBadge}>{leaseType.toUpperCase()}</span>
                 </div>
-                <div style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--text, #1e293b)' }}>
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--ink)' }}>
                   <p><strong>Base Rent:</strong> ${baseRate}/{areaUnit === 'sqm' ? 'm²' : 'SF'}/yr</p>
                   <p><strong>Pass-Throughs:</strong> ${leaseResult.schedule[0].passThroughRatePerUnitYr.toFixed(2)}/{areaUnit === 'sqm' ? 'm²' : 'SF'}/yr</p>
                   <p><strong>Concessions:</strong> {freeRentMonths} mos free, ${tiAllowance} TI allowance</p>
-                  <hr style={{ border: 'none', borderTop: '1px solid var(--border, #e2e8f0)', margin: '0.75rem 0' }} />
+                  <hr style={{ border: 'none', borderTop: '1px solid var(--line)', margin: '0.75rem 0' }} />
                   <p><strong>Year 1 Monthly:</strong> {fmt(comparisonResult.offerA.year1TotalMonthly)}/mo</p>
                   <p><strong>Average Monthly:</strong> {fmt(comparisonResult.offerA.averageMonthlyCost)}/mo</p>
-                  <p style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--primary, #2563eb)' }}>
+                  <p style={{ fontSize: '1.125rem', fontWeight: 800, color: 'var(--color-primary)' }}>
                     {leaseTermYears}-Year Total: {fmt(comparisonResult.offerA.totalLeaseCost)}
                   </p>
                 </div>
@@ -900,8 +900,8 @@ Calculated at: https://kkctools.com/commercial-lease-calculator/`;
                   </div>
                 </div>
 
-                <div style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--text, #1e293b)' }}>
-                  <hr style={{ border: 'none', borderTop: '1px solid var(--border, #e2e8f0)', margin: '0.75rem 0' }} />
+                <div style={{ fontSize: '0.875rem', lineHeight: 1.6, color: 'var(--ink)' }}>
+                  <hr style={{ border: 'none', borderTop: '1px solid var(--line)', margin: '0.75rem 0' }} />
                   <p><strong>Year 1 Monthly:</strong> {fmt(comparisonResult.offerB.year1TotalMonthly)}/mo</p>
                   <p><strong>Average Monthly:</strong> {fmt(comparisonResult.offerB.averageMonthlyCost)}/mo</p>
                   <p style={{ fontSize: '1.125rem', fontWeight: 800, color: '#059669' }}>
@@ -1139,8 +1139,6 @@ Calculated at: https://kkctools.com/commercial-lease-calculator/`;
 
 export default function CommercialLeaseCalculator() {
   return (
-    <Suspense fallback={<div>Loading Commercial Lease Calculator...</div>}>
-      <CommercialLeaseCalculatorInner />
-    </Suspense>
+    <CommercialLeaseCalculatorInner />
   );
 }

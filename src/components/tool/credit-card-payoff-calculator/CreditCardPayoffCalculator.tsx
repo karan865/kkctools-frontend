@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import CardPayoffInputGuide from './CardPayoffInputGuide';
 import {
   simulateCardPayoff,
@@ -24,15 +24,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'transfer', label: '0% Balance Transfer' },
   { id: 'converter', label: 'APR Converter' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function CreditCardPayoffCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'payoff';
-  const validatedTab: Mode = ['payoff', 'minimum', 'multi-card', 'transfer', 'converter'].includes(initialTab)
-    ? initialTab
-    : 'payoff';
-
-  const [activeTab, setActiveTab] = useState<Mode>(validatedTab);
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'payoff');
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
 
@@ -80,11 +75,6 @@ export default function CreditCardPayoffCalculator() {
 
   const handleTabChange = (tabId: Mode) => {
     setActiveTab(tabId);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
   };
 
   // Currency helper
@@ -558,7 +548,7 @@ export default function CreditCardPayoffCalculator() {
                     <span className={styles.metricLabel}>Total Interest</span>
                     <span className={styles.metricValue}>{fmt(payoffResult.totalInterest)}</span>
                     <span className={styles.metricHelp}>
-                      {balance > 0 ? ((payoffResult.totalInterest / payoffResult.totalPaid) * 100).toFixed(1) : 0}% of total
+                      {balance > 0 ? ((payoffResult.totalInterest / (payoffResult.totalPaid || 1)) * 100).toFixed(1) : 0}% of total
                     </span>
                   </div>
 
@@ -591,10 +581,10 @@ export default function CreditCardPayoffCalculator() {
 
                     {/* Y-axis labels */}
                     <text x="40" y="25" textAnchor="end" fontSize="10" fill="#64748b">
-                      ${Math.round(balance).toLocaleString()}
+                      ${Math.round(balance).toLocaleString('en-US')}
                     </text>
                     <text x="40" y="85" textAnchor="end" fontSize="10" fill="#64748b">
-                      ${Math.round(balance / 2).toLocaleString()}
+                      ${Math.round(balance / 2).toLocaleString('en-US')}
                     </text>
                     <text x="40" y="150" textAnchor="end" fontSize="10" fill="#64748b">
                       $0
@@ -676,7 +666,7 @@ export default function CreditCardPayoffCalculator() {
                               <td className={styles.numCell}>
                                 {row.interest !== null ? fmt(row.interest) : 'Infinite'}
                               </td>
-                              <td className={styles.numCell} style={{ color: row.savings > 0 ? '#15803d' : 'inherit' }}>
+                              <td className={styles.numCell} style={{ color: row.savings > 0 ? 'var(--success)' : 'inherit' }}>
                                 {row.savings > 0 ? `+${fmt(row.savings)}` : '—'}
                               </td>
                             </tr>
@@ -724,10 +714,10 @@ export default function CreditCardPayoffCalculator() {
                           <tr key={row.month}>
                             <td>#{row.month}</td>
                             <td className={styles.numCell}>{fmt(row.startingBalance)}</td>
-                            <td className={styles.numCell} style={{ color: '#ef4444' }}>
+                            <td className={styles.numCell} style={{ color: 'var(--danger)' }}>
                               {fmt(row.interestCharged)}
                             </td>
-                            <td className={styles.numCell} style={{ color: '#10b981' }}>
+                            <td className={styles.numCell} style={{ color: 'var(--success)' }}>
                               {fmt(row.principalPaid)}
                             </td>
                             <td className={styles.numCell}>{fmt(row.endingBalance)}</td>
@@ -903,7 +893,7 @@ export default function CreditCardPayoffCalculator() {
                   <span>Paying Only Minimum</span>
                   <span className={styles.badgeRed}>The Trap</span>
                 </div>
-                <div className={styles.heroValue} style={{ color: '#dc2626', fontSize: '1.8rem' }}>
+                <div className={styles.heroValue} style={{ color: 'var(--danger)', fontSize: '1.8rem' }}>
                   {minResult.years} Years
                 </div>
                 <div className={styles.compareStats}>
@@ -921,7 +911,7 @@ export default function CreditCardPayoffCalculator() {
                   </div>
                   <div className={styles.compareRow}>
                     <span>Total Interest Paid:</span>
-                    <strong style={{ color: '#dc2626' }}>{fmt(minResult.totalInterest)}</strong>
+                    <strong style={{ color: 'var(--danger)' }}>{fmt(minResult.totalInterest)}</strong>
                   </div>
                   <div className={styles.compareRow}>
                     <span>Total Amount Paid:</span>
@@ -936,7 +926,7 @@ export default function CreditCardPayoffCalculator() {
                   <span>Fixed {fmt(minCompareFixedPayment)}/mo</span>
                   <span className={styles.badgeGreen}>Fast Track</span>
                 </div>
-                <div className={styles.heroValue} style={{ color: '#2563eb', fontSize: '1.8rem' }}>
+                <div className={styles.heroValue} style={{ color: 'var(--accent)', fontSize: '1.8rem' }}>
                   {minFixedComparison.years} Years
                 </div>
                 <div className={styles.compareStats}>
@@ -946,18 +936,18 @@ export default function CreditCardPayoffCalculator() {
                   </div>
                   <div className={styles.compareRow}>
                     <span>Time Saved:</span>
-                    <strong style={{ color: '#16a34a' }}>
+                    <strong style={{ color: 'var(--success)' }}>
                       {Math.max(0, minResult.months - minFixedComparison.months)} mos (
                       {Math.max(0, minResult.years - minFixedComparison.years).toFixed(1)} yrs)
                     </strong>
                   </div>
                   <div className={styles.compareRow}>
                     <span>Total Interest Paid:</span>
-                    <strong style={{ color: '#2563eb' }}>{fmt(minFixedComparison.totalInterest)}</strong>
+                    <strong style={{ color: 'var(--accent)' }}>{fmt(minFixedComparison.totalInterest)}</strong>
                   </div>
                   <div className={styles.compareRow}>
                     <span>Interest Saved:</span>
-                    <strong style={{ color: '#16a34a' }}>
+                    <strong style={{ color: 'var(--success)' }}>
                       +{fmt(Math.max(0, minResult.totalInterest - minFixedComparison.totalInterest))}
                     </strong>
                   </div>
@@ -976,7 +966,7 @@ export default function CreditCardPayoffCalculator() {
                 decreases, your required payment shrinks as well, causing principal reduction to slow to a crawl. On a{' '}
                 {fmt(minBalance)} balance at {minAprPct}% APR, you would pay{' '}
                 <strong>{fmt(minResult.totalInterest)} in pure interest</strong> — more than{' '}
-                {((minResult.totalInterest / minBalance) * 100).toFixed(0)}% of what you originally borrowed!
+                {((minResult.totalInterest / (minBalance || 1)) * 100).toFixed(0)}% of what you originally borrowed!
               </p>
             </div>
           </div>
@@ -1161,7 +1151,7 @@ export default function CreditCardPayoffCalculator() {
                   </div>
                   <div className={styles.compareRow}>
                     <span>Total Interest:</span>
-                    <strong style={{ color: '#16a34a' }}>{fmt(avalancheResult.totalInterest)}</strong>
+                    <strong style={{ color: 'var(--success)' }}>{fmt(avalancheResult.totalInterest)}</strong>
                   </div>
                   <div className={styles.compareRow}>
                     <span>Order:</span>

@@ -40,6 +40,17 @@
   color: var(--cat-math);
 }
 
+.inputCard {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+  color: var(--ink);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
 /* Grid & Inputs */
 .grid {
   display: grid;
@@ -202,7 +213,7 @@
   font-size: 1.02rem;
   line-height: 1.6;
   color: var(--ink);
-  background: linear-gradient(135deg, rgba(238, 242, 255, 0.7) 0%, rgba(204, 251, 241, 0.5) 100%);
+  background: color-mix(in srgb, var(--cat-math) 9%, var(--surface));
   padding: 16px 20px;
   border-radius: 12px;
   margin-bottom: 24px;

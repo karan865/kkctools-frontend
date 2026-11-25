@@ -219,6 +219,7 @@ export default function RatioCalculator() {
       {/* TAB 1: SIMPLIFY */}
       {tab === 'simplify' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.grid}>
             {simplifyTerms.map((term, index) => (
               <div key={index} className={styles.field}>
@@ -259,6 +260,8 @@ export default function RatioCalculator() {
                 &minus; Remove Last Term
               </button>
             )}
+          </div>
+
           </div>
 
           {!simplifyResult && simplifyTerms.every((t) => t.trim() !== '') && (
@@ -314,6 +317,7 @@ export default function RatioCalculator() {
       {/* TAB 2: SOLVE FOR X */}
       {tab === 'solve' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.presetBar}>
             <span className={styles.presetLabel}>Unknown variable:</span>
             {(['A', 'B', 'C', 'D'] as const).map((pos) => (
@@ -394,6 +398,8 @@ export default function RatioCalculator() {
             </div>
           </div>
 
+          </div>
+
           {!solveResult && (
             <div className={styles.sentence} role="alert">
               Enter three positive numbers. A ratio term can&apos;t be 0 or negative when solving for x.
@@ -439,6 +445,7 @@ export default function RatioCalculator() {
       {/* TAB 3: SPLIT A TOTAL */}
       {tab === 'split' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.presetBar}>
             <span className={styles.presetLabel}>Example Presets:</span>
             {MIX_PRESETS.map((pr, idx) => (
@@ -524,6 +531,8 @@ export default function RatioCalculator() {
             )}
           </div>
 
+          </div>
+
           {!splitResult && (
             <div className={styles.sentence} role="alert">
               Enter a total above 0 and ratio parts that are all positive numbers.
@@ -589,6 +598,7 @@ export default function RatioCalculator() {
       {/* TAB 4: EQUIVALENT RATIOS */}
       {tab === 'equivalent' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.grid}>
             <div className={styles.field}>
               <label htmlFor={`${id}-eq-1`} className={styles.label}>
@@ -616,6 +626,7 @@ export default function RatioCalculator() {
               />
             </div>
           </div>
+          </div>
 
           <div className={styles.resultsBand}>
             <div className={styles.heroResult}>
@@ -642,7 +653,7 @@ export default function RatioCalculator() {
                       <td>× {pair.multiplier}</td>
                       <td>({parsedEqTerms[0]} × {pair.multiplier}) : ({parsedEqTerms[1]} × {pair.multiplier})</td>
                       <td><strong>{pair.terms.join(' : ')}</strong></td>
-                      <td>{(pair.terms[0] / pair.terms[1]).toFixed(3)}</td>
+                      <td>{pair.terms[1] === 0 ? '—' : (pair.terms[0] / pair.terms[1]).toFixed(3)}</td>
                     </tr>
                   ))}
                 </tbody>
@@ -694,7 +705,7 @@ export default function RatioCalculator() {
                     borderRadius: '6px',
                     fontWeight: 700,
                     background: checkEquivalenceResult ? 'rgba(13, 148, 136, 0.15)' : 'rgba(239, 68, 68, 0.15)',
-                    color: checkEquivalenceResult ? '#0D9488' : '#DC2626',
+                    color: checkEquivalenceResult ? 'var(--success)' : 'var(--danger)',
                   }}
                 >
                   {checkEquivalenceResult ? '✓ Equivalent' : '✗ Not Equivalent'}
@@ -714,6 +725,7 @@ export default function RatioCalculator() {
       {/* TAB 5: FRACTION & % */}
       {tab === 'fraction' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.grid}>
             <div className={styles.field}>
               <label htmlFor={`${id}-frac-1`} className={styles.label}>
@@ -742,6 +754,8 @@ export default function RatioCalculator() {
             </div>
           </div>
 
+          </div>
+
           {fractionResult && (
             <div className={styles.resultsBand}>
               <div className={styles.heroResult}>
@@ -756,7 +770,7 @@ export default function RatioCalculator() {
 
               <div className={styles.sentence}>
                 In a <strong>{fracTerm1} : {fracTerm2}</strong> ratio, the total consists of{' '}
-                <strong>{Number(fracTerm1) + Number(fracTerm2)} parts</strong>. Part 1 represents{' '}
+                <strong>{(parseRatioTerm(fracTerm1) ?? 0) + (parseRatioTerm(fracTerm2) ?? 0)} parts</strong>. Part 1 represents{' '}
                 <strong>{fractionResult.partOfWhole[0]?.fraction} ({fractionResult.partOfWhole[0]?.percentage}%)</strong> and Part 2 represents{' '}
                 <strong>{fractionResult.partOfWhole[1]?.fraction} ({fractionResult.partOfWhole[1]?.percentage}%)</strong> of the whole.
               </div>
@@ -765,7 +779,7 @@ export default function RatioCalculator() {
                 <div className={styles.stepsTitle}>Understanding the Two Ratio Meanings</div>
                 <ul className={styles.stepList}>
                   <li>
-                    <strong>Part-of-Whole (Standard Proportion):</strong> Each part divided by the sum of parts ({Number(fracTerm1)} / {Number(fracTerm1) + Number(fracTerm2)} = {fractionResult.partOfWhole[0]?.percentage}%). This is used for mixes, recipes, and budget allocation.
+                    <strong>Part-of-Whole (Standard Proportion):</strong> Each part divided by the sum of parts ({(parseRatioTerm(fracTerm1) ?? 0)} / {(parseRatioTerm(fracTerm1) ?? 0) + (parseRatioTerm(fracTerm2) ?? 0)} = {fractionResult.partOfWhole[0]?.percentage}%). This is used for mixes, recipes, and budget allocation.
                   </li>
                   <li>
                     <strong>Part-to-Part Comparison:</strong> First term divided directly by the second term ({fracTerm1} / {fracTerm2} = {fractionResult.partToPart.percentage}%). This measures relative size between the two items, not share of the whole.

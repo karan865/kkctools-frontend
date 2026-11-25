@@ -6,7 +6,7 @@
   border: 1px solid var(--line, #e2e8f0);
   border-radius: var(--radius-lg, 12px);
   overflow: hidden;
-  box-shadow: var(--shadow-sm, 0 1px 2px rgba(0, 0, 0, 0.05));
+  box-shadow: var(--shadow-s);
 }
 
 .details {
@@ -47,7 +47,7 @@
 
 .summaryHint {
   font-size: 0.75rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.05em;
   font-weight: 600;

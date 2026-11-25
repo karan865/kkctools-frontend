@@ -436,9 +436,9 @@ export default function SlopeCalculator() {
 
         {/* TAB 3: TWO POINTS & TABLE */}
         {activeTab === 'twoPoint' && (
-          <div>
+          <div className={styles.card}>
             <div className={styles.radioGroup} style={{ display: 'flex', gap: '1rem', marginBottom: '1.25rem' }}>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600 }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, color: 'var(--ink)' }}>
                 <input
                   type="radio"
                   name="twoPointMode"
@@ -448,7 +448,7 @@ export default function SlopeCalculator() {
                 />
                 Two Coordinate Points (x₁, y₁) &amp; (x₂, y₂)
               </label>
-              <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600 }}>
+              <label style={{ display: 'flex', alignItems: 'center', gap: '0.4rem', fontWeight: 600, color: 'var(--ink)' }}>
                 <input
                   type="radio"
                   name="twoPointMode"

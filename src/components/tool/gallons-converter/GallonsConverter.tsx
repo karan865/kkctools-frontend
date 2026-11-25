@@ -168,7 +168,7 @@ Source: KKC Tools (https://kkctools.com/gallons-to-cubic-feet/)`;
       {/* Preset pills for quick conversions */}
       {tab === 'convert' && (
         <div className={styles.presetBar}>
-          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--ink-soft)' }}>Quick Presets:</span>
+          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: '#ffffff' }}>Quick Presets:</span>
           {PRESETS.map((p) => (
             <button
               key={p.name}

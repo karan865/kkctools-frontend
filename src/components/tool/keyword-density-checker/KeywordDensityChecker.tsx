@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useDeferredValue } from 'react';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
-import { useTabParam } from '@/components/tool/text/useTabParam';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import {
   calculateKeywordDensity,
   NgramTableRow,

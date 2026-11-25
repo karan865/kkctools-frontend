@@ -440,3 +440,16 @@
     display: none !important;
   }
 }
+
+.bandNote {
+  font-size: 0.82rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+  margin-top: 0.5rem;
+}
+
+.bandNote a {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: underline;
+}

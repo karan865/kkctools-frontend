@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo, useDeferredValue, useEffect, useRef, useCallback } from 'react';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
-import { useTabParam } from '@/components/tool/text/useTabParam';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import Link from 'next/link';
 import {
   calculateSpeechTime,

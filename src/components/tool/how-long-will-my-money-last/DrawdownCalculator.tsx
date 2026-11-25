@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import DrawdownInputGuide from './DrawdownInputGuide';
 import {
   calculateDrawdown,
@@ -20,13 +20,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'spend', label: 'How Much Can I Spend?' },
   { id: 'four-percent', label: '4% Rule Baseline' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function DrawdownCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'years';
-  const validatedTab: Mode = ['years', 'spend', 'four-percent'].includes(initialTab) ? initialTab : 'years';
-
-  const [activeTab, setActiveTab] = useState<Mode>(validatedTab);
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'years');
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
   const [showAllRows, setShowAllRows] = useState(false);
@@ -53,11 +50,6 @@ export default function DrawdownCalculator() {
 
   const handleTabChange = (tabId: Mode) => {
     setActiveTab(tabId);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
   };
 
   const fmt = useCallback((val: number) => {
@@ -664,10 +656,10 @@ export default function DrawdownCalculator() {
               </div>
 
               <div className={styles.scenarioTile} style={{ borderLeft: '3px solid #dc2626' }}>
-                <div className={styles.scenarioTitle} style={{ color: '#dc2626' }}>
+                <div className={styles.scenarioTitle} style={{ color: 'var(--danger)' }}>
                   Bad Start (-15% Yrs 1-2)
                 </div>
-                <div className={styles.scenarioVal} style={{ color: '#b91c1c' }}>
+                <div className={styles.scenarioVal} style={{ color: 'var(--danger)' }}>
                   ~{scenarioResult.badStartYears.toFixed(1)} Yrs
                 </div>
                 <div className={styles.metricSub}>Runs out at Age {Math.round(scenarioResult.badStartEndAge)}</div>

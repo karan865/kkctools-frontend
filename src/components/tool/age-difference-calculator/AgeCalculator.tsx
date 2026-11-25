@@ -176,6 +176,7 @@ export default function AgeCalculator() {
       {/* TAB 1: TWO PEOPLE */}
       {tab === 'two' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.grid}>
             {/* Person A */}
             <div className={styles.field}>
@@ -255,6 +256,8 @@ export default function AgeCalculator() {
             />
           </div>
 
+          </div>
+
           {diffResult && (
             <div className={styles.resultsBand}>
               <div className={styles.heroResult}>
@@ -312,6 +315,7 @@ export default function AgeCalculator() {
       {/* TAB 2: FAMILY / GROUP LIST */}
       {tab === 'family' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.field} style={{ marginBottom: '16px', maxWidth: '300px' }}>
             <label htmlFor={`${id}-family-asof`} className={styles.label}>
               <span className={styles.badge}>📅</span> Calculate Ages As Of:
@@ -383,6 +387,8 @@ export default function AgeCalculator() {
             )}
           </div>
 
+          </div>
+
           {familyResult && (
             <div className={styles.resultsBand}>
               <div className={styles.heroResult}>
@@ -436,6 +442,7 @@ export default function AgeCalculator() {
       {/* TAB 3: BORN ON OR BEFORE */}
       {tab === 'born' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.presetBar}>
             <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--ink-soft)', marginRight: '6px' }}>
               Quick Target Age:
@@ -484,6 +491,8 @@ export default function AgeCalculator() {
             </div>
           </div>
 
+          </div>
+
           {bornOnOrBeforeResult && (
             <div className={styles.resultsBand}>
               <div className={styles.heroResult}>
@@ -513,6 +522,7 @@ export default function AgeCalculator() {
       {/* TAB 4: QUICK BIRTH YEARS */}
       {tab === 'quick' && (
         <>
+          <div className={styles.inputCard}>
           <div className={styles.grid}>
             <div className={styles.field}>
               <label htmlFor={`${id}-quick-year-a`} className={styles.label}>
@@ -543,6 +553,8 @@ export default function AgeCalculator() {
                 onChange={(e) => setQuickYearB(parseInt(e.target.value, 10) || 0)}
               />
             </div>
+          </div>
+
           </div>
 
           {quickDiffResult && (

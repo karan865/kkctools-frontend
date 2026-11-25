@@ -427,3 +427,15 @@
   background: var(--surface-subtle);
   border-color: var(--ink-soft);
 }
+
+.bandNote {
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.92);
+  line-height: 1.5;
+}
+
+.bandNote a {
+  color: #FFFFFF;
+  font-weight: 600;
+  text-decoration: underline;
+}

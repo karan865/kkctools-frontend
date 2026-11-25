@@ -23,16 +23,16 @@
 
 .honestyNote {
   background: var(--surface-2, #f8fafc);
-  border: 1px dashed var(--border, #cbd5e1);
+  border: 1px dashed var(--line);
   border-radius: 8px;
   padding: 12px 16px;
   font-size: 0.85rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   line-height: 1.5;
 }
 
 .honestyNote strong {
-  color: var(--ink-1, #0f172a);
+  color: var(--ink);
 }
 
 .gridTwoCol {
@@ -60,8 +60,8 @@
 }
 
 .card {
-  background: var(--surface-1, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 12px;
   padding: 20px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
@@ -73,7 +73,7 @@
   gap: 10px;
   margin-bottom: 16px;
   padding-bottom: 12px;
-  border-bottom: 1px solid var(--border, #f1f5f9);
+  border-bottom: 1px solid var(--line);
 }
 
 .cardStepBadge {
@@ -92,7 +92,7 @@
 .cardTitle {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--ink-1, #0f172a);
+  color: var(--ink);
   margin: 0;
 }
 
@@ -126,7 +126,7 @@
 .inputSubtext {
   font-size: 0.75rem;
   font-weight: 400;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
 }
 
 .inputWrapper {
@@ -140,7 +140,7 @@
   left: 12px;
   font-size: 0.875rem;
   font-weight: 500;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   pointer-events: none;
 }
 
@@ -149,7 +149,7 @@
   right: 12px;
   font-size: 0.8125rem;
   font-weight: 500;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   pointer-events: none;
 }
 
@@ -159,9 +159,9 @@
   padding: 8px 12px;
   font-size: 0.9375rem;
   font-weight: 600;
-  color: var(--ink-1, #0f172a);
-  background: var(--surface-1, #ffffff);
-  border: 1px solid var(--border, #cbd5e1);
+  color: var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--line);
   border-radius: 8px;
   transition: all 0.15s ease;
 }
@@ -195,7 +195,7 @@
 
 .metricCard {
   background: var(--surface-2, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: 10px;
   padding: 14px;
   text-align: center;
@@ -205,7 +205,7 @@
 }
 
 .metricCardFeatured {
-  background: linear-gradient(135deg, #0284c7 0%, #0369a1 100%);
+  background: linear-gradient(135deg, #0369a1 0%, #0369a1 100%);
   color: #ffffff;
   border: none;
 }
@@ -213,7 +213,7 @@
 .metricLabel {
   font-size: 0.75rem;
   font-weight: 600;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   text-transform: uppercase;
   letter-spacing: 0.04em;
 }
@@ -225,7 +225,7 @@
 .metricValue {
   font-size: 1.375rem;
   font-weight: 800;
-  color: var(--ink-1, #0f172a);
+  color: var(--ink);
 }
 
 .metricCardFeatured .metricValue {
@@ -234,15 +234,16 @@
 
 .metricSubtext {
   font-size: 0.75rem;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
 }
 
 .metricCardFeatured .metricSubtext {
-  color: #bae6fd;
+  color: #f0f9ff;
 }
 
 /* Waterfall Table */
 .waterfallTable {
+  color: var(--ink);
   width: 100%;
   border-collapse: collapse;
   font-size: 0.875rem;
@@ -257,12 +258,12 @@
 .waterfallTable th {
   font-size: 0.75rem;
   text-transform: uppercase;
-  color: var(--muted, #64748b);
-  border-bottom: 2px solid var(--border, #e2e8f0);
+  color: var(--ink-soft);
+  border-bottom: 2px solid var(--line);
 }
 
 .waterfallTable td {
-  border-bottom: 1px solid var(--border, #f1f5f9);
+  border-bottom: 1px solid var(--line);
 }
 
 .waterfallTable tr:last-child td {
@@ -276,8 +277,8 @@
 
 .rowHighlight {
   font-weight: 800;
-  background: #ecfdf5;
-  color: #065f46;
+  background: color-mix(in srgb, #10b981 9%, var(--surface));
+  color: var(--success);
 }
 
 .numRight {
@@ -295,14 +296,14 @@
 
 .scenarioCol {
   background: var(--surface-2, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 12px;
   text-align: center;
 }
 
 .scenarioActive {
-  background: #f0fdf4;
+  background: color-mix(in srgb, #10b981 9%, var(--surface));
   border-color: #86efac;
 }
 
@@ -310,12 +311,12 @@
   font-size: 0.75rem;
   font-weight: 700;
   text-transform: uppercase;
-  color: var(--muted, #64748b);
+  color: var(--ink-soft);
   margin-bottom: 6px;
 }
 
 .scenarioActive .scenarioTitle {
-  color: #166534;
+  color: var(--success);
 }
 
 .scenarioRate {
@@ -327,11 +328,11 @@
 .scenarioCashFlow {
   font-size: 1.125rem;
   font-weight: 800;
-  color: var(--ink-1, #0f172a);
+  color: var(--ink);
 }
 
 .scenarioActive .scenarioCashFlow {
-  color: #15803d;
+  color: var(--success);
 }
 
 /* STR vs LTR */
@@ -344,7 +345,7 @@
 
 .compareCard {
   background: var(--surface-2, #f8fafc);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: 8px;
   padding: 14px;
 }
@@ -352,11 +353,12 @@
 .compareCardTitle {
   font-size: 0.875rem;
   font-weight: 700;
-  color: var(--ink-1, #0f172a);
+  color: var(--ink);
   margin-bottom: 8px;
 }
 
 .compareLine {
+  color: var(--ink);
   display: flex;
   justify-content: space-between;
   font-size: 0.8125rem;
@@ -394,7 +396,7 @@
   gap: 6px;
   padding: 8px 14px;
   background: var(--surface-2, #f8fafc);
-  border: 1px solid var(--border, #cbd5e1);
+  border: 1px solid var(--line);
   border-radius: 8px;
   font-size: 0.8125rem;
   font-weight: 600;
@@ -404,8 +406,8 @@
 }
 
 .actionBtn:hover {
-  background: var(--border, #f1f5f9);
-  color: var(--ink-1, #0f172a);
+  background: var(--line);
+  color: var(--ink);
 }
 
 .toast {

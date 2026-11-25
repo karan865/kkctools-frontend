@@ -6,7 +6,7 @@
   --color-accent-subtle: var(--accent-soft, #e0f2fe);
   --color-text: var(--ink, #0f172a);
   --color-text-secondary: var(--ink-2, #334155);
-  --color-text-muted: var(--muted, #556274);
+  --color-text-muted: var(--ink-soft);
   --radius-sm: var(--radius-s, 8px);
   --radius-md: var(--radius-m, 14px);
   --radius-lg: var(--radius-l, 18px);
@@ -202,7 +202,7 @@
   font-size: 11px;
   font-weight: 600;
   background: rgba(245, 158, 11, 0.15);
-  color: #d97706;
+  color: var(--ink);
   padding: 4px 8px;
   border-radius: var(--radius-sm);
   text-align: center;
@@ -572,6 +572,7 @@
 .csvBtn {
   background: var(--color-surface-sunken);
   border: 1px solid var(--color-border);
+  color: var(--color-text);
   padding: 4px 12px;
   border-radius: var(--radius-sm);
   font-size: var(--text-xs);

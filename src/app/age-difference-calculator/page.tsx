@@ -86,7 +86,7 @@ export default function AgeDifferenceCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> Enter two dates of birth to see the exact age difference. Someone born on 15 March 1990 is 4 years, 3 months and 17 days older than someone born on 2 July 1994: 1,570 days in total.
+            Enter two dates of birth to see the exact age difference. Someone born on 15 March 1990 is 4 years, 3 months and 17 days older than someone born on 2 July 1994: 1,570 days in total.
           </div>
         </div>
 
@@ -165,6 +165,7 @@ export default function AgeDifferenceCalculatorPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Sample family age list sorted from oldest to youngest as of 23 Nov 2026</caption>
                 <thead>
                   <tr>
                     <th>Family Member</th>
@@ -240,7 +241,7 @@ export default function AgeDifferenceCalculatorPage() {
               Minimum Partner Age = (Your Age ÷ 2) + 7
             </p>
             <p>
-              For example, for a 30-year-old, the heuristic suggests a lower bound of (30 ÷ 2) + 7 = 22 years old. For a 40-year-old, the formula gives 27 years old. It is only an informal rule of thumb and has no legal or scientific standing.
+              For example, for a 30-year-old, the heuristic suggests a lower bound of (30 ÷ 2) + 7 = 22 years old. For a 40-year-old, the formula gives 27 years old. It is only an informal rule of thumb and has no legal or scientific standing. For comparing numeric values by percentage rather than dates, see the <Link href="/percentage-change-calculator/">Percentage Change Calculator</Link>, or switch between units using the <Link href="/metric-conversion-calculator/">Metric Conversion Calculator</Link>.
             </p>
           </section>
 

@@ -123,7 +123,7 @@ export default function FinalGradePage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front:</strong> What do I need on my final? Needed score = (grade you want − current grade × (1 − final weight)) ÷ final weight.
+            What do I need on my final? Needed score = (grade you want − current grade × (1 − final weight)) ÷ final weight.
             With an 85% now and a final worth 20%, you need 95% on the final to finish with an 87%; an A (90%) is
             unreachable (max possible 88%), while a B (80%) requires 60% and a D (60%) is already secured.
           </div>
@@ -217,6 +217,7 @@ export default function FinalGradePage() {
             </p>
             <div className={styles.tableWrap}>
               <table className={styles.contentTable}>
+                <caption>Sample letter grade cutoffs and required final exam scores from an 85% current grade</caption>
                 <thead>
                   <tr>
                     <th>Letter Grade</th>

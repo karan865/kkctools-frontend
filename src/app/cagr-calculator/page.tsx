@@ -121,7 +121,7 @@ export default function CagrCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> The compound annual growth rate (CAGR) formula is CAGR = (Ending Value ÷ Starting Value)^(1 ÷ Years) − 1. Growing from 10,000 to 20,000 in 5 years is a compound annual growth rate of 14.87%. In Excel or Google Sheets, calculate this directly using =(20000/10000)^(1/5)-1 or the built-in function =RRI(5, 10000, 20000).
+            The compound annual growth rate (CAGR) formula is CAGR = (Ending Value ÷ Starting Value)^(1 ÷ Years) − 1. Growing from 10,000 to 20,000 in 5 years is a compound annual growth rate of 14.87%. In Excel or Google Sheets, calculate this directly using =(20000/10000)^(1/5)-1 or the built-in function =RRI(5, 10000, 20000).
           </div>
         </div>
 
@@ -258,6 +258,7 @@ export default function CagrCalculatorPage() {
 
           <div className={styles.tableWrapper}>
             <table className={styles.contentTable}>
+              <caption>Rule of 72 and Rule of 70 doubling time estimates vs exact logarithmic formula</caption>
               <thead>
                 <tr>
                   <th>Annual Growth Rate</th>

@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect, useMemo, Suspense } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
 import SeTaxInputGuide, { SeTaxFieldId } from './SeTaxInputGuide';
 import styles from './SelfEmploymentTaxCalculator.module.css';
@@ -260,12 +260,12 @@ function SelfEmploymentTaxCalculatorInner() {
             </div>
           </div>
           {res.mileageDeduction > 0 && (
-            <p className={styles.subHelp} style={{ color: '#16a34a', fontWeight: 600 }}>
+            <p className={styles.subHelp} style={{ color: 'var(--success)', fontWeight: 600 }}>
               ✓ Total Mileage Deduction: ${res.mileageDeduction.toLocaleString()}
             </p>
           )}
 
-          <hr style={{ border: 'none', borderTop: '1px dashed var(--border-color, #e2e8f0)' }} />
+          <hr style={{ border: 'none', borderTop: '1px dashed var(--line)' }} />
 
           <div className={styles.formRow}>
             <div className={styles.formGroup}>
@@ -487,7 +487,7 @@ function SelfEmploymentTaxCalculatorInner() {
                 </tr>
               )}
               {w2Withheld > 0 && (
-                <tr style={{ color: '#16a34a' }}>
+                <tr style={{ color: 'var(--success)' }}>
                   <td>Less: W-2 Withholding</td>
                   <td>Already paid via employer</td>
                   <td>-${w2Withheld.toLocaleString()}</td>
@@ -503,7 +503,7 @@ function SelfEmploymentTaxCalculatorInner() {
 
           {/* Quarterly Vouchers Section */}
           <div style={{ marginTop: '0.5rem' }}>
-            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--text-1, #0f172a)' }}>
+            <span style={{ fontSize: '0.85rem', fontWeight: 700, color: 'var(--ink)' }}>
               Form 1040-ES Quarterly Payment Dates (2026 Tax Year):
             </span>
             <div className={styles.voucherGrid}>
@@ -551,8 +551,6 @@ function SelfEmploymentTaxCalculatorInner() {
 
 export default function SelfEmploymentTaxCalculator() {
   return (
-    <Suspense fallback={<div>Loading 1099 tax calculator...</div>}>
-      <SelfEmploymentTaxCalculatorInner />
-    </Suspense>
+    <SelfEmploymentTaxCalculatorInner />
   );
 }

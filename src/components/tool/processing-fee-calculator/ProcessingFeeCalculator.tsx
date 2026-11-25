@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import FeeInputGuide from './FeeInputGuide';
 import {
   calculateSaleFee,
@@ -23,13 +23,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'compare', label: 'Compare Processors' },
   { id: 'monthly', label: 'Monthly Volume & Plans' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function ProcessingFeeCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'fee';
-  const activeTab: Mode = ['fee', 'gross-up', 'compare', 'monthly'].includes(initialTab)
-    ? initialTab
-    : 'fee';
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'fee');
 
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
@@ -61,11 +58,7 @@ export default function ProcessingFeeCalculator() {
 
   // Tab change handler with URL sync
   const handleTabChange = (tabId: Mode) => {
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
+    setActiveTab(tabId);
   };
 
   // Preset Change Handler
@@ -371,7 +364,7 @@ export default function ProcessingFeeCalculator() {
             <div className={styles.metricsGrid}>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>Total Fee</span>
-                <span className={styles.metricValue} style={{ color: '#dc2626' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--danger)' }}>
                   {formatMoney(saleResult.fee)}
                 </span>
                 <span className={styles.metricSub}>Deducted at settlement</span>
@@ -400,7 +393,7 @@ export default function ProcessingFeeCalculator() {
               </div>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>Net Retention</span>
-                <span className={styles.metricValue} style={{ color: '#10b981' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--success)' }}>
                   {saleAmount > 0 ? ((saleResult.net / saleAmount) * 100).toFixed(1) : 0}%
                 </span>
                 <span className={styles.metricSub}>Of customer charge</span>
@@ -550,7 +543,7 @@ export default function ProcessingFeeCalculator() {
             <div className={styles.metricsGrid}>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>You Want Net</span>
-                <span className={styles.metricValue} style={{ color: '#10b981' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--success)' }}>
                   {formatMoney(targetNet)}
                 </span>
                 <span className={styles.metricSub}>Your take-home</span>
@@ -562,7 +555,7 @@ export default function ProcessingFeeCalculator() {
               </div>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>Processor Deducts</span>
-                <span className={styles.metricValue} style={{ color: '#dc2626' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--danger)' }}>
                   {formatMoney(grossUpFee.fee)}
                 </span>
                 <span className={styles.metricSub}>{grossUpFee.effectivePct}% effective</span>
@@ -664,10 +657,10 @@ export default function ProcessingFeeCalculator() {
                           <div style={{ fontSize: '0.72rem', color: 'var(--muted, #64748b)' }}>{row.type}</div>
                         </td>
                         <td>{row.rateLabel}</td>
-                        <td className={styles.numCell} style={{ color: '#dc2626' }}>
+                        <td className={styles.numCell} style={{ color: 'var(--danger)' }}>
                           {formatMoney(row.saleFee)}
                         </td>
-                        <td className={styles.numCell} style={{ color: '#10b981' }}>
+                        <td className={styles.numCell} style={{ color: 'var(--success)' }}>
                           {formatMoney(row.saleNet)}
                         </td>
                         <td className={styles.numCell}>
@@ -872,7 +865,7 @@ export default function ProcessingFeeCalculator() {
               </div>
               <div className={styles.metricItem}>
                 <span className={styles.metricLabel}>Net Deposited</span>
-                <span className={styles.metricValue} style={{ color: '#10b981' }}>
+                <span className={styles.metricValue} style={{ color: 'var(--success)' }}>
                   {formatMoney(monthlyResult.netMonthly)}
                 </span>
                 <span className={styles.metricSub}>After fees</span>

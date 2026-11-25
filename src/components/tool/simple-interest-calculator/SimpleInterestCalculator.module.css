@@ -338,6 +338,7 @@
 /* Comparison Table */
 .tableCard {
   background: var(--surface);
+  color: var(--ink);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 1.25rem;
@@ -373,7 +374,7 @@
 }
 
 .highlightRow {
-  background: #F0FDFA;
+  background: rgba(13, 148, 136, 0.14);
 }
 
 /* Formula Box */

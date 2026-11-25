@@ -86,7 +86,7 @@ export default function IqrCalculatorPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> The interquartile range (IQR) equals Q3 − Q1, representing the spread of the middle 50% of your data. For the sample 1, 3, 5, 7, 9, 11, 13, 15, the lower half median Q1 is 4 and the upper half median Q3 is 12, yielding an IQR of 8. Different software algorithms (Excel, R, TI-84) can produce slight variations on small datasets; our calculator compares all four methods side by side.
+            The interquartile range (IQR) equals Q3 − Q1, representing the spread of the middle 50% of your data. For the sample 1, 3, 5, 7, 9, 11, 13, 15, the lower half median Q1 is 4 and the upper half median Q3 is 12, yielding an IQR of 8. Different software algorithms (Excel, R, TI-84) can produce slight variations on small datasets; our calculator compares all four methods side by side.
           </div>
         </div>
 
@@ -125,7 +125,7 @@ export default function IqrCalculatorPage() {
                 <strong>Inspect fences and box plot:</strong> Check lower and upper Tukey fences to see whether your sample contains mild or extreme outliers, visualized on the horizontal box plot.
               </li>
               <li>
-                <strong>Switch to Tab 2 to compare methods:</strong> Compare the exact mathematical outputs of all four major industry algorithms side by side on your specific dataset.
+                <strong>Switch to Tab 2 to compare methods:</strong> Compare the exact mathematical outputs of all four quartile algorithms side by side on your specific dataset.
               </li>
             </ol>
           </section>
@@ -177,6 +177,7 @@ export default function IqrCalculatorPage() {
             </p>
             <div className={styles.tableWrapper}>
               <table className={styles.contentTable}>
+                <caption>Comparison of four quartile calculation methods and software implementations</caption>
                 <thead>
                   <tr>
                     <th>Method Name</th>

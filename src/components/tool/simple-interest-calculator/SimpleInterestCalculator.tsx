@@ -636,7 +636,7 @@ export function SimpleInterestCalculator() {
 
           <div className={styles.compoundCallout}>
             <strong>Simple vs Compound Comparison:</strong> At {solverRes.annualRatePct}% over {solverRes.timeInYears} year(s),
-            monthly compounding would earn <strong>${simpleBaseRes.monthlyCompoundInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> (an extra <strong>${simpleBaseRes.compoundDifference.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>).{' '}
+            {Number.isFinite(simpleBaseRes.monthlyCompoundInterest) ? (<>monthly compounding would earn <strong>${simpleBaseRes.monthlyCompoundInterest.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong> (an extra <strong>${simpleBaseRes.compoundDifference.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</strong>).</>) : 'the monthly compounding result is too large to show.'}{' '}
             <Link href="/compound-interest-calculator/" className={styles.compoundLink}>
               Open Compound Interest Calculator →
             </Link>
@@ -727,7 +727,7 @@ export function SimpleInterestCalculator() {
                   <td>
                     <strong>${item.accruedInterest.toFixed(2)}</strong>
                   </td>
-                  <td style={{ color: item.differenceVsAct365 > 0 ? '#B45309' : 'inherit', fontWeight: 600 }}>
+                  <td style={{ color: item.differenceVsAct365 > 0 ? 'var(--cat-math, #D97706)' : 'var(--ink)', fontWeight: 600 }}>
                     {item.differenceVsAct365 > 0 ? `+$${item.differenceVsAct365.toFixed(2)}` : '$0.00'}
                   </td>
                   <td style={{ fontSize: '0.8rem', maxWidth: '320px', lineHeight: 1.4 }}>

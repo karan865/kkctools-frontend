@@ -212,3 +212,8 @@
     align-items: stretch;
   }
 }
+
+.seriesVisual strong,
+.doublingBanner strong {
+  color: var(--ink);
+}

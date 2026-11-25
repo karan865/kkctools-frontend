@@ -127,7 +127,7 @@ export default function BudgetPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front:</strong> List your take-home pay, tag every expense as a need, a want
+            List your take-home pay, tag every expense as a need, a want
             or savings, and see what&apos;s left over. Under the 50/30/20 guideline, a $5,000 monthly take-home
             income designates $2,500 for needs, $1,500 for wants, and $1,000 for savings. Print a clean
             budgeting worksheet or download it directly as an Excel/Sheets spreadsheet.
@@ -248,6 +248,7 @@ export default function BudgetPage() {
             </p>
             <div className={styles.tableWrap}>
               <table className={styles.contentTable}>
+                <caption>50/30/20 budget allocation categories, standard inclusions, and exceptions</caption>
                 <thead>
                   <tr>
                     <th>Bucket</th>

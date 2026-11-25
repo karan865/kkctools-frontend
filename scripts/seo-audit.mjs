@@ -8,6 +8,16 @@ const OUT_DIR = path.join(ROOT_DIR, 'out');
 const REPORT_FILE = path.join(ROOT_DIR, 'docs', 'seo-audit-report.md');
 const isStrict = process.argv.includes('--strict');
 
+// Extract all routes of type 'tool' from src/lib/routes.ts
+const routesFile = fs.readFileSync(path.join(ROOT_DIR, 'src', 'lib', 'routes.ts'), 'utf8');
+const toolRoutes = new Set();
+for (const match of routesFile.matchAll(/path:\s*['"]([^'"]+)['"][\s\S]*?type:\s*['"]tool['"]/g)) {
+  toolRoutes.add(match[1]);
+}
+for (const match of routesFile.matchAll(/type:\s*['"]tool['"][\s\S]*?path:\s*['"]([^'"]+)['"]/g)) {
+  toolRoutes.add(match[1]);
+}
+
 if (!fs.existsSync(OUT_DIR)) {
   console.error('❌ out/ directory does not exist. Run "npm run build" first.');
   process.exit(1);
@@ -243,6 +253,19 @@ for (const file of htmlFiles) {
   const wordCount = mainText ? mainText.split(' ').length : 0;
   if (minRequired && wordCount < minRequired) {
     pageErrors.push(`Main content word count ${wordCount} < required ${minRequired}`);
+  }
+
+  // 11b. Tool guard check: any route of type 'tool' must have input/select/textarea/button[role=tab] in <main> and not show "Loading" placeholder
+  if (toolRoutes.has(routePath)) {
+    const $main = $('main');
+    const interactiveCount = $main.find('input, select, textarea, button[role="tab"]').length;
+    if (interactiveCount === 0) {
+      pageErrors.push('Tool route <main> has no input, select, textarea or tool button[role=tab]');
+    }
+    const mainHtml = $main.html() || '';
+    if (mainHtml.includes('Loading calculator') || mainHtml.includes('Loading...') || /Loading\s+[a-z\s]*calculator/i.test(mainHtml) || />\s*Loading\.\.\./i.test(mainHtml)) {
+      pageErrors.push('Tool route <main> shows "Loading" placeholder');
+    }
   }
 
   // Record genre text for shingle similarity check

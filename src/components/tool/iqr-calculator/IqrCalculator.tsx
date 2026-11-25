@@ -155,7 +155,7 @@ Outliers,"${summary.quartiles.allOutliers.join(';')}"`;
       />
 
       {/* Main Data Input */}
-      <div className={styles.field}>
+      <div className={`${styles.field} ${styles.inputCard}`}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <label htmlFor={`${id}-dataset`} className={styles.label}>
             <span className={styles.badge}>1</span> Enter or Paste Data Set
@@ -398,7 +398,7 @@ Outliers,"${summary.quartiles.allOutliers.join(';')}"`;
           </div>
 
           <div className={styles.sentence}>
-            Different statistical packages and textbooks define quartiles slightly differently. Below is the side-by-side comparison of your dataset across all four major industry algorithms:
+            Different statistical packages and textbooks define quartiles slightly differently. Below is the side-by-side comparison of your dataset across all four quartile algorithms:
           </div>
 
           <div className={styles.tableWrapper}>

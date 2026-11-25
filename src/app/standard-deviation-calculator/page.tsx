@@ -60,6 +60,18 @@ const FAQ_ITEMS = [
     a: 'The coefficient of variation (CV = (s ÷ x̄) × 100%) expresses standard deviation as a percentage of the mean. It allows researchers to compare relative variability between datasets with vastly different scales or measurement units.',
   },
   {
+    q: 'How do I calculate standard deviation by hand?',
+    a: 'First calculate the arithmetic mean (x̄). Subtract the mean from each data point to get its deviation, square every deviation, and sum all squared deviations (SS). Divide SS by n − 1 for a sample (or N for a population) to get the variance, then take the square root of the variance.',
+  },
+  {
+    q: 'How do I find mean, median, and mode?',
+    a: 'To find the mean, sum all values and divide by the count n. To find the median, sort the values from lowest to highest and take the middle value (or the average of the two middle values when n is even). The mode is the value that appears most frequently; a dataset can have one mode, multiple modes, or no mode if every value appears equally often.',
+  },
+  {
+    q: 'How do I calculate standard deviation from a frequency table or grouped data?',
+    a: 'For a frequency table, multiply each value x by its frequency f to find the weighted mean (x̄ = Σfx ÷ Σf), then sum f(x − x̄)² and divide by Σf − 1 (sample) or Σf (population) before taking the square root. For grouped class intervals such as 10–20, use each interval’s midpoint as x and treat the resulting standard deviation as an estimate.',
+  },
+  {
     q: 'How do standard deviation and interquartile range (IQR) compare?',
     a: 'Standard deviation incorporates every data value and is sensitive to extreme outliers. The interquartile range (IQR = Q3 − Q1) measures the middle 50% of sorted data and is highly robust against outliers. For skewed distributions, IQR and median often summarize spread better than standard deviation and mean.',
   },
@@ -113,7 +125,7 @@ export default function StandardDeviationPage() {
           </p>
 
           <div className={styles.bluf}>
-            <strong>Bottom Line Up Front (BLUF):</strong> This stdev calculator shows how spread out your numbers are. For 2, 4, 4, 4, 5, 5, 7, 9 the mean is 5 and the population standard deviation is 2; treated as a sample it is 2.138, because the sample formula divides by n − 1 instead of n.
+            This stdev calculator shows how spread out your numbers are. For 2, 4, 4, 4, 5, 5, 7, 9 the mean is 5 and the population standard deviation is 2; treated as a sample it is 2.138, because the sample formula divides by n − 1 instead of n.
           </div>
         </div>
 
@@ -252,6 +264,20 @@ export default function StandardDeviationPage() {
             <p>
               For our example: <code>(2.138 ÷ 5.000) × 100% = 42.76%</code>. CV is particularly useful when comparing the volatility of assets priced in different currencies or across different orders of magnitude.
             </p>
+
+            <h2>Frequency Tables and Grouped Data</h2>
+            <p>
+              When observations repeat or are summarized in bins, weighted formulas avoid typing out every value individually:
+            </p>
+            <div className={styles.formulaBox}>
+              Weighted Mean (x̄) = Σ(f × x) ÷ Σf
+              <br />
+              Sample Variance (s²) = Σ[ f × (x − x̄)² ] ÷ (Σf − 1)
+            </div>
+            <ul>
+              <li><strong>Frequency Table (value:count):</strong> Each distinct value <code>x</code> is multiplied by its count <code>f</code>. The total sample size is <code>n = Σf</code>, and every result is exact.</li>
+              <li><strong>Grouped Classes (low-high:count):</strong> Each class interval is represented by its midpoint <code>(low + high) ÷ 2</code>. Because raw individual positions inside each bin are unknown, grouped standard deviation and variance are reported as <strong>estimates</strong>.</li>
+            </ul>
 
             <p>
               For non-parametric outlier analysis, explore our <Link href="/iqr-calculator/">IQR Calculator</Link>. For comparing two sample means, see our <Link href="/t-test-calculator/">T-Test Calculator</Link>, or check statistical significance for conversion rates with our <Link href="/ab-test-significance-calculator/">A/B Test Significance Calculator</Link>.

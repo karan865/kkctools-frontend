@@ -1,4 +1,4 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
 import HowWeCalculate from '@/components/seo/HowWeCalculate';
 import JsonLd from '@/components/seo/JsonLd';
@@ -116,9 +116,7 @@ export default function HelocPage() {
             'HELOC vs home equity loan',
           ]}
         >
-          <Suspense fallback={<div style={{ padding: '2rem', textAlign: 'center' }}>Loading calculator...</div>}>
-            <HelocCalculator />
-          </Suspense>
+          <HelocCalculator />
         </ToolShell>
 
         <div className={styles.adBand}>

@@ -103,7 +103,7 @@ D:\1_programmins\5.kkctools\src\components\tool\laminate-calculator\LaminateCalc
   32:9  warning  'priceBasisId' is assigned a value but never used  @typescript-eslint/no-unused-vars
 
 D:\1_programmins\5.kkctools\src\components\tool\net-worth-calculator\NetWorthCalculator.tsx
-  236:6  warning  React Hook useMemo has an unnecessary dependency: 'currSymbol'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
+  226:6  warning  React Hook useMemo has an unnecessary dependency: 'currSymbol'. Either exclude it or remove the dependency array  react-hooks/exhaustive-deps
 
 D:\1_programmins\5.kkctools\src\components\tool\numbers-to-words\NumbersToWordsCalculator.tsx
    7:3  warning  'parseNumberInput' is defined but never used     @typescript-eslint/no-unused-vars

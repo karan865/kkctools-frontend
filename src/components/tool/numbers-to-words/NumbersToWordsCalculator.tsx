@@ -2,7 +2,7 @@
 
 import React, { useState, useMemo } from 'react';
 import TabSlider, { TabItem } from '@/components/tool/shared/TabSlider';
-import { useTabParam } from '@/components/tool/text/useTabParam';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import {
   parseNumberInput,
   bigIntToWords,
@@ -457,7 +457,7 @@ export default function NumbersToWordsCalculator() {
                       <tr key={r.line} style={{ borderTop: '1px solid var(--line)' }}>
                         <td style={{ padding: '6px 12px', color: 'var(--ink-muted)' }}>{r.line}</td>
                         <td style={{ padding: '6px 12px', fontFamily: 'monospace' }}>{r.input}</td>
-                        <td style={{ padding: '6px 12px', color: r.isError ? 'var(--red, #e11d48)' : 'inherit' }}>
+                        <td style={{ padding: '6px 12px', color: r.isError ? 'var(--danger)' : 'inherit' }}>
                           {r.text}
                         </td>
                       </tr>

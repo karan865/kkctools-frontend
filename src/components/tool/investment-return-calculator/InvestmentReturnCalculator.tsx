@@ -1,8 +1,8 @@
 'use client';
 
 import React, { useState, useMemo, useId, useCallback } from 'react';
-import { useSearchParams } from 'next/navigation';
 import TabSlider from '@/components/tool/shared/TabSlider';
+import { useTabParam } from '@/components/tool/shared/useTabParam';
 import InvestInputGuide from './InvestInputGuide';
 import {
   calculateProjection,
@@ -22,15 +22,10 @@ const TABS: Array<{ id: Mode; label: string }> = [
   { id: 'tbill', label: 'Treasury Bills (T-Bills)' },
   { id: 'compare', label: 'Stocks vs Cash Compare' },
 ];
+const TAB_IDS: readonly Mode[] = TABS.map((t) => t.id);
 
 export default function InvestmentReturnCalculator() {
-  const searchParams = useSearchParams();
-  const initialTab = (searchParams.get('tab') as Mode) || 'projection';
-  const validatedTab: Mode = ['projection', 'money-market', 'tbill', 'compare'].includes(initialTab)
-    ? initialTab
-    : 'projection';
-
-  const [activeTab, setActiveTab] = useState<Mode>(validatedTab);
+  const [activeTab, setActiveTab] = useTabParam<Mode>(TAB_IDS, 'projection');
   const [activeField, setActiveField] = useState<string | undefined>(undefined);
   const [copied, setCopied] = useState(false);
   const [showAllRows, setShowAllRows] = useState(false);
@@ -71,11 +66,6 @@ export default function InvestmentReturnCalculator() {
 
   const handleTabChange = (tabId: Mode) => {
     setActiveTab(tabId);
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      url.searchParams.set('tab', tabId);
-      window.history.replaceState({}, '', url.toString());
-    }
   };
 
   const fmt = useCallback((val: number) => {

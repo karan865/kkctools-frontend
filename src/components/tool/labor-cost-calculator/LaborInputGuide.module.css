@@ -1,7 +1,7 @@
 .guideContainer {
   margin-bottom: var(--space-4, 1rem);
   background: var(--surface, #ffffff);
-  border: 1px solid var(--border, #e2e8f0);
+  border: 1px solid var(--line);
   border-radius: var(--radius-lg, 12px);
   padding: 1rem 1.25rem;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
@@ -19,7 +19,7 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
   display: flex;
   align-items: center;
   gap: 0.5rem;
@@ -37,7 +37,7 @@
 .toggleBtn {
   background: none;
   border: none;
-  color: var(--primary, #2563eb);
+  color: var(--accent);
   font-size: 0.8125rem;
   font-weight: 600;
   cursor: pointer;
@@ -83,9 +83,9 @@
   gap: 1rem;
   margin-top: 0.75rem;
   padding-top: 0.75rem;
-  border-top: 1px dashed var(--border, #e2e8f0);
+  border-top: 1px dashed var(--line);
   font-size: 0.75rem;
-  color: var(--text-muted, #64748b);
+  color: var(--ink-soft);
 }
 
 .legendItem {

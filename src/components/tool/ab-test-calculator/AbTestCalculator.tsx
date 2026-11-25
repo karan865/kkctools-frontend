@@ -168,7 +168,7 @@ Source: KKC Tools (https://kkctools.com/ab-test-significance-calculator/)`;
       {/* Preset pills for quick testing */}
       {tab === 'test' && (
         <div className={styles.presetBar}>
-          <span style={{ fontSize: '0.8rem', fontWeight: 600, color: 'var(--ink-soft)' }}>Presets:</span>
+          <span className={styles.presetLabel}>Presets:</span>
           {PRESETS.map((p) => (
             <button
               key={p.name}
@@ -510,7 +510,7 @@ Source: KKC Tools (https://kkctools.com/ab-test-significance-calculator/)`;
                   value={samplePower}
                   onChange={(e) => setSamplePower(parseFloat(e.target.value))}
                 >
-                  <option value={0.80}>80% Power (Industry Standard)</option>
+                  <option value={0.80}>80% Power (Standard Default)</option>
                   <option value={0.85}>85% Power</option>
                   <option value={0.90}>90% Power</option>
                 </select>
@@ -710,7 +710,7 @@ Source: KKC Tools (https://kkctools.com/ab-test-significance-calculator/)`;
                         <td>{v.conversions.toLocaleString()}</td>
                         <td>{(v.rate * 100).toFixed(2)}%</td>
                         <td>
-                          <strong style={{ color: v.relativeLift > 0 ? '#10B981' : '#EF4444' }}>
+                          <strong style={{ color: v.relativeLift > 0 ? 'var(--success)' : 'var(--danger)' }}>
                             {v.relativeLift > 0 ? '+' : ''}{v.relativeLift.toFixed(2)}%
                           </strong>
                         </td>
@@ -724,7 +724,7 @@ Source: KKC Tools (https://kkctools.com/ab-test-significance-calculator/)`;
                               borderRadius: '999px',
                               fontSize: '0.78rem',
                               fontWeight: 700,
-                              background: v.isSignificant ? '#10B981' : 'var(--line)',
+                              background: v.isSignificant ? '#047857' : 'var(--line)',
                               color: v.isSignificant ? '#FFFFFF' : 'var(--ink)',
                             }}
                           >
